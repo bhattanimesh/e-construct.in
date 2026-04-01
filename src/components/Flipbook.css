@@ -34,7 +34,7 @@
 .page-img, .pdf-page-render canvas {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
     pointer-events: none;
 }
 

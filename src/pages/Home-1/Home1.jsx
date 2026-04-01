@@ -136,44 +136,34 @@ const Home1 = () => {
             <p className="text-[#888] mt-4 max-w-2xl mx-auto">Explore our portfolio, brochures, and technical guides in one interactive place.</p>
           </div>
           
-          <div className="container grid grid-cols-1 lg:grid-cols-2 gap-20 max-w-[1400px]">
+          <div className="container grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-[1400px]">
              {/* Flipbook 1 */}
              <div className="flex flex-col items-center">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30">Company Profile</h3>
-                <Flipbook 
+                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Residential Home Construction</h3>
+                <PdfFlipbook 
                   width={400} 
                   height={560} 
-                  pages={[
-                    '/assets/flipbook/p1.png',
-                    '/assets/flipbook/p2.png',
-                    '/assets/flipbook/p3.png',
-                    '/assets/flipbook/p4.png'
-                  ]} 
+                  pdfUrl="/pdfs/econ_presentation.pdf" 
                 />
              </div>
 
              {/* Flipbook 2 */}
              <div className="flex flex-col items-center">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30">Structural Portfolio</h3>
-                <Flipbook 
+                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">BIM Project & Services</h3>
+                <PdfFlipbook 
                   width={400} 
                   height={560} 
-                  pages={[
-                    '/assets/flipbook/p1.png',
-                    '/assets/flipbook/p3.png',
-                    '/assets/flipbook/p2.png',
-                    '/assets/flipbook/p4.png'
-                  ]} 
+                  pdfUrl="/pdfs/econstruct_bim.pdf" 
                 />
              </div>
 
-             {/* Flipbook 3 (PDF) */}
-             <div className="flex flex-col items-center lg:col-span-2 mt-12">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30">Technical Brochure (PDF Format)</h3>
+             {/* Flipbook 3 */}
+             <div className="flex flex-col items-center">
+                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Tushar Dawda Associate</h3>
                 <PdfFlipbook 
-                  width={500} 
-                  height={700} 
-                  pdfUrl="https://raw.githubusercontent.com/mozilla/pdf.js/master/web/compressed.tracemonkey-pldi-09.pdf" 
+                  width={400} 
+                  height={560} 
+                  pdfUrl="/pdfs/econstruct_tushar.pdf" 
                 />
              </div>
           </div>

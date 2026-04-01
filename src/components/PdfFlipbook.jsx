@@ -6,7 +6,10 @@ import 'react-pdf/dist/Page/TextLayer.css';
 import './Flipbook.css';
 
 // Set worker source for react-pdf
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.js`;
+pdfjs.GlobalWorkerOptions.workerSrc = new URL(
+  'pdfjs-dist/build/pdf.worker.min.mjs',
+  import.meta.url,
+).toString();
 
 const PdfPage = React.forwardRef(({ pageNumber, width }, ref) => {
   return (
@@ -15,6 +18,7 @@ const PdfPage = React.forwardRef(({ pageNumber, width }, ref) => {
         <Page 
           pageNumber={pageNumber} 
           width={width} 
+          devicePixelRatio={3} 
           renderTextLayer={false}
           renderAnnotationLayer={false}
           className="pdf-page-render"
