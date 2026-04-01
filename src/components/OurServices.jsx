@@ -87,10 +87,9 @@ const Services = () => {
 
         {/* Carousel Wrapper with Parallax */}
         <motion.div 
-          style={{ y: yCarousel }}
+          style={{ y: yCarousel, scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           ref={scrollRef}
           className="flex gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-10"
-          style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
         >
           {services.map((service) => (
             <div 
@@ -138,15 +137,6 @@ const Services = () => {
         </motion.div>
       </div>
 
-      <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .font-outline-2 {
-          -webkit-text-stroke: 1px #000;
-          color: transparent;
-        }
-      `}</style>
     </section>
   );
 };

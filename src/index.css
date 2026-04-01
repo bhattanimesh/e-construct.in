@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar,
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar,
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+  .font-outline-2 {
+    -webkit-text-stroke: 1px #000;
+    color: transparent;
+  }
+
+  @keyframes marquee_kf {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); } 
+  }
+  
+  .animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: marquee_kf 40s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+}
+
+@media (max-width: 1024px) {
+  .animate-marquee {
+    animation-duration: 25s;
+  }
+}

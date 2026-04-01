@@ -100,30 +100,6 @@ const TrustedPartners = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-33.33%); } 
-        }
-        
-        .animate-marquee {
-          display: flex;
-          width: max-content;
-          animation: marquee 40s linear infinite;
-        }
-
-        /* Tablet aur Mobile ke liye speed thodi fast taaki gaps na dikhen */
-        @media (max-width: 1024px) {
-          .animate-marquee {
-            animation-duration: 25s;
-          }
-        }
-
-        /* Hover behavior */
-        .animate-marquee:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </section>
   );
 };

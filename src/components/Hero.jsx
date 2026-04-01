@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import HeroBG from '../assets/herobg.png';
-import HeroBGMobile from '../assets/heroBGMobile.png';
+import HeroVideo from '../../assets/Econstruct_Design_and_Build_Pvt_Ltd_720P-1.mp4';
 
 const Hero = () => {
   const { scrollY } = useScroll();
@@ -34,21 +33,20 @@ const Hero = () => {
         style={{ y: backgroundY }}
         className="absolute inset-0 w-full h-full scale-125"
       >
-        <img
-          src={HeroBG}
-          alt="Construction"
-          className="w-full hidden md:flex h-full object-cover object-center brightness-[0.7]"
-        />
-        <img
-          src={HeroBGMobile}
-          alt="Construction Mobile"
-          className="w-full h-full object-cover flex md:hidden object-center brightness-[0.6]"
-        />
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover brightness-[0.8] contrast-[1.1]"
+        >
+          <source src={HeroVideo} type="video/mp4" />
+        </video>
         
-        {/* Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-transparent to-transparent hidden md:block"></div>
-        <div className="absolute inset-0 bg-black/20 md:hidden"></div>
+        {/* Overlays - Reduced intensity to make video pop */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent hidden md:block"></div>
+        <div className="absolute inset-0 bg-black/10 md:hidden"></div>
       </motion.div>
 
       {/* --- CONTENT LAYER --- */}
