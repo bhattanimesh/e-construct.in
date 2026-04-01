@@ -1,0 +1,1442 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EConstruct Design & Build | Precision Structural Engineering Experts</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style-4.css">
+    <style>
+        .hero {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.85) 30%, transparent), url('assets/images/hero.png') center/cover;
+        }
+
+        /* Chatbot Isha */
+        .isha-fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(251, 192, 45, 0.3);
+            z-index: 2000;
+            transition: 0.3s;
+        }
+
+        .isha-fab:hover {
+            transform: scale(1.1) rotate(15deg);
+        }
+
+        .isha-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            z-index: 2000;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .isha-header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .isha-body {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .isha-input-area {
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-bubble {
+            padding: 12px 16px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            max-width: 80%;
+            line-height: 1.5;
+        }
+
+        .bubble-isha {
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            align-self: flex-start;
+        }
+
+        .bubble-user {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: 600;
+            align-self: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="main-header"
+        style="height: 100px; padding: 0 5%; display: flex; align-items: center; justify-content: space-between; transition: 0.5s; z-index: 1000; position: fixed; width: 100%; top: 0; left: 0;">
+        <div class="logo">
+            <img src="assets/logo.png" alt="E-Construct"
+                style="height: 45px; transition: 0.3s; filter: brightness(0) invert(1);">
+        </div>
+        <nav class="nav-links" style="display: flex; gap: 40px; align-items: center;">
+            <a href="#"
+                style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;"
+                onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='#fff'">ABOUT US</a>
+            <div style="position: relative; display: flex; align-items: center; gap: 5px; cursor: pointer;"
+                onmouseover="this.querySelector('a').style.color='var(--accent-gold)'"
+                onmouseout="this.querySelector('a').style.color='#fff'">
+                <a href="#"
+                    style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;">SERVICES</a>
+                <span style="color: var(--accent-gold); font-size: 0.6rem;">▼</span>
+            </div>
+            <a href="#"
+                style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;"
+                onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='#fff'">PROJECTS</a>
+            <div style="position: relative; display: flex; align-items: center; gap: 5px; cursor: pointer;"
+                onmouseover="this.querySelector('a').style.color='var(--accent-gold)'"
+                onmouseout="this.querySelector('a').style.color='#fff'">
+                <a href="#"
+                    style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;">TRAINING</a>
+                <span style="color: var(--accent-gold); font-size: 0.6rem;">▼</span>
+            </div>
+            <a href="#"
+                style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;"
+                onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='#fff'">BIM HUB</a>
+            <a href="#"
+                style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;"
+                onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='#fff'">CAREERS</a>
+            <a href="#"
+                style="color: #fff; text-decoration: none; font-size: 0.75rem; font-weight: 800; letter-spacing: 0.15em; transition: 0.3s;"
+                onmouseover="this.style.color='var(--accent-gold)'" onmouseout="this.style.color='#fff'">CONTACT</a>
+        </nav>
+        <div class="header-right" style="display: flex; gap: 12px; align-items: center;">
+            <div style="border: 1px solid rgba(255,255,255,0.15); color: white; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.6rem; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.05);"
+                onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'; this.style.background='rgba(255,255,255,0.1)'"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='white'; this.style.background='rgba(255,255,255,0.05)'">
+                FB</div>
+            <div style="border: 1px solid rgba(255,255,255,0.15); color: white; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.6rem; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.05);"
+                onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'; this.style.background='rgba(255,255,255,0.1)'"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='white'; this.style.background='rgba(255,255,255,0.05)'">
+                LI</div>
+            <div style="border: 1px solid rgba(255,255,255,0.15); color: white; width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.6rem; cursor: pointer; transition: 0.3s; background: rgba(255,255,255,0.05);"
+                onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'; this.style.background='rgba(255,255,255,0.1)'"
+                onmouseout="this.style.borderColor='rgba(255,255,255,0.15)'; this.style.color='white'; this.style.background='rgba(255,255,255,0.05)'">
+                IN</div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero reveal">
+        <div class="hero-bg-zoom" id="heroZoom"></div>
+        <div class="hero-content">
+            <h1 class="reveal-left">We Are Expert in<br><span class="accent-text">Structural Services</span></h1>
+            <div class="hero-btns">
+                <a href="#" class="btn btn-filled">
+                    <span>Watch Firm Video</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </a>
+                <a href="#" class="btn btn-outline">
+                    <span>Company Profile</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="7 10 12 15 17 10"></polyline>
+                        <line x1="12" y1="15" x2="12" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="hero-partners">
+            <img src="https://static.wixstatic.com/media/8d2bb095-8179-4004-8b15-6d5b3840f573_ISO.png" alt="ISO"
+                style="height: 30px; filter: grayscale(1) invert(1);">
+            <img src="https://static.wixstatic.com/media/8d2bb095-8179-4004-8b15-6d5b3840f573_SkillIndia.png"
+                alt="SkillIndia" style="height: 30px; filter: grayscale(1) invert(1);">
+            <img src="https://static.wixstatic.com/media/8d2bb095-8179-4004-8b15-6d5b3840f573_MSME.png" alt="MSME"
+                style="height: 30px; filter: grayscale(1) invert(1);">
+        </div>
+    </section>
+
+    <!-- Flipbook Section (Company Profile) -->
+    <section class="flipbook-section reveal"
+        style="position: relative; width: 100%; height: 85vh; min-height: 600px; background: #080808; padding: 50px 0; border-bottom: 1px solid var(--border-subtle);">
+        <div class="container" style="text-align: center; margin-bottom: 30px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Interactive
+                Profile</span>
+            <h2 style="font-size: 2.5rem; font-weight: 500; color: #fff; margin-top: 10px;">Explore Our <span
+                    class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Portfolio</span></h2>
+        </div>
+        <div
+            style="position: relative; width: 95%; max-width: 1600px; margin: 0 auto; height: calc(100% - 100px); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #222;">
+                <!-- Balanced aspect ratio stretch to keep book perfectly centered with large side margins -->
+                <iframe src="https://online.fliphtml5.com/pursq/ccql/" seamless="seamless" scrolling="no"
+                    frameborder="0" allowtransparency="true" allowfullscreen="true"
+                    style="position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 120px); border: none;"></iframe>
+
+                <!-- Overlay to block the top-left FlipHTML5 logo seamlessly -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 220px; height: 75px; background: #222; z-index: 10;">
+                </div>
+
+                <!-- Inner shadow to blend the edges beautifully -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-shadow: inset 0 0 40px rgba(0,0,0,0.9); z-index: 20;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Second Flipbook Section (Digital Showcase) -->
+    <section class="flipbook-section reveal"
+        style="position: relative; width: 100%; height: 85vh; min-height: 600px; background: #080808; padding: 50px 0; border-bottom: 1px solid var(--border-subtle);">
+        <div class="container" style="text-align: center; margin-bottom: 30px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Additional
+                Resources</span>
+            <h2 style="font-size: 2.5rem; font-weight: 500; color: #fff; margin-top: 10px;">Our Digital <span
+                    class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Showcase</span></h2>
+        </div>
+        <div
+            style="position: relative; width: 95%; max-width: 1600px; margin: 0 auto; height: calc(100% - 100px); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #222;">
+                <!-- Balanced aspect ratio stretch to keep book perfectly centered with large side margins -->
+                <iframe src="https://online.fliphtml5.com/pursq/zdku/" seamless="seamless" scrolling="no"
+                    frameborder="0" allowtransparency="true" allowfullscreen="true"
+                    style="position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 120px); border: none;"></iframe>
+
+                <!-- Overlay to block the top-left FlipHTML5 logo seamlessly -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 220px; height: 75px; background: #222; z-index: 10;">
+                </div>
+
+                <!-- Inner shadow to blend the edges beautifully -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-shadow: inset 0 0 40px rgba(0,0,0,0.9); z-index: 20;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Third Flipbook Section (Project Brochure) -->
+    <section class="flipbook-section reveal"
+        style="position: relative; width: 100%; height: 85vh; min-height: 600px; background: #080808; padding: 50px 0; border-bottom: 1px solid var(--border-subtle);">
+        <div class="container" style="text-align: center; margin-bottom: 30px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Project
+                Brochure</span>
+            <h2 style="font-size: 2.5rem; font-weight: 500; color: #fff; margin-top: 10px;">Our Structural <span
+                    class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Details</span></h2>
+        </div>
+        <div
+            style="position: relative; width: 95%; max-width: 1600px; margin: 0 auto; height: calc(100% - 100px); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #222;">
+                <!-- Height stretches aggressively to physically push the popup entirely out of the bottom view bounds (100px explicit bottom crop) -->
+                <iframe src="https://online.fliphtml5.com/pursq/htux/" seamless="seamless" scrolling="no"
+                    frameborder="0" allowtransparency="true" allowfullscreen="true"
+                    style="position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 160px); border: none;"></iframe>
+
+                <!-- Overlay to block the top-left FlipHTML5 logo seamlessly -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 220px; height: 75px; background: #222; z-index: 10;">
+                </div>
+
+                <!-- Inner shadow to blend the edges beautifully -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-shadow: inset 0 0 40px rgba(0,0,0,0.9); z-index: 20;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Videos Section -->
+    <section class="videos-section reveal"
+        style="padding: 100px 0; background: #000; border-bottom: 1px solid var(--border-subtle);">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container" style="text-align: center; margin-bottom: 60px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Project
+                Visuals</span>
+            <h2 style="font-size: 2.8rem; font-weight: 500; color: #fff; margin-top: 10px;">Our Structural <span
+                    class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Videos</span></h2>
+        </div>
+
+        <div class="container" id="video-grid"
+            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; max-width: 1400px;">
+            <!-- Row 1 -->
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/wf21iarQULs" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/tMXEJFxronI" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/N18qRFNhJCE" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/0tCqmgdi2TY" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/joUfKHy_vOQ" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item"
+                style="border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/14MI_Ycpw9s" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+
+            <!-- Row 3 (Hidden initially) -->
+            <div class="video-card stagger-item hidden-video"
+                style="display: none; border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/REuRZTfFJZo" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item hidden-video"
+                style="display: none; border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/HTvN4aNOIRQ" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+            <div class="video-card stagger-item hidden-video"
+                style="display: none; border-radius: 12px; overflow: hidden; background: #111; box-shadow: 0 15px 40px rgba(0,0,0,0.6);">
+                <iframe width="100%" height="280" src="https://www.youtube.com/embed/hC1dcd4tvMg" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 60px;">
+            <button id="loadMoreVideosBtn" class="btn btn-filled"
+                style="display: block; margin: 0 auto; padding: 15px 40px; font-weight: 700; font-size: 0.9rem; cursor: pointer; letter-spacing: 0.1em; text-transform: uppercase; transition: 0.3s; min-width: 280px;">Explore
+                More Videos ↗</button>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", () => {
+                const btn = document.getElementById('loadMoreVideosBtn');
+                const hiddenVideos = document.querySelectorAll('.hidden-video');
+                let isExpanded = false;
+
+                if (btn) {
+                    btn.addEventListener('click', () => {
+                        isExpanded = !isExpanded;
+
+                        if (isExpanded) {
+                            // Reveal videos
+                            hiddenVideos.forEach((v, i) => {
+                                v.style.display = 'block';
+                                v.style.animation = `fadeUp 0.5s ease forwards ${i * 0.15}s`;
+                                v.style.opacity = '0';
+                                v.style.transform = 'translateY(20px)';
+                            });
+                            btn.innerHTML = 'View Less Videos ↖';
+
+                            if (!document.querySelector('#video-keyframes')) {
+                                const style = document.createElement('style');
+                                style.id = 'video-keyframes';
+                                style.innerHTML = `@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }`;
+                                document.head.appendChild(style);
+                            }
+                        } else {
+                            // Hide videos
+                            hiddenVideos.forEach(v => {
+                                v.style.display = 'none';
+                                v.style.animation = '';
+                            });
+                            btn.innerHTML = 'Explore More Videos ↗';
+                            // Scroll back to top of the video section so the button doesn't jump out of view dramatically
+                            document.getElementById('video-grid').scrollIntoView({ behavior: 'smooth', block: 'end' });
+                        }
+                    });
+                }
+            });
+        </script>
+    </section>
+
+    <!-- Founder's Portfolio Section -->
+    <section class="founder-section reveal"
+        style="position: relative; padding: 100px 0; background: #080808; border-bottom: 1px solid var(--border-subtle); overflow: hidden;">
+        <div class="parallax-bg" data-speed="0.08"
+            style="background-image: radial-gradient(circle at left, rgba(251, 192, 45, 0.05) 0%, transparent 50%); width: 100%; height: 100%; position: absolute; top: 0; left: 0; pointer-events: none;">
+        </div>
+
+        <div class="container"
+            style="position: relative; z-index: 2; max-width: 1400px; margin: 0 auto; padding: 0 15px;">
+            <!-- Heading -->
+            <div style="text-align: center; margin-bottom: 70px;">
+                <span class="accent-text"
+                    style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Vision
+                    & Leadership</span>
+                <h2 style="font-size: 3rem; font-weight: 500; color: #fff; margin-top: 10px;">The Founder's <span
+                        class="accent-text"
+                        style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Portfolio</span></h2>
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 60px; align-items: center;">
+                <!-- Image Side -->
+                <div class="founder-image-wrapper stagger-item"
+                    style="flex: 0 0 320px; max-width: 100%; position: relative;">
+                    <!-- Elegant offset border accent -->
+                    <div
+                        style="position: absolute; top: 15px; left: -15px; width: 100%; height: 100%; border: 2px solid var(--accent); border-radius: 16px; z-index: 1;">
+                    </div>
+                    <img src="assets/founder.webp" alt="Founder of EConstruct"
+                        style="width: 100%; border-radius: 16px; box-shadow: 0 30px 60px rgba(0,0,0,0.8); position: relative; z-index: 2; object-fit: cover;">
+                </div>
+
+                <!-- Content Side -->
+                <div class="founder-content stagger-item" style="flex: 1.2; min-width: 350px;">
+                    <h3
+                        style="font-size: 2.2rem; color: #fff; margin-bottom: 20px; font-weight: 600; line-height: 1.3;">
+                        Pioneering Excellence in Structural <span style="color: var(--accent);">Engineering</span></h3>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 25px;">
+                        With a profound vision and years of dedicated expertise, our leadership has driven <strong
+                            style="color: #fff;">EConstruct</strong> to the forefront of structural engineering and
+                        architectural innovation. We believe in blending deep technical knowledge with practical,
+                        aesthetic execution.
+                    </p>
+                    <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.8; margin-bottom: 40px;">
+                        The Founder's journey is defined by an unwavering commitment to quality education, mentorship,
+                        and building sustainable, resilient infrastructures that stand the test of time.
+                    </p>
+
+                    <div style="display: flex; gap: 20px;">
+                        <a href="#" class="btn btn-filled"
+                            style="padding: 16px 40px; font-weight: 700; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.1em; border-radius: 8px;">View
+                            Full Profile</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fourth Flipbook Section (Founder's Book) -->
+    <section class="flipbook-section reveal"
+        style="position: relative; width: 100%; height: 85vh; min-height: 600px; background: #080808; padding: 50px 0; border-bottom: 1px solid var(--border-subtle);">
+        <div class="container" style="text-align: center; margin-bottom: 30px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em;">Featured
+                Publication</span>
+            <h2 style="font-size: 2.5rem; font-weight: 500; color: #fff; margin-top: 10px;">The Founder's <span
+                    class="accent-text" style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Personal
+                    Portfolio</span></h2>
+        </div>
+        <div
+            style="position: relative; width: 95%; max-width: 1600px; margin: 0 auto; height: calc(100% - 100px); border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.8);">
+
+            <div
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; background: #222;">
+                <!-- Balanced aspect ratio stretch to keep book perfectly centered with large side margins -->
+                <iframe src="https://online.fliphtml5.com/thgro/fkbp/" seamless="seamless" scrolling="no"
+                    frameborder="0" allowtransparency="true" allowfullscreen="true"
+                    style="position: absolute; top: -60px; left: 0; width: 100%; height: calc(100% + 120px); border: none;"></iframe>
+
+                <!-- Inner shadow to blend the edges beautifully -->
+                <div
+                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; box-shadow: inset 0 0 40px rgba(0,0,0,0.9); z-index: 20;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bento Section -->
+    <section class="stats-section reveal">
+        <div class="parallax-bg tier-1" data-speed="0.05"></div>
+        <div class="parallax-bg tier-2" data-speed="0.12"></div>
+        <svg class="curve-bg" viewBox="0 0 1440 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M-100 200 C 200 100, 600 600, 1500 100" stroke="#fbc02d" stroke-width="60" fill="none"
+                stroke-opacity="0.15" />
+            <path d="M-200 600 C 300 800, 800 200, 1600 700" stroke="#fbc02d" stroke-width="40" fill="none"
+                stroke-opacity="0.08" />
+        </svg>
+
+        <div class="container" style="text-align: center; margin-bottom: 80px; position: relative; z-index: 2;">
+            <h2 style="font-size: 2.2rem; font-weight: 600; margin-bottom: 10px;">Why Choose EConstruct?</h2>
+            <p style="color: var(--text-muted); font-size: 0.9rem;">Delivering structural engineering and architectural
+                consulting driven by profound expertise.</p>
+        </div>
+
+        <div class="blueprint-quadrant">
+            <div class="quadrant-item">
+                <div class="quad-marker"></div>
+                <div class="quad-val">29+</div>
+                <div class="quad-content">
+                    <h3>Years Legacy</h3>
+                    <p>Redefining structural precision and architectural integrity in India since 1997.</p>
+                </div>
+            </div>
+
+            <div class="quadrant-item">
+                <div class="quad-marker"></div>
+                <div class="quad-val">650+</div>
+                <div class="quad-content">
+                    <h3>Projects Delivered</h3>
+                    <p>From high-rise residential complexes to massive infrastructure and civil road link projects.</p>
+                </div>
+            </div>
+
+            <div class="quadrant-item">
+                <div class="quad-marker"></div>
+                <div class="quad-val">45K+</div>
+                <div class="quad-content">
+                    <h3>Engineers Trained</h3>
+                    <p>Bridging the industry competency gap via our specialized Techno-Management pipelines.</p>
+                </div>
+            </div>
+
+            <div class="quadrant-item">
+                <div class="quad-marker"></div>
+                <div class="quad-val">100%</div>
+                <div class="quad-content">
+                    <h3>Placement Success</h3>
+                    <p>Ensuring our professional alumni lead innovation in global giants like L&T, TATA, and Afcons.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How We Work (Process) -->
+    <section style="padding: 120px 0; background: #000; color: #fff; border-top: 1px solid var(--border-subtle);">
+        <div class="container" style="text-align: center; margin-bottom: 80px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 15px;">DESIGN
+                | BUILD | DELIVER</span>
+            <h2 style="font-size: 3.2rem; font-weight: 500;">Our Engineering <span class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Process</span></h2>
+            <p style="color: var(--text-muted); max-width: 600px; margin: 20px auto; font-size: 1rem;">Deploying a
+                unified Techno-Management approach across Civil, Architecture, and Structural domains.</p>
+        </div>
+        <div class="container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 60px;">
+            <div style="position: relative; padding-top: 40px; border-top: 1px solid #222;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 25px;">01
+                </div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Civil & BIM</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Unified modeling for clash
+                    detections, decision-making visibility, and 100% cost-saving on infrastructure projects.</p>
+            </div>
+            <div style="position: relative; padding-top: 40px; border-top: 1px solid #222;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 25px;">02
+                </div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Structural Mastery</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Evaluating performance for
+                    RCC, Steel, and PSC projects using global standards like ETABS and STAAD Pro.</p>
+            </div>
+            <div class="stagger-item" style="position: relative; padding-top: 40px; border-top: 1px solid #222;">
+                <div style="font-size: 1.5rem; color: var(--accent-gold); font-weight: 800; margin-bottom: 25px;">03
+                </div>
+                <h3 style="font-size: 1.6rem; margin-bottom: 20px;">Luxury Build</h3>
+                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">Bespoke Design & Build
+                    services for luxury villas and high-end residential or commercial spaces.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Carousel -->
+    <section class="services-carousel-section reveal" style="background: #080808; padding: 60px 0 30px; color: #fff;">
+        <div class="parallax-bg" data-speed="0.1"></div>
+        <div class="container stagger-item"
+            style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 50px;">
+            <div style="display: flex; gap: 15px;">
+                <button class="tab-pill active"
+                    style="background: #fff; color: #000; border: none; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <path d="M3 21h18M3 7l9-4 9 4v10l-9 4-9-4V7z"></path>
+                    </svg>
+                    Structural Services
+                </button>
+                <button class="tab-pill"
+                    style="background: #111; color: #fff; border: 1px solid #333; font-weight: 800; text-transform: uppercase; font-size: 0.75rem; padding: 10px 20px; border-radius: 50px; display: flex; align-items: center; gap: 8px;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    Master Training
+                </button>
+            </div>
+            <div style="display: flex; gap: 12px;">
+                <div class="carousel-arrow"
+                    style="border-color: #333; color: #fff; background: #000; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #333; cursor: pointer;">
+                    ←</div>
+                <div class="carousel-arrow"
+                    style="border-color: #333; color: #fff; background: #000; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; border: 1px solid #333; cursor: pointer;">
+                    →</div>
+            </div>
+        </div>
+
+        <div class="container" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;">
+            <!-- Card 1 -->
+            <div class="service-card stagger-item"
+                style="background: #111; border: 1px solid #222; border-radius: 16px; overflow: hidden; transition: 0.3s; height: 100%;">
+                <div style="position: relative; height: 300px; overflow: hidden;">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                    <span
+                        style="position: absolute; top: 15px; left: 15px; background: var(--accent-gold); color: #000; font-weight: 800; font-size: 0.6rem; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.1em;">Design</span>
+                </div>
+                <div style="padding: 30px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #fff; line-height: 1.2;">Structural Design
+                        & Analysis</h3>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 25px; font-size: 0.85rem;">
+                        Optimized structural systems using ETABS & SAP2000 for complex vertical skyscrapers and
+                        industrial heavy-link infrastructure.</p>
+                    <a href="#"
+                        style="color: var(--accent-gold); text-decoration: none; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;">Explore
+                        Case Study ➜</a>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="service-card stagger-item"
+                style="background: #111; border: 1px solid #222; border-radius: 16px; overflow: hidden; transition: 0.3s; height: 100%;">
+                <div style="position: relative; height: 300px; overflow: hidden;">
+                    <img src="assets\images\project2.png"
+                        style="width: 100%; height: 100%; object-fit: cover; opacity: 0.8;">
+                    <span
+                        style="position: absolute; top: 15px; left: 15px; background: var(--accent-gold); color: #000; font-weight: 800; font-size: 0.6rem; padding: 4px 10px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.1em;">Consultancy</span>
+                </div>
+                <div style="padding: 30px;">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 12px; color: #fff; line-height: 1.2;">Value Engineering
+                        & Optimization</h3>
+                    <p style="color: var(--text-muted); line-height: 1.5; margin-bottom: 25px; font-size: 0.85rem;">
+                        Reducing construction costs by up to 20% through advanced material distribution and structural
+                        load path refinement.</p>
+                    <a href="#"
+                        style="color: var(--accent-gold); text-decoration: none; font-weight: 700; font-size: 0.85rem; display: flex; align-items: center; gap: 8px;">Explore
+                        Case Study ➜</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Transition Divider -->
+    <div class="reveal container"
+        style="height: 100px; display: flex; align-items: center; justify-content: center; position: relative;">
+        <div style="width: 1px; height: 100%; background: linear-gradient(to bottom, transparent, #222, transparent);">
+        </div>
+        <div
+            style="width: 10px; height: 10px; background: var(--accent-gold); border-radius: 50%; position: absolute; box-shadow: 0 0 15px var(--accent-gold); opacity: 0.5;">
+        </div>
+    </div>
+
+    <!-- BIM Vertical Highlight -->
+    <section class="container reveal" style="background: transparent; padding: 30px 0 100px;">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="vertical-service">
+            <div class="v-service-img stagger-item">
+                <img src="assets/images/carousel2.png" alt="BIM Hub">
+            </div>
+            <div class="v-service-content">
+                <h2 class="stagger-item" style="font-weight: 500;">World Class <span class="accent-text">BIM
+                        Pipeline</span> Workflow</h2>
+                <p class="stagger-item">Advanced unified modeling pipelines allowing real-time clash detections and
+                    accurate preemptive visual simulations. We pioneer modern integrations into architectural
+                    blueprints.</p>
+                <div class="stagger-item" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 40px; height: 40px; background: #111; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); border: 1px solid #222;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1rem; color: #fff;">100% Conflict Free</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Clash-detection enabled before
+                                ground-breaking.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-filled stagger-item" style="margin-top: 40px;">Explore BIM Portfolio ↗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Training Master Section -->
+    <section class="tab-section reveal"
+        style="background: #000; color: #fff; border-top: 1px solid var(--border-subtle); padding: 120px 0;">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container stagger-item"
+            style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px;">
+            <div>
+                <span class="accent-text"
+                    style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; display: block; margin-bottom: 15px; color: var(--accent-gold);">Upskilling
+                    Pipelines</span>
+                <h2 style="font-size: 3rem; font-weight: 500;">Corporate <span class="accent-text"
+                        style="font-family: 'Cormorant Garamond', serif; font-style: italic;">On-Job Training</span>
+                </h2>
+                <p style="color: var(--text-muted); margin-top: 15px;">Join our specialized Techno-Management
+                    entrepreneurship pipelines.</p>
+            </div>
+            <div style="display: flex; gap: 12px; margin-bottom: 10px;">
+                <div class="carousel-arrow" style="border-color: #333; background: transparent; color: #fff;">←</div>
+                <div class="carousel-arrow" style="border-color: #333; background: transparent; color: #fff;">→</div>
+            </div>
+        </div>
+        <div class="container" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;">
+            <div class="program-card stagger-item"
+                style="background: #111; color: #fff; border: 1px solid #222; min-width: auto;">
+                <div class="program-content">
+                    <span
+                        style="color: var(--accent-gold); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(251, 192, 45, 0.1); padding: 4px 10px; border-radius: 4px;">BATCH
+                        1: 15th April 2026</span>
+                    <h3 class="program-title" style="margin: 25px 0 15px; font-size: 1.5rem;">Master Study in Structural
+                        Engineering</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.7;">RCC,
+                        Steel, and PSC project mastery. Total execution pipelines from modeling to final analysis.</p>
+                    <button class="btn btn-filled"
+                        style="width: fit-content; font-size: 0.8rem; padding: 12px 24px;">Explore Syllabus ➜</button>
+                </div>
+            </div>
+            <div class="program-card stagger-item"
+                style="background: #111; color: #fff; border: 1px solid #222; min-width: auto;">
+                <div class="program-content">
+                    <span
+                        style="color: var(--accent-gold); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(251, 192, 45, 0.1); padding: 4px 10px; border-radius: 4px;">BATCH
+                        1: 15th April 2026</span>
+                    <h3 class="program-title" style="margin: 25px 0 15px; font-size: 1.5rem;">Techno-Management
+                        Entrepreneurship</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.7;">
+                        Composite training in Structures + BIM + Project Management for future firm owners.</p>
+                    <button class="btn btn-filled"
+                        style="width: fit-content; font-size: 0.8rem; padding: 12px 24px;">Explore Syllabus ➜</button>
+                </div>
+            </div>
+            <div class="program-card stagger-item"
+                style="background: #111; color: #fff; border: 1px solid #222; min-width: auto;">
+                <div class="program-content">
+                    <span
+                        style="color: var(--accent-gold); font-weight: 700; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; background: rgba(251, 192, 45, 0.1); padding: 4px 10px; border-radius: 4px;">BATCH
+                        1: 15th April 2026</span>
+                    <h3 class="program-title" style="margin: 25px 0 15px; font-size: 1.5rem;">Project Management with
+                        BIM</h3>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 35px; line-height: 1.7;">
+                        Offline & Online mastery of virtual construction monitoring and cost-saving BIM decision making.
+                    </p>
+                    <button class="btn btn-filled"
+                        style="width: fit-content; font-size: 0.8rem; padding: 12px 24px;">Explore Syllabus ➜</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industrial Showcases -->
+    <section class="dark-programs reveal">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container">
+            <h2 class="stagger-item" style="font-weight: 500; font-size: 2.8rem;">Discover Our <span
+                    class="accent-text">Best Works</span></h2>
+
+            <div class="program-grid-dark">
+                <div class="program-item-dark stagger-item">
+                    <div class="video-thumb" style="background-image: url('assets/images/project3.png');">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5 3l14 9-14 9V3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="program-info-dark">
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">KALPATARU Park Riviera |
+                            Mumbai</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 30px; line-height: 1.7;">
+                            Phase 1 & 2 structural planning execution incorporating full-scale concrete stability and
+                            load distribution.</p>
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div style="color: var(--accent-gold);"><svg width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                                    </svg></div>
+                                <div class="info-text">
+                                    <span>TYPE</span>
+                                    <p>Residential</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div style="color: var(--accent-gold);"><svg width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    </svg></div>
+                                <div class="info-text">
+                                    <span>LOCATION</span>
+                                    <p>Mumbai, MH</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="explore-btn-dark">Explore Case Study ↗</button>
+                    </div>
+                </div>
+                <div class="program-item-dark stagger-item">
+                    <div class="video-thumb" style="background-image: url('assets/images/project2.png');">
+                        <div class="play-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M5 3l14 9-14 9V3z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="program-info-dark">
+                        <h3 style="font-size: 1.6rem; font-weight: 700; margin-bottom: 12px;">Anubhava Mantapa |
+                            Historic Rebuild</h3>
+                        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 30px; line-height: 1.7;">
+                            Massive historic rebuild leveraging traditional aesthetics against deep structural anchoring
+                            technology.</p>
+
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <div style="color: var(--accent-gold);"><svg width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    </svg></div>
+                                <div class="info-text">
+                                    <span>TYPE</span>
+                                    <p>Heritage</p>
+                                </div>
+                            </div>
+                            <div class="info-item">
+                                <div style="color: var(--accent-gold);"><svg width="18" height="18" viewBox="0 0 24 24"
+                                        fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <circle cx="12" cy="12" r="10"></circle>
+                                        <path d="M12 6 12 12 16 14"></path>
+                                    </svg></div>
+                                <div class="info-text">
+                                    <span>STATUS</span>
+                                    <p>Completed</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="explore-btn-dark">Explore Case Study ↗</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section removed from here to follow a tighter rhythm -->
+
+    <!-- BIM Vertical Highlight -->
+    <section class="container reveal" style="background: transparent; padding: 100px 0;">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="vertical-service">
+            <div class="v-service-img stagger-item">
+                <img src="assets/images/carousel2.png" alt="BIM Hub">
+            </div>
+            <div class="v-service-content">
+                <h2 class="stagger-item" style="font-weight: 500;">World Class <span class="accent-text">BIM
+                        Pipeline</span> Workflow</h2>
+                <p class="stagger-item">Advanced unified modeling pipelines allowing real-time clash detections and
+                    accurate preemptive visual simulations. We pioneer modern integrations into architectural
+                    blueprints.</p>
+                <div class="stagger-item" style="display: flex; flex-direction: column; gap: 20px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <div
+                            style="width: 40px; height: 40px; background: #111; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--accent-gold); border: 1px solid #222;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5">
+                                <path
+                                    d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1rem; color: #fff;">100% Conflict Free</h4>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Clash-detection enabled before
+                                ground-breaking.</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-filled stagger-item" style="margin-top: 40px;">Explore BIM Portfolio ↗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Grid -->
+    <section class="experts-section reveal" style="padding: 100px 0;">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container stagger-item" style="text-align: center; margin-bottom: 50px;">
+            <h2 style="font-size: 2.5rem; font-weight: 500;">Taught by <span class="accent-text">The Best</span></h2>
+            <p style="color: var(--text-muted);">Upskilling 50,000+ engineers using advanced structural mastery courses.
+            </p>
+        </div>
+        <div class="container expert-grid">
+            <div class="expert-card stagger-item">
+                <img src="assets/images/avatar.png" alt="Expert" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Amit Khurana</h4>
+                    <p>Structural Master Associate</p>
+                    <div class="comp-tag">ETABS & SAFE Expert</div>
+                </div>
+            </div>
+            <div class="expert-card stagger-item">
+                <img src="assets/images/expert.png" alt="Expert" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Dr. Sarah J.</h4>
+                    <p>Head of BIM Research</p>
+                    <div class="comp-tag">LOD 500 Standards</div>
+                </div>
+            </div>
+            <div class="expert-card stagger-item">
+                <img src="assets/images/avatar.png" alt="Expert" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Rajesh I.</h4>
+                    <p>Industrial Design Trainer</p>
+                    <div class="comp-tag">Ex-TATA Steel Consult</div>
+                </div>
+            </div>
+            <div class="expert-card stagger-item">
+                <img src="assets/images/avatar.png" alt="Expert" class="expert-avatar">
+                <div class="expert-info">
+                    <h4>Elena P.</h4>
+                    <p>Seismic Analysis Lead</p>
+                    <div class="comp-tag">Earthquake Resistant Design</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Placement Network -->
+    <section class="placement-section reveal"
+        style="padding: 100px 0; background: #080808; border-top: 1px solid var(--border-subtle);">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container stagger-item" style="text-align: center; margin-bottom: 60px;">
+            <span class="accent-text"
+                style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.3em; display: block; margin-bottom: 15px; color: var(--accent-gold);">Industrial
+                Trust</span>
+            <h2 style="font-size: 3rem; font-weight: 500;">Our <span class="accent-text"
+                    style="font-family: 'Cormorant Garamond', serif; font-style: italic;">Placement Network</span></h2>
+        </div>
+        <div class="container placement-grid stagger-item"
+            style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #222; border: 1px solid #222;">
+            <!-- Dummy Logo 1: L&T -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path d="M3 21h18M3 7l9-4 9 4v10l-9 4-9-4V7z"></path>
+                    <path d="M9 17v-4h6v4M12 3v18"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">L&T
+                    CONSTRUCTION</span>
+            </div>
+            <!-- Dummy Logo 2: TATA -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2v20M2 12h20M12 12l7-7M5 19l7-7"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">TATA
+                    PROJECTS</span>
+            </div>
+            <!-- Dummy Logo 3: AFCONS -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path d="M12 3L2 12h3v9h14v-9h3L12 3z"></path>
+                    <path d="M9 21v-6h6v6"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">AFCONS
+                    INFRA</span>
+            </div>
+            <!-- Dummy Logo 4: SHAPOORJI -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+                    <path d="M9 3v18M15 3v18M3 9h18M3 15h18"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">SHAPOORJI
+                    P.</span>
+            </div>
+            <!-- Dummy Logo 5: RELIANCE -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">RELIANCE
+                    INFRA</span>
+            </div>
+            <!-- Dummy Logo 6: GAMMON -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                    </path>
+                    <polyline points="7.5 10.5 12 13 16.5 10.5"></polyline>
+                    <polyline points="12 21 12 13"></polyline>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">GAMMON
+                    INDIA</span>
+            </div>
+            <!-- Dummy Logo 7: GODREJ -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 8v8M8 12h8"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">GODREJ
+                    PROP.</span>
+            </div>
+            <!-- Dummy Logo 8: HCC -->
+            <div class="placement-box"
+                style="background: #000; height: 160px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 15px; opacity: 0.7; transition: 0.3s;"
+                onmouseover="this.style.opacity=1; this.querySelector('svg').style.stroke='var(--accent-gold)'"
+                onmouseout="this.style.opacity=0.7; this.querySelector('svg').style.stroke='#fff'">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.5">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span style="color: #fff; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em;">HCC
+                    LIMITED</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Strip -->
+    <section class="newsletter-strip reveal">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container newsletter-content">
+            <h2 class="stagger-item">Stay Ahead of the <span style="text-decoration: underline;">Structural Curve</span>
+            </h2>
+            <div class="newsletter-form stagger-item">
+                <input type="email" placeholder="Enter your work email" class="news-input">
+                <button class="news-btn">Subscribe Free ↗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Consultation -->
+    <section class="contact-section reveal">
+        <div class="parallax-bg" data-speed="0.05"></div>
+        <div class="container contact-grid">
+            <div class="contact-info">
+                <h2 class="stagger-item" style="font-weight: 500;">Let's Build the <span class="accent-text">Future
+                        Together</span></h2>
+                <p class="stagger-item" style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 50px;">Ready
+                    to elevate your structural design accuracy? Request a free 15-minute technical audit.</p>
+                <div class="stagger-item" style="display: flex; flex-direction: column; gap: 30px;">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)"
+                            stroke-width="2">
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                            </path>
+                        </svg>
+                        <span>+91 90367 44017 | National Masterline</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-gold)"
+                            stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z">
+                            </path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        <span>consult@econstruct.in</span>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form stagger-item">
+                <div class="form-group">
+                    <label>Structural Interest</label>
+                    <input type="text" placeholder="e.g. High-Rise BIM Audit" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Work Email</label>
+                    <input type="email" placeholder="name@company.com" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea rows="4" placeholder="Brief about your project needs..." class="form-control"></textarea>
+                </div>
+                <button class="btn btn-filled" style="width: 100%;">Initiate Consultation ↗</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="reveal"
+        style="background: #000; padding: 120px 0 60px; border-top: 1px solid var(--border-subtle); position: relative; overflow: hidden;">
+        <div class="parallax-bg" data-speed="0.05" style="opacity: 0.03;"></div>
+        <div class="container" style="display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 80px;">
+            <!-- Firm Info -->
+            <div class="stagger-item">
+                <img src="assets/logo.png" alt="E-Construct"
+                    style="height: 35px; filter: brightness(0) invert(1); margin-bottom: 30px;">
+                <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.8; margin-bottom: 30px;">
+                    Engineering excellence for 29+ years. A global leader in Structural Consultancy, BIM Workflows, and
+                    Advanced Techno-Management Training.
+                </p>
+                <div style="display: flex; gap: 15px;">
+                    <a href="#"
+                        style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s; font-size: 0.8rem;"
+                        onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'"
+                        onmouseout="this.style.borderColor='#333'; this.style.color='#fff'">FB</a>
+                    <a href="#"
+                        style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s; font-size: 0.8rem;"
+                        onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'"
+                        onmouseout="this.style.borderColor='#333'; this.style.color='#fff'">IN</a>
+                    <a href="#"
+                        style="width: 36px; height: 36px; border-radius: 50%; border: 1px solid #333; display: flex; align-items: center; justify-content: center; color: #fff; text-decoration: none; transition: 0.3s; font-size: 0.8rem;"
+                        onmouseover="this.style.borderColor='var(--accent-gold)'; this.style.color='var(--accent-gold)'"
+                        onmouseout="this.style.borderColor='#333'; this.style.color='#fff'">LI</a>
+                </div>
+            </div>
+
+            <!-- Quick Navigation -->
+            <div class="stagger-item">
+                <h4
+                    style="color: #fff; font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 35px; text-transform: uppercase; font-weight: 800;">
+                    Strategic Hubs</h4>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">About
+                        Firm</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Global
+                        Services</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">BIM
+                        Innovation</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Career
+                        Hub</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Support
+                        Portal</a>
+                </div>
+            </div>
+
+            <!-- Focus Areas -->
+            <div class="stagger-item">
+                <h4
+                    style="color: #fff; font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 35px; text-transform: uppercase; font-weight: 800;">
+                    Engineering</h4>
+                <div style="display: flex; flex-direction: column; gap: 14px;">
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'"
+                        onmouseout="this.style.color='var(--text-muted)'">Consultancy</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Master
+                        Training</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'" onmouseout="this.style.color='var(--text-muted)'">Expert
+                        Vetting</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'"
+                        onmouseout="this.style.color='var(--text-muted)'">Real-time BIM</a>
+                    <a href="#"
+                        style="color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: 0.3s;"
+                        onmouseover="this.style.color='#fff'"
+                        onmouseout="this.style.color='var(--text-muted)'">Projects</a>
+                </div>
+            </div>
+
+            <!-- Locations -->
+            <div class="stagger-item">
+                <h4
+                    style="color: #fff; font-size: 0.85rem; letter-spacing: 0.15em; margin-bottom: 35px; text-transform: uppercase; font-weight: 800;">
+                    Contact Hub</h4>
+                <div style="display: flex; flex-direction: column; gap: 20px;">
+                    <div>
+                        <span
+                            style="display: block; color: #fff; font-size: 0.8rem; font-weight: 700; margin-bottom: 5px;">MUMBAI
+                            HEADQUARTERS</span>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">Suite 401, Engineering
+                            Plaza,<br>Kalpataru Highs, Mumbai.</p>
+                    </div>
+                    <div>
+                        <span
+                            style="display: block; color: var(--accent-gold); font-size: 0.8rem; font-weight: 700; margin-bottom: 5px;">DIRECT
+                            CONNECT</span>
+                        <p style="color: var(--text-muted); font-size: 0.85rem;">+91 93258 73229<br>info@e-construct.in
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container"
+            style="border-top: 1px solid #111; margin-top: 80px; padding-top: 40px; display: flex; justify-content: space-between; align-items: center;">
+            <p style="color: #444; font-size: 0.75rem;">© 2026 E-CONSTRUCT Design & Build Pvt Ltd. All technical rights
+                reserved. ISO 9001:2015 Certified Firm.</p>
+            <div style="display: flex; gap: 30px;">
+                <a href="#" style="color: #444; text-decoration: none; font-size: 0.75rem; transition: 0.3s;"
+                    onmouseover="this.style.color='#777'" onmouseout="this.style.color='#444'">Privacy Policy</a>
+                <a href="#" style="color: #444; text-decoration: none; font-size: 0.75rem; transition: 0.3s;"
+                    onmouseover="this.style.color='#777'" onmouseout="this.style.color='#444'">Usage Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chatbot Isha -->
+    <div class="isha-fab" id="ishaFab">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+    </div>
+
+    <div class="isha-window" id="ishaWindow">
+        <div class="isha-header">
+            <div
+                style="width: 40px; height: 40px; background: var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; color: #000; font-size: 0.7rem;">
+                ISHA</div>
+            <div>
+                <h4 style="color: #fff; font-size: 0.9rem; margin: 0;">Isha Assistant</h4>
+                <p style="color: var(--text-muted); font-size: 0.7rem; margin: 0;">Online | Technical Support</p>
+            </div>
+            <button id="closeChat"
+                style="margin-left: auto; background: none; border: none; color: #fff; cursor: pointer; font-size: 1.2rem;">×</button>
+        </div>
+        <div class="isha-body" id="ishaBody">
+            <div class="chat-bubble bubble-isha">
+                Hello! I am Isha, your EConstruct technical assistant. How can I help you with our structural services
+                today?
+            </div>
+        </div>
+        <div style="padding: 0 20px 10px; display: flex; flex-wrap: wrap; gap: 8px;">
+            <button class="quick-reply"
+                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; padding: 6px 12px; border-radius: 50px; cursor: pointer;">Training
+                Syllabus</button>
+            <button class="quick-reply"
+                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; padding: 6px 12px; border-radius: 50px; cursor: pointer;">BIM
+                Workflow</button>
+            <button class="quick-reply"
+                style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); color: #fff; font-size: 0.7rem; padding: 6px 12px; border-radius: 50px; cursor: pointer;">Expert
+                Vetting</button>
+        </div>
+        <div class="isha-input-area">
+            <input type="text" placeholder="Type technical query..."
+                style="flex: 1; background: rgba(255,255,255,0.05); border: none; padding: 12px; border-radius: 8px; color: #fff; font-size: 0.85rem;">
+            <button
+                style="background: var(--accent-gold); border: none; width: 40px; border-radius: 8px; cursor: pointer; display: flex; align-items: center; justify-content: center;">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2.5">
+                    <line x1="22" y1="2" x2="11" y2="13"></line>
+                    <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Reveal on Scroll Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Tab pill functionality
+            document.querySelectorAll('.tab-pill').forEach(tab => {
+                tab.addEventListener('click', () => {
+                    document.querySelectorAll('.tab-pill').forEach(t => t.classList.remove('active'));
+                    tab.classList.add('active');
+                });
+            });
+
+            // Intersection Observer for Reveal Animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        // For stagger items, add a delay
+                        if (entry.target.classList.contains('stagger-item')) {
+                            const parent = entry.target.closest('.reveal');
+                            if (parent) {
+                                Array.from(parent.querySelectorAll('.stagger-item')).forEach((item, index) => {
+                                    item.style.transitionDelay = `${index * 0.1}s`;
+                                    item.classList.add('active');
+                                });
+                            }
+                        }
+                    } else {
+                        // Optional: remove 'active' class when out of view
+                        // entry.target.classList.remove('active');
+                        // if (entry.target.classList.contains('stagger-item')) {
+                        //     entry.target.style.transitionDelay = '0s';
+                        // }
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all reveal and stagger elements
+            document.querySelectorAll('.reveal, .reveal-left, .stagger-item').forEach(el => {
+                observer.observe(el);
+            });
+
+            // Parallax Script
+            window.addEventListener('scroll', () => {
+                const scroll = window.pageYOffset;
+
+                // Hero Zoom effect
+                const heroZoom = document.getElementById('heroZoom');
+                if (heroZoom) {
+                    heroZoom.style.transform = `scale(${1.1 + (scroll / 5000)}) translateY(${scroll * 0.2}px)`;
+                }
+
+                document.querySelectorAll('.parallax-bg').forEach(bg => {
+                    const speed = parseFloat(bg.dataset.speed) || 0.1;
+                    bg.style.transform = `translateY(${scroll * speed}px)`;
+                });
+
+                // Content Floating Parallax
+                document.querySelectorAll('.reveal-left.active').forEach(el => {
+                    const offset = el.getBoundingClientRect().top;
+                    el.style.transform = `translateX(${(offset - 500) * 0.05}px)`;
+                });
+
+                // Header transition
+                const header = document.querySelector('header');
+                if (header) {
+                    if (scroll > 80) {
+                        header.style.background = 'rgba(0,0,0,0.95)';
+                        header.style.backdropFilter = 'blur(10px)';
+                        header.style.height = '80px';
+                        header.querySelector('img').style.height = '35px';
+                    } else {
+                        header.style.background = 'transparent';
+                        header.style.backdropFilter = 'none';
+                        header.style.height = '100px';
+                        header.querySelector('img').style.height = '45px';
+                    }
+                }
+            });
+
+            // Chatbot Logic
+            const ishaFab = document.getElementById('ishaFab');
+            const ishaWindow = document.getElementById('ishaWindow');
+            const closeChat = document.getElementById('closeChat');
+
+            ishaFab.addEventListener('click', () => {
+                ishaWindow.style.display = ishaWindow.style.display === 'flex' ? 'none' : 'flex';
+                ishaFab.style.transform = ishaWindow.style.display === 'flex' ? 'scale(0) rotate(90deg)' : 'scale(1) rotate(0deg)';
+                ishaFab.style.opacity = ishaWindow.style.display === 'flex' ? '0' : '1';
+            });
+
+            closeChat.addEventListener('click', () => {
+                ishaWindow.style.display = 'none';
+                ishaFab.style.transform = 'scale(1) rotate(0deg)';
+                ishaFab.style.opacity = '1';
+            });
+
+            document.querySelectorAll('.quick-reply').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const text = btn.innerText;
+                    addMessage(text, 'user');
+                    setTimeout(() => {
+                        let dynamicReply = "I can certainly help with that. Our " + text + " module is part of the April 2026 Batch. Would you like the PDF syllabus via email?";
+                        if (text === "BIM Workflow") dynamicReply = "Our BIM pipeline leverages real-time clash detection. We achieve conflict-free modeling before construction begins. Should I connect you with a specialist?";
+                        addMessage(dynamicReply, 'isha');
+                    }, 800);
+                });
+            });
+
+            function addMessage(text, type) {
+                const body = document.getElementById('ishaBody');
+                const bubble = document.createElement('div');
+                bubble.className = `chat-bubble bubble-${type}`;
+                bubble.innerText = text;
+                body.appendChild(bubble);
+                body.scrollTop = body.scrollHeight;
+            }
+        });
+    </script>
+</body>
+
+</html>

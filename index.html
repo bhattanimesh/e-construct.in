@@ -1,13 +1,723 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>construct.in</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Econstruct Design & Build</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description"
+    content="Econstruct Design & Build - Expert engineering, architectural and construction solutions.">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-main">
+      <img src="assets\logo.png" alt="Econstruct Logo" style="height: 64px; width: auto;">
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#">Home &#709;</a></li>
+      <li><a href="#">Services &#709;</a></li>
+      <li><a href="#">Portfolio &#709;</a></li>
+      <li><a href="#">Blog &#709;</a></li>
+      <li><a href="#">Courses &#709;</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+
+    <div class="header-right">
+      <div class="phone-nav">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path
+            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+          </path>
+        </svg>
+        90367 44017
+      </div>
+      <button class="btn btn-primary">CONTACT</button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container hero-container">
+      <div class="hero-content">
+        <h2>Build the future with Econstruct's trusted expertise. <span>We deliver quality spaces shaped for your
+            vision.</span></h2>
+        <button class="btn btn-white">START TODAY</button>
+      </div>
+      <h1 class="hero-title">Design & Build</h1>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services container">
+    <div class="services-grid">
+      <div class="services-content">
+        <h2>Elevate Engineering <span class="gold">& Construction Solutions for</span> all your project demands</h2>
+
+        <div class="services-accordion">
+          <div class="accordion-item active" data-image="assets/images/expert.png">
+            <div class="accordion-header">Architectural Consultancy</div>
+            <div class="accordion-content">A professional team of architects, engineers and designers creating
+              innovative building design solutions.</div>
+          </div>
+          <div class="accordion-item" data-image="assets/images/project1.png">
+            <div class="accordion-header">Structural Design Consultancy</div>
+            <div class="accordion-content">Designing and evaluating structural performance of your designs. Our main
+              area of focus includes RCC, Steel and PSC projects.</div>
+          </div>
+          <div class="accordion-item" data-image="assets/images/carousel3.png">
+            <div class="accordion-header">Building Information Modelling</div>
+            <div class="accordion-content">We build BIM models for greater visibility, better decision-making, more
+              sustainable options, and cost-savings on your infrastructure projects.</div>
+          </div>
+          <div class="accordion-item" data-image="assets/images/project3.png">
+            <div class="accordion-header">Project Management Consultancy</div>
+            <div class="accordion-content">Scheduling, cost budgeting, risk identifying, monitoring & controlling the
+              construction process to increase ROI of your projects.</div>
+          </div>
+          <div class="accordion-item" data-image="assets/images/carousel1.png">
+            <div class="accordion-header">Corporate ON-JOB Training</div>
+            <div class="accordion-content">We provide world-class engineering training programs designed to produce
+              certified engineers that can work across the globe.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="services-image">
+        <div class="build-with-us parallax" data-speed="-0.15">WANT TO BUILD WITH US TODAY?</div>
+        <!-- Using generic placeholder if image missing, but we generated it -->
+        <img id="services-main-img" src="assets/images/expert.png" alt="Modern white house exterior"
+          style="transition: opacity 0.3s ease;">
+        <svg class="graphic-lines parallax" data-speed="0.25" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 90 L50 10 L90 90" stroke="var(--accent-gold)" stroke-width="2" fill="none" />
+          <path d="M20 90 L50 30 L80 90" stroke="var(--accent-gold)" stroke-width="2" fill="none" />
+          <path d="M30 90 L50 50 L70 90" stroke="var(--accent-gold)" stroke-width="2" fill="none" />
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- Clients -->
+  <section class="clients container">
+    <div class="clients-flex">
+      <span class="our-clients" style="font-weight: 600;">Kalpataru Group</span>
+      <span class="our-clients" style="font-weight: 600; font-family: sans-serif;">BMC</span>
+      <span class="our-clients">Anubhava Mantapa</span>
+      <span class="our-clients" style="font-weight: 700;">Sonali Dev.</span>
+      <span class="our-clients" style="letter-spacing: 1px;">Texas Land</span>
+      <span class="our-clients" style="color: #000; font-weight: 600;">Our Clients</span>
+    </div>
+  </section>
+
+  <!-- Vision & Legacy -->
+  <section class="vision-section container">
+    <div class="vision-grid">
+      <div class="vision-images">
+        <img src="assets/images/project2.png" alt="Econstruct Vision" class="vision-main-img parallax" data-speed="0.1">
+        <div class="vision-badge parallax" data-speed="-0.15">
+          <h3>25+</h3>
+          <p>Years of Engineering<br>Excellence</p>
+        </div>
+      </div>
+      <div class="vision-content">
+        <span class="section-subtitle">OUR LEGACY</span>
+        <h2 class="parallax" data-speed="0.05">Shaping the structural landscape of India</h2>
+        <p>ECONSTRUCT Design & Build Pvt Ltd is a leading consultancy and contracting company in India that has executed
+          construction work for some of the most significant projects in the country.</p>
+        <p>We believe in exceeding clients’ expectations by operating at par with global benchmarks for transparency,
+          reliability, and integrity. We are proudly recognized with MSME, ISO 9001:2015, and Skill India
+          certifications.</p>
+
+        <ul class="vision-list">
+          <li>Innovative Designs & Services</li>
+          <li>Cutting-Edge BIM Technology</li>
+          <li>Producing World-Class Civil Engineers</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section class="projects container">
+    <span class="section-subtitle">BUILDING FUTURE-READY SPACES</span>
+    <h2>We deliver smart<br>building projects</h2>
+
+    <div class="projects-grid">
+      <div class="project-card">
+        <img src="assets/images/project1.png" alt="KALPATARU Park Riviera">
+        <h3>KALPATARU Park Riviera</h3>
+        <div class="project-location">Mumbai</div>
+        <div class="project-details">
+          <div class="detail-row"><span class="label">Consultancy</span><span class="value">Structural</span></div>
+          <div class="detail-row"><span class="label">Build phase</span><span class="value">Ongoing work</span></div>
+          <div class="detail-row"><span class="label">Scale</span><span class="value">High-Rise</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="assets/images/project2.png" alt="Sonali Residential">
+        <h3>Sonali Residential</h3>
+        <div class="project-location">Bangalore</div>
+        <div class="project-details">
+          <div class="detail-row"><span class="label">Scope</span><span class="value">Design & Build</span></div>
+          <div class="detail-row"><span class="label">Features</span><span class="value">Luxury Villa</span></div>
+          <div class="detail-row"><span class="label">Status</span><span class="value">Completed</span></div>
+        </div>
+      </div>
+      <div class="project-card">
+        <img src="assets/images/project3.png" alt="Goregaon Mulund Link Road">
+        <h3>Goregaon Mulund Link Road</h3>
+        <div class="project-location">Mumbai</div>
+        <div class="project-details">
+          <div class="detail-row"><span class="label">Design phase</span><span class="value">Infrastructure</span></div>
+          <div class="detail-row"><span class="label">Type</span><span class="value">Civil Construction</span></div>
+          <div class="detail-row"><span class="label">Impact</span><span class="value">City connectivity</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-cta">
+      <button class="btn btn-primary">OUR WORK</button>
+    </div>
+  </section>
+
+  <!-- Corporate Training Section -->
+  <section class="training-section dark-section">
+    <div class="container">
+      <div class="training-header reveal text-center" style="margin-bottom: 60px;">
+        <span class="section-subtitle parallax" data-speed="0.1" style="color: var(--accent-gold)">EMPOWERING FUTURE
+          ENGINEERS</span>
+        <h2 class="parallax" data-speed="0.05" style="color: white; font-size: 3.5rem; letter-spacing: -0.02em;">
+          Corporate On-Job Training</h2>
+        <p style="color: #aaa; max-width: 600px; margin: 20px auto;">We provide world-class instruction designed to
+          produce certified engineers who can excel globally. Join our specialized master study and software workshops.
+        </p>
+      </div>
+
+      <div class="training-grid">
+        <div class="training-card reveal reveal-delay-1">
+          <div class="training-date">Upcoming</div>
+          <h3>Master Study In Structural Engineering</h3>
+          <p>Advanced comprehensive detailing of RCC, Steel, and PSC projects across commercial domains.</p>
+          <a href="#" class="btn-outline-gold">EXPLORE COURSE</a>
+        </div>
+        <div class="training-card reveal reveal-delay-2">
+          <div class="training-date">Upcoming</div>
+          <h3>Project Management with BIM</h3>
+          <p>Mastering scheduling, cost budgeting, risk identification, and virtual construction monitoring.</p>
+          <a href="#" class="btn-outline-gold">EXPLORE COURSE</a>
+        </div>
+        <div class="training-card reveal reveal-delay-3">
+          <div class="training-date">Live Event</div>
+          <h3>3-Day ETABS Workshop</h3>
+          <p>Intensive structural analysis, geometric modeling, and load condition design training located in Bangalore.
+          </p>
+          <a href="#" class="btn-outline-gold">REGISTER NOW</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How We Work Section -->
+  <section class="process">
+    <div class="container">
+      <div class="process-header" style="text-align: center; margin-bottom: 60px;">
+        <span class="section-subtitle parallax" data-speed="0.1">DESIGN | BUILD | DELIVER</span>
+        <h2 class="parallax" data-speed="0.05">How We work?</h2>
+        <p style="max-width: 650px; margin: 20px auto; color: #666;">With over 25+ years of experience in Civil,
+          architectural, structural and contract management services, the econstruct team has established a strong
+          relationship with over 500 happy clients and completed more than 650 projects.</p>
+      </div>
+
+      <div class="process-grid">
+        <div class="process-item">
+          <div class="process-number">01</div>
+          <h3>Concept</h3>
+          <p>The first step and the most important in planning has to do with understanding your project’s requirements
+            and expectations. Here, we determine overall project vision and goals – scope, features, purpose, cost and
+            functionality.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">02</div>
+          <h3>Design</h3>
+          <p>We make a series of rough sketches and drawings that show the basic ideas of the concept phase.
+            Additionally, the initial research on local compliance and regulations are finished in this stage.</p>
+        </div>
+        <div class="process-item">
+          <div class="process-number">03</div>
+          <h3>Development</h3>
+          <p>In the Development stage we collect the results from the schematic design phase and take them one step
+            further. This phase involves finalizing the design and specifying items such as materials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee -->
+  <section class="marquee-wrapper">
+    <div class="marquee-content">
+      <span>econstruct</span>
+      <span>design</span>
+      <span>build</span>
+      <span>deliver</span>
+      <span>bim</span>
+      <span>consultancy</span>
+      <span>training</span>
+      <span>econstruct</span>
+      <span>design</span>
+      <span>build</span>
+      <span>deliver</span>
+      <span>bim</span>
+      <span>consultancy</span>
+      <span>training</span>
+    </div>
+  </section>
+
+  <!-- Dark Section: Stats, Carousel, Testimonial -->
+  <section class="dark-section" style="position: relative;">
+    <div class="scroll-text-bg">ECONSTRUCT</div>
+    <div class="container">
+
+      <div class="stats-grid">
+        <div class="stats-header">
+          <span class="section-subtitle" style="color: #666; font-size: 0.7rem;">BUILT ON QUALITY</span>
+          <h2>Inspire change<br>through action</h2>
+        </div>
+
+        <div class="stats-content">
+          <p class="stats-text">At Econstruct, we design, build, and deliver with care and skill. Our team works hard to
+            execute strong projects that lift up communities, from high-rise structures to robust infrastructure.</p>
+          <p class="stats-text">With our smart tools, BIM technology and bold ideas, we help shape safer, better spaces
+            for all. Our focus is clear: lasting value and real results.</p>
+
+          <div class="stats-numbers">
+            <div class="stat-item">
+              <div class="stat-value">10+</div>
+              <div class="stat-label">Years</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">500+</div>
+              <div class="stat-label">Projects</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="dark-carousel">
+      <img src="assets/images/carousel1.png" alt="Curved modern architecture">
+      <img src="assets/images/carousel2.png" alt="Modern house evening patio">
+      <img src="assets/images/carousel3.png" alt="White modern concrete house">
+    </div>
+
+    <div class="carousel-nav">
+      <i style="color:rgba(255,255,255,0.8)">&#8592;</i>
+      <i style="color:rgba(255,255,255,0.8)">&#8594;</i>
+    </div>
+
+    <div class="testimonial parallax" data-speed="0.1">
+      <h3>Working with Econstruct made all the difference for our project. Their team listened and delivered our vision
+        as promised.</h3>
+
+      <div class="author">
+        <img src="assets/images/avatar.png" alt="Client Review" class="parallax" data-speed="-0.05">
+        <div class="author-info">
+          <div class="author-name">Sandeep Pingale</div>
+          <div class="author-title">Mumbai, MH</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="big-text parallax" data-speed="-0.25">Econstruct</div>
+  </section>
+
+  <!-- Team Section -->
+  <section class="team">
+    <div class="container">
+      <div class="team-header" style="text-align: center; margin-bottom: 60px;">
+        <span class="section-subtitle">BACK BONE OF ECONSTRUCT</span>
+        <h2>Meet our founders</h2>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member">
+          <div class="member-img"></div>
+          <h4>Sandeep Pingale</h4>
+          <p>Founder & MD</p>
+        </div>
+        <div class="team-member">
+          <div class="member-img"></div>
+          <h4>Shraddha Pingale</h4>
+          <p>Jt. Managing Director</p>
+        </div>
+        <div class="team-member">
+          <div class="member-img"></div>
+          <h4>Jitendra Naregalkar</h4>
+          <p>Associate Director</p>
+        </div>
+        <div class="team-member">
+          <div class="member-img"></div>
+          <h4>Tushaar Y. Dawda</h4>
+          <p>Associate Partner</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 50px;">
+        <a href="https://e-construct.in/about-us/" class="btn btn-primary" style="display: inline-block;">WORK WITH
+          US</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact-section container">
+    <div class="contact-grid">
+      <div class="contact-img">
+        <img src="assets/images/contact.png" alt="Modern building structure on rock">
+      </div>
+
+      <div class="contact-form-wrapper">
+        <h2>Have questions?<br>Get in touch!</h2>
+        <form>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Subject">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" placeholder="Message"></textarea>
+          </div>
+
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="agree">
+            <label for="agree">I agree that my submitted data is being <a href="#">collected and stored</a>.</label>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">SEND MESSAGE</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section class="blog container">
+    <span class="section-subtitle">BUILDING TOMORROW'S INFRASTRUCTURE</span>
+    <h2>We deliver excellence<br>in construction</h2>
+
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img src="assets/images/blog1.png" alt="Pond Area Construction">
+        <div class="blog-category">INDUSTRY INSIGHTS</div>
+        <h3>Transforming a Barren Pond Area into a Construction Site</h3>
+        <div class="blog-meta">Mar 11, 2025 • No Comments</div>
+      </div>
+      <div class="blog-card">
+        <img src="assets/images/blog2.png" alt="Evolution of Construction">
+        <div class="blog-category">INDUSTRY INSIGHTS</div>
+        <h3>The Evolution of Modern-Day Construction: Men, Material, and Machine</h3>
+        <div class="blog-meta">Feb 24, 2025 • 2 Comments</div>
+      </div>
+      <div class="blog-card">
+        <img src="assets/images/project2.png" alt="Buildings Crack">
+        <div class="blog-category">INDUSTRY INSIGHTS</div>
+        <h3>Why Buildings Crack and How to Solve the Problem</h3>
+        <div class="blog-meta">Jan 17, 2025 • No Comments</div>
+      </div>
+      <div class="blog-card">
+        <img src="assets/images/carousel3.png" alt="BIM Technology">
+        <div class="blog-category">INDUSTRY INSIGHTS</div>
+        <h3>Benefits of BIM Technology for Civil Engineers on Live Sites</h3>
+        <div class="blog-meta">Jan 13, 2025 • No Comments</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Banner -->
+  <section class="banner-bottom">
+    <h2>Building your vision with trust and skill at every stage</h2>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+
+      <div class="footer-col" style="padding-right: 40px;">
+        <div class="footer-logo">
+          <img src="assets\logo.png" alt="Econstruct Logo" style="height: 64px; width: auto;">
+        </div>
+        <p>Econstruct Design & Build Pvt Ltd provides world-class engineering solutions, transforming construction with
+          precision, efficiency & sustainability.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>info@e-construct.in</p>
+        <p>Bangalore —<br>Venkatadri Heights, 1st & 2nd Floor Parapanna Agrahara Main Road<br>Bangalore - 560068</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Links</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <div class="social-links">
+          <a href="#" class="social-icon">f</a>
+          <a href="#" class="social-icon">Bē</a>
+          <a href="#" class="social-icon">IG</a>
+          <a href="#" class="social-icon">Dr</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+      <div>© 2026. All Rights Reserved. ECONSTRUCT DESIGN & BUILD Pvt Ltd.</div>
+      <div style="display: flex; align-items: center; gap: 20px;">
+        <div class="scroll-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 19V5M5 12l7-7 7 7" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Isha Chatbot -->
+  <div class="chatbot-container">
+    <div class="chat-window" id="isha-chat-window">
+      <div class="chat-header">
+        <div class="chat-avatar">
+          <img src="assets/images/avatar.png" alt="Isha">
+        </div>
+        <div class="chat-title">
+          <h4>Isha</h4>
+          <p>Econstruct Virtual Assistant</p>
+        </div>
+        <button class="chat-close" id="close-chat">×</button>
+      </div>
+      <div class="chat-messages" id="chat-messages">
+        <div class="message received">
+          Hi! I'm Isha. How can I help you with your architectural or structural needs today?
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input type="text" id="chat-input" placeholder="Type a message...">
+        <button id="send-chat">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="chat-trigger" id="chat-trigger">
+      <div class="chat-tooltip">Hi, I'm Isha! 👋</div>
+      <div class="trigger-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const accordionItems = document.querySelectorAll('.accordion-item');
+      const servicesMainImg = document.getElementById('services-main-img');
+
+      accordionItems.forEach(item => {
+        const header = item.querySelector('.accordion-header');
+        header.addEventListener('click', () => {
+          const isActive = item.classList.contains('active');
+
+          // Collapse all items
+          accordionItems.forEach(i => i.classList.remove('active'));
+
+          // If the clicked item was not active, expand it
+          if (!isActive) {
+            item.classList.add('active');
+
+            // Fade out the main image, change src, and fade in
+            if (servicesMainImg && item.dataset.image) {
+              servicesMainImg.style.opacity = 0;
+              setTimeout(() => {
+                servicesMainImg.src = item.dataset.image;
+                servicesMainImg.style.opacity = 1;
+              }, 300);
+            }
+          }
+        });
+      });
+
+      // Optimized Parallax & Scroll Effects
+      const parallaxElements = document.querySelectorAll('.parallax');
+      const scrollText = document.querySelector('.scroll-text-bg');
+
+      const progressBar = document.createElement('div');
+      progressBar.className = 'scroll-progress';
+      document.body.appendChild(progressBar);
+
+      let lastScrollY = window.scrollY;
+      let ticking = false;
+
+      function updateScrollEffects() {
+        const scrollY = window.scrollY;
+
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        if (docHeight > 0) progressBar.style.width = `${(scrollY / docHeight) * 100}%`;
+
+        if (scrollText) {
+          scrollText.style.transform = `translateX(${-scrollY * 0.15 + 200}px)`;
+        }
+
+        const heroContent = document.querySelector('.hero-content');
+        const heroTitle = document.querySelector('.hero-title');
+
+        if (heroContent) heroContent.style.transform = `translateY(${scrollY * 0.4}px) scale(${1 - scrollY * 0.0005})`;
+        if (heroTitle) heroTitle.style.transform = `translateY(${scrollY * 0.25}px)`;
+
+        parallaxElements.forEach(el => {
+          // Calculate off the parent element to avoid infinite transform displacement loop
+          const rect = el.parentElement.getBoundingClientRect();
+          const speed = el.dataset.speed || 0.1;
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            const centerDistance = rect.top - window.innerHeight / 2;
+            el.style.transform = `translateY(${centerDistance * speed}px)`;
+          }
+        });
+
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        lastScrollY = window.scrollY;
+        if (!ticking) {
+          window.requestAnimationFrame(updateScrollEffects);
+          ticking = true;
+        }
+      });
+      // Trigger visually accurate alignment instantly on script load
+      updateScrollEffects();
+
+      // Advanced Multi-Directional Reveal Observer
+      const advancedReveals = [
+        { selector: '.services-content', class: 'reveal-left' },
+        { selector: '.services-image', class: 'reveal-right' },
+        { selector: '.clients-flex span', class: 'reveal-scale', stagger: true },
+        { selector: '.vision-images', class: 'reveal-left' },
+        { selector: '.vision-content', class: 'reveal-right' },
+        { selector: '.process-header', class: 'reveal-blur' },
+        { selector: '.process-item', class: 'reveal', stagger: true },
+        { selector: '.projects-header', class: 'reveal-blur' },
+        { selector: '.project-card', class: 'reveal-scale', stagger: true },
+        { selector: '.training-header', class: 'reveal-blur' },
+        { selector: '.training-card', class: 'reveal-blur', stagger: true },
+        { selector: '.stats-header', class: 'reveal-left' },
+        { selector: '.stats-content', class: 'reveal-right' },
+        { selector: '.dark-carousel img', class: 'reveal-scale', stagger: true },
+        { selector: '.testimonial', class: 'reveal-blur' },
+        { selector: '.team-header', class: 'reveal-blur' },
+        { selector: '.team-member', class: 'reveal-scale', stagger: true },
+        { selector: '.contact-img', class: 'reveal-left' },
+        { selector: '.contact-form-wrapper', class: 'reveal-right' },
+        { selector: '.blog-header', class: 'reveal-blur' },
+        { selector: '.blog-card', class: 'reveal', stagger: true },
+        { selector: '.footer-col', class: 'reveal-scale', stagger: true }
+      ];
+
+      const revealElements = [];
+
+      advancedReveals.forEach(group => {
+        const elements = document.querySelectorAll(group.selector);
+        elements.forEach((el, index) => {
+          el.classList.add(group.class);
+          // Inline custom delay offsets sequentially if elements iterate horizontally 
+          if (group.stagger) el.style.transitionDelay = `${(index % 4) * 0.15}s`;
+          revealElements.push(el);
+        });
+      });
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '-50px',
+        threshold: 0.1
+      };
+
+      const scrollObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(el => scrollObserver.observe(el));
+
+      // Isha Chatbot Mechanics
+      const chatTrigger = document.getElementById('chat-trigger');
+      const chatWindow = document.getElementById('isha-chat-window');
+      const closeChat = document.getElementById('close-chat');
+      const chatInput = document.getElementById('chat-input');
+      const sendChat = document.getElementById('send-chat');
+      const chatMessages = document.getElementById('chat-messages');
+
+      chatTrigger.addEventListener('click', () => {
+        chatWindow.classList.add('open');
+        chatTrigger.style.transform = 'scale(0)';
+      });
+
+      closeChat.addEventListener('click', () => {
+        chatWindow.classList.remove('open');
+        chatTrigger.style.transform = 'scale(1)';
+      });
+
+      function handleChatSend() {
+        const text = chatInput.value.trim();
+        if (!text) return;
+
+        // Inject user chat payload
+        const userMsg = document.createElement('div');
+        userMsg.className = 'message sent';
+        userMsg.textContent = text;
+        chatMessages.appendChild(userMsg);
+
+        chatInput.value = '';
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+
+        // Simulate Isha processing response
+        setTimeout(() => {
+          const ishaMsg = document.createElement('div');
+          ishaMsg.className = 'message received';
+          ishaMsg.textContent = "Thank you for reaching out! One of our engineering specialists will get back to you shortly regarding: " + text;
+          chatMessages.appendChild(ishaMsg);
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 1200);
+      }
+
+      sendChat.addEventListener('click', handleChatSend);
+      chatInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') handleChatSend();
+      });
+    });
+  </script>
+</body>
+
 </html>
