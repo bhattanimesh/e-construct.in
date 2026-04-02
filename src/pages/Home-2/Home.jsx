@@ -2,6 +2,8 @@ import About from "../../components/About"
 import CTASection from "../../components/CTASection"
 import FoundersSection from "../../components/FoundersSection"
 import Hero from "../../components/Hero"
+import FlipbookGallery from "../../components/FlipbookGallery"
+import VideoGallery from "../../components/VideoGallery"
 import NewsAndBlog from "../../components/NewsAndBlog"
 import OurBlogs from "../../components/OurBlogs"
 import OurGallery from "../../components/OurGallery"
@@ -17,6 +19,8 @@ function Home() {
     <>
      
 <Hero />
+<FlipbookGallery />
+<VideoGallery />
 <TrustedPartners />
 <About />
 <Services />
