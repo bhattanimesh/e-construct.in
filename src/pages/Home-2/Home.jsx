@@ -3,6 +3,7 @@ import CTASection from "../../components/CTASection"
 import FoundersSection from "../../components/FoundersSection"
 import Hero from "../../components/Hero"
 import NewsAndBlog from "../../components/NewsAndBlog"
+import OurBlogs from "../../components/OurBlogs"
 import OurGallery from "../../components/OurGallery"
 import Services from "../../components/OurServices"
 import ProcessSection from "../../components/ProcessSection"
@@ -25,6 +26,7 @@ function Home() {
 <FoundersSection />
 <OurGallery />
 <NewsAndBlog />
+<OurBlogs />
     </> 
   )
 }
