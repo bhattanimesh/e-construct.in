@@ -7,7 +7,7 @@ const Home1 = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [messages, setMessages] = useState([
-    { text: "Hello! I am Isha, your EConstruct technical assistant. How can I help you with our structural services today?", type: 'isha' }
+    { text: "Hello! I am Isha, your EConstruct technical assistant. How can I help you with our civil engineering services today?", type: 'isha' }
   ]);
   const [showMoreVideos, setShowMoreVideos] = useState(false);
   const chatBodyRef = useRef(null);
@@ -98,7 +98,7 @@ const Home1 = () => {
         </nav>
         <div className="header-right hidden lg:flex gap-3 items-center">
             {['FB', 'LI', 'IN'].map(social => (
-              <div key={social} className="border border-white/15 text-white w-9 h-9 rounded-full flex items-center justify-center font-bold text-[0.6rem] cursor-pointer transition-all hover:border-[#fbc02d] hover:text-[#fbc02d] hover:bg-white/10">
+              <div key={social} className="border border-black/10 text-[var(--text-white)] w-9 h-9 rounded-full flex items-center justify-center font-bold text-[0.6rem] cursor-pointer transition-all hover:border-[#fbc02d] hover:text-[#fbc02d] hover:bg-black/5">
                 {social}
               </div>
             ))}
@@ -109,7 +109,7 @@ const Home1 = () => {
       <section className="hero reveal">
         <div className="hero-bg-zoom" id="heroZoom"></div>
         <div className="hero-content">
-          <h1 className="reveal-left">We Are Expert in<br/><span className="accent-text">Structural Services</span></h1>
+          <h1 className="reveal-left">Integrated Excellence in<br/><span className="accent-text">Civil Engineering</span></h1>
           <div className="hero-btns">
             <a href="#" className="btn btn-filled">
               <span>Watch Firm Video</span>
@@ -129,17 +129,17 @@ const Home1 = () => {
       </section>
 
       {/* Unified Flipbook Gallery */}
-      <section className="flipbook-gallery reveal bg-[#080808] py-24 border-b border-white/10 w-full px-4">
+      <section className="flipbook-gallery reveal bg-white py-24 border-b border-black/5 w-full px-4 text-[var(--primary-dark)]">
           <div className="container text-center mb-16">
             <span className="accent-text text-xs font-bold tracking-[0.2em] uppercase">Interactive Library</span>
-            <h2 className="text-5xl text-white mt-2">Our Digital <span className="accent-text italic">Showcase</span></h2>
-            <p className="text-[#888] mt-4 max-w-2xl mx-auto">Explore our portfolio, brochures, and technical guides in one interactive place.</p>
+            <h2 className="text-5xl text-[var(--primary-dark)] mt-2">Our Digital <span className="accent-text italic">Showcase</span></h2>
+            <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">Explore our portfolio, brochures, and technical guides in one interactive place.</p>
           </div>
           
           <div className="container grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-[1400px]">
              {/* Flipbook 1 */}
              <div className="flex flex-col items-center">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Residential Home Construction</h3>
+                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Residential Home Construction</h3>
                 <PdfFlipbook 
                   width={400} 
                   height={560} 
@@ -149,7 +149,7 @@ const Home1 = () => {
 
              {/* Flipbook 2 */}
              <div className="flex flex-col items-center">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">BIM Project & Services</h3>
+                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">BIM Project & Services</h3>
                 <PdfFlipbook 
                   width={400} 
                   height={560} 
@@ -159,7 +159,7 @@ const Home1 = () => {
 
              {/* Flipbook 3 */}
              <div className="flex flex-col items-center">
-                <h3 className="text-white text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Tushar Dawda Associate</h3>
+                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Tushar Dawda Associate</h3>
                 <PdfFlipbook 
                   width={400} 
                   height={560} 
@@ -170,11 +170,11 @@ const Home1 = () => {
       </section>
 
       {/* Video Grid */}
-      <section className="videos-section reveal py-24 bg-black border-b border-white/10 relative">
+      <section className="videos-section reveal py-24 bg-white border-b border-black/5 relative text-[var(--primary-dark)]">
         <div className="parallax-bg" data-speed="0.05"></div>
         <div className="container text-center mb-16">
           <span className="accent-text text-xs font-bold tracking-[0.2em] uppercase">Project Visuals</span>
-          <h2 className="text-5xl text-white mt-2">Our Structural <span className="accent-text italic">Videos</span></h2>
+          <h2 className="text-5xl text-[var(--primary-dark)] mt-2">Engineering <span className="accent-text italic">Excellence in Action</span></h2>
         </div>
         <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1400px]">
           {[
@@ -195,12 +195,12 @@ const Home1 = () => {
       </section>
 
       {/* Founder Section */}
-      <section className="founder-section reveal relative py-24 bg-[#080808] border-b border-white/10 overflow-hidden">
+      <section className="founder-section reveal relative py-24 bg-[var(--secondary-dark)] border-b border-black/5 overflow-hidden">
         <div className="parallax-bg" data-speed="0.08" style={{ background: 'radial-gradient(circle at left, rgba(251, 192, 45, 0.05) 0%, transparent 50%)' }}></div>
         <div className="container relative z-10 max-w-[1400px]">
           <div className="text-center mb-16">
             <span className="accent-text text-xs tracking-[0.2em] font-bold uppercase">Vision & Leadership</span>
-            <h2 className="text-5xl text-white mt-2">The Founder's <span className="accent-text italic">Portfolio</span></h2>
+            <h2 className="text-5xl text-[var(--primary-dark)] mt-2">The Founder's <span className="accent-text italic">Portfolio</span></h2>
           </div>
           <div className="flex flex-wrap gap-16 items-center">
              <div className="w-[320px] relative stagger-item">
@@ -208,9 +208,9 @@ const Home1 = () => {
                 <img src="/assets/founder.webp" alt="Founder" className="w-full rounded-2xl relative z-10 shadow-2xl object-cover" />
              </div>
              <div className="flex-1 min-w-[350px] stagger-item">
-                <h3 className="text-4xl text-white mb-6 font-bold leading-tight">Pioneering Excellence in Structural <span className="text-[#fbc02d]">Engineering</span></h3>
-                <p className="text-[#888] text-lg leading-relaxed mb-6">With a profound vision and years of dedicated expertise, our leadership has driven <strong>EConstruct</strong> to the forefront of structural engineering and architectural innovation.</p>
-                <p className="text-[#888] text-lg leading-relaxed mb-10">The Founder's journey is defined by an unwavering commitment to quality education, mentorship, and building resilient infrastructures.</p>
+                <h3 className="text-4xl text-[var(--primary-dark)] mb-6 font-bold leading-tight">Pioneering Excellence in Multi-Sector <span className="text-[#fbc02d]">Civil Engineering</span></h3>
+                <p className="text-[var(--text-muted)] text-lg leading-relaxed mb-6">With a profound vision and years of dedicated expertise, our leadership has driven <strong>EConstruct</strong> to the forefront of various civil engineering sectors, architectural innovation, and infrastructure development.</p>
+                <p className="text-[var(--text-muted)] text-lg leading-relaxed mb-10">The Founder's journey is defined by an unwavering commitment to quality education, mentorship, and building resilient infrastructures.</p>
                 <button className="btn btn-filled">View Full Profile</button>
              </div>
           </div>
@@ -220,12 +220,12 @@ const Home1 = () => {
       {/* Stats Bento */}
       <section className="stats-section reveal">
         <div className="container text-center mb-20 relative z-10">
-          <h2 className="text-4xl font-bold mb-3">Why Choose EConstruct?</h2>
-          <p className="text-[#888]">Delivering excellence driven by profound expertise.</p>
+          <h2 className="text-4xl text-[var(--primary-dark)] font-bold mb-3">Why Choose EConstruct?</h2>
+          <p className="text-[var(--text-muted)]">Delivering excellence driven by profound expertise.</p>
         </div>
         <div className="blueprint-quadrant">
           {[
-            { val: '29+', title: 'Years Legacy', desc: 'Redefining structural precision since 1997.' },
+            { val: '29+', title: 'Years Legacy', desc: 'Redefining civil engineering excellence since 1997.' },
             { val: '650+', title: 'Projects Delivered', desc: 'From skyscrapers to massive infrastructure.' },
             { val: '45K+', title: 'Engineers Trained', desc: 'Bridging the industry competency gap.' },
             { val: '100%', title: 'Placement Success', desc: 'Ensuring alumni lead in global giants.' }
@@ -242,62 +242,106 @@ const Home1 = () => {
         </div>
       </section>
 
-      {/* Corporate Training */}
-      <section className="tab-section reveal py-32 bg-black border-t border-white/10 text-white">
-          <div className="container flex justify-between items-end mb-16 stagger-item">
-              <div>
-                <span className="accent-text text-xs tracking-widest font-bold block mb-4 uppercase">Upskilling Pipelines</span>
-                <h2 className="text-5xl font-medium">Corporate <span className="accent-text italic">On-Job Training</span></h2>
+      {/* Consultancy Services */}
+      <section className="consultancy-section reveal py-32 bg-white border-t border-black/5 text-[var(--primary-dark)]">
+          <div className="container flex flex-wrap gap-20 items-start max-w-[1400px]">
+              <div className="flex-1 min-w-[300px]">
+                <span className="accent-text text-xs tracking-[0.2em] font-bold uppercase block mb-4">Engineering Pillars</span>
+                <h2 className="text-5xl text-[var(--primary-dark)] font-medium mb-10 leading-tight">Mastering Every Facet of <br/><span className="accent-text italic">Civil Engineering</span></h2>
+                <p className="text-[var(--text-muted)] text-lg leading-relaxed mb-12">From precision BIM modeling to the construction of luxury residential spaces, we deliver end-to-end solutions that redefine industry standards.</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                      'BIM Consultancy', 
+                      'Structural Consultancy', 
+                      'Project Management (EPMC)', 
+                      'Luxury Villa Design & Build', 
+                      'Residential & Commercial Construction', 
+                      'Core Construction Services', 
+                      'Total Quality Management'
+                    ].map(service => (
+                      <div key={service} className="flex items-center gap-4 text-[var(--primary-dark)] group cursor-pointer hover:translate-x-2 transition-transform">
+                        <div className="w-1.5 h-1.5 bg-[#fbc02d] rounded-full"></div>
+                        <span className="text-sm font-medium tracking-wide group-hover:text-[#fbc02d] transition-colors">{service}</span>
+                      </div>
+                    ))}
+                </div>
+              </div>
+              <div className="w-full lg:w-[450px] bg-slate-50 p-12 border border-black/5 rounded-3xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#fbc02d]/5 rounded-full blur-3xl group-hover:bg-[#fbc02d]/10 transition-all"></div>
+                  <h3 className="text-22xl text-[var(--primary-dark)] mb-8 font-bold">Why Partner with Us?</h3>
+                  <p className="text-[var(--text-muted)] text-sm leading-8 mb-8 italic">"We don't just build structures; we engineer legacies through precision, transparency, and uncompromising quality."</p>
+                  <ul className="space-y-6">
+                    {['Expert Vetting', 'Value Engineering', 'Clash-Free Workflows'].map(item => (
+                      <li key={item} className="text-[var(--primary-dark)] text-xs font-bold tracking-widest flex items-center gap-3">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fbc02d" strokeWidth="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
               </div>
           </div>
-          <div className="container grid grid-cols-1 md:grid-cols-3 gap-8">
+      </section>
+
+      {/* Corporate Master Study Programs */}
+      <section className="training-section reveal py-32 bg-slate-50 border-t border-black/5 overflow-hidden text-[var(--primary-dark)]">
+          <div className="container text-center mb-20 stagger-item">
+              <span className="accent-text text-xs tracking-[0.2em] font-bold uppercase block mb-4">Corporate Upskilling</span>
+              <h2 className="text-5xl text-[var(--primary-dark)] font-medium mb-4">Master Study <span className="accent-text italic">Programs</span></h2>
+              <p className="text-[var(--text-muted)] max-w-2xl mx-auto">Specialized programs designed to transform engineers into industry-ready experts.</p>
+          </div>
+          <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                  { title: 'Master Study in Structural Engineering', desc: 'RCC, Steel, and PSC project mastery. Total execution pipelines.' },
-                  { title: 'Techno-Management Entrepreneurship', desc: 'Composite training in Structures + BIM + Management.' },
-                  { title: 'Project Management with BIM', desc: 'Virtual construction monitoring and cost-saving BIM decision making.' }
+                  { title: 'Master Study In Structural Engineering', desc: 'RCC, Steel, and PSC project mastery with multi-sector application.' },
+                  { title: 'Master Study In Project Management With BIM Technology', desc: 'Virtual construction monitoring and cost-saving BIM decision making.' },
+                  { title: 'Structures + BIM + Project Management', desc: 'Composite training in Infrastructure Modeling + BIM + Management.' },
+                  { title: 'Master Study In Engineering Drawing & Drafting', desc: 'Advanced architectural and structural drafting with precision.' },
+                  { title: 'Master Study In Interior Designing', desc: 'Comprehensive interior design and spatial planning workflows.' },
+                  { title: 'Master Study In Project & Contract Management', desc: 'Strategic management of engineering contracts and project lifecycles.' },
+                  { title: 'Master Study In Business Management', desc: 'Entrepreneurship and business scaling for engineering firms.' },
+                  { title: 'Master Study In Project Management With BIM & MEP Engineering', desc: 'Integrated BIM workflow with Mechanical, Electrical, and Plumbing engineering.' }
               ].map((prog, i) => (
-                <div key={i} className="program-card stagger-item">
-                    <span className="text-[#fbc02d] font-bold text-[0.7rem] tracking-widest bg-[#fbc02d]/10 px-2 py-1 rounded">BATCH 1: 15th April 2026</span>
-                    <h3 className="text-2xl mt-6 mb-4">{prog.title}</h3>
-                    <p className="text-[#888] text-sm mb-8 leading-relaxed">{prog.desc}</p>
-                    <button className="btn btn-filled w-fit text-xs">Explore Syllabus ➜</button>
+                <div key={i} className="program-card stagger-item min-h-[320px] flex flex-col border border-black/5 bg-white shadow-sm p-8 rounded-2xl hover:shadow-xl transition-all">
+                    <span className="text-[#fbc02d] font-bold text-[0.6rem] tracking-widest bg-[#fbc02d]/10 px-2 py-1 rounded w-fit">ENROLLING NOW</span>
+                    <h3 className="text-xl mt-6 mb-4 flex-1 text-[var(--primary-dark)]">{prog.title}</h3>
+                    <p className="text-[var(--text-muted)] text-[0.8rem] mb-6 leading-relaxed">{prog.desc}</p>
+                    <button className="btn btn-filled w-fit text-[0.6rem] py-2 px-4">Explore Syllabus ➜</button>
                 </div>
               ))}
           </div>
       </section>
 
       {/* Footer */}
-      <footer className="reveal py-32 bg-black border-t border-white/10 relative overflow-hidden">
+      <footer className="reveal py-32 bg-[var(--secondary-dark)] border-t border-black/5 relative overflow-hidden">
           <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
               <div className="stagger-item">
-                  <img src="/assets/logo.png" alt="E-Construct" className="h-9 brightness-0 invert mb-8" />
-                  <p className="text-[#888] text-sm leading-8 mb-8">Engineering excellence for 29+ years. A global leader in Structural Consultancy and BIM Workflows.</p>
+                  <img src="/assets/logo.png" alt="E-Construct" className="h-9 mb-8" />
+                  <p className="text-[var(--text-muted)] text-sm leading-8 mb-8">Engineering excellence for 29+ years. A global leader in Multi-Sector Civil Consultancy, Infrastructure Design, and BIM Workflows.</p>
               </div>
               <div className="stagger-item">
-                  <h4 className="text-white text-xs font-bold tracking-widest mb-8 uppercase">Strategic Hubs</h4>
-                  <ul className="flex flex-col gap-4 text-[#888] text-sm">
+                  <h4 className="text-[var(--text-white)] text-xs font-bold tracking-widest mb-8 uppercase">Strategic Hubs</h4>
+                  <ul className="flex flex-col gap-4 text-[var(--text-muted)] text-sm">
                     {['About Firm', 'Global Services', 'BIM Innovation', 'Career Hub'].map(link => <li key={link}><a href="#" className="hover:text-white transition-colors">{link}</a></li>)}
                   </ul>
               </div>
               <div className="stagger-item">
-                  <h4 className="text-white text-xs font-bold tracking-widest mb-8 uppercase">Engineering</h4>
-                  <ul className="flex flex-col gap-4 text-[#888] text-sm">
+                  <h4 className="text-[var(--text-white)] text-xs font-bold tracking-widest mb-8 uppercase">Engineering</h4>
+                  <ul className="flex flex-col gap-4 text-[var(--text-muted)] text-sm">
                     {['Consultancy', 'Master Training', 'Expert Vetting', 'Real-time BIM'].map(link => <li key={link}><a href="#" className="hover:text-white transition-colors">{link}</a></li>)}
                   </ul>
               </div>
               <div className="stagger-item">
-                  <h4 className="text-white text-xs font-bold tracking-widest mb-8 uppercase">Contact Hub</h4>
+                  <h4 className="text-[var(--text-white)] text-xs font-bold tracking-widest mb-8 uppercase">Contact Hub</h4>
                   <div className="mb-6">
-                    <span className="text-white text-xs font-bold block mb-2 uppercase">MUMBAI HQ</span>
-                    <p className="text-[#888] text-sm">Suite 401, Engineering Plaza, Kalpataru Highs, Mumbai.</p>
+                    <span className="text-[var(--text-white)] text-xs font-bold block mb-2 uppercase">MUMBAI HQ</span>
+                    <p className="text-[var(--text-muted)] text-sm">Suite 401, Engineering Plaza, Kalpataru Highs, Mumbai.</p>
                   </div>
                   <div>
                     <span className="text-[#fbc02d] text-xs font-bold block mb-2 uppercase">DIRECT CONNECT</span>
-                    <p className="text-[#888] text-sm">+91 93258 73229<br/>info@e-construct.in</p>
+                    <p className="text-[var(--text-muted)] text-sm">+91 93258 73229<br/>info@e-construct.in</p>
                   </div>
               </div>
           </div>
-          <div className="container border-t border-white/10 mt-20 pt-10 flex justify-between items-center text-[#444] text-xs">
+          <div className="container border-t border-black/5 mt-20 pt-10 flex justify-between items-center text-[#999] text-xs">
               <p>© 2026 E-CONSTRUCT Design & Build Pvt Ltd. All rights reserved.</p>
           </div>
       </footer>
@@ -312,10 +356,10 @@ const Home1 = () => {
           <div className="isha-header">
              <div className="w-10 h-10 bg-[#fbc02d] rounded-full flex items-center justify-center font-black text-[0.7rem] text-black">ISHA</div>
              <div>
-               <h4 className="text-white text-sm">Isha Assistant</h4>
-               <p className="text-[#888] text-[0.7rem]">Online | Technical Support</p>
+               <h4 className="text-[var(--text-white)] text-sm">Isha Assistant</h4>
+               <p className="text-[var(--text-muted)] text-[0.7rem]">Online | Technical Support</p>
              </div>
-             <button onClick={() => setIsChatOpen(false)} className="ml-auto text-white text-2xl font-light">×</button>
+             <button onClick={() => setIsChatOpen(false)} className="ml-auto text-[var(--text-white)] text-2xl font-light">×</button>
           </div>
           <div className="isha-body" ref={chatBodyRef}>
             {messages.map((m, i) => (
@@ -330,7 +374,7 @@ const Home1 = () => {
              ))}
           </div>
           <div className="isha-input-area">
-             <input type="text" placeholder="Type query..." className="flex-1 bg-white/5 border-none p-3 rounded-lg text-white text-sm" />
+             <input type="text" placeholder="Type query..." className="flex-1 bg-black/5 border-none p-3 rounded-lg text-[var(--text-white)] text-sm" />
              <button className="bg-[#fbc02d] w-10 rounded-lg flex items-center justify-center">
                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#000" strokeWidth="2.5"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
              </button>
