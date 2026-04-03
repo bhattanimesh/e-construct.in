@@ -17,7 +17,7 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="text-center md:text-left">
               <h3 className="text-xl font-bold text-slate-900">Subscribe to our Newsletter</h3>
-              <p className="text-sm text-slate-700">Engineering updates aur industry insights ke liye join karein.</p>
+              <p className="text-sm text-slate-700">Join for Engineering updates and industry insights.</p>
             </div>
             <div className="flex w-full md:w-auto">
               <input
@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Column 1: Brand & About */}
           <div className="space-y-6">
             <div className="flex items-center w-fit px-4 space-x-2">
-               <img src={Logo} alt="logo" className="h-10" />
+              <img src={Logo} alt="logo" className="h-10" />
             </div>
             <p className="text-sm leading-relaxed text-slate-700">
               India's leading Corporate Training & Consultancy firm. Hum engineering students aur professionals ko industry-ready banate hain aur all sectors of civil engineering – including world-class structural design services provide karte hain.

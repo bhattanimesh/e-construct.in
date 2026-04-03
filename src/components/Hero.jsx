@@ -10,8 +10,8 @@ const Hero = () => {
   const smoothScrollY = useSpring(scrollY, springConfig);
 
   // Parallax Values
-  const backgroundY = useTransform(smoothScrollY, [0, 1000], [0, 150]); 
-  const textY = useTransform(smoothScrollY, [0, 1000], [0, -100]); 
+  const backgroundY = useTransform(smoothScrollY, [0, 1000], [0, 150]);
+  const textY = useTransform(smoothScrollY, [0, 1000], [0, -100]);
   const opacity = useTransform(smoothScrollY, [0, 500], [1, 0]);
 
   // Entrance Animation Variants
@@ -27,9 +27,9 @@ const Hero = () => {
 
   return (
     <section className="relative w-full min-h-[100dvh] lg:h-[685px] overflow-hidden bg-[#0a0a0a]">
-      
+
       {/* --- BACKGROUND LAYER --- */}
-      <motion.div 
+      <motion.div
         style={{ y: backgroundY }}
         className="absolute inset-0 w-full h-full scale-125"
       >
@@ -42,7 +42,7 @@ const Hero = () => {
         >
           <source src={HeroVideo} type="video/mp4" />
         </video>
-        
+
         {/* Overlays - Reduced intensity to make video pop */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent hidden md:block"></div>
@@ -52,8 +52,8 @@ const Hero = () => {
       {/* --- CONTENT LAYER --- */}
       {/* max-w-[1400px] applied, mx-auto removed as requested */}
       <div className="relative z-10 h-[100dvh] lg:h-full w-full lg:max-w-[1400px] px-5 sm:px-10 flex flex-col justify-end pb-20 md:pb-16 lg:pb-24">
-        
-        <motion.div 
+
+        <motion.div
           variants={stagger}
           initial="initial"
           animate="animate"
@@ -69,7 +69,7 @@ const Hero = () => {
           </motion.div>
 
           {/* Main Heading */}
-          <motion.h1 
+          <motion.h1
             variants={fadeInUp}
             className="text-[40px] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[110px] font-medium text-white tracking-tight"
           >
@@ -78,16 +78,16 @@ const Hero = () => {
           </motion.h1>
 
           {/* Description */}
-          <motion.p 
+          <motion.p
             variants={fadeInUp}
             className="mt-4 md:mt-6 max-w-lg text-sm md:text-lg lg:text-xl text-gray-300 font-normal leading-relaxed"
           >
-            Delivering reliable civil engineering solutions with precision, 
-            safety, and unmatched quality since 1998.
+            Delivering reliable civil engineering solutions with precision,
+            safety, and unmatched quality since 2010.
           </motion.p>
 
           {/* Buttons */}
-          <motion.div 
+          <motion.div
             variants={fadeInUp}
             className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4"
           >
@@ -97,7 +97,7 @@ const Hero = () => {
               </span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </button>
-            
+
             <button className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm backdrop-blur-md hover:bg-white hover:text-black transition-all active:scale-95">
               Explore Projects
             </button>
@@ -106,7 +106,7 @@ const Hero = () => {
       </div>
 
       {/* Bottom Progress Line */}
-      <motion.div 
+      <motion.div
         initial={{ width: 0 }}
         animate={{ width: "100%" }}
         transition={{ duration: 1.5, delay: 0.5 }}
