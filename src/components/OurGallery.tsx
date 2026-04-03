@@ -24,7 +24,8 @@ const galleryImages = [
 
 const OurGallery = () => {
   return (
-    <section className="max-w-[1400px] mx-auto px-2 py-10">
+    <section className="bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 py-10">
       
       {/* 🔥 Heading */}
      <div className="max-w-3xl mb-8 sm:mb-10 md:mb-12">
@@ -97,6 +98,7 @@ const OurGallery = () => {
             <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition duration-500" />
           </motion.div>
         ))}
+      </div>
       </div>
     </section>
   );

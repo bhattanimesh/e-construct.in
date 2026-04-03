@@ -48,7 +48,8 @@ const OurBlogs = () => {
   ];
 
   return (
-    <section className="px-2 pb-10 max-w-[1400px] mx-auto">
+    <section className="bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 pb-10">
       <div className="py-8 md:py-12">
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6 md:gap-0">
           <div className="max-w-md">
@@ -107,6 +108,7 @@ const OurBlogs = () => {
             </div>
           </div>
         ))}
+      </div>
       </div>
     </section>
   );

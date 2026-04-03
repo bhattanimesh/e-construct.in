@@ -33,7 +33,8 @@ const ConstructionBlog = () => {
   ];
 
   return (
-    <section className=" px-2 pb-10 max-w-[1400px] mx-auto">
+    <section className="bg-white overflow-hidden">
+      <div className="max-w-[1400px] mx-auto px-6 pb-10">
     
        <div className=" py-8 md:py-12">
 
@@ -115,6 +116,7 @@ const ConstructionBlog = () => {
             </div>
           ))}
         </div>
+      </div>
     </section>
   );
 };
