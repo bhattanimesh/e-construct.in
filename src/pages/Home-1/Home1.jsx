@@ -136,35 +136,56 @@ const Home1 = () => {
             <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">Explore our portfolio, brochures, and technical guides in one interactive place.</p>
           </div>
           
-          <div className="container grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-[1400px]">
+          <div className="container grid grid-cols-1 lg:grid-cols-3 gap-16 max-w-[1400px]">
              {/* Flipbook 1 */}
-             <div className="flex flex-col items-center">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Residential Home Construction</h3>
-                <PdfFlipbook 
-                  width={400} 
-                  height={560} 
-                  pdfUrl="/pdfs/econ_presentation.pdf" 
-                />
+             <div className="flex flex-col items-center group">
+                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Residential Home Construction</h3>
+                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
+                  <span className="animate-pulse">←</span>
+                  <span>Swipe to Flip</span>
+                  <span className="animate-pulse">→</span>
+                </div>
+                <div className="flex-1 w-full max-w-[560px] flex justify-center">
+                   <PdfFlipbook 
+                    width={560} 
+                    height={400} 
+                    pdfUrl="/pdfs/econ_presentation.pdf" 
+                   />
+                </div>
              </div>
 
              {/* Flipbook 2 */}
-             <div className="flex flex-col items-center">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">BIM Project & Services</h3>
-                <PdfFlipbook 
-                  width={400} 
-                  height={560} 
-                  pdfUrl="/pdfs/econstruct_bim.pdf" 
-                />
+             <div className="flex flex-col items-center group">
+                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">BIM Project & Services</h3>
+                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
+                  <span className="animate-pulse">←</span>
+                  <span>Swipe to Flip</span>
+                  <span className="animate-pulse">→</span>
+                </div>
+                <div className="flex-1 w-full max-w-[560px] flex justify-center">
+                   <PdfFlipbook 
+                    width={560} 
+                    height={400} 
+                    pdfUrl="/pdfs/econstruct_bim.pdf" 
+                   />
+                </div>
              </div>
 
              {/* Flipbook 3 */}
-             <div className="flex flex-col items-center">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-8 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center">Tushar Dawda Associate</h3>
-                <PdfFlipbook 
-                  width={400} 
-                  height={560} 
-                  pdfUrl="/pdfs/econstruct_tushar.pdf" 
-                />
+             <div className="flex flex-col items-center group">
+                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Tushar Dawda Associate</h3>
+                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
+                  <span className="animate-pulse">←</span>
+                  <span>Swipe to Flip</span>
+                  <span className="animate-pulse">→</span>
+                </div>
+                <div className="flex-1 w-full max-w-[560px] flex justify-center">
+                   <PdfFlipbook 
+                    width={560} 
+                    height={400} 
+                    pdfUrl="/pdfs/econstruct_tushar.pdf" 
+                   />
+                </div>
              </div>
           </div>
       </section>

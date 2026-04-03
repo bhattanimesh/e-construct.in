@@ -40,11 +40,12 @@ const ImmersiveProcess = () => {
   
   const { scrollYProgress } = useScroll({
     target: targetRef,
+    offset: ["start start", "end end"],
   });
 
   // Smoothing the scroll for a premium feel
-  const xRaw = useTransform(scrollYProgress, [0, 1], ["0%", "-75%"]);
-  const x = useSpring(xRaw, { stiffness: 100, damping: 20, restDelta: 0.001 });
+  const xSpring = useSpring(scrollYProgress, { stiffness: 100, damping: 20, restDelta: 0.001 });
+  const x = useTransform(xSpring, [0, 1], ["0%", "calc(-100% + 100vw)"]);
 
   return (
     <section ref={targetRef} className="relative h-[400vh] bg-white">

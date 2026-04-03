@@ -71,12 +71,10 @@ const Hero = () => {
           {/* Main Heading */}
           <motion.h1 
             variants={fadeInUp}
-            className="text-[40px] leading-[1.1] sm:text-6xl md:text-7xl lg:text-8xl font-black text-white uppercase tracking-tighter"
+            className="text-[40px] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[110px] font-medium text-white tracking-tight"
           >
             We Build Your <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-yellow-400 to-yellow-600">
-              Dreams
-            </span>
+            <span className="accent-text italic">Dreams</span>
           </motion.h1>
 
           {/* Description */}

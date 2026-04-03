@@ -1,6 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --font-main: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Cormorant Garamond', serif;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: #000;
+}
+
+.accent-text {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  color: #fbc02d;
+}
 
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar,

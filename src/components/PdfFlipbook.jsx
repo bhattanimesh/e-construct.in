@@ -11,14 +11,15 @@ pdfjs.GlobalWorkerOptions.workerSrc = new URL(
   import.meta.url,
 ).toString();
 
-const PdfPage = React.forwardRef(({ pageNumber, width }, ref) => {
+const PdfPage = React.forwardRef(({ pageNumber, width, height }, ref) => {
   return (
     <div className="page" ref={ref}>
-      <div className="page-content">
+      <div className="page-content bg-white shadow-inner">
         <Page 
           pageNumber={pageNumber} 
           width={width} 
-          devicePixelRatio={3} 
+          height={height}
+          devicePixelRatio={2} 
           renderTextLayer={false}
           renderAnnotationLayer={false}
           className="pdf-page-render"
@@ -28,7 +29,7 @@ const PdfPage = React.forwardRef(({ pageNumber, width }, ref) => {
   );
 });
 
-const PdfFlipbook = ({ pdfUrl, width = 550, height = 733 }) => {
+const PdfFlipbook = ({ pdfUrl, width = 560, height = 400 }) => {
   const [numPages, setNumPages] = useState(null);
   const [currentPage, setCurrentPage] = useState(0);
   const [flipbookSize, setFlipbookSize] = useState({ width: width, height: height });
@@ -42,12 +43,11 @@ const PdfFlipbook = ({ pdfUrl, width = 550, height = 733 }) => {
     setCurrentPage(e.data);
   }, []);
 
-  // Responsive sizing logic
   useEffect(() => {
     const updateSize = () => {
       if (containerRef.current) {
         const containerWidth = containerRef.current.offsetWidth;
-        const newWidth = Math.min(width, containerWidth / 2 - 20);
+        const newWidth = Math.min(width, containerWidth);
         const newHeight = newWidth * (height / width); 
         setFlipbookSize({ width: newWidth, height: newHeight });
       }
@@ -56,35 +56,38 @@ const PdfFlipbook = ({ pdfUrl, width = 550, height = 733 }) => {
     updateSize();
     window.addEventListener('resize', updateSize);
     return () => window.removeEventListener('resize', updateSize);
-  }, []);
+  }, [width, height]);
 
   return (
-    <div className="flipbook-wrapper" ref={containerRef} style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <div className="flipbook-wrapper w-full flex flex-col items-center" ref={containerRef}>
       <Document
         file={pdfUrl}
         onLoadSuccess={onDocumentLoadSuccess}
-        loading={<div className="text-white">Loading PDF...</div>}
-        error={<div className="text-red-500">Failed to load PDF. Please check the URL.</div>}
+        loading={<div className="text-slate-400 py-32 italic">Loading PDF Presentation...</div>}
+        error={<div className="text-red-500 py-10">Failed to load PDF.</div>}
       >
         {numPages && (
           <HTMLFlipBook
             width={flipbookSize.width}
             height={flipbookSize.height}
             size="stretch"
-            minWidth={315}
+            minWidth={280}
             maxWidth={800}
-            minHeight={420}
-            maxHeight={1200}
+            minHeight={200}
+            maxHeight={600}
             maxShadowOpacity={0.5}
             showCover={true}
             onFlip={onFlip}
             className="demo-book"
+            mobileScrollSupport={true}
+            useMouseEvents={true}
           >
             {Array.from(new Array(numPages), (el, index) => (
               <PdfPage 
                 key={`page_${index + 1}`} 
                 pageNumber={index + 1} 
                 width={flipbookSize.width}
+                height={flipbookSize.height}
               />
             ))}
           </HTMLFlipBook>
@@ -92,8 +95,8 @@ const PdfFlipbook = ({ pdfUrl, width = 550, height = 733 }) => {
       </Document>
       
       {numPages && (
-        <div className="flipbook-controls mt-8">
-           <span className="text-white/50 text-sm">
+        <div className="mt-10 px-6 py-2.5 bg-slate-900 border border-slate-800 rounded-full shadow-xl">
+           <span className="text-slate-200 text-[0.75rem] font-black tracking-[0.2em] uppercase">
              Page {currentPage + 1} of {numPages}
            </span>
         </div>
