@@ -44,6 +44,24 @@ const OurBlogs = () => {
       title: "Building Collapses in India:…",
       desc: "Discover the causes of building…",
       img: b7
+    },
+    {
+      id: 7,
+      title: "Decline in vision for Temples of heritage : The Shift from Stone to Concrete in Modern Temple Construction",
+      desc: "Old temple architecture is a testament to the ingenuity and artistry of ancient builders, characterized by intricate designs, towering gopurams,",
+      img: "/b1_new.jpg"
+    },
+    {
+      id: 8,
+      title: "What’s wrong with the making process of a Civil Engineer?",
+      desc: "Civil Engineering is a part of engineering that deals with mathematical and scientific knowledge to improve infrastructures.",
+      img: "/b2_new.png"
+    },
+    {
+      id: 9,
+      title: "Tips to get a job as a Structural Engineer",
+      desc: "As a fresher, it is always difficult as a Structural Engineer. Most companies out there prefer candidates who have experience",
+      img: "/b3_new.png"
     }
   ];
 

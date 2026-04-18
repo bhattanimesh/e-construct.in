@@ -20,7 +20,7 @@ const Header = () => {
     { name: 'SERVICES', path: '/services', hasDropdown: true },
     { name: 'PROJECTS', path: '/projects' },
     { name: 'TRAINING', path: '/training', hasDropdown: true },
-    { name: 'BIM HUB', path: '/bim-hub' },
+    { name: 'PAGES', path: '/bim-hub', hasDropdown: true },
     { name: 'CAREERS', path: '/careers' },
     { name: 'CONTACT', path: '/contact' },
   ];
@@ -46,26 +46,88 @@ const Header = () => {
         </Link>
         
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-10">
+        <nav className="hidden lg:flex items-center gap-10 h-full">
           {navLinks.map((link) => (
-            <div key={link.name} className="flex items-center gap-1 group cursor-pointer">
-              <NavLink
-                to={link.path}
-                className={({ isActive }) =>
-                  `text-[0.7rem] font-extrabold uppercase tracking-[0.2em] transition-all duration-300 ${
-                    isActive 
-                      ? 'text-yellow-500 underline underline-offset-4' 
-                      : isScrolled ? 'text-gray-900 hover:text-yellow-500' : 'text-white hover:text-yellow-500'
-                  }`
-                }
-              >
-                {link.name}
-              </NavLink>
-              {link.hasDropdown && (
-                <ChevronDown 
-                  size={10} 
-                  className={`transition-all duration-300 ${isScrolled ? 'text-gray-900' : 'text-yellow-500'} group-hover:rotate-180`} 
-                />
+            <div key={link.name} className="flex items-center gap-1 group cursor-pointer h-full relative">
+              <div className="flex items-center gap-1">
+                <NavLink
+                  to={link.path}
+                  className={({ isActive }) =>
+                    `text-[0.7rem] font-extrabold uppercase tracking-[0.2em] transition-all duration-300 ${
+                      isActive 
+                        ? 'text-yellow-500 underline underline-offset-4' 
+                        : isScrolled ? 'text-gray-900 hover:text-yellow-500' : 'text-white hover:text-yellow-500'
+                    }`
+                  }
+                >
+                  {link.name}
+                </NavLink>
+                {link.hasDropdown && (
+                  <ChevronDown 
+                    size={10} 
+                    className={`transition-all duration-300 ${isScrolled ? 'text-gray-900' : 'text-yellow-500'} group-hover:rotate-180`} 
+                  />
+                )}
+              </div>
+              
+              {/* Dropdown Menu */}
+              {link.name === 'SERVICES' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-80 bg-white border-t-2 border-[#fbc02d] shadow-[0_15px_40px_-5px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-xl overflow-hidden translate-y-2 group-hover:translate-y-0">
+                  <div className="p-6">
+                    <h3 className="text-[#fbc02d] font-black uppercase tracking-[0.1em] text-sm mb-4 border-b border-gray-100 pb-3">
+                      Civil Engineering
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        'BIM Consultancy', 
+                        'Structural Consultancy', 
+                        'Project Management Consultancy (ePMC)', 
+                        'Design & Build your Luxury Villa', 
+                        'Construct your Dream Residential / Commercial Spaces', 
+                        'Construction Services', 
+                        'Total Quality Management'
+                      ].map((service, index) => (
+                        <li key={index}>
+                          <Link 
+                            to={service === 'BIM Consultancy' ? '/services/bim-consultancy' : '/services'} 
+                            className="text-gray-600 hover:text-[#fbc02d] hover:translate-x-2 text-[0.8rem] font-bold transition-all duration-300 block leading-tight"
+                          >
+                            {service}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+              {link.name === 'PAGES' && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-80 bg-white border-t-2 border-[#fbc02d] shadow-[0_15px_40px_-5px_rgba(0,0,0,0.1)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-xl overflow-hidden translate-y-2 group-hover:translate-y-0">
+                  <div className="p-6">
+                    <h3 className="text-[#fbc02d] font-black uppercase tracking-[0.1em] text-sm mb-4 border-b border-gray-100 pb-3">
+                      Pages
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        'Gallery',
+                        'About Us',
+                        'Blog',
+                        'MSB',
+                        'MSC',
+                        'MSS',
+                        'PBD'
+                      ].map((service, index) => (
+                        <li key={index}>
+                          <Link 
+                            to={`/bim-hub/${service.toLowerCase().replace(/\s+/g, '-')}`} 
+                            className="text-gray-600 hover:text-[#fbc02d] hover:translate-x-2 text-[0.8rem] font-bold transition-all duration-300 block leading-tight"
+                          >
+                            {service}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               )}
             </div>
           ))}
@@ -105,14 +167,73 @@ const Header = () => {
           </div>
           <div className="flex-1 overflow-y-auto p-10 space-y-8">
             {navLinks.map((link) => (
-              <NavLink
-                key={link.name}
-                to={link.path}
-                onClick={() => setIsOpen(false)}
-                className="block text-2xl font-black text-gray-900 uppercase tracking-tighter hover:text-yellow-500 transition-colors"
-              >
-                {link.name}
-              </NavLink>
+              <div key={link.name}>
+                <div className="flex items-center justify-between">
+                  <NavLink
+                    to={link.path}
+                    onClick={() => setIsOpen(false)}
+                    className="block text-2xl font-black text-gray-900 uppercase tracking-tighter hover:text-yellow-500 transition-colors"
+                  >
+                    {link.name}
+                  </NavLink>
+                </div>
+                {link.name === 'SERVICES' && (
+                  <div className="mt-4 pl-4 border-l-2 border-[#fbc02d]">
+                    <h3 className="text-[#fbc02d] font-black uppercase tracking-[0.1em] text-[0.7rem] mb-3">
+                      Civil Engineering
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        'BIM Consultancy', 
+                        'Structural Consultancy', 
+                        'Project Management Consultancy (ePMC)', 
+                        'Design & Build your Luxury Villa', 
+                        'Construct your Dream Residential / Commercial Spaces', 
+                        'Construction Services', 
+                        'Total Quality Management'
+                      ].map((service, index) => (
+                        <li key={index}>
+                          <Link 
+                            to={service === 'BIM Consultancy' ? '/services/bim-consultancy' : '/services'}
+                            onClick={() => setIsOpen(false)}
+                            className="text-gray-600 hover:text-[#fbc02d] text-[0.8rem] font-bold transition-all duration-300 block leading-tight"
+                          >
+                            {service}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {link.name === 'PAGES' && (
+                  <div className="mt-4 pl-4 border-l-2 border-[#fbc02d]">
+                    <h3 className="text-[#fbc02d] font-black uppercase tracking-[0.1em] text-[0.7rem] mb-3">
+                      Pages
+                    </h3>
+                    <ul className="space-y-3">
+                      {[
+                        'Gallery',
+                        'About Us',
+                        'Blog',
+                        'MSB',
+                        'MSC',
+                        'MSS',
+                        'PBD'
+                      ].map((service, index) => (
+                        <li key={index}>
+                          <Link 
+                            to={`/bim-hub/${service.toLowerCase().replace(/\s+/g, '-')}`} 
+                            onClick={() => setIsOpen(false)}
+                            className="text-gray-600 hover:text-[#fbc02d] text-[0.8rem] font-bold transition-all duration-300 block leading-tight"
+                          >
+                            {service}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
           <div className="p-10 border-t flex gap-6 justify-center">

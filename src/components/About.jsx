@@ -106,7 +106,7 @@ const About = () => {
             </div>
             
             <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 leading-[1.15] md:leading-tight">
-              E-Construct Design and <br className="hidden md:block"/> Building Pvt. Ltd.
+              EConstruct Design and <br className="hidden md:block"/> Building Pvt. Ltd.
             </h2>
 
             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
@@ -140,6 +140,46 @@ const About = () => {
           </motion.div>
 
         </div>
+
+        {/* --- Why Complete Construction Solutions --- */}
+        <div className="mt-24 md:mt-32 w-full border-t border-gray-100 pt-16 md:pt-24">
+          <div className="text-center mb-16">
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-900 mb-6 tracking-tight">
+              Why Complete Construction <br className="hidden md:block"/> Solutions Under One Roof Help You
+            </h3>
+            <div className="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              { title: "Seamless Coordination", desc: "Smooth communication between all project stages" },
+              { title: "Faster Decision-Making", desc: "Quick approvals with a single responsible team" },
+              { title: "Reduced Errors", desc: "Better coordination minimizes design and site mistakes" },
+              { title: "Design-to-Execution Clarity", desc: "No confusion between drawings and execution" },
+              { title: "Optimized Resource Use", desc: "Efficient use of materials, labor, and time" },
+              { title: "Transparency", desc: "Clear communication on cost, timeline, and progress" },
+              { title: "Customized Solutions", desc: "Designs tailored to your needs and budget" },
+              { title: "Higher Efficiency", desc: "Streamlined workflow improves overall productivity" },
+              { title: "Risk Reduction", desc: "Early-stage planning avoids future complications" },
+              { title: "Quality Control at Every Stage", desc: "Continuous monitoring ensures standards" },
+              { title: "Better Project Tracking", desc: "Easy monitoring of progress and milestones" },
+              { title: "Professional Expertise", desc: "Access to experienced designers and engineers" },
+              { title: "On-Time Delivery", desc: "Better planning ensures timely completion" },
+              { title: "Value Engineering", desc: "Smart design decisions to save cost without compromising quality" }
+            ].map((item, index) => (
+              <div key={index} className="flex gap-4 p-6 rounded-2xl bg-white border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
+                <div className="flex-shrink-0 bg-yellow-50 rounded-xl h-12 w-12 flex items-center justify-center">
+                  <CheckCircle className="text-yellow-600 h-6 w-6" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-base mb-1">{item.title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed font-medium">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
