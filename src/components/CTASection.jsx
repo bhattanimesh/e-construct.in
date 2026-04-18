@@ -31,11 +31,11 @@ backgroundImage: `url(${CtaBG})`,
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
-          className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tight mb-6"
+          className="text-4xl md:text-5xl font-medium text-white leading-tight tracking-tight mb-6"
         >
           Got A Project?
           <br />
-          <span className="text-amber-500">
+          <span className="accent-text italic">
             Small Or Big, We Design For All!
           </span>
         </motion.h2>

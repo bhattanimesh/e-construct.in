@@ -63,18 +63,14 @@ const OurGallery = () => {
       md:text-4xl 
       lg:text-5xl 
       xl:text-6xl
-      font-black 
+      font-medium
       text-black 
       leading-tight 
-      uppercase 
       tracking-tight
     "
   >
     Our{" "}
-    <span 
-      className="text-transparent"
-      style={{ WebkitTextStroke: '1px #1e293b' }}
-    >
+    <span className="accent-text italic">
       Gallery
     </span>
   </motion.h2>

@@ -91,10 +91,10 @@ const Projects = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-4xl md:text-5xl font-black text-white leading-tight uppercase tracking-tighter"
+            className="text-4xl md:text-5xl font-medium text-white leading-tight tracking-tight"
             >
               Latest Infrastructure & <br /> 
-              <span className="text-transparent" style={{ WebkitTextStroke: '1px #ffffff' }}>Construction Projects</span>
+              <span className="accent-text italic">Construction Projects</span>
             </motion.h2>
 
            

@@ -61,9 +61,9 @@ const Services = () => {
               <div className="w-12 h-1 bg-yellow-500"></div>
               <span className="text-yellow-600 font-bold uppercase tracking-widest text-sm">Our Expertise</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-black text-black leading-tight uppercase">
+            <h2 className="text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight">
               Complete Construction <br /> 
-              <span className="text-gray-400 font-outline-2">Solutions Under One Roof</span>
+              <span className="accent-text italic">Solutions Under One Roof</span>
             </h2>
           </div>
           

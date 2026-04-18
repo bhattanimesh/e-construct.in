@@ -8,7 +8,7 @@ const VideoGallery = () => {
       <div className="parallax-bg" data-speed="0.05"></div>
       <div className="container text-center mb-16 mx-auto">
         <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Project Visuals</span>
-        <h2 className="text-5xl text-[var(--primary-dark)] mt-2">Engineering <span className="text-yellow-500 italic">Excellence in Action</span></h2>
+        <h2 className="text-5xl font-medium text-[var(--primary-dark)] mt-2 tracking-tight">Engineering <span className="accent-text italic">Excellence in Action</span></h2>
       </div>
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1400px] mx-auto">
         {[

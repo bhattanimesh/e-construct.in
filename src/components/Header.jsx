@@ -26,14 +26,16 @@ const Header = () => {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={12} />, label: 'FB' },
-    { icon: <Linkedin size={12} />, label: 'LI' },
-    { icon: <Instagram size={12} />, label: 'IN' }
+    { icon: <Facebook size={16} />, label: 'Facebook' },
+    { icon: <Linkedin size={16} />, label: 'LinkedIn' },
+    { icon: <Instagram size={16} />, label: 'Instagram' },
   ];
 
   return (
     <header className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
-      isScrolled ? 'bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] h-20' : 'bg-transparent h-[100px]'
+      isScrolled
+        ? 'bg-white shadow-[0_10px_30px_rgba(0,0,0,0.05)] h-20'
+        : 'bg-black/40 backdrop-blur-sm h-[100px]'
     }`}>
       <div className="max-w-[1500px] mx-auto px-[5%] h-full flex items-center justify-between">
         {/* Logo */}
@@ -109,7 +111,6 @@ const Header = () => {
                     <ul className="space-y-3">
                       {[
                         'Gallery',
-                        'About Us',
                         'Blog',
                         'MSB',
                         'MSC',
@@ -136,14 +137,16 @@ const Header = () => {
         {/* Header Right */}
         <div className="hidden lg:flex items-center gap-3">
           {socialLinks.map((social, i) => (
-            <div 
-              key={i} 
-              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 cursor-pointer hover:border-yellow-500 hover:text-yellow-500 hover:bg-black/5
+            <a
+              key={i}
+              href="#"
+              aria-label={social.label}
+              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:border-yellow-500 hover:text-yellow-500 hover:bg-black/5
                 ${isScrolled ? 'border-gray-200 text-gray-900' : 'border-white/20 text-white'}
               `}
             >
-              <span className="font-bold text-[0.6rem]">{social.label}</span>
-            </div>
+              {social.icon}
+            </a>
           ))}
         </div>
 
@@ -213,7 +216,6 @@ const Header = () => {
                     <ul className="space-y-3">
                       {[
                         'Gallery',
-                        'About Us',
                         'Blog',
                         'MSB',
                         'MSC',
@@ -237,10 +239,10 @@ const Header = () => {
             ))}
           </div>
           <div className="p-10 border-t flex gap-6 justify-center">
-             {['FB', 'LI', 'IN'].map(social => (
-               <div key={social} className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center font-bold text-xs text-gray-900 hover:border-yellow-500 hover:text-yellow-500">
-                 {social}
-               </div>
+             {socialLinks.map((social, i) => (
+               <a key={i} href="#" aria-label={social.label} className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-gray-900 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300">
+                 {social.icon}
+               </a>
              ))}
           </div>
         </div>
@@ -249,4 +251,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Header;

@@ -83,9 +83,9 @@ const ServiceDetails = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white uppercase tracking-tight mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-medium text-white tracking-tight mb-6 leading-tight"
           >
-            Construction <span className="accent-text text-5xl md:text-7xl lowercase">Services</span>
+            Construction <span className="accent-text italic">Services</span>
           </motion.h1>
           
           <motion.p 
@@ -145,9 +145,9 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">About Us</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase leading-tight">
+              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 leading-tight tracking-tight">
                 Let us build your <br />
-                <span className="accent-text lowercase text-5xl md:text-6xl">dream home.</span>
+                <span className="accent-text italic">dream home.</span>
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed max-w-xl">
                 We are a leading consultancy and contracting company in India that has executed construction work for some of the most significant projects in the country. We continue to alter the structural landscape through several other prestigious projects in the residential, commercial, and Institutional space.
@@ -174,8 +174,8 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our Expertise</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase">
-                Construction <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #fbc02d' }}>Services</span>
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight">
+                Construction <span className="accent-text italic">Services</span>
               </h2>
             </div>
             
@@ -248,8 +248,8 @@ const ServiceDetails = () => {
               <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Portfolio</span>
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 uppercase">
-              Our <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #fbc02d' }}>Projects</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight">
+              Our <span className="accent-text italic">Projects</span>
             </h2>
           </div>
 
@@ -302,9 +302,9 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Testimonials</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-10 uppercase leading-tight">
+              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-10 leading-tight tracking-tight">
                 What Our <br />
-                <span className="accent-text lowercase text-5xl md:text-6xl">Clients Say</span>
+                <span className="accent-text italic">Clients Say</span>
               </h2>
 
               <div className="bg-white p-10 md:p-14 rounded-tl-[3rem] rounded-br-[3rem] shadow-xl relative border border-gray-100 min-h-[350px] flex flex-col justify-between">

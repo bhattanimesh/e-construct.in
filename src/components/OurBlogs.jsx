@@ -87,9 +87,9 @@ const OurBlogs = () => {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-tight uppercase tracking-tighter"
+              className="text-3xl sm:text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight"
             >
-              Our Blogs
+              Our <span className="accent-text italic">Blogs</span>
             </motion.h2>
           </div>
         </div>

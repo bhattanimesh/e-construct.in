@@ -86,9 +86,9 @@ const BimConsultancy = () => {
   };
 
   return (
-    <div className="w-full bg-white pt-20">
+    <div className="w-full bg-white">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-black mt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={ConstructionServiceHero} 
@@ -113,9 +113,9 @@ const BimConsultancy = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl font-black text-white uppercase tracking-tight mb-6 leading-tight"
+            className="text-5xl md:text-7xl font-medium text-white tracking-tight mb-6 leading-tight"
           >
-            BIM <span className="text-transparent" style={{ WebkitTextStroke: '2px #fbc02d' }}>Consultancy</span>
+            BIM <span className="accent-text italic">Consultancy</span>
           </motion.h1>
           
           <motion.p 
@@ -151,8 +151,8 @@ const BimConsultancy = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Innovation Hub</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-16 uppercase">
-            Autodesk <span className="text-[#fbc02d] italic">Ecosystem</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-16 tracking-tight">
+            Autodesk <span className="accent-text italic">Ecosystem</span>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -204,8 +204,8 @@ const BimConsultancy = () => {
       <section className="py-24 bg-slate-50 border-t border-gray-100">
         <div className="max-w-[1500px] mx-auto px-[5%]">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase">
-              Comprehensive <span className="text-yellow-500 italic">BIM Services</span>
+            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+              Comprehensive <span className="accent-text italic">BIM Services</span>
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed">
               From basic planning to advanced industrialization, our BIM solutions cover the entire project lifecycle through multiple dimensions.
@@ -242,8 +242,8 @@ const BimConsultancy = () => {
         <div className="max-w-[1500px] mx-auto px-[5%]">
           <div className="text-center mb-16 mx-auto flex flex-col items-center">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Implementation Strategy</span>
-            <h2 className="text-5xl text-slate-900 mt-2">
-              Our Proven <span className="text-yellow-500 italic font-serif">BIM Process</span>
+            <h2 className="text-5xl font-medium text-slate-900 mt-2 tracking-tight">
+              Our Proven <span className="accent-text italic">BIM Process</span>
             </h2>
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed">
               We follow a structured 4-step approach to ensure successful BIM integration for your entire project scale.
@@ -277,8 +277,8 @@ const BimConsultancy = () => {
           <div className="grid lg:grid-cols-2 gap-20">
             {/* Why Choose Us */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-black text-white mb-10 uppercase">
-                Why Choose <span className="text-yellow-500">Us</span>
+              <h2 className="text-4xl md:text-5xl font-medium text-white mb-10 tracking-tight">
+                Why Choose <span className="accent-text italic">Us</span>
               </h2>
               <div className="space-y-8">
                 {whyChooseUs.map((reason, idx) => (
@@ -315,8 +315,8 @@ const BimConsultancy = () => {
       {/* 5. How to Get Started */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-[1500px] mx-auto px-[5%] text-center">
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase">
-            How to <span className="text-yellow-500">Get Started</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+            How to <span className="accent-text italic">Get Started</span>
           </h2>
           <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
             Begin your BIM journey with our simple four-step process, mapped out for your convenience.
@@ -355,8 +355,8 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Testimonials</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-16 uppercase text-center">
-            What Our Clients Say
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-16 text-center tracking-tight">
+            What Our <span className="accent-text italic">Clients Say</span>
           </h2>
 
           <div className="w-full max-w-4xl bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative">
@@ -405,8 +405,8 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Proven Results</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase">
-            Impact Metrics <span className="text-yellow-500 italic font-serif transition-colors">from Our Clients</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+            Impact Metrics <span className="accent-text italic">from Our Clients</span>
           </h2>
           <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
             A quick glance at how our BIM solutions created measurable improvements.
@@ -436,8 +436,8 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Sectors We Serve</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 uppercase">
-            Specialized <span className="text-yellow-500 italic font-serif">Solutions</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+            Specialized <span className="accent-text italic">Solutions</span>
           </h2>
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Our BIM methodologies adapt to the unique challenges and complex regulatory requirements across diverse industries.
@@ -487,8 +487,8 @@ const BimConsultancy = () => {
               
               <div className="relative z-10">
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs mb-4 block">Contact Us Today</span>
-                <h2 className="text-3xl md:text-4xl font-black mb-6 leading-tight">
-                  Schedule a consultation with our <span className="text-[#fbc02d]">BIM experts</span> to explore how we can help transform your construction projects.
+                <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight tracking-tight">
+                  Schedule a consultation with our <span className="accent-text italic">BIM experts</span> to explore how we can help transform your construction projects.
                 </h2>
                 
                 <div className="space-y-6 mt-8">

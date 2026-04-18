@@ -25,3 +25,8 @@ dist-ssr
 
 # Ignore large PDFs
 public/pdfs/econstruct_hospitality.pdf
+
+# Environment variables (API keys)
+.env
+.env.local
+.env.*.local

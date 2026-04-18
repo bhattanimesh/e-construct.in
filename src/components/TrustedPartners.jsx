@@ -48,10 +48,9 @@ const TrustedPartners = () => {
             style={{ y: typeof window !== 'undefined' && window.innerWidth > 1024 ? yText : 0 }}
             className="w-full lg:w-[30%] flex flex-col items-start text-left"
           >
-            <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 uppercase tracking-tighter leading-[1.1]">
+            <h2 className="text-2xl md:text-4xl font-medium text-gray-900 tracking-tight leading-tight">
               We Already <br className='hidden md:block'/>
-                            <span className="text-gray-400 font-outline-2">Worked With</span>
-
+              <span className="accent-text italic">Worked With</span>
             </h2>
             
             <div className="mt-3 w-24 md:w-40 h-1.5 bg-yellow-500 rounded-full"></div>

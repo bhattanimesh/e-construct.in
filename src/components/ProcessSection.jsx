@@ -92,9 +92,9 @@ const ImmersiveProcess = () => {
               <span className="font-bold tracking-[0.3em] uppercase text-xs md:text-sm">Our Workflow</span>
             </motion.div>
 
-            <h2 className="text-6xl md:text-8xl lg:text-9xl font-black text-slate-900 uppercase leading-[0.85] mb-6">
+            <h2 className="text-6xl md:text-8xl lg:text-9xl font-medium text-slate-900 leading-[0.85] mb-6 tracking-tight">
               How We <br />
-              <span className="text-transparent" style={{ WebkitTextStroke: '1.5px #f59e0b' }}>Work</span>
+              <span className="accent-text italic">Work</span>
             </h2>
 
             <p className="text-gray-500 text-base md:text-lg max-w-sm border-l-2 border-yellow-500 pl-6 leading-relaxed">

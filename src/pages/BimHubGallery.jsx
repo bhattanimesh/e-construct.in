@@ -40,7 +40,7 @@ const BimHubGallery = () => {
   return (
     <div className="bg-white min-h-screen flex flex-col justify-start">
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden pt-20">
+      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
         <div 
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url('/p6.jpg')` }}
@@ -49,8 +49,8 @@ const BimHubGallery = () => {
         </div>
         
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-            Our <span className="text-[#fbc02d] drop-shadow-md">Gallery</span>
+          <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+            Our <span className="accent-text italic">Gallery</span>
           </h1>
         </div>
       </section>
@@ -64,8 +64,8 @@ const BimHubGallery = () => {
           </span>
           <span className="w-10 h-[2px] bg-yellow-500"></span>
         </div>
-        <h1 className="text-4xl md:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-          Meetings With <span className="text-yellow-500 italic">CM of Karnataka</span>
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-medium text-gray-900 tracking-tight leading-tight mb-6">
+          Meetings With <span className="accent-text italic">CM of Karnataka</span>
         </h1>
         <p className="mt-4 md:mt-6 max-w-2xl mx-auto text-sm md:text-lg text-gray-500 font-normal leading-relaxed">
           Exploring visionary infrastructure strategies and collaborative frameworks for future developments.
@@ -104,8 +104,8 @@ const BimHubGallery = () => {
           </span>
           <span className="w-10 h-[2px] bg-yellow-500"></span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-          Events and <span className="text-yellow-500 italic">Training</span>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-gray-900 tracking-tight leading-tight mb-6">
+          Events and <span className="accent-text italic">Training</span>
         </h2>
         <p className="mt-4 md:mt-6 max-w-2xl mx-auto text-sm md:text-lg text-gray-500 font-normal leading-relaxed">
           Showcasing the journey, key events, and the professional training environment at EConstruct.
@@ -144,8 +144,8 @@ const BimHubGallery = () => {
           </span>
           <span className="w-10 h-[2px] bg-yellow-500"></span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-          Interior <span className="text-yellow-500 italic">Designs</span>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-gray-900 tracking-tight leading-tight mb-6">
+          Interior <span className="accent-text italic">Designs</span>
         </h2>
         <p className="mt-4 md:mt-6 max-w-2xl mx-auto text-sm md:text-lg text-gray-500 font-normal leading-relaxed">
           Explore our breathtaking interior designs where aesthetics meet functional brilliance.
@@ -196,8 +196,8 @@ const BimHubGallery = () => {
           </span>
           <span className="w-10 h-[2px] bg-yellow-500"></span>
         </div>
-        <h2 className="text-4xl md:text-5xl lg:text-7xl font-black text-gray-900 tracking-tight leading-tight mb-6">
-          Our <span className="text-yellow-500 italic">Projects</span>
+        <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium text-gray-900 tracking-tight leading-tight mb-6">
+          Our <span className="accent-text italic">Projects</span>
         </h2>
         <p className="mt-4 md:mt-6 max-w-2xl mx-auto text-sm md:text-lg text-gray-500 font-normal leading-relaxed">
           Discover our landmark constructions and large-scale infrastructure projects.

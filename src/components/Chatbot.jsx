@@ -1,159 +1,320 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, User, Bot } from 'lucide-react';
+import { X, Send, Sparkles, ChevronDown } from 'lucide-react';
+import OpenAI from 'openai';
+import knowledgeBase from '../knowledgebase';
 
-const Chatbot = () => {
+const openai = new OpenAI({
+  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  dangerouslyAllowBrowser: true,
+});
+
+const INITIAL_MESSAGE = {
+  id: 1,
+  text: "Hi! I'm Isha, your Econstruct assistant. Ask me anything about our services, projects, or BIM consultancy.",
+  sender: 'bot',
+};
+
+const QUICK_REPLIES = [
+  'What services do you offer?',
+  'Tell me about BIM',
+  'How can I contact you?',
+  'View our projects',
+];
+
+// Animated dots for typing indicator
+const TypingDots = () => (
+  <div className="flex items-center gap-1 py-1">
+    {[0, 1, 2].map((i) => (
+      <motion.span
+        key={i}
+        className="w-1.5 h-1.5 rounded-full bg-[#fbc02d]"
+        animate={{ opacity: [0.3, 1, 0.3], y: [0, -3, 0] }}
+        transition={{ duration: 1, repeat: Infinity, delay: i * 0.18 }}
+      />
+    ))}
+  </div>
+);
+
+// Bot avatar — small yellow "E" monogram
+const BotAvatar = ({ size = 'sm' }) => (
+  <div
+    className={`rounded-full bg-[#fbc02d] flex items-center justify-center shrink-0 font-black text-black ${
+      size === 'sm' ? 'w-7 h-7 text-[11px]' : 'w-10 h-10 text-sm'
+    }`}
+  >
+    E
+  </div>
+);
+
+const buildHistory = (msgs) =>
+  msgs
+    .filter((m) => m.id !== 1)
+    .map((m) => ({
+      role: m.sender === 'user' ? 'user' : 'assistant',
+      content: m.text,
+    }));
+
+export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState([
-    { id: 1, text: "Hi! I'm Isha. How can I help you today?", sender: 'bot' }
-  ]);
+  const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [inputValue, setInputValue] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [showQuickReplies, setShowQuickReplies] = useState(true);
   const messagesEndRef = useRef(null);
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  };
+  const inputRef = useRef(null);
 
   useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [messages, isLoading]);
 
-  const handleSendMessage = (e) => {
-    e.preventDefault();
-    if (!inputValue.trim()) return;
+  useEffect(() => {
+    if (isOpen) setTimeout(() => inputRef.current?.focus(), 300);
+  }, [isOpen]);
 
-    const newUserMessage = {
-      id: messages.length + 1,
-      text: inputValue,
-      sender: 'user'
-    };
+  const sendMessage = async (text) => {
+    const trimmed = text.trim();
+    if (!trimmed || isLoading) return;
 
-    setMessages([...messages, newUserMessage]);
+    setShowQuickReplies(false);
+
+    const userMessage = { id: Date.now(), text: trimmed, sender: 'user' };
+    const updatedMessages = [...messages, userMessage];
+    setMessages(updatedMessages);
     setInputValue('');
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = {
-        id: messages.length + 2,
-        text: "Thanks for your message! Our team will get back to you shortly.",
-        sender: 'bot'
-      };
-      setMessages(prev => [...prev, botResponse]);
-    }, 1000);
+    try {
+      const response = await openai.chat.completions.create({
+        model: 'gpt-4o-mini',
+        messages: [
+          { role: 'system', content: knowledgeBase },
+          ...buildHistory(updatedMessages),
+        ],
+        max_tokens: 500,
+        temperature: 0.7,
+      });
+
+      const botText =
+        response.choices[0]?.message?.content?.trim() ||
+        "I'm sorry, I couldn't generate a response. Please try again.";
+
+      setMessages((prev) => [...prev, { id: Date.now() + 1, text: botText, sender: 'bot' }]);
+    } catch (error) {
+      console.error('OpenAI API error:', error);
+      let errorText =
+        "Sorry, I'm having trouble connecting right now. Please try again or contact us directly.";
+      if (error?.status === 401) errorText = 'API key is invalid or missing.';
+      else if (error?.status === 429) errorText = "Too many requests — please try again in a moment.";
+      setMessages((prev) => [...prev, { id: Date.now() + 1, text: errorText, sender: 'bot' }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    sendMessage(inputValue);
+  };
+
+  const handleQuickReply = (text) => {
+    sendMessage(text);
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end">
-      {/* Chat Window */}
+    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end font-[Plus_Jakarta_Sans,sans-serif]">
+      {/* ── Chat Window ── */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: 20, scale: 0.95, transformOrigin: 'bottom right' }}
+            initial={{ opacity: 0, y: 16, scale: 0.97 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 20, scale: 0.95 }}
-            className="mb-4 w-[350px] h-[500px] bg-white dark:bg-zinc-900 rounded-2xl shadow-2xl overflow-hidden border border-zinc-200 dark:border-zinc-800 flex flex-col"
+            exit={{ opacity: 0, y: 16, scale: 0.97 }}
+            transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+            className="mb-4 w-[360px] flex flex-col rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.6)] border border-white/[0.06]"
+            style={{ height: 520 }}
           >
-            {/* Header */}
-            <div className="bg-yellow-500 p-4 text-black flex justify-between items-center border-b border-yellow-600/10">
+            {/* ── Header ── */}
+            <div className="relative bg-black px-5 py-4 flex items-center justify-between shrink-0 border-b border-white/[0.07]">
+              {/* Yellow accent bar */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-[#fbc02d]" />
+
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-black/10 flex items-center justify-center backdrop-blur-sm border border-black/20 overflow-hidden ring-2 ring-yellow-400 ring-offset-2 ring-offset-yellow-500">
-                  <Bot size={22} className="text-black" />
-                </div>
+                <BotAvatar size="lg" />
                 <div>
-                  <h3 className="font-bold text-lg leading-tight tracking-tight">isha</h3>
-                  <div className="flex items-center gap-1.5 text-black/70">
-                    <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.5)]"></span>
-                    <span className="text-[10px] font-bold uppercase tracking-widest">Active Ready</span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-white font-bold text-[15px] tracking-tight">Isha</span>
+                    <span className="text-[10px] font-semibold uppercase tracking-widest text-[#fbc02d]/80 bg-[#fbc02d]/10 px-2 py-0.5 rounded-full">
+                      AI
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-1.5 mt-0.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <span className="text-[10px] text-white/40 uppercase tracking-widest font-medium">
+                      {isLoading ? 'Typing…' : 'Online'}
+                    </span>
                   </div>
                 </div>
               </div>
-              <button 
-                onClick={() => setIsOpen(false)}
-                className="p-1.5 hover:bg-black/10 rounded-full transition-colors text-black"
-                aria-label="Close chat"
-              >
-                <X size={20} />
-              </button>
+
+              <div className="flex items-center gap-1">
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all"
+                  aria-label="Minimise chat"
+                >
+                  <ChevronDown size={18} />
+                </button>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="w-8 h-8 rounded-full flex items-center justify-center text-white/40 hover:text-white hover:bg-white/10 transition-all"
+                  aria-label="Close chat"
+                >
+                  <X size={18} />
+                </button>
+              </div>
             </div>
 
-            {/* Messages Area */}
-            <div className="flex-grow overflow-y-auto p-4 space-y-4 bg-zinc-50 dark:bg-zinc-950/50 scrollbar-thin scrollbar-thumb-zinc-300 dark:scrollbar-thumb-zinc-700">
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}
-                >
-                  <div
-                    className={`max-w-[85%] p-3.5 rounded-2xl text-sm leading-relaxed ${
-                      msg.sender === 'user'
-                        ? 'bg-yellow-500 text-black font-semibold rounded-tr-none shadow-md shadow-yellow-500/10'
-                        : 'bg-white dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 shadow-sm border border-zinc-100 dark:border-zinc-700 rounded-tl-none ring-1 ring-black/5 dark:ring-white/5'
-                    }`}
+            {/* ── Messages ── */}
+            <div className="flex-grow overflow-y-auto bg-[#0a0a0a] px-4 py-5 space-y-4 scrollbar-hide">
+              {messages.map((msg, idx) => {
+                const isBot = msg.sender === 'bot';
+                const isLast = idx === messages.length - 1;
+                return (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.22 }}
+                    className={`flex items-end gap-2 ${isBot ? 'justify-start' : 'justify-end'}`}
                   >
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
+                    {isBot && <BotAvatar size="sm" />}
+
+                    <div
+                      className={`max-w-[78%] px-4 py-3 text-[13.5px] leading-relaxed rounded-2xl ${
+                        isBot
+                          ? 'bg-[#161616] text-white/85 border border-white/[0.07] rounded-bl-sm'
+                          : 'bg-[#fbc02d] text-black font-semibold rounded-br-sm'
+                      }`}
+                    >
+                      {msg.text}
+                    </div>
+                  </motion.div>
+                );
+              })}
+
+              {/* Typing indicator */}
+              <AnimatePresence>
+                {isLoading && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0 }}
+                    className="flex items-end gap-2"
+                  >
+                    <BotAvatar size="sm" />
+                    <div className="bg-[#161616] border border-white/[0.07] rounded-2xl rounded-bl-sm px-4 py-3">
+                      <TypingDots />
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+              {/* Quick replies — shown only after the first bot message */}
+              <AnimatePresence>
+                {showQuickReplies && !isLoading && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 4 }}
+                    className="flex flex-wrap gap-2 pt-1"
+                  >
+                    {QUICK_REPLIES.map((qr) => (
+                      <button
+                        key={qr}
+                        onClick={() => handleQuickReply(qr)}
+                        className="text-[11.5px] font-semibold px-3 py-1.5 rounded-full border border-[#fbc02d]/40 text-[#fbc02d] hover:bg-[#fbc02d] hover:text-black transition-all duration-200"
+                      >
+                        {qr}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div ref={messagesEndRef} />
             </div>
 
-            {/* Input Area */}
-            <form onSubmit={handleSendMessage} className="p-4 border-t border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900">
-              <div className="flex gap-2">
+            {/* ── Input ── */}
+            <form
+              onSubmit={handleSubmit}
+              className="shrink-0 bg-[#0f0f0f] border-t border-white/[0.07] px-4 py-3"
+            >
+              <div className="flex items-center gap-2 bg-[#1a1a1a] rounded-xl border border-white/[0.08] focus-within:border-[#fbc02d]/50 transition-colors px-3 py-2">
                 <input
+                  ref={inputRef}
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Ask Isha anything..."
-                  className="flex-grow p-3 bg-zinc-100 dark:bg-zinc-800 border-none rounded-xl focus:ring-2 focus:ring-yellow-500 text-sm dark:text-white transition-all placeholder:text-zinc-400"
+                  placeholder="Ask Isha anything…"
+                  disabled={isLoading}
+                  className="flex-grow bg-transparent text-[13.5px] text-white placeholder:text-white/25 outline-none disabled:opacity-50"
                 />
-                <button
+                <motion.button
                   type="submit"
-                  className="p-3 bg-yellow-500 hover:bg-yellow-600 text-black rounded-xl transition-all hover:rotate-12 active:scale-95 shadow-lg shadow-yellow-500/20"
+                  disabled={isLoading || !inputValue.trim()}
+                  whileTap={{ scale: 0.88 }}
+                  className="w-8 h-8 rounded-lg bg-[#fbc02d] flex items-center justify-center text-black shrink-0 disabled:opacity-30 disabled:cursor-not-allowed transition-opacity"
+                  aria-label="Send message"
                 >
-                  <Send size={18} />
-                </button>
+                  <Send size={14} strokeWidth={2.5} />
+                </motion.button>
               </div>
+              <p className="text-center text-[10px] text-white/20 mt-2 tracking-wide">
+                Powered by Econstruct AI · GPT-4o mini
+              </p>
             </form>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* FAB Button */}
+      {/* ── FAB ── */}
       <motion.button
-        whileHover={{ scale: 1.1, rotate: isOpen ? 0 : 5 }}
-        whileTap={{ scale: 0.9 }}
-        onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full flex items-center justify-center shadow-[0_10px_40px_-10px_rgba(234,179,8,0.5)] transition-all duration-500 ${
-          isOpen 
-            ? 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white' 
-            : 'bg-yellow-500 text-black'
-        }`}
+        whileHover={{ scale: 1.08 }}
+        whileTap={{ scale: 0.92 }}
+        onClick={() => setIsOpen((v) => !v)}
+        className="relative w-14 h-14 rounded-full bg-[#fbc02d] text-black flex items-center justify-center shadow-[0_8px_32px_-4px_rgba(251,192,45,0.55)]"
+        aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
             <motion.div
               key="close"
-              initial={{ rotate: -90, opacity: 0 }}
+              initial={{ rotate: -80, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: 90, opacity: 0 }}
+              exit={{ rotate: 80, opacity: 0 }}
+              transition={{ duration: 0.18 }}
             >
-              <X size={32} strokeWidth={2.5} />
+              <X size={22} strokeWidth={2.5} />
             </motion.div>
           ) : (
             <motion.div
-              key="chat"
-              initial={{ rotate: 90, opacity: 0 }}
+              key="open"
+              initial={{ rotate: 80, opacity: 0 }}
               animate={{ rotate: 0, opacity: 1 }}
-              exit={{ rotate: -90, opacity: 0 }}
+              exit={{ rotate: -80, opacity: 0 }}
+              transition={{ duration: 0.18 }}
             >
-              <MessageCircle size={32} strokeWidth={2.5} />
+              <Sparkles size={22} strokeWidth={2} />
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* Unread dot — shown when closed and there are messages beyond the greeting */}
+        {!isOpen && messages.length > 1 && (
+          <span className="absolute top-0.5 right-0.5 w-3 h-3 rounded-full bg-emerald-400 border-2 border-black" />
+        )}
       </motion.button>
     </div>
   );
-};
-
-export default Chatbot;
+}

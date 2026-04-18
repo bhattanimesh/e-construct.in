@@ -145,10 +145,10 @@ const FoundersSection = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-black text-black leading-tight uppercase tracking-tighter"
+                        className="text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight"
                       >
-                        MEET OUR <br /> 
-                        <span className="text-transparent" style={{ WebkitTextStroke: '1px #1e293b' }}>FOUNDERS</span>
+                        Meet Our <br /> 
+                        <span className="accent-text italic">Founders</span>
                       </motion.h2>
 
            </div>

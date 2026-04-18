@@ -256,8 +256,8 @@ const AllProcessSliders = () => {
             <span className="font-bold tracking-[0.3em] uppercase text-xs md:text-sm">How We Work</span>
             <div className="w-10 h-[2px] bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 tracking-tight uppercase">
-            Our Complete <span className="text-yellow-500 italic">Process</span>
+          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+            Our Complete <span className="accent-text italic">Process</span>
           </h2>
         </div>
 

@@ -72,8 +72,8 @@ const StackedCardSlider = () => {
             <span className="font-bold tracking-[0.3em] uppercase text-xs md:text-sm">How We Work</span>
             <div className="w-12 h-[2px] bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 tracking-tight">
-            CONCEPT <span className="text-yellow-500 italic">DESIGN</span>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 mb-6 tracking-tight">
+            Concept <span className="accent-text italic">Design</span>
           </h2>
           <p className="text-gray-600 text-base md:text-lg leading-relaxed">
             We begin by understanding your requirements, vision, and site conditions to develop initial design ideas and project direction.
