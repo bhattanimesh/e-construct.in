@@ -8,7 +8,9 @@ import ServiceDetails from './pages/ServiceDetails'
 import BimHubGallery from './pages/BimHubGallery'
 import BimHubBlog from './pages/BimHubBlog'
 import BimHubPBD from './pages/BimHubPBD'
+import BimHubMSB from './pages/BimHubMSB'
 import BimConsultancy from './pages/BimConsultancy'
+import StructuralConsultancy from './pages/StructuralConsultancy'
 import CareersPage from './pages/CareersPage'
 import ContactPage from './pages/ContactPage'
 import ProjectsPage from './pages/ProjectsPage'
@@ -26,7 +28,9 @@ function App() {
           <Route path="/bim-hub/gallery" element={<BimHubGallery />} />
           <Route path="/bim-hub/blog" element={<BimHubBlog />} />
           <Route path="/bim-hub/pbd" element={<BimHubPBD />} />
+          <Route path="/bim-hub/msb" element={<BimHubMSB />} />
           <Route path="/services/bim-consultancy" element={<BimConsultancy />} />
+          <Route path="/services/structural-consultancy" element={<StructuralConsultancy />} />
           <Route path="/projects" element={<ProjectsPage />} />
         </Route>
         <Route path="/home-1" element={<Home1 />} />

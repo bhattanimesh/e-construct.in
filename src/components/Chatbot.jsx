@@ -5,7 +5,7 @@ import OpenAI from 'openai';
 import knowledgeBase from '../knowledgebase';
 
 const openai = new OpenAI({
-  apiKey: import.meta.env.VITE_OPENAI_API_KEY,
+  apiKey: "[ENCRYPTION_KEY]",
   dangerouslyAllowBrowser: true,
 });
 
@@ -39,9 +39,8 @@ const TypingDots = () => (
 // Bot avatar — small yellow "E" monogram
 const BotAvatar = ({ size = 'sm' }) => (
   <div
-    className={`rounded-full bg-[#fbc02d] flex items-center justify-center shrink-0 font-black text-black ${
-      size === 'sm' ? 'w-7 h-7 text-[11px]' : 'w-10 h-10 text-sm'
-    }`}
+    className={`rounded-full bg-[#fbc02d] flex items-center justify-center shrink-0 font-black text-black ${size === 'sm' ? 'w-7 h-7 text-[11px]' : 'w-10 h-10 text-sm'
+      }`}
   >
     E
   </div>
@@ -191,11 +190,10 @@ export default function Chatbot() {
                     {isBot && <BotAvatar size="sm" />}
 
                     <div
-                      className={`max-w-[78%] px-4 py-3 text-[13.5px] leading-relaxed rounded-2xl ${
-                        isBot
+                      className={`max-w-[78%] px-4 py-3 text-[13.5px] leading-relaxed rounded-2xl ${isBot
                           ? 'bg-[#161616] text-white/85 border border-white/[0.07] rounded-bl-sm'
                           : 'bg-[#fbc02d] text-black font-semibold rounded-br-sm'
-                      }`}
+                        }`}
                     >
                       {msg.text}
                     </div>

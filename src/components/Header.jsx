@@ -91,7 +91,7 @@ const Header = () => {
                       ].map((service, index) => (
                         <li key={index}>
                           <Link 
-                            to={service === 'BIM Consultancy' ? '/services/bim-consultancy' : '/services'} 
+                            to={service === 'BIM Consultancy' ? '/services/bim-consultancy' : service === 'Structural Consultancy' ? '/services/structural-consultancy' : '/services'} 
                             className="text-gray-600 hover:text-[#fbc02d] hover:translate-x-2 text-[0.8rem] font-bold transition-all duration-300 block leading-tight"
                           >
                             {service}
