@@ -1,34 +1,17 @@
-import React, { useState, useEffect } from 'react';
+﻿import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
-  Building, 
-  Factory, 
-  Home, 
-  Droplet, 
-  Map, 
-  PenTool, 
-  CheckCircle2, 
-  ChevronLeft, 
-  ChevronRight, 
-  ArrowRight,
-  ShieldCheck,
-  TrendingUp,
-  Award,
-  Users,
-  Layout,
-  AlertCircle,
-  Activity,
-  MapPin,
-  Quote,
-  ChevronDown,
-  Mail,
-  Phone,
-  Facebook,
-  Youtube,
-  MessageCircle,
-  Linkedin
+  Building, Factory, Home, Droplet, Map, PenTool, CheckCircle2, 
+  ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, TrendingUp,
+  Award, Users, Layout, AlertCircle, Activity, MapPin, Quote,
+  ChevronDown, Mail, Phone, Facebook, Youtube, MessageCircle, Linkedin
 } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
+import { useAdmin } from '../context/AdminContext';
+
+const SC_SERVICE_ICONS = [Home, Building, Factory, Map, ShieldCheck];
+const WHY_ICONS = [TrendingUp, Building, Layout, ShieldCheck, Award, CheckCircle2];
 
 const ProjectSliderCard = ({ images, type, title, challenges, status, location }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
@@ -43,7 +26,7 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location }
   return (
     <div className="bg-white rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex flex-col group border border-gray-100 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 h-full">
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-[24px]">
-        <img src={images[currentIdx]} alt={title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" />
+        <img src={images[currentIdx]} alt={title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" loading="lazy" decoding="async" />
         <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md text-[#fbc02d] px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] z-10 border border-[#fbc02d]/20 shadow-md">
           {type}
         </div>
@@ -80,6 +63,10 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location }
 };
 
 const StructuralConsultancy = () => {
+  const { data } = useAdmin();
+  const sc = data.structuralConsultancyContent;
+  const navigate = useNavigate();
+
   // Slider State (sc1 - sc7)
   const scImages = [
     '/structural-consultancy/sc1.webp',
@@ -107,33 +94,13 @@ const StructuralConsultancy = () => {
     '/structural-consultancy/sp7.jpg'
   ];
 
-  const testimonials = [
-    { name: "Sadasivam R K", review: "I got my house designed and constructed from Econstruct team ..it's a G +3 duplex house...They gave me modern look yet budgeted house designs..." },
-    { name: "Siddhi Jaa", review: "I hired Econstruct services to design my farm house.They have done a fantastic job.I finally have my Dream Sweet farm home .I got complete..." },
-    { name: "RANGASWAMY R", review: "Econstruct and Design Pvt Ltd...Includes Best Professionals N Best Structural Designers...Design Perfectly with Safety and Economy..." },
-    { name: "Pradeep kumar Pal", review: "We hired Econstruct review of Structural Dwgs and their team has always supported ...." },
-    { name: "Saurab Kumar", review: "\"Econstruct's BIM services are top-notch! Their attention to detail and flawless execution have transformed our project efficiency. Highly recommend!\"" },
-    { name: "Suhas K A", review: "They are the best! I highly recommend anyone when it comes to designing and building your dream homes..." },
-    { name: "Rahul Baghel", review: "E Construct Design & Build Pvt Ltd gives best field experience in structural engineering. Also the trainers at E-construct provide full professional training & mentorship..." }
-  ];
-
-  const faqs = [
-    { question: "What services do you offer?", answer: "We offer comprehensive structural consultancy, including design and engineering for apartments, commercial buildings, bridges, steel structures, sustainable buildings, and more. Our services cover the entire project lifecycle from initial planning to completion." },
-    { question: "How long does the consultation process take?", answer: "The consultation timeframe varies based on project complexity, typically ranging from a few days to several weeks. We work efficiently to provide thorough assessments while respecting your timeline and project requirements." },
-    { question: "What makes your structures sustainable?", answer: "Our sustainable structures incorporate eco-friendly materials, energy-efficient designs, and technologies that minimize environmental impact. We focus on renewable energy integration, water conservation systems, and optimized building orientation to reduce energy consumption and carbon footprint." },
-    { question: "Do you offer maintenance services for structures?", answer: "Yes, we provide ongoing maintenance consultations post-construction to ensure long-term performance. Our maintenance services include regular structural assessments, recommendations for preventive maintenance, and solutions for any issues that may arise over time." },
-    { question: "Can you handle large-scale projects?", answer: "Absolutely, we have extensive experience in managing diverse project sizes, ensuring the capability to handle both small and large-scale developments. Our team has successfully completed complex projects including high-rise buildings, large commercial complexes, and major infrastructure works." }
-  ];
+  const testimonials = sc.testimonials;
+  const faqs = sc.faqs;
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeTestimonial, setActiveTestimonial] = useState(0);
 
-  const nextTestimonial = () => {
-    setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
-  };
+  const nextTestimonial = () => setActiveTestimonial((prev) => (prev + 1) % testimonials.length);
+  const prevTestimonial = () => setActiveTestimonial((prev) => (prev - 1 + testimonials.length) % testimonials.length);
 
   return (
     <div className="bg-white min-h-screen flex flex-col justify-start pb-20">
@@ -171,30 +138,26 @@ const StructuralConsultancy = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-            {/* Cards */}
-            {[
-              { icon: Home, title: "Residential Structures", desc: "Design of villas, apartments, and independent homes with a focus on stability, economy, and local building codes." },
-              { icon: Building, title: "Commercial Buildings", desc: "Structural design for offices, malls, and high-rises including load calculations, wind/seismic analysis, and value engineering." },
-              { icon: Factory, title: "Industrial Facilities", desc: "Design of factories, warehouses, and production plants ensuring durability and load-bearing efficiency under operational stress." },
-              { icon: Map, title: "Infrastructure Projects", desc: "Structural engineering for bridges, culverts, water tanks, and retaining walls with detailed analysis and optimization." },
-              { icon: ShieldCheck, title: "Structural Proof Checking", desc: "Third-party review and validation of structural designs to ensure safety, compliance, and adherence to IS codes." }
-            ].map((service, idx) => (
-              <div key={idx} className="bg-white p-8 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
+            {sc.services.map((service, idx) => {
+              const SvcIcon = SC_SERVICE_ICONS[idx] || Home;
+              return (
+              <div key={service.id || idx} className="bg-white p-8 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
                 <div>
                   <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#fbc02d] group-hover:text-slate-900 transition-colors duration-300 shadow-sm">
-                    <service.icon size={32} />
+                    <SvcIcon size={32} />
                   </div>
                   <h3 className="text-2xl font-black text-gray-900 mb-4">{service.title}</h3>
                   <p className="text-gray-600 font-medium leading-relaxed mb-6">{service.desc}</p>
                 </div>
               </div>
-            ))}
+              );
+            })}
 
             {/* CTA Card */}
             <div className="bg-slate-900 p-8 rounded-3xl shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden group">
                <div className="absolute inset-0 bg-[#fbc02d]/10 group-hover:bg-[#fbc02d]/20 transition-colors duration-500"></div>
                <h3 className="text-3xl font-black text-white mb-6 relative z-10 leading-snug">Discuss Your <br/>Structural Project</h3>
-               <button className="relative z-10 bg-[#fbc02d] text-slate-900 font-black px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
+               <button onClick={() => navigate('/contact')} className="relative z-10 bg-[#fbc02d] text-slate-900 font-black px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
                  Contact Us <ArrowRight size={18} />
                </button>
             </div>
@@ -239,10 +202,10 @@ const StructuralConsultancy = () => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-slate-900 text-white font-black px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 uppercase tracking-widest text-sm text-center">
+                <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-black px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 uppercase tracking-widest text-sm text-center">
                   Schedule a Consultation
                 </button>
-                <button className="bg-[#fbc02d]/10 text-[#bc8f15] font-black px-8 py-4 rounded-xl hover:bg-[#fbc02d]/20 transition-all duration-300 uppercase tracking-widest text-sm text-center border outline-none outline-transparent border-[#fbc02d]">
+                <button onClick={() => navigate('/services')} className="bg-[#fbc02d]/10 text-[#bc8f15] font-black px-8 py-4 rounded-xl hover:bg-[#fbc02d]/20 transition-all duration-300 uppercase tracking-widest text-sm text-center border outline-none outline-transparent border-[#fbc02d]">
                   Explore Our Services
                 </button>
               </div>
@@ -253,8 +216,7 @@ const StructuralConsultancy = () => {
               <img 
                 src={scImages[currentScSlide]} 
                 alt={`Structural Engineering ${currentScSlide + 1}`}
-                className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-all duration-700 hover:scale-105" loading="lazy" decoding="async" />
               {/* Navigation Dots */}
               <div className="absolute bottom-6 left-0 w-full flex justify-center gap-3 z-10 bg-gradient-to-t from-black/50 to-transparent py-4">
                 {scImages.map((_, idx) => (
@@ -288,8 +250,7 @@ const StructuralConsultancy = () => {
                 <img 
                   src={src} 
                   alt={`Project ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                />
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
                   <span className="text-white font-bold tracking-widest uppercase text-sm border-b-2 border-[#fbc02d] pb-1">View Project</span>
                 </div>
@@ -313,24 +274,24 @@ const StructuralConsultancy = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
             <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
               <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Seismic Impact Analysis</h3>
-              <img src="/structural-consultancy/g1.png" alt="Seismic Impact Analysis" className="w-full h-auto object-contain rounded-xl saturate-150" />
+              <img src="/structural-consultancy/g1.png" alt="Seismic Impact Analysis" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
             </div>
             <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
               <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Seismic Zone Distribution</h3>
-              <img src="/structural-consultancy/g2.png" alt="Seismic Zone Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" />
+              <img src="/structural-consultancy/g2.png" alt="Seismic Zone Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
             </div>
             <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
               <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Project Type Distribution</h3>
-              <img src="/structural-consultancy/g3.png" alt="Project Type Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" />
+              <img src="/structural-consultancy/g3.png" alt="Project Type Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
             </div>
             <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between lg:col-start-1 lg:col-span-1">
               <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Monthly Project Completion Trend</h3>
-              <img src="/structural-consultancy/g4.png" alt="Monthly Trend" className="w-full h-auto object-contain rounded-xl saturate-150" />
+              <img src="/structural-consultancy/g4.png" alt="Monthly Trend" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
             </div>
             <div className="bg-slate-900 rounded-[24px] p-8 shadow-xl transition-shadow duration-300 border border-slate-800 flex flex-col items-center justify-center lg:col-span-2 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
               <h3 className="text-xl font-black text-white mb-8 text-center uppercase tracking-widest relative z-10 border-b border-white/20 pb-4 inline-block">Advanced Engineering Profile</h3>
-              <img src="/structural-consultancy/g5.png" alt="Advanced Profile" className="relative z-10 w-full max-w-[800px] h-auto object-contain rounded-xl" />
+              <img src="/structural-consultancy/g5.png" alt="Advanced Profile" className="relative z-10 w-full max-w-[800px] h-auto object-contain rounded-xl" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
@@ -340,22 +301,12 @@ const StructuralConsultancy = () => {
       <section className="bg-indigo-950 py-24 px-4 md:px-8 border-t-[8px] border-[#fbc02d] relative overflow-hidden">
          <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
          <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-y sm:divide-y-0 sm:divide-x divide-indigo-800/50 relative z-10">
-            <div className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
-               <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tighter">1,000<span className="text-[#fbc02d]">+</span></div>
-               <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">Projects Completed</div>
-            </div>
-            <div className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
-               <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tighter">20<span className="text-[#fbc02d]">+</span></div>
-               <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">Countries Represented</div>
-            </div>
-            <div className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
-               <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tighter">50<span className="text-[#fbc02d]">+</span></div>
-               <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">Active Partnerships</div>
-            </div>
-            <div className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
-               <div className="text-5xl md:text-5xl xl:text-6xl font-black text-white mb-3 tracking-tighter">$500M<span className="text-[#fbc02d]">+</span></div>
-               <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">Partnership Value</div>
-            </div>
+            {sc.stats.map((stat, i) => (
+              <div key={stat.id || i} className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tighter">{stat.value}</div>
+                <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">{stat.label}</div>
+              </div>
+            ))}
          </div>
       </section>
 
@@ -371,22 +322,18 @@ const StructuralConsultancy = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { icon: TrendingUp, title: "₹2000+ Cr Worth of Projects", desc: "Managing high-value projects with precision and expertise." },
-              { icon: Building, title: "81+ Storey Structures in UAE & Asia", desc: "Designing high-rise buildings that define urban skylines." },
-              { icon: Layout, title: "RCC, Steel, Composite Structures", desc: "Versatile expertise across all structural material types." },
-              { icon: ShieldCheck, title: "Seismic & Wind-Tunnel Tested Designs", desc: "Ensuring structures withstand extreme environmental conditions." },
-              { icon: Award, title: "Iconic Urban Landmarks", desc: "Creating distinctive structures across India and abroad." },
-              { icon: CheckCircle2, title: "International Code Compliance", desc: "Meeting global standards for safety and quality." }
-            ].map((feature, idx) => (
-              <div key={idx} className="bg-slate-50 p-8 md:p-10 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:bg-white transition-all duration-300 hover:-translate-y-2 group flex flex-col items-start w-full">
+            {sc.whyChooseUs.map((feature, idx) => {
+              const WIcon = WHY_ICONS[idx % WHY_ICONS.length];
+              return (
+              <div key={feature.id || idx} className="bg-slate-50 p-8 md:p-10 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:bg-white transition-all duration-300 hover:-translate-y-2 group flex flex-col items-start w-full">
                 <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-slate-800 shadow-sm mb-8 group-hover:bg-[#fbc02d] group-hover:text-slate-900 group-hover:scale-110 transition-all duration-500 group-hover:shadow-lg">
-                  <feature.icon size={28} />
+                  <WIcon size={28} />
                 </div>
                 <h4 className="text-2xl font-black text-gray-900 mb-4 leading-snug">{feature.title}</h4>
                 <p className="text-gray-600 font-medium text-lg leading-relaxed">{feature.desc}</p>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -400,8 +347,7 @@ const StructuralConsultancy = () => {
               <img 
                 src="https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg" 
                 alt="Mr. Sandeep Pingale" 
-                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
-              />
+                className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
               <div className="absolute bottom-12 left-12 text-white pointer-events-none">
                  <p className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-sm mb-3">Our Key Person</p>
@@ -481,8 +427,7 @@ const StructuralConsultancy = () => {
               <img 
                 src="/structural-consultancy/consultation.png" 
                 alt="Expert Consultation"
-                className="w-full h-full object-cover transition-all duration-700 hover:scale-105"
-              />
+                className="w-full h-full object-cover transition-all duration-700 hover:scale-105" loading="lazy" decoding="async" />
               <div className="absolute inset-0 bg-blue-900/5 mix-blend-multiply pointer-events-none"></div>
             </div>
 
@@ -505,7 +450,7 @@ const StructuralConsultancy = () => {
                 </p>
               </div>
 
-              <button className="bg-slate-900 text-white font-black px-8 py-5 rounded-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(37,99,235,0.2)] max-w-max active:scale-95">
+              <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-black px-8 py-5 rounded-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(37,99,235,0.2)] max-w-max active:scale-95">
                 Schedule Your First Call Now!
               </button>
             </div>
@@ -704,16 +649,16 @@ const StructuralConsultancy = () => {
                 <div className="mt-10">
                   <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-4">Follow Us</h4>
                   <div className="flex gap-4">
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://www.facebook.com/econstruct.in" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Facebook size={20} />
                     </a>
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://www.youtube.com/@econstruct" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Youtube size={20} />
                     </a>
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://wa.me/919036744017" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <MessageCircle size={20} />
                     </a>
-                    <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://www.linkedin.com/company/econstruct" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Linkedin size={20} />
                     </a>
                     <a href="mailto:info@e-construct.org" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">

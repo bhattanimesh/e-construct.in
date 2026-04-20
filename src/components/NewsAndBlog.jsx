@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { Link } from 'react-router-dom';
 
 const ConstructionBlog = () => {
   const posts = [
@@ -66,9 +67,9 @@ const ConstructionBlog = () => {
 
     {/* Right: CTA Button */}
     <div>
-      <button className="bg-slate-900 text-white px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-sm hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2">
+      <Link to="/bim-hub/blog" className="bg-slate-900 text-white px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-sm hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2">
         View All News <span>→</span>
-      </button>
+      </Link>
     </div>
 
   </div>
@@ -107,9 +108,9 @@ const ConstructionBlog = () => {
                   {post.desc}
                 </p>
 
-                <a href="#" className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter border-b-2 border-slate-900 pb-1 hover:text-orange-600 hover:border-orange-600 transition-all">
+                <Link to="/bim-hub/blog" className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter border-b-2 border-slate-900 pb-1 hover:text-orange-600 hover:border-orange-600 transition-all">
                   Read Full Article
-                </a>
+                </Link>
               </div>
 
               {/* Decorative Industrial Line (Hover) */}

@@ -1,147 +1,13 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MapPin, Clock, Briefcase, ChevronDown, Send, CheckCircle, ArrowRight, Users, TrendingUp, Heart, Star, Zap, Shield, Award, BookOpen, X } from 'lucide-react';
 import ctaBG from '../assets/ctaBG.avif';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
 import planning from '../assets/planning.jpg';
+import { useAdmin } from '../context/AdminContext';
 
-// ??? DATA ???????????????????????????????????????????????????????????????????
-
-const openings = [
-  {
-    id: 1,
-    title: 'Senior BIM Engineer',
-    dept: 'BIM & Technology',
-    location: 'Pune, Maharashtra',
-    type: 'Full-Time',
-    experience: '4?7 Years',
-    desc: 'Lead BIM coordination and clash detection for large-scale commercial and residential projects using Revit, Navisworks, and BIM 360.',
-    responsibilities: [
-      'Develop and manage 3D BIM models across all disciplines',
-      'Coordinate clash detection and resolution using Navisworks',
-      'Prepare BIM Execution Plans and LOD documentation',
-      'Mentor junior BIM staff and conduct quality reviews',
-      'Liaise with architects, structural, and MEP teams',
-    ],
-    requirements: [
-      'B.E./B.Tech in Civil or Architecture',
-      'Proficiency in Revit, AutoCAD, Navisworks',
-      'Experience with BIM 360 / ACC platform',
-      'Strong understanding of LOD standards',
-    ],
-  },
-  {
-    id: 2,
-    title: 'Structural Design Engineer',
-    dept: 'Structural Consultancy',
-    location: 'Pune, Maharashtra',
-    type: 'Full-Time',
-    experience: '3?6 Years',
-    desc: 'Design and analyse RCC and steel structures for residential, commercial, and industrial projects using ETABS, STAAD.Pro, and SAFE.',
-    responsibilities: [
-      'Perform structural analysis and design using ETABS / STAAD.Pro',
-      'Prepare detailed structural drawings and reports',
-      'Conduct site visits and structural audits',
-      'Coordinate with architects and contractors',
-      'Ensure compliance with IS codes and standards',
-    ],
-    requirements: [
-      'B.E./B.Tech or M.Tech in Structural/Civil Engineering',
-      'Proficiency in ETABS, STAAD.Pro, SAFE, AutoCAD',
-      'Knowledge of IS 456, IS 800, IS 1893',
-      'Experience in RCC and steel structure design',
-    ],
-  },
-  {
-    id: 3,
-    title: 'Project Management Consultant (ePMC)',
-    dept: 'Project Management',
-    location: 'Pune / Mumbai',
-    type: 'Full-Time',
-    experience: '5?10 Years',
-    desc: 'Oversee end-to-end project delivery for residential and commercial construction projects, ensuring quality, cost, and schedule targets are met.',
-    responsibilities: [
-      'Manage project timelines, budgets, and resources',
-      'Coordinate between clients, consultants, and contractors',
-      'Conduct regular site inspections and progress reviews',
-      'Prepare MIS reports and project dashboards',
-      'Identify and mitigate project risks proactively',
-    ],
-    requirements: [
-      'B.E. Civil with PMP or equivalent certification preferred',
-      'Proven experience in PMC for large-scale projects',
-      'Strong knowledge of MS Project / Primavera',
-      'Excellent communication and leadership skills',
-    ],
-  },
-  {
-    id: 4,
-    title: 'Architectural Designer',
-    dept: 'Architecture & Design',
-    location: 'Pune, Maharashtra',
-    type: 'Full-Time',
-    experience: '2?5 Years',
-    desc: 'Create innovative architectural designs for luxury villas, residential complexes, and commercial spaces from concept to execution drawings.',
-    responsibilities: [
-      'Develop concept designs and schematic drawings',
-      'Prepare detailed working drawings and specifications',
-      'Create 3D visualisations and presentation renders',
-      'Coordinate with structural and MEP consultants',
-      'Ensure designs comply with local building regulations',
-    ],
-    requirements: [
-      'B.Arch or M.Arch degree',
-      'Proficiency in AutoCAD, Revit, SketchUp, Lumion',
-      'Strong portfolio of residential/commercial projects',
-      'Creative flair with attention to detail',
-    ],
-  },
-  {
-    id: 5,
-    title: 'BIM Trainer ? Corporate Training',
-    dept: 'Training & Education',
-    location: 'Pune / Remote',
-    type: 'Full-Time / Part-Time',
-    experience: '3?8 Years',
-    desc: 'Deliver high-quality BIM and AEC software training to corporate teams and engineering professionals across India.',
-    responsibilities: [
-      'Conduct classroom and online BIM training sessions',
-      'Develop training materials, exercises, and assessments',
-      'Customise training content for client-specific workflows',
-      'Track trainee progress and provide feedback',
-      'Stay updated with latest BIM tools and industry trends',
-    ],
-    requirements: [
-      'B.E./B.Tech in Civil, Architecture, or related field',
-      'Expert-level proficiency in Revit, AutoCAD, Navisworks',
-      'Prior training or teaching experience preferred',
-      'Excellent communication and presentation skills',
-    ],
-  },
-  {
-    id: 6,
-    title: 'Site Engineer ? Construction',
-    dept: 'Construction Services',
-    location: 'Pune / Mumbai / Nashik',
-    type: 'Full-Time',
-    experience: '1?4 Years',
-    desc: 'Supervise on-site construction activities for residential and commercial projects, ensuring quality standards and safety protocols are maintained.',
-    responsibilities: [
-      'Supervise day-to-day construction activities on site',
-      'Ensure work is executed as per approved drawings',
-      'Maintain site records, daily reports, and material logs',
-      'Coordinate with subcontractors and labour teams',
-      'Implement quality control and safety measures',
-    ],
-    requirements: [
-      'B.E./Diploma in Civil Engineering',
-      'Hands-on site supervision experience',
-      'Knowledge of construction materials and methods',
-      'Willingness to travel to project sites',
-    ],
-  },
-];
+// ─── STATIC DATA ──────────────────────────────────────────────────────────────
 
 const perks = [
   { icon: TrendingUp, title: 'Career Growth', desc: 'Structured growth paths with mentorship from industry veterans and clear promotion milestones.' },
@@ -158,8 +24,6 @@ const steps = [
   { num: '03', title: 'Technical Interview', desc: 'A focused technical discussion with our senior engineers to assess your skills and experience.' },
   { num: '04', title: 'Final Round & Offer', desc: 'Meet the leadership team. If it is a great fit, we will extend an offer within 48 hours.' },
 ];
-
-const depts = ['All', 'BIM & Technology', 'Structural Consultancy', 'Project Management', 'Architecture & Design', 'Training & Education', 'Construction Services'];
 
 // ??? SECTION LABEL ??????????????????????????????????????????????????????????
 
@@ -180,7 +44,7 @@ const SectionLabel = ({ text, center = false }) => (
 
 const HeroSection = () => (
   <section className="relative h-[55vh] min-h-[400px] flex items-end overflow-hidden mt-20">
-    <img src={ctaBG} alt="Careers at E-Construct" className="absolute inset-0 w-full h-full object-cover scale-105" />
+    <img src={ctaBG} alt="Careers at E-Construct" className="absolute inset-0 w-full h-full object-cover scale-105" loading="lazy" decoding="async" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/55 to-black/20" />
     <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-16 w-full">
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -399,6 +263,9 @@ const ApplyModal = ({ job, onClose }) => {
 // ??? OPENINGS SECTION ????????????????????????????????????????????????????????
 
 const OpeningsSection = () => {
+  const { data } = useAdmin();
+  const openings = data.careers;
+  const depts = ['All', ...new Set(openings.map(o => o.dept))];
   const [active, setActive] = useState('All');
   const filtered = active === 'All' ? openings : openings.filter(j => j.dept === active);
   return (
@@ -483,13 +350,13 @@ const CultureSection = () => (
         <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
           className="w-full lg:w-1/2 grid grid-cols-2 gap-4">
           <div className="col-span-2 rounded-2xl overflow-hidden aspect-video">
-            <img src={img1} alt="Team at work" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={img1} alt="Team at work" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
           </div>
           <div className="rounded-2xl overflow-hidden aspect-square">
-            <img src={img2} alt="Construction site" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={img2} alt="Construction site" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
           </div>
           <div className="rounded-2xl overflow-hidden aspect-square">
-            <img src={planning} alt="Planning session" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+            <img src={planning} alt="Planning session" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
           </div>
         </motion.div>
         {/* Text */}

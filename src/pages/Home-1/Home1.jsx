@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Home1.css';
 import Flipbook from '../../components/Flipbook';
-import PdfFlipbook from '../../components/PdfFlipbook';
+import FlipbookGallery from '../../components/FlipbookGallery';
 
 const Home1 = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -79,22 +79,22 @@ const Home1 = () => {
       {/* Header */}
       <header className={`main-header ${isScrolled ? 'scrolled' : ''}`}>
         <div className="logo">
-          <img src="/assets/logo.png" alt="E-Construct" />
+          <img src="/logo.png" alt="E-Construct" />
         </div>
         <nav className="nav-links">
-          <a href="#">ABOUT US</a>
+          <a href="/about">ABOUT US</a>
           <div className="flex items-center gap-1 cursor-pointer">
-            <a href="#">SERVICES</a>
+            <a href="/services">SERVICES</a>
             <span className="text-[0.6rem] text-[#fbc02d]">▼</span>
           </div>
-          <a href="#">PROJECTS</a>
+          <a href="/projects">PROJECTS</a>
           <div className="flex items-center gap-1 cursor-pointer">
-            <a href="#">TRAINING</a>
+            <a href="/services">TRAINING</a>
             <span className="text-[0.6rem] text-[#fbc02d]">▼</span>
           </div>
-          <a href="#">BIM HUB</a>
-          <a href="#">CAREERS</a>
-          <a href="#">CONTACT</a>
+          <a href="/bim-hub/gallery">BIM HUB</a>
+          <a href="/careers">CAREERS</a>
+          <a href="/contact">CONTACT</a>
         </nav>
         <div className="header-right hidden lg:flex gap-3 items-center">
             {['FB', 'LI', 'IN'].map(social => (
@@ -111,11 +111,11 @@ const Home1 = () => {
         <div className="hero-content">
           <h1 className="reveal-left">Integrated Excellence in<br/><span className="accent-text">Civil Engineering</span></h1>
           <div className="hero-btns">
-            <a href="#" className="btn btn-filled">
+            <a href="/contact" className="btn btn-filled">
               <span>Watch Firm Video</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="7" y1="17" x2="17" y2="7"></line><polyline points="7 7 17 7 17 17"></polyline></svg>
             </a>
-            <a href="#" className="btn btn-outline">
+            <a href="/about" className="btn btn-outline">
               <span>Company Profile</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
             </a>
@@ -129,117 +129,7 @@ const Home1 = () => {
       </section>
 
       {/* Unified Flipbook Gallery */}
-      <section className="flipbook-gallery reveal bg-white py-24 border-b border-black/5 w-full px-4 text-[var(--primary-dark)]">
-          <div className="container text-center mb-16">
-            <span className="accent-text text-xs font-bold tracking-[0.2em] uppercase">Interactive Library</span>
-            <h2 className="text-5xl text-[var(--primary-dark)] mt-2">Our Digital <span className="accent-text italic">Showcase</span></h2>
-            <p className="text-[var(--text-muted)] mt-4 max-w-2xl mx-auto">Explore our portfolio, brochures, and technical guides in one interactive place.</p>
-          </div>
-          
-          <div className="container grid grid-cols-1 lg:grid-cols-3 gap-16 max-w-[1400px]">
-             {/* Flipbook 1 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Hospitality Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econstruct_hospitality.pdf" 
-                   />
-                </div>
-             </div>
-
-             {/* Flipbook 2 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Residential Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econstruct_bim.pdf" 
-                   />
-                </div>
-             </div>
-
-             {/* Flipbook 3 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Commercial Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econstruct_tushar.pdf" 
-                   />
-                </div>
-             </div>
-
-             {/* Flipbook 4 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Industrial Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econ_presentation.pdf" 
-                   />
-                </div>
-             </div>
-
-             {/* Flipbook 5 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Infrastructure Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econstruct_bim.pdf" 
-                   />
-                </div>
-             </div>
-
-             {/* Flipbook 6 */}
-             <div className="flex flex-col items-center group">
-                <h3 className="text-[var(--primary-dark)] text-xl mb-3 font-medium italic underline underline-offset-8 decoration-[#fbc02d]/30 text-center uppercase tracking-widest">Corporate Training Portfolio</h3>
-                <div className="flex items-center gap-3 mb-4 text-xs text-amber-500 font-bold uppercase tracking-[0.2em] bg-amber-500/5 px-4 py-2 rounded-full border border-amber-500/20 shadow-sm transition-all group-hover:bg-amber-500/10 active:scale-95">
-                  <span className="animate-pulse">←</span>
-                  <span>Swipe to Flip</span>
-                  <span className="animate-pulse">→</span>
-                </div>
-                <div className="flex-1 w-full max-w-[560px] flex justify-center">
-                   <PdfFlipbook 
-                    width={560} 
-                    height={400} 
-                    pdfUrl="/pdfs/econstruct_tushar.pdf" 
-                   />
-                </div>
-             </div>
-          </div>
-      </section>
+      <FlipbookGallery />
 
       {/* Video Grid */}
       <section className="videos-section reveal py-24 bg-white border-b border-black/5 relative text-[var(--primary-dark)]">
@@ -277,7 +167,7 @@ const Home1 = () => {
           <div className="flex flex-wrap gap-16 items-center">
              <div className="w-[320px] relative stagger-item">
                 <div className="absolute top-4 -left-4 w-full h-full border-2 border-[#fbc02d] rounded-2xl z-0"></div>
-                <img src="/assets/founder.webp" alt="Founder" className="w-full rounded-2xl relative z-10 shadow-2xl object-cover" />
+                <img src="/founder.webp" alt="Founder" className="w-full rounded-2xl relative z-10 shadow-2xl object-cover" />
              </div>
              <div className="flex-1 min-w-[350px] stagger-item">
                 <h3 className="text-4xl text-[var(--primary-dark)] mb-6 font-bold leading-tight">Pioneering Excellence in Multi-Sector <span className="text-[#fbc02d]">Civil Engineering</span></h3>
@@ -386,19 +276,19 @@ const Home1 = () => {
       <footer className="reveal py-32 bg-[var(--secondary-dark)] border-t border-black/5 relative overflow-hidden">
           <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20">
               <div className="stagger-item">
-                  <img src="/assets/logo.png" alt="E-Construct" className="h-9 mb-8" />
+                  <img src="/logo.png" alt="E-Construct" className="h-9 mb-8" />
                   <p className="text-[var(--text-muted)] text-sm leading-8 mb-8">Engineering excellence for 29+ years. A global leader in Multi-Sector Civil Consultancy, Infrastructure Design, and BIM Workflows.</p>
               </div>
               <div className="stagger-item">
                   <h4 className="text-[var(--text-white)] text-xs font-bold tracking-widest mb-8 uppercase">Strategic Hubs</h4>
                   <ul className="flex flex-col gap-4 text-[var(--text-muted)] text-sm">
-                    {['About Firm', 'Global Services', 'BIM Innovation', 'Career Hub'].map(link => <li key={link}><a href="#" className="hover:text-white transition-colors">{link}</a></li>)}
+                    {[['About Firm', '/about'], ['Global Services', '/services'], ['BIM Innovation', '/services/bim-consultancy'], ['Career Hub', '/careers']].map(([link, path]) => <li key={link}><a href={path} className="hover:text-white transition-colors">{link}</a></li>)}
                   </ul>
               </div>
               <div className="stagger-item">
                   <h4 className="text-[var(--text-white)] text-xs font-bold tracking-widest mb-8 uppercase">Engineering</h4>
                   <ul className="flex flex-col gap-4 text-[var(--text-muted)] text-sm">
-                    {['Consultancy', 'Master Training', 'Expert Vetting', 'Real-time BIM'].map(link => <li key={link}><a href="#" className="hover:text-white transition-colors">{link}</a></li>)}
+                    {[['Consultancy', '/services'], ['Master Training', '/services'], ['Expert Vetting', '/careers'], ['Real-time BIM', '/services/bim-consultancy']].map(([link, path]) => <li key={link}><a href={path} className="hover:text-white transition-colors">{link}</a></li>)}
                   </ul>
               </div>
               <div className="stagger-item">

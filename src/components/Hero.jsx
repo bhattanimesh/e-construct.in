@@ -1,8 +1,15 @@
 import React from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import HeroVideo from '../../assets/Econstruct_Design_and_Build_Pvt_Ltd_720P-1.mp4';
+import { useNavigate } from 'react-router-dom';
+import { useAdmin } from '../context/AdminContext';
+
+// Video served from public/ — not bundled, streamed directly by the browser
+const HERO_VIDEO = '/hero.mp4';
 
 const Hero = () => {
+  const { data } = useAdmin();
+  const h = data.heroContent;
+  const navigate = useNavigate();
   const { scrollY } = useScroll();
 
   // Smooth Spring for Parallax
@@ -40,7 +47,7 @@ const Hero = () => {
           playsInline
           className="w-full h-full object-cover brightness-[0.8] contrast-[1.1]"
         >
-          <source src={HeroVideo} type="video/mp4" />
+          <source src={HERO_VIDEO} type="video/mp4" />
         </video>
 
         {/* Overlays - Reduced intensity to make video pop */}
@@ -64,7 +71,7 @@ const Hero = () => {
           <motion.div variants={fadeInUp} className="flex items-center gap-3 mb-4">
             <span className="w-10 h-[2px] bg-yellow-500"></span>
             <span className="text-yellow-500 uppercase tracking-[0.3em] text-[10px] md:text-sm font-bold">
-              Infrastructure & Engineering
+              {h.tagline}
             </span>
           </motion.div>
 
@@ -73,8 +80,8 @@ const Hero = () => {
             variants={fadeInUp}
             className="text-[40px] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[110px] font-medium text-white tracking-tight"
           >
-            We Build Your <br />
-            <span className="accent-text italic">Dreams</span>
+            {h.headline.split('\n')[0]} <br />
+            <span className="accent-text italic">{h.headline.split('\n')[1] || ''}</span>
           </motion.h1>
 
           {/* Description */}
@@ -82,8 +89,7 @@ const Hero = () => {
             variants={fadeInUp}
             className="mt-4 md:mt-6 max-w-lg text-sm md:text-lg lg:text-xl text-gray-300 font-normal leading-relaxed"
           >
-            Delivering reliable civil engineering solutions with precision,
-            safety, and unmatched quality since 2010.
+            {h.description}
           </motion.p>
 
           {/* Buttons */}
@@ -91,15 +97,15 @@ const Hero = () => {
             variants={fadeInUp}
             className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4"
           >
-            <button className="group relative px-8 py-4 bg-yellow-500 overflow-hidden transition-all active:scale-95">
+            <button onClick={() => navigate('/contact')} className="group relative px-8 py-4 bg-yellow-500 overflow-hidden transition-all active:scale-95">
               <span className="relative z-10 text-black font-black uppercase tracking-wider text-sm">
-                Get Free Inquiry
+                {h.primaryBtnText}
               </span>
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </button>
 
-            <button className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm backdrop-blur-md hover:bg-white hover:text-black transition-all active:scale-95">
-              Explore Projects
+            <button onClick={() => navigate('/about')} className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm backdrop-blur-md hover:bg-white hover:text-black transition-all active:scale-95">
+              {h.secondaryBtnText}
             </button>
           </motion.div>
         </motion.div>

@@ -1,45 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
-
-const founders = [
-  {
-    name: "Prof. Sandeep Pingale",
-    position: "Founder & Managing Director",
-    image: "https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg",
-    bio: "Visionary leader with 20+ years of experience in Civil Engineering & Project Management."
-  },
-  {
-    name: "Shraddha Pingale",
-    position: "Co-Founder",
-    image: "https://e-construct.in/wp-content/uploads/2026/01/Shraddha-Pingale-scaled-e1769494406535-2048x1296.webp",
-    bio: "Expert in operational excellence and strategic planning at E-Construct."
-  },
-  {
-    name: "Mr. Jitendra Naregalkar",
-    position: "Associate Director",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400",
-    bio: "Specialist in Structural Design and BIM implementation."
-  },
-  {
-    name: "Mr. Tushaar Y. Dawda",
-    position: "Associate Partner",
-    image: "https://e-construct.in/wp-content/uploads/2026/02/Mr.-Tushaar-Y.-Dawda-e1770176732845.webp",
-    bio: "Consultancy services for repair works of buildings including detailed reports."
-  },
-  {
-    name: "Mr. Sanjay Patil",
-    position: "Associate Partner",
-    image: "https://e-construct.in/wp-content/uploads/2026/02/Mr.-Sanjay-Patil-e1770039923812.png",
-    bio: "Structural Engineer running ACDC, expert in design and repair of buildings."
-  },
-  {
-    name: "Ullas Gowda",
-    position: "Associate Director",
-    image: "https://e-construct.in/wp-content/uploads/2026/02/ullas.webp",
-    bio: "12+ years of experience leading Project Management and Operations."
-  }
-];
+import { useAdmin } from '../context/AdminContext';
 
 const FounderCard = ({ founder }) => {
       const [hovered, setHovered] = useState(false);
@@ -54,8 +16,7 @@ const FounderCard = ({ founder }) => {
           <img
             src={founder.image}
             alt={founder.name}
-            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
-          />
+            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
         </div>
 
         {/* Info Overlay - Premium Slide-up */}
@@ -112,6 +73,8 @@ const FounderCard = ({ founder }) => {
 };
 
 const FoundersSection = () => {
+  const { data } = useAdmin();
+  const founders = data.team;
   const scrollRef = React.useRef(null);
 
   const scroll = (direction) => {

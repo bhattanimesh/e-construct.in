@@ -1,13 +1,10 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Send, Sparkles, ChevronDown } from 'lucide-react';
 import OpenAI from 'openai';
-import knowledgeBase from '../knowledgebase';
+import { useAdmin } from '../context/AdminContext';
 
-const openai = new OpenAI({
-  apiKey: "[ENCRYPTION_KEY]",
-  dangerouslyAllowBrowser: true,
-});
+// Client is created dynamically inside the component from admin config
 
 const INITIAL_MESSAGE = {
   id: 1,
@@ -55,6 +52,7 @@ const buildHistory = (msgs) =>
     }));
 
 export default function Chatbot() {
+  const { data } = useAdmin();
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([INITIAL_MESSAGE]);
   const [inputValue, setInputValue] = useState('');
@@ -62,6 +60,13 @@ export default function Chatbot() {
   const [showQuickReplies, setShowQuickReplies] = useState(true);
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
+
+  // Build OpenAI client from admin-configured key, falling back to env var
+  const openai = useMemo(() => {
+    const key = data.chatbotConfig?.apiKey || import.meta.env.VITE_OPENAI_API_KEY || '';
+    if (!key) return null;
+    return new OpenAI({ apiKey: key, dangerouslyAllowBrowser: true });
+  }, [data.chatbotConfig?.apiKey]);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -75,6 +80,11 @@ export default function Chatbot() {
     const trimmed = text.trim();
     if (!trimmed || isLoading) return;
 
+    if (!openai) {
+      setMessages(p => [...p, { id: Date.now(), text: 'Chatbot is not configured. Please add an OpenAI API key in the admin panel.', sender: 'bot' }]);
+      return;
+    }
+
     setShowQuickReplies(false);
 
     const userMessage = { id: Date.now(), text: trimmed, sender: 'user' };
@@ -84,10 +94,11 @@ export default function Chatbot() {
     setIsLoading(true);
 
     try {
+      const model = data.chatbotConfig?.model || 'gpt-4o-mini';
       const response = await openai.chat.completions.create({
-        model: 'gpt-4o-mini',
+        model,
         messages: [
-          { role: 'system', content: knowledgeBase },
+          { role: 'system', content: data.chatbotKnowledge },
           ...buildHistory(updatedMessages),
         ],
         max_tokens: 500,

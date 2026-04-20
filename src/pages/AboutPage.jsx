@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect } from 'react';
+﻿import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   CheckCircle, Award, Users, Building2, TrendingUp,
@@ -13,122 +13,13 @@ import planning from '../assets/planning.jpg';
 import design from '../assets/design.webp';
 import development from '../assets/development.jpg';
 import ctaBG from '../assets/ctaBG.avif';
+import { useAdmin } from '../context/AdminContext';
 
-// ─── DATA ────────────────────────────────────────────────────────────────────
-
-const stats = [
-  { value: '25+', label: 'Years of Experience', icon: Award },
-  { value: '500+', label: 'Happy Clients', icon: Users },
-  { value: '650+', label: 'Projects Completed', icon: Building2 },
-  { value: '100%', label: 'Commitment to Quality', icon: TrendingUp },
-];
-
-const values = [
-  {
-    icon: Target,
-    title: 'Our Mission',
-    desc: 'To deliver world-class civil, architectural, structural, and contract management services that transform spaces and exceed client expectations — on time and within budget.',
-  },
-  {
-    icon: Eye,
-    title: 'Our Vision',
-    desc: 'To be India\'s most trusted construction consultancy, setting new benchmarks in quality, innovation, and sustainability across residential and commercial projects.',
-  },
-  {
-    icon: Heart,
-    title: 'Our Values',
-    desc: 'Transparency, reliability, and sustainability are at the core of everything we do. We build lasting relationships alongside lasting structures.',
-  },
-];
-
-const team = [
-  {
-    name: 'Prof. Sandeep Pingale',
-    role: 'Founder & Managing Director',
-    bio: 'Visionary leader with 20+ years of experience in Civil Engineering & Project Management. Recognised among the Iconic Women Entrepreneurs of the 21st century.',
-    image: 'https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg',
-  },
-  {
-    name: 'Shraddha Pingale',
-    role: 'Co-Founder',
-    bio: 'Expert in operational excellence and strategic planning, driving E-Construct\'s growth and client satisfaction initiatives.',
-    image: 'https://e-construct.in/wp-content/uploads/2026/01/Shraddha-Pingale-scaled-e1769494406535-2048x1296.webp',
-  },
-  {
-    name: 'Mr. Jitendra Naregalkar',
-    role: 'Associate Director',
-    bio: 'Specialist in Structural Design and BIM implementation with deep expertise in complex engineering solutions.',
-    image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400',
-  },
-  {
-    name: 'Mr. Tushaar Y. Dawda',
-    role: 'Associate Partner',
-    bio: 'Consultancy services for repair works of buildings including detailed structural assessment reports.',
-    image: 'https://e-construct.in/wp-content/uploads/2026/02/Mr.-Tushaar-Y.-Dawda-e1770176732845.webp',
-  },
-  {
-    name: 'Mr. Sanjay Patil',
-    role: 'Associate Partner',
-    bio: 'Structural Engineer running ACDC, expert in design and repair of buildings across Maharashtra.',
-    image: 'https://e-construct.in/wp-content/uploads/2026/02/Mr.-Sanjay-Patil-e1770039923812.png',
-  },
-  {
-    name: 'Ullas Gowda',
-    role: 'Associate Director',
-    bio: '12+ years of experience leading Project Management and Operations across large-scale infrastructure projects.',
-    image: 'https://e-construct.in/wp-content/uploads/2026/02/ullas.webp',
-  },
-];
-
-const services = [
-  'Structural Design & Audit',
-  'Architectural Consultancy',
-  'BIM Technology Consultancy',
-  'Project Management (ePMC)',
-  'Interior Design Consultancy',
-  'Corporate On-Job Training',
-  'Luxury Villa Design & Build',
-  'Total Quality Management',
-  'Construction Services',
-];
-
-const whyUs = [
-  { icon: Shield, title: 'Seamless Coordination', desc: 'Smooth communication between all project stages under one roof.' },
-  { icon: Zap, title: 'Faster Decision-Making', desc: 'Quick approvals with a single responsible team.' },
-  { icon: CheckCircle, title: 'Reduced Errors', desc: 'Better coordination minimises design and site mistakes.' },
-  { icon: Target, title: 'Design-to-Execution Clarity', desc: 'No confusion between drawings and on-site execution.' },
-  { icon: TrendingUp, title: 'Optimised Resource Use', desc: 'Efficient use of materials, labour, and time.' },
-  { icon: Star, title: 'Quality at Every Stage', desc: 'Continuous monitoring ensures the highest standards throughout.' },
-];
-
-const certifications = [
-  { img: '/ct1.png', label: 'ISO Certification' },
-  { img: '/ct2.png', label: 'Skill India Certification' },
-  { img: '/ct3.png', label: 'MSME Certification' },
-];
-
-const visionCards = [
-  {
-    icon: PenTool,
-    title: 'Innovative Designs & Services',
-    desc: 'To strengthen our position as a leading engineering consultancy & contracting company.',
-  },
-  {
-    icon: Rocket,
-    title: 'Cutting-Edge Technology',
-    desc: 'To research and develop sustainable eco-friendly construction products and solutions.',
-  },
-  {
-    icon: GraduationCap,
-    title: 'World-Class Civil Engineers',
-    desc: 'Provide mentorship to produce highly employable civil engineering professionals.',
-  },
-  {
-    icon: BookOpen,
-    title: 'Revolutionise Education',
-    desc: 'Progressive education systems that redefine how engineering talent is developed.',
-  },
-];
+// ─── ICON MAPS ────────────────────────────────────────────────────────────────
+const VALUE_ICONS = [Target, Eye, Heart];
+const WHY_ICONS = [Shield, Zap, CheckCircle, Target, TrendingUp, Star];
+const VISION_ICONS = [PenTool, Rocket, GraduationCap, BookOpen];
+const PROCESS_IMAGES = [planning, design, development];
 
 // ─── SECTION LABEL ────────────────────────────────────────────────────────────
 
@@ -151,8 +42,7 @@ const HeroSection = () => (
     <img
       src={img1}
       alt="E-Construct About"
-      className="absolute inset-0 w-full h-full object-cover scale-105"
-    />
+      className="absolute inset-0 w-full h-full object-cover scale-105" loading="lazy" decoding="async" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
     <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-16 w-full">
       <motion.div
@@ -177,6 +67,15 @@ const HeroSection = () => (
 );
 
 // ─── INTRO SECTION ────────────────────────────────────────────────────────────
+
+const services = [
+  'Structural Design & Audit',
+  'Project Management (PMC)',
+  'Corporate Technical Training',
+  'Quality Assurance Solutions',
+  'Innovative Construction Tech',
+  'On-Time Project Delivery',
+];
 
 const IntroSection = () => {
   const ref = useRef(null);
@@ -203,16 +102,16 @@ const IntroSection = () => {
           {/* Images */}
           <div className="w-full lg:w-1/2 relative h-[420px] sm:h-[520px]">
             <motion.div style={{ y: yImg1 }} className="absolute top-0 left-0 w-[62%] h-[280px] sm:h-[340px] overflow-hidden rounded-2xl z-0">
-              <img src={img1} alt="E-Construct site" className="w-full h-full object-cover" />
+              <img src={img1} alt="E-Construct site" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div style={{ y: yImg2 }} className="absolute bottom-0 right-0 w-[72%] h-[300px] sm:h-[360px] overflow-hidden rounded-2xl z-10">
-              <img src={img2} alt="E-Construct team" className="w-full h-full object-cover" />
+              <img src={img2} alt="E-Construct team" className="w-full h-full object-cover" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div
               style={{ y: yBadge }}
               className="absolute top-8 right-4 md:right-8 bg-white p-4 rounded-2xl border border-gray-200 z-20 shadow-lg"
             >
-              <img src={Logo} alt="Logo" className="w-20 h-12 object-contain" />
+              <img src={Logo} alt="Logo" className="w-20 h-12 object-contain" loading="lazy" decoding="async" />
             </motion.div>
             <motion.div
               style={{
@@ -285,11 +184,20 @@ const IntroSection = () => {
 
 // ─── STATS SECTION ────────────────────────────────────────────────────────────
 
-const StatsSection = () => (
+const StatsSection = () => {
+  const { data } = useAdmin();
+  const s = data.companyStats;
+  const statsArr = [
+    { value: s.yearsOfExperience, label: 'Years of Experience', icon: Award },
+    { value: s.happyClients, label: 'Happy Clients', icon: Users },
+    { value: s.projectsDelivered, label: 'Projects Completed', icon: Building2 },
+    { value: s.certification, label: 'Certification', icon: TrendingUp },
+  ];
+  return (
   <section className="py-16 bg-slate-900">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {stats.map(({ value, label, icon: Icon }, i) => (
+        {statsArr.map(({ value, label, icon: Icon }, i) => (
           <motion.div
             key={i}
             initial={{ opacity: 0, y: 30 }}
@@ -308,36 +216,35 @@ const StatsSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── MISSION / VISION / VALUES ────────────────────────────────────────────────
 
-const ValuesSection = () => (
+const ValuesSection = () => {
+  const { data } = useAdmin();
+  const ap = data.aboutPageContent;
+  const valuesArr = [
+    { icon: VALUE_ICONS[0], title: 'Our Mission', desc: ap.mission },
+    { icon: VALUE_ICONS[1], title: 'Our Vision', desc: ap.vision },
+    { icon: VALUE_ICONS[2], title: 'Our Values', desc: ap.values },
+  ];
+  return (
   <section className="py-20 md:py-28 bg-gray-50">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="What Drives Us" />
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-        >
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
           Mission, Vision & <span className="accent-text italic">Values</span>
         </motion.h2>
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
-
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {values.map(({ icon: Icon, title, desc }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.15 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group"
-          >
+        {valuesArr.map(({ icon: Icon, title, desc }, i) => (
+          <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.15 }} viewport={{ once: true }}
+            className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
             <div className="w-14 h-14 rounded-2xl bg-yellow-50 border border-yellow-100 flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
               <Icon className="text-yellow-600 group-hover:text-white h-6 w-6 transition-colors duration-300" />
             </div>
@@ -348,59 +255,34 @@ const ValuesSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── PROCESS SECTION ──────────────────────────────────────────────────────────
 
-const processSteps = [
-  {
-    step: '01',
-    title: 'Planning & Requirements',
-    desc: 'The first and most important step — understanding your project\'s requirements and expectations. We determine the overall project vision, goals, scope, features, purpose, cost, and functionality.',
-    image: planning,
-  },
-  {
-    step: '02',
-    title: 'Schematic Design',
-    desc: 'We create a series of rough sketches and drawings that show the basic ideas of the concept phase. Initial research on local compliance and regulations is completed at this stage.',
-    image: design,
-  },
-  {
-    step: '03',
-    title: 'Development & Execution',
-    desc: 'We collect results from the schematic design phase and take them further — finalising the design and specifying items such as materials, finishes, and construction methods.',
-    image: development,
-  },
-];
+const processSteps = null; // replaced by context
 
-const ProcessSection = () => (
+const ProcessSection = () => {
+  const { data } = useAdmin();
+  const steps = data.aboutPageContent.processSteps;
+  return (
   <section className="py-20 md:py-28 bg-white">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="How We Work" />
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-        >
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
           Our <span className="accent-text italic">Process</span>
         </motion.h2>
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
-
       <div className="space-y-16 md:space-y-24">
-        {processSteps.map(({ step, title, desc, image }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }}
-            viewport={{ once: true }}
-            className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}
-          >
+        {steps.map(({ step, title, desc }, i) => (
+          <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }} viewport={{ once: true }}
+            className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}>
             <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-video">
-              <img src={image} alt={title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+              <img src={PROCESS_IMAGES[i] || PROCESS_IMAGES[0]} alt={title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
             </div>
             <div className="w-full md:w-1/2 space-y-4">
               <span className="text-7xl md:text-8xl font-black text-gray-100 leading-none select-none">{step}</span>
@@ -413,7 +295,8 @@ const ProcessSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── TEAM SECTION ─────────────────────────────────────────────────────────────
 
@@ -433,8 +316,7 @@ const TeamCard = ({ member, index }) => {
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
-        />
+          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" loading="lazy" decoding="async" />
       </div>
       <div className="absolute inset-0 flex flex-col justify-end">
         <div className="p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
@@ -447,7 +329,7 @@ const TeamCard = ({ member, index }) => {
           >
             <p className="text-white/70 text-sm mt-3 leading-relaxed">{member.bio}</p>
             <div className="mt-4 flex items-center gap-3">
-              <a href="#" className="p-2 bg-white/10 hover:bg-yellow-500 rounded-full transition-colors duration-300">
+              <a href={member.linkedin || 'https://www.linkedin.com/company/econstruct'} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-yellow-500 rounded-full transition-colors duration-300">
                 <Linkedin size={14} className="text-white" />
               </a>
               <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">E-Construct</span>
@@ -459,64 +341,57 @@ const TeamCard = ({ member, index }) => {
   );
 };
 
-const TeamSection = () => (
+const TeamSection = () => {
+  const { data } = useAdmin();
+  const team = data.team;
+  return (
   <section className="py-20 md:py-28 bg-gray-50">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <SectionLabel text="Our Team" />
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-          >
-            Meet Our <br />
-            <span className="accent-text italic">Founders</span>
+          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
+            Meet Our <br /><span className="accent-text italic">Founders</span>
           </motion.h2>
         </div>
         <p className="text-gray-500 text-sm max-w-sm leading-relaxed md:text-right">
           Leading the transformation of construction with over two decades of engineering expertise and strategic vision.
         </p>
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
         {team.map((member, i) => (
-          <TeamCard key={i} member={member} index={i} />
+          <TeamCard key={member.id || i} member={{ ...member, role: member.position }} index={i} />
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── WHY US SECTION ───────────────────────────────────────────────────────────
 
-const WhyUsSection = () => (
+const WhyUsSection = () => {
+  const { data } = useAdmin();
+  const whyUs = data.aboutPageContent.whyUsItems;
+  return (
   <section className="py-20 md:py-28 bg-white">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="Why Choose Us" />
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-        >
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
           Complete Construction Solutions <br className="hidden md:block" /> <span className="accent-text italic">Under One Roof</span>
         </motion.h2>
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
-
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {whyUs.map(({ icon: Icon, title, desc }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08 }}
-            viewport={{ once: true }}
-            className="flex gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
-          >
+        {whyUs.map(({ title, desc }, i) => {
+          const Icon = WHY_ICONS[i % WHY_ICONS.length];
+          return (
+          <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.08 }} viewport={{ once: true }}
+            className="flex gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
             <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-300">
               <Icon className="text-yellow-600 group-hover:text-white h-5 w-5 transition-colors duration-300" />
             </div>
@@ -525,17 +400,19 @@ const WhyUsSection = () => (
               <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
             </div>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── CTA SECTION ──────────────────────────────────────────────────────────────
 
 const CTASection = () => (
   <section className="relative py-24 overflow-hidden">
-    <img src={ctaBG} alt="CTA Background" className="absolute inset-0 w-full h-full object-cover" />
+    <img src={ctaBG} alt="CTA Background" className="absolute inset-0 w-full h-full object-cover" loading="lazy" decoding="async" />
     <div className="absolute inset-0 bg-black/70" />
     <div className="relative z-10 max-w-[1400px] mx-auto px-6 text-center">
       <motion.div
@@ -594,8 +471,7 @@ const FounderNarrativeSection = () => (
             <img
               src="/founder_about.webp"
               alt="Company Founder"
-              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
-            />
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" loading="lazy" decoding="async" />
             <div className="absolute inset-0 border-[10px] border-white/20 rounded-3xl pointer-events-none" />
             <div className="absolute inset-0 bg-gradient-to-t from-gray-900/60 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8">
@@ -649,61 +525,49 @@ const FounderNarrativeSection = () => (
 
 // ─── CERTIFICATIONS SECTION ───────────────────────────────────────────────────
 
-const CertificationsSection = () => (
+const CertificationsSection = () => {
+  const { data } = useAdmin();
+  const certifications = data.aboutPageContent.certifications;
+  return (
   <section className="py-20 md:py-28 bg-gray-50">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-14">
         <SectionLabel text="Accreditations" />
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-        >
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
           Our <span className="accent-text italic">Certifications</span>
         </motion.h2>
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
         {certifications.map((cert, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-white border border-gray-100 p-8 text-center rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300 group flex flex-col items-center"
-          >
+          <motion.div key={cert.id || i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="bg-white border border-gray-100 p-8 text-center rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300 group flex flex-col items-center">
             <div className="w-40 h-40 mb-6 bg-gray-50 rounded-xl shadow-inner p-4 flex items-center justify-center">
-              <img
-                src={cert.img}
-                alt={cert.label}
-                className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
-              />
+              <img src={cert.img} alt={cert.label} className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300" loading="lazy" decoding="async" />
             </div>
-            <h3 className="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors duration-300">
-              {cert.label}
-            </h3>
+            <h3 className="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors duration-300">{cert.label}</h3>
           </motion.div>
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── VISION SECTION ───────────────────────────────────────────────────────────
 
-const VisionSection = () => (
+const VisionSection = () => {
+  const { data } = useAdmin();
+  const visionCards = data.aboutPageContent.visionCards;
+  return (
   <section className="py-20 md:py-28 bg-white">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-14">
         <SectionLabel text="Where We're Headed" />
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight"
-        >
+        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
           Our <span className="accent-text italic">Vision</span>
         </motion.h2>
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
@@ -712,15 +576,12 @@ const VisionSection = () => (
         </p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {visionCards.map(({ icon: Icon, title, desc }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group"
-          >
+        {visionCards.map(({ title, desc }, i) => {
+          const Icon = VISION_ICONS[i % VISION_ICONS.length];
+          return (
+          <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+            className="bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-400 opacity-5 rounded-full blur-[40px] transform translate-x-10 -translate-y-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
             <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 border border-slate-700/50 group-hover:scale-110 group-hover:border-yellow-400/50 transition-all duration-300 relative shadow-sm">
               <div className="absolute inset-0 bg-yellow-500 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
@@ -729,11 +590,13 @@ const VisionSection = () => (
             <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4">{title}</h3>
             <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{desc}</p>
           </motion.div>
-        ))}
+          );
+        })}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 

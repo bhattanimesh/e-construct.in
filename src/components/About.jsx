@@ -1,12 +1,18 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { CheckCircle } from 'lucide-react';
-import Image1 from '../assets/img1.jpg';
-import Image2 from '../assets/img2.jpg';
+import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.webp';
 import TextBG from '../assets/textbg.png';
+import { useAdmin } from '../context/AdminContext';
 
 const About = () => {
+  const { data } = useAdmin();
+  const ac = data.aboutContent;
+  const navigate = useNavigate();
+  // Use admin-configured images, fall back to bundled assets
+  const image1 = ac.image1 || '/i1.jpeg';
+  const image2 = ac.image2 || '/i2.jpeg';
   const targetRef = useRef(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -45,7 +51,7 @@ const About = () => {
               className="absolute top-0 left-0 w-[65%] h-[280px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl z-0"
             >
               <img 
-                src={Image1} 
+                src={image1} 
                 alt="Construction Planning" 
                 className="w-full h-full object-cover"
               />
@@ -57,7 +63,7 @@ const About = () => {
               className="absolute bottom-4 right-0 w-[75%] h-[300px] sm:h-[380px] md:h-[420px] overflow-hidden rounded-2xl z-10 "
             >
               <img 
-                src={Image2} 
+                src={image2} 
                 alt="Civil Engineering Site" 
                 className="w-full h-full object-cover"
               />
@@ -87,9 +93,9 @@ const About = () => {
               }}
               className="absolute bottom-10 left-0 md:left-4 z-20 p-5 md:p-8 flex flex-col items-center justify-center text-black"
             >
-              <span className="text-3xl md:text-5xl font-extrabold leading-none">20+</span>
+              <span className="text-3xl md:text-5xl font-extrabold leading-none">{ac.yearsLabel}</span>
               <span className="text-[10px] md:text-xs font-bold uppercase tracking-widest text-center mt-1">
-                Years of <br /> Excellence
+                {ac.yearsSubLabel.split(' ').slice(0, 2).join(' ')} <br /> {ac.yearsSubLabel.split(' ').slice(2).join(' ')}
               </span>
             </motion.div>
 
@@ -106,23 +112,16 @@ const About = () => {
             </div>
             
             <h2 className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-              EConstruct Design and <br className="hidden md:block"/> <span className="accent-text italic">Building Pvt. Ltd.</span>
+              {ac.headline.split(' ').slice(0, 3).join(' ')} <br className="hidden md:block"/> <span className="accent-text italic">{ac.headline.split(' ').slice(3).join(' ')}</span>
             </h2>
 
             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-              ECONSTRUCT is a premier Indian consultancy and contracting firm dedicated to redefining residential and commercial spaces. Operating with global benchmarks of transparency, reliability, and sustainability.
+              {ac.paragraph1}
             </p>
 
-            {/* Features List - Optimized for Mobile (1 col) and Desktop (2 col) */}
+            {/* Features List */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 w-full pt-2">
-              {[
-                "Structural Design & Audit",
-                "Project Management (PMC)",
-                "Corporate Technical Training",
-                "Quality Assurance Solutions",
-                "Innovative Construction Tech",
-                "On-Time Project Delivery"
-              ].map((item, index) => (
+              {ac.featuresList.map((item, index) => (
                 <div key={index} className="flex items-center gap-3 group">
                   <div className="flex-shrink-0 bg-yellow-500 rounded-full p-0.5 group-hover:bg-black transition-colors duration-300">
                     <CheckCircle className="text-white h-4 w-4 md:h-5 md:w-5" />
@@ -133,7 +132,7 @@ const About = () => {
             </div>
 
             <div className="pt-6 w-full sm:w-auto">
-              <button className="w-full sm:w-auto px-8 md:px-10 py-4 bg-yellow-500 hover:bg-black hover:text-white text-black font-bold rounded-xl transition-all duration-500 uppercase tracking-wider text-sm md:text-base active:scale-95">
+              <button onClick={() => navigate('/about')} className="w-full sm:w-auto px-8 md:px-10 py-4 bg-yellow-500 hover:bg-black hover:text-white text-black font-bold rounded-xl transition-all duration-500 uppercase tracking-wider text-sm md:text-base active:scale-95">
                 Learn More About Us
               </button>
             </div>
@@ -151,22 +150,7 @@ const About = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {[
-              { title: "Seamless Coordination", desc: "Smooth communication between all project stages" },
-              { title: "Faster Decision-Making", desc: "Quick approvals with a single responsible team" },
-              { title: "Reduced Errors", desc: "Better coordination minimizes design and site mistakes" },
-              { title: "Design-to-Execution Clarity", desc: "No confusion between drawings and execution" },
-              { title: "Optimized Resource Use", desc: "Efficient use of materials, labor, and time" },
-              { title: "Transparency", desc: "Clear communication on cost, timeline, and progress" },
-              { title: "Customized Solutions", desc: "Designs tailored to your needs and budget" },
-              { title: "Higher Efficiency", desc: "Streamlined workflow improves overall productivity" },
-              { title: "Risk Reduction", desc: "Early-stage planning avoids future complications" },
-              { title: "Quality Control at Every Stage", desc: "Continuous monitoring ensures standards" },
-              { title: "Better Project Tracking", desc: "Easy monitoring of progress and milestones" },
-              { title: "Professional Expertise", desc: "Access to experienced designers and engineers" },
-              { title: "On-Time Delivery", desc: "Better planning ensures timely completion" },
-              { title: "Value Engineering", desc: "Smart design decisions to save cost without compromising quality" }
-            ].map((item, index) => (
+            {ac.whyUsItems.map((item, index) => (
               <div key={index} className="flex gap-4 p-6 rounded-2xl bg-white border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
                 <div className="flex-shrink-0 bg-yellow-50 rounded-xl h-12 w-12 flex items-center justify-center">
                   <CheckCircle className="text-yellow-600 h-6 w-6" />

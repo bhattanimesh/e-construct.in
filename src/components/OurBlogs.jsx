@@ -1,69 +1,10 @@
-import React from 'react';
+﻿import React from 'react';
 import { motion } from "framer-motion";
-import b1 from '../assets/b1.webp';
-import b2 from '../assets/b2.webp';
-import b3 from '../assets/b3.webp';
-import b4 from '../assets/b4.webp';
-import b5 from '../assets/b5.jpeg';
-import b7 from '../assets/b7.jpg';
+import { useAdmin } from '../context/AdminContext';
 
 const OurBlogs = () => {
-  const blogs = [
-    {
-      id: 1,
-      title: "Transforming a Barren Pond…",
-      desc: "Transforming a Barren Pond Area",
-      img: b1
-    },
-    {
-      id: 2,
-      title: "The Evolution of Modern-Day…",
-      desc: "The Evolution of Modern-Day Construction:…",
-      img: b2
-    },
-    {
-      id: 3,
-      title: "Why Buildings Crack and…",
-      desc: "Cracks in buildings are a…",
-      img: b3
-    },
-    {
-      id: 4,
-      title: "Top 10 Benefits of…",
-      desc: "Top 10 Benefits of BIM…",
-      img: b4
-    },
-    {
-      id: 5,
-      title: "The Kolkata Flyover Collapse…",
-      desc: "The tragic collapse of the…",
-      img: b5
-    },
-    {
-      id: 6,
-      title: "Building Collapses in India:…",
-      desc: "Discover the causes of building…",
-      img: b7
-    },
-    {
-      id: 7,
-      title: "Decline in vision for Temples of heritage : The Shift from Stone to Concrete in Modern Temple Construction",
-      desc: "Old temple architecture is a testament to the ingenuity and artistry of ancient builders, characterized by intricate designs, towering gopurams,",
-      img: "/b1_new.jpg"
-    },
-    {
-      id: 8,
-      title: "What’s wrong with the making process of a Civil Engineer?",
-      desc: "Civil Engineering is a part of engineering that deals with mathematical and scientific knowledge to improve infrastructures.",
-      img: "/b2_new.png"
-    },
-    {
-      id: 9,
-      title: "Tips to get a job as a Structural Engineer",
-      desc: "As a fresher, it is always difficult as a Structural Engineer. Most companies out there prefer candidates who have experience",
-      img: "/b3_new.png"
-    }
-  ];
+  const { data } = useAdmin();
+  const blogs = data.blogs;
 
   return (
     <section className="bg-white overflow-hidden">
@@ -104,8 +45,7 @@ const OurBlogs = () => {
               <img 
                 src={blog.img} 
                 alt={blog.title} 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy" decoding="async" />
             </div>
 
             {/* Content Box */}
@@ -120,7 +60,7 @@ const OurBlogs = () => {
 
               <div className="mt-auto pt-4 border-t border-gray-100">
                 <button className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter text-slate-900 border-b-2 border-transparent hover:text-amber-600 hover:border-amber-600 transition-all">
-                  Learn More ↗
+                  Learn More &#8599;
                 </button>
               </div>
             </div>

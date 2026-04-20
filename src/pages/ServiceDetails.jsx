@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CheckCircle2, ArrowRight, Home, Building2, Palmtree, Factory, Car, Check, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import Projects from '../components/Projects';
 import CTASection from '../components/CTASection';
 import VillaImage from '../assets/villa.jpg';
@@ -10,50 +11,19 @@ import C2 from '../assets/c2.jpg';
 import C3 from '../assets/c3.jpg';
 import C4 from '../assets/c4.jpg';
 import C5 from '../assets/c5.jpg';
+import { useAdmin } from '../context/AdminContext';
 
-const reviewsData = [
-  {
-    name: "Sanjay Sharma",
-    role: "Business Owner",
-    text: "E-Construct delivered our commercial building exactly on schedule without compromising an ounce of quality. Their structural expertise and professional management team made the entire construction process smooth and stress-free.",
-    initial: "S"
-  },
-  {
-    name: "Priya Desai",
-    role: "Homeowner",
-    text: "Building our dream villa with them was a phenomenal experience. From premium designs to seamless execution, they truly care about their clients.",
-    initial: "P"
-  },
-  {
-    name: "Rajeev Menon",
-    role: "Project Director",
-    text: "Their expertise in road and pavement construction is unmatched. They handled everything transparently, on-time, and within our allocated budget.",
-    initial: "R"
-  },
-  {
-    name: "Amit Gupta",
-    role: "Industrialist",
-    text: "We hired E-Construct for a massive industrial PEB structure. The durability and fast deployment of their manufacturing unit completely exceeded our expectations!",
-    initial: "A"
-  },
-  {
-    name: "Neha Verma",
-    role: "Property Developer",
-    text: "A truly professional contracting team! From architectural planning to the final concrete pours, their supervision is highly commendable.",
-    initial: "N"
-  }
-];
+const SERVICE_ICONS = [Home, Building2, Palmtree, Factory, Car];
 
 const ServiceDetails = () => {
+  const { data } = useAdmin();
+  const sd = data.serviceDetailsContent;
   const [activeReview, setActiveReview] = useState(0);
+  const reviewsData = sd.reviews;
+  const navigate = useNavigate();
 
-  const nextReview = () => {
-    setActiveReview((prev) => (prev + 1) % reviewsData.length);
-  };
-
-  const prevReview = () => {
-    setActiveReview((prev) => (prev - 1 + reviewsData.length) % reviewsData.length);
-  };
+  const nextReview = () => setActiveReview((prev) => (prev + 1) % reviewsData.length);
+  const prevReview = () => setActiveReview((prev) => (prev - 1 + reviewsData.length) % reviewsData.length);
 
   return (
     <div className="w-full bg-white">
@@ -63,8 +33,7 @@ const ServiceDetails = () => {
           <img 
             src={ConstructionServiceHero} 
             alt="Construction Service Hero" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay"
-          />
+            className="w-full h-full object-cover opacity-40 mix-blend-overlay" loading="lazy" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
         </div>
 
@@ -85,7 +54,7 @@ const ServiceDetails = () => {
             transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl font-medium text-white tracking-tight mb-6 leading-tight"
           >
-            Construction <span className="accent-text italic">Services</span>
+            {sd.heroTitle.split(' ')[0]} <span className="accent-text italic">{sd.heroTitle.split(' ').slice(1).join(' ')}</span>
           </motion.h1>
           
           <motion.p 
@@ -94,7 +63,7 @@ const ServiceDetails = () => {
             transition={{ delay: 0.2 }}
             className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed"
           >
-            Whether it's a small residential project or a mega G+81 building, we offer custom solutions based on your needs.
+            {sd.heroSubtitle}
           </motion.p>
         </div>
       </section>
@@ -115,22 +84,19 @@ const ServiceDetails = () => {
                 <img 
                   src={VillaImage} 
                   alt="about construction service,econstruct,econstruct consultancy" 
-                  className="w-full h-full object-cover" 
-                />
+                  className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 {/* Overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
               </div>
               
               {/* Floating Stat Card 1 */}
               <div className="absolute -bottom-10 left-10 md:-left-10 bg-[#fbc02d] p-8 rounded-3xl min-w-[200px] shadow-2xl border-4 border-white flex flex-col justify-center items-center">
-                <div className="text-black font-black text-5xl mb-1">250<span className="text-3xl">+</span></div>
-                <div className="text-black text-xs font-bold uppercase tracking-wider text-center">Projects Completed</div>
+                <div className="text-black font-black text-5xl mb-1">{sd.stat1Value.replace('+','')}<span className="text-3xl">+</span></div>
+                <div className="text-black text-xs font-bold uppercase tracking-wider text-center">{sd.stat1Label}</div>
               </div>
-
-               {/* Floating Stat Card 2 */}
               <div className="absolute top-10 -right-5 md:-right-10 bg-slate-900 p-8 rounded-3xl min-w-[180px] shadow-2xl border-4 border-white flex flex-col justify-center items-center text-white">
-                <div className="text-[#fbc02d] font-black text-5xl mb-1">22</div>
-                <div className="text-white text-xs font-bold uppercase tracking-wider text-center">Years Experience</div>
+                <div className="text-[#fbc02d] font-black text-5xl mb-1">{sd.stat2Value}</div>
+                <div className="text-white text-xs font-bold uppercase tracking-wider text-center">{sd.stat2Label}</div>
               </div>
             </motion.div>
 
@@ -146,14 +112,14 @@ const ServiceDetails = () => {
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">About Us</span>
               </div>
               <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 leading-tight tracking-tight">
-                Let us build your <br />
-                <span className="accent-text italic">dream home.</span>
+                {sd.aboutHeadline.split(' ').slice(0, -2).join(' ')} <br />
+                <span className="accent-text italic">{sd.aboutHeadline.split(' ').slice(-2).join(' ')}</span>
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed max-w-xl">
-                We are a leading consultancy and contracting company in India that has executed construction work for some of the most significant projects in the country. We continue to alter the structural landscape through several other prestigious projects in the residential, commercial, and Institutional space.
+                {sd.aboutDesc}
               </p>
               
-              <button className="group relative inline-flex items-center gap-4 px-8 py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 shadow-xl shadow-slate-900/20">
+              <button onClick={() => navigate('/contact')} className="group relative inline-flex items-center gap-4 px-8 py-4 bg-slate-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl overflow-hidden hover:scale-105 transition-all duration-300 shadow-xl shadow-slate-900/20">
                 <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity"></div>
                 <span className="relative z-10">Get Free Project Estimate</span>
                 <ArrowRight size={16} className="relative z-10 group-hover:translate-x-1 transition-transform" />
@@ -179,62 +145,35 @@ const ServiceDetails = () => {
               </h2>
             </div>
             
-            <button className="flex items-center gap-3 px-8 py-4 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-colors w-max">
+            <button onClick={() => navigate('/contact')} className="flex items-center gap-3 px-8 py-4 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-colors w-max">
               Get In Touch <ArrowRight size={16} />
             </button>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: "Residential Construction", 
-                desc: "Want to build your dream home? We have executed over 200+ residential projects. From planning to execution we take care of all construction needs.", 
-                icon: <Home size={32} /> 
-              },
-              { 
-                title: "Commercial Construction", 
-                desc: "From Multi unit apartments, individual commercial complexes to high rise mega structures our team is well equipped to manage your construction needs.", 
-                icon: <Building2 size={32} /> 
-              },
-              { 
-                title: "Villa Construction", 
-                desc: "Individual villa constitution services with premium designs, landscaping, interior and exteriors suited to reflect your personality.", 
-                icon: <Palmtree size={32} /> 
-              },
-              { 
-                title: "Factories & Industries", 
-                desc: "Steel PEB structures that are engineered for faster and durable deployment. Experts in Industrial warehouses, small manufacturing Buildings & storage units.", 
-                icon: <Factory size={32} /> 
-              },
-              { 
-                title: "Road Construction", 
-                desc: "Asphalt roads, CC roads, pavements and smart footpaths - We provide end to end construction services with planning, estimate and supervision of your project.", 
-                icon: <Car size={32} /> 
-              },
-            ].map((feature, i) => (
+            {sd.constructionServices.map((feature, i) => {
+              const Icon = SERVICE_ICONS[i] || Home;
+              return (
               <motion.div 
-                key={i}
+                key={feature.id || i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 className="bg-white p-10 py-12 rounded-[2.5rem] shadow-[0_10px_40px_rgba(0,0,0,0.03)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.08)] transition-all duration-500 border border-gray-100 group hover:-translate-y-2 relative overflow-hidden"
               >
-                {/* Background Accent */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-[#fbc02d]/5 rounded-bl-[100px] transition-transform duration-500 group-hover:scale-110"></div>
-                
                 <div className="relative z-10 w-20 h-20 bg-[#fbc02d]/10 rounded-2xl flex items-center justify-center text-[#fbc02d] mb-8 group-hover:bg-[#fbc02d] group-hover:text-black transition-colors duration-300">
-                  {feature.icon}
+                  <Icon size={32} />
                 </div>
                 <h3 className="relative z-10 text-2xl font-black text-slate-900 mb-5 leading-tight">{feature.title}</h3>
                 <p className="relative z-10 text-gray-600 leading-relaxed">{feature.desc}</p>
-                
-                {/* Learn More link on Hover */}
                 <div className="relative z-10 mt-8 flex items-center gap-2 text-[#fbc02d] font-bold uppercase tracking-widest text-[10px] opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0 duration-300">
-                  Discuss Project <ArrowRight size={14} />
+                  <Link to="/contact" className="flex items-center gap-2">Discuss Project <ArrowRight size={14} /></Link>
                 </div>
               </motion.div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
@@ -266,8 +205,7 @@ const ServiceDetails = () => {
                 <img 
                   src={imgSrc} 
                   alt={`Construction Project ${idx + 1}`} 
-                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110" 
-                />
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110" loading="lazy" decoding="async" />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 
                 <div className="absolute bottom-10 left-10 opacity-0 translate-y-8 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 delay-100 flex items-center gap-4">
@@ -284,7 +222,7 @@ const ServiceDetails = () => {
           </div>
           
           <div className="mt-16 text-center">
-            <button className="inline-flex items-center gap-4 px-10 py-5 bg-slate-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl hover:bg-[#fbc02d] hover:text-slate-900 transition-colors duration-300 shadow-xl">
+            <button onClick={() => navigate('/projects')} className="inline-flex items-center gap-4 px-10 py-5 bg-slate-900 text-white font-bold uppercase tracking-widest text-xs rounded-xl hover:bg-[#fbc02d] hover:text-slate-900 transition-colors duration-300 shadow-xl">
               View All Projects <ArrowRight size={16} />
             </button>
           </div>
@@ -365,8 +303,7 @@ const ServiceDetails = () => {
                 <img 
                   src={C5} 
                   alt="Construction Site Review" 
-                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" 
-                />
+                  className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105" loading="lazy" decoding="async" />
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 

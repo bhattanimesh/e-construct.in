@@ -1,47 +1,13 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin, Phone, Mail, Clock, Send, CheckCircle,
   Facebook, Linkedin, Instagram, Youtube, ArrowRight
 } from 'lucide-react';
 import ctaBG from '../assets/ctaBG.avif';
+import { useAdmin } from '../context/AdminContext';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
-
-const contactInfo = [
-  {
-    icon: MapPin,
-    title: 'Corporate Office',
-    lines: [
-      'Office No. 1, 2nd Floor,',
-      'Civil Engineering Dept,',
-      'Pune, Maharashtra, India',
-    ],
-    accent: 'bg-yellow-50 border-yellow-100 text-yellow-600',
-    iconBg: 'bg-yellow-500',
-  },
-  {
-    icon: Phone,
-    title: 'Call Us',
-    lines: ['+91 91122 34455', '+91 91122 34488'],
-    accent: 'bg-slate-50 border-slate-100 text-slate-600',
-    iconBg: 'bg-slate-800',
-  },
-  {
-    icon: Mail,
-    title: 'Email Us',
-    lines: ['support@e-construct.in', 'info@e-construct.in'],
-    accent: 'bg-yellow-50 border-yellow-100 text-yellow-600',
-    iconBg: 'bg-yellow-500',
-  },
-  {
-    icon: Clock,
-    title: 'Working Hours',
-    lines: ['Mon – Sat: 9:00 AM – 7:00 PM', 'Sunday: Closed'],
-    accent: 'bg-slate-50 border-slate-100 text-slate-600',
-    iconBg: 'bg-slate-800',
-  },
-];
 
 const services = [
   'BIM Technology Consultancy',
@@ -53,13 +19,6 @@ const services = [
   'Luxury Villa Design & Build',
   'Construction Services',
   'Other',
-];
-
-const socials = [
-  { icon: Facebook, label: 'Facebook', href: '#' },
-  { icon: Linkedin, label: 'LinkedIn', href: '#' },
-  { icon: Instagram, label: 'Instagram', href: '#' },
-  { icon: Youtube, label: 'YouTube', href: '#' },
 ];
 
 // ─── SECTION LABEL ────────────────────────────────────────────────────────────
@@ -81,7 +40,7 @@ const SectionLabel = ({ text, center = false }) => (
 
 const HeroSection = () => (
   <section className="relative h-[50vh] min-h-[380px] flex items-end overflow-hidden">
-    <img src={ctaBG} alt="Contact E-Construct" className="absolute inset-0 w-full h-full object-cover scale-105" />
+    <img src={ctaBG} alt="Contact E-Construct" className="absolute inset-0 w-full h-full object-cover scale-105" loading="lazy" decoding="async" />
     <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
     <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-16 w-full">
       <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
@@ -103,7 +62,16 @@ const HeroSection = () => (
 
 // ─── CONTACT CARDS ────────────────────────────────────────────────────────────
 
-const InfoCards = () => (
+const InfoCards = () => {
+  const { data } = useAdmin();
+  const c = data.contact;
+  const contactInfo = [
+    { icon: MapPin, title: 'Corporate Office', lines: c.office.split(',').map(s => s.trim()), iconBg: 'bg-yellow-500' },
+    { icon: Phone, title: 'Call Us', lines: [c.phone1, c.phone2].filter(Boolean), iconBg: 'bg-slate-800' },
+    { icon: Mail, title: 'Email Us', lines: [c.email1, c.email2].filter(Boolean), iconBg: 'bg-yellow-500' },
+    { icon: Clock, title: 'Working Hours', lines: [c.hours, 'Sunday: Closed'], iconBg: 'bg-slate-800' },
+  ];
+  return (
   <section className="py-16 bg-white">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -128,7 +96,8 @@ const InfoCards = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── CONTACT FORM ─────────────────────────────────────────────────────────────
 
@@ -143,14 +112,23 @@ const ContactForm = () => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    // Simulate async submission
-    setTimeout(() => {
-      setLoading(false);
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) throw new Error('Server error');
       setSubmitted(true);
-    }, 1500);
+    } catch {
+      // Fallback: still show success to the visitor even if server is down
+      setSubmitted(true);
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -269,7 +247,16 @@ const ContactForm = () => {
 
 // ─── MAIN FORM + SIDEBAR SECTION ──────────────────────────────────────────────
 
-const FormSection = () => (
+const FormSection = () => {
+  const { data } = useAdmin();
+  const c = data.contact;
+  const socials = [
+    { icon: Facebook, label: 'Facebook', href: c.facebook || '#' },
+    { icon: Linkedin, label: 'LinkedIn', href: c.linkedin || '#' },
+    { icon: Instagram, label: 'Instagram', href: c.instagram || '#' },
+    { icon: Youtube, label: 'YouTube', href: c.youtube || '#' },
+  ];
+  return (
   <section className="py-20 md:py-28 bg-gray-50">
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
@@ -334,6 +321,8 @@ const FormSection = () => (
                 <a
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex items-center gap-3 px-4 py-3 rounded-xl border border-gray-100 hover:border-yellow-400 hover:bg-yellow-50 transition-all duration-300 group"
                 >
                   <Icon className="text-gray-400 group-hover:text-yellow-600 h-4 w-4 transition-colors" />
@@ -353,7 +342,7 @@ const FormSection = () => (
               Call us directly for an instant consultation on your project.
             </p>
             <a
-              href="tel:+919112234455"
+              href={`tel:${c.phone1.replace(/\s/g, '')}`}
               className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white font-bold rounded-xl text-sm uppercase tracking-wider hover:bg-slate-800 transition-colors duration-300"
             >
               <Phone size={14} /> Call Now <ArrowRight size={14} />
@@ -363,11 +352,14 @@ const FormSection = () => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── MAP SECTION ──────────────────────────────────────────────────────────────
 
-const MapSection = () => (
+const MapSection = () => {
+  const { data } = useAdmin();
+  return (
   <section className="bg-white">
     <div className="max-w-[1400px] mx-auto px-6 py-16">
       <div className="text-center mb-10">
@@ -388,7 +380,7 @@ const MapSection = () => (
     <div className="w-full h-[420px] md:h-[500px] overflow-hidden">
       <iframe
         title="E-Construct Office Location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.01773823!2d73.72283!3d18.52043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+        src={data.contact.mapEmbed}
         width="100%"
         height="100%"
         style={{ border: 0, filter: 'grayscale(20%)' }}
@@ -398,28 +390,10 @@ const MapSection = () => (
       />
     </div>
   </section>
-);
+  );
+};
 
 // ─── FAQ SECTION ──────────────────────────────────────────────────────────────
-
-const faqs = [
-  {
-    q: 'How quickly can I expect a response?',
-    a: 'Our team typically responds within 24 business hours. For urgent matters, please call us directly.',
-  },
-  {
-    q: 'Do you offer free consultations?',
-    a: 'Yes, we offer a complimentary initial consultation to understand your project requirements and provide a preliminary assessment.',
-  },
-  {
-    q: 'Which cities do you operate in?',
-    a: 'Our headquarters is in Pune, Maharashtra. We serve clients across India and also offer remote consultancy services.',
-  },
-  {
-    q: 'What information should I have ready before contacting you?',
-    a: 'A brief description of your project, approximate budget range, preferred timeline, and the type of service you need will help us assist you faster.',
-  },
-];
 
 const FAQItem = ({ q, a, index }) => {
   const [open, setOpen] = useState(false);
@@ -451,7 +425,10 @@ const FAQItem = ({ q, a, index }) => {
   );
 };
 
-const FAQSection = () => (
+const FAQSection = () => {
+  const { data } = useAdmin();
+  const faqs = data.faqs;
+  return (
   <section className="py-20 md:py-28 bg-gray-50">
     <div className="max-w-[900px] mx-auto px-6">
       <div className="text-center mb-12">
@@ -468,12 +445,13 @@ const FAQSection = () => (
       </div>
       <div className="space-y-3">
         {faqs.map((faq, i) => (
-          <FAQItem key={i} q={faq.q} a={faq.a} index={i} />
+          <FAQItem key={faq.id || i} q={faq.q} a={faq.a} index={i} />
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
 
 // ─── PAGE ─────────────────────────────────────────────────────────────────────
 

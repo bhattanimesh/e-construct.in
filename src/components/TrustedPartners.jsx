@@ -1,27 +1,11 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-
-// Assets
-import Partner1 from '../assets/part1.jpg'
-import Partner2 from '../assets/part2.jpg'
-import Partner3 from '../assets/part3.jpg'
-import Partner4 from '../assets/part4.jpg'
-import Partner5 from '../assets/part5.jpg'
-import Partner6 from '../assets/part6.png'
-import Partner7 from '../assets/part7.avif'
+import { useAdmin } from '../context/AdminContext';
 
 const TrustedPartners = () => {
+  const { data } = useAdmin();
+  const partners = data.trustedPartners;
   const containerRef = useRef(null);
-
-  const partners = [
-    { id: 1, name: 'L&T', url: Partner1 },
-    { id: 2, name: 'Tata Projects', url: Partner2 },
-    { id: 3, name: 'UltraTech', url: Partner3 },
-    { id: 4, name: 'Reliance', url: Partner4 },
-    { id: 5, name: 'Ambuja', url: Partner5 },
-    { id: 6, name: 'Shapoorji', url: Partner6 },
-    { id: 7, name: 'Shapoorji', url: Partner7 },
-  ];
 
   // Professional Tip: Infinite loop ke liye 3x duplication zaroori hai
   const duplicatedPartners = [...partners, ...partners, ...partners];
@@ -86,6 +70,8 @@ const TrustedPartners = () => {
                       <img
                         src={partner.url}
                         alt={partner.name}
+                        loading="lazy"
+                        decoding="async"
                         className="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
                       />
                     </div>

@@ -1,39 +1,13 @@
-import React, { useState, useRef } from 'react';
+﻿import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring } from 'framer-motion';
 import { ExternalLink, MapPin, ArrowRight } from 'lucide-react';
-
-// Assets Imports
-import KALPATARUParkRiviera from '../assets/KALPATARUParkRiviera.webp'
-import SonaliResidential from '../assets/SonaliResidential.webp'
-import GoregaonMulundLinkRoad from '../assets/GoregaonMulundLinkRoad.webp'
-
-const projects = [
-  {
-    id: 1,
-    title: "KALPATARU Park Riviera",
-    category: "Residential",
-    location: "Panvel, Navi Mumbai",
-    image: KALPATARUParkRiviera,
-  },
-  {
-    id: 2,
-    title: "Sonali Residential",
-    category: "Residential",
-    location: "Pune, Maharashtra",
-    image: SonaliResidential,
-  },
-  {
-    id: 3,
-    title: "Goregaon Mulund Link Road (GMLR)",
-    category: "Commercial",
-    location: "Mumbai, India",
-    image: GoregaonMulundLinkRoad,
-  },
-];
+import { useAdmin } from '../context/AdminContext';
 
 const categories = ["All", "Residential", "Commercial", "Industrial"];
 
 const Projects = () => {
+  const { data } = useAdmin();
+  const projects = data.projects;
   const [activeFilter, setActiveFilter] = useState("All");
   const sectionRef = useRef(null);
 
@@ -145,8 +119,7 @@ const Projects = () => {
                     <img 
                       src={project.image} 
                       alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
-                    />
+                      className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110" loading="lazy" decoding="async" />
                     
                     {/* Dark Gradient Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent opacity-70 group-hover:opacity-80 transition-opacity duration-500"></div>
