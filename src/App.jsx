@@ -28,6 +28,10 @@ const EPMC          = lazy(() => import('./pages/EPMC'))
 const LuxuryVilla   = lazy(() => import('./pages/LuxuryVilla'))
 const ConstructionServices = lazy(() => import('./pages/ConstructionServices'))
 const TotalQualityManagement = lazy(() => import('./pages/TotalQualityManagement'))
+const CorporateTraining        = lazy(() => import('./pages/CorporateTraining'))
+const WorkshopsSeminars        = lazy(() => import('./pages/WorkshopsSeminars'))
+const InteriorDesign           = lazy(() => import('./pages/InteriorDesign'))
+const ArchitecturalConsultancy = lazy(() => import('./pages/ArchitecturalConsultancy'))
 
 // Minimal loading fallback — no layout shift, no spinner flash
 const PageLoader = () => (
@@ -61,6 +65,10 @@ function App() {
               <Route path="services/luxury-villa" element={<LuxuryVilla />} />
               <Route path="services/construction" element={<ConstructionServices />} />
               <Route path="services/tqm" element={<TotalQualityManagement />} />
+              <Route path="services/interior-design" element={<InteriorDesign />} />
+              <Route path="services/architectural-consultancy" element={<ArchitecturalConsultancy />} />
+              <Route path="training/corporate" element={<CorporateTraining />} />
+              <Route path="training/workshops" element={<WorkshopsSeminars />} />
               <Route path="projects" element={<ProjectsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>

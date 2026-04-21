@@ -133,7 +133,7 @@ const ImmersiveProcess = () => {
                       Step {step.id} • {step.subtitle}
                     </div>
 
-                    <h3 className="text-4xl md:text-7xl font-black text-slate-900 mt-2 mb-4 md:mb-6">
+                    <h3 className="text-4xl md:text-6xl font-black text-slate-900 mt-2 mb-4 md:mb-6">
                       {step.title}
                     </h3>
 

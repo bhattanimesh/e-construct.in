@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
@@ -10,6 +10,14 @@ const Hero = () => {
   const { data } = useAdmin();
   const h = data.heroContent;
   const navigate = useNavigate();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {});
+  }, []);
   const { scrollY } = useScroll();
 
   // Smooth Spring for Parallax
@@ -41,6 +49,7 @@ const Hero = () => {
         className="absolute inset-0 w-full h-full scale-125"
       >
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop

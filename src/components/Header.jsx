@@ -55,13 +55,13 @@ const servicesMenu = {
       icon: Wrench,
       title: 'Interior Design Consultancy',
       desc: 'Space planning & interior solutions',
-      path: '/services',
+      path: '/services/interior-design',
     },
     {
       icon: LayoutDashboard,
       title: 'Architectural Consultancy',
       desc: 'Concept to execution drawings',
-      path: '/services',
+      path: '/services/architectural-consultancy',
     },
   ],
 };
@@ -76,9 +76,9 @@ const pagesMenu = [
 ];
 
 const trainingMenu = [
-  { icon: GraduationCap, title: 'Corporate On-Job Training', desc: 'BIM & AEC software for teams', path: '/services' },
+  { icon: GraduationCap, title: 'Corporate On-Job Training', desc: 'BIM & AEC software for teams', path: '/training/corporate' },
   { icon: Layers,        title: 'BIM Certification',         desc: 'Industry-recognised BIM courses', path: '/services/bim-consultancy' },
-  { icon: BookOpen,      title: 'Workshops & Seminars',      desc: 'Hands-on learning sessions',      path: '/contact' },
+  { icon: BookOpen,      title: 'Workshops & Seminars',      desc: 'Hands-on learning sessions',      path: '/training/workshops' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
@@ -120,8 +120,11 @@ const ServicesDropdown = () => (
 
 const PagesDropdown = () => (
   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-72 bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
-    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100">
+    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">BIM Hub</span>
+      <Link to="/bim-hub/gallery" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
+        View all <ArrowRight size={10} />
+      </Link>
     </div>
     <div className="py-2">
       {pagesMenu.map((item) => {
@@ -150,8 +153,11 @@ const PagesDropdown = () => (
 
 const TrainingDropdown = () => (
   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-72 bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
-    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100">
+    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Training Programs</span>
+      <Link to="/training/corporate" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
+        View all <ArrowRight size={10} />
+      </Link>
     </div>
     <div className="py-2">
       {trainingMenu.map((item) => {
@@ -276,9 +282,9 @@ const Header = () => {
 
           {/* Services */}
           <div className="group relative h-full flex items-center">
-            <NavLink to="/services" className={({ isActive }) => `flex items-center gap-1 ${navTextClass(isActive)}`}>
+            <button className={`flex items-center gap-1 ${navTextClass(false)}`}>
               SERVICES <ChevronDown size={10} className={chevronClass} />
-            </NavLink>
+            </button>
             <ServicesDropdown />
           </div>
 
@@ -286,17 +292,17 @@ const Header = () => {
 
           {/* Training */}
           <div className="group relative h-full flex items-center">
-            <NavLink to="/services" className={({ isActive }) => `flex items-center gap-1 ${navTextClass(isActive)}`}>
+            <button className={`flex items-center gap-1 ${navTextClass(false)}`}>
               TRAINING <ChevronDown size={10} className={chevronClass} />
-            </NavLink>
+            </button>
             <TrainingDropdown />
           </div>
 
           {/* Pages */}
           <div className="group relative h-full flex items-center">
-            <NavLink to="/bim-hub/gallery" className={({ isActive }) => `flex items-center gap-1 ${navTextClass(isActive)}`}>
+            <button className={`flex items-center gap-1 ${navTextClass(false)}`}>
               PAGES <ChevronDown size={10} className={chevronClass} />
-            </NavLink>
+            </button>
             <PagesDropdown />
           </div>
 
