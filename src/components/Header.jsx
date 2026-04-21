@@ -31,25 +31,25 @@ const servicesMenu = {
       icon: BarChart2,
       title: 'Project Management (ePMC)',
       desc: 'End-to-end construction management',
-      path: '/services',
+      path: '/services/epmc',
     },
     {
       icon: Home,
       title: 'Luxury Villa Design & Build',
       desc: 'Premium residential design & execution',
-      path: '/services',
+      path: '/services/luxury-villa',
     },
     {
       icon: HardHat,
       title: 'Construction Services',
       desc: 'Full-scale build & site management',
-      path: '/services',
+      path: '/services/construction',
     },
     {
       icon: ShieldCheck,
       title: 'Total Quality Management',
       desc: 'Quality assurance across all stages',
-      path: '/services',
+      path: '/services/tqm',
     },
     {
       icon: Wrench,
@@ -70,8 +70,8 @@ const pagesMenu = [
   { icon: Image,      title: 'Gallery',  desc: 'BIM models & project visuals', path: '/bim-hub/gallery' },
   { icon: BookOpen,   title: 'Blog',     desc: 'Insights & industry articles',  path: '/bim-hub/blog'    },
   { icon: BookMarked, title: 'MSB',      desc: 'Master in Smart Building',      path: '/bim-hub/msb'     },
-  { icon: FileText,   title: 'MSC',      desc: 'Master in Smart Construction',  path: '/bim-hub/msb'     },
-  { icon: Layers,     title: 'MSS',      desc: 'Master in Smart Structures',    path: '/bim-hub/msb'     },
+  { icon: FileText,   title: 'MSC',      desc: 'Master in Smart Construction',  path: '/bim-hub/msc'     },
+  { icon: Layers,     title: 'MSS',      desc: 'Master in Smart Structures',    path: '/bim-hub/mss'     },
   { icon: BarChart2,  title: 'PBD',      desc: 'Performance Based Design',      path: '/bim-hub/pbd'     },
 ];
 
