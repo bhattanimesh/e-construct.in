@@ -736,21 +736,86 @@ const ProjectsManager = () => {
 
 // ─── BLOGS MANAGER ────────────────────────────────────────────────────────────
 
+const BLOG_CATEGORIES = ['BIM', 'Structural Engineering', 'Architecture', 'Technology', 'Sustainability', 'Education', 'Careers', 'Case Study', 'News'];
+
+const slugify = (str) => str.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+// Inline markdown preview renderer (mirrors BlogDetailPage logic, lightweight)
+const PreviewContent = ({ text }) => {
+  if (!text) return <p className="text-gray-400 italic text-sm">Nothing to preview yet.</p>;
+  return (
+    <div className="prose max-w-none text-sm leading-relaxed">
+      {text.split('\n').map((line, i) => {
+        if (!line.trim()) return <div key={i} className="h-3" />;
+        if (line.startsWith('## ')) return <h2 key={i} className="text-lg font-bold text-slate-900 mt-5 mb-2">{line.slice(3)}</h2>;
+        if (line.startsWith('### ')) return <h3 key={i} className="text-base font-bold text-slate-900 mt-4 mb-1">{line.slice(4)}</h3>;
+        if (line.startsWith('# ')) return <h1 key={i} className="text-xl font-bold text-slate-900 mt-5 mb-2">{line.slice(2)}</h1>;
+        if (/^\d+\.\s/.test(line)) return <p key={i} className="text-gray-700 ml-4">• {line.replace(/^\d+\.\s/, '')}</p>;
+        if (/^[-*]\s/.test(line)) return <p key={i} className="text-gray-700 ml-4">• {line.replace(/^[-*]\s/, '')}</p>;
+        // inline bold/italic
+        const formatted = line.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>');
+        return <p key={i} className="text-gray-700 mb-2" dangerouslySetInnerHTML={{ __html: formatted }} />;
+      })}
+    </div>
+  );
+};
+
+// Formatting toolbar button
+const FmtBtn = ({ label, title, onClick }) => (
+  <button type="button" title={title} onClick={onClick}
+    className="px-2 py-1 text-xs font-mono font-bold bg-white border border-gray-200 rounded hover:bg-yellow-50 hover:border-yellow-300 text-slate-700 transition-all">
+    {label}
+  </button>
+);
+
 const BlogsManager = () => {
   const { data, update } = useAdmin();
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({});
   const [adding, setAdding] = useState(false);
   const [search, setSearch] = useState('');
+  const [filterCat, setFilterCat] = useState('All');
+  const [activeTab, setActiveTab] = useState('basic');
+  const [preview, setPreview] = useState(false);
+  const contentRef = useRef(null);
 
-  const startEdit = (item) => { setEditing(item.id); setForm({ ...item }); setAdding(false); };
-  const startAdd = () => { setAdding(true); setEditing(null); setForm({ id: Date.now(), title: '', desc: '', img: '' }); };
+  const blankForm = () => ({
+    id: Date.now(),
+    title: '',
+    slug: '',
+    desc: '',
+    img: '',
+    author: '',
+    date: new Date().toISOString().split('T')[0],
+    category: '',
+    tags: '',
+    content: '',
+    published: true,
+    seoTitle: '',
+    seoDesc: '',
+    ogImage: '',
+    canonicalUrl: '',
+  });
+
+  const startEdit = (item) => {
+    setEditing(item.id);
+    setForm({ ...item, tags: Array.isArray(item.tags) ? item.tags.join(', ') : (item.tags || '') });
+    setAdding(false);
+    setActiveTab('basic');
+    setPreview(false);
+  };
+  const startAdd = () => { setAdding(true); setEditing(null); setForm(blankForm()); setActiveTab('basic'); setPreview(false); };
   const cancel = () => { setEditing(null); setAdding(false); setForm({}); };
 
   const save = () => {
-    if (!form.title) return;
-    if (adding) update('blogs', [...data.blogs, form]);
-    else update('blogs', data.blogs.map(b => b.id === editing ? form : b));
+    if (!form.title) return toast('Title is required', 'error');
+    const finalSlug = form.slug || slugify(form.title);
+    const finalTags = typeof form.tags === 'string'
+      ? form.tags.split(',').map(t => t.trim()).filter(Boolean)
+      : (form.tags || []);
+    const entry = { ...form, slug: finalSlug, tags: finalTags };
+    if (adding) update('blogs', [...data.blogs, entry]);
+    else update('blogs', data.blogs.map(b => b.id === editing ? entry : b));
     toast(adding ? 'Blog post added!' : 'Blog post updated!');
     cancel();
   };
@@ -759,41 +824,297 @@ const BlogsManager = () => {
     if (window.confirm('Delete this blog post?')) { update('blogs', data.blogs.filter(b => b.id !== id)); toast('Blog post deleted', 'info'); }
   };
 
-  const filtered = data.blogs.filter(b => b.title.toLowerCase().includes(search.toLowerCase()));
+  const togglePublish = (id) => {
+    update('blogs', data.blogs.map(b => b.id === id ? { ...b, published: !b.published } : b));
+  };
+
+  // Insert formatting at cursor position in the content textarea
+  const insertFormat = (before, after = '', placeholder = '') => {
+    const el = contentRef.current;
+    if (!el) return;
+    const start = el.selectionStart;
+    const end = el.selectionEnd;
+    const selected = form.content.slice(start, end) || placeholder;
+    const newContent = form.content.slice(0, start) + before + selected + after + form.content.slice(end);
+    setForm(p => ({ ...p, content: newContent }));
+    setTimeout(() => {
+      el.focus();
+      el.setSelectionRange(start + before.length, start + before.length + selected.length);
+    }, 0);
+  };
+
+  const wordCount = (form.content || '').split(/\s+/).filter(Boolean).length;
+  const readTime = Math.max(1, Math.ceil(wordCount / 200));
+  const seoTitleLen = (form.seoTitle || '').length;
+  const seoDescLen = (form.seoDesc || '').length;
+
+  const cats = ['All', ...BLOG_CATEGORIES];
+  const filtered = data.blogs.filter(b => {
+    const matchSearch = b.title.toLowerCase().includes(search.toLowerCase()) || (b.author || '').toLowerCase().includes(search.toLowerCase());
+    const matchCat = filterCat === 'All' || b.category === filterCat;
+    return matchSearch && matchCat;
+  });
+
+  const isFormOpen = editing !== null || adding;
+
+  const tabCls = (t) => `px-4 py-2 text-xs font-bold rounded-lg transition-all ${activeTab === t ? 'bg-yellow-500 text-black' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`;
 
   return (
     <div>
-      <SectionHeader title="Blog Posts" subtitle="Manage blog articles and insights"
+      <SectionHeader title="Blog Posts" subtitle={`${data.blogs.length} posts · ${data.blogs.filter(b => b.published !== false).length} published`}
         action={<Btn onClick={startAdd} variant="primary"><Plus size={14} /> Add Blog Post</Btn>} />
 
-      {(editing !== null || adding) && (
+      {isFormOpen && (
         <Card className="mb-6 border-yellow-200 bg-yellow-50">
-          <h3 className="font-bold text-slate-900 mb-4">{adding ? 'Add New Blog Post' : 'Edit Blog Post'}</h3>
-          <div className="space-y-4">
-            <Input label="Title" value={form.title || ''} onChange={v => setForm(p => ({ ...p, title: v }))} required />
-            <ImageInput label="Cover Image" value={form.img || ''} onChange={v => setForm(p => ({ ...p, img: v }))} />
-            <Textarea label="Excerpt / Description" value={form.desc || ''} onChange={v => setForm(p => ({ ...p, desc: v }))} rows={3} placeholder="A short summary shown on the blog listing..." />
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="font-bold text-slate-900">{adding ? 'Add New Blog Post' : 'Edit Blog Post'}</h3>
+            <div className="flex gap-1">
+              <button type="button" className={tabCls('basic')} onClick={() => setActiveTab('basic')}>Basic Info</button>
+              <button type="button" className={tabCls('content')} onClick={() => setActiveTab('content')}>Content</button>
+              <button type="button" className={tabCls('seo')} onClick={() => setActiveTab('seo')}>SEO & Meta</button>
+            </div>
           </div>
-          <div className="flex gap-3 mt-4">
-            <Btn onClick={save} variant="primary"><Save size={14} /> Save</Btn>
+
+          {activeTab === 'basic' && (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <Input label="Title" value={form.title || ''} onChange={v => setForm(p => ({ ...p, title: v, slug: p.slug || slugify(v) }))} required placeholder="Blog post title..." />
+                <Input label="Author" value={form.author || ''} onChange={v => setForm(p => ({ ...p, author: v }))} placeholder="e.g. Prof. Sandeep Pingale" />
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="space-y-1.5">
+                  <label className="text-xs font-semibold text-slate-600 block">Category</label>
+                  <select value={form.category || ''} onChange={e => setForm(p => ({ ...p, category: e.target.value }))}
+                    className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none text-sm text-slate-800 transition-all">
+                    <option value="">Select category...</option>
+                    {BLOG_CATEGORIES.map(c => <option key={c} value={c}>{c}</option>)}
+                  </select>
+                </div>
+                <Input label="Date" type="date" value={form.date || ''} onChange={v => setForm(p => ({ ...p, date: v }))} />
+              </div>
+              <ImageInput label="Cover Image" value={form.img || ''} onChange={v => setForm(p => ({ ...p, img: v }))} />
+              <Textarea label="Excerpt / Description" value={form.desc || ''} onChange={v => setForm(p => ({ ...p, desc: v }))} rows={2} placeholder="A short summary shown on the blog listing..." />
+              <Input label="Tags" value={form.tags || ''} onChange={v => setForm(p => ({ ...p, tags: v }))} placeholder="BIM, construction, technology (comma-separated)" hint="comma-separated" />
+              <div className="flex items-center gap-3">
+                <label className="text-xs font-semibold text-slate-600">Status</label>
+                <button type="button" onClick={() => setForm(p => ({ ...p, published: !p.published }))}
+                  className={`flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${form.published !== false ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                  <span className={`w-2 h-2 rounded-full ${form.published !== false ? 'bg-green-500' : 'bg-gray-400'}`} />
+                  {form.published !== false ? 'Published' : 'Draft'}
+                </button>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'content' && (
+            <div className="space-y-3">
+              {/* Toolbar */}
+              <div className="flex items-center justify-between flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1">
+                  <FmtBtn label="H1" title="Heading 1" onClick={() => insertFormat('# ', '', 'Heading')} />
+                  <FmtBtn label="H2" title="Heading 2" onClick={() => insertFormat('## ', '', 'Heading')} />
+                  <FmtBtn label="H3" title="Heading 3" onClick={() => insertFormat('### ', '', 'Heading')} />
+                  <span className="w-px bg-gray-200 mx-1 self-stretch" />
+                  <FmtBtn label="B" title="Bold" onClick={() => insertFormat('**', '**', 'bold text')} />
+                  <FmtBtn label="I" title="Italic" onClick={() => insertFormat('*', '*', 'italic text')} />
+                  <span className="w-px bg-gray-200 mx-1 self-stretch" />
+                  <FmtBtn label="• List" title="Bullet list item" onClick={() => insertFormat('- ', '', 'List item')} />
+                  <FmtBtn label="1. List" title="Numbered list item" onClick={() => insertFormat('1. ', '', 'List item')} />
+                  <span className="w-px bg-gray-200 mx-1 self-stretch" />
+                  <FmtBtn label="¶" title="New paragraph (blank line)" onClick={() => insertFormat('\n\n', '', '')} />
+                </div>
+                <button type="button" onClick={() => setPreview(v => !v)}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${preview ? 'bg-slate-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+                  <Eye size={12} /> {preview ? 'Edit' : 'Preview'}
+                </button>
+              </div>
+              {/* Syntax reference */}
+              <div className="flex flex-wrap gap-3 text-[10px] text-gray-400 bg-white/60 rounded-lg px-3 py-2 border border-gray-100">
+                <span><code className="text-slate-600"># H1</code> &nbsp;<code className="text-slate-600">## H2</code> &nbsp;<code className="text-slate-600">### H3</code></span>
+                <span><code className="text-slate-600">**bold**</code></span>
+                <span><code className="text-slate-600">*italic*</code></span>
+                <span><code className="text-slate-600">- item</code> bullet</span>
+                <span><code className="text-slate-600">1. item</code> numbered</span>
+                <span>blank line = new paragraph</span>
+              </div>
+              {preview ? (
+                <div className="min-h-[400px] bg-white rounded-xl border border-gray-200 p-5 overflow-y-auto">
+                  <PreviewContent text={form.content} />
+                </div>
+              ) : (
+                <textarea
+                  ref={contentRef}
+                  value={form.content || ''}
+                  onChange={e => setForm(p => ({ ...p, content: e.target.value }))}
+                  rows={22}
+                  placeholder={"Write the full blog article here...\n\nUse # for headings, **bold**, *italic*, - for bullets, 1. for numbered lists.\n\nBlank lines create new paragraphs."}
+                  className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none text-sm text-slate-800 placeholder-gray-400 resize-y transition-all font-mono leading-relaxed"
+                />
+              )}
+              {/* Stats bar */}
+              <div className="flex items-center gap-4 text-[11px] text-gray-400">
+                <span>{(form.content || '').length} chars</span>
+                <span>{wordCount} words</span>
+                <span>~{readTime} min read</span>
+                {wordCount < 300 && <span className="text-amber-500 font-semibold">⚠ Short — aim for 500+ words for better SEO</span>}
+                {wordCount >= 300 && wordCount < 600 && <span className="text-blue-500 font-semibold">Good length</span>}
+                {wordCount >= 600 && <span className="text-green-600 font-semibold">✓ Great length for SEO</span>}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'seo' && (
+            <div className="space-y-5">
+              {/* URL Slug */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-slate-600">URL Slug <span className="text-gray-400 font-normal">(auto-generated from title)</span></label>
+                  <button type="button" onClick={() => setForm(p => ({ ...p, slug: slugify(p.title || '') }))}
+                    className="text-[10px] text-yellow-600 font-bold hover:underline">Re-generate from title</button>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs text-gray-400 font-mono whitespace-nowrap">/pages/blog/</span>
+                  <input type="text" value={form.slug || ''}
+                    onChange={e => setForm(p => ({ ...p, slug: e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '-') }))}
+                    placeholder="your-article-slug"
+                    className="flex-1 px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none text-sm font-mono text-slate-800 transition-all" />
+                </div>
+                <p className="text-[11px] text-gray-400">Full URL: <span className="text-yellow-600 font-mono">{window.location.origin}/pages/blog/{form.slug || slugify(form.title || 'your-title')}</span></p>
+              </div>
+              {/* SEO Title */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-slate-600">SEO Title <span className="text-gray-400 font-normal">(overrides page &lt;title&gt;)</span></label>
+                  <span className={`text-[10px] font-bold ${seoTitleLen === 0 ? 'text-gray-400' : seoTitleLen <= 60 ? 'text-green-600' : 'text-red-500'}`}>
+                    {seoTitleLen}/60 {seoTitleLen > 60 ? '— too long' : seoTitleLen > 0 ? '✓' : '(uses article title)'}
+                  </span>
+                </div>
+                <input type="text" value={form.seoTitle || ''}
+                  onChange={e => setForm(p => ({ ...p, seoTitle: e.target.value }))}
+                  placeholder={form.title || 'Leave blank to use article title'}
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none text-sm text-slate-800 transition-all" />
+                {seoTitleLen > 0 && (
+                  <div className="h-1 rounded-full bg-gray-100 overflow-hidden">
+                    <div className={`h-full rounded-full transition-all ${seoTitleLen <= 60 ? 'bg-green-400' : 'bg-red-400'}`} style={{ width: `${Math.min(100, (seoTitleLen / 60) * 100)}%` }} />
+                  </div>
+                )}
+              </div>
+              {/* Meta Description */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-semibold text-slate-600">Meta Description <span className="text-gray-400 font-normal">(shown in search results)</span></label>
+                  <span className={`text-[10px] font-bold ${seoDescLen === 0 ? 'text-gray-400' : seoDescLen <= 160 ? 'text-green-600' : 'text-red-500'}`}>
+                    {seoDescLen}/160 {seoDescLen > 160 ? '— too long' : seoDescLen > 0 ? '✓' : '(uses excerpt)'}
+                  </span>
+                </div>
+                <textarea value={form.seoDesc || ''}
+                  onChange={e => setForm(p => ({ ...p, seoDesc: e.target.value }))}
+                  rows={3} placeholder={form.desc || 'Leave blank to use the excerpt as meta description'}
+                  className="w-full px-4 py-2.5 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none text-sm text-slate-800 placeholder-gray-400 resize-none transition-all" />
+                {seoDescLen > 0 && (
+                  <div className="h-1 rounded-full bg-gray-100 overflow-hidden">
+                    <div className={`h-full rounded-full transition-all ${seoDescLen <= 160 ? 'bg-green-400' : 'bg-red-400'}`} style={{ width: `${Math.min(100, (seoDescLen / 160) * 100)}%` }} />
+                  </div>
+                )}
+              </div>
+              {/* OG Image */}
+              <ImageInput label="Social Share Image (OG Image)" value={form.ogImage || ''}
+                onChange={v => setForm(p => ({ ...p, ogImage: v }))} placeholder="https://... (recommended: 1200×630px)" />
+              <p className="text-[11px] text-gray-400 -mt-2">Used when shared on social media. Defaults to cover image if blank.</p>
+              {/* Canonical URL */}
+              <Input label="Canonical URL" value={form.canonicalUrl || ''}
+                onChange={v => setForm(p => ({ ...p, canonicalUrl: v }))}
+                placeholder="https://e-construct.in/pages/blog/..." hint="optional" />
+              {/* SERP Preview */}
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">Search Result Preview</p>
+                <div className="space-y-0.5">
+                  <p className="text-[13px] text-blue-700 font-medium truncate">{form.seoTitle || form.title || 'Your Article Title'}</p>
+                  <p className="text-[11px] text-green-700 font-mono truncate">{window.location.origin}/pages/blog/{form.slug || slugify(form.title || 'your-title')}</p>
+                  <p className="text-[12px] text-gray-600 line-clamp-2 leading-relaxed">{form.seoDesc || form.desc || 'Your meta description will appear here. Write a compelling summary that encourages clicks from search results.'}</p>
+                </div>
+              </div>
+              {/* SEO checklist */}
+              <div className="bg-white rounded-xl border border-gray-200 p-4">
+                <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-3">SEO Checklist</p>
+                <div className="space-y-1.5">
+                  {[
+                    { ok: !!form.title, label: 'Article title set' },
+                    { ok: !!form.slug, label: 'URL slug set' },
+                    { ok: !!(form.desc || form.seoDesc), label: 'Meta description / excerpt set' },
+                    { ok: seoTitleLen === 0 || seoTitleLen <= 60, label: 'SEO title ≤ 60 characters' },
+                    { ok: seoDescLen === 0 || seoDescLen <= 160, label: 'Meta description ≤ 160 characters' },
+                    { ok: !!form.img, label: 'Cover image set' },
+                    { ok: wordCount >= 300, label: 'Article has 300+ words' },
+                    { ok: !!(form.tags && form.tags.length > 0), label: 'Tags added' },
+                    { ok: !!form.category, label: 'Category selected' },
+                  ].map(({ ok, label }) => (
+                    <div key={label} className="flex items-center gap-2 text-xs">
+                      <span className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 text-[10px] font-bold ${ok ? 'bg-green-100 text-green-600' : 'bg-gray-100 text-gray-400'}`}>
+                        {ok ? '✓' : '○'}
+                      </span>
+                      <span className={ok ? 'text-slate-700' : 'text-gray-400'}>{label}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          <div className="flex gap-3 mt-5 pt-4 border-t border-yellow-200">
+            <Btn onClick={save} variant="primary"><Save size={14} /> Save Post</Btn>
             <Btn onClick={cancel} variant="ghost"><X size={14} /> Cancel</Btn>
           </div>
         </Card>
       )}
 
-      <div className="mb-4"><SearchBar value={search} onChange={setSearch} placeholder="Search blog posts..." /></div>
+      {/* Filters */}
+      <div className="flex flex-col sm:flex-row gap-3 mb-4">
+        <div className="flex-1"><SearchBar value={search} onChange={setSearch} placeholder="Search by title or author..." /></div>
+        <div className="flex gap-1 flex-wrap">
+          {cats.map(c => (
+            <button key={c} onClick={() => setFilterCat(c)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${filterCat === c ? 'bg-slate-900 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
+              {c}
+            </button>
+          ))}
+        </div>
+      </div>
 
       <div className="space-y-2">
         {filtered.map((b) => (
-          <Card key={b.id} className="flex items-center gap-4 !py-4">
+          <Card key={b.id} className="flex items-center gap-4 !py-3">
             <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
               {b.img ? <img src={b.img} alt={b.title} className="w-full h-full object-cover" onError={e => e.target.style.display='none'} /> : <BookOpen size={18} className="m-auto mt-4 text-gray-300" />}
             </div>
             <div className="flex-1 min-w-0">
-              <h4 className="font-semibold text-slate-900 text-sm">{b.title}</h4>
-              <p className="text-gray-400 text-xs mt-0.5 line-clamp-1">{b.desc}</p>
+              <div className="flex items-center gap-2 flex-wrap">
+                <h4 className="font-semibold text-slate-900 text-sm">{b.title}</h4>
+                {b.category && <span className="text-[10px] bg-yellow-100 text-yellow-700 font-bold px-2 py-0.5 rounded-full">{b.category}</span>}
+                <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${b.published !== false ? 'bg-green-100 text-green-700' : 'bg-gray-100 text-gray-500'}`}>
+                  {b.published !== false ? 'Published' : 'Draft'}
+                </span>
+                {!b.slug && <span className="text-[10px] bg-red-50 text-red-500 font-bold px-2 py-0.5 rounded-full">No slug</span>}
+              </div>
+              <p className="text-gray-400 text-xs mt-0.5 flex items-center gap-2 flex-wrap">
+                {b.author && <span>{b.author}</span>}
+                {b.author && b.date && <span>·</span>}
+                {b.date && <span>{new Date(b.date).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</span>}
+                {b.content && <span className="text-gray-300">· ~{Math.max(1, Math.ceil(b.content.split(/\s+/).filter(Boolean).length / 200))} min read</span>}
+                {b.slug && <span className="font-mono text-gray-300 text-[10px]">/{b.slug}</span>}
+              </p>
             </div>
             <div className="flex gap-2 flex-shrink-0">
+              <button onClick={() => togglePublish(b.id)} title={b.published !== false ? 'Unpublish' : 'Publish'}
+                className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-slate-600 transition-colors">
+                <Eye size={14} />
+              </button>
+              {b.slug && (
+                <a href={`/pages/blog/${b.slug}`} target="_blank" rel="noreferrer"
+                  className="p-1.5 rounded-lg hover:bg-gray-100 text-gray-400 hover:text-slate-600 transition-colors" title="View article">
+                  <Globe size={14} />
+                </a>
+              )}
               <Btn onClick={() => startEdit(b)} variant="ghost" size="sm"><Edit3 size={12} /> Edit</Btn>
               <Btn onClick={() => remove(b.id)} variant="danger" size="sm"><Trash2 size={12} /></Btn>
             </div>

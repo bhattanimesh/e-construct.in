@@ -67,12 +67,12 @@ const servicesMenu = {
 };
 
 const pagesMenu = [
-  { icon: Image,      title: 'Gallery',  desc: 'BIM models & project visuals', path: '/bim-hub/gallery' },
-  { icon: BookOpen,   title: 'Blog',     desc: 'Insights & industry articles',  path: '/bim-hub/blog'    },
-  { icon: BookMarked, title: 'MSB',      desc: 'Master in Smart Building',      path: '/bim-hub/msb'     },
-  { icon: FileText,   title: 'MSC',      desc: 'Master in Smart Construction',  path: '/bim-hub/msc'     },
-  { icon: Layers,     title: 'MSS',      desc: 'Master in Smart Structures',    path: '/bim-hub/mss'     },
-  { icon: BarChart2,  title: 'PBD',      desc: 'Performance Based Design',      path: '/bim-hub/pbd'     },
+  { icon: Image,      title: 'Gallery',  desc: 'BIM models & project visuals', path: '/pages/gallery' },
+  { icon: BookOpen,   title: 'Blog',     desc: 'Insights & industry articles',  path: '/pages/blog'    },
+  { icon: BookMarked, title: 'MSB',      desc: 'Master in Smart Building',      path: '/pages/msb'     },
+  { icon: FileText,   title: 'MSC',      desc: 'Master in Smart Construction',  path: '/pages/msc'     },
+  { icon: Layers,     title: 'MSS',      desc: 'Master in Smart Structures',    path: '/pages/mss'     },
+  { icon: BarChart2,  title: 'PBD',      desc: 'Performance Based Design',      path: '/pages/pbd'     },
 ];
 
 const trainingMenu = [
@@ -121,8 +121,8 @@ const ServicesDropdown = () => (
 const PagesDropdown = () => (
   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-72 bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-      <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">BIM Hub</span>
-      <Link to="/bim-hub/gallery" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
+      <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Pages</span>
+      <Link to="/pages/gallery" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
         View all <ArrowRight size={10} />
       </Link>
     </div>

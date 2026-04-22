@@ -67,7 +67,7 @@ const ConstructionBlog = () => {
 
     {/* Right: CTA Button */}
     <div>
-      <Link to="/bim-hub/blog" className="bg-slate-900 text-white px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-sm hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2">
+      <Link to="/pages/blog" className="bg-slate-900 text-white px-6 sm:px-8 py-3 sm:py-4 font-bold uppercase text-sm hover:bg-orange-600 transition-colors duration-300 flex items-center gap-2">
         View All News <span>→</span>
       </Link>
     </div>
@@ -108,7 +108,7 @@ const ConstructionBlog = () => {
                   {post.desc}
                 </p>
 
-                <Link to="/bim-hub/blog" className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter border-b-2 border-slate-900 pb-1 hover:text-orange-600 hover:border-orange-600 transition-all">
+                <Link to="/pages/blog" className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter border-b-2 border-slate-900 pb-1 hover:text-orange-600 hover:border-orange-600 transition-all">
                   Read Full Article
                 </Link>
               </div>

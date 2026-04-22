@@ -92,7 +92,7 @@ const Home1 = () => {
             <a href="/services">TRAINING</a>
             <span className="text-[0.6rem] text-[#fbc02d]">▼</span>
           </div>
-          <a href="/bim-hub/gallery">BIM HUB</a>
+          <a href="/pages/gallery">PAGES</a>
           <a href="/careers">CAREERS</a>
           <a href="/contact">CONTACT</a>
         </nav>

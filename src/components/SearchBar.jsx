@@ -22,13 +22,13 @@ const searchIndex = [
   { title: 'Total Quality Management', description: 'Quality assurance and management services', path: '/services', tags: ['quality', 'tqm', 'management', 'assurance'] },
   { title: 'Interior Design Consultancy', description: 'Interior design and space planning services', path: '/services', tags: ['interior', 'design', 'space', 'decor'] },
 
-  // BIM Hub / Pages
-  { title: 'BIM Hub Gallery', description: 'Gallery of BIM models and project visuals', path: '/bim-hub/gallery', tags: ['gallery', 'bim', 'images', 'models', 'visuals'] },
-  { title: 'BIM Hub Blog', description: 'Articles and insights on BIM and AEC industry', path: '/bim-hub/blog', tags: ['blog', 'articles', 'bim', 'aec', 'insights', 'news'] },
-  { title: 'MSB', description: 'Master in Smart Building resources and content', path: '/bim-hub/msb', tags: ['msb', 'smart building', 'master', 'training'] },
-  { title: 'MSC', description: 'Master in Smart Construction content', path: '/bim-hub/msc', tags: ['msc', 'smart construction', 'master'] },
-  { title: 'MSS', description: 'Master in Smart Structures content', path: '/bim-hub/mss', tags: ['mss', 'smart structures', 'master'] },
-  { title: 'PBD', description: 'Performance Based Design resources', path: '/bim-hub/pbd', tags: ['pbd', 'performance based design', 'structural'] },
+  // Pages
+  { title: 'Gallery', description: 'Gallery of BIM models and project visuals', path: '/pages/gallery', tags: ['gallery', 'bim', 'images', 'models', 'visuals'] },
+  { title: 'Blog', description: 'Articles and insights on BIM and AEC industry', path: '/pages/blog', tags: ['blog', 'articles', 'bim', 'aec', 'insights', 'news'] },
+  { title: 'MSB', description: 'Master in Smart Building resources and content', path: '/pages/msb', tags: ['msb', 'smart building', 'master', 'training'] },
+  { title: 'MSC', description: 'Master in Smart Construction content', path: '/pages/msc', tags: ['msc', 'smart construction', 'master'] },
+  { title: 'MSS', description: 'Master in Smart Structures content', path: '/pages/mss', tags: ['mss', 'smart structures', 'master'] },
+  { title: 'PBD', description: 'Performance Based Design resources', path: '/pages/pbd', tags: ['pbd', 'performance based design', 'structural'] },
 
   // Training
   { title: 'Training', description: 'Corporate on-job BIM and AEC software training', path: '/training', tags: ['training', 'corporate', 'bim', 'software', 'aec', 'course', 'learn'] },

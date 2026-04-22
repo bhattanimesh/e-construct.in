@@ -32,6 +32,7 @@ const CorporateTraining        = lazy(() => import('./pages/CorporateTraining'))
 const WorkshopsSeminars        = lazy(() => import('./pages/WorkshopsSeminars'))
 const InteriorDesign           = lazy(() => import('./pages/InteriorDesign'))
 const ArchitecturalConsultancy = lazy(() => import('./pages/ArchitecturalConsultancy'))
+const BlogDetailPage           = lazy(() => import('./pages/BlogDetailPage'))
 
 // Minimal loading fallback — no layout shift, no spinner flash
 const PageLoader = () => (
@@ -53,12 +54,13 @@ function App() {
               <Route path="careers" element={<CareersPage />} />
               <Route path="contact" element={<ContactPage />} />
               <Route path="services" element={<ServiceDetails />} />
-              <Route path="bim-hub/gallery" element={<BimHubGallery />} />
-              <Route path="bim-hub/blog" element={<BimHubBlog />} />
-              <Route path="bim-hub/pbd" element={<BimHubPBD />} />
-              <Route path="bim-hub/msb" element={<BimHubMSB />} />
-              <Route path="bim-hub/msc" element={<BimHubMSC />} />
-              <Route path="bim-hub/mss" element={<BimHubMSS />} />
+              <Route path="pages/gallery" element={<BimHubGallery />} />
+              <Route path="pages/blog" element={<BimHubBlog />} />
+              <Route path="pages/blog/:slug" element={<BlogDetailPage />} />
+              <Route path="pages/pbd" element={<BimHubPBD />} />
+              <Route path="pages/msb" element={<BimHubMSB />} />
+              <Route path="pages/msc" element={<BimHubMSC />} />
+              <Route path="pages/mss" element={<BimHubMSS />} />
               <Route path="services/bim-consultancy" element={<BimConsultancy />} />
               <Route path="services/structural-consultancy" element={<StructuralConsultancy />} />
               <Route path="services/epmc" element={<EPMC />} />
