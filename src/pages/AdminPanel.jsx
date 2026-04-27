@@ -38,26 +38,27 @@ const LoginScreen = ({ onLogin }) => {
     e.preventDefault();
     setLoading(true);
     setErr('');
+
+    let serverReachable = false;
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password: pw }),
       });
-      // Server is running — use JWT flow
+      serverReachable = true;
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || 'Incorrect password');
       setToken(data.token);
       onLogin();
     } catch (e) {
-      // Server not available (dev without server, or network error) —
-      // fall back to env-based password so the panel still works
-      if (e.message === 'Incorrect password') {
-        setErr('Incorrect password. Try again.');
+      if (serverReachable) {
+        // Server responded but login failed (wrong password, etc.)
+        setErr(e.message || 'Incorrect password. Try again.');
       } else {
+        // Server is not reachable — fall back to local env password
         const fallback = import.meta.env.VITE_ADMIN_PASSWORD || 'econstruct2024';
         if (pw === fallback) {
-          // Store a dummy token so apiFetch headers are set
           setToken('local-dev-token');
           onLogin();
         } else {
@@ -1682,6 +1683,12 @@ const InboxManager = () => {
     setLoading(true);
     try {
       const res = await apiFetch('/api/contact');
+      if (res.status === 401) {
+        // Token is invalid/expired — clear it so user gets re-login prompt
+        clearToken();
+        window.location.reload();
+        return;
+      }
       if (res.ok) setSubmissions(await res.json());
     } catch {}
     finally { setLoading(false); }

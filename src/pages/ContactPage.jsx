@@ -107,6 +107,7 @@ const ContactForm = () => {
   });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -115,6 +116,7 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setError('');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -124,8 +126,7 @@ const ContactForm = () => {
       if (!res.ok) throw new Error('Server error');
       setSubmitted(true);
     } catch {
-      // Fallback: still show success to the visitor even if server is down
-      setSubmitted(true);
+      setError('Something went wrong. Please try again or contact us directly.');
     } finally {
       setLoading(false);
     }
@@ -224,6 +225,12 @@ const ContactForm = () => {
           className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:border-yellow-400 focus:ring-2 focus:ring-yellow-100 outline-none transition-all duration-200 text-sm text-slate-800 placeholder-gray-400 resize-none"
         />
       </div>
+
+      {error && (
+        <p className="text-red-500 text-sm bg-red-50 border border-red-100 rounded-xl px-4 py-3">
+          {error}
+        </p>
+      )}
 
       <button
         type="submit"
