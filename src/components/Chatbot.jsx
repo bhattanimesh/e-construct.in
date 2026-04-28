@@ -132,7 +132,7 @@ export default function Chatbot() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[9999] flex flex-col items-end font-[Plus_Jakarta_Sans,sans-serif]">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-[9999] flex flex-col items-end font-[Plus_Jakarta_Sans,sans-serif]">
       {/* ── Chat Window ── */}
       <AnimatePresence>
         {isOpen && (
@@ -141,8 +141,8 @@ export default function Chatbot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 16, scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 380, damping: 30 }}
-            className="mb-4 w-[360px] flex flex-col rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.6)] border border-white/[0.06]"
-            style={{ height: 520 }}
+            className="mb-4 w-[calc(100vw-2rem)] sm:w-[360px] flex flex-col rounded-2xl overflow-hidden shadow-[0_32px_80px_-12px_rgba(0,0,0,0.6)] border border-white/[0.06]"
+            style={{ height: 520, maxHeight: 'calc(100dvh - 6rem)' }}
           >
             {/* ── Header ── */}
             <div className="relative bg-black px-5 py-4 flex items-center justify-between shrink-0 border-b border-white/[0.07]">

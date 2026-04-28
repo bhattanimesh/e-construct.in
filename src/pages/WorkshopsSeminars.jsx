@@ -278,17 +278,18 @@ const WorkshopsSeminars = () => {
       </AnimatePresence>
 
       {/* ── Topics ── */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="text-center mb-14">
+      <section className="py-16 md:py-24 bg-slate-50">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
+          <div className="text-center mb-10 md:mb-14">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Areas of Focus</span>
             <SectionHeading title="Topics We Cover" />
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
             {topics.map((t, i) => {
               const Icon = t.icon;
               return (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
-                  className="bg-white p-7 rounded-2xl border border-gray-100 hover:border-[#fbc02d]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex gap-5 items-start">
+                  className="bg-white p-6 md:p-7 rounded-2xl border border-gray-100 hover:border-[#fbc02d]/40 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex gap-4 md:gap-5 items-start">
                   <div className="w-11 h-11 bg-[#fbc02d]/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-[#fbc02d]/20 transition-colors mt-0.5">
                     <Icon size={20} className="text-[#fbc02d]" />
                   </div>
@@ -304,8 +305,8 @@ const WorkshopsSeminars = () => {
       </section>
 
       {/* ── Benefits + Private Event ── */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-[1400px] mx-auto px-[5%] grid lg:grid-cols-2 gap-16 items-start">
+      <section className="py-16 md:py-24 bg-slate-900 text-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] grid lg:grid-cols-2 gap-10 md:gap-16 items-start">
           <div>
             <span className="text-[#fbc02d] text-xs font-bold tracking-[0.2em] uppercase">Why Attend</span>
             <SectionHeading title="What You Get" light center={false} />
@@ -356,11 +357,11 @@ const WorkshopsSeminars = () => {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-24 bg-white border-t border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col items-center">
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] flex flex-col items-center">
           <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase mb-2">Attendee Feedback</span>
           <SectionHeading title="What Attendees Say" />
-          <div className="w-full max-w-3xl bg-slate-50 p-10 md:p-14 rounded-3xl relative border border-gray-100">
+          <div className="w-full max-w-3xl bg-slate-50 p-7 sm:p-10 md:p-14 rounded-3xl relative border border-gray-100">
             <div className="absolute top-8 right-8 text-gray-200"><Quote size={64} /></div>
             <AnimatePresence mode="wait">
               <motion.div key={activeTestimonial} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="relative z-10 text-center">
@@ -383,19 +384,19 @@ const WorkshopsSeminars = () => {
       </section>
 
       {/* ── Final CTA ── */}
-      <section className="py-20 bg-[#fbc02d]">
-        <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="py-14 md:py-20 bg-[#fbc02d]">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">Don't miss the next event.</h2>
-            <p className="text-black/60 mt-2 font-medium">Register your interest and we'll keep you updated.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">Don't miss the next event.</h2>
+            <p className="text-black/60 mt-2 font-medium text-sm md:text-base">Register your interest and we'll keep you updated.</p>
           </div>
-          <div className="flex flex-wrap gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <button onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-black text-white font-black uppercase tracking-wider text-sm hover:bg-slate-800 transition-colors flex items-center gap-2">
+              className="px-6 py-3 md:px-8 md:py-4 bg-black text-white font-black uppercase tracking-wider text-sm hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
               Register Interest <ArrowRight size={16} />
             </button>
             <a href="tel:+919036744017"
-              className="px-8 py-4 border-2 border-black text-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-colors flex items-center gap-2">
+              className="px-6 py-3 md:px-8 md:py-4 border-2 border-black text-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
               <Phone size={16} /> +91 90367 44017
             </a>
           </div>

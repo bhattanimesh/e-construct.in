@@ -42,33 +42,33 @@ const Services = () => {
         {/* Header Area with Parallax */}
         <motion.div 
           style={{ y: yHeader }}
-          className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-16 gap-6"
         >
           <div className="max-w-3xl">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-12 h-1 bg-yellow-500"></div>
-              <span className="text-yellow-600 font-bold uppercase tracking-widest text-sm">Our Expertise</span>
+              <span className="text-yellow-600 font-bold uppercase tracking-widest text-xs sm:text-sm">Our Expertise</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight">
               Complete Construction <br /> 
               <span className="accent-text italic">Solutions Under One Roof</span>
             </h2>
           </div>
           
-          <div className="flex gap-3">
+          <div className="flex gap-3 shrink-0">
             <button 
               onClick={() => scroll('left')}
-              className="group p-4 border-2 border-black hover:bg-black transition-all duration-300"
+              className="group p-3 md:p-4 border-2 border-black hover:bg-black transition-all duration-300"
               aria-label="Previous"
             >
-              <ChevronLeft size={24} className="text-black group-hover:text-white" />
+              <ChevronLeft size={20} className="text-black group-hover:text-white" />
             </button>
             <button 
               onClick={() => scroll('right')}
-              className="group p-4 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 transition-all duration-300"
+              className="group p-3 md:p-4 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 transition-all duration-300"
               aria-label="Next"
             >
-              <ChevronRight size={24} className="text-white group-hover:text-black" />
+              <ChevronRight size={20} className="text-white group-hover:text-black" />
             </button>
           </div>
         </motion.div>
@@ -84,7 +84,7 @@ const Services = () => {
             return (
             <div 
               key={service.id}
-              className="min-w-[320px] md:min-w-[420px] h-[550px] relative group overflow-hidden rounded-2xl bg-gray-100 snap-start shadow-sm"
+              className="min-w-[280px] sm:min-w-[340px] md:min-w-[400px] h-[460px] md:h-[520px] relative group overflow-hidden rounded-2xl bg-gray-100 snap-start shadow-sm"
             >
               {/* Service Image (Internal Parallax Scale) */}
               <div className="absolute inset-0 w-full h-full overflow-hidden">

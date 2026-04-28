@@ -18,7 +18,7 @@ const CTASection = () => {
           backgroundImage: `url(${CtaBG})`,
           backgroundPosition: 'center',
           backgroundSize: 'cover',
-          backgroundAttachment: 'fixed',
+          backgroundAttachment: 'scroll', // 'fixed' breaks on iOS Safari
         }}
       >
         <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]"></div>

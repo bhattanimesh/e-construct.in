@@ -20,7 +20,7 @@ const LazyFlipbook = ({ pdfUrl }) => {
       {visible ? (
         <PdfFlipbook width={640} height={450} pdfUrl={pdfUrl} />
       ) : (
-        <div className="w-full rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center" style={{ height: 450 }}>
+        <div className="w-full rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center" style={{ height: 380 }}>
           <span className="text-slate-300 text-xs font-semibold tracking-widest uppercase">Portfolio</span>
         </div>
       )}
@@ -35,11 +35,11 @@ const FlipbookGallery = () => {
   if (flipbooks.length === 0) return null;
 
   return (
-    <section className="flipbook-gallery reveal bg-white py-20 border-b border-black/5 w-full px-4 text-[var(--primary-dark)]">
+    <section className="flipbook-gallery reveal bg-white py-14 md:py-20 border-b border-black/5 w-full px-4 text-[var(--primary-dark)]">
       {/* Header */}
-      <div className="container text-center mb-12 mx-auto">
+      <div className="container text-center mb-10 md:mb-12 mx-auto">
         <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Interactive Library</span>
-        <h2 className="text-5xl font-medium text-[var(--primary-dark)] mt-2 tracking-tight">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-[var(--primary-dark)] mt-2 tracking-tight">
           Our Digital <span className="accent-text italic">Showcase</span>
         </h2>
         <p className="text-[var(--text-muted)] mt-3 max-w-2xl mx-auto text-sm">

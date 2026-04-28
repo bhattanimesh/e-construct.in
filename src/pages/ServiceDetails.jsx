@@ -113,7 +113,6 @@ const ServiceDetails = () => {
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">About Us</span>
               </div>
               <SectionHeading title={sd.aboutHeadline} center={false} />
-              </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed max-w-xl">
                 {sd.aboutDesc}
               </p>
@@ -236,7 +235,6 @@ const ServiceDetails = () => {
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Testimonials</span>
               </div>
               <SectionHeading title="What Our Clients Say" center={false} />
-              </h2>
 
               <div className="bg-white p-10 md:p-14 rounded-tl-[3rem] rounded-br-[3rem] shadow-xl relative border border-gray-100 min-h-[350px] flex flex-col justify-between">
                 <div className="absolute top-10 right-10 text-gray-100 opacity-50">

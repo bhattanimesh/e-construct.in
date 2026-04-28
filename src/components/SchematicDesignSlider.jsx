@@ -75,7 +75,7 @@ const SchematicDesignSlider = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-[1400px]">
 
         {/* Stacked Cards Area */}
-        <div className="relative h-[450px] md:h-[500px] w-full max-w-5xl mx-auto flex justify-center perspective-[1000px]">
+        <div className="relative h-[380px] sm:h-[420px] md:h-[500px] w-full max-w-5xl mx-auto flex justify-center perspective-[1000px]">
           
           {sliderData.map((card, index) => {
             const offset = index - currentIndex;
@@ -107,7 +107,7 @@ const SchematicDesignSlider = () => {
                 }}
                 whileHover={isCurrent ? { scale: 1.02 } : {}}
                 transition={{ duration: 0.6, ease: [0.32, 0.72, 0, 1] }}
-                className={`absolute top-0 w-[90%] md:w-[80%] h-[350px] md:h-[450px] rounded-[2rem] overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] bg-slate-900 ${
+                className={`absolute top-0 w-[95%] sm:w-[90%] md:w-[80%] h-[320px] sm:h-[370px] md:h-[450px] rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-[0_20px_40px_-10px_rgba(0,0,0,0.3)] bg-slate-900 ${
                   isCurrent ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'
                 } border border-white/20`}
                 style={{
@@ -126,36 +126,36 @@ const SchematicDesignSlider = () => {
                 <div className="absolute inset-0 bg-black/30"></div>
 
                 {/* Card Content */}
-                <div className={`absolute inset-0 p-6 md:p-12 flex flex-col ${isFirstIntroCard ? 'justify-center items-center text-center backdrop-blur-sm bg-black/20' : 'justify-end'}`}>
+                <div className={`absolute inset-0 p-5 sm:p-6 md:p-12 flex flex-col ${isFirstIntroCard ? 'justify-center items-center text-center backdrop-blur-sm bg-black/20' : 'justify-end'}`}>
                   
                   {isFirstIntroCard ? (
                     <div className="w-full max-w-3xl">
-                      <div className="flex justify-center items-center gap-4 text-yellow-500 mb-6 drop-shadow-md">
-                        <div className="w-12 h-[2px] bg-yellow-500"></div>
-                        <span className="font-bold tracking-[0.3em] uppercase text-xs md:text-sm text-white">How We Work</span>
-                        <div className="w-12 h-[2px] bg-yellow-500"></div>
+                      <div className="flex justify-center items-center gap-3 text-yellow-500 mb-4 drop-shadow-md">
+                        <div className="w-8 md:w-12 h-[2px] bg-yellow-500"></div>
+                        <span className="font-bold tracking-[0.3em] uppercase text-xs text-white">How We Work</span>
+                        <div className="w-8 md:w-12 h-[2px] bg-yellow-500"></div>
                       </div>
-                      <h2 className="text-white font-black text-4xl md:text-6xl lg:text-7xl mb-6 drop-shadow-lg tracking-tight uppercase">
+                      <h2 className="text-white font-black text-3xl sm:text-4xl md:text-6xl lg:text-7xl mb-4 drop-shadow-lg tracking-tight uppercase">
                         {card.title.replace("2. ", "")} <span className="text-yellow-500">2.0</span>
                       </h2>
-                      <p className="text-gray-100 text-lg md:text-2xl font-medium drop-shadow-md leading-relaxed">
+                      <p className="text-gray-100 text-sm sm:text-base md:text-2xl font-medium drop-shadow-md leading-relaxed">
                         {card.desc}
                       </p>
                     </div>
                   ) : (
                     <>
-                      <div className="flex items-start gap-3 md:gap-5 mb-3 md:mb-5">
-                        <span className="text-yellow-500 font-bold text-5xl md:text-6xl leading-none drop-shadow-md">
+                      <div className="flex items-start gap-2 md:gap-5 mb-2 md:mb-5">
+                        <span className="text-yellow-500 font-bold text-3xl sm:text-4xl md:text-6xl leading-none drop-shadow-md">
                           {card.subtitle}
                         </span>
                         <div>
-                          <h3 className="text-white font-bold text-2xl md:text-3xl lg:text-4xl leading-tight drop-shadow-lg mb-2">
+                          <h3 className="text-white font-bold text-lg sm:text-2xl md:text-3xl lg:text-4xl leading-tight drop-shadow-lg mb-2">
                             {card.title}
                           </h3>
-                          <div className="w-16 h-1 bg-yellow-500 rounded-full"></div>
+                          <div className="w-12 h-1 bg-yellow-500 rounded-full"></div>
                         </div>
                       </div>
-                      <p className="text-gray-100 text-[15px] md:text-lg max-w-3xl font-medium md:ml-[80px] drop-shadow-md leading-relaxed">
+                      <p className="text-gray-100 text-sm md:text-lg max-w-3xl font-medium md:ml-[80px] drop-shadow-md leading-relaxed line-clamp-3 md:line-clamp-none">
                         {card.desc}
                       </p>
                     </>

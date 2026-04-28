@@ -143,7 +143,7 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
 
   return (
     <div className="relative w-full flex flex-col items-center">
-      <div className="relative h-[480px] w-full flex justify-center perspective-[1000px]">
+      <div className="relative h-[420px] sm:h-[480px] w-full flex justify-center perspective-[1000px]">
         {sliderData.map((card, index) => {
           const offset = index - currentIndex;
 
@@ -173,7 +173,7 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
               }}
               whileHover={isCurrent ? { scale: 1.01 } : {}}
               transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-              className={`absolute top-0 w-full h-[400px] rounded-[1.5rem] overflow-hidden shadow-2xl bg-white ${
+              className={`absolute top-0 w-full h-[360px] sm:h-[400px] rounded-[1.5rem] overflow-hidden shadow-2xl bg-white ${
                 isCurrent ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'
               } border border-gray-100`}
               style={{ transformOrigin: "top center" }}
@@ -247,33 +247,33 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
 
 const AllProcessSliders = () => {
   return (
-    <section className="py-24 bg-slate-50 border-t border-gray-100">
+    <section className="py-16 md:py-24 bg-slate-50 border-t border-gray-100">
       <div className="container mx-auto px-4 md:px-8 max-w-[1500px]">
         {/* Header Title */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
+        <div className="text-center mb-10 md:mb-16 max-w-3xl mx-auto">
           <div className="flex justify-center items-center gap-4 text-yellow-500 mb-4">
             <div className="w-10 h-[2px] bg-yellow-500"></div>
             <span className="font-bold tracking-[0.3em] uppercase text-xs md:text-sm">How We Work</span>
             <div className="w-10 h-[2px] bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
             Our Complete <span className="accent-text italic">Process</span>
           </h2>
         </div>
 
         {/* CSS GRID FOR FLIPBOOKS: 3 COLUMNS, 2 ROWS */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 md:gap-x-12 gap-y-12 md:gap-y-16">
           {sectionsData.map((section, index) => (
             <SmallStackedSlider key={index} sliderData={section.sliderData} sectionTitle={section.sectionTitle} />
           ))}
         </div>
 
         {/* Premium Execution Line */}
-        <div className="mt-28 md:mt-36 mb-10 text-center relative max-w-5xl mx-auto flex items-center justify-center">
+        <div className="mt-16 md:mt-28 mb-10 text-center relative max-w-5xl mx-auto flex items-center justify-center">
           <div className="absolute w-full h-[1px] bg-gradient-to-r from-transparent via-yellow-500/30 to-transparent z-0"></div>
-          <div className="relative z-10 bg-slate-50 px-8 py-4 border border-yellow-500/20 shadow-sm rounded-full flex flex-col md:flex-row items-center gap-4 hover:shadow-md transition-shadow">
+          <div className="relative z-10 bg-slate-50 px-5 md:px-8 py-4 border border-yellow-500/20 shadow-sm rounded-full flex flex-col md:flex-row items-center gap-3 md:gap-4 hover:shadow-md transition-shadow">
             <span className="text-yellow-500 text-3xl font-serif">"</span>
-            <p className="text-xl md:text-3xl lg:text-3xl font-medium tracking-wide text-slate-800">
+            <p className="text-lg sm:text-xl md:text-3xl font-medium tracking-wide text-slate-800 text-center">
               From <span className="font-black italic">idea to execution</span> — we guide you at every step.
             </p>
             <span className="text-yellow-500 text-3xl font-serif">"</span>

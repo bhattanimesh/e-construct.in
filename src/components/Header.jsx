@@ -91,7 +91,7 @@ const trainingMenu = [
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
 
 const ServicesDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[640px] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(640px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     {/* Header strip */}
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-6 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">{servicesMenu.label}</span>
@@ -126,7 +126,7 @@ const ServicesDropdown = () => (
 // ─── PAGES DROPDOWN ───────────────────────────────────────────────────────────
 
 const PagesDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-72 bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(288px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Pages</span>
       <Link to="/pages/gallery" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
@@ -159,7 +159,7 @@ const PagesDropdown = () => (
 // ─── TRAINING DROPDOWN ────────────────────────────────────────────────────────
 
 const TrainingDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[580px] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(580px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Training Programs</span>
       <Link to="/training/corporate" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
@@ -197,7 +197,7 @@ const MobileAccordion = ({ label, items, onNavigate }) => {
     <div>
       <button
         onClick={() => setOpen((v) => !v)}
-        className="w-full flex items-center justify-between text-2xl font-black text-gray-900 uppercase tracking-tighter hover:text-yellow-500 transition-colors"
+        className="w-full flex items-center justify-between text-xl font-black text-gray-900 uppercase tracking-tighter hover:text-yellow-500 transition-colors"
       >
         <span>{label}</span>
         <ChevronDown size={20} className={`transition-transform duration-300 ${open ? 'rotate-180 text-yellow-500' : ''}`} />
@@ -242,6 +242,16 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
 
   // Close mobile menu on route change
   const closeMenu = () => setIsOpen(false);
@@ -351,18 +361,18 @@ const Header = () => {
         }`}
       >
         {/* Top bar */}
-        <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
-          <img src={Logo} alt="Logo" className="h-10 brightness-0" />
-          <button onClick={closeMenu} className="text-gray-900 p-1"><X size={28} /></button>
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 safe-top" style={{ paddingTop: 'max(1rem, env(safe-area-inset-top))' }}>
+          <img src={Logo} alt="Logo" className="h-9 brightness-0" />
+          <button onClick={closeMenu} className="text-gray-900 p-1"><X size={26} /></button>
         </div>
 
         {/* Search */}
-        <div className="px-6 py-4 border-b border-gray-100">
+        <div className="px-5 py-3 border-b border-gray-100">
           <MobileSearch onNavigate={closeMenu} />
         </div>
 
         {/* Nav items */}
-        <div className="flex-1 overflow-y-auto px-6 py-8 space-y-7">
+        <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
           {[
             { label: 'ABOUT US',  path: '/about'    },
             { label: 'PROJECTS',  path: '/projects' },
@@ -374,7 +384,7 @@ const Header = () => {
               to={link.path}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `block text-2xl font-black uppercase tracking-tighter transition-colors ${
+                `block text-xl font-black uppercase tracking-tighter transition-colors ${
                   isActive ? 'text-yellow-500' : 'text-gray-900 hover:text-yellow-500'
                 }`
               }
@@ -389,13 +399,13 @@ const Header = () => {
         </div>
 
         {/* Social footer */}
-        <div className="px-6 py-6 border-t border-gray-100 flex gap-4 justify-center">
+        <div className="px-5 py-5 border-t border-gray-100 flex gap-4 justify-center" style={{ paddingBottom: 'max(1.25rem, env(safe-area-inset-bottom))' }}>
           {socialLinks.map((s) => (
             <a
               key={s.label}
               href={s.href}
               aria-label={s.label}
-              className="w-11 h-11 rounded-full border border-gray-200 flex items-center justify-center text-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300"
+              className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center text-gray-700 hover:border-yellow-500 hover:text-yellow-500 transition-all duration-300"
             >
               {s.icon}
             </a>

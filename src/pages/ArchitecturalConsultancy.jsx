@@ -75,31 +75,31 @@ const ArchitecturalConsultancy = () => {
     <div className="w-full bg-white">
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[65vh] md:h-[80vh] flex items-end overflow-hidden bg-black mt-20">
+      <section className="relative w-full h-[55vh] md:h-[75vh] flex items-end overflow-hidden bg-black mt-20">
         <div className="absolute inset-0">
           <img src={heroImg} alt="Architectural Consultancy" className="w-full h-full object-cover opacity-50" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/55 to-transparent" />
         </div>
-        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-[5%] pb-16 md:pb-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-5">
+        <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-[5%] pb-12 md:pb-24">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-4">
             <div className="w-10 h-[2px] bg-[#fbc02d]" />
             <span className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-xs">Our Services</span>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-medium text-white tracking-tight mb-5 leading-[1.05]">
+            className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-medium text-white tracking-tight mb-4 leading-[1.05]">
             Architectural<br /><span className="accent-text italic">Consultancy</span>
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
-            className="text-gray-300 text-lg max-w-xl leading-relaxed mb-8">
+            className="text-gray-300 text-sm md:text-lg max-w-xl leading-relaxed mb-6">
             Concept to execution drawings — architecture that is purposeful, buildable and enduring.
           </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-wrap gap-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="flex flex-col sm:flex-row gap-3">
             <button onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center gap-2">
+              className="px-6 py-3 md:px-8 md:py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center justify-center gap-2">
               Start Your Project <ArrowRight size={16} />
             </button>
             <button onClick={() => document.getElementById('arch-portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white/10 transition-colors">
+              className="px-6 py-3 md:px-8 md:py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white/10 transition-colors text-center">
               View Portfolio
             </button>
           </motion.div>
@@ -107,21 +107,21 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── Stats bar ── */}
-      <section className="bg-[#fbc02d] py-5">
-        <div className="max-w-[1400px] mx-auto px-[5%] flex flex-wrap justify-center md:justify-between gap-6 text-black">
+      <section className="bg-[#fbc02d] py-4">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] grid grid-cols-2 md:flex md:flex-wrap md:justify-between gap-4 text-black">
           {[['650+', 'Projects Delivered'], ['25+', 'Years Experience'], ['500+', 'Happy Clients'], ['100%', 'Approval Success']].map(([v, l]) => (
-            <div key={l} className="flex items-center gap-3">
-              <span className="text-2xl font-black">{v}</span>
-              <span className="text-sm font-bold uppercase tracking-wide opacity-70">{l}</span>
+            <div key={l} className="flex items-center gap-2">
+              <span className="text-xl sm:text-2xl font-black">{v}</span>
+              <span className="text-xs font-bold uppercase tracking-wide opacity-70">{l}</span>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── Services ── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-14">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span>
               <SectionHeading title="Our Services" center={false} />
@@ -130,7 +130,7 @@ const ArchitecturalConsultancy = () => {
               Full-spectrum architectural services from the first sketch to the final inspection.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5">
             {services.map((s, i) => {
               const Icon = s.icon;
               return (
@@ -149,9 +149,9 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── Portfolio bento grid ── */}
-      <section id="arch-portfolio" className="py-24 bg-slate-950">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <section id="arch-portfolio" className="py-16 md:py-24 bg-slate-950">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Our Work</span>
               <SectionHeading title="Project Portfolio" light center={false} />
@@ -159,7 +159,7 @@ const ArchitecturalConsultancy = () => {
             <p className="text-gray-400 max-w-xs text-sm">Residential, commercial and institutional projects across India.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 auto-rows-[240px]">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 auto-rows-[160px] sm:auto-rows-[200px] md:auto-rows-[240px]">
             {/* Large featured */}
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
               className="col-span-1 row-span-2 relative overflow-hidden rounded-2xl cursor-pointer group"
@@ -183,9 +183,9 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── Technical Drawings section ── */}
-      <section className="py-24 bg-slate-900">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      <section className="py-16 md:py-24 bg-slate-900">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Technical Work</span>
               <SectionHeading title="Drawings & Documentation" light center={false} />
@@ -193,7 +193,7 @@ const ArchitecturalConsultancy = () => {
             <p className="text-gray-400 max-w-xs text-sm">Precision construction documents produced to international standards.</p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 auto-rows-[180px]">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-2 md:gap-3 auto-rows-[140px] sm:auto-rows-[160px] md:auto-rows-[180px]">
             {/* Wide tile */}
             <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
               className="col-span-2 relative overflow-hidden rounded-2xl cursor-pointer group"
@@ -243,17 +243,17 @@ const ArchitecturalConsultancy = () => {
       </AnimatePresence>
 
       {/* ── Process ── */}
-      <section className="py-24 bg-white">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="text-center mb-14">
+      <section className="py-16 md:py-24 bg-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
+          <div className="text-center mb-10 md:mb-14">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">How We Work</span>
             <SectionHeading title="Our Design Process" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {process.map((s, i) => (
               <motion.div key={i} initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
-                className="relative bg-slate-50 rounded-2xl p-7 border border-gray-100 hover:shadow-xl hover:border-yellow-200 transition-all duration-300">
-                <span className="text-7xl font-black text-[#fbc02d]/10 absolute -top-3 -left-2 select-none">{s.step}</span>
+                className="relative bg-slate-50 rounded-2xl p-6 md:p-7 border border-gray-100 hover:shadow-xl hover:border-yellow-200 transition-all duration-300">
+                <span className="text-6xl md:text-7xl font-black text-[#fbc02d]/10 absolute -top-3 -left-2 select-none">{s.step}</span>
                 <div className="w-9 h-9 bg-[#fbc02d] text-black text-xs font-black rounded-full flex items-center justify-center mb-5 relative z-10">{s.step}</div>
                 <h3 className="text-base font-bold text-slate-900 mb-2 relative z-10">{s.title}</h3>
                 <p className="text-gray-500 text-sm leading-relaxed relative z-10">{s.desc}</p>
@@ -264,12 +264,12 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── Outcomes + collage ── */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="max-w-[1400px] mx-auto px-[5%] grid lg:grid-cols-2 gap-16 items-center">
+      <section className="py-16 md:py-24 bg-slate-900 text-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] grid lg:grid-cols-2 gap-10 md:gap-16 items-center">
           <div>
             <span className="text-[#fbc02d] text-xs font-bold tracking-[0.2em] uppercase">Why Choose Us</span>
             <SectionHeading title="What You Get" light center={false} />
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {outcomes.map((o, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
                   className="flex items-start gap-3">
@@ -279,12 +279,12 @@ const ArchitecturalConsultancy = () => {
               ))}
             </div>
             <button onClick={() => navigate('/contact')}
-              className="mt-10 px-8 py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center gap-2 w-fit">
+              className="mt-8 md:mt-10 px-6 py-3 md:px-8 md:py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center gap-2 w-fit">
               Get a Free Consultation <ArrowRight size={16} />
             </button>
           </div>
           {/* 2-col image collage */}
-          <div className="grid grid-cols-2 gap-3 h-[480px]">
+          <div className="grid grid-cols-2 gap-3 h-[280px] sm:h-[360px] md:h-[480px]">
             <div className="rounded-2xl overflow-hidden row-span-2">
               <img src={arch3} alt="Architectural project" className="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -299,18 +299,18 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── Testimonials ── */}
-      <section className="py-24 bg-slate-50">
-        <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col items-center">
+      <section className="py-16 md:py-24 bg-slate-50">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] flex flex-col items-center">
           <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase mb-2">Client Feedback</span>
           <SectionHeading title="What Our Clients Say" />
-          <div className="w-full max-w-3xl bg-white p-10 md:p-14 rounded-3xl relative border border-gray-100 shadow-lg">
+          <div className="w-full max-w-3xl bg-white p-7 sm:p-10 md:p-14 rounded-3xl relative border border-gray-100 shadow-lg">
             <div className="absolute top-8 right-8 text-gray-100"><Quote size={64} /></div>
             <AnimatePresence mode="wait">
               <motion.div key={activeTestimonial} initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -10 }} transition={{ duration: 0.3 }} className="relative z-10 text-center">
                 <div className="flex justify-center text-yellow-400 mb-6 gap-1">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
                 </div>
-                <p className="text-lg md:text-xl font-serif italic text-gray-700 leading-relaxed mb-8">
+                <p className="text-base md:text-xl font-serif italic text-gray-700 leading-relaxed mb-8">
                   "{testimonials[activeTestimonial].text}"
                 </p>
                 <div className="w-12 h-0.5 bg-yellow-500 mx-auto mb-4" />
@@ -326,19 +326,19 @@ const ArchitecturalConsultancy = () => {
       </section>
 
       {/* ── CTA ── */}
-      <section className="py-20 bg-[#fbc02d]">
-        <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col md:flex-row items-center justify-between gap-8">
+      <section className="py-14 md:py-20 bg-[#fbc02d]">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%] flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black text-black tracking-tight">Have a project in mind?</h2>
-            <p className="text-black/60 mt-2 font-medium">Let's talk — from a quick sketch to a full set of drawings.</p>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-black tracking-tight">Have a project in mind?</h2>
+            <p className="text-black/60 mt-2 font-medium text-sm md:text-base">Let's talk — from a quick sketch to a full set of drawings.</p>
           </div>
-          <div className="flex flex-wrap gap-4 shrink-0">
+          <div className="flex flex-col sm:flex-row gap-3 shrink-0">
             <button onClick={() => navigate('/contact')}
-              className="px-8 py-4 bg-black text-white font-black uppercase tracking-wider text-sm hover:bg-slate-800 transition-colors flex items-center gap-2">
+              className="px-6 py-3 md:px-8 md:py-4 bg-black text-white font-black uppercase tracking-wider text-sm hover:bg-slate-800 transition-colors flex items-center justify-center gap-2">
               Get in Touch <ArrowRight size={16} />
             </button>
             <a href="tel:+919036744017"
-              className="px-8 py-4 border-2 border-black text-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-colors flex items-center gap-2">
+              className="px-6 py-3 md:px-8 md:py-4 border-2 border-black text-black font-bold uppercase tracking-wider text-sm hover:bg-black hover:text-white transition-colors flex items-center justify-center gap-2">
               <Phone size={16} /> +91 90367 44017
             </a>
           </div>

@@ -16,7 +16,7 @@ const TrustedPartners = () => {
   });
 
   // Laptop ke liye original parallax rakha hai
-  const xMove = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const xMove = useTransform(scrollYProgress, [0, 1], [0, 0]); // disabled — causes jank on mobile
   const yText = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   return (
@@ -51,11 +51,11 @@ const TrustedPartners = () => {
                Mobile par screen ki full width (w-screen) lene ke liye 
                negative margin ka use kiya gaya hai.
             */}
-            <div className="relative w-screen lg:w-full ml-[calc(-50vw+50%)] lg:ml-0 overflow-hidden">
+            <div className="relative w-full overflow-hidden">
               
               {/* Overlay Fading Effect (Mobile + Desktop) */}
-              <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent z-10"></div>
-              <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent z-10"></div>
+              <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+              <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
 
               <motion.div 
                 style={{ x: xMove }}

@@ -20,13 +20,15 @@ const Hero = () => {
   }, []);
   const { scrollY } = useScroll();
 
-  // Smooth Spring for Parallax
+  // Smooth Spring for Parallax — disabled on mobile for performance
   const springConfig = { stiffness: 100, damping: 30, restDelta: 0.001 };
   const smoothScrollY = useSpring(scrollY, springConfig);
 
-  // Parallax Values
-  const backgroundY = useTransform(smoothScrollY, [0, 1000], [0, 150]);
-  const textY = useTransform(smoothScrollY, [0, 1000], [0, -100]);
+  const isMobileHero = typeof window !== 'undefined' && window.innerWidth < 768;
+
+  // Parallax Values — reduced on mobile
+  const backgroundY = useTransform(smoothScrollY, [0, 1000], isMobileHero ? [0, 0] : [0, 150]);
+  const textY = useTransform(smoothScrollY, [0, 1000], isMobileHero ? [0, 0] : [0, -100]);
   const opacity = useTransform(smoothScrollY, [0, 500], [1, 0]);
 
   // Entrance Animation Variants
@@ -87,7 +89,7 @@ const Hero = () => {
           {/* Main Heading */}
           <motion.h1
             variants={fadeInUp}
-            className="text-[40px] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[110px] font-medium text-white tracking-tight"
+            className="text-[32px] leading-[1.05] sm:text-5xl md:text-7xl lg:text-[100px] xl:text-[110px] font-medium text-white tracking-tight"
           >
             {h.headline.split(' ').slice(0, -1).join(' ')}{' '}
             <span className="accent-text italic">{h.headline.split(' ').slice(-1)[0]}</span>

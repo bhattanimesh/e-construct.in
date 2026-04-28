@@ -8,7 +8,7 @@ const FounderCard = ({ founder }) => {
 
   return (
     <div onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)} className="relative flex-shrink-0 w-[85vw] md:w-full snap-center group">
+      onMouseLeave={() => setHovered(false)} className="relative flex-shrink-0 w-[80vw] sm:w-[65vw] md:w-full snap-center group">
       <div className="relative bg-white rounded-2xl overflow-hidden border border-gray-200 ">
         
         {/* Image - Increased Aspect Ratio for better framing */}

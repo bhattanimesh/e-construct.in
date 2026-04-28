@@ -49,7 +49,7 @@ const Projects = () => {
       <div className="max-w-[1400px] mx-auto">
         
         {/* Header & Filter Section */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-20">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 md:mb-20">
           <div className="max-w-3xl">
             <motion.div 
               initial={{ opacity: 0, x: -20 }}
@@ -115,7 +115,7 @@ const Projects = () => {
                   className="group relative"
                 >
                   {/* Card Main Container */}
-                  <div className="relative h-[500px] overflow-hidden rounded-[2.5rem] bg-slate-200 shadow-lg group-hover:shadow-2xl transition-all duration-500">
+                  <div className="relative h-[380px] sm:h-[440px] md:h-[500px] overflow-hidden rounded-[2rem] bg-slate-200 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                     <img 
                       src={project.image} 
                       alt={project.title} 
