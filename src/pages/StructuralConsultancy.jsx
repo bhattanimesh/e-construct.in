@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import { useAdmin } from '../context/AdminContext';
 
 const SC_SERVICE_ICONS = [Home, Building, Factory, Map, ShieldCheck];
@@ -130,7 +131,7 @@ const StructuralConsultancy = () => {
       <section className="py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden text-left">
         <div className="max-w-[1500px] mx-auto relative z-10">
           <div className="text-center mb-16 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Our Comprehensive Structural Services</h2>
+            <SectionHeading title="Our Comprehensive Structural Services" />
             <p className="text-gray-600 text-lg font-medium leading-relaxed">
               We provide end-to-end structural engineering solutions—from concept to construction. Our expertise ensures safety, compliance, and performance across all types of structures.
             </p>
@@ -175,9 +176,7 @@ const StructuralConsultancy = () => {
                 <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm md:text-base">Technology</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight tracking-tight uppercase">
-                From Homes to Highways <br/><span className="text-gray-400">We've Engineered It All</span>
-              </h2>
+              <SectionHeading title="From Homes to Highways" center={false} />
               <p className="text-gray-600 text-xl font-medium leading-relaxed mb-10 border-l-4 border-[#fbc02d] pl-4">
                 Experience the power of Autodesk BIM technology. Visualize, analyze, and optimize your construction projects with precision and accuracy.
               </p>
@@ -240,7 +239,7 @@ const StructuralConsultancy = () => {
       <section className="py-24 px-4 md:px-8 bg-slate-900 border-t-[4px] border-[#fbc02d]">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-white mb-6 tracking-tight">Our Projects</h2>
+            <SectionHeading title="Our Projects" light />
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
           </div>
           
@@ -264,7 +263,7 @@ const StructuralConsultancy = () => {
       <section className="py-24 px-4 md:px-8 bg-slate-50 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-16 max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Seismic Analysis & Technical Data</h2>
+            <SectionHeading title="Seismic Analysis & Technical Data" />
             <p className="text-gray-600 text-xl font-medium leading-relaxed">
               Advanced seismic analysis and structural response data showcasing our engineering expertise.
             </p>
@@ -314,7 +313,7 @@ const StructuralConsultancy = () => {
       <section className="py-24 px-4 md:px-8 bg-white border-t border-gray-100 text-left">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Why Choose Us</h2>
+            <SectionHeading title="Why Choose Us" />
             <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto leading-relaxed">
               Our unique strengths that set us apart in the structural engineering industry.
             </p>
@@ -361,9 +360,7 @@ const StructuralConsultancy = () => {
                 <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Our Leadership</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
-                Meet Our Founder
-              </h2>
+              <SectionHeading title="Meet Our Founder" center={false} />
               
               <p className="text-gray-600 text-xl md:text-2xl font-medium leading-relaxed mb-12 border-l-4 border-gray-300 pl-6">
                 With over two decades of experience in structural engineering, Mr. Pingale has been instrumental in shaping the future of structural engineering education. His vision of practical, hands-on learning has helped countless students transition into successful professionals.
@@ -436,9 +433,7 @@ const StructuralConsultancy = () => {
               <span className="inline-block bg-blue-50 text-blue-600 text-xs md:text-sm font-black uppercase tracking-[0.2em] px-5 py-2.5 rounded-full mb-8 max-w-max border border-blue-100">
                 End-to-End Guidance
               </span>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-8 leading-tight tracking-tight uppercase">
-                Expert Project <br/><span className="text-blue-600">Consultation</span>
-              </h2>
+              <SectionHeading title="Expert Project Consultation" center={false} />
               
               <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-6">
                 Offering end-to-end structural consultation means guiding clients through the entire development process—from initial design to final inspection. Our extensive knowledge helps identify potential challenges early on, ensuring that projects stay on track and within budget.
@@ -462,7 +457,7 @@ const StructuralConsultancy = () => {
       <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
          <div className="max-w-[1600px] mx-auto overflow-hidden">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Latest Projects</h2>
+              <SectionHeading title="Latest Projects" />
               <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto leading-relaxed border-l-4 border-[#fbc02d] pl-4">
                 Explore our recent successful projects that showcase our expertise.
               </p>
@@ -514,9 +509,7 @@ const StructuralConsultancy = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Testimonials</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-16 text-center tracking-tight">
-            What Our <span className="text-[#fbc02d]">Clients Say</span>
-          </h2>
+          <SectionHeading title="What Our Clients Say" />
 
           <div className="w-full max-w-4xl bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative">
             <div className="absolute top-10 right-10 text-gray-100 opacity-50">
@@ -565,7 +558,7 @@ const StructuralConsultancy = () => {
       <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 tracking-tight">Frequently Asked Questions</h2>
+            <SectionHeading title="Frequently Asked Questions" />
             <p className="text-gray-600 font-medium text-lg leading-relaxed max-w-2xl mx-auto">
               Find answers to common questions about our structural engineering and design services.
             </p>

@@ -13,6 +13,7 @@ import planning from '../assets/planning.jpg';
 import design from '../assets/design.webp';
 import development from '../assets/development.jpg';
 import ctaBG from '../assets/ctaBG.avif';
+import SectionHeading from '../components/SectionHeading';
 import { useAdmin } from '../context/AdminContext';
 
 // ─── ICON MAPS ────────────────────────────────────────────────────────────────
@@ -234,10 +235,7 @@ const ValuesSection = () => {
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="What Drives Us" />
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-          Mission, Vision & <span className="accent-text italic">Values</span>
-        </motion.h2>
+        <SectionHeading title="Mission, Vision & Values" />
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -270,10 +268,7 @@ const ProcessSection = () => {
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="How We Work" />
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-          Our <span className="accent-text italic">Process</span>
-        </motion.h2>
+        <SectionHeading title="Our Process" />
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
       <div className="space-y-16 md:space-y-24">
@@ -350,10 +345,7 @@ const TeamSection = () => {
       <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
         <div>
           <SectionLabel text="Our Team" />
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-            Meet Our <br /><span className="accent-text italic">Founders</span>
-          </motion.h2>
+          <SectionHeading title="Meet Our Founders" center={false} />
         </div>
         <p className="text-gray-500 text-sm max-w-sm leading-relaxed md:text-right">
           Leading the transformation of construction with over two decades of engineering expertise and strategic vision.
@@ -379,10 +371,7 @@ const WhyUsSection = () => {
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-16">
         <SectionLabel text="Why Choose Us" />
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-          Complete Construction Solutions <br className="hidden md:block" /> <span className="accent-text italic">Under One Roof</span>
-        </motion.h2>
+        <SectionHeading title="Complete Construction Solutions Under One Roof" />
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -426,10 +415,7 @@ const CTASection = () => (
           <span className="text-yellow-400 font-bold uppercase tracking-[0.2em] text-xs">Get Started</span>
           <span className="w-10 h-[2px] bg-yellow-500" />
         </div>
-        <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight tracking-tight">
-          Ready to Build Something <br className="hidden md:block" />
-          <span className="accent-text italic">Amazing?</span>
-        </h2>
+        <SectionHeading title="Ready to Build Something Amazing?" light />
         <p className="text-white/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
           Whether it's a dream home or a large commercial complex, our team is ready to bring your vision to life with precision and care.
         </p>
@@ -491,15 +477,7 @@ const FounderNarrativeSection = () => (
           className="w-full lg:w-1/2 flex flex-col items-start"
         >
           <SectionLabel text="Our Story" />
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-medium text-slate-900 leading-tight tracking-tight mb-8"
-          >
-            Building the Future <br />
-            <span className="accent-text italic">With Integrity</span>
-          </motion.h2>
+          <SectionHeading title="Building the Future With Integrity" center={false} />
           <div className="space-y-5 text-gray-600 leading-relaxed text-base md:text-lg">
             <p>
               <strong>ECONSTRUCT Design & Build Pvt Ltd</strong> is a leading consultancy and contracting company in India that has executed construction work for some of the most significant projects in the country. We continue to alter the structural landscape through several other prestigious projects in the residential, commercial, and institutional space.
@@ -533,10 +511,7 @@ const CertificationsSection = () => {
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-14">
         <SectionLabel text="Accreditations" />
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-          Our <span className="accent-text italic">Certifications</span>
-        </motion.h2>
+        <SectionHeading title="Our Certifications" />
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
@@ -566,10 +541,7 @@ const VisionSection = () => {
     <div className="max-w-[1400px] mx-auto px-6">
       <div className="text-center mb-14">
         <SectionLabel text="Where We're Headed" />
-        <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-          className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-          Our <span className="accent-text italic">Vision</span>
-        </motion.h2>
+        <SectionHeading title="Our Vision" />
         <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
         <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-base md:text-lg">
           To be a world-class construction company committed to total customer satisfaction, by building on our strengths.

@@ -76,9 +76,16 @@ const pagesMenu = [
 ];
 
 const trainingMenu = [
-  { icon: GraduationCap, title: 'Corporate On-Job Training', desc: 'BIM & AEC software for teams', path: '/training/corporate' },
-  { icon: Layers,        title: 'BIM Certification',         desc: 'Industry-recognised BIM courses', path: '/services/bim-consultancy' },
-  { icon: BookOpen,      title: 'Workshops & Seminars',      desc: 'Hands-on learning sessions',      path: '/training/workshops' },
+  { icon: GraduationCap,   title: 'Corporate On-Job Training',          desc: 'BIM & AEC software for teams',       path: '/training/corporate'       },
+  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/services/bim-consultancy' },
+  { icon: BookOpen,        title: 'Workshops & Seminars',               desc: 'Hands-on learning sessions',         path: '/training/workshops'       },
+  { icon: Layers,          title: 'Composite Course (Structures+BIM+PM)', desc: 'Complete 24-month program',        path: '/training/composite'       },
+  { icon: FileText,        title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
+  { icon: LayoutDashboard, title: 'Interior Design with PM',            desc: 'Space planning & design',            path: '/training/interior-design' },
+  { icon: Wrench,          title: '3-Day ETABS Workshop',               desc: 'Intensive hands-on training',        path: '/training/etabs-workshop'  },
+  { icon: GraduationCap,   title: 'Life Engineering Academy',           desc: 'Personal development program',       path: '/training/life-engineering' },
+  { icon: BookOpen,        title: 'Online Crash Courses',               desc: 'Quick skill upgrades',               path: '/training/crash-courses'   },
+  { icon: BarChart2,       title: 'Business Management',                desc: 'Marketing, branding & management',   path: '/training/business-management' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
@@ -152,28 +159,28 @@ const PagesDropdown = () => (
 // ─── TRAINING DROPDOWN ────────────────────────────────────────────────────────
 
 const TrainingDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-72 bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[580px] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Training Programs</span>
       <Link to="/training/corporate" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
         View all <ArrowRight size={10} />
       </Link>
     </div>
-    <div className="py-2">
+    <div className="grid grid-cols-2 gap-px bg-gray-100 p-px">
       {trainingMenu.map((item) => {
         const Icon = item.icon;
         return (
           <Link
             key={item.title}
             to={item.path}
-            className="flex items-center gap-3 px-5 py-3 hover:bg-[#fbc02d]/5 transition-colors duration-150 group/item"
+            className="bg-white px-5 py-4 flex items-start gap-3 hover:bg-[#fbc02d]/5 transition-colors duration-150 group/item"
           >
-            <div className="w-7 h-7 rounded-lg bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d]/20 transition-colors">
-              <Icon size={13} className="text-[#fbc02d]" />
+            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d]/20 transition-colors">
+              <Icon size={15} className="text-[#fbc02d]" />
             </div>
             <div>
-              <p className="text-[0.78rem] font-bold text-gray-900 group-hover/item:text-[#fbc02d] transition-colors leading-tight">{item.title}</p>
-              <p className="text-[0.65rem] text-gray-400 leading-snug">{item.desc}</p>
+              <p className="text-[0.78rem] font-bold text-gray-900 leading-tight group-hover/item:text-[#fbc02d] transition-colors">{item.title}</p>
+              <p className="text-[0.68rem] text-gray-400 mt-0.5 leading-snug">{item.desc}</p>
             </div>
           </Link>
         );

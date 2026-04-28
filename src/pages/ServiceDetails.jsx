@@ -4,6 +4,7 @@ import { CheckCircle2, ArrowRight, Home, Building2, Palmtree, Factory, Car, Chec
 import { Link, useNavigate } from 'react-router-dom';
 import Projects from '../components/Projects';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import VillaImage from '../assets/villa.jpg';
 import ConstructionServiceHero from '../assets/ProjectManagementConsultancy.jpg';
 import C1 from '../assets/c1.jpg';
@@ -111,9 +112,7 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">About Us</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 leading-tight tracking-tight">
-                {sd.aboutHeadline.split(' ').slice(0, -2).join(' ')} <br />
-                <span className="accent-text italic">{sd.aboutHeadline.split(' ').slice(-2).join(' ')}</span>
+              <SectionHeading title={sd.aboutHeadline} center={false} />
               </h2>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed max-w-xl">
                 {sd.aboutDesc}
@@ -140,9 +139,7 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our Expertise</span>
               </div>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-slate-900 tracking-tight">
-                Construction <span className="accent-text italic">Services</span>
-              </h2>
+              <SectionHeading title="Construction Services" center={false} />
             </div>
             
             <button onClick={() => navigate('/contact')} className="flex items-center gap-3 px-8 py-4 border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white font-bold uppercase text-xs tracking-widest rounded-xl transition-colors w-max">
@@ -187,9 +184,7 @@ const ServiceDetails = () => {
               <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Portfolio</span>
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight">
-              Our <span className="accent-text italic">Projects</span>
-            </h2>
+            <SectionHeading title="Our Projects" center={false} />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
@@ -240,9 +235,7 @@ const ServiceDetails = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Testimonials</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-10 leading-tight tracking-tight">
-                What Our <br />
-                <span className="accent-text italic">Clients Say</span>
+              <SectionHeading title="What Our Clients Say" center={false} />
               </h2>
 
               <div className="bg-white p-10 md:p-14 rounded-tl-[3rem] rounded-br-[3rem] shadow-xl relative border border-gray-100 min-h-[350px] flex flex-col justify-between">

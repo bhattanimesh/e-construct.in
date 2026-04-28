@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Box, Calendar, DollarSign, Leaf, Settings, ShieldAlert, TrendingUp, Layers, PenTool, MonitorPlay, Users, Award, Clock, Quote, ChevronLeft, ChevronRight, Check, Mail, Phone, MapPin, Facebook, Youtube, MessageCircle, Linkedin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import ConstructionServiceHero from '../assets/ProjectManagementConsultancy.jpg';
 import GpMetricsImage from '../assets/gp.png';
 import S1 from '../assets/s1.jpg';
@@ -99,9 +100,7 @@ const BimConsultancy = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Innovation Hub</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-16 tracking-tight">
-            Autodesk <span className="accent-text italic">Ecosystem</span>
-          </h2>
+          <SectionHeading title="Autodesk Ecosystem" />
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             <motion.div 
@@ -153,9 +152,7 @@ const BimConsultancy = () => {
       <section className="py-24 bg-slate-50 border-t border-gray-100">
         <div className="max-w-[1500px] mx-auto px-[5%]">
           <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-              Comprehensive <span className="accent-text italic">BIM Services</span>
-            </h2>
+            <SectionHeading title="Comprehensive BIM Services" />
             <p className="text-gray-600 text-lg leading-relaxed">
               From basic planning to advanced industrialization, our BIM solutions cover the entire project lifecycle through multiple dimensions.
             </p>
@@ -194,9 +191,7 @@ const BimConsultancy = () => {
         <div className="max-w-[1500px] mx-auto px-[5%]">
           <div className="text-center mb-16 mx-auto flex flex-col items-center">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Implementation Strategy</span>
-            <h2 className="text-5xl font-medium text-slate-900 mt-2 tracking-tight">
-              Our Proven <span className="accent-text italic">BIM Process</span>
-            </h2>
+            <SectionHeading title="Our Proven BIM Process" />
             <p className="text-gray-600 mt-4 max-w-2xl mx-auto leading-relaxed">
               We follow a structured 4-step approach to ensure successful BIM integration for your entire project scale.
             </p>
@@ -229,9 +224,7 @@ const BimConsultancy = () => {
           <div className="grid lg:grid-cols-2 gap-20">
             {/* Why Choose Us */}
             <div>
-              <h2 className="text-4xl md:text-5xl font-medium text-white mb-10 tracking-tight">
-                Why Choose <span className="accent-text italic">Us</span>
-              </h2>
+              <SectionHeading title="Why Choose Us" light center={false} />
               <div className="space-y-8">
                 {whyChooseUs.map((reason, idx) => (
                   <div key={idx} className="flex gap-6 items-start">
@@ -267,9 +260,7 @@ const BimConsultancy = () => {
       {/* 5. How to Get Started */}
       <section className="py-24 bg-white overflow-hidden">
         <div className="max-w-[1500px] mx-auto px-[5%] text-center">
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-            How to <span className="accent-text italic">Get Started</span>
-          </h2>
+          <SectionHeading title="How to Get Started" />
           <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
             Begin your BIM journey with our simple four-step process, mapped out for your convenience.
           </p>
@@ -307,9 +298,7 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">bim.testimonials</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-16 text-center tracking-tight">
-            What Our <span className="accent-text italic">Clients Say</span>
-          </h2>
+          <SectionHeading title="What Our Clients Say" />
 
           <div className="w-full max-w-4xl bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative">
             <div className="absolute top-10 right-10 text-gray-100 opacity-50">
@@ -357,9 +346,7 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Proven Results</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-            Impact Metrics <span className="accent-text italic">from Our Clients</span>
-          </h2>
+          <SectionHeading title="Impact Metrics from Our Clients" />
           <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
             A quick glance at how our BIM solutions created measurable improvements.
           </p>
@@ -387,9 +374,7 @@ const BimConsultancy = () => {
             <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Sectors We Serve</span>
             <div className="w-8 h-1 bg-yellow-500"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-6 tracking-tight">
-            Specialized <span className="accent-text italic">Solutions</span>
-          </h2>
+          <SectionHeading title="Specialized Solutions" />
           <p className="text-gray-600 text-lg max-w-2xl mx-auto">
             Our BIM methodologies adapt to the unique challenges and complex regulatory requirements across diverse industries.
           </p>

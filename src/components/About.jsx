@@ -4,6 +4,7 @@ import { CheckCircle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../assets/logo.webp';
 import TextBG from '../assets/textbg.png';
+import SectionHeading from './SectionHeading';
 import { useAdmin } from '../context/AdminContext';
 
 const About = () => {
@@ -143,9 +144,7 @@ const About = () => {
         {/* --- Why Complete Construction Solutions --- */}
         <div className="mt-24 md:mt-32 w-full border-t border-gray-100 pt-16 md:pt-24">
           <div className="text-center mb-16">
-            <h3 className="text-3xl md:text-4xl font-medium text-slate-900 mb-6 tracking-tight">
-              Why Complete Construction <br className="hidden md:block"/> <span className="accent-text italic">Solutions Under One Roof</span> Help You
-            </h3>
+            <SectionHeading title="Why Complete Construction Solutions Under One Roof Help You" />
             <div className="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full"></div>
           </div>
 

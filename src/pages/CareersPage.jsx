@@ -6,6 +6,7 @@ import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
 import planning from '../assets/planning.jpg';
 import { useAdmin } from '../context/AdminContext';
+import SectionHeading from '../components/SectionHeading';
 
 // ─── STATIC DATA ──────────────────────────────────────────────────────────────
 
@@ -273,10 +274,7 @@ const OpeningsSection = () => {
       <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-12">
           <SectionLabel text="Open Positions" center />
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-            Current <span className="accent-text italic">Openings</span>
-          </motion.h2>
+          <SectionHeading title="Current Openings" />
           <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-5" />
         </div>
         {/* Filter Tabs */}
@@ -366,9 +364,7 @@ const CultureSection = () => (
             <span className="w-10 h-[2px] bg-yellow-500" />
             <span className="text-yellow-400 font-bold uppercase tracking-[0.2em] text-xs">Our Culture</span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-medium text-white leading-tight tracking-tight">
-            Where Passion Meets <span className="accent-text italic">Purpose</span>
-          </h2>
+          <SectionHeading title="Where Passion Meets Purpose" light center={false} />
           <p className="text-white/60 leading-relaxed text-base md:text-lg">
             At E-Construct, we believe great buildings start with great people. Our culture is built on collaboration, continuous learning, and a shared commitment to excellence. Every team member is empowered to take ownership, innovate, and grow.
           </p>
@@ -407,10 +403,7 @@ const OpenApplicationSection = () => {
       <div className="max-w-[900px] mx-auto px-6">
         <div className="text-center mb-12">
           <SectionLabel text="Don't See a Fit?" center />
-          <motion.h2 initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-medium text-slate-900 leading-tight tracking-tight">
-            Send an <span className="accent-text italic">Open Application</span>
-          </motion.h2>
+          <SectionHeading title="Send an Open Application" />
           <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-5" />
           <p className="text-gray-500 mt-5 max-w-lg mx-auto text-sm leading-relaxed">
             Don't see a role that matches your profile? We are always looking for exceptional talent. Drop us your resume and we will reach out when the right opportunity arises.

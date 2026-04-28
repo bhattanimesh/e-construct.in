@@ -33,6 +33,13 @@ const WorkshopsSeminars        = lazy(() => import('./pages/WorkshopsSeminars'))
 const InteriorDesign           = lazy(() => import('./pages/InteriorDesign'))
 const ArchitecturalConsultancy = lazy(() => import('./pages/ArchitecturalConsultancy'))
 const BlogDetailPage           = lazy(() => import('./pages/BlogDetailPage'))
+const BimHubComposite          = lazy(() => import('./pages/BimHubComposite'))
+const BimHubDrawingDrafting    = lazy(() => import('./pages/BimHubDrawingDrafting'))
+const BimHubInteriorDesign     = lazy(() => import('./pages/BimHubInteriorDesign'))
+const BimHubETABSWorkshop      = lazy(() => import('./pages/BimHubETABSWorkshop'))
+const BimHubLifeEngineering    = lazy(() => import('./pages/BimHubLifeEngineering'))
+const BimHubOnlineCrashCourses = lazy(() => import('./pages/BimHubOnlineCrashCourses'))
+const BimHubBusinessManagement = lazy(() => import('./pages/BimHubBusinessManagement'))
 
 // Minimal loading fallback — no layout shift, no spinner flash
 const PageLoader = () => (
@@ -71,6 +78,13 @@ function App() {
               <Route path="services/architectural-consultancy" element={<ArchitecturalConsultancy />} />
               <Route path="training/corporate" element={<CorporateTraining />} />
               <Route path="training/workshops" element={<WorkshopsSeminars />} />
+              <Route path="training/composite" element={<BimHubComposite />} />
+              <Route path="training/drawing-drafting" element={<BimHubDrawingDrafting />} />
+              <Route path="training/interior-design" element={<BimHubInteriorDesign />} />
+              <Route path="training/etabs-workshop" element={<BimHubETABSWorkshop />} />
+              <Route path="training/life-engineering" element={<BimHubLifeEngineering />} />
+              <Route path="training/crash-courses" element={<BimHubOnlineCrashCourses />} />
+              <Route path="training/business-management" element={<BimHubBusinessManagement />} />
               <Route path="projects" element={<ProjectsPage />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>

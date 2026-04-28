@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown, FileText, Target, TrendingUp } from 'lucide-react';
-import SectionHeading from '../components/SectionHeading';
+import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 
-const BimHubPBD = () => {
+const BimHubDrawingDrafting = () => {
   const sliderImages = [
     'https://e-construct.in/wp-content/uploads/2026/02/event6_11zon.webp',
     'https://e-construct.in/wp-content/uploads/2026/02/event5_11zon.webp',
@@ -51,66 +50,117 @@ const BimHubPBD = () => {
 
   const faqData = {
     "General": [
-      { question: "What is the duration of the course?", answer: "The Duration is roughly 12 months for both Online & Offline Courses. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and also your speed/overall performance.\n\nNote: It's not allowed to take long holidays during the course as you are involved in Real Projects." },
-      { question: "When does the next batch start?", answer: "Contact administration for more details on this." },
-      { question: "What are the session timings?", answer: "Contact administration for more details on this." },
-      { question: "Where are the classes held?", answer: "Contact administration for more details on this." }
+      {
+        question: "What is the duration of the course?",
+        answer: "The duration is approximately 7 to 12 months. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and your speed/overall performance.\n\nNote: It's not allowed to take long holidays during the course as you are involved in Real Projects."
+      },
+      {
+        question: "When does the next batch start?",
+        answer: "The next batch starts on 15th April 2026. Contact administration for more details."
+      },
+      {
+        question: "Where are the classes held?",
+        answer: "Offline classes are held at our Bangalore office:\nVenkatdhari Heights, 2nd Floor, Parapanna Agrahara Main road, Kudlu, Bangalore 560068.\n\nOnline and Hybrid modes are also available."
+      },
+      {
+        question: "How can I contact you?",
+        answer: "You can reach us at +91 9036744017 or visit our Bangalore office at Venkatdhari Heights, 2nd Floor, Parapanna Agrahara Main road, Kudlu, Bangalore 560068."
+      }
     ],
     "Admission": [
-      { question: "Who can join this course?", answer: "• Polytechnic Diploma (Civil Engineering)\n• B.Tech / B.E (Civil Engineering)\n• M.Tech / M.E (Structural Engineering)\n• CAD Structures" },
-      { question: "What qualities should candidates have?", answer: "Contact administration for more details on this." },
-      { question: "Can payment be made in installments?", answer: "Contact administration for more details on this." },
-      { question: "Is the fee refundable?", answer: "Contact administration for more details on this." }
+      {
+        question: "Who can join this course?",
+        answer: "Any Graduate can apply. Selection is based on an entrance exam and interview.\n\nWe look for candidates with the 3 P's:\n• Passion\n• Patience\n• Practice"
+      },
+      {
+        question: "Can payment be made in installments?",
+        answer: "No, installment payments are not available. Full payment is required at the time of admission."
+      },
+      {
+        question: "Is the fee refundable?",
+        answer: "No. The fee is non-refundable and non-transferable under any circumstance."
+      },
+      {
+        question: "Are seats limited?",
+        answer: "Yes, seats are limited. We maintain small batch sizes to ensure quality training and individual attention."
+      }
     ],
     "Course Details": [
-      { question: "What learning activities are included?", answer: "• 48 hrs Challenge (Group Activity)\n• 24 hrs Challenge (Individual Activity)\n• MASS Mock Interviews (Group + Individual Activity Making)\n• Every Tuesday code reading (Group Activity)\n• Weekly objective type test (Self Assessment)\n• Monthly Review on your projects to assess your Learning Progress" },
-      { question: "What is the exam pattern?", answer: "Contact administration for more details on this." },
-      { question: "What software is included in the training?", answer: "Contact administration for more details on this." },
-      { question: "What codes are covered in the training?", answer: "Contact administration for more details on this." }
+      {
+        question: "What learning activities are included?",
+        answer: "• 48 hrs Challenge (Group Activity)\n• 24 hrs Challenge (Individual Activity)\n• MASS Mock Interviews (Group + Individual Activity Making)\n• Every Tuesday code reading (Group Activity)\n• Weekly objective type test (Self Assessment)\n• Monthly Review on your projects to assess your Learning Progress"
+      },
+      {
+        question: "What software is included in the training?",
+        answer: "• AutoCAD (2D & 3D)\n• REVIT Architecture\n• REVIT Structures\n• RCDC\n• CSI Detailer\n• BIM Collaborate Pro (Autodesk Construction Cloud)"
+      },
+      {
+        question: "What codes are covered in the training?",
+        answer: "Detailing Codes:\n• SP 34:1987\n• IS 5525:1969\n• IS 13920:2016\n• IS 18168:2023\n\nDrafting Codes:\n• SP 46:2003\n• IS 10711:2001\n• IS 5457:1999"
+      },
+      {
+        question: "What types of projects will I work on?",
+        answer: "You will work on real live projects including:\n• Small Villas\n• Highrise Buildings\n• Industrial Buildings\n• Cluster Projects\n• Shuttering\n• PEB (Pre-Engineered Buildings)"
+      }
     ],
     "Placement": [
-      { question: "What certification will I receive?", answer: "Certification is offered only upon successful completion of Exam. We offer:\n\n• Working experience letter of 12 months after successful completion of Exam criteria\n• Performance Based Design Certification issued by Econstruct Design and Build Pvt Ltd\n• Assistance to make a Portfolio for each candidate\n• Visual OR Video resume building assistance\n• Photoshoot in formals for LinkedIn profile and Resume Photo\n\nPLEASE NOTE – Certification is just a piece of paper. What truly matters is your knowledge, skills and relevant experience with right attitude to survive in the real Industry." },
-      { question: "How does placement assistance work?", answer: "Contact administration for more details on this." },
-      { question: "What types of projects will I work on?", answer: "Contact administration for more details on this." },
-      { question: "Who is the trainer?", answer: "Contact administration for more details on this." }
+      {
+        question: "What certification will I receive?",
+        answer: "Certification is offered only upon successful completion of the Exam. We offer:\n\n• Experience Letter upon successful completion\n• Master Study Certification issued by Econstruct Design and Build Pvt Ltd\n• Assistance to make a Portfolio for each candidate\n• Visual OR Video resume building assistance\n• Photoshoot in formals for LinkedIn profile and Resume Photo\n\nPLEASE NOTE - Certification is just a piece of paper. What truly matters is your knowledge, skills and relevant experience with the right attitude to survive in the real Industry."
+      },
+      {
+        question: "Who is the trainer?",
+        answer: "The program is led by Mr. Sandeep Pingale, Founder & Managing Director of Econstruct Design and Build Pvt Ltd, with over two decades of industry experience."
+      },
+      {
+        question: "How does placement assistance work?",
+        answer: "We provide 100% placement assistance including:\n• Experience Letter\n• Certification\n• Portfolio building\n• Video resume\n• Photoshoot for professional profiles\n• Interview preparation and mock interviews"
+      },
+      {
+        question: "What is the 100% Job Guarantee?",
+        answer: "We guarantee 6-8 genuine job interview opportunities in India, UAE, and abroad, provided you:\n• Maintain minimum 80% attendance\n• Complete all Projects & Annexures\n• Successfully complete the Final Exam\n• Create a Video resume\n• Set up your LinkedIn Profile"
+      }
     ]
   };
 
   return (
     <div className="bg-white min-h-screen flex flex-col justify-start">
 
-      {/* 1. Hero Section */}
+      {/* Hero Section */}
       <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
         <div
           className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/prj8.jpg')` }}
+          style={{ backgroundImage: `url('/prj6.jpg')` }}
         >
           <div className="absolute inset-0 bg-black/40"></div>
         </div>
+
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
-          <h1 className="text-6xl md:text-7xl lg:text-8xl font-medium text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
-            <span className="accent-text italic">PBD</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+            Master Study In Engineering
           </h1>
-          <p className="mt-6 text-white text-lg md:text-xl font-medium tracking-wide drop-shadow-md max-w-3xl text-center leading-relaxed">
-            Performance Based Design
+          <p className="mt-4 text-white text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide drop-shadow-md max-w-3xl text-center leading-relaxed italic accent-text">
+            Drawing &amp; Drafting
           </p>
         </div>
       </section>
 
-      {/* 2. Video & Stats Section */}
+      {/* Video & Stats Section */}
       <section className="bg-slate-50 py-20 flex flex-col items-center overflow-hidden border-t border-gray-200">
         <div className="w-full px-4 sm:px-8 md:px-16 flex flex-col items-center max-w-[1500px] mx-auto">
+
           <div className="flex items-center justify-center gap-3 mb-12">
             <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
             <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm sm:text-base">Overview</span>
             <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
           </div>
 
+          {/* YouTube Video Wrapper */}
           <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16">
             <iframe
               src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
               className="w-full h-full"
-              title="PBD Video"
+              title="Drawing & Drafting Overview Video"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
@@ -118,6 +168,7 @@ const BimHubPBD = () => {
             ></iframe>
           </div>
 
+          {/* Stats Section */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
@@ -125,12 +176,14 @@ const BimHubPBD = () => {
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Graduates</div>
             </div>
+
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
                 50<span className="text-3xl md:text-4xl ml-1">+</span>
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Partners</div>
             </div>
+
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
                 100<span className="text-3xl md:text-4xl ml-1">%</span>
@@ -138,22 +191,23 @@ const BimHubPBD = () => {
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base text-center">Success Rate</div>
             </div>
           </div>
+
         </div>
       </section>
 
-      {/* 3. Program Features - 4 Cards */}
+      {/* Program Features - 4 Horizontal Cards */}
       <section className="bg-white py-16 px-4 md:px-8">
         <div className="max-w-[1500px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
 
-            {/* Card 1: Duration */}
+            {/* Card 1: Duration & Batch */}
             <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full">
               <div className="mb-6">
                 <div className="flex items-center gap-3 mb-3">
                   <Clock className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">Duration</h3>
                 </div>
-                <p className="text-gray-600 font-medium">7 to 12 Months until you are placed!</p>
+                <p className="text-gray-600 font-medium">7 to 12 Months (ON-JOB Learning)</p>
               </div>
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
@@ -176,7 +230,7 @@ const BimHubPBD = () => {
               <div className="space-y-4 mt-auto">
                 <div>
                   <h4 className="font-bold text-gray-800 text-sm uppercase tracking-wide mb-1">Video Access</h4>
-                  <p className="text-gray-600">750+ Hours of Videos Content</p>
+                  <p className="text-gray-600">750+ Hours Videos</p>
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 text-sm uppercase tracking-wide mb-1">Digital Library</h4>
@@ -192,20 +246,14 @@ const BimHubPBD = () => {
                 <BookOpen className="w-6 h-6 text-[#fbc02d]" />
                 <h3 className="text-xl font-bold text-gray-900">Softwares</h3>
               </div>
-              <ul className="text-gray-600 space-y-2 font-medium flex-1 overflow-y-auto max-h-[220px]">
+              <ul className="text-gray-600 space-y-2 font-medium flex-1">
                 {[
-                  'ETABS Basic',
-                  'ETABS Advanced',
-                  'SAFE',
-                  'SAP2000',
-                  'AutoCAD',
+                  'AutoCAD (2D & 3D)',
+                  'REVIT Architecture',
                   'REVIT Structures',
-                  'StaadPRO',
-                  'CSI Bridge',
-                  'CSI Detailer',
                   'RCDC',
-                  'Prokon',
-                  '40+ Design Spreadsheets'
+                  'CSI Detailer',
+                  'BIM Collaborate Pro (Autodesk Construction Cloud)'
                 ].map((software, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#fbc02d] shrink-0"></span>
@@ -222,7 +270,7 @@ const BimHubPBD = () => {
                 <h3 className="text-xl font-bold text-gray-900">Certification</h3>
               </div>
               <p className="text-gray-600 font-medium leading-relaxed mb-6">
-                Receive industry-recognized certification upon completion, provided by Econstruct.
+                Industry-recognized certification upon completion, provided by Econstruct.
               </p>
               <div className="mt-auto bg-slate-50 p-4 rounded-xl border border-gray-100">
                 <p className="text-gray-800 font-bold text-sm">
@@ -235,107 +283,176 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 4. What is PBD Section */}
-      <section className="bg-slate-50 py-20 px-4 md:px-8 border-t border-gray-200">
+      {/* About Section - 2 Column */}
+      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
-          <div className="flex items-center gap-3 mb-10">
-            <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-            <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">About the Program</span>
-            <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
             {/* Left Text */}
             <div>
-              <SectionHeading title="What is Performance Based Design?" center={false} />
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
+                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">About the Program</span>
+              </div>
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-8 leading-tight tracking-tight">
+                ON-JOB Training in <br className="hidden md:block" />
+                <span className="text-[#fbc02d]">Drawing &amp; Drafting</span>
+              </h2>
               <p className="text-gray-600 text-lg font-medium leading-relaxed">
-                Performance Based Design (PBD) is an advanced structural engineering methodology that moves beyond prescriptive code compliance to focus on achieving specific, measurable performance objectives. Rather than simply meeting minimum code requirements, PBD allows engineers to design structures that perform predictably under various loading conditions — including seismic events, wind loads, and other extreme forces.
+                Welcome to our ON-JOB Training in Drawing and Drafting — where the blueprint meets reality! Immerse yourself in a hands-on learning experience, transforming Small Villas, Highrise Buildings, Industrial Structures, and Cluster Projects from sketches to tangible masterpieces.
               </p>
               <p className="text-gray-600 text-lg font-medium leading-relaxed mt-6">
-                At Econstruct, our PBD training equips civil and structural engineers with the tools, knowledge, and hands-on experience to apply performance-based principles on real projects. You will learn to assess structural behavior, define performance targets, and use advanced analysis techniques to verify that your designs meet those targets.
+                In this dynamic program, dive into real-world projects involving RCC, Steel, Composite, and PEB structures. Gain practical insights into Shuttering design, honing your skills on-site under expert guidance. Our focus is on the practical application of your knowledge. This ON-JOB Training ensures that every stroke of your design contributes to the construction of actual buildings.
               </p>
-              <div className="mt-8 flex flex-wrap gap-4">
-                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-xl border border-gray-100 shadow-sm">
-                  <Target className="w-5 h-5 text-[#fbc02d]" />
-                  <span className="font-bold text-gray-800 text-sm">Performance Objectives</span>
-                </div>
-                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-xl border border-gray-100 shadow-sm">
-                  <TrendingUp className="w-5 h-5 text-[#fbc02d]" />
-                  <span className="font-bold text-gray-800 text-sm">Advanced Analysis</span>
-                </div>
-                <div className="flex items-center gap-3 bg-white px-5 py-3 rounded-xl border border-gray-100 shadow-sm">
-                  <FileText className="w-5 h-5 text-[#fbc02d]" />
-                  <span className="font-bold text-gray-800 text-sm">Real Project Experience</span>
-                </div>
-              </div>
             </div>
+
             {/* Right Image */}
-            <div className="rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative group border border-gray-100">
+            <div className="rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative group h-full flex items-center justify-center p-2 md:p-4 border border-gray-100">
               <img
-                src="/prj8.jpg"
-                alt="Performance Based Design"
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                src="/prj6.jpg"
+                alt="Drawing and Drafting Training"
+                className="w-full h-auto object-cover rounded-[20px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
             </div>
+
           </div>
         </div>
       </section>
 
-      {/* 5. The Three Pillars Section */}
-      <section className="bg-white py-20 px-4 md:px-8 border-t border-gray-200">
+      {/* Course Content Section - What You Will Learn */}
+      <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
-          <div className="text-center mb-14">
-            <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="mb-14 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
               <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-              <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Our Philosophy</span>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Curriculum</span>
               <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
             </div>
-            <SectionHeading title="The Three Pillars" />
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">The foundation of every successful engineer at Econstruct</p>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">What You Will Learn</h2>
+            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            {/* Left Column - Topics */}
+            <div className="bg-white rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.07)] border border-gray-100 p-8 md:p-10">
+              <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center shrink-0">
+                  <BookOpen size={18} />
+                </span>
+                Core Topics
+              </h3>
+              <ul className="space-y-4">
+                {[
+                  'Engineering Drawing/Drafting & Fundamentals',
+                  'Concept Design Plans',
+                  'Schematic Design Plan',
+                  'Detail Design Plan, Elevation & Section',
+                  'GFC (Good for Construction) Drawing Submission',
+                  'RFI, RFP, RFA — How to Handle',
+                  'Coordination Between Various Consultants',
+                  'Basics of Site Supervision'
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="bg-green-100 p-1 rounded-full shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-4 h-4 text-green-600" />
+                    </div>
+                    <span className="text-gray-700 font-medium">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right Column - Codes */}
+            <div className="bg-white rounded-[24px] shadow-[0_10px_40px_rgba(0,0,0,0.07)] border border-gray-100 p-8 md:p-10">
+              <h3 className="text-xl font-black text-gray-900 mb-6 flex items-center gap-3">
+                <span className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <Award size={18} />
+                </span>
+                Codes Covered
+              </h3>
+
+              <div className="mb-8">
+                <h4 className="font-black text-gray-800 text-sm uppercase tracking-[0.15em] mb-4 border-l-4 border-[#fbc02d] pl-3">Detailing Codes</h4>
+                <ul className="space-y-3">
+                  {[
+                    'SP 34:1987',
+                    'IS 5525:1969',
+                    'IS 13920:2016',
+                    'IS 18168:2023'
+                  ].map((code, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-[#fbc02d] shrink-0"></span>
+                      <span className="text-gray-700 font-medium">{code}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="font-black text-gray-800 text-sm uppercase tracking-[0.15em] mb-4 border-l-4 border-blue-500 pl-3">Drafting Codes</h4>
+                <ul className="space-y-3">
+                  {[
+                    'SP 46:2003',
+                    'IS 10711:2001',
+                    'IS 5457:1999'
+                  ].map((code, i) => (
+                    <li key={i} className="flex items-center gap-3">
+                      <span className="w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
+                      <span className="text-gray-700 font-medium">{code}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Project Types Section - 6 Cards */}
+      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
+        <div className="max-w-[1500px] mx-auto">
+          <div className="mb-14 text-center">
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Live Projects</span>
+              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Project Types</h2>
+            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Work on real-world projects across diverse building typologies</p>
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Passion */}
-            <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] flex flex-col items-center text-center">
-              <div className="w-20 h-20 rounded-full bg-red-50 flex items-center justify-center mb-6 shadow-inner">
-                <span className="text-4xl">🔥</span>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Small Villas', icon: '🏡', desc: 'Residential villa projects from concept to GFC drawings' },
+              { title: 'Highrise Buildings', icon: '🏢', desc: 'Multi-storey highrise structures with complex detailing' },
+              { title: 'Industrial Buildings', icon: '🏭', desc: 'Industrial facility drawings and structural layouts' },
+              { title: 'Cluster Projects', icon: '🏘️', desc: 'Large-scale cluster housing and township projects' },
+              { title: 'Shuttering', icon: '🔩', desc: 'Formwork and shuttering design for concrete structures' },
+              { title: 'PEB (Pre-Engineered Buildings)', icon: '⚙️', desc: 'Pre-engineered building systems and steel structures' },
+              { title: 'Composite Structures', icon: '🏗️', desc: 'Composite steel-concrete structures and hybrid systems' },
+              { title: 'RCC Structures', icon: '🧱', desc: 'Reinforced concrete construction drawings and detailing' },
+              { title: 'Steel Structures', icon: '⚒️', desc: 'Structural steel fabrication and erection drawings' }
+            ].map((project, i) => (
+              <div key={i} className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col items-start">
+                <div className="text-4xl mb-4">{project.icon}</div>
+                <h3 className="text-xl font-black text-gray-900 mb-3">{project.title}</h3>
+                <p className="text-gray-600 font-medium leading-relaxed text-sm">{project.desc}</p>
               </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Passion</h3>
-              <p className="text-gray-600 font-medium leading-relaxed">
-                A burning desire to learn and grow is the first step. Without passion, no amount of knowledge can drive you to excellence. We nurture your love for structural engineering and performance-based design.
-              </p>
-            </div>
-
-            {/* Patience */}
-            <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] flex flex-col items-center text-center">
-              <div className="w-20 h-20 rounded-full bg-blue-50 flex items-center justify-center mb-6 shadow-inner">
-                <span className="text-4xl">⏳</span>
-              </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Patience</h3>
-              <p className="text-gray-600 font-medium leading-relaxed">
-                Mastery takes time. Real-world structural engineering demands careful, methodical thinking. We teach you to embrace the process, trust the journey, and build expertise that lasts a lifetime.
-              </p>
-            </div>
-
-            {/* Practice */}
-            <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] border border-gray-100 p-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] flex flex-col items-center text-center">
-              <div className="w-20 h-20 rounded-full bg-green-50 flex items-center justify-center mb-6 shadow-inner">
-                <span className="text-4xl">💪</span>
-              </div>
-              <h3 className="text-2xl font-black text-gray-900 mb-4">Practice</h3>
-              <p className="text-gray-600 font-medium leading-relaxed">
-                Theory without practice is incomplete. Our ON-JOB learning model ensures you work on live projects from day one, applying PBD principles in real scenarios under expert mentorship.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 6. Placement Preparation Banner */}
+
+      {/* Placement Preparation Banner */}
       <section className="bg-white py-12 px-4 md:px-8">
         <div className="max-w-[1500px] mx-auto">
           <div className="bg-gradient-to-r from-slate-900 via-blue-900 to-slate-900 rounded-[20px] p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.2)] transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(59,130,246,0.25)] relative overflow-hidden group">
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-500/20 rounded-full blur-[100px] opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"></div>
+
             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
               <div className="max-w-3xl text-center md:text-left">
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 drop-shadow-md">
@@ -353,10 +470,11 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 7. Placement Preparation 4 Cards */}
+      {/* Placement Preparation 4 Cards */}
       <section className="bg-white py-12 px-4 md:px-8 border-b border-gray-100">
         <div className="max-w-[1500px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+            {/* Prep Card 1 */}
             <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-start">
               <div className="w-14 h-14 rounded-2xl bg-blue-50 flex items-center justify-center mb-6 shrink-0">
                 <Mic className="w-7 h-7 text-blue-600" />
@@ -366,6 +484,8 @@ const BimHubPBD = () => {
                 Expert guidance on tackling technical and HR interviews for various roles and industries.
               </p>
             </div>
+
+            {/* Prep Card 2 */}
             <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-start">
               <div className="w-14 h-14 rounded-2xl bg-amber-50 flex items-center justify-center mb-6 shrink-0">
                 <MessageSquare className="w-7 h-7 text-amber-500" />
@@ -375,6 +495,8 @@ const BimHubPBD = () => {
                 Enhance your verbal and non-verbal communication skills essential for professional success.
               </p>
             </div>
+
+            {/* Prep Card 3 */}
             <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-start">
               <div className="w-14 h-14 rounded-2xl bg-emerald-50 flex items-center justify-center mb-6 shrink-0">
                 <Users className="w-7 h-7 text-emerald-500" />
@@ -384,6 +506,8 @@ const BimHubPBD = () => {
                 Learn techniques to stand out in group discussions with confidence and clarity.
               </p>
             </div>
+
+            {/* Prep Card 4 */}
             <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.06)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-start">
               <div className="w-14 h-14 rounded-2xl bg-purple-50 flex items-center justify-center mb-6 shrink-0">
                 <Video className="w-7 h-7 text-purple-600" />
@@ -395,7 +519,7 @@ const BimHubPBD = () => {
             </div>
           </div>
 
-          {/* 8. Yellow Guarantee Box */}
+          {/* Yellow Guarantee Box */}
           <div className="bg-yellow-50 rounded-[20px] p-8 md:p-12 border border-yellow-200">
             <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6 text-center">
               Unlock 6-8 Genuine Job Interview opportunities in India, UAE, &amp; Abroad with our comprehensive placement preparation series.
@@ -405,6 +529,7 @@ const BimHubPBD = () => {
                 100% Job Guarantee!
               </span>
             </div>
+
             <div className="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
               <h4 className="font-bold text-gray-900 text-lg mb-4 flex items-center gap-2">
                 <span className="w-2 h-6 bg-yellow-500 rounded-sm"></span> Note: Follow all the guidelines provided below.
@@ -428,11 +553,11 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 9. Image Carousel Section */}
+      {/* Image Carousel Section */}
       <section className="bg-slate-50 py-20 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1200px] mx-auto">
           <div className="mb-12 text-center">
-            <SectionHeading title="Our Achievements Showcase" />
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Our Achievements Showcase</h2>
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full"></div>
           </div>
 
@@ -485,7 +610,7 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 10. 1-on-1 Career Discussion Section */}
+      {/* 1-on-1 Career Discussion Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -494,7 +619,10 @@ const BimHubPBD = () => {
             <div className="bg-white rounded-[24px] shadow-[0_10px_50px_rgba(0,0,0,0.06)] border border-gray-100 p-8 md:p-14 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,0,0,0.1)] relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-[#fbc02d]"></div>
 
-              <SectionHeading title="One-on-One Career Discussion" center={false} />
+              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
+                One-on-One <br className="hidden md:block" />
+                <span className="text-[#fbc02d] drop-shadow-sm">Career Discussion</span>
+              </h2>
 
               <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-10">
                 We understand that every career journey is unique. Join our session to discuss your career gaps, salary issues, and skill enhancement. Get tailored solutions and build a roadmap for your career growth.
@@ -567,37 +695,38 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 11. Flowchart Section */}
+      {/* Flowchart Section */}
       <section className="bg-slate-900/5 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto flex flex-col items-center">
           <div className="mb-14 text-center">
-            <SectionHeading title="Our Career Growth Blueprint" />
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Career Growth Blueprint</h2>
             <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Explore how we streamline the educational and placement process step-by-step.</p>
           </div>
 
           <div className="w-full rounded-[30px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] bg-white p-4 md:p-10 transition-transform hover:-translate-y-2 duration-500">
             <img
               src="/msb/flowchart.webp"
-              alt="E-Construct Career Growth Flowchart"
+              alt="E-Construct Flowchart"
               className="w-full h-auto object-contain"
             />
           </div>
         </div>
       </section>
 
-      {/* 12. Modes of Learning Section */}
+
+      {/* Modes of Learning Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
           <div className="mb-14 text-center">
-            <SectionHeading title="Modes of Learning" />
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Modes of Learning</h2>
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-            {/* Card 1: Offline */}
+            {/* Card 1 - Offline */}
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm font-bold">1</span>
+                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">1</span>
                 Offline
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
@@ -612,10 +741,10 @@ const BimHubPBD = () => {
               </ul>
             </div>
 
-            {/* Card 2: Online (Working Professionals) */}
+            {/* Card 2 - Online Working Professionals */}
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm font-bold">2</span>
+                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">2</span>
                 Online <br className="hidden md:block xl:hidden" /><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Working Professionals)</span>
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
@@ -632,10 +761,10 @@ const BimHubPBD = () => {
               </ul>
             </div>
 
-            {/* Card 3: Online (Non-Working) */}
+            {/* Card 3 - Online Non-Working */}
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm font-bold">3</span>
+                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">3</span>
                 Online <br className="hidden md:block xl:hidden" /><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Non-Working)</span>
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
@@ -650,10 +779,10 @@ const BimHubPBD = () => {
               </ul>
             </div>
 
-            {/* Card 4: Hybrid */}
+            {/* Card 4 - Hybrid */}
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm font-bold">4</span>
+                <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">4</span>
                 Hybrid
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
@@ -668,11 +797,11 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 13. Student Review Videos Carousel */}
+      {/* Student Review Videos Slider */}
       <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1200px] mx-auto">
           <div className="mb-14 text-center">
-            <SectionHeading title="Our Youtube Videos" />
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Youtube Videos</h2>
             <p className="text-gray-600 md:text-2xl font-bold text-lg max-w-2xl mx-auto mb-2 text-[#fbc02d]">Our Student Reviews</p>
             <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Hear from our interns and trainees about their experience</p>
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
@@ -688,7 +817,7 @@ const BimHubPBD = () => {
                   <iframe
                     src={videoSrc}
                     className="w-full h-full"
-                    title={`Student Review Video ${idx + 1}`}
+                    title={`Student Video ${idx + 1}`}
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                     allowFullScreen
@@ -730,12 +859,12 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 14. Competition / Live Project Videos Playlist */}
+      {/* Competition Playlist Section */}
       <section className="bg-slate-900 text-white py-24 px-4 md:px-8 border-t-[4px] border-[#fbc02d]">
         <div className="max-w-[1500px] mx-auto">
           <div className="mb-12">
-            <SectionHeading title="Live Project Competition" light center={false} />
-            <p className="text-gray-400 font-medium text-lg border-l-4 border-[#fbc02d] pl-4">between PBD Trainees at Econstruct</p>
+            <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tight">Live Project Competition</h2>
+            <p className="text-gray-400 font-medium text-lg border-l-4 border-[#fbc02d] pl-4">between Master Study Trainees at Econstruct</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 bg-slate-800 rounded-3xl p-6 md:p-8 shadow-2xl border border-slate-700">
@@ -752,7 +881,7 @@ const BimHubPBD = () => {
             </div>
 
             {/* Playlist Menu */}
-            <div className="flex flex-col h-full max-h-[400px] lg:max-h-none overflow-y-auto pr-2">
+            <div className="flex flex-col h-full max-h-[400px] lg:max-h-none overflow-y-auto pr-2 custom-scrollbar">
               <div className="flex items-center gap-3 mb-6 sticky top-0 bg-slate-800 py-2 z-10 border-b border-slate-700">
                 <Video className="w-5 h-5 text-[#fbc02d]" />
                 <h3 className="font-bold text-lg">Competition Playlist</h3>
@@ -788,38 +917,14 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 15. PDF Document Explorer */}
-      <section className="bg-white py-20 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1500px] mx-auto">
-          <div className="mb-12 text-center">
-            <div className="flex items-center justify-center gap-3 mb-4">
-              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-              <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Program Details</span>
-              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-            </div>
-            <SectionHeading title="PBD Document Explorer" />
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Browse through the complete PBD program details and curriculum</p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
-          </div>
 
-          <div className="w-full rounded-[20px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] border border-gray-200" style={{ height: '85vh', minHeight: '600px' }}>
-            <iframe
-              src="/pdfs/PBD_compressed.pdf#view=FitH"
-              className="w-full h-full"
-              title="PBD Program Document"
-              frameBorder="0"
-            ></iframe>
-          </div>
-        </div>
-      </section>
-
-      {/* 16. FAQ Section */}
+      {/* FAQ Section */}
       <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1000px] mx-auto">
           <div className="text-center mb-16">
-            <SectionHeading title="Frequently Asked Questions" />
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Frequently Asked Questions</h2>
             <p className="text-gray-600 font-medium text-lg leading-relaxed max-w-2xl mx-auto">
-              Find answers to common questions about our Performance Based Design program
+              Find answers to common questions about our Master Study in Engineering Drawing &amp; Drafting program
             </p>
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
           </div>
@@ -878,7 +983,7 @@ const BimHubPBD = () => {
         </div>
       </section>
 
-      {/* 17. Pricing Section */}
+      {/* Pricing Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1200px] mx-auto">
           <div className="bg-white rounded-[32px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.08)] border border-gray-100 flex flex-col lg:flex-row shadow-xl">
@@ -887,19 +992,19 @@ const BimHubPBD = () => {
             <div className="p-8 md:p-14 lg:w-2/3 flex flex-col justify-center">
               <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-6 max-w-max">100% Placement Program</span>
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
-                Performance Based Design: <br className="hidden md:block" /> <span className="text-[#fbc02d]">100% Placement Program</span>
+                Master Study In Engineering <br className="hidden md:block" /> <span className="text-[#fbc02d]">Drawing &amp; Drafting</span>
               </h2>
-              <h3 className="text-xl md:text-2xl font-bold text-gray-600 mb-8 border-l-4 border-[#fbc02d] pl-4">Complete PBD Structural Engineering Course</h3>
+              <h3 className="text-xl md:text-2xl font-bold text-gray-600 mb-8 border-l-4 border-[#fbc02d] pl-4">Complete Drawing &amp; Drafting Course</h3>
 
               <ul className="space-y-4 mb-10">
                 {[
-                  "Live project experience on Performance Based Design projects",
-                  "12 Month Experience Letter",
-                  "ETABS Basic | ETABS Advanced | SAFE | SAP2000 | AutoCAD | REVIT Structures | StaadPRO | CSI Bridge | CSI Detailer | RCDC | Prokon",
-                  "Indian & International Codes",
-                  "Digital Library",
-                  "100% Placement Guarantee",
-                  "World class CRM system"
+                  "Live project experience on Small Villas, Highrise Buildings, Industrial Structures & Cluster Projects",
+                  "Experience Letter upon successful completion",
+                  "AutoCAD (2D & 3D) | REVIT Architecture | REVIT Structures | RCDC | CSI Detailer",
+                  "BIM Collaborate Pro (Autodesk Construction Cloud)",
+                  "Indian Codes: SP 34:1987 | IS 5525:1969 | IS 13920:2016 | SP 46:2003 | IS 10711:2001",
+                  "Digital Library — 1000+ Technical Books",
+                  "100% Placement Guarantee"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <div className="bg-green-100 p-1 rounded-full shrink-0">
@@ -915,73 +1020,72 @@ const BimHubPBD = () => {
             {/* Right Pricing */}
             <div className="bg-slate-900 text-white lg:w-1/3 p-8 md:p-14 flex flex-col justify-center relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbc02d]/20 rounded-full blur-[60px] group-hover:bg-[#fbc02d]/30 transition-colors duration-500"></div>
-              <p className="text-gray-400 font-bold uppercase tracking-widest text-xs lg:text-sm mb-4">Performance Based Design Program</p>
-              <div className="flex items-baseline gap-2 mb-2">
-                <span className="text-3xl font-bold text-[#fbc02d]">₹</span>
-                <span className="text-5xl lg:text-5xl xl:text-6xl font-black text-white tracking-tighter">2,10,000</span>
-              </div>
-              <p className="text-gray-300 font-medium mb-6">AED 9,000 or US$ 2,510</p>
-              <div className="bg-white/10 border border-white/20 p-4 rounded-xl mb-10">
-                <p className="text-sm font-bold text-white text-center">(₹ 1,77,967 + 18% GST)</p>
+              <p className="text-gray-400 font-bold uppercase tracking-widest text-xs lg:text-sm mb-4">Master Study Program</p>
+              <div className="mb-6">
+                <p className="text-2xl font-black text-[#fbc02d] mb-4">Contact for Pricing</p>
+                <p className="text-gray-300 font-medium text-sm leading-relaxed">
+                  Get in touch with our team for the latest fee structure and available offers.
+                </p>
               </div>
 
-              <button className="w-full bg-[#fbc02d] text-slate-900 font-black px-8 py-5 rounded-xl hover:bg-[#ffe066] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm lg:text-base shadow-[0_15px_30px_rgba(251,192,45,0.3)]">
+              <a
+                href="https://wa.me/919036744017?text=Hi%2C%20I%20am%20interested%20in%20the%20Master%20Study%20In%20Engineering%20Drawing%20%26%20Drafting%20program.%20Please%20share%20the%20fee%20details."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full bg-[#25D366] text-white font-black px-8 py-5 rounded-xl hover:bg-[#1ebe5d] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm lg:text-base shadow-[0_15px_30px_rgba(37,211,102,0.3)] flex items-center justify-center gap-3 mb-4"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Chat on WhatsApp
+              </a>
+
+              <a
+                href="https://wa.me/919036744017?text=Hi%2C%20I%20want%20to%20take%20admission%20in%20the%20Master%20Study%20In%20Engineering%20Drawing%20%26%20Drafting%20program."
+                target="_blank"
+                rel="noreferrer"
+                className="w-full bg-[#fbc02d] text-slate-900 font-black px-8 py-5 rounded-xl hover:bg-[#ffe066] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm lg:text-base shadow-[0_15px_30px_rgba(251,192,45,0.3)] text-center"
+              >
                 Take Admission Now
-              </button>
+              </a>
             </div>
 
           </div>
         </div>
       </section>
 
-      {/* 18. CTA Section */}
+      {/* CTA Section */}
       <section className="bg-slate-900 py-24 px-4 md:px-8 border-t-[4px] border-[#fbc02d]">
         <div className="max-w-[1000px] mx-auto text-center">
-          <div className="flex items-center justify-center gap-3 mb-6">
-            <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-            <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Get Started Today</span>
-            <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-          </div>
-
-              <SectionHeading title="Ready to Start Your PBD Journey?" light />
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-6 leading-tight tracking-tight">
+            Ready to Start Your <br className="hidden md:block" />
+            <span className="text-[#fbc02d]">Drawing &amp; Drafting Journey?</span>
+          </h2>
           <p className="text-gray-300 text-lg md:text-xl font-medium leading-relaxed mb-12 max-w-2xl mx-auto">
-            Join Econstruct's Performance Based Design program and transform your structural engineering career. Limited seats available for the April 2026 batch.
+            Join our ON-JOB Training program and transform your career with real-world project experience in Engineering Drawing &amp; Drafting.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="https://wa.me/919036744017"
+              href="https://wa.me/919036744017?text=Hi%2C%20I%20am%20interested%20in%20the%20Master%20Study%20In%20Engineering%20Drawing%20%26%20Drafting%20program."
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-3 bg-[#25D366] text-white font-black px-10 py-5 rounded-xl shadow-[0_10px_30px_rgba(37,211,102,0.3)] hover:bg-[#20bd5a] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm"
+              className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-black px-10 py-5 rounded-xl hover:bg-[#1ebe5d] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(37,211,102,0.3)]"
             >
-              <span className="text-xl">💬</span>
-              WhatsApp: +91 90367 44017
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+              </svg>
+              Chat on WhatsApp
             </a>
-            <a
-              href="https://wa.me/917259222888"
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-3 bg-white/10 border border-white/20 text-white font-black px-10 py-5 rounded-xl hover:bg-white/20 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm backdrop-blur-sm"
-            >
-              <span className="text-xl">💬</span>
-              WhatsApp: +91 72592 22888
-            </a>
-          </div>
 
-          <div className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors duration-300">
-              <CheckCircle2 className="w-8 h-8 text-[#fbc02d]" />
-              <span className="text-white font-bold text-sm text-center">100% Placement Guarantee</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors duration-300">
-              <Award className="w-8 h-8 text-[#fbc02d]" />
-              <span className="text-white font-bold text-sm text-center">Industry Certification</span>
-            </div>
-            <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center gap-3 hover:bg-white/10 transition-colors duration-300">
-              <Briefcase className="w-8 h-8 text-[#fbc02d]" />
-              <span className="text-white font-bold text-sm text-center">Real Project Experience</span>
-            </div>
+            <a
+              href="https://wa.me/919036744017?text=Hi%2C%20I%20want%20to%20enroll%20in%20the%20Master%20Study%20In%20Engineering%20Drawing%20%26%20Drafting%20program.%20Please%20guide%20me."
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center justify-center gap-3 bg-[#fbc02d] text-slate-900 font-black px-10 py-5 rounded-xl hover:bg-[#ffe066] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(251,192,45,0.3)]"
+            >
+              Enroll Now
+            </a>
           </div>
         </div>
       </section>
@@ -990,4 +1094,4 @@ const BimHubPBD = () => {
   );
 };
 
-export default BimHubPBD;
+export default BimHubDrawingDrafting;

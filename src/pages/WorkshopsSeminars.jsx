@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import heroSession from '../assets/CorporateON-JOBTraining.webp';
 
 // All real session photos from the website
@@ -158,9 +159,7 @@ const WorkshopsSeminars = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">What's On</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mt-2 tracking-tight">
-                Upcoming <span className="accent-text italic">Events</span>
-              </h2>
+              <SectionHeading title="Upcoming Events" center={false} />
             </div>
             <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
               Join our community of construction enthusiasts and learn from industry experts.
@@ -202,9 +201,7 @@ const WorkshopsSeminars = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">From Our Events</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-white mt-2 tracking-tight">
-                Workshop <span className="accent-text italic">Highlights</span>
-              </h2>
+              <SectionHeading title="Workshop Highlights" light center={false} />
             </div>
             <p className="text-gray-400 max-w-xs text-sm">Real moments from our training sessions and seminars.</p>
           </div>
@@ -285,10 +282,7 @@ const WorkshopsSeminars = () => {
         <div className="max-w-[1400px] mx-auto px-[5%]">
           <div className="text-center mb-14">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Areas of Focus</span>
-            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mt-2 tracking-tight">
-              Topics We <span className="accent-text italic">Cover</span>
-            </h2>
-          </div>
+            <SectionHeading title="Topics We Cover" />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {topics.map((t, i) => {
               const Icon = t.icon;
@@ -314,9 +308,7 @@ const WorkshopsSeminars = () => {
         <div className="max-w-[1400px] mx-auto px-[5%] grid lg:grid-cols-2 gap-16 items-start">
           <div>
             <span className="text-[#fbc02d] text-xs font-bold tracking-[0.2em] uppercase">Why Attend</span>
-            <h2 className="text-4xl md:text-5xl font-medium mt-2 mb-10 tracking-tight">
-              What You <span className="accent-text italic">Get</span>
-            </h2>
+            <SectionHeading title="What You Get" light center={false} />
             <div className="space-y-4 mb-10">
               {benefits.map((b, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
@@ -367,9 +359,7 @@ const WorkshopsSeminars = () => {
       <section className="py-24 bg-white border-t border-gray-100">
         <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col items-center">
           <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase mb-2">Attendee Feedback</span>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-14 text-center tracking-tight">
-            What Attendees <span className="accent-text italic">Say</span>
-          </h2>
+          <SectionHeading title="What Attendees Say" />
           <div className="w-full max-w-3xl bg-slate-50 p-10 md:p-14 rounded-3xl relative border border-gray-100">
             <div className="absolute top-8 right-8 text-gray-200"><Quote size={64} /></div>
             <AnimatePresence mode="wait">

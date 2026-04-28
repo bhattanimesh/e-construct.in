@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { PlayCircle, AlertTriangle, CheckCircle, Smartphone, MessageSquare, Scale, Monitor, ShieldCheck, Flag, Play, Search, CheckSquare, Clock } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import ConstructionServiceHero from '../assets/ProjectManagementConsultancy.jpg';
 import ep1 from '../assets/ep1.webp';
 import ep2 from '../assets/ep2.webp';
@@ -86,9 +87,7 @@ const EPMC = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Overview</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 leading-tight tracking-tight">
-                What is <span className="accent-text italic">EPMC?</span>
-              </h2>
+              <SectionHeading title="What is EPMC?" center={false} />
               <p className="text-gray-600 text-xl leading-relaxed">
                 With EPMC the entire operations would be done through our in-house developed application and dashboard-based portal. This will include an optimum range of automation technology with minimal manual touch so that your project can run flawlessly without minimum human hassles.
               </p>
@@ -182,9 +181,7 @@ const EPMC = () => {
               <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Methodology</span>
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight">
-              Phases of <span className="accent-text italic">Project Management</span>
-            </h2>
+            <SectionHeading title="Phases of Project Management" />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -224,9 +221,7 @@ const EPMC = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Platform</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight mb-8">
-            EPMC <span className="accent-text italic">Insights</span>
-          </h2>
+          <SectionHeading title="EPMC Insights" />
           <p className="text-gray-600 text-xl leading-relaxed max-w-4xl mx-auto mb-16">
             With EPMC the entire operations would be done through our in-house developed application and dashboard-based portal. This will include optimum range of automation technology with minimal manual touch so that your project can run flawlessly without minimum human hassles.
           </p>

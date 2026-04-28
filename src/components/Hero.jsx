@@ -89,8 +89,8 @@ const Hero = () => {
             variants={fadeInUp}
             className="text-[40px] leading-[1.05] sm:text-7xl md:text-8xl lg:text-[110px] font-medium text-white tracking-tight"
           >
-            {h.headline.split('\n')[0]} <br />
-            <span className="accent-text italic">{h.headline.split('\n')[1] || ''}</span>
+            {h.headline.split(' ').slice(0, -1).join(' ')}{' '}
+            <span className="accent-text italic">{h.headline.split(' ').slice(-1)[0]}</span>
           </motion.h1>
 
           {/* Description */}

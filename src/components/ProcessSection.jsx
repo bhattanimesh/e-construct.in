@@ -4,6 +4,7 @@ import { ArrowRight, MoveRight } from 'lucide-react';
 import Planning from '../assets/planning.jpg'
 import Design from '../assets/design.webp'
 import Development from '../assets/development.jpg'
+import SectionHeading from './SectionHeading';
 
 const steps = [
   {

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, CheckCircle, MapPin, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 import VillaImage from '../assets/villa.jpg';
 
 // New assets
@@ -94,9 +95,7 @@ const LuxuryVilla = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our approach</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 leading-tight tracking-tight">
-                Creative process led by <span className="accent-text italic">experience</span>
-              </h2>
+              <SectionHeading title="Creative process led by experience" center={false} />
               <p className="text-gray-600 text-lg leading-relaxed mb-6">
                 Designing a villa is an artistic endeavor that is led by our experienced Interior Designers.
               </p>
@@ -125,9 +124,7 @@ const LuxuryVilla = () => {
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">What we offer</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-10 leading-tight tracking-tight">
-                Designs that embrace joy of living & <span className="accent-text italic">beautiful natural surroundings</span>
-              </h2>
+              <SectionHeading title="Designs that embrace joy of living & beautiful natural surroundings" center={false} />
               
               <div className="space-y-8 mb-10">
                 <div>
@@ -174,9 +171,7 @@ const LuxuryVilla = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Explore what our designs</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight mb-16">
-            We Will Satisfy You With <span className="accent-text italic">Our Expertise</span>
-          </h2>
+          <SectionHeading title="We Will Satisfy You With Our Expertise" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
@@ -219,9 +214,7 @@ const LuxuryVilla = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Choose Your Package</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-16">
-            Our <span className="accent-text italic">Packages</span>
-          </h2>
+          <SectionHeading title="Our Packages" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
@@ -299,9 +292,7 @@ const LuxuryVilla = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our Testimonial</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight mb-20">
-            What Our <span className="accent-text italic">Clients Say</span>
-          </h2>
+          <SectionHeading title="What Our Clients Say" />
 
           <div className="relative bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 mb-12">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#fbc02d] rounded-full flex items-center justify-center shadow-lg border-4 border-white">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldCheck, CheckCircle, Target, Settings, Activity, ChevronLeft, ChevronRight, Star, FileText, Monitor, Shuffle } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 
 import heroImg from '../assets/c2.jpg';
 
@@ -108,9 +109,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Overview</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 leading-tight tracking-tight drop-shadow-sm">
-                Introduction
-              </h2>
+              <SectionHeading title="Introduction" center={false} />
               <p className="text-gray-600 text-lg leading-relaxed shadow-sm p-6 md:p-8 bg-gray-50 rounded-2xl border border-gray-100">
                 Projects require effective management of various aspects to ensure high-quality outcomes. Building Information Modeling (BIM) technology has emerged as a powerful tool for enhancing construction quality management. This proposal outlines the implementation of BIM technology to streamline quality management processes in construction projects.
               </p>
@@ -135,9 +134,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Goals</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 leading-tight tracking-tight">
-                Objectives
-              </h2>
+              <SectionHeading title="Objectives" center={false} />
               <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 The primary objectives of implementing BIM technology for construction quality management are as follows:
               </p>
@@ -186,9 +183,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
                 <div className="w-8 h-1 bg-[#fbc02d]"></div>
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Strategy</span>
               </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-8 leading-tight tracking-tight">
-                Implementation <span className="accent-text italic">Steps</span>
-              </h2>
+              <SectionHeading title="Implementation Steps" center={false} />
               <p className="text-gray-600 text-lg leading-relaxed mb-10">
                 To achieve the aforementioned objectives, the following steps will be undertaken:
               </p>
@@ -314,9 +309,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
         <div className="max-w-[1500px] mx-auto px-[5%] relative z-10">
           
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-medium text-white mb-6">
-              Benefits of <span className="text-[#fbc02d] italic">BIM Technology</span>
-            </h2>
+            <SectionHeading title="Benefits of BIM Technology" light />
             <p className="text-gray-400 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
               The implementation of BIM technology for construction quality management offers several benefits, including:
             </p>
@@ -359,9 +352,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
               <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Framework</span>
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
             </div>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-slate-900 leading-tight uppercase">
-              The Roadmap of <span className="accent-text italic text-[#fbc02d]">Quality Management</span> <br className="hidden md:block" /> & BIM Technology
-            </h2>
+            <SectionHeading title="The Roadmap of Quality Management & BIM Technology" />
           </div>
 
           <div className="space-y-24">

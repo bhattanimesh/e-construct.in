@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 
 import heroImg  from '../assets/ArchitecturalConsultancy.jpg';
 import arch1    from '../assets/cs_arch1.jpg';
@@ -123,9 +124,7 @@ const ArchitecturalConsultancy = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">What We Offer</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mt-2 tracking-tight">
-                Our <span className="accent-text italic">Services</span>
-              </h2>
+              <SectionHeading title="Our Services" center={false} />
             </div>
             <p className="text-gray-500 max-w-sm text-sm leading-relaxed">
               Full-spectrum architectural services from the first sketch to the final inspection.
@@ -155,9 +154,7 @@ const ArchitecturalConsultancy = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Our Work</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-white mt-2 tracking-tight">
-                Project <span className="accent-text italic">Portfolio</span>
-              </h2>
+              <SectionHeading title="Project Portfolio" light center={false} />
             </div>
             <p className="text-gray-400 max-w-xs text-sm">Residential, commercial and institutional projects across India.</p>
           </div>
@@ -191,9 +188,7 @@ const ArchitecturalConsultancy = () => {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
               <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Technical Work</span>
-              <h2 className="text-4xl md:text-5xl font-medium text-white mt-2 tracking-tight">
-                Drawings & <span className="accent-text italic">Documentation</span>
-              </h2>
+              <SectionHeading title="Drawings & Documentation" light center={false} />
             </div>
             <p className="text-gray-400 max-w-xs text-sm">Precision construction documents produced to international standards.</p>
           </div>
@@ -252,9 +247,7 @@ const ArchitecturalConsultancy = () => {
         <div className="max-w-[1400px] mx-auto px-[5%]">
           <div className="text-center mb-14">
             <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">How We Work</span>
-            <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mt-2 tracking-tight">
-              Our Design <span className="accent-text italic">Process</span>
-            </h2>
+            <SectionHeading title="Our Design Process" />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {process.map((s, i) => (
@@ -275,9 +268,7 @@ const ArchitecturalConsultancy = () => {
         <div className="max-w-[1400px] mx-auto px-[5%] grid lg:grid-cols-2 gap-16 items-center">
           <div>
             <span className="text-[#fbc02d] text-xs font-bold tracking-[0.2em] uppercase">Why Choose Us</span>
-            <h2 className="text-4xl md:text-5xl font-medium mt-2 mb-10 tracking-tight">
-              What You <span className="accent-text italic">Get</span>
-            </h2>
+            <SectionHeading title="What You Get" light center={false} />
             <div className="space-y-4">
               {outcomes.map((o, i) => (
                 <motion.div key={i} initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.07 }}
@@ -311,9 +302,7 @@ const ArchitecturalConsultancy = () => {
       <section className="py-24 bg-slate-50">
         <div className="max-w-[1400px] mx-auto px-[5%] flex flex-col items-center">
           <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase mb-2">Client Feedback</span>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 mb-14 text-center tracking-tight">
-            What Our <span className="accent-text italic">Clients Say</span>
-          </h2>
+          <SectionHeading title="What Our Clients Say" />
           <div className="w-full max-w-3xl bg-white p-10 md:p-14 rounded-3xl relative border border-gray-100 shadow-lg">
             <div className="absolute top-8 right-8 text-gray-100"><Quote size={64} /></div>
             <AnimatePresence mode="wait">

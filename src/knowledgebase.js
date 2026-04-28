@@ -26,7 +26,10 @@ Econstruct has delivered projects across residential, commercial, hospitality, a
 Notable project types include high-rise buildings, villas, hospitals, and industrial facilities.
 
 --- CONTACT ---
-For inquiries, reach out via the contact form on the website or email the team directly.
+Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.
+Email: info@e-construct.org
+Phone: +91 90367 44017 | +91 7259921111 | +91 7259222888
+Office Hours: Mon – Fri, 9:00 AM – 7:00 PM
 
 --- TEAM ---
 The company is led by experienced architects and BIM specialists with decades of combined industry experience.

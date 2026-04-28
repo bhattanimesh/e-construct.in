@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HardHat, Building2, Home, Factory, Map, ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import CTASection from '../components/CTASection';
+import SectionHeading from '../components/SectionHeading';
 
 // Original Assets (preserved)
 import csHero from '../assets/cs_hero.webp';
@@ -206,13 +207,8 @@ const ConstructionServices = () => {
           
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-16 gap-8">
             <div className="max-w-2xl">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-1 bg-[#fbc02d]"></div>
-                <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our Expertise</span>
-              </div>
-              <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight mb-6">
-                Construction <span className="accent-text italic">Services</span>
-              </h2>
+              <SectionHeading title="Construction Services" label="Our Expertise" center={false} />
+              <div className="mb-6"></div>
               <p className="text-gray-600 text-lg leading-relaxed">
                 Whether it’s a small residential project or a mega g+81 building, we offer custom solutions based on your needs.
               </p>
@@ -281,9 +277,7 @@ const ConstructionServices = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Portfolio</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight mb-16">
-            Take a look at <span className="accent-text italic">our portfolio</span>
-          </h2>
+          <SectionHeading title="Take a look at our portfolio" light />
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[csPort1, csPort2, csPort3].map((img, i) => (
@@ -322,9 +316,7 @@ const ConstructionServices = () => {
             <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Our Testimonials</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium text-slate-900 tracking-tight mb-20">
-            Client <span className="accent-text italic">Reviews</span>
-          </h2>
+          <SectionHeading title="Client Reviews" />
 
           <div className="relative bg-gray-50 rounded-[3rem] p-10 md:p-16 shadow-lg border border-gray-100 mb-12 mt-12">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#fbc02d] rounded-full flex items-center justify-center shadow-lg border-4 border-white">

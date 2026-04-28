@@ -46,17 +46,18 @@ const DEFAULT_DATA = {
     { id: 6, title: 'Site Engineer - Construction', dept: 'Construction Services', location: 'Pune / Mumbai / Nashik', type: 'Full-Time', experience: '1-4 Years', desc: 'Supervise on-site construction activities for residential and commercial projects.', responsibilities: ['Supervise day-to-day construction activities', 'Ensure work is executed as per approved drawings', 'Maintain site records and daily reports'], requirements: ['B.E./Diploma in Civil Engineering', 'Hands-on site supervision experience'] },
   ],
   contact: {
-    office: 'Office No. 1, 2nd Floor, Civil Engineering Dept, Pune, Maharashtra, India',
-    phone1: '+91 91122 34455',
-    phone2: '+91 91122 34488',
-    email1: 'support@e-construct.in',
-    email2: 'info@e-construct.in',
-    hours: 'Mon – Sat: 9:00 AM – 7:00 PM',
+    office: 'Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.',
+    phone1: '+91 90367 44017',
+    phone2: '+91 7259921111',
+    phone3: '+91 7259222888',
+    email1: 'info@e-construct.org',
+    email2: 'info@e-construct.org',
+    hours: 'Mon – Fri: 9:00 AM – 7:00 PM',
     facebook: 'https://www.facebook.com/econstruct.in',
     linkedin: 'https://www.linkedin.com/company/econstruct',
     instagram: 'https://www.instagram.com/econstruct.in',
     youtube: 'https://www.youtube.com/@econstruct',
-    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d242118.01773823!2d73.72283!3d18.52043!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf2e67461101%3A0x828d43bf9d9ee343!2sPune%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
+    mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d77.6499!3d12.8999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b0b0b0b0b0b%3A0x0!2sVenkatdhari+Heights%2C+Kudlu%2C+Bangalore!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   },
   companyStats: {
     yearsOfExperience: '25+',
@@ -98,7 +99,10 @@ Econstruct has delivered projects across residential, commercial, hospitality, a
 Notable project types include high-rise buildings, villas, hospitals, and industrial facilities.
 
 --- CONTACT ---
-For inquiries, reach out via the contact form on the website or email the team directly.
+Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.
+Email: info@e-construct.org
+Phone: +91 90367 44017 | +91 7259921111 | +91 7259222888
+Office Hours: Mon – Fri, 9:00 AM – 7:00 PM
 
 --- TEAM ---
 The company is led by experienced architects and BIM specialists with decades of combined industry experience.`,
@@ -109,7 +113,7 @@ The company is led by experienced architects and BIM specialists with decades of
   faqs: [
     { id: 1, q: 'How quickly can I expect a response?', a: 'Our team typically responds within 24 business hours. For urgent matters, please call us directly.' },
     { id: 2, q: 'Do you offer free consultations?', a: 'Yes, we offer a complimentary initial consultation to understand your project requirements and provide a preliminary assessment.' },
-    { id: 3, q: 'Which cities do you operate in?', a: 'Our headquarters is in Pune, Maharashtra. We serve clients across India and also offer remote consultancy services.' },
+    { id: 3, q: 'Which cities do you operate in?', a: 'Our headquarters is in Kudlu, Bangalore. We serve clients across India and also offer remote consultancy services.' },
     { id: 4, q: 'What information should I have ready before contacting you?', a: 'A brief description of your project, approximate budget range, preferred timeline, and the type of service you need will help us assist you faster.' },
   ],
   testimonials: [
@@ -373,7 +377,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 7; // bump this when defaults change to force a migration
+const DATA_VERSION = 8; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -398,6 +402,8 @@ export const AdminProvider = ({ children }) => {
           aboutContent: { ...DEFAULT_DATA.aboutContent, ...(parsed.aboutContent || {}) },
           aboutPageContent: { ...DEFAULT_DATA.aboutPageContent, ...(parsed.aboutPageContent || {}) },
           chatbotConfig: { ...DEFAULT_DATA.chatbotConfig, ...(parsed.chatbotConfig || {}) },
+          contact: { ...DEFAULT_DATA.contact, ...(parsed._version >= DATA_VERSION ? (parsed.contact || {}) : {}) },
+          heroContent: { ...DEFAULT_DATA.heroContent, ...(parsed._version >= DATA_VERSION ? (parsed.heroContent || {}) : {}) },
           _version: DATA_VERSION,
         };
         return merged;

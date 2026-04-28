@@ -84,13 +84,17 @@ const Footer = () => {
                 <MapPin size={20} className="text-orange-500 shrink-0" />
                 <span>{c.office}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone size={18} className="text-orange-500 shrink-0" />
-                <span>{c.phone1}{c.phone2 ? ` / ${c.phone2.replace('+91 ', '')}` : ''}</span>
+              <div className="flex items-start gap-3">
+                <Phone size={18} className="text-orange-500 shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <a href={`tel:${c.phone1?.replace(/\s/g,'')}`} className="hover:text-orange-500 transition-colors">{c.phone1}</a>
+                  {c.phone2 && <a href={`tel:${c.phone2?.replace(/\s/g,'')}`} className="hover:text-orange-500 transition-colors">{c.phone2}</a>}
+                  {c.phone3 && <a href={`tel:${c.phone3?.replace(/\s/g,'')}`} className="hover:text-orange-500 transition-colors">{c.phone3}</a>}
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail size={18} className="text-orange-500 shrink-0" />
-                <span>{c.email1}</span>
+                <a href={`mailto:${c.email1}`} className="hover:text-orange-500 transition-colors">{c.email1}</a>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200">

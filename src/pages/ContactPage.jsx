@@ -5,6 +5,7 @@ import {
   Facebook, Linkedin, Instagram, Youtube, ArrowRight
 } from 'lucide-react';
 import ctaBG from '../assets/ctaBG.avif';
+import SectionHeading from '../components/SectionHeading';
 import { useAdmin } from '../context/AdminContext';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
@@ -276,9 +277,7 @@ const FormSection = () => {
           className="w-full lg:w-[60%] bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-gray-100"
         >
           <SectionLabel text="Send a Message" />
-          <h2 className="text-3xl md:text-4xl font-medium text-slate-900 mb-2 leading-tight tracking-tight">
-            Let's Start a <span className="accent-text italic">Conversation</span>
-          </h2>
+          <SectionHeading title="Let's Start a Conversation" center={false} />
           <p className="text-gray-500 text-sm mb-8 leading-relaxed">
             Fill in the form and our team will reach out within 24 hours. No spam, ever.
           </p>
@@ -371,14 +370,13 @@ const MapSection = () => {
     <div className="max-w-[1400px] mx-auto px-6 py-16">
       <div className="text-center mb-10">
         <SectionLabel text="Find Us" center />
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-medium text-slate-900 tracking-tight"
         >
-          Our <span className="accent-text italic">Location</span>
-        </motion.h2>
+          <SectionHeading title="Our Location" />
+        </motion.div>
         <div className="w-16 h-1.5 bg-yellow-500 mx-auto rounded-full mt-4" />
       </div>
     </div>
@@ -440,14 +438,13 @@ const FAQSection = () => {
     <div className="max-w-[900px] mx-auto px-6">
       <div className="text-center mb-12">
         <SectionLabel text="FAQ" center />
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-medium text-slate-900 tracking-tight"
         >
-          Frequently Asked <span className="accent-text italic">Questions</span>
-        </motion.h2>
+          <SectionHeading title="Frequently Asked Questions" />
+        </motion.div>
         <div className="w-16 h-1.5 bg-yellow-500 mx-auto rounded-full mt-4" />
       </div>
       <div className="space-y-3">

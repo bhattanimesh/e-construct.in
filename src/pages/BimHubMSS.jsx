@@ -63,7 +63,7 @@ const BimHubMSS = () => {
     ],
     "Course Details": [
       { question: "What learning activities are included?", answer: "• 48 hrs Challenge (Group Activity)\n• 24 hrs Challenge (Individual Activity)\n• MASS Mock Interviews (Group + Individual Activity Making)\n• Every Tuesday code reading (Group Activity)\n• Weekly objective type test (Self Assessment)\n• Monthly Review on your projects to assess your Learning Progress" },
-      { question: "What is the exam pattern?", answer: "Contact administration for more details on this." },
+      { question: "What is the exam pattern?", answer: "The exam consists of four components:\n\n• Written Technical Test: 200 Marks\n• Practical Exam on Live Project: 200 Marks\n• Technical Interview: 200 Marks\n• Project Assignments, Attendance, Professional Attitude & Habits: 200 Marks" },
       { question: "What software is included in the training?", answer: "Contact administration for more details on this." },
       { question: "What codes are covered in the training?", answer: "Contact administration for more details on this." }
     ],
@@ -161,7 +161,7 @@ const BimHubMSS = () => {
                   <Clock className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">Duration</h3>
                 </div>
-                <p className="text-gray-600 font-medium">7 to 12 Months until you are placed!</p>
+                <p className="text-gray-600 font-medium">12 Months (7–14 months range)</p>
               </div>
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
@@ -203,16 +203,13 @@ const BimHubMSS = () => {
               <ul className="text-gray-600 space-y-2 font-medium flex-1 overflow-y-auto max-h-[220px]">
                 {[
                   'ETABS Basic',
-                  'ETABS Advance',
+                  'ETABS Advanced',
+                  'StaadPRO',
                   'SAFE',
                   'SAP2000',
-                  'Prokon',
-                  'CSI Detailer',
-                  'CSI Bridge',
-                  'AutoCAD',
-                  'StaadPRO',
+                  'CSI Bridge & Detailer',
                   'RCDC',
-                  '40+ Design Spread Sheets'
+                  'Prokon'
                 ].map((software, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#fbc02d] shrink-0"></span>

@@ -161,7 +161,7 @@ const BimHubMSC = () => {
                   <Clock className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">Duration</h3>
                 </div>
-                <p className="text-gray-600 font-medium">7 to 12 Months until you are placed!</p>
+                <p className="text-gray-600 font-medium">12 Months (ON-JOB Learning)</p>
               </div>
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
