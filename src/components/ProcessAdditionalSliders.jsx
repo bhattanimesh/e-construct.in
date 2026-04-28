@@ -143,7 +143,7 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
 
   return (
     <div className="relative w-full flex flex-col items-center">
-      <div className="relative h-[420px] sm:h-[480px] w-full flex justify-center perspective-[1000px]">
+      <div className="relative h-[294px] sm:h-[336px] w-full flex justify-center perspective-[1000px]">
         {sliderData.map((card, index) => {
           const offset = index - currentIndex;
 
@@ -173,12 +173,12 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
               }}
               whileHover={isCurrent ? { scale: 1.01 } : {}}
               transition={{ duration: 0.5, ease: [0.32, 0.72, 0, 1] }}
-              className={`absolute top-0 w-full h-[360px] sm:h-[400px] rounded-[1.5rem] overflow-hidden shadow-2xl bg-white ${
+              className={`absolute top-0 w-full h-[252px] sm:h-[280px] rounded-[1.5rem] overflow-hidden shadow-2xl bg-white ${
                 isCurrent ? 'cursor-grab active:cursor-grabbing' : 'pointer-events-none'
               } border border-gray-100`}
               style={{ transformOrigin: "top center" }}
             >
-              <img src={card.image} alt={card.title} className={`absolute inset-0 w-full h-full ${isFirstIntroCard ? 'object-cover' : 'object-contain p-4 pb-[8.5rem]'}`} />
+              <img src={card.image} alt={card.title} className={`absolute inset-0 w-full h-full ${isFirstIntroCard ? 'object-cover' : 'object-contain p-3 pb-[6rem]'}`} />
               {isFirstIntroCard ? (
                 <div className="absolute inset-0 p-6 flex flex-col justify-center items-center text-center backdrop-blur-[2px] bg-black/30">
                   <div className="w-full">
@@ -187,7 +187,7 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
                       <span className="font-bold tracking-[0.2em] uppercase text-[9px] text-white">Project Phase</span>
                       <div className="w-6 h-[2px] bg-yellow-500"></div>
                     </div>
-                    <h2 className="text-white font-black text-2xl mb-4 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] tracking-tight uppercase">
+                    <h2 className="text-white font-black text-xl mb-3 drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] tracking-tight uppercase">
                       {card.title.replace(/^\d+\.\s*/, "")} 
                     </h2>
                     <p className="text-gray-100 text-sm font-medium drop-shadow-md leading-relaxed">
@@ -196,19 +196,19 @@ const SmallStackedSlider = ({ sliderData, sectionTitle }) => {
                   </div>
                 </div>
               ) : (
-                <div className="absolute inset-x-0 bottom-0 p-6 flex flex-col bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-[0_-10px_30px_rgba(0,0,0,0.03)] h-[8.5rem] justify-center">
-                  <div className="flex items-start gap-3 mb-2">
-                    <span className="text-yellow-600 font-bold text-4xl leading-none">
+                <div className="absolute inset-x-0 bottom-0 p-4 flex flex-col bg-white/95 backdrop-blur-md border-t border-gray-100 shadow-[0_-10px_30px_rgba(0,0,0,0.03)] h-[6rem] justify-center">
+                  <div className="flex items-start gap-2 mb-1">
+                    <span className="text-yellow-600 font-bold text-2xl leading-none">
                       {card.subtitle}
                     </span>
                     <div>
-                      <h3 className="text-slate-900 font-bold text-lg leading-snug mb-2">
+                      <h3 className="text-slate-900 font-bold text-sm leading-snug mb-1">
                         {card.title}
                       </h3>
-                      <div className="w-10 h-1 bg-yellow-500 rounded-full"></div>
+                      <div className="w-8 h-0.5 bg-yellow-500 rounded-full"></div>
                     </div>
                   </div>
-                  <p className="text-slate-600 text-sm max-w-3xl font-medium leading-relaxed ml-10 overflow-hidden text-ellipsis line-clamp-2">
+                  <p className="text-slate-600 text-xs max-w-3xl font-medium leading-relaxed ml-8 overflow-hidden text-ellipsis line-clamp-2">
                     {card.desc}
                   </p>
                 </div>

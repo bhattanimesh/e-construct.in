@@ -115,7 +115,7 @@ const Projects = () => {
                   className="group relative"
                 >
                   {/* Card Main Container */}
-                  <div className="relative h-[380px] sm:h-[440px] md:h-[500px] overflow-hidden rounded-[2rem] bg-slate-200 shadow-lg group-hover:shadow-2xl transition-all duration-500">
+                  <div className="relative h-[266px] sm:h-[308px] md:h-[350px] overflow-hidden rounded-[2rem] bg-slate-200 shadow-lg group-hover:shadow-2xl transition-all duration-500">
                     <img 
                       src={project.image} 
                       alt={project.title} 
@@ -134,7 +134,7 @@ const Projects = () => {
                     {/* Project Info */}
                     <div className="absolute inset-0 p-10 flex flex-col justify-end">
                       <div className="transform translate-y-8 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-                        <h4 className="text-3xl font-bold text-white mb-3 leading-tight tracking-tight">
+                        <h4 className="text-xl font-bold text-white mb-2 leading-tight tracking-tight">
                           {project.title}
                         </h4>
                         <div className="flex items-center text-slate-300 text-sm mb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
