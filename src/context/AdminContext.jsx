@@ -33,7 +33,7 @@ const DEFAULT_DATA = {
   ],
   team: [
     { id: 1, name: "Prof. Sandeep Pingale", position: "Founder & Managing Director", image: "https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg", bio: "Visionary leader with 20+ years of experience in Civil Engineering & Project Management." },
-    { id: 2, name: "Shraddha Pingale", position: "Co-Founder", image: "https://e-construct.in/wp-content/uploads/2026/01/Shraddha-Pingale-scaled-e1769494406535-2048x1296.webp", bio: "Expert in operational excellence and strategic planning at E-Construct." },
+    { id: 2, name: "Shraddha Pingale", position: "Co-Founder", image: "/Shraddha.png", bio: "Expert in operational excellence and strategic planning at E-Construct." },
     { id: 3, name: "Mr. Jitendra Naregalkar", position: "Associate Director", image: "https://e-construct.in/wp-content/uploads/2025/11/Sunil-Puranik-e1771139884804.webp", bio: "Specialist in Structural Design and BIM implementation." },
     { id: 4, name: "Mr. Tushaar Y. Dawda", position: "Associate Partner", image: "https://e-construct.in/wp-content/uploads/2026/02/Mr.-Tushaar-Y.-Dawda-e1770176732845.webp", bio: "Consultancy services for repair works of buildings including detailed reports." },
     { id: 5, name: "Mr. Sanjay Patil", position: "Associate Partner", image: "https://e-construct.in/wp-content/uploads/2026/02/Mr.-Sanjay-Patil-e1770039923812.png", bio: "Structural Engineer running ACDC, expert in design and repair of buildings." },
@@ -393,6 +393,8 @@ export const AdminProvider = ({ children }) => {
           ...parsed,
           services: parsed._version >= DATA_VERSION ? (parsed.services || DEFAULT_DATA.services) : DEFAULT_DATA.services,
           blogs: parsed._version >= DATA_VERSION ? (parsed.blogs || DEFAULT_DATA.blogs) : DEFAULT_DATA.blogs,
+          team: parsed._version >= DATA_VERSION ? (parsed.team || DEFAULT_DATA.team) : DEFAULT_DATA.team,
+          careers: parsed._version >= DATA_VERSION ? (parsed.careers || DEFAULT_DATA.careers) : DEFAULT_DATA.careers,
           flipbooks: parsed._version >= DATA_VERSION ? (parsed.flipbooks || DEFAULT_DATA.flipbooks) : DEFAULT_DATA.flipbooks,
           trustedPartners: parsed._version >= DATA_VERSION ? (parsed.trustedPartners || DEFAULT_DATA.trustedPartners) : DEFAULT_DATA.trustedPartners,
           // Deep-merge every nested object so new keys are always present
