@@ -144,7 +144,7 @@ const About = () => {
         {/* --- Why Complete Construction Solutions --- */}
         <div className="mt-24 md:mt-32 w-full border-t border-gray-100 pt-16 md:pt-24">
           <div className="text-center mb-16">
-            <SectionHeading title="Why Complete Construction Solutions Under One Roof Help You" />
+            <SectionHeading title="Why EConstruct" />
             <div className="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full"></div>
           </div>
 

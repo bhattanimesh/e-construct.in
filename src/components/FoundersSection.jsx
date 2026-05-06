@@ -16,7 +16,8 @@ const FounderCard = ({ founder }) => {
           <img
             src={founder.image}
             alt={founder.name}
-            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" loading="lazy" decoding="async" />
+            className="h-full w-full object-cover grayscale group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110" loading="lazy" decoding="async"
+            style={founder.objectPosition ? { objectPosition: founder.objectPosition } : undefined} />
         </div>
 
         {/* Info Overlay - Premium Slide-up */}
