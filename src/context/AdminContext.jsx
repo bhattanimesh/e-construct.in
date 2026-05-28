@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // ─── DEFAULT DATA ─────────────────────────────────────────────────────────────
 
@@ -227,7 +227,7 @@ The company is led by experienced architects and BIM specialists with decades of
     ],
   },
   flipbooks: [
-    { id: 1, title: 'Hospitality Portfolio', pdfUrl: '/pdfs/econstruct_bim.pdf' },
+    { id: 1, title: 'Hospitality Portfolio', pdfUrl: 'https://econstructinternationalmy.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv' },
     { id: 2, title: 'Residential Portfolio', pdfUrl: '/pdfs/econstruct_bim.pdf' },
     { id: 3, title: 'Commercial Portfolio', pdfUrl: '/pdfs/econstruct_tushar.pdf' },
     { id: 4, title: 'Industrial Portfolio', pdfUrl: '/pdfs/econ_presentation.pdf' },
@@ -249,11 +249,61 @@ The company is led by experienced architects and BIM specialists with decades of
     ctaHeadline: 'Have a Project in Mind?',
     ctaSubtitle: 'Let\'s bring your vision to life. Our team of experts is ready to deliver exceptional results — on time and within budget.',
     projectsExtended: [
-      { id: 1, title: 'KALPATARU Park Riviera', category: 'Residential', location: 'Panvel, Navi Mumbai', year: '2023', description: 'A premium residential township featuring modern amenities, sustainable design, and world-class BIM coordination.', image: '/prj1.jpg' },
-      { id: 2, title: 'Sonali Residential', category: 'Residential', location: 'Pune, Maharashtra', year: '2022', description: 'Contemporary residential complex with integrated structural design and architectural consultancy services.', image: '/prj2.jpg' },
-      { id: 3, title: 'Goregaon Mulund Link Road (GMLR)', category: 'Infrastructure', location: 'Mumbai, India', year: '2024', description: 'Major urban infrastructure project connecting key corridors with advanced project management and BIM implementation.', image: '/prj3.webp' },
-      { id: 4, title: 'Luxury Villa — Lonavala', category: 'Residential', location: 'Lonavala, Maharashtra', year: '2023', description: 'End-to-end design and build of a luxury hillside villa with bespoke interiors and structural engineering.', image: '/p2.jpg' },
-      { id: 5, title: 'Commercial Complex — Pune', category: 'Commercial', location: 'Pune, Maharashtra', year: '2022', description: 'Multi-storey commercial development with full BIM coordination, clash detection, and construction management.', image: '/p1.jpg' },
+      { id: 1, title: 'KALPATARU Park Riviera', category: 'Residential', location: 'Panvel, Navi Mumbai', year: '2023', description: 'A premium residential township featuring modern amenities, sustainable design, and world-class BIM coordination.', image: '/prj1.jpg', images: ['/prj1.jpg'] },
+      { id: 2, title: 'Sonali Residential', category: 'Residential', location: 'Pune, Maharashtra', year: '2022', description: 'Contemporary residential complex with integrated structural design and architectural consultancy services.', image: '/prj2.jpg', images: ['/prj2.jpg'] },
+      { id: 3, title: 'Goregaon Mulund Link Road (GMLR)', category: 'Infrastructure', location: 'Mumbai, India', year: '2024', description: 'Major urban infrastructure project connecting key corridors with advanced project management and BIM implementation.', image: '/prj3.webp', images: ['/prj3.webp'] },
+      { id: 4, title: 'Luxury Villa — Lonavala', category: 'Residential', location: 'Lonavala, Maharashtra', year: '2023', description: 'End-to-end design and build of a luxury hillside villa with bespoke interiors and structural engineering.', image: '/p2.jpg', images: ['/p2.jpg'] },
+      { id: 5, title: 'Commercial Complex — Pune', category: 'Commercial', location: 'Pune, Maharashtra', year: '2022', description: 'Multi-storey commercial development with full BIM coordination, clash detection, and construction management.', image: '/p1.jpg', images: ['/p1.jpg'] },
+      {
+        id: 6,
+        title: 'Group Housing Development G+4',
+        category: 'Residential',
+        location: 'Integrated Arch, Structural & MEP',
+        year: '2026',
+        description: 'G+4 residential towers (Studio & 2BHK) and G+1 canteen–auditorium block with a total built-up area of ~1,14,700 SFT, designed as an RCC framed structure (M20/M25) with AAC blockwork and 10 ft floor-to-floor height. Scope includes end-to-end construction with integrated architectural, structural, and MEP services—featuring vitrified/granite flooring, UPVC windows, teak main doors, FRLS electrical systems, CPVC plumbing, and waterproofing. Executed under IS code compliance with full QA/QC, site supervision, and fast-track delivery within ~6 months.',
+        image: '/projects/gh_1.png',
+        images: ['/projects/gh_1.png', '/projects/gh_2.png', '/projects/gh_3.png']
+      },
+      {
+        id: 7,
+        title: '9 Emperio (G+35)',
+        category: 'Residential',
+        location: 'Raghunathpur, Bhubaneswar, Odisha',
+        year: '2026',
+        description: 'A landmark G+35 residential skyscraper project located at Raghunathpur, Nandankanan Road, Patia, Bhubaneswar. Total area: 2290sq.m / 24649.331sq.ft.',
+        image: '/projects/emp_1.png',
+        images: ['/projects/emp_1.png', '/projects/emp_2.png', '/projects/emp_3.png', '/projects/emp_4.png', '/projects/emp_5.png', '/projects/emp_6.png']
+      },
+      {
+        id: 8,
+        title: '9 Boulerverd (G+35)',
+        category: 'Residential',
+        location: 'Raghunathpur, Bhubaneswar, Odisha',
+        year: '2026',
+        description: 'Elite G+35 residential development at Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar. Total area: 6137sq.m / 66058.0543sq.ft.',
+        image: '/projects/blv_1.png',
+        images: ['/projects/blv_1.png', '/projects/blv_2.png', '/projects/blv_3.png', '/projects/blv_4.png', '/projects/blv_5.png', '/projects/blv_6.png', '/projects/blv_7.png']
+      },
+      {
+        id: 9,
+        title: 'Ashoak Mall, Jalna (2B+G+8)',
+        category: 'Commercial',
+        location: 'Jalna, Maharashtra',
+        year: '2026',
+        description: 'Ashoak Mall is a modern, premium commercial development in Jalna, designed to redefine shopping and business experience in the city. Bringing together retail, food, entertainment, and lifestyle under one roof, this project is planned to create a high-footfall commercial hub with modern architecture and business-focused planning.',
+        image: '/projects/mall_1.png',
+        images: ['/projects/mall_1.png', '/projects/mall_2.png', '/projects/mall_3.png', '/projects/mall_4.png']
+      },
+      {
+        id: 10,
+        title: 'GRK Africa Project',
+        category: 'Infrastructure',
+        location: 'Africa',
+        year: '2026',
+        description: 'Significant infrastructure development project in Africa, showcasing E-Construct\'s international engineering and project management capabilities.',
+        image: '/projects/grk_1.png',
+        images: ['/projects/grk_1.png', '/projects/grk_2.png', '/projects/grk_3.png', '/projects/grk_4.png', '/projects/grk_5.png', '/projects/grk_6.png']
+      },
     ],
   },
   serviceDetailsContent: {

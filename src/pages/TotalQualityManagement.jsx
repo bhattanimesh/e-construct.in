@@ -638,34 +638,45 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
       </section>
 
       {/* 10. Video Presentation */}
-      <section className="py-20 md:py-32 bg-slate-900 relative">
+      <section className="py-20 md:py-32 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-        <div className="max-w-[1200px] mx-auto px-[5%] relative z-10 text-center">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-1 bg-[#fbc02d]"></div>
-            <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Presentation</span>
-            <div className="w-8 h-1 bg-[#fbc02d]"></div>
+        
+        {/* Background Building Image */}
+        <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60%] h-[120%] opacity-15 pointer-events-none z-0 select-none">
+          <img 
+            src="/building_transparent.png" 
+            className="w-full h-full object-contain object-right" 
+            alt="" 
+          />
+        </div>
+
+        <div className="max-w-[1500px] mx-auto px-[5%] relative z-10">
+          <div className="flex flex-col items-start text-left">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-1 bg-[#fbc02d]"></div>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Presentation</span>
+            </div>
+            <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-white mb-16 max-w-2xl leading-tight">
+              Quality Management <span className="text-[#fbc02d] italic">in Action</span>
+            </h2>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="aspect-video w-full lg:w-[65%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10"
+            >
+              <iframe 
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/LZlYGauoJpE" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen>
+              </iframe>
+            </motion.div>
           </div>
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-16">
-            Quality Management <span className="text-[#fbc02d] italic">in Action</span>
-          </h2>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="aspect-video w-full rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(251,192,45,0.2)] border border-white/10"
-          >
-            <iframe 
-              className="w-full h-full"
-              src="https://www.youtube.com/embed/LZlYGauoJpE" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-              referrerPolicy="strict-origin-when-cross-origin" 
-              allowFullScreen>
-            </iframe>
-          </motion.div>
         </div>
       </section>
 
