@@ -429,7 +429,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 12; // bump this when defaults change to force a migration
+const DATA_VERSION = 13; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
