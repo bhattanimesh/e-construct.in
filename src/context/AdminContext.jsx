@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+﻿import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // ─── DEFAULT DATA ─────────────────────────────────────────────────────────────
 
@@ -227,12 +227,12 @@ The company is led by experienced architects and BIM specialists with decades of
     ],
   },
   flipbooks: [
-    { id: 1, title: 'Hospitality Portfolio', pdfUrl: 'https://econstructinternationalmy.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv' },
+    { id: 1, title: 'Hospitality Portfolio', pdfUrl: '/pdfs/Econstruct Hospitality Website Portfolio.pdf' },
     { id: 2, title: 'Residential Portfolio', pdfUrl: '/pdfs/econstruct_bim.pdf' },
     { id: 3, title: 'Commercial Portfolio', pdfUrl: '/pdfs/econstruct_tushar.pdf' },
     { id: 4, title: 'Industrial Portfolio', pdfUrl: '/pdfs/econ_presentation.pdf' },
     { id: 5, title: 'Infrastructure Portfolio', pdfUrl: '/pdfs/PBD_compressed.pdf' },
-    { id: 6, title: 'Corporate Training Portfolio', pdfUrl: '/pdfs/econstruct_tushar.pdf' },
+    { id: 6, title: 'Corporate Training Portfolio', pdfUrl: 'pdfs/Employee Development Program for Top MNCs.pdf' },
   ],
   trustedPartners: [
     { id: 1, name: 'L&T', url: '/part1.jpg' },
