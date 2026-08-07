@@ -77,7 +77,7 @@ const pagesMenu = [
 
 const trainingMenu = [
   { icon: GraduationCap,   title: 'Corporate On-Job Training',          desc: 'BIM & AEC software for teams',       path: '/training/corporate'       },
-  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/services/bim-consultancy' },
+  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/training/composite'       },
   { icon: BookOpen,        title: 'Workshops & Seminars',               desc: 'Hands-on learning sessions',         path: '/training/workshops'       },
   { icon: Layers,          title: 'Composite Course (Structures+BIM+PM)', desc: 'Complete 24-month program',        path: '/training/composite'       },
   { icon: FileText,        title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },

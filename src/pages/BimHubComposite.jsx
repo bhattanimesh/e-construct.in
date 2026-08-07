@@ -156,14 +156,15 @@ const BimHubComposite = () => {
           </div>
 
           {/* YouTube Video Wrapper */}
-          <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16">
+          <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16 relative group">
             <iframe
-              src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
+              src="https://www.youtube.com/embed/4V-mT1ISo90?si=8jFBhtkVt_QD23TB"
               className="w-full h-full"
-              title="Techno-Management Entrepreneurship Training Overview"
+              title="Techno-Management Entrepreneurship Training & Live Competition Overview"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
+              loading="lazy"
               allowFullScreen
             ></iframe>
           </div>
@@ -192,6 +193,111 @@ const BimHubComposite = () => {
             </div>
           </div>
 
+        </div>
+      </section>
+
+      {/* Course Detailed Syllabus & Modules */}
+      <section className="bg-white py-20 px-4 md:px-8 border-t border-gray-100">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-16">
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Comprehensive Curriculum</span>
+              <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
+            </div>
+            <h2 className="text-3xl md:text-5xl font-black text-gray-900 tracking-tight mb-4">
+              Techno-Management <span className="text-[#fbc02d] italic">Course Syllabus</span>
+            </h2>
+            <p className="text-gray-600 max-w-2xl mx-auto font-medium text-base md:text-lg">
+              A 3-in-1 integrated master curriculum combining Structural Engineering, 5D BIM Technology, and Project Management Entrepreneurship.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Module 1 */}
+            <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-gray-200 hover:border-[#fbc02d] transition-all duration-300 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-lg bg-[#fbc02d] text-slate-900 font-black text-sm flex items-center justify-center">01</span>
+                  <h3 className="text-2xl font-bold text-gray-900">Structural Engineering & Audit</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                  Master structural analysis, design calculation, code compliance (IS 456, IS 1893, IS 13920), and peer review auditing for high-rise commercial & residential structures.
+                </p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {['ETABS & STAAD.Pro', 'SAFE & SAP2000', 'Code Provisions & Audits', 'GFC Drawings & CLP'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-bold text-gray-800 bg-white px-3 py-2 rounded-xl border border-gray-200">
+                      <CheckCircle2 className="w-4 h-4 text-[#fbc02d] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Module 2 */}
+            <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-gray-200 hover:border-[#fbc02d] transition-all duration-300 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-lg bg-[#fbc02d] text-slate-900 font-black text-sm flex items-center justify-center">02</span>
+                  <h3 className="text-2xl font-bold text-gray-900">BIM 4D/5D Technology & Coordination</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                  End-to-end 3D modeling and multi-disciplinary clash detection across Architecture, Structures, and MEP using industry-standard BIM platforms.
+                </p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {['Revit Arch / Struct / MEP', 'Navisworks Clash Resolution', 'Synchro 4D Timeline', 'BIM Execution Plan (BEP)'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-bold text-gray-800 bg-white px-3 py-2 rounded-xl border border-gray-200">
+                      <CheckCircle2 className="w-4 h-4 text-[#fbc02d] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Module 3 */}
+            <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-gray-200 hover:border-[#fbc02d] transition-all duration-300 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-lg bg-[#fbc02d] text-slate-900 font-black text-sm flex items-center justify-center">03</span>
+                  <h3 className="text-2xl font-bold text-gray-900">Project Management & Controls</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                  Learn Primavera P6 and MS Project scheduling, WBS generation, cost control, EVM tracking, and quantity estimation for multi-crore site projects.
+                </p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {['Primavera P6 Scheduling', 'Earned Value Management', 'Quantity Surveying', 'Resource & Cost Optimization'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-bold text-gray-800 bg-white px-3 py-2 rounded-xl border border-gray-200">
+                      <CheckCircle2 className="w-4 h-4 text-[#fbc02d] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Module 4 */}
+            <div className="bg-slate-50 p-8 md:p-10 rounded-3xl border border-gray-200 hover:border-[#fbc02d] transition-all duration-300 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-8 h-8 rounded-lg bg-[#fbc02d] text-slate-900 font-black text-sm flex items-center justify-center">04</span>
+                  <h3 className="text-2xl font-bold text-gray-900">Techno-Entrepreneurship & TQM</h3>
+                </div>
+                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
+                  Equip yourself with business management skills, client pitching, digital branding, TQM site quality control, and consultancy setup strategies.
+                </p>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {['Site TQM Quality Audit', 'Consultancy Business Setup', 'Client Pitching & Proposals', 'Personal & Firm Branding'].map((item, i) => (
+                    <div key={i} className="flex items-center gap-2 text-xs font-bold text-gray-800 bg-white px-3 py-2 rounded-xl border border-gray-200">
+                      <CheckCircle2 className="w-4 h-4 text-[#fbc02d] shrink-0" />
+                      <span>{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
