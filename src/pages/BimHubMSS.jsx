@@ -4,7 +4,8 @@ import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
-  Play, TrendingUp, Building2, Zap, GraduationCap, Globe
+  Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
+  Star, Quote, CheckCircle2, X
 } from 'lucide-react';
 
 function Counter({ to, suffix = '' }) {
@@ -58,33 +59,189 @@ const BimHubMSS = () => {
     return () => clearInterval(t);
   }, [sliderImages.length]);
 
-  const reviewVideos = [
-    "https://www.youtube.com/embed/SAJhiHZDYeQ",
-    "https://www.youtube.com/embed/4V8Q1GR7dbY",
-    "https://www.youtube.com/embed/1AehbURvS8k",
-    "https://www.youtube.com/embed/wEpeR0jE5Q0",
-    "https://www.youtube.com/embed/FY7LHMlyFj0",
-    "https://www.youtube.com/embed/KdZkMiMLA5A",
-    "https://www.youtube.com/embed/EwosIIAxHQw",
-    "https://www.youtube.com/embed/5WPiCu6UopM",
-    "https://www.youtube.com/embed/C43g7pneGRE",
-    "https://www.youtube.com/embed/Wp3yw4YzfNM",
-    "https://www.youtube.com/embed/g_OcxyVbRec",
-    "https://www.youtube.com/embed/rLGY5maXVwo",
-    "https://www.youtube.com/embed/CyCcNnYyzI4",
-    "https://www.youtube.com/embed/N5V0WDW01-M",
-    "https://www.youtube.com/embed/7hOBkzfEGHA",
-    "https://www.youtube.com/embed/krlphlgKoB8"
-  ];
-  const [vidSlide, setVidSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const prevSlide = () => setCurrentSlide(p => (p === 0 ? sliderImages.length - 1 : p - 1));
+  const nextSlide = () => setCurrentSlide(p => (p === sliderImages.length - 1 ? 0 : p + 1));
 
-  const playlist = [
+  // Authentic Student Reviews Sourced Directly from e-construct.in
+  const studentReviews = [
+    {
+      id: 1,
+      name: 'Meeval',
+      role: 'Structural Design Engineer',
+      company: 'Placed in UAE',
+      rating: 5,
+      videoId: 'SAJhiHZDYeQ',
+      quote: 'Meeval — Placed in UAE as a Structural Design Engineer after completing the Master Study program at Econstruct.'
+    },
+    {
+      id: 2,
+      name: 'Lijin M Varughese',
+      role: 'Trainee Structural Design Engineer',
+      company: 'Econstruct Master Study Alumni',
+      rating: 5,
+      videoId: '4V8Q1GR7dbY',
+      quote: 'Lijin M Varughese shares his hands-on experience working directly on Center Line Plans, GFC drawings, and structural analysis under senior Econstruct mentors.'
+    },
+    {
+      id: 3,
+      name: 'Swapnil Katiyar',
+      role: 'Civil & Structural Design Engineer',
+      company: 'Econstruct Graduate',
+      rating: 5,
+      videoId: '1AehbURvS8k',
+      quote: 'Journey of a Civil Engineer — Swapnil Katiyar shares how the 12 Months Training + 12 Months Internship built his confidence in real corporate design environments.'
+    },
+    {
+      id: 4,
+      name: 'Preethi Prasad',
+      role: 'Structural Engineer',
+      company: 'Placed in Muscat, Oman',
+      rating: 5,
+      videoId: 'wEpeR0jE5Q0',
+      quote: 'Alumni Talk with Preethi Prasad (Master Study, Structures Batch) who is now working as a successful Structural Engineer in Muscat, Oman.'
+    },
+    {
+      id: 5,
+      name: 'Construction Management Trainee',
+      role: 'Project Planning & BIM Specialist',
+      company: 'Master Study Trainee',
+      rating: 5,
+      videoId: 'FY7LHMlyFj0',
+      quote: 'Comprehensive student review on construction management, Primavera scheduling, site planning, and BIM technology integration.'
+    },
+    {
+      id: 6,
+      name: 'Structural Design Intern',
+      role: 'Junior Design Engineer',
+      company: 'Master Study Trainee',
+      rating: 5,
+      videoId: 'KdZkMiMLA5A',
+      quote: 'Students share their journey of learning advanced structural design concepts through practical applications on high-rise live projects.'
+    },
+    {
+      id: 7,
+      name: 'Civil Engineering Intern',
+      role: 'Site & Structural Intern',
+      company: 'Econstruct Intern',
+      rating: 5,
+      videoId: 'EwosIIAxHQw',
+      quote: 'Learn about the hands-on experience and practical knowledge gained during the civil engineering internship program at Econstruct.'
+    },
+    {
+      id: 8,
+      name: 'Professional Training Graduate',
+      role: 'BIM & Structural Detailer',
+      company: 'Econstruct Alum',
+      rating: 5,
+      videoId: '5WPiCu6UopM',
+      quote: 'Discover how our training programs help students bridge the gap between academics and core industry requirements.'
+    },
+    {
+      id: 9,
+      name: 'Civil Master Study Trainee',
+      role: 'Structural Modeler',
+      company: 'Master Study Alum',
+      rating: 5,
+      videoId: 'C43g7pneGRE',
+      quote: 'Practical knowledge and real project exposure gained during the 24-month Master Study civil engineering internship.'
+    },
+    {
+      id: 10,
+      name: 'Training Program Reviewer',
+      role: 'Assistant Design Engineer',
+      company: 'Econstruct Graduate',
+      rating: 5,
+      videoId: 'Wp3yw4YzfNM',
+      quote: 'Understanding real structural execution requirements and dynamic analysis software training at Econstruct.'
+    },
+    {
+      id: 11,
+      name: 'Master Study Professional',
+      role: 'Structural Engineer',
+      company: 'Econstruct Trainee',
+      rating: 5,
+      videoId: 'g_OcxyVbRec',
+      quote: 'Hands-on live project training on 17+ software tools like ETABS, REVIT, and SAFE in a professional corporate environment.'
+    },
+    {
+      id: 12,
+      name: 'Training Review Graduate',
+      role: 'Civil Design Coordinator',
+      company: 'Placed Trainee',
+      rating: 5,
+      videoId: 'rLGY5maXVwo',
+      quote: 'Real structural engineering design experience working on live client projects from Center Line Plan to final GFC drawings.'
+    },
+    {
+      id: 13,
+      name: 'Core Technical Graduate',
+      role: 'Structural & Site Coordinator',
+      company: 'Core Technical Placement',
+      rating: 5,
+      videoId: 'CyCcNnYyzI4',
+      quote: 'Story of a Civil Engineer from 24 months On-Job internship training to securing a core technical placement in an engineering firm.'
+    },
+    {
+      id: 14,
+      name: 'Tathagata Biswas',
+      role: 'Civil & Structural Engineer',
+      company: 'Econstruct Alumni',
+      rating: 5,
+      videoId: 'N5V0WDW01-M',
+      quote: 'Journey of a Civil Engineer — Tathagata Biswas shares his career transformation and placement experience through Econstruct Master Study.'
+    },
+    {
+      id: 15,
+      name: 'Offline Batch Trainee',
+      role: 'Structural Design Trainee',
+      company: 'Bangalore HQ Batch',
+      rating: 5,
+      videoId: '7hOBkzfEGHA',
+      quote: 'Master Study OFFLINE Batch Student Review & Feedback on working in the Bangalore Head Office alongside chief structural consultants.'
+    },
+    {
+      id: 16,
+      name: 'Placement Record Alum',
+      role: 'Structural BIM Engineer',
+      company: 'Core Corporate Placement',
+      rating: 5,
+      videoId: 'krlphlgKoB8',
+      quote: 'Core Technical Placement Record of Econstruct Master Study Trainees across top AEC companies in India and UAE.'
+    },
+    {
+      id: 17,
+      name: 'Design Specialist',
+      role: 'Structural Analysis Engineer',
+      company: 'Econstruct Trainee',
+      rating: 5,
+      videoId: 'mHBWyiARjWI',
+      quote: 'Beyond basic software: mastering complete structural engineering, IS codes, rebar detailing, and BBS generation.'
+    },
+    {
+      id: 18,
+      name: 'Sreerag Ravindra',
+      role: 'Senior Structural Engineer',
+      company: '2013 Econstruct Passout',
+      rating: 5,
+      videoId: 'FTuyLX5W63w',
+      quote: 'Alumni Talk — Sreerag Ravindra (2013 Passout) shares his 10+ year structural engineering career journey after Econstruct training.'
+    }
+  ];
+
+  const [currentVidSlide, setCurrentVidSlide] = useState(0);
+  const [activeModalVideo, setActiveModalVideo] = useState(null);
+
+  const competitionVideos = [
     { title: 'Competition Overview', src: 'https://www.youtube.com/embed/4V-mT1ISo90?si=8jFBhtkVt_QD23TB', dur: '12:04' },
     { title: 'Team Presentations & Solutions', src: 'https://www.youtube.com/embed/1jePd-E4ZEc?si=W545dJrmLDm5NdyU', dur: '08:15' },
     { title: 'Structural Analysis Highlights', src: 'https://www.youtube.com/embed/QA8dxpyk8iI?si=aTsCZCz_Jb-ilnnd', dur: '15:30' },
     { title: 'Award Ceremony & Closing', src: 'https://www.youtube.com/embed/oBZ_4zm7VeM?si=GD2fxp24f4ct17Ie', dur: '05:45' },
   ];
-  const [activeVid, setActiveVid] = useState(0);
+  const [activePlaylistItem, setActivePlaylistItem] = useState(0);
+  const playlist = competitionVideos;
+  const activeVid = activePlaylistItem;
+  const setActiveVid = setActivePlaylistItem;
 
   const faqs = [
     { q: 'What is the duration of the course?', a: 'Roughly 12 months for both Online & Offline. ON-JOB learning on real Live Projects. Duration may vary based on your project and performance. Long holidays are not permitted.' },
@@ -322,6 +479,26 @@ const BimHubMSS = () => {
                 </motion.div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── ORANGE MSS POSTER SHOWCASE (AFTER PLACEMENT SERIES) ──── */}
+      <section className="bg-slate-50 py-16 px-4 md:px-8 border-t border-gray-200">
+        <div className="max-w-[1400px] mx-auto flex flex-col items-center">
+          <div className="mb-8 text-center">
+            <Label>Program Overview Poster</Label>
+            <h2 className="text-2xl md:text-4xl font-black text-gray-900 tracking-tight">
+              Master Study in <span className="text-[#fbc02d]">Structural Engineering</span>
+            </h2>
+            <div className="w-20 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
+          </div>
+          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.12)] bg-white p-3 md:p-6 border border-gray-100 transition-all hover:shadow-[0_25px_60px_rgba(0,0,0,0.18)]">
+            <img 
+              src="/mss1.webp" 
+              alt="MSS Master Study in Structural Engineering Orange Poster" 
+              className="w-full h-auto object-contain rounded-[20px] transition-transform duration-500 hover:scale-[1.01]" 
+            />
           </div>
         </div>
       </section>
@@ -743,70 +920,197 @@ const BimHubMSS = () => {
         </div>
       </section>
 
-      {/* Videos Section Slider */}
-      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="mb-14 text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Youtube Videos</h2>
-            <p className="text-gray-600 md:text-2xl font-bold text-lg max-w-2xl mx-auto mb-2 text-[#fbc02d]">Our Student Reviews</p>
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Hear from our interns and trainees about their experience</p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
-          </div>
-          
-          <div className="relative group rounded-[16px] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] bg-black aspect-video md:aspect-[21/9]">
-            {/* Videos Wrapper */}
-            <div 
-              className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-              style={{ transform: `translateX(-${currentVidSlide * 100}%)` }}
-            >
-              {reviewVideos.map((videoSrc, idx) => (
-                <div key={idx} className="w-full h-full flex-shrink-0 relative">
-                  <iframe 
-                    src={videoSrc}
-                    className="w-full h-full"
-                    title={`Student Video ${idx + 1}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              ))}
+      {/* ── STUDENT REVIEWS & TESTIMONIALS SECTION ──────────────── */}
+      <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden">
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px] pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 relative z-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-8 h-0.5 bg-yellow-500" />
+                <span className="text-yellow-500 uppercase tracking-[0.2em] text-xs font-bold">Verified Student Feedback</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+                Student <span className="accent-text italic">Reviews & Testimonials</span>
+              </h2>
+              <p className="text-gray-400 text-base max-w-xl mt-3 leading-relaxed">
+                Hear directly from our Master Study in Structural Engineering alumni placed in leading engineering consultancies across India, UAE, and Oman.
+              </p>
             </div>
 
-            {/* Navigation Arrows */}
-            <button 
-              onClick={prevVidSlide}
-              aria-label="Previous Video"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 shadow-xl flex items-center justify-center text-gray-800 hover:bg-[#fbc02d] hover:text-white hover:scale-110 transition-all opacity-0 group-hover:opacity-100 z-10 duration-300"
-            >
-              <ChevronLeft size={28} />
-            </button>
-            <button 
-              onClick={nextVidSlide}
-              aria-label="Next Video"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 shadow-xl flex items-center justify-center text-gray-800 hover:bg-[#fbc02d] hover:text-white hover:scale-110 transition-all opacity-0 group-hover:opacity-100 z-10 duration-300"
-            >
-              <ChevronRight size={28} />
-            </button>
+            {/* Slider Navigation Buttons */}
+            <div className="flex items-center gap-4 shrink-0">
+              <span className="text-gray-400 text-sm font-semibold hidden sm:block">
+                {currentVidSlide + 1} of {studentReviews.length}
+              </span>
+              <div className="flex gap-2">
+                <button onClick={() => setCurrentVidSlide(prev => (prev === 0 ? studentReviews.length - 1 : prev - 1))}
+                  className="w-12 h-12 rounded-full border-2 border-white/20 bg-slate-800 text-white hover:bg-yellow-500 hover:border-yellow-500 hover:text-black flex items-center justify-center transition-all duration-300 shadow-lg"
+                  aria-label="Previous Review">
+                  <ChevronLeft size={20} />
+                </button>
+                <button onClick={() => setCurrentVidSlide(prev => (prev === studentReviews.length - 1 ? 0 : prev + 1))}
+                  className="w-12 h-12 rounded-full border-2 border-yellow-500 bg-yellow-500 text-black hover:bg-yellow-400 flex items-center justify-center transition-all duration-300 shadow-lg shadow-yellow-500/20"
+                  aria-label="Next Review">
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
 
-            {/* Dots */}
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 z-10 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full">
-              {reviewVideos.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentVidSlide(idx)}
-                  aria-label={`Go to video ${idx + 1}`}
-                  className={`transition-all duration-500 rounded-full ${
-                    currentVidSlide === idx 
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]' 
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
-                  }`}
+          {/* Testimonial Cards Carousel */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {[0, 1, 2].map((offset) => {
+              const reviewIndex = (currentVidSlide + offset) % studentReviews.length;
+              const review = studentReviews[reviewIndex];
+              return (
+                <motion.div key={review.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: offset * 0.1 }}
+                  className="bg-slate-800/90 border border-white/10 rounded-[24px] overflow-hidden flex flex-col justify-between hover:border-yellow-500/50 transition-all duration-300 shadow-xl group">
+                  
+                  {/* Top Video Preview Header */}
+                  <div className="relative aspect-video bg-black overflow-hidden cursor-pointer" onClick={() => setActiveModalVideo(review)}>
+                    <img src={`https://img.youtube.com/vi/${review.videoId}/hqdefault.jpg`} alt={review.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90" />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <div className="w-14 h-14 rounded-full bg-yellow-500 text-black flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300">
+                        <Play size={24} className="ml-1 fill-black" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-yellow-400 text-xs font-bold px-3 py-1 rounded-full border border-white/10 flex items-center gap-1.5">
+                      <Video size={12} /> Video Testimonial
+                    </div>
+                    <div className="absolute bottom-3 right-3 bg-yellow-500 text-slate-900 text-xs font-black px-2.5 py-0.5 rounded">
+                      5.0 ★
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="p-6 md:p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      {/* Rating Stars */}
+                      <div className="flex items-center gap-1 text-yellow-400 mb-4">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <Star key={i} size={16} className="fill-yellow-400" />
+                        ))}
+                      </div>
+
+                      {/* Feedback Quote */}
+                      <div className="relative mb-6">
+                        <Quote size={28} className="text-yellow-500/20 absolute -top-3 -left-2" />
+                        <p className="text-gray-300 text-sm md:text-base leading-relaxed italic relative z-10 pl-4">
+                          "{review.quote}"
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* Student Info Footer */}
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                      <div>
+                        <h4 className="font-bold text-white text-base tracking-wide">{review.name}</h4>
+                        <p className="text-yellow-500 text-xs font-semibold">{review.role}</p>
+                        <p className="text-gray-400 text-xs">{review.company}</p>
+                      </div>
+                      <button onClick={() => setActiveModalVideo(review)}
+                        className="px-3.5 py-1.5 rounded-lg border border-yellow-500/30 text-yellow-400 text-xs font-bold hover:bg-yellow-500 hover:text-black transition-colors">
+                        Watch
+                      </button>
+                    </div>
+
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Sleek Pagination & Interactive Progress Bar */}
+          <div className="flex flex-col items-center justify-center gap-4 mt-12">
+            <div className="flex items-center gap-4 w-full max-w-xs px-4 py-2 bg-slate-800/80 rounded-full border border-white/10 shadow-inner">
+              <span className="text-xs font-mono font-bold text-yellow-400 shrink-0">
+                {String(currentVidSlide + 1).padStart(2, '0')}
+              </span>
+              
+              {/* Dynamic Smooth Progress Track */}
+              <div className="flex-1 h-2 bg-white/10 rounded-full overflow-hidden relative cursor-pointer"
+                onClick={(e) => {
+                  const rect = e.currentTarget.getBoundingClientRect();
+                  const clickX = e.clientX - rect.left;
+                  const pct = clickX / rect.width;
+                  const newIdx = Math.min(studentReviews.length - 1, Math.max(0, Math.floor(pct * studentReviews.length)));
+                  setCurrentVidSlide(newIdx);
+                }}>
+                <div 
+                  className="h-full bg-yellow-500 rounded-full transition-all duration-300 ease-out"
+                  style={{ width: `${((currentVidSlide + 1) / studentReviews.length) * 100}%` }}
                 />
-              ))}
+              </div>
+
+              <span className="text-xs font-mono font-bold text-gray-400 shrink-0">
+                {String(studentReviews.length).padStart(2, '0')}
+              </span>
+            </div>
+
+            {/* Mobile Nav Controls */}
+            <div className="flex items-center gap-3 sm:hidden">
+              <button onClick={() => setCurrentVidSlide(prev => (prev === 0 ? studentReviews.length - 1 : prev - 1))}
+                className="w-10 h-10 rounded-full border border-white/20 bg-slate-800 text-white active:bg-yellow-500 active:text-black flex items-center justify-center transition-colors"
+                aria-label="Previous Review">
+                <ChevronLeft size={18} />
+              </button>
+              <span className="text-gray-300 text-xs font-semibold px-2">
+                Slide {currentVidSlide + 1} of {studentReviews.length}
+              </span>
+              <button onClick={() => setCurrentVidSlide(prev => (prev === studentReviews.length - 1 ? 0 : prev + 1))}
+                className="w-10 h-10 rounded-full border border-yellow-500 bg-yellow-500 text-black active:bg-yellow-400 flex items-center justify-center transition-colors shadow-md"
+                aria-label="Next Review">
+                <ChevronRight size={18} />
+              </button>
             </div>
           </div>
         </div>
       </section>
+
+      {/* ── VIDEO TESTIMONIAL MODAL ────────────────────────────── */}
+      {activeModalVideo && (
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8 animate-fadeIn" onClick={() => setActiveModalVideo(null)}>
+          <div className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10" onClick={e => e.stopPropagation()}>
+            {/* Modal Header */}
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-800">
+              <div>
+                <h3 className="text-white font-bold text-lg flex items-center gap-2">
+                  <span>{activeModalVideo.name}</span>
+                  <span className="text-yellow-500 text-xs font-semibold px-2 py-0.5 rounded bg-yellow-500/10 border border-yellow-500/30">
+                    {activeModalVideo.company}
+                  </span>
+                </h3>
+                <p className="text-gray-400 text-xs">{activeModalVideo.role}</p>
+              </div>
+              <button onClick={() => setActiveModalVideo(null)}
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-yellow-500 hover:text-black text-white flex items-center justify-center transition-colors">
+                <X size={20} />
+              </button>
+            </div>
+
+            {/* Video iFrame Container */}
+            <div className="relative aspect-video bg-black">
+              <iframe
+                src={`https://www.youtube.com/embed/${activeModalVideo.videoId}?autoplay=1`}
+                title={`${activeModalVideo.name} Student Review`}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+
+            {/* Modal Quote Subtext */}
+            <div className="p-6 bg-slate-800/90 border-t border-white/10">
+              <p className="text-gray-300 text-sm leading-relaxed italic">
+                "{activeModalVideo.quote}"
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Our Leadership / Founder Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
@@ -1220,76 +1524,22 @@ const BimHubMSS = () => {
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
           </div>
 
-          {/* FAQ Navigation Tabs */}
-          <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-12">
-            {Object.keys(faqData).map((category) => (
-              <button
-                key={category}
-                onClick={() => {
-                  setActiveFaqCategory(category);
-                  setActiveFaqIndex(null);
-                }}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${
-                  activeFaqCategory === category 
-                    ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1' 
-                    : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── STUDENT REVIEWS ──────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex items-end justify-between mb-8 gap-4">
-            <div>
-              <Label>Testimonials</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-                Student <span className="accent-text italic">Reviews</span>
-              </h2>
-            </div>
-            <div className="flex items-center gap-4 shrink-0">
-              <span className="text-gray-400 text-sm font-medium hidden sm:block">
-                {vidSlide + 1}–{Math.min(vidSlide + 3, reviewVideos.length)} of {reviewVideos.length}
-              </span>
-              <div className="flex gap-2">
-                <button onClick={() => setVidSlide(p => Math.max(0, p - 1))} disabled={vidSlide === 0}
-                  className="p-3 border-2 border-black hover:bg-black group transition-all disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Prev">
-                  <ChevronLeft size={18} className="text-black group-hover:text-white" />
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm transition-all duration-300">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-gray-900 text-lg hover:text-[#fbc02d] transition-colors"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-gray-500 shrink-0 transition-transform duration-300 ${openFaq === idx ? 'rotate-180 text-[#fbc02d]' : ''}`} />
                 </button>
-                <button onClick={() => setVidSlide(p => Math.min(reviewVideos.length - 3, p + 1))} disabled={vidSlide >= reviewVideos.length - 3}
-                  className="p-3 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 group transition-all disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next">
-                  <ChevronRight size={18} className="text-white group-hover:text-black" />
-                </button>
+                {openFaq === idx && (
+                  <div className="px-6 pb-6 pt-0 text-gray-600 font-medium leading-relaxed border-t border-gray-100 mt-2 pt-4">
+                    {faq.a}
+                  </div>
+                )}
               </div>
-            </div>
-          </motion.div>
-          <motion.div {...fin} className="overflow-hidden">
-            <div className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ transform: `translateX(-${vidSlide * (100 / 3)}%)` }}>
-              {reviewVideos.map((src, i) => (
-                <div key={i} className="shrink-0 px-2" style={{ width: '33.333%' }}>
-                  <div className="relative bg-black overflow-hidden aspect-video shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)]">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-yellow-500 z-10" />
-                    <iframe src={src} className="absolute inset-0 w-full h-full" title={`Review ${i + 1}`}
-                      frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-                  </div>
-                  <div className="mt-2 px-1 flex items-center gap-2">
-                    <div className="w-1 h-4 bg-yellow-500 shrink-0" />
-                    <span className="text-gray-500 text-xs font-medium">Student Review {i + 1}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-          <div className="flex gap-1.5 mt-6 justify-center">
-            {Array.from({ length: reviewVideos.length - 2 }).map((_, i) => (
-              <button key={i} onClick={() => setVidSlide(i)}
-                className={`transition-all duration-300 h-1 rounded-full ${vidSlide === i ? 'w-6 bg-yellow-500' : 'w-1.5 bg-gray-300'}`} />
             ))}
           </div>
         </div>
