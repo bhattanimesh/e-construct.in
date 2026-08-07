@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
@@ -59,14 +59,6 @@ const BimHubMSS = () => {
   }, [sliderImages.length]);
 
   const reviewVideos = [
-<<<<<<< Updated upstream
-    'https://www.youtube.com/embed/wf21iarQULs',
-    'https://www.youtube.com/embed/tMXEJFxronI',
-    'https://www.youtube.com/embed/N18qRFNhJCE',
-    'https://www.youtube.com/embed/0tCqmgdi2TY',
-    'https://www.youtube.com/embed/joUfKHy_vOQ',
-    'https://www.youtube.com/embed/14MI_Ycpw9s',
-=======
     "https://www.youtube.com/embed/SAJhiHZDYeQ",
     "https://www.youtube.com/embed/4V8Q1GR7dbY",
     "https://www.youtube.com/embed/1AehbURvS8k",
@@ -83,7 +75,6 @@ const BimHubMSS = () => {
     "https://www.youtube.com/embed/N5V0WDW01-M",
     "https://www.youtube.com/embed/7hOBkzfEGHA",
     "https://www.youtube.com/embed/krlphlgKoB8"
->>>>>>> Stashed changes
   ];
   const [vidSlide, setVidSlide] = useState(0);
 
@@ -406,11 +397,9 @@ const BimHubMSS = () => {
                     </li>
                   ))}
                 </ul>
-<<<<<<< Updated upstream
               </motion.div>
-=======
-              </div>
-           </div>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -1248,7 +1237,6 @@ const BimHubMSS = () => {
               >
                 {category}
               </button>
->>>>>>> Stashed changes
             ))}
           </div>
         </div>
