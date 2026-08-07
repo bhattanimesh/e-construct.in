@@ -83,6 +83,8 @@ function App() {
               <Route path="services/bim-certification" element={<BimHubComposite />} />
               <Route path="bim-certification" element={<BimHubComposite />} />
               <Route path="training/drawing-drafting" element={<BimHubDrawingDrafting />} />
+              <Route path="master-study-in-engineering-drawing-drafting-new" element={<BimHubDrawingDrafting />} />
+              <Route path="drawing-drafting" element={<BimHubDrawingDrafting />} />
               <Route path="training/interior-design" element={<BimHubInteriorDesign />} />
               <Route path="training/etabs-workshop" element={<BimHubETABSWorkshop />} />
               <Route path="training/life-engineering" element={<BimHubLifeEngineering />} />

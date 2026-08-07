@@ -156,14 +156,15 @@ const BimHubDrawingDrafting = () => {
           </div>
 
           {/* YouTube Video Wrapper */}
-          <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16">
+          <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16 relative group">
             <iframe
-              src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
+              src="https://www.youtube.com/embed/Ae5gufR9LxE"
               className="w-full h-full"
-              title="Drawing & Drafting Overview Video"
+              title="Engineering Drawing & Drafting Program"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"
+              loading="lazy"
               allowFullScreen
             ></iframe>
           </div>
@@ -207,7 +208,8 @@ const BimHubDrawingDrafting = () => {
                   <Clock className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">Duration</h3>
                 </div>
-                <p className="text-gray-600 font-medium">7 to 12 Months (ON-JOB Learning)</p>
+                <p className="text-gray-900 font-extrabold text-lg">7 to 12 Months</p>
+                <p className="text-gray-500 text-xs font-medium mt-1 uppercase tracking-wider">ON-JOB Learning Program</p>
               </div>
               <div className="mt-auto pt-6 border-t border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
@@ -406,6 +408,20 @@ const BimHubDrawingDrafting = () => {
               </div>
             </div>
 
+          </div>
+        </div>
+      </section>
+
+      {/* Orange D&D Training Poster Banner */}
+      <section className="py-12 bg-white">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 p-2 sm:p-4 transition-all duration-300 hover:shadow-orange-500/20">
+            <img 
+              src="/msc1.webp" 
+              alt="Engineering Drawing & Drafting ON-JOB Training Poster" 
+              className="w-full h-auto object-cover rounded-[2rem] shadow-md"
+              loading="lazy"
+            />
           </div>
         </div>
       </section>
