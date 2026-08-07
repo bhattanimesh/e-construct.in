@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
   MapPin, Phone, Mail, Clock, Send, CheckCircle,
@@ -259,10 +259,9 @@ const FormSection = () => {
   const { data } = useAdmin();
   const c = data.contact;
   const socials = [
-    { icon: Facebook, label: 'Facebook', href: c.facebook || '#' },
-    { icon: Linkedin, label: 'LinkedIn', href: c.linkedin || '#' },
-    { icon: Instagram, label: 'Instagram', href: c.instagram || '#' },
-    { icon: Youtube, label: 'YouTube', href: c.youtube || '#' },
+    { icon: Facebook, label: 'Facebook', href: c.facebook || 'https://www.facebook.com/econstruct.in' },
+    { icon: Linkedin, label: 'LinkedIn', href: c.linkedin || 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/' },
+    { icon: Youtube, label: 'YouTube Channel', href: (!c.youtube || c.youtube === '#' || c.youtube === 'https://www.youtube.com/@econstruct') ? 'https://www.youtube.com/@Econstructofficial' : c.youtube },
   ];
   return (
   <section className="py-20 md:py-28 bg-gray-50">

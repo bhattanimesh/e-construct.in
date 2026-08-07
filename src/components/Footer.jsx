@@ -38,10 +38,9 @@ const Footer = () => {
             </div>
             <p className="text-sm leading-relaxed text-slate-700">{f.companyDesc}</p>
             <div className="flex space-x-4">
-              <a href={c.facebook || '#'} className="text-slate-400 hover:text-orange-500 transition-colors"><Facebook size={20} /></a>
-              <a href={c.linkedin || '#'} className="text-slate-400 hover:text-orange-500 transition-colors"><Linkedin size={20} /></a>
-              <a href={c.youtube || '#'} className="text-slate-400 hover:text-orange-500 transition-colors"><Youtube size={20} /></a>
-              <a href={c.instagram || '#'} className="text-slate-400 hover:text-orange-500 transition-colors"><Instagram size={20} /></a>
+              <a href={c.facebook || 'https://www.facebook.com/econstruct.in'} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-orange-500 transition-colors" aria-label="Facebook"><Facebook size={20} /></a>
+              <a href={(!c.linkedin || c.linkedin === '#' || c.linkedin === 'https://www.linkedin.com/company/econstruct') ? 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/' : c.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-orange-500 transition-colors" aria-label="LinkedIn"><Linkedin size={20} /></a>
+              <a href={(!c.youtube || c.youtube === '#' || c.youtube === 'https://www.youtube.com/@econstruct') ? 'https://www.youtube.com/@Econstructofficial' : c.youtube} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-orange-500 transition-colors" aria-label="YouTube"><Youtube size={20} /></a>
             </div>
           </div>
 

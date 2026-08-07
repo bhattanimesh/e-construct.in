@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Building, Factory, Home, Droplet, Map, PenTool, CheckCircle2, 
@@ -645,13 +645,13 @@ const StructuralConsultancy = () => {
                     <a href="https://www.facebook.com/econstruct.in" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Facebook size={20} />
                     </a>
-                    <a href="https://www.youtube.com/@econstruct" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://www.youtube.com/@Econstructofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Youtube size={20} />
                     </a>
                     <a href="https://wa.me/919036744017" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <MessageCircle size={20} />
                     </a>
-                    <a href="https://www.linkedin.com/company/econstruct" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                    <a href="https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
                       <Linkedin size={20} />
                     </a>
                     <a href="mailto:info@e-construct.org" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">

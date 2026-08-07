@@ -1,4 +1,4 @@
-﻿import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // ─── DEFAULT DATA ─────────────────────────────────────────────────────────────
 
@@ -56,9 +56,9 @@ const DEFAULT_DATA = {
     email2: 'info@e-construct.org',
     hours: 'Mon – Fri: 9:00 AM – 7:00 PM',
     facebook: 'https://www.facebook.com/econstruct.in',
-    linkedin: 'https://www.linkedin.com/company/econstruct',
+    linkedin: 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/',
     instagram: 'https://www.instagram.com/econstruct.in',
-    youtube: 'https://www.youtube.com/@econstruct',
+    youtube: 'https://www.youtube.com/@Econstructofficial',
     mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.5!2d77.6499!3d12.8999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b0b0b0b0b0b%3A0x0!2sVenkatdhari+Heights%2C+Kudlu%2C+Bangalore!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
   },
   companyStats: {
@@ -429,7 +429,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 13; // bump this when defaults change to force a migration
+const DATA_VERSION = 14; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {

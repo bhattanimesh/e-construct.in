@@ -1,4 +1,4 @@
-﻿import React, { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import {
   CheckCircle, Award, Users, Building2, TrendingUp,
@@ -324,7 +324,7 @@ const TeamCard = ({ member, index }) => {
           >
             <p className="text-white/70 text-sm mt-3 leading-relaxed">{member.bio}</p>
             <div className="mt-4 flex items-center gap-3">
-              <a href={member.linkedin || 'https://www.linkedin.com/company/econstruct'} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-yellow-500 rounded-full transition-colors duration-300">
+              <a href={member.linkedin || 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/'} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-yellow-500 rounded-full transition-colors duration-300">
                 <Linkedin size={14} className="text-white" />
               </a>
               <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">E-Construct</span>

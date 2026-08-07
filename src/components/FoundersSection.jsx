@@ -1,4 +1,4 @@
-﻿import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin } from 'lucide-react';
 import { useAdmin } from '../context/AdminContext';
@@ -52,7 +52,7 @@ const FounderCard = ({ founder }) => {
         </p>
 
         <div className="flex justify-between items-center">
-          <a className="p-2 bg-gray-50 rounded-full hover:bg-orange-50 hover:text-orange-600">
+          <a href={founder.linkedin || "https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/"} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-50 rounded-full hover:bg-orange-50 hover:text-orange-600 transition-colors" aria-label="LinkedIn Profile">
             <Linkedin size={18} />
           </a>
           <span className="text-[10px] font-bold text-gray-400 uppercase">

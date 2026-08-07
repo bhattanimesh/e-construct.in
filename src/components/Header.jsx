@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
-  Menu, X, ChevronDown, Facebook, Linkedin, Instagram,
+  Menu, X, ChevronDown, Facebook, Linkedin, Youtube,
   Building2, Layers, HardHat, Home, Wrench, ShieldCheck,
   LayoutDashboard, Image, BookOpen, GraduationCap, FileText,
   BarChart2, BookMarked, ArrowRight,
@@ -256,10 +256,14 @@ const Header = () => {
   // Close mobile menu on route change
   const closeMenu = () => setIsOpen(false);
 
+  const linkedinUrl = (c.linkedin && c.linkedin !== '#' && c.linkedin !== 'https://www.linkedin.com/company/econstruct')
+    ? c.linkedin
+    : 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/';
+
   const socialLinks = [
     { icon: <Facebook size={16} />, label: 'Facebook',  href: c.facebook && c.facebook !== '#' ? c.facebook : 'https://www.facebook.com/econstruct.in' },
-    { icon: <Linkedin size={16} />, label: 'LinkedIn',  href: c.linkedin && c.linkedin !== '#' ? c.linkedin : 'https://www.linkedin.com/company/econstruct' },
-    { icon: <Instagram size={16} />, label: 'Instagram', href: c.instagram && c.instagram !== '#' ? c.instagram : 'https://www.instagram.com/econstruct.in' },
+    { icon: <Linkedin size={16} />, label: 'LinkedIn',  href: linkedinUrl },
+    { icon: <Youtube size={16} />, label: 'YouTube', href: (c.youtube && c.youtube !== '#' && c.youtube !== 'https://www.youtube.com/@econstruct') ? c.youtube : 'https://www.youtube.com/@Econstructofficial' },
   ];
 
   const navTextClass = (isActive) =>
