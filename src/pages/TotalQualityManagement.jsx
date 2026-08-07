@@ -638,7 +638,7 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
       </section>
 
       {/* 10. Video Presentation */}
-      <section className="py-20 md:py-32 bg-slate-900 relative overflow-hidden">
+      <section className="py-16 md:py-28 bg-slate-900 relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         
         {/* Background Building Image */}
@@ -650,29 +650,35 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
           />
         </div>
 
-        <div className="max-w-[1500px] mx-auto px-[5%] relative z-10">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 relative z-10">
           <div className="flex flex-col items-start text-left">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
-              <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Presentation</span>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Quality Showcase</span>
             </div>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-white mb-16 max-w-2xl leading-tight">
+            <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-white mb-8 md:mb-12 max-w-2xl leading-tight">
               Quality Management <span className="text-[#fbc02d] italic">in Action</span>
             </h2>
+            <p className="text-gray-400 text-sm md:text-base max-w-xl mb-8 leading-relaxed">
+              Watch how Econstruct implements rigorous Total Quality Management (TQM) standards and site quality control across real live engineering projects.
+            </p>
             
             <motion.div 
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="aspect-video w-full lg:w-[65%] rounded-[2rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)] border border-white/10"
+              transition={{ duration: 0.6 }}
+              className="relative aspect-video w-full lg:w-[75%] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] border border-white/10 bg-black group"
             >
+              <div className="absolute top-0 left-0 right-0 h-1 bg-[#fbc02d] z-20" />
               <iframe 
-                className="w-full h-full"
+                className="w-full h-full absolute inset-0"
                 src="https://www.youtube.com/embed/LZlYGauoJpE" 
-                title="YouTube video player" 
+                title="Econstruct Total Quality Management in Action" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 referrerPolicy="strict-origin-when-cross-origin" 
+                loading="lazy"
                 allowFullScreen>
               </iframe>
             </motion.div>
