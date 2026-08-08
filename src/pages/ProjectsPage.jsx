@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, ExternalLink, Download, X, Maximize2, Layers } from 'lucide-react';
+import { MapPin, ExternalLink, Download, X, Maximize2, Layers, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import GoregaonMulundLinkRoad from '../assets/GoregaonMulundLinkRoad.webp';
 import { useAdmin } from '../context/AdminContext';
 
@@ -143,7 +143,72 @@ const highlightedProjects = [
 ];
 
 const ProjectHighlights = () => {
-  const [selectedImg, setSelectedImg] = useState(null);
+  const [activeModal, setActiveModal] = useState(null); // { pIndex, iIndex }
+  const [zoomScale, setZoomScale] = useState(1);
+
+  const currentProject = activeModal !== null ? highlightedProjects[activeModal.pIndex] : null;
+  const currentImg = currentProject ? currentProject.images[activeModal.iIndex] : null;
+
+  // Reset zoom when modal or active image changes
+  React.useEffect(() => {
+    setZoomScale(1);
+  }, [activeModal?.pIndex, activeModal?.iIndex]);
+
+  // Lock body scroll when modal is active
+  React.useEffect(() => {
+    if (activeModal !== null) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [activeModal]);
+
+  const handlePrev = (e) => {
+    if (e) e.stopPropagation();
+    if (!activeModal || !currentProject) return;
+    const total = currentProject.images.length;
+    const prevIdx = (activeModal.iIndex - 1 + total) % total;
+    setActiveModal({ ...activeModal, iIndex: prevIdx });
+  };
+
+  const handleNext = (e) => {
+    if (e) e.stopPropagation();
+    if (!activeModal || !currentProject) return;
+    const total = currentProject.images.length;
+    const nextIdx = (activeModal.iIndex + 1) % total;
+    setActiveModal({ ...activeModal, iIndex: nextIdx });
+  };
+
+  const handleZoomIn = (e) => {
+    if (e) e.stopPropagation();
+    setZoomScale(prev => Math.min(prev + 0.5, 3.5));
+  };
+
+  const handleZoomOut = (e) => {
+    if (e) e.stopPropagation();
+    setZoomScale(prev => Math.max(prev - 0.5, 1));
+  };
+
+  const handleResetZoom = (e) => {
+    if (e) e.stopPropagation();
+    setZoomScale(1);
+  };
+
+  // Keyboard shortcut listener
+  React.useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (activeModal === null) return;
+      if (e.key === 'Escape') setActiveModal(null);
+      if (e.key === 'ArrowLeft') handlePrev();
+      if (e.key === 'ArrowRight') handleNext();
+      if (e.key === '+' || e.key === '=') handleZoomIn();
+      if (e.key === '-') handleZoomOut();
+      if (e.key === '0') handleResetZoom();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [activeModal]);
 
   return (
     <div className="bg-slate-50 space-y-px">
@@ -187,7 +252,11 @@ const ProjectHighlights = () => {
                   href={project.pdfLink} 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    window.open(project.pdfLink, '_blank', 'noopener,noreferrer');
+                  }}
+                  className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer relative z-10"
                 >
                   <Download size={18} />
                   <span>{project.pdfTitle}</span>
@@ -211,8 +280,8 @@ const ProjectHighlights = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: iIndex * 0.05 }}
-                    onClick={() => setSelectedImg({ ...img, projectTitle: project.title })}
-                    className="group relative h-[300px] overflow-hidden rounded-2xl shadow-md bg-slate-100 cursor-pointer border border-slate-200"
+                    onClick={() => setActiveModal({ pIndex, iIndex })}
+                    className="group relative h-[300px] overflow-hidden rounded-2xl shadow-md bg-slate-100 cursor-pointer border border-slate-200 hover:border-amber-500/50 transition-all duration-300"
                   >
                     <img 
                       src={img.src} 
@@ -220,11 +289,11 @@ const ProjectHighlights = () => {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                       loading="lazy" 
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-95 transition-opacity" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent opacity-85 group-hover:opacity-95 transition-opacity" />
                     <div className="absolute bottom-0 left-0 right-0 p-4">
                       <p className="text-white font-bold text-xs leading-snug line-clamp-2">{img.label}</p>
                       <span className="text-amber-400 text-[10px] uppercase font-bold tracking-wider flex items-center gap-1 mt-2 group-hover:underline">
-                        <Maximize2 size={10} /> Expand Drawing
+                        <Maximize2 size={10} /> Inspect Drawing
                       </span>
                     </div>
                   </motion.div>
@@ -236,45 +305,157 @@ const ProjectHighlights = () => {
         </section>
       ))}
 
-      {/* Lightbox Modal */}
+      {/* Framed Window Lightbox Modal with Interactive Zoom & Pan */}
       <AnimatePresence>
-        {selectedImg && (
+        {activeModal !== null && currentProject && currentImg && (
           <motion.div 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={() => setSelectedImg(null)}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8"
+            onClick={() => setActiveModal(null)}
+            className="fixed inset-0 z-[999999] bg-black/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 select-none"
           >
-            <div className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center justify-center" onClick={e => e.stopPropagation()}>
-              <button 
-                onClick={() => setSelectedImg(null)}
-                className="absolute -top-12 right-0 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full transition-colors"
-                aria-label="Close Preview"
-              >
-                <X size={24} />
-              </button>
-              
-              <div className="bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10 w-full flex flex-col items-center">
-                <img 
-                  src={selectedImg.src} 
-                  alt={selectedImg.label} 
-                  className="max-h-[75vh] w-auto object-contain p-2"
-                />
-                <div className="w-full bg-slate-950 px-6 py-4 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2">
-                  <div>
-                    <span className="text-amber-400 font-bold text-xs uppercase tracking-wider block">{selectedImg.projectTitle}</span>
-                    <span className="text-white text-sm font-medium">{selectedImg.label}</span>
+            {/* Window Card Frame */}
+            <motion.div 
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              onClick={e => e.stopPropagation()}
+              className="relative bg-slate-900 border border-slate-700/80 rounded-2xl sm:rounded-3xl shadow-[0_30px_90px_rgba(0,0,0,0.9)] max-w-5xl w-full max-h-[92vh] flex flex-col overflow-hidden"
+            >
+              {/* Window Header Bar */}
+              <div className="bg-slate-950 border-b border-slate-800/80 px-6 py-4 flex items-center justify-between gap-4 shrink-0">
+                <div className="flex items-center gap-3 min-w-0">
+                  <span className="w-2.5 h-2.5 bg-amber-400 rounded-full shrink-0 animate-pulse" />
+                  <h3 className="text-white font-extrabold text-sm sm:text-base tracking-wide truncate">
+                    {currentProject.title}
+                  </h3>
+                  <span className="bg-amber-500/10 text-amber-400 text-xs font-semibold px-3 py-1 rounded-full border border-amber-500/20 shrink-0 hidden sm:inline-block">
+                    Drawing {activeModal.iIndex + 1} of {currentProject.images.length}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3 shrink-0">
+                  {/* Interactive Zoom Toolbar */}
+                  <div className="flex items-center gap-1 bg-slate-900 border border-slate-700/80 px-2.5 py-1 rounded-xl shadow-inner">
+                    <button 
+                      onClick={handleZoomOut}
+                      disabled={zoomScale <= 1}
+                      className="p-1.5 text-gray-300 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-gray-300 transition-colors rounded-lg hover:bg-white/5"
+                      title="Zoom Out (-)"
+                    >
+                      <ZoomOut size={16} />
+                    </button>
+                    <span className="text-amber-400 font-mono text-xs font-extrabold px-1.5 min-w-[44px] text-center">
+                      {Math.round(zoomScale * 100)}%
+                    </span>
+                    <button 
+                      onClick={handleZoomIn}
+                      disabled={zoomScale >= 3.5}
+                      className="p-1.5 text-gray-300 hover:text-amber-400 disabled:opacity-30 disabled:hover:text-gray-300 transition-colors rounded-lg hover:bg-white/5"
+                      title="Zoom In (+)"
+                    >
+                      <ZoomIn size={16} />
+                    </button>
+                    {zoomScale > 1 && (
+                      <button 
+                        onClick={handleResetZoom}
+                        className="p-1.5 text-amber-400 hover:text-amber-300 transition-colors border-l border-slate-700 ml-1 pl-2"
+                        title="Reset Zoom (100%)"
+                      >
+                        <RotateCcw size={14} />
+                      </button>
+                    )}
                   </div>
+
+                  {/* Close Button */}
                   <button 
-                    onClick={() => setSelectedImg(null)}
-                    className="bg-amber-500 hover:bg-amber-600 text-slate-900 text-xs font-bold uppercase tracking-wider px-5 py-2 rounded-lg transition-colors"
+                    onClick={() => setActiveModal(null)}
+                    className="w-9 h-9 rounded-xl bg-slate-800 hover:bg-amber-500 text-gray-300 hover:text-slate-950 border border-slate-700 flex items-center justify-center transition-all duration-300"
+                    aria-label="Close Modal"
+                  >
+                    <X size={18} />
+                  </button>
+                </div>
+              </div>
+
+              {/* Window Body Canvas Stage */}
+              <div 
+                className="relative flex-1 w-full bg-slate-950 overflow-hidden flex items-center justify-center p-4 min-h-[320px] sm:min-h-[420px]"
+                onWheel={(e) => {
+                  if (e.deltaY < 0) setZoomScale(s => Math.min(s + 0.25, 3.5));
+                  else setZoomScale(s => Math.max(s - 0.25, 1));
+                }}
+              >
+                {/* Previous Button */}
+                <button 
+                  onClick={handlePrev}
+                  className="absolute left-3.5 z-30 w-11 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 text-white hover:bg-amber-500 hover:text-slate-950 hover:border-amber-500 flex items-center justify-center transition-all duration-300 shadow-xl group"
+                  aria-label="Previous Image"
+                >
+                  <ChevronLeft size={22} className="group-hover:-translate-x-0.5 transition-transform" />
+                </button>
+
+                {/* Scalable & Draggable High-Res Drawing Image */}
+                <div className="w-full h-full flex items-center justify-center overflow-hidden">
+                  <motion.img 
+                    key={currentImg.src}
+                    src={currentImg.src} 
+                    alt={currentImg.label} 
+                    animate={{ scale: zoomScale }}
+                    transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                    drag={zoomScale > 1}
+                    dragConstraints={{ left: -400, right: 400, top: -400, bottom: 400 }}
+                    onDoubleClick={() => setZoomScale(s => (s > 1 ? 1 : 2))}
+                    className={`max-h-[58vh] max-w-[85vw] w-auto h-auto object-contain rounded-xl shadow-2xl transition-shadow ${
+                      zoomScale > 1 ? 'cursor-grab active:cursor-grabbing' : 'cursor-zoom-in'
+                    }`}
+                  />
+                </div>
+
+                {/* Next Button */}
+                <button 
+                  onClick={handleNext}
+                  className="absolute right-3.5 z-30 w-11 h-11 rounded-xl bg-slate-900/90 border border-slate-700/80 text-white hover:bg-amber-500 hover:text-slate-950 hover:border-amber-500 flex items-center justify-center transition-all duration-300 shadow-xl group"
+                  aria-label="Next Image"
+                >
+                  <ChevronRight size={22} className="group-hover:translate-x-0.5 transition-transform" />
+                </button>
+              </div>
+
+              {/* Window Footer Bar */}
+              <div className="bg-slate-950 border-t border-slate-800/80 px-6 py-4 flex flex-col sm:flex-row items-center justify-between gap-4 shrink-0">
+                <div className="min-w-0 flex-1 text-center sm:text-left">
+                  <h4 className="text-white text-sm sm:text-base font-extrabold tracking-wide truncate">
+                    {currentImg.label}
+                  </h4>
+                  <p className="text-gray-400 text-xs mt-1 leading-normal font-medium">
+                    Double-click or scroll wheel to zoom • Drag to pan when zoomed in
+                  </p>
+                </div>
+                <div className="flex items-center gap-2.5 shrink-0">
+                  <button 
+                    onClick={handlePrev}
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-gray-200 rounded-xl text-xs font-bold transition-all border border-slate-700 flex items-center gap-1.5 shadow-sm"
+                  >
+                    <ChevronLeft size={14} /> Prev
+                  </button>
+                  <button 
+                    onClick={handleNext}
+                    className="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-gray-200 rounded-xl text-xs font-bold transition-all border border-slate-700 flex items-center gap-1.5 shadow-sm"
+                  >
+                    Next <ChevronRight size={14} />
+                  </button>
+                  <button 
+                    onClick={() => setActiveModal(null)}
+                    className="px-5 py-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs uppercase tracking-wider rounded-xl transition-all shadow-md active:scale-95 ml-1"
                   >
                     Close Preview
                   </button>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>

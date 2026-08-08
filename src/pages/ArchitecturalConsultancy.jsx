@@ -102,7 +102,11 @@ const ArchitecturalConsultancy = () => {
               href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 md:px-8 md:py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center justify-center gap-2"
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv', '_blank', 'noopener,noreferrer');
+              }}
+              className="px-6 py-3 md:px-8 md:py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center justify-center gap-2 cursor-pointer relative z-10"
             >
               Download Hospitality Project PDF <ArrowRight size={16} />
             </a>

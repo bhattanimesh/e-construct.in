@@ -129,7 +129,11 @@ const StructuralConsultancy = () => {
             href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQDD1iJ5QnLrR7WNyLMscPTWAVN-o2PxImS4BlMeFb47rW4?e=iQx2ci" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#fbc02d] text-slate-900 font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95"
+            onClick={(e) => {
+              e.stopPropagation();
+              window.open('https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQDD1iJ5QnLrR7WNyLMscPTWAVN-o2PxImS4BlMeFb47rW4?e=iQx2ci', '_blank', 'noopener,noreferrer');
+            }}
+            className="inline-flex items-center gap-2 bg-[#fbc02d] text-slate-900 font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95 cursor-pointer relative z-10"
           >
             <span>Download Econstruct Structure Project Portfolio PDF</span>
           </a>

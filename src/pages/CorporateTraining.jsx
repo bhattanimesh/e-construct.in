@@ -137,7 +137,11 @@ const CorporateTraining = () => {
               href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQD2kcK5CKwmTb6-5IkyT7a3AQFGXzrGKRuHWUm1sv_QxB8?e=DGwmPE" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="px-8 py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center gap-2"
+              onClick={(e) => {
+                e.stopPropagation();
+                window.open('https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQD2kcK5CKwmTb6-5IkyT7a3AQFGXzrGKRuHWUm1sv_QxB8?e=DGwmPE', '_blank', 'noopener,noreferrer');
+              }}
+              className="px-8 py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center gap-2 cursor-pointer relative z-10"
             >
               Download Corporate Training Portfolio PDF <ArrowRight size={16} />
             </a>
