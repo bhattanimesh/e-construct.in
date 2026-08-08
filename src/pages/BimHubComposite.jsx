@@ -504,6 +504,20 @@ const BimHubComposite = () => {
         </div>
       </section>
 
+      {/* Techno-Management Composite Training Poster Banner */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex justify-center">
+          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+            <img
+              src="/assets/msc_poster_composite.jpeg"
+              alt="Techno-Management Entrepreneurship Training In Structures, BIM, and Project Management Poster"
+              className="w-full h-auto object-contain rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-[#fbc02d] py-20 px-4 md:px-8">
         <div className="max-w-[1200px] mx-auto text-center">

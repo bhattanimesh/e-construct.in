@@ -738,11 +738,11 @@ const BimHubMSS = () => {
         </div>
       </section>
 
-      {/* Added section with mss1.webp */}
+      {/* Master Study in Structural Engineering (MSS) Orange Poster */}
       <section className="bg-slate-50 py-16 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto flex justify-center">
           <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
-            <img src="/mss1.webp" alt="MSS Information" className="w-full h-auto object-contain" />
+            <img src="/assets/mss_poster_orange.jpeg" alt="Master Study in Structural Engineering Training Poster" className="w-full h-auto object-contain rounded-2xl" loading="lazy" />
           </div>
         </div>
       </section>

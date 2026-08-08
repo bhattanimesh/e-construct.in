@@ -98,10 +98,14 @@ const ArchitecturalConsultancy = () => {
               className="px-6 py-3 md:px-8 md:py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center justify-center gap-2">
               Start Your Project <ArrowRight size={16} />
             </button>
-            <button onClick={() => document.getElementById('arch-portfolio')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-6 py-3 md:px-8 md:py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white/10 transition-colors text-center">
-              View Portfolio
-            </button>
+            <a 
+              href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 md:px-8 md:py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center justify-center gap-2"
+            >
+              Download Hospitality Project PDF <ArrowRight size={16} />
+            </a>
           </motion.div>
         </div>
       </section>

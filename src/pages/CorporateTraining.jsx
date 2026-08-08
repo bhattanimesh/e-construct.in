@@ -133,10 +133,14 @@ const CorporateTraining = () => {
               className="px-8 py-4 bg-[#fbc02d] text-black font-black uppercase tracking-wider text-sm hover:bg-white transition-colors flex items-center gap-2">
               Apply Now <ArrowRight size={16} />
             </button>
-            <button onClick={() => document.getElementById('ct-programs')?.scrollIntoView({ behavior: 'smooth' })}
-              className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white/10 transition-colors">
-              View Programs
-            </button>
+            <a 
+              href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQD2kcK5CKwmTb6-5IkyT7a3AQFGXzrGKRuHWUm1sv_QxB8?e=DGwmPE" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="px-8 py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center gap-2"
+            >
+              Download Corporate Training Portfolio PDF <ArrowRight size={16} />
+            </a>
           </motion.div>
         </div>
       </section>

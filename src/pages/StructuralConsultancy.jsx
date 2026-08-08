@@ -124,6 +124,15 @@ const StructuralConsultancy = () => {
           <p className="text-xl md:text-2xl text-gray-200 font-medium max-w-2xl mx-auto mb-8">
             End-to-End Structural Engineering Solutions from Concept to Construction
           </p>
+
+          <a 
+            href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQDD1iJ5QnLrR7WNyLMscPTWAVN-o2PxImS4BlMeFb47rW4?e=iQx2ci" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#fbc02d] text-slate-900 font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95"
+          >
+            <span>Download Econstruct Structure Project Portfolio PDF</span>
+          </a>
         </div>
       </section>
 

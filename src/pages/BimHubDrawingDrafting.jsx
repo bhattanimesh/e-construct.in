@@ -52,7 +52,7 @@ const BimHubDrawingDrafting = () => {
     "General": [
       {
         question: "What is the duration of the course?",
-        answer: "The duration is approximately 7 to 12 months. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and your speed/overall performance.\n\nNote: It's not allowed to take long holidays during the course as you are involved in Real Projects."
+        answer: "4 Months Training + 2 Months Internship = Total 6 Months. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and your speed/overall performance.\n\nNote: It's not allowed to take long holidays during the course as you are involved in Real Projects."
       },
       {
         question: "When does the next batch start?",
@@ -208,7 +208,7 @@ const BimHubDrawingDrafting = () => {
                   <Clock className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">Duration</h3>
                 </div>
-                <p className="text-gray-900 font-extrabold text-lg">7 to 12 Months</p>
+                <p className="text-gray-900 font-extrabold text-lg">4 Months Training + 2 Months Internship = Total 6 Months</p>
                 <p className="text-gray-500 text-xs font-medium mt-1 uppercase tracking-wider">ON-JOB Learning Program</p>
               </div>
               <div className="mt-auto pt-6 border-t border-gray-100">
@@ -417,8 +417,8 @@ const BimHubDrawingDrafting = () => {
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 p-2 sm:p-4 transition-all duration-300 hover:shadow-orange-500/20">
             <img 
-              src="/msc1.webp" 
-              alt="Engineering Drawing & Drafting ON-JOB Training Poster" 
+              src="/assets/dnd_poster_orange.jpeg" 
+              alt="Master Study In Engineering Drawing & Drafting Training Poster" 
               className="w-full h-auto object-cover rounded-[2rem] shadow-md"
               loading="lazy"
             />

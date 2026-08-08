@@ -71,10 +71,23 @@ const BimConsultancy = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed"
+            className="text-gray-300 text-lg md:text-xl max-w-2xl leading-relaxed mb-6"
           >
             Discover our comprehensive BIM solutions covering the entire project lifecycle—from basic planning to advanced 10D industrialization.
           </motion.p>
+
+          <motion.a 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            href="https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQBRnE9Asb0aS7qq8yX50plvASFisAvU7rUlsNgwOST0VmE?e=gZnr5t"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#fbc02d] text-black font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95"
+          >
+            <span>Download Econstruct BIM Project Portfolio PDF</span>
+            <ArrowRight size={16} />
+          </motion.a>
         </div>
       </section>
 

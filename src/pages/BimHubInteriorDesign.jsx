@@ -597,6 +597,20 @@ const BimHubInteriorDesign = () => {
         </div>
       </section>
 
+      {/* Orange Interior Designing Training Poster Banner */}
+      <section className="py-12 bg-white border-t border-gray-200">
+        <div className="max-w-[1500px] mx-auto px-4 md:px-8 flex justify-center">
+          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+            <img
+              src="/assets/interior_poster_orange.jpeg"
+              alt="Master Study in Interior Designing with Project Management Training Poster"
+              className="w-full h-auto object-contain rounded-2xl"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Flowchart Section */}
       <section className="bg-slate-900/5 py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto flex flex-col items-center">

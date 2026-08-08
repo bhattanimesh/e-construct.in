@@ -1,4 +1,4 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
@@ -627,6 +627,15 @@ const BimHubMSB = () => {
             <div className="h-0.5 bg-yellow-500" />
             <img src="/msb/table.webp" alt="Program Details Table" className="w-full h-auto object-contain bg-white" />
           </motion.div>
+        </div>
+      </section>
+
+      {/* ── ORANGE MSB TRAINING POSTER ────────────────────────────── */}
+      <section className="py-12 bg-white border-t border-gray-100">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 flex justify-center">
+          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+            <img src="/assets/msb_poster_orange.jpeg" alt="Master Study in Project Management with BIM Technology Training Poster" className="w-full h-auto object-contain rounded-2xl" loading="lazy" />
+          </div>
         </div>
       </section>
 
