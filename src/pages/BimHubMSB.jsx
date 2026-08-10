@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
-  Play, TrendingUp, Building2, Zap, GraduationCap, Globe
+  Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
+  Star, Quote, CheckCircle2, X, FileText, Layers, ShieldCheck, Heart, Flame, Target,
+  Copy, ExternalLink, QrCode, MessageCircle
 } from 'lucide-react';
 
 /* ── Animated counter ─────────────────────────────────────────────── */
@@ -34,284 +36,534 @@ const Label = ({ children }) => (
   </div>
 );
 
-/* ── Yellow CTA button ────────────────────────────────────────────── */
-const Btn = ({ href, children, dark = false }) => (
-  <a href={href}
-    className={`group relative inline-block px-7 py-3.5 overflow-hidden transition-all active:scale-95 text-center text-sm font-black uppercase tracking-wider ${dark ? 'bg-slate-900 text-white' : 'bg-yellow-500 text-black'}`}>
-    <span className="relative z-10">{children}</span>
-    <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ${dark ? 'bg-yellow-500' : 'bg-black'}`} />
-    <span className={`absolute inset-0 z-10 flex items-center justify-center text-sm font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${dark ? 'text-black' : 'text-white'}`}>{children}</span>
-  </a>
-);
+/* ── Yellow / Dark CTA button ─────────────────────────────────────── */
+const Btn = ({ href, children, dark = false, onClick, className = '' }) => {
+  if (href) {
+    return (
+      <a href={href} onClick={onClick}
+        className={`group relative inline-block px-7 py-3.5 overflow-hidden transition-all active:scale-95 text-center text-sm font-black uppercase tracking-wider ${dark ? 'bg-slate-900 text-white' : 'bg-yellow-500 text-black'} ${className}`}>
+        <span className="relative z-10">{children}</span>
+        <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ${dark ? 'bg-yellow-500' : 'bg-black'}`} />
+        <span className={`absolute inset-0 z-10 flex items-center justify-center text-sm font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${dark ? 'text-black' : 'text-white'}`}>{children}</span>
+      </a>
+    );
+  }
+  return (
+    <button onClick={onClick}
+      className={`group relative inline-block px-7 py-3.5 overflow-hidden transition-all active:scale-95 text-center text-sm font-black uppercase tracking-wider ${dark ? 'bg-slate-900 text-white' : 'bg-yellow-500 text-black'} ${className}`}>
+      <span className="relative z-10">{children}</span>
+      <div className={`absolute inset-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ${dark ? 'bg-yellow-500' : 'bg-black'}`} />
+      <span className={`absolute inset-0 z-10 flex items-center justify-center text-sm font-black uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${dark ? 'text-black' : 'text-white'}`}>{children}</span>
+    </button>
+  );
+};
 
-/* ═══════════════════════════════════════════════════════════════════
-   COMPONENT
-═══════════════════════════════════════════════════════════════════ */
 const BimHubMSB = () => {
-
+  // Gallery slider images for portfolio showcase
   const sliderImages = [
-    '/msb/sr8.webp','/msb/sr7.webp','/msb/sr6.webp','/msb/sr5.webp',
-    '/msb/sr4.webp','/msb/sr3.webp','/msb/sr2.webp','/msb/sr1.webp','/msb/s2.webp',
+    '/msb/sr8.webp', '/msb/sr7.webp', '/msb/sr6.webp', '/msb/sr5.webp',
+    '/msb/sr4.webp', '/msb/sr3.webp', '/msb/sr2.webp', '/msb/sr1.webp', '/msb/s2.webp',
   ];
-  const [slide, setSlide] = useState(0);
+  const [portfolioSlide, setPortfolioSlide] = useState(0);
+  const prevPortfolioSlide = () => setPortfolioSlide(p => (p === 0 ? sliderImages.length - 1 : p - 1));
+  const nextPortfolioSlide = () => setPortfolioSlide(p => (p === sliderImages.length - 1 ? 0 : p + 1));
+
   useEffect(() => {
-    const t = setInterval(() => setSlide(p => (p + 1) % sliderImages.length), 4200);
+    const t = setInterval(() => setPortfolioSlide(p => (p + 1) % sliderImages.length), 4200);
     return () => clearInterval(t);
   }, [sliderImages.length]);
 
-  const reviewVideos = [
-    'https://www.youtube.com/embed/1AehbURvS8k?si=X_CqYO8icVVjcnzQ',
-    'https://www.youtube.com/embed/wEpeR0jE5Q0?si=UrhcqFSAU1Fnia0k',
-    'https://www.youtube.com/embed/FY7LHMlyFj0?si=7Sw4lmhimBKD0z46',
-    'https://www.youtube.com/embed/KdZkMiMLA5A?si=3avZv6ndP2bt0q27',
-    'https://www.youtube.com/embed/EwosIIAxHQw?si=cUSoU7UjqC8KXlUS',
+  // Authentic Student Reviews Sourced Directly from e-construct.in
+  const studentReviews = [
+    {
+      id: 1,
+      name: 'Meeval',
+      role: 'BIM & Project Engineer',
+      company: 'Placed in UAE',
+      rating: 5,
+      videoId: 'SAJhiHZDYeQ',
+      quote: 'Meeval — Placed in UAE as a BIM & Project Engineer after completing the Master Study program at Econstruct.'
+    },
+    {
+      id: 2,
+      name: 'Lijin M Varughese',
+      role: 'Project Management Trainee',
+      company: 'Econstruct Master Study Alumni',
+      rating: 5,
+      videoId: '4V8Q1GR7dbY',
+      quote: 'Lijin M Varughese shares his hands-on experience working directly on REVIT models, Primavera P6 schedules, and site management under senior Econstruct mentors.'
+    },
+    {
+      id: 3,
+      name: 'Swapnil Katiyar',
+      role: 'BIM Coordinator & Civil Engineer',
+      company: 'Econstruct Graduate',
+      rating: 5,
+      videoId: '1AehbURvS8k',
+      quote: 'Journey of a Civil Engineer — Swapnil Katiyar shares how the 12 Months Training + On-Job Internship built his confidence in 4D BIM and Primavera scheduling.'
+    },
+    {
+      id: 4,
+      name: 'Preethi Prasad',
+      role: 'BIM Engineer',
+      company: 'Placed in Muscat, Oman',
+      rating: 5,
+      videoId: 'wEpeR0jE5Q0',
+      quote: 'Alumni Talk with Preethi Prasad (Master Study, BIM Batch) who is now working as a successful BIM Engineer in Muscat, Oman.'
+    },
+    {
+      id: 5,
+      name: 'Construction Management Specialist',
+      role: 'Project Planning & BIM Specialist',
+      company: 'Master Study Trainee',
+      rating: 5,
+      videoId: 'FY7LHMlyFj0',
+      quote: 'Comprehensive student review on construction management, Primavera P6 scheduling, site planning, Navisworks clash detection, and BIM integration.'
+    },
+    {
+      id: 6,
+      name: 'BIM Modeling Intern',
+      role: 'Junior BIM Engineer',
+      company: 'Master Study Trainee',
+      rating: 5,
+      videoId: 'KdZkMiMLA5A',
+      quote: 'Students share their journey of learning REVIT MEP, Architecture, and Structural BIM modeling on high-rise live projects.'
+    },
+    {
+      id: 7,
+      name: 'Civil Engineering Intern',
+      role: 'Site & BIM Intern',
+      company: 'Econstruct Intern',
+      rating: 5,
+      videoId: 'EwosIIAxHQw',
+      quote: 'Learn about the hands-on experience and practical knowledge gained during the civil & BIM engineering internship program at Econstruct.'
+    },
+    {
+      id: 8,
+      name: 'Professional Training Graduate',
+      role: 'BIM & REVIT Modeler',
+      company: 'Econstruct Alum',
+      rating: 5,
+      videoId: '5WPiCu6UopM',
+      quote: 'Discover how our training programs help students bridge the gap between academics and core BIM industry requirements.'
+    },
+    {
+      id: 9,
+      name: 'Civil Master Study Trainee',
+      role: '4D BIM Coordinator',
+      company: 'Master Study Alum',
+      rating: 5,
+      videoId: 'C43g7pneGRE',
+      quote: 'Practical knowledge and real project exposure gained during the Master Study civil & project management internship.'
+    },
+    {
+      id: 10,
+      name: 'Training Program Reviewer',
+      role: 'Assistant Project Manager',
+      company: 'Econstruct Graduate',
+      rating: 5,
+      videoId: 'Wp3yw4YzfNM',
+      quote: 'Understanding real construction site execution requirements, Synchro 4D modeling, and BIM software training at Econstruct.'
+    },
+    {
+      id: 11,
+      name: 'Master Study Professional',
+      role: 'BIM Specialist',
+      company: 'Econstruct Trainee',
+      rating: 5,
+      videoId: 'g_OcxyVbRec',
+      quote: 'Hands-on live project training on 9+ software tools like REVIT, Navisworks, Synchro, and Primavera in a corporate environment.'
+    },
+    {
+      id: 12,
+      name: 'Training Review Graduate',
+      role: 'BIM Coordinator',
+      company: 'Placed Trainee',
+      rating: 5,
+      videoId: 'rLGY5maXVwo',
+      quote: 'Real project management design experience working on live client projects from Center Line Plan to final GFC drawings.'
+    },
+    {
+      id: 13,
+      name: 'Core Technical Graduate',
+      role: 'BIM & Site Coordinator',
+      company: 'Core Corporate Placement',
+      rating: 5,
+      videoId: 'CyCcNnYyzI4',
+      quote: 'Story of a Civil Engineer from On-Job internship training to securing a core technical placement in a BIM & PM firm.'
+    },
+    {
+      id: 14,
+      name: 'Tathagata Biswas',
+      role: 'BIM & Project Engineer',
+      company: 'Econstruct Alumni',
+      rating: 5,
+      videoId: 'N5V0WDW01-M',
+      quote: 'Journey of a Civil Engineer — Tathagata Biswas shares his career transformation and placement experience through Econstruct Master Study.'
+    },
+    {
+      id: 15,
+      name: 'Offline Batch Trainee',
+      role: 'BIM Design Trainee',
+      company: 'Bangalore HQ Batch',
+      rating: 5,
+      videoId: '7hOBkzfEGHA',
+      quote: 'Master Study OFFLINE Batch Student Review & Feedback on working in the Bangalore Head Office alongside chief BIM consultants.'
+    },
+    {
+      id: 16,
+      name: 'Placement Record Alum',
+      role: 'Project Manager (BIM)',
+      company: 'Core Corporate Placement',
+      rating: 5,
+      videoId: 'krlphlgKoB8',
+      quote: 'Core Technical Placement Record of Econstruct Master Study Trainees across top AEC companies in India and UAE.'
+    },
+    {
+      id: 17,
+      name: 'Design Specialist',
+      role: 'BIM Analysis Engineer',
+      company: 'Econstruct Trainee',
+      rating: 5,
+      videoId: 'mHBWyiARjWI',
+      quote: 'Beyond basic software: mastering complete BIM coordination, Navisworks clash resolution, and Primavera P6 scheduling.'
+    },
+    {
+      id: 18,
+      name: 'Sreerag Ravindra',
+      role: 'Senior BIM Project Manager',
+      company: '2013 Econstruct Passout',
+      rating: 5,
+      videoId: 'FTuyLX5W63w',
+      quote: 'Alumni Talk — Sreerag Ravindra (2013 Passout) shares his 10+ year project management career journey after Econstruct training.'
+    }
   ];
-  const [vidSlide, setVidSlide] = useState(0);
 
-  const playlist = [
-    { title: 'Competition Overview', src: 'https://www.youtube.com/embed/4V-mT1ISo90?si=8jFBhtkVt_QD23TB', dur: '12:04' },
-    { title: 'Team Presentations & Solutions', src: 'https://www.youtube.com/embed/1jePd-E4ZEc?si=W545dJrmLDm5NdyU', dur: '08:15' },
-    { title: 'Structural Analysis Highlights', src: 'https://www.youtube.com/embed/QA8dxpyk8iI?si=aTsCZCz_Jb-ilnnd', dur: '15:30' },
-    { title: 'Award Ceremony & Closing', src: 'https://www.youtube.com/embed/oBZ_4zm7VeM?si=GD2fxp24f4ct17Ie', dur: '05:45' },
+  const [currentVidSlide, setCurrentVidSlide] = useState(0);
+  const [activeModalVideo, setActiveModalVideo] = useState(null);
+
+  const [copiedField, setCopiedField] = useState(null);
+  const handleCopy = (key, text) => {
+    navigator.clipboard.writeText(text);
+    setCopiedField(key);
+    setTimeout(() => setCopiedField(null), 2500);
+  };
+
+  // Live Project Competition Videos
+  const competitionVideos = [
+    { title: 'Technical Live Project Competition Overview', src: 'https://www.youtube.com/embed/4V-mT1ISo90?si=8jFBhtkVt_QD23TB', dur: '12:04' },
+    { title: 'Team Presentations & BIM Solutions', src: 'https://www.youtube.com/embed/1jePd-E4ZEc?si=W545dJrmLDm5NdyU', dur: '08:15' },
+    { title: 'BIM Clash Detection Highlights & Defense', src: 'https://www.youtube.com/embed/QA8dxpyk8iI?si=aTsCZCz_Jb-ilnnd', dur: '15:30' },
+    { title: 'Award Ceremony & Closing Presentations', src: 'https://www.youtube.com/embed/oBZ_4zm7VeM?si=GD2fxp24f4ct17Ie', dur: '05:45' },
   ];
-  const [activeVid, setActiveVid] = useState(0);
+  const [activePlaylistItem, setActivePlaylistItem] = useState(0);
 
+  // Official FAQs directly from live MSB website
   const faqs = [
-    { q: 'What is the duration of the program?', a: 'The program runs 7 to 12 months — until you are successfully placed in the industry.' },
-    { q: 'What is the On-Job Learning Program?', a: 'Hands-on experience from Center Line Plan (CLP) to Good for Construction (GFC), working on real RCC, STEEL, and Composite Structures in a corporate environment.' },
-    { q: 'Will I receive a certification?', a: 'Yes — an industry-recognized certificate from Econstruct plus an official Experience Letter and portfolio assistance.' },
-    { q: 'What software tools will I learn?', a: 'AutoCAD, REVIT Architecture, REVIT Structures, REVIT MEP, Synchro, Navisworks, Infraworks, Primavera, and 40+ Design Spreadsheets.' },
-    { q: 'Is there placement assistance?', a: '100% placement guarantee. Our placement cell handles resume building, mock interviews, and direct corporate alignment via our CRM system.' },
-    { q: 'Can I choose the mode of learning?', a: 'Yes — Offline (Bangalore HQ), Online (self-paced), or Hybrid.' },
+    { q: 'What is the duration of the Master Study in Project Management with BIM Technology program?', a: 'The program lasts between 7 to 12 months (until you are placed), depending on the mode of learning and the pace at which you progress. Long holidays are not permitted as you work directly on live client projects.' },
+    { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
+    { q: 'What is included in the "On-job Learning Program"?', a: 'The On-job Learning Program allows you to gain hands-on experience in real-world project execution. You will work alongside the Econstruct technical team from Center Line Plan (CLP) to Good for Construction (GFC) drawings, covering project coordination, scheduling with Primavera P6, 4D BIM with Synchro, and clash detection with Navisworks.' },
+    { q: 'Will I receive a certification upon completing the program?', a: 'Yes, upon successful completion of the program, you will receive an industry-recognized certification provided by Econstruct Design & Build Pvt Ltd. Additionally, you will also be given an official experience letter and 100% placement assistance.' },
+    { q: 'What software tools will I learn during the program?', a: 'The program covers 8+ BIM and project management tools plus custom spreadsheets: AutoCAD, REVIT Architecture, REVIT Structures, REVIT MEP, Synchro 4D BIM, Navisworks Manage, Infraworks, Primavera P6, and 40+ Design Spreadsheets.' },
+    { q: 'Is there any placement assistance after completing the program?', a: 'Yes, the program offers a 100% placement guarantee. You will receive 6–8 genuine interview opportunities in India, UAE, and internationally, supported by video resumes, mock interviews, and portfolio building.' },
+    { q: 'Can I choose the mode of learning for this program?', a: 'Yes, the program offers flexible learning modes: Offline (Bangalore HQ), Online Working Professionals, Online Non-Working (WFH environment), and Hybrid mode.' },
   ];
   const [openFaq, setOpenFaq] = useState(null);
 
-  const modes = [
-    { n: '01', title: 'Offline', icon: Building2, pts: ['Report to Bangalore HQ on batch start date.','Work Mon–Fri, 9 am to 7 pm.','Live sessions with technical mentors.','Real projects — team and individual.','Mock technical interviews.'] },
-    { n: '02', title: 'Online — Working Professionals', icon: Monitor, pts: ['Self-paced with pre-recorded videos.','Dedicate 2–4 hours per day.','Flexible hours without leaving your job.','Doubt Clearing Sessions or 1-on-1 Zoom calls.','Minimum 12–15 projects throughout.'] },
-    { n: '03', title: 'Online — Non-Working', icon: Globe, pts: ['100% online, replicating office environment.','Dashboard access to assignments and videos.','Stay connected via Zoom (9 am–7 pm, Mon–Fri).','Dedicated Doubt Clearing Sessions.','Online mock technical interview rounds.'] },
-    { n: '04', title: 'Hybrid', icon: Zap, pts: ['Report to Bangalore HQ for 7–30 days at start.','Continue online with videos, live sessions, mocks.','Return to Bangalore for 7–30 days near end.','Work from home between offline sessions.'] },
+  // Software tools stack for MSB
+  const softwares = [
+    { name: 'AutoCAD', level: 'Fundamental', desc: '2D drafting, centerline plans & architectural layouts' },
+    { name: 'REVIT Architecture', level: 'Core BIM', desc: '3D architectural modeling & parametric design' },
+    { name: 'REVIT Structures', level: 'Core BIM', desc: 'Structural BIM modeling, rebar placement & framing' },
+    { name: 'REVIT MEP', level: 'Core BIM', desc: 'Mechanical, electrical & plumbing system modeling' },
+    { name: 'Synchro 4D BIM', level: 'Specialist', desc: '4D construction sequence simulation & time management' },
+    { name: 'Navisworks Manage', level: 'Clash Detection', desc: 'Multi-disciplinary clash detection & coordination' },
+    { name: 'Infraworks', level: 'Infrastructure', desc: 'Preliminary site context & infrastructure BIM' },
+    { name: 'Primavera P6', level: 'Project Mgmt', desc: 'Enterprise project scheduling, CPM & resource leveling' },
+    { name: '40+ Spreadsheets', level: 'Management', desc: 'Estimation, BOQ, billing & project control tools' }
   ];
+
+  // Modes of Training
+  const modes = [
+    { n: '01', title: 'Offline', icon: Building2, pts: ['Report to Bangalore HQ (Kudlu) on batch start date.', 'Work Mon–Fri, 8:55 am to 7:00 pm (Biometric access).', 'Live sessions with technical mentors & reporting manager.', 'Real projects — team & individual challenges.', 'Mock technical interviews & daily timesheets.'] },
+    { n: '02', title: 'Online — Working Professionals', icon: Monitor, pts: ['Self-paced with pre-recorded videos.', 'Dedicate 2–4 hours per day without leaving current job.', 'Weekly / monthly assignment submissions via portal.', 'Doubt Clearing Sessions (DCS) & 1-on-1 Zoom calls.', 'Minimum 12–15 real projects throughout course.'] },
+    { n: '03', title: 'Online — Non-Working', icon: Globe, pts: ['100% online mode replicating office work environment.', 'Dashboard user ID access for assignments & videos.', 'Stay connected via Zoom (9 am to 7 pm, Mon–Fri).', 'Dedicated Doubt Clearing Sessions (DCS).', 'Online mock technical interview rounds.'] },
+    { n: '04', title: 'Hybrid', icon: Zap, pts: ['Report to Bangalore HQ for 7, 15, or 30 days at start.', 'Continue online with videos, live sessions, DCS & mocks.', 'Return to Bangalore office for 7, 15, or 30 days near end.', 'Flexibility to work from home between offline sessions.'] },
+  ];
+
+  // Program Highlights Posters switcher
+  const posterList = [
+    { id: 'poster-1', title: 'Program Overview Poster', src: '/msb/bim_software_matrix.jpg', alt: 'MSB Overview Matrix Table Poster' },
+    { id: 'poster-2', title: 'BIM Software Matrix Poster', src: '/assets/msb_poster_orange.jpeg', alt: 'MSB Software Tools & Program Overview Poster' }
+  ];
+  const [activePoster, setActivePoster] = useState(0);
 
   const fin = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true }, transition: { duration: 0.55 } };
 
   return (
-    <div className="bg-white overflow-x-hidden">
+    <div className="bg-white overflow-x-hidden text-slate-900 font-sans">
 
-      {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-[100dvh] lg:h-[700px] overflow-hidden bg-black">
-        <div className="absolute inset-0 scale-105">
-          <img src="/prj6.jpg" alt="" className="w-full h-full object-cover brightness-[0.45] saturate-[0.8]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent hidden md:block" />
+
+
+      {/* ── 01. HERO SECTION ────────────────────────────────────────── */}
+      <section id="hero" className="relative w-full min-h-[85vh] lg:min-h-[700px] overflow-hidden bg-slate-950 flex flex-col justify-between">
+        <div className="absolute inset-0">
+          <img src="/prj6.jpg" alt="BIM & Project Management Background" className="w-full h-full object-cover brightness-[0.55] saturate-[1.1]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent hidden md:block" />
         </div>
-        <div className="relative z-10 h-[100dvh] lg:h-full w-full max-w-[1400px] px-5 sm:px-10 flex flex-col justify-end pb-16 lg:pb-20">
-          <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl">
+
+        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-12 flex-1">
+          <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
+            
+            {/* Accreditation Badges */}
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-              className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-0.5 bg-yellow-500" />
-              <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">On-Job Learning · Batch Starts April 2026</span>
+              className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="bg-slate-900/80 backdrop-blur-md text-yellow-400 border border-yellow-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
+                <ShieldCheck className="w-3.5 h-3.5 text-yellow-500" /> ISO 9001:2015 Certified
+              </span>
+              <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
+                <Building2 className="w-3.5 h-3.5 text-blue-400" /> MSME Certified
+              </span>
+              <span className="text-yellow-400 uppercase tracking-[0.2em] text-xs font-extrabold drop-shadow-md hidden sm:inline-block">
+                · Batch Starts 15th April 2026
+              </span>
             </motion.div>
+
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
-              className="font-medium text-white tracking-tight leading-[0.95] mb-5"
-              style={{ fontSize: 'clamp(2.8rem, 9vw, 8rem)' }}>
-              Master Study in<br /><span className="accent-text italic">Project Management with BIM</span>
+              className="font-medium text-white tracking-tight leading-[1.05] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
+              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}>
+              Master Study In<br /><span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Project Management with BIM</span>
             </motion.h1>
+
             <motion.p variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-              className="max-w-md text-gray-300 text-base md:text-lg leading-relaxed mb-8">
-              Project Management with BIM Technology — India's most comprehensive on-job training program.
+              className="max-w-xl text-gray-300 text-base md:text-lg leading-relaxed mb-8">
+              India's most comprehensive on-job training program. Master 9+ BIM tools (REVIT Arch/Struct/MEP, Synchro 4D, Navisworks, Primavera P6) on real live projects.
             </motion.p>
+
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-              className="flex flex-wrap gap-3">
-              <Btn href="#enrollment">Apply Now</Btn>
-              <a href="#overview" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
-                <Play className="w-4 h-4" /> Watch Overview
+              className="flex flex-wrap gap-4">
+              <Btn href="#apply-now">Apply Now — April 2026</Btn>
+              <a href="#program-video" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
+                <Play className="w-4 h-4 text-yellow-500" /> Watch Overview Video
               </a>
             </motion.div>
           </motion.div>
         </div>
-        <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute bottom-0 left-0 h-1 bg-yellow-500 z-20" />
-      </section>
 
-      {/* ── STATS ────────────────────────────────────────────────── */}
-      <section className="bg-slate-900">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="grid grid-cols-3 divide-x divide-white/10">
-            {[
-              { to: '1000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-              { to: '50',   s: '+', label: 'Hiring Partners',  icon: Building2 },
-              { to: '100',  s: '%', label: 'Placement Rate',   icon: TrendingUp },
-            ].map((s, i) => (
-              <div key={i} className="flex flex-col sm:flex-row items-center sm:items-start gap-3 py-8 px-4 sm:px-6">
-                <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0">
-                  <s.icon className="w-4 h-4 text-yellow-500" />
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="text-2xl md:text-4xl font-medium text-yellow-500 leading-none">
-                    <Counter to={s.to} suffix={s.s} />
+        {/* Stats Bar */}
+        <div className="relative z-20 bg-slate-900/90 backdrop-blur-md border-t border-white/10">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+              {[
+                { to: '900', s: '+', label: 'Graduates Placed', icon: GraduationCap },
+                { to: '50',   s: '+', label: 'Hiring Partners',  icon: Building2 },
+                { to: '100',  s: '%', label: 'Placement Rate',   icon: TrendingUp },
+                { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
+              ].map((s, i) => (
+                <div key={i} className="flex items-center gap-3 py-4 px-4 sm:px-6">
+                  <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0 rounded-lg">
+                    <s.icon className="w-4 h-4 text-yellow-500" />
                   </div>
-                  <div className="text-white/40 text-[10px] uppercase tracking-widest mt-1 font-bold">{s.label}</div>
+                  <div>
+                    <div className="text-xl md:text-2xl font-bold text-yellow-500 leading-none">
+                      <Counter to={s.to} suffix={s.s} />
+                    </div>
+                    <div className="text-white/50 text-[10px] uppercase tracking-widest mt-1 font-bold">{s.label}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── OVERVIEW VIDEO ───────────────────────────────────────── */}
-      <section id="overview" className="py-14 md:py-20 bg-white">
+      {/* ── 02. DETAILED PROGRAM VIDEO ─────────────────────────────── */}
+      <section id="program-video" className="py-16 md:py-24 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
+          <motion.div {...fin} className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <Label>Program Overview</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-                See What <span className="accent-text italic">MSB</span> Is About
+              <Label>02 · Program Detailed Video</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                See What <span className="text-yellow-600 italic font-serif">MSB</span> Is All About
               </h2>
             </div>
-            <p className="text-gray-400 text-sm max-w-xs sm:text-right leading-relaxed">
-              Master Study in Project Management with BIM Technology.
+            <p className="text-gray-500 text-sm max-w-md md:text-right leading-relaxed">
+              Watch how our project management with BIM technology curriculum equips you for real site & consultancy roles.
             </p>
           </motion.div>
-          <motion.div {...fin} className="w-full bg-black aspect-video overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)]">
-            <div className="absolute top-0 left-0 w-12 h-0.5 bg-yellow-500 z-10 relative" />
+
+          <motion.div {...fin} className="relative w-full bg-slate-950 aspect-video rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-800">
+            <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
             <iframe src="https://www.youtube.com/embed/-__P90GFjBI?si=NsKBJTlJDBoXCtHU"
-              className="w-full h-full" title="MSB" frameBorder="0"
+              className="absolute inset-0 w-full h-full" title="MSB Program Overview Video" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
           </motion.div>
         </div>
       </section>
 
-      {/* ── PROGRAM AT A GLANCE ──────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-gray-50">
+      {/* ── 03. TRAINING DETAILS – DURATION, SOFTWARE, CURRICULUM ─── */}
+      <section id="training-details" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10">
-            <Label>Program Details</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-              Everything You Need <span className="accent-text italic">to Know</span>
+          <motion.div {...fin} className="mb-12">
+            <Label>03 · Training Specifications</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Duration, Software & <span className="text-yellow-600 italic font-serif">Curriculum</span>
             </h2>
+            <p className="text-gray-600 text-base max-w-2xl mt-3">
+              Comprehensive BIM & Project Management training designed to give you end-to-end practical project mastery.
+            </p>
           </motion.div>
 
-          {/* Two-column info table */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-gray-200">
-
-            {/* Left col — Duration + Mode stacked */}
-            <div className="flex flex-col gap-px bg-gray-200">
-              <motion.div {...fin} className="bg-slate-800 p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-black" />
+          {/* Top Info Cards */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12">
+            {/* Duration Card */}
+            <div className="bg-slate-900 text-white rounded-2xl p-8 flex flex-col justify-between shadow-xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center rounded-lg text-black">
+                    <Clock className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-yellow-500">Duration & Batch</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Duration & Batch</span>
                 </div>
-                <p className="text-white font-medium text-3xl md:text-4xl tracking-tight leading-none mb-2">7–12 Months</p>
-                <p className="text-white/40 text-sm mb-6">Until you are successfully placed</p>
-                <div className="flex items-center gap-3 pt-5 border-t border-white/10">
-                  <Calendar className="w-4 h-4 text-yellow-500 shrink-0" />
-                  <span className="text-white/50 text-sm">Next batch: <span className="text-yellow-500 font-bold">15th April 2026</span></span>
-                </div>
-              </motion.div>
-
-              <motion.div {...fin} className="bg-white p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-black flex items-center justify-center shrink-0">
-                    <Monitor className="w-4 h-4 text-yellow-500" />
-                  </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-gray-400">Mode of Learning</span>
-                </div>
-                <p className="text-black font-medium text-2xl tracking-tight mb-5">Online / Offline / Hybrid</p>
-                <div className="grid grid-cols-2 gap-3">
-                  {[['750+', 'Hours of Video'], ['1000+', 'Technical Books'], ['24/7', 'Library Access'], ['3', 'Learning Modes']].map(([v, l]) => (
-                    <div key={l} className="border border-gray-100 p-3">
-                      <div className="text-lg font-bold text-black">{v}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-widest mt-0.5">{l}</div>
-                    </div>
-                  ))}
-                </div>
-              </motion.div>
+                <h3 className="text-4xl font-black text-white mb-1">7–12 Months</h3>
+                <p className="text-yellow-500 font-semibold text-sm mb-6">Until You Are Placed</p>
+                <p className="text-gray-400 text-sm leading-relaxed mb-6">
+                  Hands-on corporate ON-JOB learning on real commercial, residential, and infrastructure BIM projects.
+                </p>
+              </div>
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between text-sm">
+                <span className="text-gray-400">Next Batch Starts:</span>
+                <span className="text-yellow-400 font-bold">15th April 2026</span>
+              </div>
             </div>
 
-            {/* Right col — Software + Certification stacked */}
-            <div className="flex flex-col gap-px bg-gray-200">
-              <motion.div {...fin} className="bg-white p-8 md:p-10 flex-1">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <BookOpen className="w-4 h-4 text-black" />
+            {/* Program Features Card */}
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-slate-900 flex items-center justify-center rounded-lg text-yellow-500">
+                    <BookOpen className="w-5 h-5" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-yellow-600">Software Stack</span>
+                  <span className="text-xs font-bold uppercase tracking-widest text-slate-500">Program Perks</span>
                 </div>
-                <p className="text-black font-medium text-xl tracking-tight mb-5">
-                  Master <span className="accent-text italic">9 industry tools</span> on real projects
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {['AutoCAD','REVIT Architecture','REVIT Structures','REVIT MEP','Synchro','Navisworks','Infraworks','Primavera','40+ Spreadsheets'].map((s, i) => (
-                    <span key={i} className={`px-3 py-1.5 text-xs font-semibold border ${i < 4 ? 'bg-yellow-500 border-yellow-500 text-black' : 'border-gray-200 text-gray-600'}`}>{s}</span>
-                  ))}
-                </div>
-              </motion.div>
-
-              <motion.div {...fin} className="bg-yellow-500 p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-black flex items-center justify-center shrink-0">
-                    <Award className="w-4 h-4 text-yellow-500" />
-                  </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-black/50">Certification</span>
-                </div>
-                <p className="text-black font-medium text-xl tracking-tight mb-4">Industry-Recognized Certificate</p>
-                <div className="space-y-2">
-                  {['Experience Letter', 'Portfolio assistance', 'LinkedIn photoshoot', '100% Placement Guarantee'].map((item) => (
-                    <div key={item} className="flex items-center gap-2">
-                      <div className="w-4 h-4 bg-black flex items-center justify-center shrink-0">
-                        <CheckCircle className="w-2.5 h-2.5 text-yellow-500" />
-                      </div>
-                      <span className="text-black font-semibold text-sm">{item}</span>
+                <h3 className="text-2xl font-bold text-slate-900 mb-4">Learning Infrastructure</h3>
+                <div className="grid grid-cols-2 gap-3 mb-6">
+                  {[
+                    ['750+', 'Hours Video'],
+                    ['1000+', 'Technical Books'],
+                    ['24/7', 'Library Access'],
+                    ['40+', 'Spreadsheets'],
+                  ].map(([v, l]) => (
+                    <div key={l} className="bg-slate-50 p-3 rounded-xl border border-gray-100">
+                      <div className="text-lg font-black text-slate-900">{v}</div>
+                      <div className="text-[11px] text-gray-500 uppercase font-bold tracking-wider mt-0.5">{l}</div>
                     </div>
                   ))}
                 </div>
-              </motion.div>
+              </div>
+              <div className="text-xs text-gray-500 font-medium">Includes 4D Time Simulation & Clash Detection</div>
+            </div>
+
+            {/* Certificate Card */}
+            <div className="bg-yellow-500 text-slate-900 rounded-2xl p-8 flex flex-col justify-between shadow-lg">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 bg-slate-900 flex items-center justify-center rounded-lg text-yellow-500">
+                    <Award className="w-5 h-5" />
+                  </div>
+                  <span className="text-xs font-black uppercase tracking-widest text-slate-900/60">Certification</span>
+                </div>
+                <h3 className="text-2xl font-black mb-4">Industry Credentials</h3>
+                <ul className="space-y-3 mb-6">
+                  {[
+                    'Official Work Experience Letter',
+                    'Econstruct Master Study Certificate',
+                    'BIM & Project Portfolio Assistance',
+                    'LinkedIn Photoshoot & Video Resume',
+                    '100% Core Technical Placement Support'
+                  ].map((item, idx) => (
+                    <li key={idx} className="flex items-center gap-2 text-sm font-bold">
+                      <CheckCircle2 className="w-4 h-4 text-slate-900 shrink-0" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <span className="text-xs font-black uppercase tracking-wider text-slate-900/70 border-t border-slate-900/10 pt-3">Recognized Across Top AEC Consultancies</span>
             </div>
           </div>
+
+          {/* Software Stack Section */}
+          <div className="bg-white rounded-3xl p-8 md:p-12 border border-gray-200 shadow-sm mb-12">
+            <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <div>
+                <h3 className="text-2xl font-black text-slate-900 tracking-tight">Software Tools Stack (9 Tools)</h3>
+                <p className="text-gray-500 text-sm mt-1">Master industry-standard BIM modeling, scheduling & clash detection software.</p>
+              </div>
+              <span className="bg-yellow-500/20 text-yellow-700 text-xs font-extrabold uppercase px-4 py-2 rounded-full w-max">
+                Hands-On Practical Training
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {softwares.map((sw, idx) => (
+                <div key={idx} className="p-5 rounded-xl border border-gray-100 bg-slate-50 hover:bg-white hover:border-yellow-500/50 hover:shadow-md transition-all duration-300">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-extrabold text-slate-900 text-base">{sw.name}</span>
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-slate-200 text-slate-700">{sw.level}</span>
+                  </div>
+                  <p className="text-gray-600 text-xs leading-relaxed">{sw.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* ── PLACEMENT PREP ───────────────────────────────────────── */}
-      <section className="relative py-14 md:py-20 overflow-hidden">
+      {/* ── 04. PLACEMENT ASSISTANCE & CAREER OPPORTUNITIES ───────── */}
+      <section id="placement-assistance" className="relative py-16 md:py-24 overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0">
-          <img src="/prj4.webp" alt="" className="w-full h-full object-cover brightness-[0.3] saturate-[0.5]" />
-          <div className="absolute inset-0 bg-slate-900/65" />
+          <img src="/prj4.webp" alt="Placement Background" className="w-full h-full object-cover brightness-[0.25] saturate-[0.5]" />
+          <div className="absolute inset-0 bg-slate-950/80" />
         </div>
-        <div className="absolute left-0 top-0 w-0.5 h-full bg-yellow-500" />
+        <div className="absolute left-0 top-0 w-1 h-full bg-yellow-500" />
+
         <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-            <motion.div {...fin} className="lg:w-2/5 shrink-0">
-              <Label>Career Readiness</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight mb-4">
-                Placement Preparation <span className="accent-text italic">Series</span>
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <motion.div {...fin} className="lg:w-5/12 shrink-0">
+              <Label>04 · Placement Ecosystem</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight leading-tight mb-4">
+                Placement Assistance & <span className="text-yellow-400 italic font-serif">Career Opportunities</span>
               </h2>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
-                Designed to ensure you excel in interviews and secure top positions in India, UAE, and internationally.
+              <p className="text-gray-300 text-base leading-relaxed mb-8">
+                Designed to ensure you excel in BIM & Project Management interviews and secure high-paying positions across India, UAE, Oman, and internationally.
               </p>
-              <div className="border border-yellow-500/30 p-5 mb-0">
-                <p className="text-yellow-500 font-bold text-lg mb-1">6–8 Genuine Job Interviews</p>
-                <p className="text-white/40 text-sm mb-5">India, UAE &amp; Abroad — 100% Job Guarantee</p>
-                <Btn href="#enrollment" className="w-full">Apply Now</Btn>
+              
+              <div className="bg-slate-800/90 border border-yellow-500/40 p-6 rounded-2xl mb-8 backdrop-blur-md">
+                <div className="text-yellow-400 font-extrabold text-xl mb-1">6–8 Genuine Job Interviews</div>
+                <div className="text-gray-300 text-sm mb-4 font-medium">100% Placement Support in BIM Consultancies & Contracting Firms</div>
+                <Btn href="#apply-now">Enroll for Guaranteed Placement</Btn>
               </div>
             </motion.div>
-            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10">
+
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {[
-                { icon: Mic, label: 'Interview Preparation', desc: 'Technical and HR interview coaching for roles across India, UAE, and abroad.' },
-                { icon: MessageSquare, label: 'Communication Skills', desc: 'Verbal and non-verbal communication training for professional success.' },
-                { icon: Users, label: 'Group Discussion', desc: 'Techniques to stand out in group discussions with confidence.' },
-                { icon: Video, label: 'Video Resume', desc: 'Build compelling video resumes that showcase your personality and skills.' },
+                { icon: Mic, label: 'Technical & HR Mock Interviews', desc: 'Rigorous mock interview series conducted by principal BIM managers & project heads.' },
+                { icon: MessageSquare, label: 'Professional Communication', desc: 'Verbal, technical report writing & client coordination training.' },
+                { icon: Users, label: 'Group Discussions', desc: 'Corporate group discussion techniques to express project logic with clarity.' },
+                { icon: Video, label: 'Video Resume & Portfolio', desc: 'Build video resumes showcasing your 4D BIM simulations and Navisworks clash reports.' },
               ].map((card, i) => (
                 <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                  className="border border-white/10 p-6 flex flex-col hover:bg-white/5 transition-colors duration-200">
-                  <div className="w-9 h-9 bg-yellow-500 flex items-center justify-center mb-4 shrink-0">
-                    <card.icon className="w-4 h-4 text-black" />
+                  className="bg-slate-800/80 border border-white/10 p-6 rounded-2xl hover:border-yellow-500/50 hover:bg-slate-800 transition-all duration-300">
+                  <div className="w-10 h-10 bg-yellow-500 flex items-center justify-center rounded-xl mb-4 shrink-0 text-black">
+                    <card.icon className="w-5 h-5" />
                   </div>
-                  <h3 className="text-white font-semibold text-base mb-2">{card.label}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                  <h3 className="text-white font-bold text-lg mb-2">{card.label}</h3>
+                  <p className="text-gray-400 text-xs leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -319,662 +571,793 @@ const BimHubMSB = () => {
         </div>
       </section>
 
-      {/* ── GALLERY SLIDER ───────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-white">
+      {/* ── 05. HOW YOUR PORTFOLIO WILL LOOK ───────────────────────── */}
+      <section id="portfolio-showcase" className="py-16 md:py-24 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex items-end justify-between mb-8 gap-4">
+          <motion.div {...fin} className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
             <div>
-              <Label>Gallery</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-                Achievements <span className="accent-text italic">Showcase</span>
+              <Label>05 · Portfolio Showcase</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
               </h2>
-            </div>
-            <div className="flex gap-2 shrink-0">
-              <button onClick={() => setSlide(p => (p - 1 + sliderImages.length) % sliderImages.length)}
-                className="p-3 border-2 border-black hover:bg-black group transition-all" aria-label="Prev">
-                <ChevronLeft size={18} className="text-black group-hover:text-white" />
-              </button>
-              <button onClick={() => setSlide(p => (p + 1) % sliderImages.length)}
-                className="p-3 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 group transition-all" aria-label="Next">
-                <ChevronRight size={18} className="text-white group-hover:text-black" />
-              </button>
-            </div>
-          </motion.div>
-          <motion.div {...fin} className="relative overflow-hidden bg-black aspect-video md:aspect-[21/9] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.25)]">
-            <div className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ transform: `translateX(-${slide * 100}%)` }}>
-              {sliderImages.map((src, i) => (
-                <div key={i} className="w-full h-full flex-shrink-0">
-                  <img src={src} alt={`Slide ${i + 1}`} className="w-full h-full object-contain bg-black" />
-                </div>
-              ))}
-            </div>
-            <div className="absolute top-4 right-4 bg-black/60 text-white text-xs font-bold px-2.5 py-1 z-10">
-              {String(slide + 1).padStart(2, '0')} / {String(sliderImages.length).padStart(2, '0')}
-            </div>
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
-              {sliderImages.map((_, i) => (
-                <button key={i} onClick={() => setSlide(i)}
-                  className={`transition-all duration-300 h-1 ${slide === i ? 'w-6 bg-yellow-500' : 'w-1.5 bg-white/30'}`} />
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── CAREER DISCUSSION ────────────────────────────────────── */}
-      <section className="overflow-hidden bg-white">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="flex flex-col lg:flex-row min-h-[560px]">
-            {/* Image */}
-            <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="w-full lg:w-[45%] relative min-h-[320px] overflow-hidden bg-gray-100">
-              <img src="/msb/career_discussion.png" alt="Career Discussion" className="w-full h-full object-cover" />
-              {/* Floating contact strip */}
-              <div className="absolute bottom-0 left-0 right-0">
-                <div className="bg-white/95 px-6 py-4 flex items-center gap-4 border-t-2 border-yellow-500">
-                  <Phone className="w-4 h-4 text-yellow-600 shrink-0" />
-                  <div className="flex flex-col gap-0.5">
-                    {['+91 90367 44017', '+91 72592 22888'].map(n => (
-                      <a key={n} href={`https://wa.me/${n.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
-                        className="text-black font-semibold text-sm hover:text-yellow-600 transition-colors flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" />{n}
-                      </a>
-                    ))}
-                  </div>
-                  <div className="ml-auto flex items-center gap-2 text-gray-400 text-xs">
-                    <MapPin className="w-3.5 h-3.5" /> Bangalore HQ
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* Content */}
-            <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="w-full lg:w-[55%] px-8 md:px-12 lg:px-14 py-12 md:py-16 flex flex-col justify-center border-l-4 border-yellow-500">
-              <Label>1-on-1 Session</Label>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium text-slate-900 tracking-tight leading-tight mb-4">
-                One-on-One<br /><span className="accent-text italic">Career Discussion</span>
-              </h2>
-              <p className="text-gray-500 text-base leading-relaxed mb-8 max-w-md">
-                Discuss your career gaps, salary issues, and skill enhancement — and build a clear roadmap forward.
+              <p className="text-gray-500 text-sm max-w-xl mt-2 leading-relaxed">
+                Graduate with an industry-grade portfolio containing complete 3D BIM models, 4D Synchro time schedules, and Navisworks clash detection reports.
               </p>
-              <div className="border-t border-gray-100">
-                {[
-                  { n: '01', text: 'Discuss your current career situation and goals.' },
-                  { n: '02', text: 'Overcome skill gaps and project-related challenges.' },
-                  { n: '03', text: 'Plan your career growth and salary hikes.' },
-                ].map(item => (
-                  <div key={item.n} className="flex items-start gap-4 py-4 border-b border-gray-100">
-                    <span className="text-lg font-medium text-yellow-500/50 leading-none mt-0.5 w-7 shrink-0">{item.n}</span>
-                    <span className="text-gray-700 font-medium text-sm leading-snug">{item.text}</span>
-                  </div>
-                ))}
-              </div>
-              <div className="mt-8 bg-slate-900 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div>
-                  <p className="text-white font-bold text-base mb-0.5">Schedule Your Meeting</p>
-                  <p className="text-white/40 text-xs">Mon–Fri · 10 AM to 7 PM · Free</p>
-                </div>
-                <Btn href="#enrollment">Book Now</Btn>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── CAREER BLUEPRINT ─────────────────────────────────────── */}
-      <section className="bg-slate-900 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 py-12 md:py-16">
-          <motion.div {...fin} className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-8">
-            <div>
-              <Label>Process</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
-                Career Growth <span className="accent-text italic">Blueprint</span>
-              </h2>
             </div>
-            <div className="flex gap-6">
-              {[['7–12 mo', 'Duration'], ['100%', 'Placement'], ['1000+', 'Placed']].map(([v, l]) => (
-                <div key={l} className="text-right">
-                  <div className="text-lg font-medium text-yellow-500">{v}</div>
-                  <div className="text-white/30 text-[10px] uppercase tracking-widest">{l}</div>
+
+            <div className="flex gap-2 shrink-0">
+              <button onClick={prevPortfolioSlide}
+                className="p-3 border-2 border-slate-900 rounded-full hover:bg-slate-900 group transition-all" aria-label="Prev">
+                <ChevronLeft size={20} className="text-slate-900 group-hover:text-white" />
+              </button>
+              <button onClick={nextPortfolioSlide}
+                className="p-3 bg-yellow-500 border-2 border-yellow-500 rounded-full hover:bg-slate-900 hover:border-slate-900 group transition-all" aria-label="Next">
+                <ChevronRight size={20} className="text-black group-hover:text-white" />
+              </button>
+            </div>
+          </motion.div>
+
+          {/* Portfolio Slider */}
+          <motion.div {...fin} className="relative rounded-3xl overflow-hidden bg-slate-950 aspect-video md:aspect-[21/9] shadow-2xl border border-slate-800">
+            <div className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{ transform: `translateX(-${portfolioSlide * 100}%)` }}>
+              {sliderImages.map((src, i) => (
+                <div key={i} className="w-full h-full flex-shrink-0 relative">
+                  <img src={src} alt={`BIM Portfolio Slide ${i + 1}`} className="w-full h-full object-contain bg-black" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
+                    <div className="text-white">
+                      <span className="bg-yellow-500 text-slate-900 text-xs font-black px-3 py-1 rounded uppercase tracking-wider mb-2 inline-block">
+                        Student Deliverable #{i + 1}
+                      </span>
+                      <p className="text-sm md:text-base font-medium text-gray-200">
+                        Real live project REVIT BIM models, Primavera P6 schedules, and clash detection documentation created during training.
+                      </p>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
-          </motion.div>
-          {/* Step labels */}
-          <motion.div {...fin} className="grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 mb-px">
-            {['Enrollment', 'Training & Projects', 'Placement Prep', 'Job Placement'].map((s, i) => (
-              <div key={i} className="bg-slate-900 px-5 py-3 flex items-center gap-3 hover:bg-slate-800 transition-colors duration-200">
-                <span className="text-yellow-500/40 font-medium text-sm">0{i + 1}</span>
-                <span className="text-white/50 text-xs font-semibold">{s}</span>
-              </div>
-            ))}
+
+            <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10 z-10">
+              {String(portfolioSlide + 1).padStart(2, '0')} / {String(sliderImages.length).padStart(2, '0')}
+            </div>
           </motion.div>
         </div>
-        {/* Flowchart full-width */}
-        <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-          <div className="h-0.5 bg-yellow-500" />
-          <div className="bg-white">
-            <img src="/msb/flowchart.webp" alt="Career Growth Blueprint" className="w-full h-auto object-contain" />
-          </div>
-        </motion.div>
       </section>
 
-      {/* ── MODES OF LEARNING ────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-white">
+      {/* ── 06. CAREER GROWTH BLUEPRINT & WORKFLOW ──────────────────── */}
+      <section id="workflow" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10">
-            <Label>Flexibility</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-              Modes of <span className="accent-text italic">Learning</span>
+          <motion.div {...fin} className="text-center mb-10">
+            <Label>06 · Execution Blueprint</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Career Growth <span className="text-yellow-600 italic font-serif">Blueprint</span>
             </h2>
+            <p className="text-gray-600 text-base max-w-3xl mx-auto mt-3 leading-relaxed">
+              Step-by-step roadmap from initial enrollment to project execution, placement preparation, and core technical career landing.
+            </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-px bg-gray-100">
+
+          <div className="bg-white rounded-3xl p-6 border border-gray-200 shadow-xl overflow-hidden">
+            <img src="/msb/career_growth_blueprint.jpeg" alt="Career Growth Blueprint Flowchart" className="w-full h-auto object-contain rounded-2xl bg-white" />
+          </div>
+        </div>
+      </section>
+
+      {/* ── 07. PROGRAM HIGHLIGHTS / DETAILED POSTER ───────────────── */}
+      <section id="program-highlights" className="py-16 md:py-24 bg-white border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="text-center mb-10">
+            <Label>07 · Program Posters & Details</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Program Highlights & <span className="text-yellow-600 italic font-serif">Detailed Poster</span>
+            </h2>
+            <p className="text-gray-500 text-base max-w-xl mx-auto mt-2">
+              Select and view complete high-resolution program posters highlighting syllabus, project scale, and structure.
+            </p>
+          </motion.div>
+
+          {/* Poster Tab Selector */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            {posterList.map((poster, idx) => (
+              <button
+                key={poster.id}
+                onClick={() => setActivePoster(idx)}
+                className={`px-5 py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 border ${
+                  activePoster === idx
+                    ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-md scale-105'
+                    : 'bg-slate-100 text-slate-700 border-gray-200 hover:bg-slate-200'
+                }`}
+              >
+                {poster.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Active Poster Display */}
+          <div className="w-full rounded-3xl overflow-hidden shadow-2xl bg-slate-50 p-4 md:p-8 border border-gray-200">
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={posterList[activePoster].id}
+                initial={{ opacity: 0, scale: 0.98 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.98 }}
+                transition={{ duration: 0.4 }}
+                src={posterList[activePoster].src}
+                alt={posterList[activePoster].alt}
+                className="w-full h-auto object-contain max-h-[1000px] mx-auto rounded-2xl shadow-sm"
+              />
+            </AnimatePresence>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 08. MODE OF TRAINING ────────────────────────────────────── */}
+      <section id="mode-of-training" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="mb-12 text-center">
+            <Label>08 · Flexible Learning Modes</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Modes of <span className="text-yellow-600 italic font-serif">Training</span>
+            </h2>
+            <p className="text-gray-600 text-base max-w-2xl mx-auto mt-2">
+              Choose the learning format that matches your current schedule, location, and career requirements.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
             {modes.map((m, i) => (
               <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                className="bg-white p-7 flex flex-col hover:bg-gray-50 transition-colors duration-200 group">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-3xl font-medium text-yellow-500/30 leading-none group-hover:text-yellow-500 transition-colors duration-200">{m.n}</span>
-                  <div className="w-px h-8 bg-gray-200" />
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <m.icon className="w-4 h-4 text-black" />
+                className="bg-white rounded-3xl p-7 border border-gray-200 flex flex-col justify-between hover:shadow-xl transition-all duration-300 group">
+                <div>
+                  <div className="flex items-center gap-3 mb-5">
+                    <span className="text-3xl font-black text-yellow-500/40 group-hover:text-yellow-500 transition-colors">{m.n}</span>
+                    <div className="w-px h-8 bg-gray-200" />
+                    <div className="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center text-yellow-400 shrink-0">
+                      <m.icon className="w-5 h-5" />
+                    </div>
                   </div>
+                  <h3 className="font-extrabold text-slate-900 text-lg mb-4">{m.title}</h3>
+                  <ul className="space-y-2.5 mb-6">
+                    {m.pts.map((pt, j) => (
+                      <li key={j} className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed font-medium">
+                        <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-1.5 shrink-0" />
+                        <span>{pt}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <h3 className="font-bold text-black text-sm mb-4 leading-snug">{m.title}</h3>
-                <ul className="space-y-2 flex-1">
-                  {m.pts.map((pt, j) => (
-                    <li key={j} className="flex items-start gap-2 text-xs text-gray-500 leading-snug">
-                      <div className="w-1 h-1 bg-yellow-500 mt-1.5 shrink-0" />{pt}
-                    </li>
-                  ))}
-                </ul>
+                <div className="pt-4 border-t border-gray-100 text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                  Mode Option #{m.n}
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── STUDENT REVIEWS ──────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-gray-50">
+      {/* ── 09. ABOUT THE MENTOR ────────────────────────────────────── */}
+      <section id="about-mentor" className="py-16 md:py-24 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex items-end justify-between mb-8 gap-4">
-            <div>
-              <Label>Testimonials</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-                Student <span className="accent-text italic">Reviews</span>
-              </h2>
-            </div>
-            <div className="flex items-center gap-4 shrink-0">
-              <span className="text-gray-400 text-sm font-medium hidden sm:block">
-                {vidSlide + 1}–{Math.min(vidSlide + 3, reviewVideos.length)} of {reviewVideos.length}
-              </span>
-              <div className="flex gap-2">
-                <button
-                  onClick={() => setVidSlide(p => Math.max(0, p - 1))}
-                  disabled={vidSlide === 0}
-                  className="p-3 border-2 border-black hover:bg-black group transition-all disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Prev">
-                  <ChevronLeft size={18} className="text-black group-hover:text-white" />
-                </button>
-                <button
-                  onClick={() => setVidSlide(p => Math.min(reviewVideos.length - 3, p + 1))}
-                  disabled={vidSlide >= reviewVideos.length - 3}
-                  className="p-3 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 group transition-all disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Next">
-                  <ChevronRight size={18} className="text-white group-hover:text-black" />
-                </button>
-              </div>
-            </div>
-          </motion.div>
-
-          {/* 3-up carousel */}
-          <motion.div {...fin} className="overflow-hidden">
-            <div
-              className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ transform: `translateX(-${vidSlide * (100 / 3)}%)` }}
-            >
-              {reviewVideos.map((src, i) => (
-                <div key={i} className="shrink-0 px-2" style={{ width: '33.333%' }}>
-                  <div className="relative bg-black overflow-hidden aspect-video shadow-[0_4px_20px_-4px_rgba(0,0,0,0.2)]">
-                    <div className="absolute top-0 left-0 right-0 h-0.5 bg-yellow-500 z-10" />
-                    <iframe
-                      src={src}
-                      className="absolute inset-0 w-full h-full"
-                      title={`Review ${i + 1}`}
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      allowFullScreen
-                    />
-                  </div>
-                  <div className="mt-2 px-1 flex items-center gap-2">
-                    <div className="w-1 h-4 bg-yellow-500 shrink-0" />
-                    <span className="text-gray-500 text-xs font-medium">Student Review {i + 1}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Dot indicators */}
-          <div className="flex gap-1.5 mt-6 justify-center">
-            {Array.from({ length: reviewVideos.length - 2 }).map((_, i) => (
-              <button key={i} onClick={() => setVidSlide(i)}
-                className={`transition-all duration-300 h-1 rounded-full ${vidSlide === i ? 'w-6 bg-yellow-500' : 'w-1.5 bg-gray-300'}`} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FOUNDER ──────────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row gap-10 lg:gap-16 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="w-full lg:w-5/12 relative">
-              <div className="aspect-[4/5] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Image */}
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="lg:col-span-5 relative">
+              <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border border-gray-200 relative">
                 <img src="https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg"
-                  alt="Mr. Sandeep Pingale" className="w-full h-full object-cover object-top" />
+                  alt="Mr. Sandeep Pingale" className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-slate-900/90 px-6 py-4 grid grid-cols-3 divide-x divide-white/20">
-                {[['20+', 'Years'], ['1000+', 'Projects'], ['500+', 'Students']].map(([v, l]) => (
-                  <div key={l} className="text-center px-3">
-                    <div className="text-lg font-medium text-yellow-500">{v}</div>
-                    <div className="text-white/40 text-[10px] uppercase tracking-widest">{l}</div>
+              <div className="absolute bottom-4 left-4 right-4 bg-slate-900/90 backdrop-blur-md rounded-2xl p-4 grid grid-cols-3 divide-x divide-white/20 text-white shadow-lg">
+                {[
+                  ['20+', 'Years Exp'],
+                  ['1000+', 'Projects'],
+                  ['500+', 'Mentored'],
+                ].map(([v, l]) => (
+                  <div key={l} className="text-center px-2">
+                    <div className="text-lg font-black text-yellow-400">{v}</div>
+                    <div className="text-gray-400 text-[10px] uppercase font-bold tracking-wider">{l}</div>
                   </div>
                 ))}
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}
-              className="w-full lg:w-7/12">
-              <Label>Our Leadership</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight mb-2">
-                Meet Our <span className="accent-text italic">Founder</span>
+
+            {/* Bio Content */}
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+              className="lg:col-span-7">
+              <Label>09 · Expert Mentorship</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight mb-2">
+                About the <span className="text-yellow-600 italic font-serif">Mentor</span>
               </h2>
-              <div className="flex items-center gap-3 mb-5">
-                <div className="w-8 h-0.5 bg-yellow-500" />
-                <span className="text-gray-500 font-semibold text-base">Mr. Sandeep Pingale</span>
-              </div>
-              <p className="text-gray-500 text-base leading-relaxed mb-8">
-                With over two decades of experience in structural engineering, Mr. Pingale has shaped the future of engineering education. His vision of practical, hands-on learning has helped thousands of students transition into successful careers.
+              <h3 className="text-2xl font-bold text-gray-700 mb-6 border-l-4 border-yellow-500 pl-4">Mr. Sandeep Pingale</h3>
+              
+              <p className="text-gray-600 text-base leading-relaxed mb-8">
+                With over two decades of experience in civil engineering, project management, and BIM technology, Mr. Sandeep Pingale has guided over 1,000+ professionals into successful careers across India, UAE, and international markets.
               </p>
-              <div className="grid grid-cols-2 gap-3 mb-8">
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
                 {[
-                  { icon: GraduationCap, t: 'Industry Expert', d: '20+ years in structural engineering and BIM' },
-                  { icon: TrendingUp, t: 'Proven Results', d: '1000+ students placed in top firms' },
-                  { icon: Globe, t: 'Global Reach', d: 'Placements in India, UAE, and abroad' },
-                  { icon: Award, t: 'Certified Trainer', d: 'Industry-recognized training methodology' },
+                  { icon: GraduationCap, t: 'Industry Veteran', d: '20+ years leading BIM & Project Management implementations' },
+                  { icon: TrendingUp, t: 'Proven Placements', d: 'Over 1,000+ BIM professionals placed globally' },
+                  { icon: Globe, t: 'Global Reach', d: 'Direct corporate ties in India, UAE, Oman & international consultancies' },
+                  { icon: Award, t: 'Practical Pedagogy', d: 'Focus on 4D BIM, Primavera P6 scheduling, and Navisworks clash detection' },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-3 p-4 border border-gray-100 hover:border-yellow-300 transition-colors duration-200">
-                    <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                      <item.icon className="w-4 h-4 text-black" />
+                  <div key={i} className="flex gap-3 p-4 rounded-xl border border-gray-100 bg-slate-50">
+                    <div className="w-9 h-9 bg-yellow-500 rounded-lg flex items-center justify-center shrink-0 text-slate-900">
+                      <item.icon className="w-5 h-5" />
                     </div>
                     <div>
-                      <p className="font-bold text-black text-sm">{item.t}</p>
-                      <p className="text-gray-400 text-xs leading-snug mt-0.5">{item.d}</p>
+                      <p className="font-bold text-slate-900 text-sm">{item.t}</p>
+                      <p className="text-gray-500 text-xs leading-relaxed mt-0.5">{item.d}</p>
                     </div>
                   </div>
                 ))}
               </div>
-              <Btn href="/about">Read More</Btn>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ── PROGRAM TABLE ────────────────────────────────────────── */}
-      <section className="py-10 bg-gray-50">
+      {/* ── 10. ONE-TO-ONE MEETING & MENTORSHIP ─────────────────────── */}
+      <section id="mentorship" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="overflow-hidden shadow-[0_8px_40px_-10px_rgba(0,0,0,0.15)]">
-            <div className="h-0.5 bg-yellow-500" />
-            <img src="/msb/table.webp" alt="Program Details Table" className="w-full h-auto object-contain bg-white" />
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── ORANGE MSB TRAINING POSTER ────────────────────────────── */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 flex justify-center">
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
-            <img src="/assets/msb_poster_orange.jpeg" alt="Master Study in Project Management with BIM Technology Training Poster" className="w-full h-auto object-contain rounded-2xl" loading="lazy" />
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* ── IMPACT VIDEO ─────────────────────────────────────────── */}
-      <section className="bg-slate-900 py-10 md:py-14">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-
-          {/* Header row */}
-          <motion.div {...fin} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8">
-            <div>
-              <Label>Our Story</Label>
-              <h2 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
-                See the <span className="accent-text italic">Impact</span> We Create
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            {/* Left Content Card */}
+            <div className="lg:col-span-7 bg-white rounded-3xl shadow-lg border border-gray-200 p-8 md:p-12 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-2 h-full bg-yellow-500" />
+              
+              <Label>10 · Personalized Guidance</Label>
+              <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
+                One-to-One Meeting & <span className="text-yellow-600 italic font-serif">Mentorship</span>
               </h2>
-            </div>
-            <Btn href="#enrollment">Apply Now — April 2026</Btn>
-          </motion.div>
-
-          {/* Content row — facts left, video right */}
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-10 items-start">
-
-            {/* Facts table — fills naturally */}
-            <motion.div {...fin} className="flex-1 min-w-0">
-              <p className="text-white/40 text-sm leading-relaxed mb-5">
-                Real graduates. Real projects. Real careers built at Econstruct.
+              
+              <p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed mb-8">
+                Every civil engineer's career journey is unique. Schedule a 1-on-1 session to address career gaps, salary expectations, and build a tailored BIM career roadmap.
               </p>
-              <div className="border-t border-white/10">
+              
+              <div className="space-y-4 mb-8">
                 {[
-                  ['Program Duration', '7–12 Months'],
-                  ['Next Batch', '15th April 2026'],
-                  ['Learning Mode', 'Online / Offline / Hybrid'],
-                  ['Job Placement', '100% Placement Guarantee'],
-                  ['Alumni Network', '1000+ Graduates'],
-                  ['Hiring Partners', '50+ Companies'],
-                  ['Software Tools', 'AutoCAD, REVIT, Synchro, Navisworks + more'],
-                  ['Certification', 'Industry-Recognized + Experience Letter'],
-                ].map(([l, v]) => (
-                  <div key={l} className="flex items-start justify-between gap-4 py-3 border-b border-white/10">
-                    <span className="text-white/30 text-xs uppercase tracking-widest shrink-0">{l}</span>
-                    <span className="text-white font-semibold text-sm text-right">{v}</span>
+                  'Discuss your current career situation & salary progression goals',
+                  'Identify skill gaps in REVIT, Navisworks, Primavera P6 & 4D BIM',
+                  'Build a personalized roadmap for corporate technical placement'
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
+                    <span className="text-slate-800 font-bold text-sm md:text-base">{item}</span>
                   </div>
                 ))}
               </div>
-            </motion.div>
 
-            {/* Video — fixed height, natural width from aspect ratio */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="shrink-0"
-            >
-              <div className="relative bg-black overflow-hidden shadow-[0_12px_40px_-8px_rgba(0,0,0,0.5)]"
-                style={{ height: '460px', aspectRatio: '9/16' }}>
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-yellow-500 z-10" />
-                <iframe
-                  src="https://www.youtube.com/embed/LQhaTP3iyGc?si=x06qRKFvAgAifK6F"
-                  title="Our Impact Video"
+              <div className="bg-slate-50 p-6 rounded-2xl border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-8">
+                <div>
+                  <h4 className="font-black text-slate-900 mb-1 text-lg">Schedule Your Session</h4>
+                  <p className="text-gray-500 font-bold text-xs">Mon–Fri · 10 AM to 7 PM</p>
+                </div>
+                <Btn href="https://wa.me/919036744017">Book Now!</Btn>
+              </div>
+
+              <div className="flex flex-col sm:flex-row gap-6 pt-4 border-t border-gray-100 text-xs">
+                <div>
+                  <span className="font-bold text-gray-400 uppercase tracking-wider block mb-2">WhatsApp Consultation:</span>
+                  <div className="flex flex-wrap gap-4">
+                    <a href="https://wa.me/919036744017" target="_blank" rel="noreferrer" className="text-slate-900 font-bold hover:text-yellow-600 transition flex items-center gap-1.5">
+                      💬 +91 90367 44017
+                    </a>
+                    <a href="https://wa.me/917259222888" target="_blank" rel="noreferrer" className="text-slate-900 font-bold hover:text-yellow-600 transition flex items-center gap-1.5">
+                      💬 +91 72592 22888
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Graphic / Image Container */}
+            <div className="lg:col-span-5 rounded-3xl overflow-hidden shadow-xl bg-white border border-gray-200 p-4">
+              <img src="/msb/career_discussion.png" alt="1-on-1 Mentorship Discussion" className="w-full h-auto object-contain rounded-2xl" />
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
+      <section id="student-feedback" className="py-16 md:py-24 bg-slate-950 text-white border-b border-slate-800">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div>
+              <Label>11 · Alumni Feedback</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+                Student Feedback & <span className="text-yellow-400 italic font-serif">Experience Videos</span>
+              </h2>
+              <p className="text-gray-400 text-base max-w-xl mt-2 leading-relaxed">
+                Hear directly from our Master Study alumni placed in top BIM & project management firms across India, UAE, and Muscat.
+              </p>
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="flex items-center gap-4 shrink-0">
+              <span className="text-gray-400 text-sm font-semibold hidden sm:block">
+                {currentVidSlide + 1} of {studentReviews.length}
+              </span>
+              <div className="flex gap-2">
+                <button onClick={() => setCurrentVidSlide(prev => (prev === 0 ? studentReviews.length - 1 : prev - 1))}
+                  className="w-11 h-11 rounded-full border border-white/20 bg-slate-800 text-white hover:bg-yellow-500 hover:text-black flex items-center justify-center transition-all"
+                  aria-label="Previous Review">
+                  <ChevronLeft size={20} />
+                </button>
+                <button onClick={() => setCurrentVidSlide(prev => (prev === studentReviews.length - 1 ? 0 : prev + 1))}
+                  className="w-11 h-11 rounded-full border border-yellow-500 bg-yellow-500 text-slate-950 hover:bg-yellow-400 flex items-center justify-center transition-all"
+                  aria-label="Next Review">
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* Testimonials Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[0, 1, 2].map((offset) => {
+              const reviewIndex = (currentVidSlide + offset) % studentReviews.length;
+              const review = studentReviews[reviewIndex];
+              return (
+                <motion.div key={review.id} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: offset * 0.1 }}
+                  className="bg-slate-900 border border-white/10 rounded-3xl overflow-hidden flex flex-col justify-between hover:border-yellow-500/50 transition-all duration-300 group">
+                  
+                  {/* Video Thumbnail */}
+                  <div className="relative aspect-video bg-black cursor-pointer overflow-hidden" onClick={() => setActiveModalVideo(review)}>
+                    <img src={`https://img.youtube.com/vi/${review.videoId}/hqdefault.jpg`} alt={review.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 brightness-90" />
+                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-yellow-500 text-black flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                        <Play size={20} className="ml-1 fill-black" />
+                      </div>
+                    </div>
+                    <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-yellow-400 text-[10px] font-bold px-2.5 py-1 rounded-full border border-white/10 flex items-center gap-1">
+                      <Video size={10} /> Video Review
+                    </div>
+                  </div>
+
+                  {/* Card Content */}
+                  <div className="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                      <div className="flex items-center gap-1 text-yellow-400 mb-3">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <Star key={i} size={14} className="fill-yellow-400" />
+                        ))}
+                      </div>
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed italic mb-6">
+                        "{review.quote}"
+                      </p>
+                    </div>
+
+                    <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                      <div>
+                        <h4 className="font-bold text-white text-sm">{review.name}</h4>
+                        <p className="text-yellow-400 text-xs">{review.role}</p>
+                      </div>
+                      <button onClick={() => setActiveModalVideo(review)}
+                        className="px-3 py-1 rounded border border-yellow-500/30 text-yellow-400 text-xs font-bold hover:bg-yellow-500 hover:text-black transition">
+                        Watch
+                      </button>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Video Testimonial Modal */}
+      {activeModalVideo && (
+        <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4" onClick={() => setActiveModalVideo(null)}>
+          <div className="relative w-full max-w-4xl bg-slate-900 rounded-3xl overflow-hidden shadow-2xl border border-white/10" onClick={e => e.stopPropagation()}>
+            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-800">
+              <div>
+                <h3 className="text-white font-bold text-base flex items-center gap-2">
+                  <span>{activeModalVideo.name}</span>
+                  <span className="text-yellow-400 text-xs px-2 py-0.5 rounded bg-yellow-500/10 border border-yellow-500/30">
+                    {activeModalVideo.company}
+                  </span>
+                </h3>
+              </div>
+              <button onClick={() => setActiveModalVideo(null)} className="w-8 h-8 rounded-full bg-white/10 text-white flex items-center justify-center hover:bg-yellow-500 hover:text-black transition">
+                <X size={18} />
+              </button>
+            </div>
+            <div className="relative aspect-video bg-black">
+              <iframe
+                src={`https://www.youtube.com/embed/${activeModalVideo.videoId}?autoplay=1`}
+                title={`${activeModalVideo.name} Student Review`}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* ── 12. LIVE PROJECTS, IMPACT & PRACTICAL EXPOSURE ──────────── */}
+      <section id="live-projects" className="py-16 md:py-24 bg-slate-900 text-white border-b border-slate-800">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="mb-10">
+            <Label>12 · Practical Exposure & Impact</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
+              Live Projects & <span className="text-yellow-400 italic font-serif">Impact Video</span>
+            </h2>
+            <p className="text-gray-400 text-base max-w-xl mt-2">
+              Explore live BIM project competitions and watch how our hands-on training transforms engineering careers.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-12">
+            {/* Left: Competition Playlist */}
+            <div className="lg:col-span-7 bg-slate-800 rounded-3xl p-6 border border-slate-700 flex flex-col justify-between">
+              <div className="rounded-2xl overflow-hidden bg-black aspect-video relative mb-4">
+                <iframe 
+                  src={competitionVideos[activePlaylistItem].src}
                   className="absolute inset-0 w-full h-full"
+                  title={competitionVideos[activePlaylistItem].title}
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen
                 />
               </div>
-            </motion.div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── ENROLLMENT + PAYMENT ─────────────────────────────────── */}
-      <section id="enrollment" className="py-14 md:py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="text-center mb-10">
-            <Label>Get Started</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-              Enrollment <span className="accent-text italic">Process</span>
-            </h2>
-          </motion.div>
-
-          {/* 3 steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-gray-100 mb-10">
-            {[
-              { n: '01', t: 'Initial Registration', d: 'Fill out the application form and submit your details.' },
-              { n: '02', t: 'Document Submission', d: 'Submit your academic and identity documents for verification.' },
-              { n: '03', t: 'Payment & Onboarding', d: 'Complete payment and receive your onboarding kit.' },
-            ].map((s, i) => (
-              <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                className="bg-white p-7 hover:bg-yellow-50 transition-colors duration-200 group">
-                <span className="text-5xl font-medium text-yellow-500/20 leading-none block mb-3 group-hover:text-yellow-500/40 transition-colors duration-200">{s.n}</span>
-                <h4 className="font-bold text-black text-base mb-1">{s.t}</h4>
-                <p className="text-gray-400 text-sm">{s.d}</p>
-              </motion.div>
-            ))}
-          </div>
-
-          {/* Payment + Info */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-            {/* Payment */}
-            <motion.div {...fin} className="bg-slate-800 p-7 md:p-9 text-white">
-              <h3 className="text-xl font-medium mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 bg-yellow-500 flex items-center justify-center text-black font-black text-base">₹</span>
-                Make Payment
-              </h3>
-              <div className="border border-white/10 p-5 mb-6 space-y-3">
-                <p className="text-yellow-500 font-bold text-xs uppercase tracking-widest border-b border-white/10 pb-3 mb-3">Primary Account — HDFC Bank</p>
-                {[['Account Number','50200000209630'],['Account Name','ECONSTRUCT DESIGN & BUILD PVT LTD.'],['IFSC Code','HDFC0009196'],['SWIFT Code','HDFCINBBNG'],['Branch','Harlur Road, Bangalore']].map(([k,v]) => (
-                  <div key={k} className="flex flex-col sm:flex-row sm:justify-between gap-1 border-b border-white/5 pb-2.5 last:border-0 last:pb-0">
-                    <span className="text-white/40 text-xs">{k}</span>
-                    <span className="font-semibold text-sm">{v}</span>
-                  </div>
-                ))}
-              </div>
-              <p className="text-white/30 text-xs mb-2">Share payment screenshot to:</p>
-              <div className="flex flex-wrap gap-2 mb-5">
-                {['+91 9036744017','+91 7259222888','+91 7259921111'].map(n => (
-                  <span key={n} className="border border-white/10 text-white text-xs font-semibold py-1.5 px-3 flex items-center gap-1.5">
-                    <Phone className="w-3 h-3" />{n}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-700">
+                  <span className="font-bold text-xs text-yellow-400 flex items-center gap-2">
+                    <Video className="w-4 h-4" /> Competition Playlist
                   </span>
-                ))}
-              </div>
-              <div className="border-t border-white/10 pt-5">
-                <p className="text-white/30 text-xs uppercase tracking-widest mb-2">Payment Methods</p>
-                <div className="flex gap-2">
-                  {['NEFT','IMPS','RTGS','UPI'].map(m => (
-                    <span key={m} className={`px-3 py-1 text-xs font-bold ${m === 'UPI' ? 'bg-yellow-500 text-black' : 'border border-white/10 text-white'}`}>{m}</span>
+                  <span className="text-[11px] text-gray-400">{activePlaylistItem + 1} / {competitionVideos.length}</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mt-2">
+                  {competitionVideos.map((video, idx) => (
+                    <button 
+                      key={idx}
+                      onClick={() => setActivePlaylistItem(idx)}
+                      className={`text-left p-3 rounded-xl transition-all flex items-start gap-2 ${
+                        activePlaylistItem === idx 
+                          ? 'bg-yellow-500 text-slate-950 font-bold shadow-md' 
+                          : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
+                      }`}
+                    >
+                      <span className="text-xs font-mono font-bold mt-0.5">{idx + 1}</span>
+                      <div className="overflow-hidden">
+                        <h4 className="text-xs line-clamp-1">{video.title}</h4>
+                        <p className={`text-[10px] mt-0.5 ${activePlaylistItem === idx ? 'text-slate-800' : 'text-gray-400'}`}>{video.dur}</p>
+                      </div>
+                    </button>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
 
-            {/* Info */}
-            <motion.div {...fin} className="flex flex-col gap-4">
-              <div className="border-l-4 border-yellow-500 bg-yellow-50 p-5">
-                <div className="flex items-center gap-2 mb-1">
-                  <Zap className="w-4 h-4 text-yellow-600" />
-                  <p className="font-bold text-black text-sm">Important Notice</p>
-                </div>
-                <p className="text-gray-600 text-sm">Take admission <strong>at least 2 months before</strong> the batch starting date to secure your seat.</p>
-              </div>
-              <div className="grid grid-cols-2 gap-px bg-gray-100">
-                {['Priority Access','Pre-Batch Preparation','Limited Seats','Smooth Onboarding'].map(item => (
-                  <div key={item} className="bg-white p-4 flex items-center gap-2 hover:bg-gray-50 transition-colors duration-200">
-                    <div className="w-4 h-4 bg-yellow-500 flex items-center justify-center shrink-0">
-                      <CheckCircle className="w-2.5 h-2.5 text-black" />
+            {/* Right: Impact Story & Facts */}
+            <div className="lg:col-span-5 bg-slate-800 rounded-3xl p-6 border border-slate-700 flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-xl font-bold text-white mb-2">See the Impact We Create</h3>
+                <p className="text-gray-400 text-xs mb-4">Real graduates. Real project simulation. Real career transformations.</p>
+                
+                <div className="space-y-2.5 border-t border-slate-700 pt-4 text-xs">
+                  {[
+                    ['Program Duration', '7–12 Months'],
+                    ['Next Batch', '15th April 2026'],
+                    ['Learning Mode', 'Online / Offline / Hybrid'],
+                    ['Job Placement', '100% Placement Guarantee'],
+                    ['Software Stack', 'AutoCAD, REVIT, Synchro, Navisworks, Primavera P6'],
+                    ['Certification', 'Industry Certificate + Experience Letter'],
+                  ].map(([l, v]) => (
+                    <div key={l} className="flex justify-between items-center border-b border-slate-700/50 pb-2">
+                      <span className="text-gray-400 font-medium">{l}:</span>
+                      <span className="text-yellow-400 font-bold">{v}</span>
                     </div>
-                    <span className="font-semibold text-black text-xs">{item}</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-              <div className="bg-slate-900 text-white p-7 flex-1 border-l-4 border-yellow-500">
-                <h3 className="text-lg font-medium mb-2">This is not just a training program.</h3>
-                <p className="text-yellow-500 font-bold mb-3">This is ON-THE-JOB Learning.</p>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5">Step out of the classroom and into a real corporate environment from day one.</p>
-                <Btn href="#overview">Welcome Aboard</Btn>
+
+              <div className="mt-6 pt-4 border-t border-slate-700">
+                <Btn href="#apply-now" className="w-full">Apply Now — April 2026</Btn>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── PRICING ──────────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-gray-50">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex flex-col lg:flex-row overflow-hidden shadow-[0_8px_40px_-10px_rgba(0,0,0,0.15)]">
-            <div className="p-8 md:p-12 lg:w-3/5 flex flex-col justify-center bg-white border border-gray-100">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-yellow-50 text-yellow-700 font-bold text-xs uppercase tracking-wider border border-yellow-200 mb-5 max-w-max">
-                <span className="w-1.5 h-1.5 bg-yellow-500 rounded-full" /> 100% Placement Program
-              </div>
-              <h2 className="text-2xl md:text-3xl font-medium text-black mb-2 tracking-tight">
-                BIM &amp; Project Management <span className="accent-text italic">Redefined</span>
-              </h2>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-8 h-0.5 bg-yellow-500" />
-                <p className="text-gray-400 text-sm">Complete Master Study in Project Management with BIM Technology</p>
-              </div>
-              <ul className="space-y-2.5 mb-6">
-                {['Live project experience from CLP to GFC','12 Month Experience Letter','AutoCAD · REVIT Architecture · REVIT Structures · REVIT MEP · Synchro · Navisworks · Infraworks · Primavera','Digital Library — 1000+ Technical Books','100% Placement Guarantee','World-class CRM system'].map(item => (
-                  <li key={item} className="flex items-start gap-2.5">
-                    <div className="w-4 h-4 bg-yellow-500 flex items-center justify-center shrink-0 mt-0.5">
-                      <CheckCircle className="w-2.5 h-2.5 text-black" />
-                    </div>
-                    <span className="text-gray-600 text-sm">{item}</span>
-                  </li>
-                ))}
-              </ul>
-              <p className="text-red-500 text-xs italic">* Fee is non-refundable &amp; non-transferable under any circumstance.</p>
-            </div>
-            <div className="bg-slate-900 text-white lg:w-2/5 p-8 md:p-12 flex flex-col justify-center border-l-4 border-yellow-500">
-              <p className="text-white/30 font-bold uppercase tracking-widest text-xs mb-3">Master Study Program</p>
-              <div className="flex items-baseline gap-1 mb-1">
-                <span className="text-xl font-medium text-yellow-500">₹</span>
-                <span className="text-5xl font-medium text-white tracking-tight">2,10,000</span>
-              </div>
-              <p className="text-white/30 text-sm mb-1">AED 9,000 · US$ 2,510</p>
-              <p className="text-white/20 text-xs mb-8">(₹1,77,967 + 18% GST)</p>
-              <Btn href="#enrollment">Take Admission Now</Btn>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* ── RELATED PROGRAMS ─────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-white">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10">
-            <Label>Also Explore</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-              Related <span className="accent-text italic">Programs</span>
+      {/* ── 13. FAQ ─────────────────────────────────────────────────── */}
+      <section id="faq" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
+        <div className="max-w-[1000px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="text-center mb-12">
+            <Label>13 · Got Questions?</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Frequently Asked <span className="text-yellow-600 italic font-serif">Questions</span>
             </h2>
+            <p className="text-gray-600 text-base max-w-xl mx-auto mt-2">
+              Everything you need to know about the Master Study in Project Management with BIM Technology.
+            </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {[
-              { img: '/prj4.webp', tag: 'ON-JOB Learning', title: 'Master Study In Structural Engineering', desc: 'Experience from CLP to GFC. Work on RCC, STEEL, Composite Structures.' },
-              { img: '/prj1.jpg', tag: 'Structures, BIM & PM', title: 'Techno-Management Entrepreneurship Training', desc: 'For aspiring professionals looking to excel and lead in construction.' },
-              { img: '/prj6.jpg', tag: 'With Project Management', title: 'Master Study In Interior Designing', desc: 'ON-JOB Learning Program for passionate interior designers.' },
-            ].map((card, i) => (
-              <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                className="group overflow-hidden border border-gray-100 hover:border-yellow-300 transition-colors duration-300">
-                <div className="h-48 overflow-hidden">
-                  <img src={card.img} alt={card.title}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
-                </div>
-                <div className="p-5">
-                  <span className="text-yellow-600 font-bold text-xs uppercase tracking-widest">{card.tag}</span>
-                  <h3 className="font-bold text-black text-base mt-1 mb-2 leading-snug">{card.title}</h3>
-                  <p className="text-gray-400 text-sm leading-relaxed mb-4">{card.desc}</p>
-                  <button className="flex items-center gap-1.5 text-black font-bold text-xs uppercase tracking-widest group/btn">
-                    Learn More <ArrowRight size={14} className="text-yellow-600 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              </motion.div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <div key={idx} className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                <button
+                  onClick={() => setOpenFaq(openFaq === idx ? null : idx)}
+                  className="w-full text-left p-6 flex items-center justify-between gap-4 font-bold text-slate-900 text-base md:text-lg hover:text-yellow-600 transition"
+                >
+                  <span>{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-gray-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180 text-yellow-600' : ''}`} />
+                </button>
+                {openFaq === idx && (
+                  <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 whitespace-pre-line">
+                    {faq.a}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── COMPETITION PLAYLIST ─────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-slate-900">
+      {/* ── 14. ENROLLMENT / ENROLL NOW ─────────────────────────────── */}
+      <section id="enrollment" className="py-16 md:py-24 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-8">
-            <Label>Live Competition</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
-              Live Project <span className="accent-text italic">Competition</span>
+          <motion.div {...fin} className="text-center mb-14">
+            <Label>14 · Step-by-Step Admission</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              Enrollment <span className="text-yellow-600 italic font-serif">Process</span>
             </h2>
-            <p className="text-white/40 text-sm mt-2">Between Master Study Trainees at Econstruct</p>
+            <p className="text-gray-600 text-base max-w-lg mx-auto mt-2">
+              Follow 3 simple steps to register and reserve your seat for the upcoming batch.
+            </p>
           </motion.div>
-          <motion.div {...fin} className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10">
-            <div className="lg:col-span-2 bg-slate-900 overflow-hidden aspect-video relative">
-              <iframe src={playlist[activeVid].src} className="absolute inset-0 w-full h-full"
-                title={playlist[activeVid].title} frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            </div>
-            <div className="bg-slate-800 flex flex-col max-h-[300px] lg:max-h-none overflow-y-auto">
-              <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/10 sticky top-0 bg-slate-800 z-10">
-                <Video className="w-4 h-4 text-yellow-500" />
-                <span className="font-bold text-white text-sm">Playlist</span>
-                <span className="ml-auto text-white/30 text-xs">{activeVid + 1}/{playlist.length}</span>
-              </div>
-              {playlist.map((v, i) => (
-                <button key={i} onClick={() => setActiveVid(i)}
-                  className={`text-left px-5 py-4 flex items-start gap-3 border-b border-white/5 transition-colors duration-200 ${activeVid === i ? 'bg-yellow-500' : 'hover:bg-white/5'}`}>
-                  <span className={`font-bold font-mono text-xs mt-0.5 shrink-0 ${activeVid === i ? 'text-black' : 'text-white/30'}`}>0{i + 1}</span>
-                  <div>
-                    <p className={`font-semibold text-sm line-clamp-2 ${activeVid === i ? 'text-black' : 'text-white'}`}>{v.title}</p>
-                    <p className={`text-xs mt-0.5 ${activeVid === i ? 'text-black/60' : 'text-white/30'}`}>{v.dur}</p>
+
+          {/* 3 Step Boxes */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14">
+            {[
+              { step: '01', title: 'Initial Registration', desc: 'Fill out the online application form and register your civil / BIM engineering details.' },
+              { step: '02', title: 'Document Submission', desc: 'Submit academic mark sheets, degree/diploma certificates, and photo ID for verification.' },
+              { step: '03', title: 'Payment & Onboarding', desc: 'Complete course fee payment and receive your LMS access credentials and onboarding kit.' },
+            ].map((s, i) => (
+              <div key={i} className="bg-slate-50 p-8 rounded-3xl border border-gray-200 hover:border-yellow-500/50 hover:shadow-lg transition-all duration-300 flex flex-col justify-between">
+                <div>
+                  <div className="w-12 h-12 bg-yellow-500 text-slate-950 rounded-2xl flex items-center justify-center font-black text-lg mb-6 shadow-sm">
+                    {s.step}
                   </div>
-                </button>
-              ))}
+                  <h3 className="text-xl font-bold text-slate-900 mb-2">{s.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Payment Card & Bank Details */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+            
+            {/* Account Card */}
+            <div className="lg:col-span-7 bg-slate-900 text-white rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-xl relative overflow-hidden border border-slate-800">
+              <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
+              
+              <div>
+                <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
+                  <h3 className="text-2xl font-black text-white flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-yellow-500 text-slate-950 flex items-center justify-center font-black text-lg shadow">₹</div>
+                    Make Direct Bank Payment
+                  </h3>
+                  <span className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-xs font-bold px-3 py-1 rounded-full">
+                    HDFC Corporate Account
+                  </span>
+                </div>
+
+                <div className="bg-slate-800/80 border border-slate-700/80 rounded-2xl p-6 mb-6">
+                  <div className="text-yellow-400 font-extrabold text-xs uppercase tracking-widest border-b border-slate-700/80 pb-3 mb-4 flex justify-between items-center">
+                    <span>Primary Account · HDFC Bank</span>
+                    <span className="text-gray-400 normal-case font-normal text-xs">Branch: Harlur Road, Bangalore</span>
+                  </div>
+                  <div className="space-y-3.5">
+                    {[
+                      { label: 'Account Number', value: '50200000209630', key: 'account' },
+                      { label: 'Account Name', value: 'ECONSTRUCT DESIGN & BUILD PVT LTD.', key: 'name' },
+                      { label: 'IFSC Code', value: 'HDFC0009196', key: 'ifsc' },
+                      { label: 'SWIFT Code', value: 'HDFCINBBNG', key: 'swift' },
+                    ].map((item) => (
+                      <div key={item.key} className="flex justify-between items-center border-b border-slate-700/50 pb-2.5 last:border-0 text-xs md:text-sm">
+                        <div className="flex flex-col">
+                          <span className="text-gray-400 font-medium text-xs">{item.label}</span>
+                          <span className="font-bold text-white tracking-wide font-mono">{item.value}</span>
+                        </div>
+                        <button
+                          onClick={() => handleCopy(item.key, item.value)}
+                          className="bg-yellow-500/10 hover:bg-yellow-500 hover:text-slate-950 text-yellow-400 text-xs font-bold px-3 py-1.5 rounded-lg border border-yellow-500/30 transition-all flex items-center gap-1.5 shrink-0"
+                        >
+                          {copiedField === item.key ? (
+                            <>
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                              <span className="text-emerald-400 font-bold">Copied</span>
+                            </>
+                          ) : (
+                            <>
+                              <Copy className="w-3.5 h-3.5" />
+                              <span>Copy</span>
+                            </>
+                          )}
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="text-xs text-gray-400 mb-2 font-medium">Share payment confirmation screenshot to:</div>
+                <div className="flex flex-wrap gap-2.5 mb-6">
+                  {['+91 90367 44017', '+91 72592 22888', '+91 72599 21111'].map((num) => (
+                    <a
+                      key={num}
+                      href={`https://wa.me/${num.replace(/\D/g, '')}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-white/10 hover:bg-yellow-500 hover:text-slate-950 text-white font-bold text-xs py-2 px-3.5 rounded-xl border border-white/10 transition-all flex items-center gap-1.5"
+                    >
+                      <MessageCircle className="w-3.5 h-3.5 text-emerald-400" />
+                      <span>{num}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                <span className="text-gray-400">Accepted Payment Modes:</span>
+                <div className="flex gap-2">
+                  {['NEFT', 'IMPS', 'RTGS', 'UPI'].map((m) => (
+                    <span key={m} className="bg-white/10 text-yellow-400 font-bold px-2.5 py-1 rounded text-xs">
+                      {m}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
-          </motion.div>
+
+            {/* QR Code, Office Address & Notice Card */}
+            <div className="lg:col-span-5 flex flex-col gap-6 justify-between">
+              <div>
+                <div className="bg-amber-50 border-l-4 border-yellow-500 p-5 rounded-2xl border border-amber-200/80 shadow-sm mb-6">
+                  <div className="font-extrabold text-amber-950 text-sm flex items-center gap-2">
+                    <span>⚠️</span> Important Admission Notice
+                  </div>
+                  <p className="text-amber-900 text-xs mt-1 leading-relaxed">
+                    Please take admission <strong>at least 2 months prior</strong> to batch start date due to high candidate volume & seat limitations.
+                  </p>
+                </div>
+
+                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-all mb-6">
+                  <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto mb-5 bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-md flex items-center justify-center hover:scale-[1.02] transition-transform">
+                    <img src="/qr.webp" alt="Payment QR Code" className="w-full h-full object-contain" />
+                  </div>
+                  <h4 className="text-base sm:text-lg font-black text-slate-900 mb-1">Scan QR Code for Instant UPI Payment</h4>
+                  <p className="text-xs sm:text-sm text-gray-600 font-medium mb-3">Supports GPay, PhonePe, Paytm & BHIM UPI</p>
+                  <div className="inline-flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-800">
+                    <QrCode className="w-4 h-4 text-yellow-600" /> Official Corporate Merchant QR
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-6 rounded-3xl border border-gray-200 shadow-sm flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-900 text-yellow-400 flex items-center justify-center shrink-0 mt-0.5 shadow-sm">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="font-bold text-slate-900 text-xs block mb-1">Bangalore HQ Office:</span>
+                  <p className="text-gray-600 text-xs leading-relaxed">
+                    2nd Floor, Venkatdhari Heights, Parappana Agrahara Main Rd, opp. SAI POORNA PREMIER, Kudlu, Bengaluru 560068
+                  </p>
+                  <a
+                    href="https://maps.google.com/?q=Econstruct+Bangalore"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-yellow-600 hover:underline text-xs font-bold inline-flex items-center gap-1 mt-2"
+                  >
+                    View on Google Maps <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
         </div>
       </section>
 
-      {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-stone-50">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-            <motion.div {...fin} className="lg:w-2/5 shrink-0 lg:sticky lg:top-28 self-start">
-              <Label>FAQ</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight mb-4">
-                Frequently<br />Asked <span className="accent-text italic">Questions</span>
-              </h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">Common questions about the Master Study in Project Management with BIM Technology program.</p>
-              <Btn href="#enrollment">Still Have Questions?</Btn>
-            </motion.div>
-            <div className="flex-1 border-t border-gray-200">
-              {faqs.map((faq, i) => {
-                const open = openFaq === i;
-                return (
-                  <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.04}s` }} className="border-b border-gray-200">
-                    <button onClick={() => setOpenFaq(open ? null : i)}
-                      className="w-full py-5 text-left flex items-center justify-between gap-4 focus:outline-none group">
-                      <span className={`font-semibold text-sm md:text-base transition-colors duration-200 ${open ? 'text-yellow-600' : 'text-black group-hover:text-yellow-600'}`}>{faq.q}</span>
-                      <div className={`shrink-0 w-7 h-7 flex items-center justify-center transition-all duration-300 ${open ? 'bg-yellow-500 text-black rotate-180' : 'bg-gray-100 text-gray-400 group-hover:bg-yellow-500 group-hover:text-black'}`}>
-                        <ChevronDown size={16} />
-                      </div>
-                    </button>
-                    <div className={`overflow-hidden transition-all duration-400 ease-in-out ${open ? 'max-h-64 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      <p className="text-gray-500 text-sm leading-relaxed">{faq.a}</p>
-                    </div>
-                  </motion.div>
-                );
-              })}
+      {/* ── 15. APPLY NOW / PROGRAM FEES & PRICING CARD ─────────────── */}
+      <section id="apply-now" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="text-center mb-12">
+            <Label>15 · Program Admission & Fee</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              BIM & Project Management <span className="text-yellow-600 italic font-serif">100% Placement Program</span>
+            </h2>
+          </motion.div>
+
+          <div className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200 flex flex-col lg:flex-row">
+            {/* Benefits List */}
+            <div className="p-8 md:p-12 lg:w-2/3 flex flex-col justify-between">
+              <div>
+                <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
+                  Complete MSB Track
+                </span>
+                <h3 className="text-2xl font-black text-slate-900 mb-6">Course Inclusions & Perks</h3>
+                
+                <ul className="space-y-3.5 mb-8">
+                  {[
+                    "Live project experience on REVIT 3D BIM, Synchro 4D time simulation & Navisworks clash detection",
+                    "Official Work Experience Letter",
+                    "AutoCAD · REVIT Architecture · REVIT Structures · REVIT MEP · Synchro · Navisworks · Infraworks · Primavera P6",
+                    "40+ Customized Design Spreadsheets for estimation, BOQ & project control",
+                    "Full Digital Library — 1000+ Technical Books Access",
+                    "100% Placement Guarantee Support & CRM Access"
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
+                      <span className="text-slate-800 font-bold text-sm leading-relaxed">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <p className="text-red-500 text-xs font-semibold italic">* Fee is non-refundable & non-transferable under any circumstances.</p>
+            </div>
+
+            {/* Fee Card */}
+            <div className="bg-slate-950 text-white lg:w-1/3 p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl pointer-events-none" />
+              
+              <div>
+                <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">Master Study Program Fee</span>
+                <div className="flex items-baseline gap-1 mb-2">
+                  <span className="text-3xl font-bold text-yellow-400">₹</span>
+                  <span className="text-5xl font-black text-white tracking-tight">2,10,000</span>
+                </div>
+                <p className="text-gray-300 text-xs font-semibold mb-6">Equivalent: AED 9,000 or US$ 2,510</p>
+
+                <div className="bg-white/10 border border-white/20 p-3.5 rounded-xl mb-8 text-center text-xs text-gray-200">
+                  Base Fee: ₹ 1,77,967 + 18% GST
+                </div>
+              </div>
+
+              <a href="https://wa.me/919036744017" target="_blank" rel="noreferrer"
+                className="w-full bg-yellow-500 text-slate-950 font-black py-4 rounded-xl hover:bg-yellow-400 transition text-center uppercase tracking-widest text-xs shadow-lg block">
+                Take Admission Now
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── FINAL CTA ────────────────────────────────────────────── */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      {/* ── 16. READY TO TRANSFORM YOUR CAREER? ────────────────────── */}
+      <section id="final-cta" className="relative py-20 md:py-28 overflow-hidden bg-black text-white">
         <div className="absolute inset-0">
-          <img src="/prj6.jpg" alt="" className="w-full h-full object-cover brightness-[0.35] saturate-[0.6]" />
-          <div className="absolute inset-0 bg-slate-900/70" />
+          <img src="/prj6.jpg" alt="Final Banner Background" className="w-full h-full object-cover brightness-[0.3] saturate-[0.7]" />
+          <div className="absolute inset-0 bg-slate-950/85" />
         </div>
-        <div className="absolute top-0 left-0 w-full h-0.5 bg-yellow-500" />
+        <div className="absolute top-0 left-0 w-full h-1 bg-yellow-500" />
+
         <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-10">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="lg:max-w-xl">
               <div className="flex items-center gap-2 mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-                <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">Limited Seats Available</span>
+                <span className="w-2 h-2 rounded-full bg-yellow-500" />
+                <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">16 · Final Step</span>
               </div>
               <h2 className="font-medium text-white tracking-tight leading-tight mb-4"
-                style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
-                Ready to Transform<br /><span className="accent-text italic">Your Career?</span>
+                style={{ fontSize: 'clamp(2.2rem, 5vw, 4rem)' }}>
+                Ready to Transform<br /><span className="text-yellow-500 italic font-serif">Your Career?</span>
               </h2>
-              <p className="text-gray-400 text-base leading-relaxed">
-                Join 1,000+ graduates who have already built successful careers through our on-job learning program.
+              <p className="text-gray-300 text-base leading-relaxed">
+                Join 900+ BIM and project management engineers who have successfully launched high-growth careers in top consultancies.
               </p>
             </motion.div>
+
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="flex flex-col items-center lg:items-end gap-5 shrink-0">
-              <Btn href="#enrollment">Apply Now — April 2026</Btn>
+              <Btn href="https://wa.me/919036744017">Apply Now — April 2026 Batch</Btn>
               <div className="flex gap-6">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
-                    className="flex items-center gap-1.5 text-white/40 text-xs font-semibold hover:text-white transition-colors">
+                    className="flex items-center gap-2 text-gray-400 text-xs font-semibold hover:text-yellow-400 transition">
                     <Phone className="w-3.5 h-3.5" />{n}
                   </a>
                 ))}
