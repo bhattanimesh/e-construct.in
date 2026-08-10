@@ -249,6 +249,39 @@ const BimHubMSB = () => {
     setTimeout(() => setCopiedField(null), 2500);
   };
 
+  // Real Live Student Portfolio Documents
+  const portfolioPdfs = [
+    {
+      id: 'pdf-1',
+      title: 'Luxury Villa Project Management & BIM Portfolio (Part 1)',
+      desc: 'Complete architectural REVIT modeling, GFC drawings, and structural quantity estimation report created by trainees.',
+      pdfUrl: '/pdfs/Luxury-Villa-2.pdf',
+      badge: 'BIM Portfolio · Part 1'
+    },
+    {
+      id: 'pdf-2',
+      title: 'Luxury Villa Project Management & BIM Portfolio (Part 2)',
+      desc: 'Advanced 4D Synchro construction sequencing, MEP coordination, and Navisworks clash detection documentation.',
+      pdfUrl: '/pdfs/Luxury-Villa-3.pdf',
+      badge: 'BIM Portfolio · Part 2'
+    },
+    {
+      id: 'pdf-3',
+      title: 'Master Study BIM & Project Management Syllabus Specification',
+      desc: 'Detailed course structure, practical project milestones, and software tool modules.',
+      pdfUrl: '/pdfs/Details-of-BIM-Course.pdf',
+      badge: 'Course Specification'
+    },
+    {
+      id: 'pdf-4',
+      title: 'Econstruct Comprehensive BIM Engineering Deliverables',
+      desc: 'High-rise structural analysis, Primavera P6 scheduling, and client submission annexures.',
+      pdfUrl: '/pdfs/econstruct_bim.pdf',
+      badge: 'Full Student Annexure'
+    }
+  ];
+  const [activePdf, setActivePdf] = useState(0);
+
   // Live Project Competition Videos
   const competitionVideos = [
     { title: 'Technical Live Project Competition Overview', src: 'https://www.youtube.com/embed/4V-mT1ISo90?si=8jFBhtkVt_QD23TB', dur: '12:04' },
@@ -574,54 +607,71 @@ const BimHubMSB = () => {
       {/* ── 05. HOW YOUR PORTFOLIO WILL LOOK ───────────────────────── */}
       <section id="portfolio-showcase" className="py-16 md:py-24 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
-              <Label>05 · Portfolio Showcase</Label>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-                How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
-              </h2>
-              <p className="text-gray-500 text-sm max-w-xl mt-2 leading-relaxed">
-                Graduate with an industry-grade portfolio containing complete 3D BIM models, 4D Synchro time schedules, and Navisworks clash detection reports.
-              </p>
-            </div>
-
-            <div className="flex gap-2 shrink-0">
-              <button onClick={prevPortfolioSlide}
-                className="p-3 border-2 border-slate-900 rounded-full hover:bg-slate-900 group transition-all" aria-label="Prev">
-                <ChevronLeft size={20} className="text-slate-900 group-hover:text-white" />
-              </button>
-              <button onClick={nextPortfolioSlide}
-                className="p-3 bg-yellow-500 border-2 border-yellow-500 rounded-full hover:bg-slate-900 hover:border-slate-900 group transition-all" aria-label="Next">
-                <ChevronRight size={20} className="text-black group-hover:text-white" />
-              </button>
-            </div>
+          <motion.div {...fin} className="mb-10 text-center">
+            <Label>05 · Portfolio Showcase</Label>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
+            </h2>
+            <p className="text-gray-600 text-base max-w-3xl mx-auto mt-3 leading-relaxed">
+              Explore authentic student portfolios to get a clear idea of what your portfolio will look like after completing our Master Study in Project Management & BIM Technology program.
+            </p>
           </motion.div>
 
-          {/* Portfolio Slider */}
-          <motion.div {...fin} className="relative rounded-3xl overflow-hidden bg-slate-950 aspect-video md:aspect-[21/9] shadow-2xl border border-slate-800">
-            <div className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{ transform: `translateX(-${portfolioSlide * 100}%)` }}>
-              {sliderImages.map((src, i) => (
-                <div key={i} className="w-full h-full flex-shrink-0 relative">
-                  <img src={src} alt={`BIM Portfolio Slide ${i + 1}`} className="w-full h-full object-contain bg-black" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-8">
-                    <div className="text-white">
-                      <span className="bg-yellow-500 text-slate-900 text-xs font-black px-3 py-1 rounded uppercase tracking-wider mb-2 inline-block">
-                        Student Deliverable #{i + 1}
-                      </span>
-                      <p className="text-sm md:text-base font-medium text-gray-200">
-                        Real live project REVIT BIM models, Primavera P6 schedules, and clash detection documentation created during training.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ))}
+          {/* Portfolio PDF Selector Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+            {portfolioPdfs.map((doc, idx) => (
+              <button
+                key={doc.id}
+                onClick={() => setActivePdf(idx)}
+                className={`px-5 py-3 rounded-2xl text-xs font-extrabold transition-all duration-300 border flex items-center gap-2 ${
+                  activePdf === idx
+                    ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-lg scale-105'
+                    : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
+                }`}
+              >
+                <FileText className="w-4 h-4 text-yellow-500" />
+                <span>{doc.badge}</span>
+              </button>
+            ))}
+          </div>
+
+          {/* Active PDF Viewer Container */}
+          <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
+              <div>
+                <span className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
+                  {portfolioPdfs[activePdf].badge}
+                </span>
+                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                  {portfolioPdfs[activePdf].title}
+                </h3>
+                <p className="text-gray-400 text-xs sm:text-sm mt-1 max-w-2xl">
+                  {portfolioPdfs[activePdf].desc}
+                </p>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3 shrink-0">
+                <a
+                  href={portfolioPdfs[activePdf].pdfUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+                >
+                  <ExternalLink className="w-4 h-4" /> Open Full PDF
+                </a>
+              </div>
             </div>
 
-            <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-white text-xs font-bold px-3 py-1.5 rounded-full border border-white/10 z-10">
-              {String(portfolioSlide + 1).padStart(2, '0')} / {String(sliderImages.length).padStart(2, '0')}
+            {/* Embedded PDF iframe */}
+            <div className="w-full h-[550px] sm:h-[650px] md:h-[750px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 relative">
+              <iframe
+                src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
+                title={portfolioPdfs[activePdf].title}
+                className="w-full h-full border-0"
+              />
             </div>
-          </motion.div>
+          </div>
+
         </div>
       </section>
 
