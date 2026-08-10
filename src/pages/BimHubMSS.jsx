@@ -1348,8 +1348,8 @@ const BimHubMSS = () => {
                   </p>
                 </div>
 
-                <div className="bg-white p-8 sm:p-10 rounded-3xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-all mb-6">
-                  <div className="w-64 h-64 sm:w-72 sm:h-72 mx-auto mb-5 bg-white p-4 rounded-3xl border-2 border-slate-200 shadow-md flex items-center justify-center hover:scale-[1.02] transition-transform">
+                <div className="bg-white p-6 sm:p-10 rounded-3xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-all mb-6">
+                  <div className="w-56 h-56 sm:w-72 sm:h-72 max-w-full mx-auto mb-5 bg-white p-3 sm:p-4 rounded-3xl border-2 border-slate-200 shadow-md flex items-center justify-center hover:scale-[1.02] transition-transform">
                     <img src="/qr.webp" alt="Payment QR Code" className="w-full h-full object-contain" />
                   </div>
                   <h4 className="text-base sm:text-lg font-black text-slate-900 mb-1">Scan QR Code for Instant UPI Payment</h4>
