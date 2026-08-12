@@ -1,10 +1,73 @@
 import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
-import { ArrowLeft, Calendar, User, Tag, Clock, Share2, ChevronRight } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, Clock, Share2, ChevronRight, Download, FileText } from 'lucide-react';
 
 // ─── SIMPLE MARKDOWN RENDERER ─────────────────────────────────────────────────
-// Handles: **bold**, *italic*, headings (#), numbered lists, bullet lists, blank-line paragraphs
+
+const inlineFormat = (text) => {
+  if (!text) return null;
+
+  // Regex matches: [link text](url), **bold**, *italic*
+  const regex = /(\[([^\]]+)\]\(([^)]+)\)|\*\*([^*]+)\*\*|\*([^*]+)\*)/g;
+  const parts = [];
+  let lastIndex = 0;
+  let match;
+  let key = 0;
+
+  while ((match = regex.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      parts.push(text.slice(lastIndex, match.index));
+    }
+
+    if (match[1].startsWith('[')) {
+      const linkText = match[2];
+      const linkUrl = match[3];
+      const isPdf = linkUrl.endsWith('.pdf') || linkText.toLowerCase().includes('pdf') || linkText.toLowerCase().includes('download');
+
+      if (isPdf) {
+        parts.push(
+          <span key={`pdf-btn-${key++}`} className="block my-6">
+            <a
+              href={linkUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              download
+              className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all text-sm no-underline transform hover:-translate-y-0.5"
+            >
+              <Download size={18} />
+              {linkText.replace(/^[📄\s]*/, '')}
+            </a>
+          </span>
+        );
+      } else {
+        parts.push(
+          <a
+            key={`link-${key++}`}
+            href={linkUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-amber-600 hover:text-amber-700 font-semibold underline decoration-amber-300 underline-offset-4 transition-colors"
+          >
+            {linkText}
+          </a>
+        );
+      }
+    } else if (match[0].startsWith('**')) {
+      parts.push(<strong key={`bold-${key++}`} className="font-bold text-slate-900">{match[4]}</strong>);
+    } else if (match[0].startsWith('*')) {
+      parts.push(<em key={`italic-${key++}`} className="italic text-gray-800">{match[5]}</em>);
+    }
+
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    parts.push(text.slice(lastIndex));
+  }
+
+  return parts.length > 0 ? parts : text;
+};
 
 const renderContent = (text) => {
   if (!text) return null;
@@ -19,10 +82,26 @@ const renderContent = (text) => {
     // Blank line — skip
     if (line.trim() === '') { i++; continue; }
 
+    // Divider --- or ***
+    if (line.trim() === '---' || line.trim() === '***') {
+      elements.push(<hr key={`hr-${i}`} className="my-8 border-t border-gray-200" />);
+      i++; continue;
+    }
+
+    // Blockquote >
+    if (line.startsWith('> ')) {
+      elements.push(
+        <blockquote key={`bq-${i}`} className="my-6 pl-4 border-l-4 border-amber-500 italic text-gray-700 bg-amber-50/60 py-3 pr-4 rounded-r-xl">
+          {inlineFormat(line.slice(2))}
+        </blockquote>
+      );
+      i++; continue;
+    }
+
     // Heading ##
     if (line.startsWith('## ')) {
       elements.push(
-        <h2 key={i} className="text-2xl font-bold text-slate-900 mt-8 mb-3">
+        <h2 key={i} className="text-2xl font-bold text-slate-900 mt-8 mb-4 tracking-tight">
           {inlineFormat(line.slice(3))}
         </h2>
       );
@@ -32,7 +111,7 @@ const renderContent = (text) => {
     // Heading ###
     if (line.startsWith('### ')) {
       elements.push(
-        <h3 key={i} className="text-xl font-bold text-slate-900 mt-6 mb-2">
+        <h3 key={i} className="text-xl font-bold text-slate-900 mt-6 mb-3 tracking-tight">
           {inlineFormat(line.slice(4))}
         </h3>
       );
@@ -42,7 +121,7 @@ const renderContent = (text) => {
     // Heading #
     if (line.startsWith('# ')) {
       elements.push(
-        <h1 key={i} className="text-3xl font-bold text-slate-900 mt-8 mb-4">
+        <h1 key={i} className="text-3xl font-bold text-slate-900 mt-8 mb-4 tracking-tight">
           {inlineFormat(line.slice(2))}
         </h1>
       );
@@ -53,7 +132,7 @@ const renderContent = (text) => {
     if (/^\d+\.\s/.test(line)) {
       const items = [];
       while (i < lines.length && /^\d+\.\s/.test(lines[i])) {
-        items.push(<li key={i} className="mb-1">{inlineFormat(lines[i].replace(/^\d+\.\s/, ''))}</li>);
+        items.push(<li key={i} className="mb-2 leading-relaxed">{inlineFormat(lines[i].replace(/^\d+\.\s/, ''))}</li>);
         i++;
       }
       elements.push(<ol key={`ol-${i}`} className="list-decimal list-outside ml-6 my-4 space-y-1 text-gray-700 leading-relaxed">{items}</ol>);
@@ -64,7 +143,7 @@ const renderContent = (text) => {
     if (/^[-*]\s/.test(line)) {
       const items = [];
       while (i < lines.length && /^[-*]\s/.test(lines[i])) {
-        items.push(<li key={i} className="mb-1">{inlineFormat(lines[i].replace(/^[-*]\s/, ''))}</li>);
+        items.push(<li key={i} className="mb-2 leading-relaxed">{inlineFormat(lines[i].replace(/^[-*]\s/, ''))}</li>);
         i++;
       }
       elements.push(<ul key={`ul-${i}`} className="list-disc list-outside ml-6 my-4 space-y-1 text-gray-700 leading-relaxed">{items}</ul>);
@@ -81,27 +160,6 @@ const renderContent = (text) => {
   }
 
   return elements;
-};
-
-// Inline formatting: **bold**, *italic*
-const inlineFormat = (text) => {
-  const parts = [];
-  const regex = /(\*\*(.+?)\*\*|\*(.+?)\*)/g;
-  let last = 0;
-  let match;
-  let key = 0;
-
-  while ((match = regex.exec(text)) !== null) {
-    if (match.index > last) parts.push(text.slice(last, match.index));
-    if (match[0].startsWith('**')) {
-      parts.push(<strong key={key++} className="font-bold text-slate-900">{match[2]}</strong>);
-    } else {
-      parts.push(<em key={key++} className="italic">{match[3]}</em>);
-    }
-    last = match.index + match[0].length;
-  }
-  if (last < text.length) parts.push(text.slice(last));
-  return parts.length > 0 ? parts : text;
 };
 
 // ─── BLOG DETAIL PAGE ─────────────────────────────────────────────────────────
@@ -261,6 +319,26 @@ const BlogDetailPage = () => {
                       <p className="text-xs text-gray-500">E-Construct Team</p>
                     </div>
                   </div>
+                </div>
+              )}
+
+              {/* Publication PDF Download Widget */}
+              {blog.pdfUrl && (
+                <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-5 text-slate-950 shadow-md">
+                  <div className="flex items-center gap-2 text-slate-950 font-extrabold text-xs uppercase tracking-wider mb-2">
+                    <FileText size={16} /> Official Publication
+                  </div>
+                  <h4 className="font-extrabold text-base leading-snug mb-2">Full Document PDF</h4>
+                  <p className="text-slate-900 text-xs mb-4 leading-relaxed font-medium">Download the full 8-page whitepaper document for offline reading.</p>
+                  <a
+                    href={blog.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    download
+                    className="flex items-center justify-center gap-2 w-full bg-slate-950 hover:bg-slate-900 text-amber-400 font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-md"
+                  >
+                    <Download size={16} /> Download PDF
+                  </a>
                 </div>
               )}
 

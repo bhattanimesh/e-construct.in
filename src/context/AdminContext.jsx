@@ -19,16 +19,153 @@ const DEFAULT_DATA = {
     { id: 3, title: "Goregaon Mulund Link Road (GMLR)", category: "Commercial", location: "Mumbai, India", image: "/prj3.webp" },
   ],
   blogs: [
+    { 
+      id: 12, 
+      title: "Green Is Becoming the Baseline: Whole-Life Engineering & Hybrid Timber in Modern Infrastructure", 
+      slug: "green-is-becoming-the-baseline-green-infrastructure-timber-structures", 
+      desc: "India has won the argument on operational energy. The harder questions—embodied carbon, construction waste, and circular whole-life engineering—are answered through hybrid timber and sustainable infrastructure.", 
+      img: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1600&auto=format&fit=crop", 
+      pdfUrl: "/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf", 
+      author: "Mr. Sandeep Pingale", 
+      date: "2026-08-11", 
+      category: "Sustainability", 
+      tags: ["green infrastructure", "timber structures", "sustainability", "embodied carbon", "whole-life engineering", "thought leadership", "mass timber", "BIM", "circular economy"], 
+      content: `> "Green technology in India's mega projects is no longer a differentiator reserved for premium developments - it is fast becoming the baseline expectation." — **Mr. Sandeep Pingale**, Founder & Managing Director, ECONSTRUCT DESIGN AND BUILD PVT. LTD.
+
+Right Material. Right Structure. Right Location. Right Lifecycle.
+
+---
+
+## 01. The Baseline Has Already Moved
+
+India's infrastructure story is now being written in solar panels, recycled materials, and smart energy systems as much as in steel and concrete. As the country builds highways, metros, airports, and industrial corridors at an unprecedented scale, sustainability has shifted from a compliance checkbox to a core design principle. Green buildings cut greenhouse gas emissions by up to 35% and trim maintenance costs by roughly 20%—savings too significant for any developer or public agency to ignore.
+
+India now holds the world's second-largest green building footprint after the United States. The Indian Green Building Council (IGBC) has registered over 15.7 billion sq ft across 8,100+ certified operational projects. GRIHA, developed by TERI, is mandatory for all new central government building projects.
+
+Flagship projects like the **Indira Paryavaran Bhawan** in New Delhi operate as on-site net-zero energy facilities with a 930 kWp rooftop solar grid. Infrastructure mega-projects lead by example:
+- **Mumbai-Ahmedabad Bullet Train Corridor:** Japanese J-Slab ballastless tracks, 2×25 kV traction, noise barriers, and green-certified station facilities.
+- **Delhi-Mumbai Expressway:** Wildlife overpasses and underpasses, solar lighting, rainwater harvesting, and large-scale afforestation.
+- **Navi Mumbai International Airport & Yashobhoomi:** Sustainable aviation fuel infrastructure and 100% wastewater reuse.
+
+---
+
+## 02. The Question We Have Not Yet Answered: Embodied Carbon
+
+Almost everything currently certified measures operational performance while a building is running. Very little measures what it cost to build in embodied carbon, or what the structure becomes at the end of its lifecycle.
+
+As building automation, solar grids, and high-performance glazing improve, operational carbon drops. What remains is **embodied carbon** locked inside cement, steel, glass, and finishes. Quietly, the material decision becomes the carbon decision.
+
+Future buildings must be engineered not only for construction and occupancy, but for repair, adaptation, disassembly, recovery, and reuse.
+
+---
+
+## 03. Circular Construction is a Structural Decision
+
+Circular construction changes the sequence from *BUILD - DEMOLISH - DUMP* to **BUILD - USE - ADAPT - DECONSTRUCT - REUSE**.
+
+Whether a building can be taken apart is determined years earlier at the design table:
+- Mechanically fixed panels & bolted connections.
+- Demountable facades & modular floor systems.
+- Accessible MEP distribution zones.
+- **Digital Material Passports:** An asset inventory detailing material composition, fixing methods, and residual value.
+
+Cast-in-place concrete excels at load bearing, but not at disassembly. Prefabricated, mechanically connected structural components provide the real circular strategy.
+
+---
+
+## 04. Where Mass Timber Genuinely Fits
+
+Engineered structural timber—glulam beams, Cross-Laminated Timber (CLT), Laminated Veneer Lumber (LVL), and timber-concrete composites—are factory-manufactured, quality-controlled structural products.
+
+For mid-rise housing and urban infrastructure:
+- Lower self-weight reduces seismic inertia demand and foundation reactions.
+- Prefabrication compresses construction schedules and eliminates wet trade delays.
+- Standardized floor plates compound efficiency.
+
+The proposition is not replacing all concrete with wood, but engineering hybrid structures: **Concrete where concrete performs best, steel where steel performs best, and timber where timber performs best.**
+
+---
+
+## 05. What a Hybrid Building Looks Like
+
+In a modern mid-rise hybrid structure:
+- **RCC Core & Substructure:** Resists lateral earthquake and wind loads, houses lift shafts and fire stairs, and stays below ground.
+- **Superstructure:** Glulam columns with CLT or timber-concrete composite floor plates. A thin reinforced topping slab provides acoustic mass and diaphragm action.
+
+### Key Engineering Checks for Hybrid Systems:
+1. Connection stiffness and joint slip under dynamic loads.
+2. Diaphragm continuity between timber floor plates and the RCC central core.
+3. Serviceability floor vibration and acoustic isolation.
+4. Charring rate, residual structural section, and encapsulated joint fireproofing.
+5. Termite, fungal, and monsoon moisture protection for Indian climatic exposure.
+6. Differential long-term creep and movement between timber and concrete.
+
+---
+
+## 06. The Code Question: Standards & Ecosystems
+
+India's IS 883:2016 provides a base for conventional timber, but was not written for multi-storey mass timber. Updating national codes requires Indian test data for local timber species under Indian environmental conditions.
+
+**Crucial Warning on International Codes:**
+Overseas standards (Eurocode EC5, US NDS/SDPWS, Canadian CSA O86) belong to unified reliability ecosystems. Mixing isolated clauses across codes destroys the structural safety margin. India must benchmark international standards while establishing dedicated IS codes for mass timber.
+
+---
+
+## 07. Indian Climate, Fire, & Lifecycle Discipline
+
+1. **Moisture & Durability:** Monsoon humidity, coastal exposure, and subterranean termites require strict drainage, ventilation, non-toxic treatment, and routine inspection regimes.
+2. **Fire Performance:** Engineering must calculate charring rates (retained load-bearing core), protective encapsulation, sprinkler coverage, and cavity barriers.
+3. **Lifecycle Carbon Integrity:** Claims of "carbon negative" must be backed by full Lifecycle Assessments (LCA)—from plantation, harvesting, kiln drying, and fabrication to transport, maintenance, and end-of-life recovery.
+
+---
+
+## 08. Supply Chain & Agroforestry Integration
+
+Structural timber is an agricultural product before it is a building product. Sustainable farm forestry creates a domestic structural supply chain without touching natural forests, creating a unified value chain across agriculture, manufacturing, and construction.
+
+### Quality Control Gates:
+- Traceable plantation species selection and rotation.
+- Verified kiln moisture content and stress grading.
+- Adhesive bond-line quality control during factory fabrication.
+- Precision CNC tolerances for rapid site assembly.
+
+---
+
+## 09. A National Programme: 10 Practical Steps
+
+To build a future-ready sustainable infrastructure sector, India needs:
+
+1. **Structural Species Database** for tested Indian timber species.
+2. **Engineered Wood Product Standards** covering CLT, Glulam, and LVL.
+3. **Indian Fire Test Data** for charring rates and joint encapsulation.
+4. **Seismic & Diaphragm Testing** for multi-storey hybrid frames.
+5. **Timber Connection Manuals** for practising structural engineers.
+6. **Instrumented Demonstration Housing** evaluated over multi-year cycles.
+7. **Certified Manufacturing** with certified plantation origins.
+8. **BIM & CNC Prefabrication Capability** across national suppliers.
+9. **Digital Material Passports** required as project deliverables.
+10. **Design-for-Disassembly Guidelines** applied to concrete, steel, and timber buildings alike.
+
+---
+
+## 10. The Road Ahead
+
+Green technology is no longer a differentiator reserved for premium projects; it is becoming the baseline expectation. The next differentiator will be whole-life engineering.
+
+India should build more intelligently with hybrid systems that optimize concrete, steel, and timber for maximum safety, economy, durability, and lifecycle value.
+
+[📄 Download Full PDF (Green Infrastructure & Timber Structures Whitepaper)](/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf)`, 
+      published: true 
+    },
     { id: 1, title: "Transforming a Barren Pond Area into a Construction Site", slug: "transforming-a-barren-pond-area-into-a-construction-site", desc: "Barren pond areas, often considered unproductive land, can be effectively repurposed for construction with the right engineering and planning.", img: "https://e-construct.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-07-at-17.56.04_ad3cc304-1024x576.jpg", author: "E-Construct Team", date: "2025-03-11", category: "Civil Engineering", tags: ["construction", "land reclamation", "foundation", "sustainability"], content: "Barren pond areas, often considered unproductive land, can be effectively repurposed for construction with the right engineering and planning.\n\n## 1. Feasibility Study and Site Assessment\n\nBefore initiating construction, a comprehensive feasibility study must be conducted:\n\n- **Soil and Geotechnical Analysis:** Assessing soil strength, groundwater levels, and stability.\n- **Environmental Impact Assessment (EIA):** Ensuring the project adheres to ecological sustainability.\n- **Legal and Regulatory Compliance:** Acquiring permits and approvals from local authorities.\n\n## 2. Land Reclamation and Site Preparation\n\n- **Dewatering the Pond:** Using pumps and drainage solutions to remove excess water.\n- **Soil Stabilization:** Implementing methods like sand filling, compaction, or geotextiles to strengthen the ground.\n- **Grading and Leveling:** Ensuring a stable and uniform surface for future development.\n\n## 3. Infrastructure Development\n\n- **Road Access and Connectivity:** Developing access roads for smooth transportation.\n- **Utility Installation:** Setting up essential services such as water, electricity, and sewage.\n- **Stormwater Management:** Implementing drainage systems to prevent flooding and erosion.\n\n## 4. Structural Design and Foundation Planning\n\n- **Pile Foundations:** Using deep foundation methods like driven or bored piles.\n- **Raft or Mat Foundations:** Distributing the structure's weight evenly.\n- **Soil Reinforcement:** Enhancing soil strength using stone columns or chemical stabilization.\n\n## 5. Sustainable Construction Practices\n\n- **Rainwater Harvesting:** Collecting and reusing water for site needs.\n- **Green Landscaping:** Incorporating vegetation and green zones.\n- **Energy-Efficient Designs:** Utilizing passive ventilation and natural lighting solutions.\n\n## 6. Project Execution and Monitoring\n\n- **Phased Construction Approach:** Gradual development for better resource management.\n- **Regular Quality Checks:** Conducting structural and material inspections at each stage.\n- **Use of Advanced Technologies:** Implementing BIM for optimized planning and execution.\n\n## Conclusion\n\nConverting a barren pond area into a construction site is a complex but feasible process with strategic planning and modern engineering solutions.", published: true },
     { id: 2, title: "BIM - A New Career Option in the Civil Industry", slug: "bim-a-new-career-option-in-the-civil-industry", desc: "If you're planning to build a career as a BIM Modeler, this blog can help you understand the basics of Building Information Modeling.", img: "https://e-construct.in/wp-content/uploads/2022/07/BIM-1.png", author: "E-Construct Team", date: "2022-07-11", category: "Career", tags: ["BIM", "career", "civil engineering", "BIM modeler"], content: "If you're planning to build a career as a BIM Modeler, this blog can help you to understand the basics of the Building Information Model.\n\n## What is BIM?\n\nBuilding Information Modeling (BIM) is the holistic process of creating and managing information for a built asset. Based on an intelligent model enabled by a cloud platform, BIM integrates structured, multi-disciplinary data to produce a digital representation of an asset across its lifecycle, from planning and design to construction and operations.\n\nThe basis of BIM dates back to 1975, when Charles M. Eastman published his description of a working prototype. Later in 2002, Autodesk published its white paper on Building Information Model.\n\nSoftware that uses BIM modeling includes: Solibri, Tekla, Bentley, Revit, NavisWorks, AutoCAD, Rhino, Catia, Vectorworks, Google SketchUp.\n\n## Roles as BIM Practitioner\n\n- BIM Analyst\n- BIM Facilitator\n- BIM Modeler\n- BIM Application Developer\n- BIM Software Developer\n- Modeling Specialist\n- BIM Consultant\n- BIM Researcher\n- BIM Management\n- Chief BIM Officer\n\nTo become an efficient BIM practitioner you need: educational background in architecture, engineering, or construction; hands-on practical BIM experience; thorough knowledge of multiple tools; effective communication skills; and strong leadership qualities.\n\n## Salary offered to a BIM Practitioner\n\nAs a BIM practitioner you can get between 2.5 - 18 lakhs per annum depending on experience. As a fresher, 15-25 thousand rupees per month. With 2-3 years experience, 35-50 thousand per month. Leading professionals with 5-10+ years may land 10-18 lakhs per annum.", published: true },
     { id: 3, title: "How to Get a Job in Civil Engineering?", slug: "how-to-get-a-job-in-civil-engineering", desc: "Civil engineers design, build and shape the world around us. Learn how to bridge the gap between college and industry to land your dream job.", img: "/CorporateON-JOBTraining.webp", author: "E-Construct Team", date: "2022-07-11", category: "Career", tags: ["civil engineering", "job", "career", "placement"], content: "Civil engineers design, build and shape the world around us. They're involved in the construction and maintenance of public works such as bridges, dams, roads, railways, pipelines, airports, hospitals, and schools.\n\nThe construction industry holds a lot of potential for aspirants. There are numerous departments you can choose from:\n\n- Drafting\n- Structural Design Engineering\n- Building Information Modeling\n- Site/Project Management\n- Tendering & Estimation\n- Contracts Management\n\nEven though there are considerable opportunities in the civil industry, aspirants are unable to find jobs. The reason is the lack of knowledge students gain from college. The requirements of companies are completely different from the syllabus offered by universities.\n\nAs an individual, you need to understand the prerequisites of the market, assess your skill set, and work on these gaps to become a complete package for organizations.\n\nLet's take the example of Dheeraj, a final year civil engineering student. During his placement interview, he was asked about software he mastered for drafting designs. Even though Dheeraj was good with AutoCAD, he wasn't able to stand up to the expectation of the interviewer. He was asked to draft a home design according to Vastu Shastra, but had little knowledge about the topic.\n\nTo get a job in the civil industry, you need to be a complete package. There are a plethora of opportunities - you just need to shape yourself according to their requirements. We at E-Construct offer professional courses to help you hone your skill set and gain the required knowledge and practical experience.", published: true },
-    { id: 4, title: "The Evolution of Modern-Day Construction: Men, Material, and Machine", slug: "the-evolution-of-modern-day-construction-men-material-and-machine", desc: "Construction has evolved drastically from ancient times to modern-day practices. Explore the transformation through Men, Material, and Machine.", img: "https://e-construct.in/wp-content/uploads/2025/02/The-Evolution-of-Modern-Day-Construction-Men-Material-and-Machine-inr-1024x576.jpg", author: "E-Construct Team", date: "2025-02-24", category: "Civil Engineering", tags: ["construction evolution", "BIM", "technology", "workforce", "materials"], content: "Construction has evolved drastically from ancient times to modern-day practices. This evolution can be understood through three major factors: Men (Workforce), Material, and Machine.\n\n## 1. The Evolution of Workforce (Men)\n\nIn ancient civilizations like Mesopotamia, Egypt, and Rome, construction was predominantly labor-intensive. Structures like the Pyramids of Egypt and the Great Wall of China required thousands of laborers.\n\nWith industrialization, mechanization reduced dependency on manual labor. The modern construction workforce is highly specialized, with engineers, architects, and project managers leading projects. AI, automation, and BIM further enhance precision and efficiency.\n\n## 2. The Evolution of Materials\n\n- **Ancient Era:** Stone, mud, and timber. Lime mortar in Roman architecture enabled enduring structures like the Colosseum.\n- **Medieval and Renaissance Period:** Bricks, cement, and iron allowed more sophisticated architectural designs.\n- **Industrial Revolution:** Steel, reinforced concrete, and glass enabled skyscrapers and large-scale infrastructure.\n- **Modern Era:** Carbon fiber, self-healing concrete, and nanomaterials contribute to sustainability. Prefabricated and modular construction reduces time and costs.\n\n## 3. The Evolution of Machinery\n\n- **Pre-Industrial Age:** Wooden scaffolding, pulleys, and levers.\n- **Industrial Revolution:** Steam engines and cranes revolutionized construction.\n- **20th Century:** Bulldozers, concrete mixers, and tower cranes accelerated large-scale projects.\n- **21st Century:** Robotics, drones, and AI-powered equipment. 3D printing and automation are paving the way for futuristic construction.\n\n## Conclusion\n\nThe evolution through Men, Material, and Machine has transformed construction from labor-intensive methods to highly automated processes. At Econstruct, we continuously integrate the latest technological advancements to optimize construction processes and deliver high-quality structural solutions.", published: true },
+    { id: 4, title: "The Evolution of Modern-Day Construction: Men, Material, and Machine", slug: "the-evolution-of-modern-day-construction-men-material-and-machine", desc: "Construction has evolved drastically from ancient times to modern-day practices. Explore the transformation through Men, Material, and Machine.", img: "https://e-construct.in/wp-content/uploads/2025/02/The-Evolution-of-Modern-Day-Construction-Men-Material-and-Machine-inr-1024x576.jpg", author: "E-Construct Team", date: "2025-02-24", category: "Civil Engineering", tags: ["construction evolution", "BIM", "technology", "workforce", "materials"], content: "Construction has evolved drastically from ancient times to modern-day practices. This evolution can be understood through three major factors: Men (Workforce), Material, and Machine.\n\n## 1. The Evolution of Workforce (Men)\n\nIn ancient civilizations like Mesopotamia, Egypt, and Rome, construction was predominantly labor-intensive. Structures like the Pyramids of Egypt and the Great Wall of China required thousands of laborers.\n\nWith industrialization, mechanization reduced dependency on manual labor. The modern construction workforce is highly specialized, with engineers, architects, and project managers leading projects. AI, automation, and BIM further enhance precision and efficiency.\n\n## 2. The Evolution of Materials\n\n- **Ancient Era:** Stone, mud, and timber. Lime mortar in Roman architecture enabled enduring structures like the Colosseum.\n- **Medieval and Renaissance Period:** Bricks, cement, and iron allowed more sophisticated architectural designs.\n- **Industrial Revolution:** Steel, reinforced concrete, and glass enabled skyscrapers and large-scale infrastructure.\n- **Modern Era:** Carbon fiber, self-healing concrete, and nanomaterials contribute to sustainability. Prefabricated and modular construction reduces time and costs.\n\n## 3. The Evolution of Machinery\n\n- **Pre-Industrial Age:** Wooden scaffolding, pulleys, and levers.\n\n- **Industrial Revolution:** Steam engines and cranes revolutionized construction.\n\n- **20th Century:** Bulldozers, concrete mixers, and tower cranes accelerated large-scale projects.\n\n- **21st Century:** Robotics, drones, and AI-powered equipment. 3D printing and automation are paving the way for futuristic construction.\n\n## Conclusion\n\nThe evolution through Men, Material, and Machine has transformed construction from labor-intensive methods to highly automated processes. At Econstruct, we continuously integrate the latest technological advancements to optimize construction processes and deliver high-quality structural solutions.", published: true },
     { id: 5, title: "Tips to Get a Job as a Structural Engineer", slug: "tips-to-get-a-job-as-a-structural-engineer", desc: "As a fresher, it is always difficult to land a job as a Structural Engineer. Most companies prefer experienced candidates.", img: "/StructuralDesignConsultancy.jpeg", author: "E-Construct Team", date: "2022-07-12", category: "Career", tags: ["structural engineering", "jobs", "career tips", "software"], content: "Looking for a job in Structural Engineering? As a fresher, it is always difficult to land a job at a construction firm. Most companies prefer candidates with experience.\n\n## What is Structural Engineering?\n\nStructural Engineering deals with the structural integrity and strength of a building or structure. You need to look after key parameters like materials, design, and stability.\n\nTo get a job, you need to have your bases covered:\n\n- Software Base\n- Fundamental Base\n- Code Base\n\n## Software Base\n\nMajor software providers in the civil industry:\n\n**Bentley:** STAAD PRO, STAAD FOUNDATION, RCDC\n\n**CSI:** ETABS, SAP2000, SAFE, CSI-BRIDGE\n\n**MIDAS:** MIDAS GEN, MIDAS CIVIL, MIDAS SDS, MIDAS SET\n\nDo thorough research about the company you're applying to - they will likely ask about the software they use.\n\n## Construction Codes\n\nIndian codes you should know:\n\n- IS 456\n- IS 800\n- IS 1893\n- IS 16700\n- IS 875 (Part 1, 2, & 3)\n\nInternational codes: ACI 318, CEB FIP, UBC 97, IBC, NBC, NBCC, BS8110, EC\n\n## Fundamental Base\n\nHave a clear understanding of basic concepts of Structural Engineering. Know the organization's ongoing projects as they might be looking for someone to work on that assignment.\n\nBe prepared for every situation, keep things simple and clear, and be confident with your answers. All the best for your future endeavours!", published: true },
     { id: 6, title: "What's Wrong with the Making Process of a Civil Engineer?", slug: "whats-wrong-with-the-making-process-of-a-civil-engineer", desc: "Civil Engineering is a part of engineering that deals with mathematical and scientific knowledge to improve infrastructures.", img: "/BuildingInformationModelling.webp", author: "E-Construct Team", date: "2022-07-12", category: "Civil Engineering", tags: ["civil engineering", "education", "career", "ecosystem"], content: "Civil Engineering deals with mathematical and scientific knowledge to improve infrastructures like bridges, dams, buildings, roads, railways, and common utilities.\n\n## Civil Engineering Ecosystem\n\nIn a civil engineering ecosystem, you work with construction companies, contractors, architects, and government organizations. This ecosystem can be divided into two parts:\n\n- **Academic Ecosystem:** Choosing your career, getting a degree, gaining knowledge and qualifications.\n- **Industrial Ecosystem:** Implementing theoretical knowledge to practical use by working in the field.\n\nIn the past few years, civil engineering has registered the lowest placement rate of a mere 38% between 2012-13 and 2015-16 among six engineering streams approved by AICTE.\n\nMost universities have a fixed syllabus that does not match current trends and techniques of the market. Another reason is the lack of effort put by students to work on live projects in their final year.\n\nEven after getting a degree in civil engineering, the knowledge and skills you develop do not match market requirements. So if you are not able to stand up to the expectations of a company, it would be tough to be placed in a good position.\n\nYou need to be a Complete Package for the company. Try to work on projects, intern in different organizations, and gain practical knowledge. Pick a field in the industry and learn the skill set required by companies. Identify your skill set level, know your passion, and choose a department in the industry.\n\n## Conclusion\n\nTo ensure modern temples become future heritage, it's essential to blend traditional techniques with contemporary methods, while developing durable modern materials. Engaging communities in the process helps maintain the spiritual essence.", published: true },
     { id: 7, title: "Decline in Vision for Temples of Heritage: The Shift from Stone to Concrete", slug: "decline-in-vision-for-temples-of-heritage-the-shift-from-stone-to-concrete-in-modern-temple-construction", desc: "Old temple architecture is a testament to the ingenuity and artistry of ancient builders, characterized by intricate designs and harmonious alignment with nature.", img: "/ArchitecturalConsultancy.jpg", author: "E-Construct Team", date: "2024-12-18", category: "Architecture", tags: ["heritage", "temples", "architecture", "stone", "concrete"], content: "Old temple architecture is a testament to the ingenuity and artistry of ancient builders, characterized by intricate designs, towering gopurams, and harmonious alignment with nature. Crafted primarily from durable materials like granite, sandstone, and marble, these temples were designed to withstand the test of time.\n\n## Timeless Ingenuity: Unique Features of the Brihadeeswarar Temple\n\nThe Brihadeeswarar Temple exemplifies ancient Indian architectural brilliance. Its earthquake-resistant base uses interlocking stones for stability, while the towering 216-foot vimana is carved from a single 80-ton granite block. The temple's shadowless design at noon reflects advanced geometry, and its musical pillars showcase expertise in acoustics and material resonance.\n\n## Modern Temple Construction Practices\n\nSmall concrete temples, while cost-effective and quick to build, often face challenges in long-term sustainability. Concrete materials can deteriorate over time due to weathering, lack of proper maintenance, and environmental factors. These structures may not offer the durability or aesthetic value of traditional stone temples.\n\n## Heritage vs. Innovation\n\nAncient temple construction is a heritage of unmatched craftsmanship and durability, using stone and intricate techniques that have withstood centuries. In contrast, modern construction materials, while efficient, may not offer the same longevity as stone, leading to potential deterioration over time.\n\nThe decline in demand for traditional skills has resulted in a loss of craftsmanship, and modern designs risk diluting the spiritual and cultural essence that ancient temples embodied.\n\n## Conclusion\n\nTo ensure modern temples become future heritage, it's essential to blend traditional techniques with contemporary methods, while developing durable modern materials. Documenting traditional designs and creating adaptable spaces will preserve their cultural significance.", published: true },
-    { id: 8, title: "The Kolkata Flyover Collapse: Analyzing Engineering Failures and Lessons for Future Infrastructure Projects", slug: "the-kolkata-flyover-collapse-analyzing-engineering-failures-and-lessons-for-future-infrastructure-projects", desc: "The tragic collapse of the Kolkata flyover highlights critical flaws in civil engineering design and execution.", img: "/The-Kolkata-Flyover-Collapse.jpeg", author: "E-Construct Team", date: "2024-12-30", category: "Structural Engineering", tags: ["infrastructure", "safety", "case study", "Kolkata", "flyover"], content: "The tragic collapse of the Kolkata flyover in 2016 highlights critical flaws in civil engineering design and execution. The IIT Kharagpur report identified the stretch between Ganesh Talkies and Girish Park as unsafe due to poor design, materials, and workmanship.\n\n## The Design and Structural Failures\n\n1. **Design Flaws in the Cantilever Girders:** The cantilever girders were not adequately connected to the vertical face of Pier 40(C). The girders were only supported by the top plate, with insufficient bolting and welding.\n\n2. **Inadequate Cantilever Design for Live Loads:** The cantilever girders were designed only to bear the dead load of concrete, not dynamic loads from moving vehicles.\n\n3. **Weak Foundation and Support Structure:** The foundation at Pier 40(C) was particularly weak. Unlike other sections that had two supporting piers, this section relied on a single column.\n\n4. **Poor Connection Details and Insufficient Bolting:** Critical points were joined using 16mm bolts that were too weak for the stresses they would face.\n\n## Key Lessons from the Collapse\n\n1. Structural integrity cannot be compromised, especially for critical components like beams and girders.\n\n2. Comprehensive Load Testing and Structural Analysis must be conducted with independent verification.\n\n3. Manual checks and validation of design calculations through practical methods are essential.\n\n4. Strong safety protocols during construction are essential to protect workers and the public.\n\n## Conclusion\n\nThe Kolkata flyover collapse serves as a tragic reminder of the consequences of neglecting proper engineering practices, urging the civil engineering community to prioritize design integrity, safety, and accountability.", published: true },
     { id: 9, title: "Top 10 Benefits of BIM Technology for Civil Engineers: Easing Construction Projects on Live Sites", slug: "top-10-benefits-of-bim-technology-for-civil-engineers-easing-construction-projects-on-live-sites", desc: "Building Information Modeling (BIM) technology has revolutionized the construction industry by offering a comprehensive solution to manage, design, and execute projects efficiently.", img: "/BIMTechnologyconsultancy.webp", author: "E-Construct Team", date: "2025-02-28", category: "BIM", tags: ["BIM", "civil engineering", "construction management", "technology"], content: "Building Information Modeling (BIM) technology has revolutionized the construction industry. For civil engineers working on live construction projects, BIM is more than just a tool; it is a transformative approach.\n\n1. **Enhanced Collaboration and Communication:** BIM facilitates seamless collaboration among all stakeholders. The centralized digital models ensure everyone has access to the same information, reducing miscommunication and errors.\n\n2. **Improved Visualization:** With 3D modeling capabilities, BIM allows civil engineers to visualize the entire project before and during construction, identifying potential design flaws in real-time.\n\n3. **Accurate Cost Estimation:** BIM integrates cost estimation features that provide precise material quantities and labor costs, ensuring better budget management.\n\n4. **Efficient Project Planning:** The ability to create detailed project timelines and schedules ensures timely project delivery even under dynamic site conditions.\n\n5. **Clash Detection and Risk Mitigation:** BIM's clash detection tools identify conflicts between various systems (e.g., plumbing and electrical) in the design stage, reducing rework.\n\n6. **Sustainability and Energy Efficiency:** BIM supports sustainable construction practices by enabling energy analysis and environmental impact assessments.\n\n7. **4D and 5D Simulation:** 4D simulation helps visualize the construction sequence over time. 5D simulation integrates cost data, enabling real-time budget tracking.\n\n8. **Streamlined Maintenance and Facility Management:** Post-construction, BIM models serve as a valuable resource for facility management, maintenance, renovations, and future expansions.\n\n9. **Faster Decision-Making:** The data-rich environment of BIM enables quicker and more informed decision-making based on real-time data.\n\n10. **Increased Productivity and Efficiency:** By automating repetitive tasks and integrating various processes, BIM significantly boosts productivity.\n\n## Conclusion\n\nBIM technology is a game-changer for civil engineers, offering benefits that streamline live construction projects and improve outcomes. Adopting BIM is not just an option but a necessity for staying competitive.", published: true },
-    { id: 10, title: "Why Buildings Crack and How to Solve the Problem", slug: "why-buildings-crack-and-how-to-solve-the-problem", desc: "Cracks in buildings are a common issue, often raising concerns for property owners and construction professionals alike.", img: "/StructuralDesignConsultancy.jpeg", author: "E-Construct Team", date: "2025-02-28", category: "Structural Engineering", tags: ["cracks", "structural repair", "maintenance", "buildings"], content: "Cracks in buildings are a common issue, often raising concerns for property owners and construction professionals alike. While some cracks may be merely cosmetic, others can signal serious underlying structural problems.\n\n## Types of Cracks\n\n- **Hairline Cracks:** Fine surface cracks in plaster or render. Usually caused by thermal expansion and contraction, these are generally cosmetic.\n- **Diagonal Cracks:** Often appear at the corners of windows and doors. These can indicate differential settlement of the foundation.\n- **Vertical Cracks:** May indicate foundation settlement or shrinkage of building materials.\n- **Horizontal Cracks:** Particularly in basement or retaining walls, these can indicate serious structural stress and require urgent professional assessment.\n\n## Common Causes\n\n1. Foundation settlement or movement\n2. Thermal expansion and contraction\n3. Moisture ingress and drying shrinkage\n4. Overloading of structural elements\n5. Poor construction quality or inadequate reinforcement\n6. Soil erosion or changes in groundwater levels\n\n## Repair Approaches\n\nThe appropriate repair method depends entirely on the cause and severity of the crack:\n\n- **Cosmetic cracks:** Surface fillers, flexible sealants, or render repairs.\n- **Structural cracks:** Epoxy injection, carbon fiber reinforcement, or underpinning.\n- **Foundation issues:** Underpinning, soil stabilization, or drainage improvements.\n\nAlways consult a qualified structural engineer before undertaking any crack repair work. At E-Construct, our structural audit team provides comprehensive assessments and repair recommendations.", published: true },
+    { id: 10, title: "Why Buildings Crack and How to Solve the Problem", slug: "why-buildings-crack-and-how-to-solve-the-problem", desc: "Cracks in buildings are a common issue, often raising concerns for property owners and construction professionals alike.", img: "/StructuralDesignConsultancy.jpeg", author: "E-Construct Team", date: "2025-02-28", category: "Structural Engineering", tags: ["cracks", "structural repair", "maintenance", "buildings"], content: "Cracks in buildings are a common issue, often raising concerns for property owners and construction professionals alike. While some cracks may be merely cosmetic, others can signal serious underlying structural problems.\n\n## Types of Cracks\n\n- **Hairline Cracks:** Fine surface cracks in plaster or render. Usually caused by thermal expansion and contraction, these are generally cosmetic.\n- **Diagonal Cracks:** Often appear at the corners of windows and doors. These can indicate differential settlement of the foundation.\n- **Vertical Cracks:** May indicate foundation settlement or shrinkage of building materials.\n- **Horizontal Cracks:** Particularly in basement or retaining walls, these can indicate serious structural stress and require urgent professional assessment.\n\n## Common Causes\n\n1. Foundation settlement or movement\n2. Thermal expansion and contraction\n3. Moisture ingress and drying shrinkage\n4. Overloading of structural elements\n5. Poor construction quality or inadequate reinforcement\n6. Soil erosion or changes in groundwater levels\n\n## Repair Approaches\n\nThe appropriate repair method depends entirely on the cause and severity of the crack:\n\n- **Cosmetic cracks:** Surface fillers, flexible sealants, or render repairs.\n- **Structural cracks:** Epoxy injection, carbon fiber reinforcement, or underpinning.\n- **Foundation issues:** Underpinning, soil stabilization, or drainage improvements.\n\nAlways consult a qualified structural engineer before undertaking any crack repair work.", published: true },
     { id: 11, title: "Building Collapses in India: Causes, Impacts, and Solutions for Safe Infrastructure", slug: "building-collapses-in-india-causes-impacts-and-solutions-for-safe-infrastructure", desc: "Discover the causes of building collapses in India, including poor construction materials, design flaws, and inadequate regulations.", img: "/ProjectManagementConsultancy.jpg", author: "E-Construct Team", date: "2024-12-20", category: "Structural Engineering", tags: ["safety", "India", "building collapse", "infrastructure", "prevention"], content: "Building collapses in India, even under minimal disturbances, are a reflection of deeper systemic issues in the construction sector. The recent collapse of a seven-story building under construction in Bengaluru serves as a tragic reminder of the urgent need to improve infrastructure quality and safety.\n\n## Introduction\n\nThese incidents, particularly during the monsoon season, highlight poorly enforced building regulations, substandard materials, and a lack of accountability. Addressing these challenges is critical to ensuring public safety and economic stability.\n\n## Reasons for Building Collapses in India\n\nBuilding collapses are primarily caused by:\n\n- **Substandard construction materials:** Poor quality cement, steel, and aggregates.\n- **Poor structural design:** Inadequate foundations that fail to account for soil conditions and load-bearing capacity.\n- **Post-construction modifications:** Adding extra floors or changing building usage without structural assessments.\n- **Water seepage and poor drainage:** Weakening concrete and corroding reinforcement steel over time.\n- **Aging infrastructure:** Improper construction techniques and environmental factors like soil erosion.\n- **Corruption and regulatory failures:** Use of shortcuts during construction.\n\n## Impacts on Economy and Safety\n\nThe consequences of building collapses are severe:\n\n- Loss of human lives, injuries, and emotional trauma for affected families.\n- Direct costs for rescue operations and rebuilding.\n- Indirect losses such as business disruptions and reduced investor confidence.\n- Erosion of public trust in infrastructure quality.\n- Legal liabilities, increased insurance claims, and environmental pollution from debris.\n\n## Conclusion\n\nBuilding collapses in India highlight systemic issues that demand urgent attention. Aging buildings must undergo periodic maintenance and retrofitting. Leveraging technological interventions such as BIM and advanced structural analysis software can enhance construction precision. Addressing corruption and ensuring transparency in the construction process are critical to improving safety and accountability.", published: true },
   ],
   team: [
@@ -232,7 +369,7 @@ The company is led by experienced architects and BIM specialists with decades of
     { id: 3, title: 'Commercial Portfolio', pdfUrl: '/pdfs/econstruct_tushar.pdf' },
     { id: 4, title: 'Industrial Portfolio', pdfUrl: '/pdfs/econ_presentation.pdf' },
     { id: 5, title: 'Infrastructure Portfolio', pdfUrl: '/pdfs/PBD_compressed.pdf' },
-    { id: 6, title: 'Corporate Training Portfolio', pdfUrl: 'pdfs/Employee Development Program for Top MNCs.pdf' },
+    { id: 6, title: 'Corporate Training Portfolio', pdfUrl: '/pdfs/Employee Development Program for Top MNCs.pdf' },
   ],
   trustedPartners: [
     { id: 1, name: 'L&T', url: '/part1.jpg' },
@@ -429,7 +566,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 14; // bump this when defaults change to force a migration
+const DATA_VERSION = 19; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -437,15 +574,32 @@ export const AdminProvider = ({ children }) => {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
         const parsed = JSON.parse(stored);
+
+        // Ensure default blogs (like Green Infrastructure) are merged if missing
+        let loadedBlogs = parsed._version >= DATA_VERSION ? (parsed.blogs || DEFAULT_DATA.blogs) : DEFAULT_DATA.blogs;
+        if (Array.isArray(loadedBlogs)) {
+          DEFAULT_DATA.blogs.forEach(db => {
+            if (!loadedBlogs.some(b => b.id === db.id || b.slug === db.slug)) {
+              loadedBlogs = [db, ...loadedBlogs];
+            }
+          });
+        }
+
+        // Clean flipbooks to remove Green Infrastructure from homepage flipbook showcase
+        let loadedFlipbooks = parsed._version >= DATA_VERSION ? (parsed.flipbooks || DEFAULT_DATA.flipbooks) : DEFAULT_DATA.flipbooks;
+        if (Array.isArray(loadedFlipbooks)) {
+          loadedFlipbooks = loadedFlipbooks.filter(f => !f.pdfUrl?.includes('ECONSTRUCT_Green_Infrastructure'));
+        }
+
         // Always deep-merge nested content objects so new keys from defaults are never lost
         const merged = {
           ...DEFAULT_DATA,
           ...parsed,
           services: parsed._version >= DATA_VERSION ? (parsed.services || DEFAULT_DATA.services) : DEFAULT_DATA.services,
-          blogs: parsed._version >= DATA_VERSION ? (parsed.blogs || DEFAULT_DATA.blogs) : DEFAULT_DATA.blogs,
+          blogs: loadedBlogs,
           team: parsed._version >= DATA_VERSION ? (parsed.team || DEFAULT_DATA.team) : DEFAULT_DATA.team,
           careers: parsed._version >= DATA_VERSION ? (parsed.careers || DEFAULT_DATA.careers) : DEFAULT_DATA.careers,
-          flipbooks: parsed._version >= DATA_VERSION ? (parsed.flipbooks || DEFAULT_DATA.flipbooks) : DEFAULT_DATA.flipbooks,
+          flipbooks: loadedFlipbooks,
           trustedPartners: parsed._version >= DATA_VERSION ? (parsed.trustedPartners || DEFAULT_DATA.trustedPartners) : DEFAULT_DATA.trustedPartners,
           // Deep-merge every nested object so new keys are always present
           footerContent: { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}) },
@@ -492,10 +646,16 @@ export const AdminProvider = ({ children }) => {
   );
 };
 
+const defaultContextValue = {
+  data: DEFAULT_DATA,
+  update: () => {},
+  resetToDefaults: () => {},
+  DEFAULT_DATA,
+};
+
 export const useAdmin = () => {
   const ctx = useContext(AdminContext);
-  if (!ctx) throw new Error('useAdmin must be used within AdminProvider');
-  return ctx;
+  return ctx || defaultContextValue;
 };
 
 export default AdminContext;

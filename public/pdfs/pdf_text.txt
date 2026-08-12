@@ -1,0 +1,277 @@
+=== PAGE 1 ===
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+1
+CONSTRUCTION CHRONICLE  |  QUOTE  |  JULY - AUGUST 2026
+Green Is Becoming the Baseline.
+Whole-Life Engineering Is the Next Frontier.
+India has largely won the argument on operational energy. The harder questions - embodied carbon,
+construction and demolition waste, and what a building becomes at the end of its life - are engineering
+questions. Hybrid timber is one of the most practical answers available to us.
+“Green technology in India's mega projects is no longer a differentiator
+reserved for premium developments - it is fast becoming the baseline
+expectation.”
+MR. SANDEEP PINGALE
+Founder & Managing Director, ECONSTRUCT DESIGN AND BUILD PVT. LTD.
+01
+The baseline has already moved
+India's infrastructure story is now being written in solar panels, recycled materials and smart energy
+systems as much as in steel and concrete. As the country builds highways, metros, airports and
+industrial corridors at a scale few nations have attempted, sustainability has moved from a compliance
+checkbox to a design principle. The commercial case is plain enough: green buildings can cut
+greenhouse gas emissions by up to 35 per cent and trim maintenance costs by roughly 20 per cent -
+savings too significant for any large developer or public agency to ignore.
+The scale is no longer experimental. India has the world's second-largest green building footprint after
+the United States, with the Indian Green Building Council having registered projects covering roughly
+15.7 billion sq ft, of which more than 8,100 are already certified and fully operational. GRIHA, India's
+own rating system developed by TERI, is mandatory for all new central government building projects,
+while IGBC runs over 32 rating programmes spanning residential, commercial, industrial and
+infrastructure categories. Green standards are being embedded across the full spectrum of
+construction, not only in showcase towers.
+Flagship projects have set the tone. Indira Paryavaran Bhawan in New Delhi - the Ministry of
+Environment's own headquarters - is India's first on-site net zero energy government building, holding
+both GRIHA 5-Star and LEED Platinum certifications, with a 930 kWp rooftop solar system large
+enough to meet the building's entire annual energy demand. When government buildings lead by
+example, private developers tend to follow.
+Policy has reinforced the momentum. States such as Haryana, Rajasthan and Tamil Nadu now offer
+additional Floor Area Ratio, tax rebates and fast-tracked environmental clearances to IGBC- or
+GRIHA-certified projects, turning sustainability into a commercial advantage rather than an added cost.
+On the infrastructure side, the Mumbai-Ahmedabad bullet train corridor combines electric 2×25 kV
+
+
+=== PAGE 2 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+2
+traction, Japanese J-Slab ballastless track, extensive elevated construction, noise barriers and
+green-certified station facilities. The Delhi-Mumbai Expressway incorporates wildlife overpasses and
+underpasses, tunnels through ecologically sensitive areas, solar lighting, rainwater harvesting and
+large-scale afforestation. Add 100 per cent wastewater reuse at Yashobhoomi and sustainable aviation
+fuel infrastructure at Navi Mumbai International Airport, and the pattern is unmistakable: sustainability
+is being engineered into these projects rather than applied to them afterwards.
+That progress deserves to be celebrated. It also means the easiest gains are now largely behind us.
+02
+The question we have not yet answered
+Almost everything we currently certify measures how a building performs while it is running. Very little
+measures what it cost to build, or what it will become when it stops.
+That distinction is about to matter a great deal. As facades, glazing, automation and equipment
+improve and the electricity grid gets cleaner, the operational share of a building's lifetime carbon falls.
+What remains is the carbon locked into the material itself - cement, steel, glass, finishes - together
+with whatever is released when the building is eventually taken down. Quietly, the material decision
+becomes the carbon decision.
+FIG 1
+As operational energy is cleaned up, embodied carbon becomes the dominant remaining share - and the material
+specification becomes the main lever left to pull. Values are schematic and are shown to illustrate the shift in proportion,
+not to represent any specific project.
+The same logic applies to waste. We rightly celebrate greener metros, airports, expressways and
+buildings. The more difficult question is what happens when today's buildings are renovated,
+redeveloped or demolished decades from now: where does the enormous mass of concrete, masonry,
+finishes, glass, steel and MEP waste actually go? India's rapid urban redevelopment cycle is generating
+construction and demolition waste faster than we are building the systems to absorb it.
+Future buildings should be engineered not only for construction and occupancy,
+but for repair, adaptation, disassembly, recovery and reuse.
+
+
+=== PAGE 3 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+3
+03
+Circular construction is a structural decision, not a recycling policy
+Circular construction changes the sequence from BUILD - DEMOLISH - DUMP to BUILD - USE - ADAPT
+- DECONSTRUCT - REUSE. In practice that sequence is decided at the design table and in the
+connection details, not at the demolition stage.
+FIG 2
+The circular sequence is not a waste-management add-on. Whether a building can be taken apart is determined years
+earlier, by how its components are fixed together and how well they are documented.
+Mechanically fixed panels, bolted connections, demountable facades, modular floor systems and
+accessible MEP zones allow a building to be adapted instead of prematurely demolished. At end of
+use, the recovery hierarchy should run inspect, regrade, reuse, remanufacture and recycle, with
+disposal as the last resort rather than the default. A digital material passport - what is in the building,
+where it sits, how it is fixed and what it is worth - turns that hierarchy from an aspiration into an
+inventory.
+This is where the choice of structural material stops being a preference and becomes a strategy.
+Cast-in-place concrete is superb at a great many things; being taken apart is not one of them.
+Prefabricated, mechanically connected components are.
+04
+Where timber genuinely fits
+Modern structural timber is not traditional wood construction. It covers glulam beams and columns,
+LVL, cross-laminated timber, structural wall and floor panels, timber-concrete composites and
+timber-steel or timber-RCC hybrid systems. These are manufactured, graded, quality-controlled
+engineering products, and they deserve to be assessed as such.
+The honest case for timber is narrow and specific, which is precisely what makes it credible. For
+suitable building types, lower self-weight reduces foundation reactions and seismic inertia demand.
+Prefabrication compresses site programmes, reduces wet trades and cuts site waste. The floor plate -
+
+
+=== PAGE 4 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+4
+the most repeated element in any housing project - is where those gains compound.
+The case against blanket adoption is equally clear. Performance depends on connections, diaphragm
+continuity, moisture control, creep, vibration, fire and durability. Nothing about timber removes those
+obligations. It relocates them.
+FIG 3
+Timber is not a universal substitute, and it does not need to be. The hybrid band overlaps almost exactly with the mid-rise
+housing India actually builds - which is where the opportunity sits.
+So the proposition is not that India should build in timber. It is that India should stop assuming a
+single material for every element of every building. Concrete where concrete performs best. Steel
+where steel performs best. Timber where timber performs best.
+05
+What a hybrid building actually looks like
+In a mid-rise hybrid, the RCC core does what reinforced concrete does well: resisting lateral load,
+housing lifts, fire stairs and service risers, and providing a robust and familiar fire-fighting spine. The
+substructure and basement stay in concrete. Above that, glulam columns and CLT or timber-concrete
+composite floors deliver the repeating structure quickly and lightly, with a thin reinforced topping
+providing diaphragm action, acoustic mass and fire performance.
+The engineering consequence is straightforward: lower seismic weight reduces design base shear and
+foundation reactions. But the governing checks shift with it. Connection stiffness and slip, diaphragm
+continuity, floor vibration under service loading, long-term creep, charring and residual section,
+moisture and termite protection become the design drivers. A hybrid building is not an easier building.
+It is a differently difficult one, and it must be resourced accordingly.
+WHAT A HYBRID PROJECT HAS TO GET RIGHT
+→  Connection design, stiffness and slip - the real
+structural system
+→  Diaphragm continuity between timber floors and
+the RCC core
+→  Floor vibration and acoustic separation under
+service loading
+→  Charring rate, residual section and protected
+connections
+→  Moisture control during transport, erection and
+service life
+→  Termite and fungal protection detailed for Indian
+exposure
+→  Long-term creep and differential movement
+between materials
+→  Tolerance control between prefabricated and
+cast-in-place work
+
+
+=== PAGE 5 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+5
+FIG 4
+A hybrid is not a timber building with concrete in it. Each material is placed where its behaviour is an advantage, and the
+design effort shifts to the interfaces between them.
+06
+The code question is the real bottleneck
+India already has IS 883:2016 for structural timber buildings, supported by NBC provisions and related
+standards. It is a sound conventional timber base. It was not written for a modern mass-timber sector.
+The gaps sit at system level rather than in any single clause: engineered wood product standards, CLT
+provisions, advanced connections, diaphragms and shear walls, timber-concrete composites, fire
+engineering and multi-storey seismic behaviour - all of it supported by Indian test data on Indian
+species, manufactured in Indian conditions.
+
+
+=== PAGE 6 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+6
+FIG 5
+The gap is not a matter of a few missing clauses. It is the absence of a complete, test-backed system for engineered mass
+timber - which is exactly what a national programme would need to build.
+One caution matters more than any other. International codes should not be mixed clause by clause.
+Their load factors, resistance factors, material strengths and reliability assumptions belong to
+complete ecosystems - EC5 with EC8, NDS with SDPWS and ASCE, CSA O86 with NBCC, AS 1720 with
+AS 1170. Borrowing a favourable clause from one and a convenient factor from another produces a
+structure with no coherent reliability basis. Overseas standards are benchmarks to learn from while
+India develops its own provisions.
+07
+India cannot simply copy European details
+Monsoon wetting, sustained humidity, coastal exposure, termites and fungi are not footnotes to the
+design; in much of India they are the design condition. Robust moisture control, drainage, ventilation,
+waterproofing and a genuine inspection regime are non-negotiable. Fire design must address charring
+rates and residual section, encapsulation, protected connections, sprinklers, compartmentation and
+cavity fire spread - and it must satisfy Indian approving authorities with Indian evidence.
+Carbon claims need the same discipline. Trees absorb carbon as they grow, and timber can store
+biogenic carbon while it is in service. But “carbon negative” should never be assumed. A defensible
+lifecycle assessment covers plantation, harvesting, kiln drying, adhesives, fabrication, transport,
+erection, maintenance, reuse, recycling and final disposal. Anything less is marketing, and the industry
+will be judged harshly for it.
+08
+The farm end of the supply chain
+The most interesting part of this opportunity is not urban at all. Scientifically managed farm forestry
+and agroforestry can create a domestic structural-timber supply chain without drawing on natural
+forests, and can diversify farm income while doing it. Agriculture, manufacturing and housing become
+one value chain rather than three separate sectors.
+
+
+=== PAGE 7 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+7
+FIG 6
+Structural timber is an agricultural product before it is a building product. Every stage between the plantation and the
+frame is a quality gate, and the chain is only as strong as the weakest one.
+That only works if each stage carries a control gate: the right species on the right land with a planned
+rotation; traceable plantation origin; verified moisture content; strength grading that yields
+characteristic values a designer can actually use; adhesive and bond-line quality control in
+manufacture; dimensional and connection tolerance in prefabrication. Miss one and the material is
+firewood, not structure.
+The guardrails are not negotiable either. Natural forests, food security, water resources, biodiversity
+and soil health come first. A timber industry that compromises any of them has defeated its own
+purpose.
+09
+What India should build next
+None of this needs to wait for perfect conditions, but it does need to be organised. The programme is
+reasonably clear: structural species databases; engineered wood product standards; fire and seismic
+testing generating Indian data; demonstration housing that can be measured, instrumented and
+inspected over time; timber connection manuals; digital material passports; BIM and CNC
+prefabrication capability; and design-for-disassembly guidelines that apply to concrete and steel
+buildings too, not only timber ones.
+The institutions already exist. The IITs and IISc, BIS, CSIR and the forestry institutes, agricultural
+universities, manufacturers and structural consultants each hold part of the answer. What is missing is
+the connective work of putting them on the same programme, with demonstration projects that are
+allowed to be measured honestly.
+
+
+=== PAGE 8 ===
+ECONSTRUCT DESIGN AND BUILD PVT. LTD.   |   THOUGHT LEADERSHIP
+GREEN INFRASTRUCTURE + TIMBER STRUCTURES
+ECONSTRUCT  |  Right Material. Right Structure. Right Location. Right Lifecycle.
+8
+A NATIONAL PROGRAMME - TEN PRACTICAL STEPS
+→  1  Structural species database for Indian timbers
+→  2  Engineered wood product standards - CLT,
+glulam, LVL
+→  3  Indian fire test data: charring, encapsulation,
+connections
+→  4  Seismic and diaphragm testing for multi-storey
+systems
+→  5  Timber connection design manuals for
+practising engineers
+→  6  Instrumented demonstration housing,
+measured over years
+→  7  Certified manufacturing with traceable
+plantation origin
+→  8  BIM and CNC prefabrication capability in the
+supply chain
+→  9  Digital material passports as a project
+deliverable
+→  10  Design-for-disassembly guidance for all
+structural materials
+10
+The road ahead
+The friction is real - certification costs, skill gaps, and slower adoption in Tier-2 cities. But the
+trajectory is not in doubt. Green technology is no longer a differentiator reserved for premium projects;
+it is becoming the baseline expectation. The next differentiator will be whole-life thinking: buildings
+designed for what happens after occupancy, made from materials chosen for what they cost the
+planet to produce and for what they are worth when they are recovered.
+India should not build entirely in timber. It should build more intelligently. Hybrid structures can place
+RCC, steel and engineered timber where each gives the best combination of safety, economy,
+durability, speed and lifecycle value. The industry that adapts fastest to this shift will not simply be
+building greener. It will be building smarter, more resilient and more future-ready.
+Right Material.  Right Structure.  Right Location.  Right Lifecycle.
+Mr. Sandeep Pingale is Founder and Managing Director of ECONSTRUCT DESIGN AND BUILD PVT. LTD. Diagrams prepared by
+ECONSTRUCT. Figures 1, 3 and 5 are indicative and schematic, intended to communicate engineering proportion and relative
+maturity rather than project-specific or code-compliance data.
+
+

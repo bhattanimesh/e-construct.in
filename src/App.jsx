@@ -48,12 +48,15 @@ const PageLoader = () => (
   </div>
 )
 
+import { AdminProvider } from './context/AdminContext'
+
 function App() {
   return (
-    <BrowserRouter>
-      <ErrorBoundary>
-        <Suspense fallback={<PageLoader />}>
-          <Routes>
+    <AdminProvider>
+      <BrowserRouter>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoader />}>
+            <Routes>
             <Route path="/admin" element={<AdminPanel />} />
             <Route path="/" element={<Layout />}>
               <Route index element={<Home />} />
@@ -101,6 +104,7 @@ function App() {
         </Suspense>
       </ErrorBoundary>
     </BrowserRouter>
+    </AdminProvider>
   )
 }
 
