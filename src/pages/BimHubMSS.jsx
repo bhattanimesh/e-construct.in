@@ -192,7 +192,7 @@ const BimHubMSS = () => {
 
         <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-12 flex-1">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
-            
+
             {/* Accreditation Badges */}
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
               className="flex flex-wrap items-center gap-3 mb-5">
@@ -202,9 +202,7 @@ const BimHubMSS = () => {
               <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
                 <Building2 className="w-3.5 h-3.5 text-blue-400" /> MSME Certified
               </span>
-              <span className="text-yellow-400 uppercase tracking-[0.2em] text-xs font-extrabold drop-shadow-md hidden sm:inline-block">
-                · Batch Starts 15th April 2026
-              </span>
+
             </motion.div>
 
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
@@ -234,8 +232,8 @@ const BimHubMSS = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
               {[
                 { to: '900', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-                { to: '50',   s: '+', label: 'Hiring Partners',  icon: Building2 },
-                { to: '100',  s: '%', label: 'Placement Guarantee', icon: TrendingUp },
+                { to: '50', s: '+', label: 'Hiring Partners', icon: Building2 },
+                { to: '100', s: '%', label: 'Placement Guarantee', icon: TrendingUp },
                 { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-3 py-4 px-4 sm:px-6">
@@ -491,7 +489,7 @@ const BimHubMSS = () => {
               <p className="text-gray-300 text-base leading-relaxed mb-8">
                 Designed to ensure you excel in core technical interviews and secure high-paying structural design positions across India, UAE, Oman, and internationally.
               </p>
-              
+
               <div className="bg-slate-800/90 border border-yellow-500/40 p-6 rounded-2xl mb-8 backdrop-blur-md">
                 <div className="text-yellow-400 font-extrabold text-xl mb-1">6–8 Genuine Job Interviews</div>
                 <div className="text-gray-300 text-sm mb-4 font-medium">100% Placement Support in Structural Consultancies</div>
@@ -539,11 +537,10 @@ const BimHubMSS = () => {
               <button
                 key={doc.id}
                 onClick={() => setActivePdf(idx)}
-                className={`px-5 py-3 rounded-2xl text-xs font-extrabold transition-all duration-300 border flex items-center gap-2 ${
-                  activePdf === idx
+                className={`px-5 py-3 rounded-2xl text-xs font-extrabold transition-all duration-300 border flex items-center gap-2 ${activePdf === idx
                     ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-lg scale-105'
                     : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
-                }`}
+                  }`}
               >
                 <FileText className="w-4 h-4 text-yellow-500" />
                 <span>{doc.badge}</span>
@@ -699,11 +696,10 @@ const BimHubMSS = () => {
               <button
                 key={poster.id}
                 onClick={() => setActivePoster(idx)}
-                className={`px-5 py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 border ${
-                  activePoster === idx
+                className={`px-5 py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 border ${activePoster === idx
                     ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-md scale-105'
                     : 'bg-slate-100 text-slate-700 border-gray-200 hover:bg-slate-200'
-                }`}
+                  }`}
               >
                 {poster.title}
               </button>
@@ -805,7 +801,7 @@ const BimHubMSS = () => {
                 About the <span className="text-yellow-600 italic font-serif">Mentor</span>
               </h2>
               <h3 className="text-2xl font-bold text-gray-700 mb-6 border-l-4 border-yellow-500 pl-4">Mr. Sandeep Pingale</h3>
-              
+
               <p className="text-gray-600 text-base leading-relaxed mb-6">
                 Founder & Managing Director of Econstruct Design & Build Pvt Ltd. Returning to India from Dubai in 2010 with vast structural design experience up to G+81 story towers, Mr. Pingale established Econstruct to deliver high-rise RCC, Steel, and Composite structures while bridging the gap between academic education and corporate industry expectations.
               </p>
@@ -837,20 +833,20 @@ const BimHubMSS = () => {
       <section id="mentorship" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             {/* Left Content Card */}
             <div className="lg:col-span-7 bg-white rounded-3xl shadow-lg border border-gray-200 p-8 md:p-12 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-2 h-full bg-yellow-500" />
-              
+
               <Label>10 · Personalized Guidance</Label>
               <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 tracking-tight">
                 One-to-One Meeting & <span className="text-yellow-600 italic font-serif">Mentorship</span>
               </h2>
-              
+
               <p className="text-gray-600 text-base md:text-lg font-medium leading-relaxed mb-8">
                 We understand that every civil engineer's journey is unique. Schedule a 1-on-1 session to address career gaps, salary expectations, and customized skill roadmaps.
               </p>
-              
+
               <div className="space-y-4 mb-8">
                 {[
                   'Discuss your current career situation & salary expectations',
@@ -897,7 +893,7 @@ const BimHubMSS = () => {
       </section>
 
       {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
-      <StudentVideoReviewsShowcase 
+      <StudentVideoReviewsShowcase
         subtitle="Hear directly from our Master Study in Structural Design (MSS) trainees and alumni placed across India, UAE, Muscat, and London."
       />
 
@@ -916,12 +912,12 @@ const BimHubMSS = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 bg-slate-800 rounded-3xl p-6 border border-slate-700">
             <div className="lg:col-span-2 rounded-2xl overflow-hidden bg-black aspect-video relative">
-              <iframe 
+              <iframe
                 src={competitionVideos[activePlaylistItem].src}
                 className="absolute inset-0 w-full h-full"
                 title={competitionVideos[activePlaylistItem].title}
                 frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
               />
             </div>
@@ -933,16 +929,15 @@ const BimHubMSS = () => {
                 </span>
                 <span className="text-xs text-gray-400">{activePlaylistItem + 1} / {competitionVideos.length}</span>
               </div>
-              
+
               {competitionVideos.map((video, idx) => (
-                <button 
+                <button
                   key={idx}
                   onClick={() => setActivePlaylistItem(idx)}
-                  className={`text-left p-4 rounded-xl transition-all flex items-start gap-3 ${
-                    activePlaylistItem === idx 
-                      ? 'bg-yellow-500 text-slate-950 font-bold shadow-md' 
+                  className={`text-left p-4 rounded-xl transition-all flex items-start gap-3 ${activePlaylistItem === idx
+                      ? 'bg-yellow-500 text-slate-950 font-bold shadow-md'
                       : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
-                  }`}
+                    }`}
                 >
                   <span className="text-xs font-mono font-bold mt-0.5">{idx + 1}</span>
                   <div>
@@ -1024,11 +1019,11 @@ const BimHubMSS = () => {
 
           {/* Payment Card & Bank Details */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            
+
             {/* Account Card */}
             <div className="lg:col-span-7 bg-slate-900 text-white rounded-3xl p-8 md:p-10 flex flex-col justify-between shadow-xl relative overflow-hidden border border-slate-800">
               <div className="absolute top-0 right-0 w-64 h-64 bg-yellow-500/10 rounded-full blur-3xl pointer-events-none" />
-              
+
               <div>
                 <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
                   <h3 className="text-2xl font-black text-white flex items-center gap-3">
@@ -1174,7 +1169,7 @@ const BimHubMSS = () => {
                   Complete 12-Month MSS Track
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 mb-6">Course Inclusions & Perks</h3>
-                
+
                 <ul className="space-y-3.5 mb-8">
                   {[
                     "Live project exposure on RCC, Steel & Composite structures up to G+62 stories",
@@ -1198,7 +1193,7 @@ const BimHubMSS = () => {
             {/* Fee Card */}
             <div className="bg-slate-950 text-white lg:w-1/3 p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl pointer-events-none" />
-              
+
               <div>
                 <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">Master Study Program Fee</span>
                 <div className="flex items-baseline gap-1 mb-2">
@@ -1253,7 +1248,7 @@ const BimHubMSS = () => {
               <Btn href="https://wa.me/919036744017">Apply Now — April 2026 Batch</Btn>
               <div className="flex gap-6">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
-                  <a key={n} href={`https://wa.me/${n.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
+                  <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"
                     className="flex items-center gap-2 text-gray-400 text-xs font-semibold hover:text-yellow-400 transition">
                     <Phone className="w-3.5 h-3.5" />{n}
                   </a>
