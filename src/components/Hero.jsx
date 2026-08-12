@@ -115,7 +115,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </button>
 
-            <button onClick={() => navigate('/about')} className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm backdrop-blur-md hover:bg-white hover:text-black transition-all active:scale-95">
+            <button onClick={() => navigate('/projects')} className="px-8 py-4 border border-white/30 text-white font-bold uppercase tracking-wider text-sm backdrop-blur-md hover:bg-white hover:text-black transition-all active:scale-95">
               {h.secondaryBtnText}
             </button>
           </motion.div>
