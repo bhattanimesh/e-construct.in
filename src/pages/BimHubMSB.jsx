@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
+import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
@@ -1376,6 +1377,9 @@ const BimHubMSB = () => {
           </div>
         </div>
       </section>
+
+      {/* ── AWARDS, MAGAZINE & NEWSLETTER HIGHLIGHT ───────────────── */}
+      <AwardsMediaShowcase />
 
       {/* ── 16. READY TO TRANSFORM YOUR CAREER? ────────────────────── */}
       <section id="final-cta" className="relative py-20 md:py-28 overflow-hidden bg-black text-white">
