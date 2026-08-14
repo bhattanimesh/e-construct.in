@@ -199,7 +199,7 @@ const BimHubMSS = () => {
       {/* ── 01. HERO SECTION ────────────────────────────────────────── */}
       <section id="hero" className="relative w-full min-h-[85vh] lg:min-h-[700px] overflow-hidden bg-slate-950 flex flex-col justify-between">
         <div className="absolute inset-0">
-          <img src="/prj6.jpg" alt="Structural Engineering Background" className="w-full h-full object-cover brightness-[0.55] saturate-[1.1]" />
+          <img src="/StructuralDesignConsultancy.jpeg" alt="Structural Engineering Background" className="w-full h-full object-cover brightness-[0.55] saturate-[1.1]" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent hidden md:block" />
         </div>
