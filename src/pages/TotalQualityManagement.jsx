@@ -636,11 +636,12 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
         </div>
       </section>
 
-      {/* 10. Video Presentation */}
-      <section className="py-16 md:py-28 bg-slate-900 relative overflow-hidden">
+      {/* 10. TQM Quality Management Framework & Site Quality Control */}
+      <section className="py-20 md:py-32 bg-slate-950 text-white relative overflow-hidden border-b border-slate-800">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-500/5 via-transparent to-amber-500/5 pointer-events-none"></div>
         
-        {/* Background Building Image */}
+        {/* Background Building Illustration */}
         <div className="absolute right-[-10%] top-1/2 -translate-y-1/2 w-[60%] h-[120%] opacity-15 pointer-events-none z-0 select-none">
           <img 
             src="/building_transparent.png" 
@@ -649,39 +650,288 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
           />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10 relative z-10">
-          <div className="flex flex-col items-start text-left">
-            <div className="flex items-center gap-2 mb-4">
+        <div className="max-w-[1500px] mx-auto px-5 sm:px-10 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="flex items-center justify-center gap-2 mb-4">
               <div className="w-8 h-1 bg-[#fbc02d]"></div>
-              <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Quality Showcase</span>
+              <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Quality Management Framework</span>
+              <div className="w-8 h-1 bg-[#fbc02d]"></div>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-tight text-white mb-8 md:mb-12 max-w-2xl leading-tight">
-              Quality Management <span className="text-[#fbc02d] italic">in Action</span>
+            <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-white mb-6 leading-tight">
+              Total Quality Controls <span className="text-[#fbc02d] italic">in Action</span>
             </h2>
-            <p className="text-gray-400 text-sm md:text-base max-w-xl mb-8 leading-relaxed">
-              Watch how Econstruct implements rigorous Total Quality Management (TQM) standards and site quality control across real live engineering projects.
+            <p className="text-gray-400 text-base md:text-lg leading-relaxed font-light">
+              Econstruct implements a 4-Tier Total Quality Management (TQM) control framework across every structural & architectural phase to guarantee zero-defect execution and IS/ISO code compliance.
             </p>
-            
+          </div>
+
+          {/* 4-Stage Quality Framework Grid with Real Site Visuals */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Stage 1 */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative aspect-video w-full lg:w-[75%] rounded-2xl md:rounded-[2rem] overflow-hidden shadow-[0_30px_70px_-15px_rgba(0,0,0,0.6)] border border-white/10 bg-black group"
+              transition={{ delay: 0.1 }}
+              className="bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-[#fbc02d]/60 shadow-xl hover:shadow-[0_20px_50px_rgba(251,192,45,0.2)] transition-all duration-500 group flex flex-col justify-between hover:-translate-y-2"
             >
-              <div className="absolute top-0 left-0 right-0 h-1 bg-[#fbc02d] z-20" />
-              <iframe 
-                className="w-full h-full absolute inset-0"
-                src="https://www.youtube.com/embed/LZlYGauoJpE" 
-                title="Econstruct Total Quality Management in Action" 
-                frameBorder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerPolicy="strict-origin-when-cross-origin" 
-                loading="lazy"
-                allowFullScreen>
-              </iframe>
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={tqm1} 
+                    alt="Material & Rebar Testing" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  
+                  <div className="absolute top-4 left-4 bg-slate-950/90 text-[#fbc02d] font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#fbc02d]/30 backdrop-blur-md">
+                    STAGE 01 · PRE-POUR AUDIT
+                  </div>
+
+                  <div className="absolute bottom-3 left-4 w-11 h-11 bg-[#fbc02d] text-slate-950 rounded-xl flex items-center justify-center shadow-lg font-bold">
+                    <ShieldCheck size={22} />
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold text-white mb-3 group-hover:text-[#fbc02d] transition-colors leading-snug">
+                    Material & Rebar Testing
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed font-normal mb-5">
+                    Rigorous yield strength testing of steel rebars, slump cone tests, cement grade verification, and chemical analysis prior to casting.
+                  </p>
+
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Steel rebar tensile yield audit</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Slump cone & mix design test</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Cement grade & chemical purity</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold text-[#fbc02d]">
+                  <span>100% IS Code Checked</span>
+                  <ShieldCheck size={16} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stage 2 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-[#fbc02d]/60 shadow-xl hover:shadow-[0_20px_50px_rgba(251,192,45,0.2)] transition-all duration-500 group flex flex-col justify-between hover:-translate-y-2"
+            >
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={tqm2} 
+                    alt="Formwork & Alignment QA" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  
+                  <div className="absolute top-4 left-4 bg-slate-950/90 text-[#fbc02d] font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#fbc02d]/30 backdrop-blur-md">
+                    STAGE 02 · ON-SITE VERIFICATION
+                  </div>
+
+                  <div className="absolute bottom-3 left-4 w-11 h-11 bg-[#fbc02d] text-slate-950 rounded-xl flex items-center justify-center shadow-lg font-bold">
+                    <FileText size={22} />
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold text-white mb-3 group-hover:text-[#fbc02d] transition-colors leading-snug">
+                    Formwork & Alignment QA
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed font-normal mb-5">
+                    Laser verticality check, cover block spacing inspection, shuttering rigidity audit, and MEP conduit embedding clearances.
+                  </p>
+
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Laser verticality & leveling</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Cover block spacing clearance</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>MEP embedding inspection</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold text-[#fbc02d]">
+                  <span>Zero-Tolerance Leveling</span>
+                  <CheckCircle size={16} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stage 3 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-[#fbc02d]/60 shadow-xl hover:shadow-[0_20px_50px_rgba(251,192,45,0.2)] transition-all duration-500 group flex flex-col justify-between hover:-translate-y-2"
+            >
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={tqm3} 
+                    alt="Cube & NDT Strength Testing" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  
+                  <div className="absolute top-4 left-4 bg-slate-950/90 text-[#fbc02d] font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#fbc02d]/30 backdrop-blur-md">
+                    STAGE 03 · CONCRETE CURE
+                  </div>
+
+                  <div className="absolute bottom-3 left-4 w-11 h-11 bg-[#fbc02d] text-slate-950 rounded-xl flex items-center justify-center shadow-lg font-bold">
+                    <Activity size={22} />
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold text-white mb-3 group-hover:text-[#fbc02d] transition-colors leading-snug">
+                    Cube & NDT Strength Testing
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed font-normal mb-5">
+                    7-day & 28-day concrete cube compressive strength testing, Ultrasonic Pulse Velocity (UPV), and Rebound Hammer evaluation.
+                  </p>
+
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>7-Day & 28-Day cube test</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Ultrasonic Pulse Velocity (UPV)</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Rebound hammer NDT analysis</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold text-[#fbc02d]">
+                  <span>M20 to M80 Certified</span>
+                  <Activity size={16} />
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Stage 4 */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className="bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-[#fbc02d]/60 shadow-xl hover:shadow-[0_20px_50px_rgba(251,192,45,0.2)] transition-all duration-500 group flex flex-col justify-between hover:-translate-y-2"
+            >
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden">
+                  <img 
+                    src={tqm4} 
+                    alt="Waterproofing & Handover" 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    loading="lazy" 
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent" />
+                  
+                  <div className="absolute top-4 left-4 bg-slate-950/90 text-[#fbc02d] font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#fbc02d]/30 backdrop-blur-md">
+                    STAGE 04 · POST-EXECUTION
+                  </div>
+
+                  <div className="absolute bottom-3 left-4 w-11 h-11 bg-[#fbc02d] text-slate-950 rounded-xl flex items-center justify-center shadow-lg font-bold">
+                    <Target size={22} />
+                  </div>
+                </div>
+
+                <div className="p-6">
+                  <h3 className="text-xl font-extrabold text-white mb-3 group-hover:text-[#fbc02d] transition-colors leading-snug">
+                    Waterproofing & Handover
+                  </h3>
+                  <p className="text-gray-400 text-xs leading-relaxed font-normal mb-5">
+                    48-hour ponding water tests for slab waterproofing, crack-width measurements, thermal imaging, and formal QA clearance sign-off.
+                  </p>
+
+                  <div className="space-y-2 mb-4">
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>48-hr ponding water test</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Thermal imaging & crack audit</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-gray-300 text-xs font-medium">
+                      <CheckCircle size={14} className="text-[#fbc02d] shrink-0" />
+                      <span>Formal QA certificate release</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="px-6 pb-6 pt-2">
+                <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-extrabold text-[#fbc02d]">
+                  <span>ISO 9001:2015 Approved</span>
+                  <Target size={16} />
+                </div>
+              </div>
             </motion.div>
           </div>
+
+          {/* Premium Quality Stats Banner */}
+          <div className="mt-16 bg-slate-900 border border-slate-800 rounded-3xl p-8 md:p-12 flex flex-wrap items-center justify-around gap-8 text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-[#fbc02d]/5 via-transparent to-[#fbc02d]/5 pointer-events-none"></div>
+            <div>
+              <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-[#fbc02d] via-amber-300 to-[#fbc02d] bg-clip-text text-transparent block">650+</span>
+              <span className="text-gray-300 text-xs font-bold uppercase tracking-widest mt-2 block">Projects QA Audited</span>
+            </div>
+            <div className="hidden sm:block w-px h-14 bg-slate-800"></div>
+            <div>
+              <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-[#fbc02d] via-amber-300 to-[#fbc02d] bg-clip-text text-transparent block">0</span>
+              <span className="text-gray-300 text-xs font-bold uppercase tracking-widest mt-2 block">Structural Failures</span>
+            </div>
+            <div className="hidden sm:block w-px h-14 bg-slate-800"></div>
+            <div>
+              <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-[#fbc02d] via-amber-300 to-[#fbc02d] bg-clip-text text-transparent block">100%</span>
+              <span className="text-gray-300 text-xs font-bold uppercase tracking-widest mt-2 block">IS/ISO Code Compliance</span>
+            </div>
+            <div className="hidden sm:block w-px h-14 bg-slate-800"></div>
+            <div>
+              <span className="text-4xl sm:text-5xl font-black bg-gradient-to-r from-[#fbc02d] via-amber-300 to-[#fbc02d] bg-clip-text text-transparent block">25+ Yrs</span>
+              <span className="text-gray-300 text-xs font-bold uppercase tracking-widest mt-2 block">Engineering Quality Legacy</span>
+            </div>
+          </div>
+
         </div>
       </section>
 
