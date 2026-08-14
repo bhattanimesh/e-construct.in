@@ -23,11 +23,13 @@ function Home() {
   return (
     <>
       <Hero />
-      <Suspense fallback={<div className="py-24 bg-white text-center text-gray-400 text-sm">Loading showcase…</div>}>
+      {/* Hidden per client request - Our Digital Showcase */}
+      {/* <Suspense fallback={<div className="py-24 bg-white text-center text-gray-400 text-sm">Loading showcase…</div>}>
         <FlipbookGallery />
-      </Suspense>
+      </Suspense> */}
       <VideoGallery />
-      <AwardsMediaShowcase />
+      {/* Hidden per client request - Featured In National Media & Industry Awards */}
+      {/* <AwardsMediaShowcase /> */}
       <TrustedPartners />
       <About />
       <Services />

@@ -8,7 +8,7 @@ import {
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
   Star, Quote, CheckCircle2, X, Check, FileText, Layers, ShieldCheck, Sparkles, Target, Flame, Heart,
-  Copy, ExternalLink, QrCode, MessageCircle
+  Copy, ExternalLink, QrCode, MessageCircle, Maximize2
 } from 'lucide-react';
 
 /* ── Animated counter ─────────────────────────────────────────────── */
@@ -82,19 +82,33 @@ const BimHubMSS = () => {
   }, [sliderImages.length]);
 
   const [copiedField, setCopiedField] = useState(null);
+  const [isQrExpanded, setIsQrExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsQrExpanded(false);
+    };
+    if (isQrExpanded) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isQrExpanded]);
+
   const handleCopy = (key, text) => {
     navigator.clipboard.writeText(text);
     setCopiedField(key);
     setTimeout(() => setCopiedField(null), 2500);
   };
 
-  // Real Live Student Portfolio Documents for MSS
+  // Real Live Student Portfolio Documents / Videos for MSS
   const portfolioPdfs = [
     {
       id: 'pdf-1',
       title: 'Structural Design & Analysis Deliverable Annexure',
-      desc: 'Complete high-rise ETABS structural model calculations, foundation design, and IS Code compliance reports.',
-      pdfUrl: '/pdfs/econstruct_tushar.pdf',
+      desc: 'Watch the video presentation of high-rise ETABS structural model calculations, foundation design, and IS Code compliance reports.',
+      type: 'video',
+      videoUrl: 'https://youtu.be/6uyEIqfpqR4?si=-gR4CPEo5eTnK4Zv',
+      embedUrl: 'https://www.youtube.com/embed/6uyEIqfpqR4',
       badge: 'Structural Deliverable'
     },
     {
@@ -531,7 +545,7 @@ const BimHubMSS = () => {
             </p>
           </motion.div>
 
-          {/* Portfolio PDF Selector Tabs */}
+          {/* Portfolio Selector Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
             {portfolioPdfs.map((doc, idx) => (
               <button
@@ -542,13 +556,17 @@ const BimHubMSS = () => {
                     : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
                   }`}
               >
-                <FileText className="w-4 h-4 text-yellow-500" />
+                {doc.type === 'video' ? (
+                  <Video className="w-4 h-4 text-yellow-500" />
+                ) : (
+                  <FileText className="w-4 h-4 text-yellow-500" />
+                )}
                 <span>{doc.badge}</span>
               </button>
             ))}
           </div>
 
-          {/* Active PDF Viewer Container */}
+          {/* Active Portfolio Item Viewer Container */}
           <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
               <div>
@@ -564,24 +582,45 @@ const BimHubMSS = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 shrink-0">
-                <a
-                  href={portfolioPdfs[activePdf].pdfUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
-                >
-                  <ExternalLink className="w-4 h-4" /> Open Full PDF
-                </a>
+                {portfolioPdfs[activePdf].type === 'video' ? (
+                  <a
+                    href={portfolioPdfs[activePdf].videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Watch on YouTube
+                  </a>
+                ) : (
+                  <a
+                    href={portfolioPdfs[activePdf].pdfUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Open Full PDF
+                  </a>
+                )}
               </div>
             </div>
 
-            {/* Embedded PDF iframe */}
+            {/* Embedded Viewer Container */}
             <div className="w-full h-[550px] sm:h-[650px] md:h-[750px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              <iframe
-                src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
-                title={portfolioPdfs[activePdf].title}
-                className="w-full h-full border-0"
-              />
+              {portfolioPdfs[activePdf].type === 'video' ? (
+                <iframe
+                  src={portfolioPdfs[activePdf].embedUrl}
+                  title={portfolioPdfs[activePdf].title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <iframe
+                  src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
+                  title={portfolioPdfs[activePdf].title}
+                  className="w-full h-full border-0"
+                />
+              )}
             </div>
           </div>
 
@@ -1115,15 +1154,81 @@ const BimHubMSS = () => {
                 </div>
 
                 <div className="bg-white p-6 sm:p-10 rounded-3xl border border-gray-200 text-center shadow-lg hover:shadow-xl transition-all mb-6">
-                  <div className="w-56 h-56 sm:w-72 sm:h-72 max-w-full mx-auto mb-5 bg-white p-3 sm:p-4 rounded-3xl border-2 border-slate-200 shadow-md flex items-center justify-center hover:scale-[1.02] transition-transform">
+                  <div
+                    onClick={() => setIsQrExpanded(true)}
+                    className="w-56 h-56 sm:w-72 sm:h-72 max-w-full mx-auto mb-5 bg-white p-3 sm:p-4 rounded-3xl border-2 border-slate-200 shadow-md flex items-center justify-center hover:scale-[1.03] transition-all cursor-pointer group relative overflow-hidden"
+                    title="Click to expand QR Code"
+                  >
                     <img src="/qr.webp" alt="Payment QR Code" className="w-full h-full object-contain" />
+                    <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl flex items-center justify-center backdrop-blur-[2px]">
+                      <span className="bg-yellow-400 text-slate-950 font-black text-xs px-4 py-2 rounded-full shadow-lg flex items-center gap-1.5 transform scale-95 group-hover:scale-100 transition-transform">
+                        <Maximize2 className="w-3.5 h-3.5" /> Click to Expand
+                      </span>
+                    </div>
                   </div>
-                  <h4 className="text-base sm:text-lg font-black text-slate-900 mb-1">Scan QR Code for Instant UPI Payment</h4>
+                  <h4
+                    onClick={() => setIsQrExpanded(true)}
+                    className="text-base sm:text-lg font-black text-slate-900 mb-1 cursor-pointer hover:text-yellow-600 transition-colors"
+                  >
+                    Scan QR Code for Instant UPI Payment
+                  </h4>
                   <p className="text-xs sm:text-sm text-gray-600 font-medium mb-3">Supports GPay, PhonePe, Paytm & BHIM UPI</p>
-                  <div className="inline-flex items-center gap-2 bg-slate-100 px-4 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-800">
-                    <QrCode className="w-4 h-4 text-yellow-600" /> Official Corporate Merchant QR
-                  </div>
+                  <button
+                    onClick={() => setIsQrExpanded(true)}
+                    className="inline-flex items-center gap-2 bg-slate-100 hover:bg-yellow-50 hover:border-yellow-300 transition-colors px-4 py-2 rounded-full border border-slate-200 text-xs font-bold text-slate-800 cursor-pointer"
+                  >
+                    <QrCode className="w-4 h-4 text-yellow-600" /> Official Corporate Merchant QR (Click to Zoom)
+                  </button>
                 </div>
+
+                {/* Expanded QR Modal Lightbox */}
+                <AnimatePresence>
+                  {isQrExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onClick={() => setIsQrExpanded(false)}
+                      className="fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto cursor-zoom-out"
+                    >
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white rounded-3xl p-5 sm:p-7 max-w-sm sm:max-w-md w-full border border-slate-200 shadow-2xl relative text-center cursor-default my-auto max-h-[92vh] flex flex-col justify-between"
+                      >
+                        <div className="flex items-start justify-between gap-3 mb-2 pr-8 relative">
+                          <div className="text-left">
+                            <span className="bg-yellow-500/10 text-yellow-700 border border-yellow-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block mb-1">
+                              Official Merchant QR
+                            </span>
+                            <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-tight">ECONSTRUCT DESIGN & BUILD</h3>
+                            <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Scan using any UPI App (GPay, PhonePe, Paytm, BHIM)</p>
+                          </div>
+                          <button
+                            onClick={() => setIsQrExpanded(false)}
+                            className="absolute top-0 right-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors shadow-sm shrink-0"
+                            title="Close"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+
+                        <div className="bg-slate-50 p-3 sm:p-4 rounded-2xl border border-slate-200 my-2 flex items-center justify-center shadow-inner overflow-hidden">
+                          <img
+                            src="/qr.webp"
+                            alt="Payment QR Code Expanded"
+                            className="max-h-[50vh] sm:max-h-[56vh] w-auto mx-auto object-contain rounded-xl shadow-sm"
+                          />
+                        </div>
+
+                        <p className="text-[11px] text-slate-400 font-medium mt-1">Click anywhere outside or tap ✕ to close</p>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               <div className="bg-slate-50 p-6 rounded-3xl border border-gray-200 shadow-sm flex items-start gap-3">

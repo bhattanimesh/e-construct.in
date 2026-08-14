@@ -3,25 +3,30 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   GraduationCap, Users, Award, CheckCircle2, ArrowRight,
   ChevronLeft, ChevronRight, Quote, Phone,
-  Monitor, BookOpen, Globe, Clock, Star, Briefcase,
+  Monitor, BookOpen, Globe, Clock, Star, Briefcase, Maximize2,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
 import SectionHeading from '../components/SectionHeading';
 import heroImg from '../assets/CorporateON-JOBTraining.webp';
 
-// All real training session photos
+// All real training session photos (from /training/ folder + MSB sessions)
 const galleryImages = [
-  '/msb/sr1.webp',
-  '/msb/sr2.webp',
-  '/msb/sr3.webp',
-  '/msb/sr4.webp',
-  '/msb/sr5.webp',
-  '/msb/sr6.webp',
-  '/msb/sr7.webp',
-  '/msb/sr8.webp',
-  '/msb/s2.webp',
-  '/msb/career_discussion.png',
+  '/training/1.jpeg', '/training/2.jpeg', '/training/3.jpeg', '/training/4.jpeg', '/training/5.jpeg',
+  '/training/7.jpeg', '/training/8.jpeg', '/training/9.jpeg', '/training/10.jpeg', '/training/11.jpeg',
+  '/training/12.jpeg', '/training/13.jpeg', '/training/14.jpeg', '/training/15.jpeg', '/training/16.jpeg',
+  '/training/17.jpeg', '/training/18.jpeg', '/training/19.jpeg', '/training/20.jpeg', '/training/21.jpeg',
+  '/training/22.jpeg', '/training/23.jpeg', '/training/24.jpeg', '/training/25.jpeg', '/training/26.jpeg',
+  '/training/27.jpeg', '/training/28.jpeg', '/training/29.jpeg', '/training/30.jpeg', '/training/31.jpeg',
+  '/training/32.jpeg', '/training/33.jpeg', '/training/34.jpg', '/training/35.jpg', '/training/36.jpg',
+  '/training/37.jpg', '/training/38.jpg', '/training/39.jpg', '/training/40.jpg', '/training/41.jpeg',
+  '/training/42.jpeg', '/training/43.jpeg', '/training/44.jpeg', '/training/45.jpeg', '/training/46.jpeg',
+  '/training/47.jpeg', '/training/48.jpeg', '/training/49.jpeg', '/training/50.jpeg', '/training/51.jpeg',
+  '/training/52.jpeg', '/training/53.jpeg', '/training/54.jpeg', '/training/55.jpeg', '/training/56.jpeg',
+  '/training/57.jpeg', '/training/58.jpeg', '/training/59.jpeg', '/training/60.jpeg', '/training/61.jpeg',
+  '/training/62.jpeg', '/training/63.jpeg', '/training/64.jpeg', '/training/65.jpeg', '/training/67.jpeg',
+  '/training/68.jpeg', '/training/69.jpeg', '/training/70.jpeg',
+  '/msb/sr1.webp', '/msb/sr2.webp', '/msb/sr6.webp', '/msb/sr7.webp', '/msb/sr8.webp', '/msb/s2.webp', '/msb/career_discussion.png'
 ];
 
 const programs = [
@@ -101,10 +106,30 @@ const CorporateTraining = () => {
   const prevT = () => setActiveTestimonial(p => (p - 1 + testimonials.length) % testimonials.length);
 
   useEffect(() => {
-    const handler = (e) => { if (e.key === 'Escape') setLightbox(null); };
+    if (lightbox !== null) {
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+    }
+
+    const handler = (e) => {
+      if (lightbox === null) return;
+      if (e.key === 'Escape') setLightbox(null);
+      if (e.key === 'ArrowRight') setLightbox((p) => (p + 1) % galleryImages.length);
+      if (e.key === 'ArrowLeft') setLightbox((p) => (p - 1 + galleryImages.length) % galleryImages.length);
+    };
     window.addEventListener('keydown', handler);
-    return () => window.removeEventListener('keydown', handler);
-  }, []);
+    return () => {
+      document.documentElement.style.overflow = '';
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handler);
+    };
+  }, [lightbox]);
+
+  const track1 = galleryImages.slice(0, Math.ceil(galleryImages.length / 2));
+  const track2 = galleryImages.slice(Math.ceil(galleryImages.length / 2));
 
   return (
     <div className="w-full bg-white">
@@ -199,81 +224,190 @@ const CorporateTraining = () => {
         </div>
       </section>
 
-      {/* ── Photo Gallery — bento grid ── */}
-      <section className="py-24 bg-slate-950">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+      {/* ── Photo Gallery Section — Continuous Marquee Stream ── */}
+      <section className="py-16 bg-slate-950 text-white border-t border-b border-slate-900 overflow-hidden relative">
+        <style>{`
+          @keyframes marqueeLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+          .animate-marquee-left {
+            animation: marqueeLeft 65s linear infinite;
+          }
+          .animate-marquee-right {
+            animation: marqueeRight 65s linear infinite;
+          }
+          .animate-marquee-left:hover,
+          .animate-marquee-right:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
+        {/* Gradient edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-slate-950 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-slate-950 to-transparent z-20 pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto px-[5%] mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-900">
             <div>
-              <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Inside Our Sessions</span>
-              <SectionHeading title="Training in Action" light center={false} />
+              <span className="text-yellow-500 text-[11px] font-bold tracking-[0.2em] uppercase block mb-1">
+                Inside Our Live Sessions
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Training <span className="accent-text italic text-yellow-500 font-serif">in Action</span>
+              </h2>
             </div>
-            <p className="text-gray-400 max-w-xs text-sm">Real moments from our on-job training sessions.</p>
+            <div className="flex items-center gap-2 text-slate-400 text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span>75 Live Session Moments · Hover to Pause · Click to Expand</span>
+            </div>
           </div>
+        </div>
 
-          {/* Bento grid */}
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-3 auto-rows-[200px]">
-            {/* Large — col 2, row 2 */}
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="col-span-2 row-span-2 relative overflow-hidden rounded-2xl cursor-pointer group"
-              onClick={() => setLightbox(0)}>
-              <img src={galleryImages[0]} alt="Training session" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                <span className="text-white text-xs font-bold uppercase tracking-widest">View Photo</span>
-              </div>
-            </motion.div>
-
-            {/* 3 tiles row 1 */}
-            {[1, 2, 3].map(idx => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group"
-                onClick={() => setLightbox(idx)}>
-                <img src={galleryImages[idx]} alt={`Session ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
-              </motion.div>
-            ))}
-
-            {/* 3 tiles row 2 */}
-            {[4, 5, 6].map(idx => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group"
-                onClick={() => setLightbox(idx)}>
-                <img src={galleryImages[idx]} alt={`Session ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
-                {idx === 6 && (
-                  <div className="absolute inset-0 bg-black/60 flex flex-col items-center justify-center gap-2"
-                    onClick={e => { e.stopPropagation(); setLightbox(7); }}>
-                    <span className="text-white text-3xl font-black">+{galleryImages.length - 7}</span>
-                    <span className="text-gray-300 text-xs font-bold uppercase tracking-widest">More Photos</span>
+        {/* Marquee Row 1 (Right to Left) */}
+        <div className="mb-4 flex overflow-hidden select-none">
+          <div className="flex gap-3 animate-marquee-left shrink-0">
+            {[...track1, ...track1].map((imgUrl, idx) => {
+              const globalIndex = galleryImages.indexOf(imgUrl);
+              return (
+                <div
+                  key={`t1-${idx}`}
+                  onClick={() => setLightbox(globalIndex >= 0 ? globalIndex : idx)}
+                  className="group relative w-48 sm:w-64 h-32 sm:h-40 shrink-0 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 shadow-md hover:border-yellow-500/80 hover:scale-[1.03] transition-all duration-300"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`Training session ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
+                    <span className="bg-yellow-500 text-slate-950 p-2.5 rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                      <Maximize2 size={16} />
+                    </span>
                   </div>
-                )}
-              </motion.div>
-            ))}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* Marquee Row 2 (Left to Right) */}
+        <div className="flex overflow-hidden select-none">
+          <div className="flex gap-3 animate-marquee-right shrink-0">
+            {[...track2, ...track2].map((imgUrl, idx) => {
+              const globalIndex = galleryImages.indexOf(imgUrl);
+              return (
+                <div
+                  key={`t2-${idx}`}
+                  onClick={() => setLightbox(globalIndex >= 0 ? globalIndex : idx)}
+                  className="group relative w-48 sm:w-64 h-32 sm:h-40 shrink-0 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 shadow-md hover:border-yellow-500/80 hover:scale-[1.03] transition-all duration-300"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`Training session ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
+                    <span className="bg-yellow-500 text-slate-950 p-2.5 rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                      <Maximize2 size={16} />
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Lightbox ── */}
+      {/* ── Solid 100% Opaque High-Contrast Lightbox Popup ── */}
       <AnimatePresence>
         {lightbox !== null && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4"
-            onClick={() => setLightbox(null)}>
-            <button className="absolute top-5 right-5 text-white/70 hover:text-white text-3xl font-light" onClick={() => setLightbox(null)}>✕</button>
-            <button className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-[#fbc02d] text-white rounded-full flex items-center justify-center transition-colors z-10"
-              onClick={e => { e.stopPropagation(); setLightbox(p => (p - 1 + galleryImages.length) % galleryImages.length); }}>
-              <ChevronLeft size={22} />
-            </button>
-            <motion.img key={lightbox} initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.9, opacity: 0 }}
-              src={galleryImages[lightbox]} alt="" className="max-w-5xl max-h-[85vh] w-full object-contain rounded-xl shadow-2xl"
-              onClick={e => e.stopPropagation()} />
-            <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-[#fbc02d] text-white rounded-full flex items-center justify-center transition-colors z-10"
-              onClick={e => { e.stopPropagation(); setLightbox(p => (p + 1) % galleryImages.length); }}>
-              <ChevronRight size={22} />
-            </button>
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-              {galleryImages.map((_, i) => (
-                <button key={i} onClick={e => { e.stopPropagation(); setLightbox(i); }}
-                  className={`w-2 h-2 rounded-full transition-all ${i === lightbox ? 'bg-[#fbc02d] w-5' : 'bg-white/30'}`} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 h-screen w-screen bg-slate-950 z-[999999] flex flex-col justify-between p-4 md:p-6 overflow-hidden select-none"
+            onClick={() => setLightbox(null)}
+          >
+            {/* Top Bar */}
+            <div className="flex items-center justify-between w-full max-w-6xl mx-auto text-white z-30 shrink-0">
+              <div className="flex items-center gap-3">
+                <span className="bg-yellow-500 text-slate-950 text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  PHOTO {lightbox + 1} OF {galleryImages.length}
+                </span>
+                <span className="text-gray-300 text-xs font-semibold hidden sm:inline">
+                  Use Arrow Keys ← → to navigate
+                </span>
+              </div>
+              <button
+                className="w-10 h-10 rounded-full bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 border border-slate-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg font-bold"
+                onClick={() => setLightbox(null)}
+                title="Close (Esc)"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Center Stage Image */}
+            <div className="relative flex items-center justify-center flex-1 my-2 overflow-hidden cursor-default">
+              <button
+                className="absolute left-2 sm:left-6 w-12 h-12 sm:w-14 sm:h-14 bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 text-white rounded-full flex items-center justify-center transition-all border border-slate-700 z-30 shadow-2xl cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox((p) => (p - 1 + galleryImages.length) % galleryImages.length);
+                }}
+                title="Previous (←)"
+              >
+                <ChevronLeft size={26} />
+              </button>
+
+              <motion.img
+                key={lightbox}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+                src={galleryImages[lightbox]}
+                alt={`Training Session ${lightbox + 1}`}
+                className="max-w-[88vw] max-h-[68vh] md:max-h-[72vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-slate-800"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              <button
+                className="absolute right-2 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 text-white rounded-full flex items-center justify-center transition-all border border-slate-700 z-30 shadow-2xl cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox((p) => (p + 1) % galleryImages.length);
+                }}
+                title="Next (→)"
+              >
+                <ChevronRight size={26} />
+              </button>
+            </div>
+
+            {/* Bottom Thumbnail Strip — 100% Solid & Hidden Scrollbar */}
+            <div
+              className="w-full max-w-3xl mx-auto flex items-center gap-2 overflow-x-auto py-2.5 px-3.5 bg-slate-900 rounded-2xl border border-slate-800 shrink-0 cursor-default shadow-2xl z-30 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {galleryImages.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightbox(i)}
+                  className={`w-11 h-11 sm:w-13 sm:h-13 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                    i === lightbox
+                      ? 'border-yellow-400 scale-105 shadow-lg ring-2 ring-yellow-500/50 opacity-100'
+                      : 'border-transparent opacity-40 hover:opacity-100'
+                  }`}
+                >
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
               ))}
             </div>
           </motion.div>

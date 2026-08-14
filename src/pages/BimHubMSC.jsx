@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
 import {
@@ -7,7 +7,7 @@ import {
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
-  Star, Quote, CheckCircle2, X
+  Star, Quote, CheckCircle2, X, Maximize2, QrCode
 } from 'lucide-react';
 
 function Counter({ to, suffix = '' }) {
@@ -56,6 +56,18 @@ const BimHubMSC = () => {
     'https://e-construct.in/wp-content/uploads/2022/02/X-CM-2-1.jpg',
   ];
   const [slide, setSlide] = useState(0);
+  const [isQrExpanded, setIsQrExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setIsQrExpanded(false);
+    };
+    if (isQrExpanded) {
+      window.addEventListener('keydown', handleKeyDown);
+    }
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isQrExpanded]);
+
   useEffect(() => {
     const t = setInterval(() => setSlide(p => (p + 1) % sliderImages.length), 4200);
     return () => clearInterval(t);
@@ -103,9 +115,9 @@ const BimHubMSC = () => {
       {/* ── HERO ─────────────────────────────────────────────────── */}
       <section className="relative w-full min-h-[100dvh] lg:h-[700px] overflow-hidden bg-black">
         <div className="absolute inset-0 scale-105">
-          <img src="/prj6.jpg" alt="" className="w-full h-full object-cover brightness-[0.45] saturate-[0.8]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent hidden md:block" />
+          <img src="/msc_hero_bg.jpg" alt="Master in Smart Construction & BIM Hero Background" className="w-full h-full object-cover brightness-[0.65] saturate-[1.1]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent hidden md:block" />
         </div>
         <div className="relative z-10 h-[100dvh] lg:h-full w-full max-w-[1400px] px-5 sm:px-10 flex flex-col justify-end pb-16 lg:pb-20">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl">
@@ -520,9 +532,6 @@ const BimHubMSC = () => {
       <section className="bg-slate-50 py-12 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto space-y-8">
           <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
-            <img src="/msc4.webp" alt="MSC Additional Information" className="w-full h-auto object-contain" />
-          </div>
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
             <img src="/msc_training_poster_2.png" alt="MSC Training Poster" className="w-full h-auto object-contain" />
           </div>
         </div>
@@ -630,9 +639,67 @@ const BimHubMSC = () => {
               </div>
 
               <div className="bg-slate-900 text-white p-8 rounded-[30px] shadow-[0_15px_40px_rgba(0,0,0,0.2)] relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8">
-                <div className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-white p-2 rounded-xl shadow-lg ring-4 ring-white/10 z-10">
+                <div
+                  onClick={() => setIsQrExpanded(true)}
+                  className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-white p-2 rounded-xl shadow-lg ring-4 ring-white/10 z-10 hover:scale-[1.05] transition-all cursor-pointer relative group/qr overflow-hidden"
+                  title="Click to expand QR Code"
+                >
                   <img src="/qr.webp" alt="Econstruct QR Code" className="w-full h-full object-contain" />
+                  <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover/qr:opacity-100 transition-opacity rounded-xl flex items-center justify-center backdrop-blur-[2px]">
+                    <span className="bg-yellow-400 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full shadow-lg flex items-center gap-1">
+                      <Maximize2 className="w-3 h-3" /> Expand
+                    </span>
+                  </div>
                 </div>
+
+                {/* Expanded QR Modal Lightbox */}
+                <AnimatePresence>
+                  {isQrExpanded && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      onClick={() => setIsQrExpanded(false)}
+                      className="fixed inset-0 z-[9999] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto cursor-zoom-out"
+                    >
+                      <motion.div
+                        initial={{ scale: 0.9, opacity: 0 }}
+                        animate={{ scale: 1, opacity: 1 }}
+                        exit={{ scale: 0.9, opacity: 0 }}
+                        transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+                        onClick={(e) => e.stopPropagation()}
+                        className="bg-white rounded-3xl p-5 sm:p-7 max-w-sm sm:max-w-md w-full border border-slate-200 shadow-2xl relative text-center cursor-default my-auto max-h-[92vh] flex flex-col justify-between"
+                      >
+                        <div className="flex items-start justify-between gap-3 mb-2 pr-8 relative">
+                          <div className="text-left">
+                            <span className="bg-yellow-500/10 text-yellow-700 border border-yellow-500/30 text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider inline-block mb-1">
+                              Official Merchant QR
+                            </span>
+                            <h3 className="text-lg sm:text-xl font-black text-slate-900 leading-tight">ECONSTRUCT DESIGN & BUILD</h3>
+                            <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5">Scan using any UPI App (GPay, PhonePe, Paytm, BHIM)</p>
+                          </div>
+                          <button
+                            onClick={() => setIsQrExpanded(false)}
+                            className="absolute top-0 right-0 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors shadow-sm shrink-0"
+                            title="Close"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+
+                        <div className="bg-slate-50 p-3 sm:p-4 rounded-2xl border border-slate-200 my-2 flex items-center justify-center shadow-inner overflow-hidden">
+                          <img
+                            src="/qr.webp"
+                            alt="Payment QR Code Expanded"
+                            className="max-h-[50vh] sm:max-h-[56vh] w-auto mx-auto object-contain rounded-xl shadow-sm"
+                          />
+                        </div>
+
+                        <p className="text-[11px] text-slate-400 font-medium mt-1">Click anywhere outside or tap ✕ to close</p>
+                      </motion.div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
                 
                 <div className="text-center sm:text-left z-10">
                   <h3 className="text-xl md:text-2xl font-black mb-3 leading-snug">
