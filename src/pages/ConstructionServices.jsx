@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { HardHat, Building2, Home, Factory, Map, ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import { HardHat, Building2, Home, Factory, Map, ArrowRight, CheckCircle, ChevronLeft, ChevronRight, Star, MapPin, ExternalLink, Layers, Building } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
 import SectionHeading from '../components/SectionHeading';
+import GoregaonMulundLinkRoad from '../assets/GoregaonMulundLinkRoad.webp';
 
 // Original Assets (preserved)
 import csHero from '../assets/cs_hero.webp';
@@ -124,7 +126,98 @@ const HorizontalSlider = ({ title, subtitle, images, reverseBg = false }) => {
 
 
 const ConstructionServices = () => {
+  const navigate = useNavigate();
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [activeCategory, setActiveCategory] = useState('All');
+
+  const portfolioItems = [
+    {
+      id: 1,
+      title: 'Group Housing Township (G+4)',
+      category: 'Residential',
+      tag: 'Turnkey Construction',
+      image: '/projects/gh_1.png',
+      location: 'Integrated Township',
+      area: '~1,14,700 SFT',
+      desc: 'Full-scale G+4 residential towers & G+1 canteen auditorium block constructed with RCC framed structure and AAC blockwork.'
+    },
+    {
+      id: 2,
+      title: '9 Emperio Skyscraper (G+35)',
+      category: 'High-Rise Towers',
+      tag: 'G+35 High-Rise',
+      image: '/projects/emp_2.png',
+      location: 'Patia, Bhubaneswar',
+      area: '24,649.33 SFT',
+      desc: 'Landmark G+35 high-rise residential structure engineered with ETABS dynamic wind analysis and advanced rebar execution.'
+    },
+    {
+      id: 3,
+      title: 'Ashoak Commercial Mall (2B+G+8)',
+      category: 'Commercial',
+      tag: 'Commercial Hub',
+      image: '/projects/mall_1.png',
+      location: 'Jalna, Maharashtra',
+      area: '2B+G+8 Complex',
+      desc: 'Modern commercial shopping complex featuring high-footfall retail storefronts, food court levels, and basement parking.'
+    },
+    {
+      id: 4,
+      title: '9 Boulevard Mixed-Use Complex',
+      category: 'High-Rise Towers',
+      tag: 'Multi-Tower G+35',
+      image: '/projects/blv_8.png',
+      location: 'Patia, Bhubaneswar',
+      area: '66,058.05 SFT',
+      desc: 'Massive multi-tower high-rise development with podium parking, retail integration, and structural green wall facades.'
+    },
+    {
+      id: 5,
+      title: 'Luxury Hillside Villa Estate',
+      category: 'Residential',
+      tag: 'Custom Luxury Build',
+      image: csPort2,
+      location: 'Lonavala, Maharashtra',
+      area: 'Bespoke Estate',
+      desc: 'Hillside luxury villa designed and built with customized architectural stone elevations, infinity pool, and structural engineering.'
+    },
+    {
+      id: 6,
+      title: 'Goregaon Mulund Link Road (GMLR)',
+      category: 'Infrastructure',
+      tag: 'Urban Infrastructure',
+      image: GoregaonMulundLinkRoad,
+      location: 'Mumbai, India',
+      area: 'Major Urban Link',
+      desc: 'Key urban infrastructure project connecting major transit corridors with BIM management and turnkey project engineering.'
+    },
+    {
+      id: 7,
+      title: 'GRK Africa International Complex',
+      category: 'Infrastructure',
+      tag: 'International Build',
+      image: '/projects/grk_1.jpeg',
+      location: 'Africa',
+      area: 'Multi-Tower Complex',
+      desc: 'Significant international infrastructure project featuring multi-tower residential blocks and complex podium coordination.'
+    },
+    {
+      id: 8,
+      title: 'KALPATARU Park Riviera',
+      category: 'Residential',
+      tag: 'Residential Township',
+      image: '/prj1.jpg',
+      location: 'Panvel, Navi Mumbai',
+      area: 'Township Complex',
+      desc: 'Premium residential township with full BIM 3D model coordination, structural audit, and site construction supervision.'
+    }
+  ];
+
+  const categories = ['All', 'Residential', 'Commercial', 'High-Rise Towers', 'Infrastructure'];
+  
+  const filteredItems = activeCategory === 'All' 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.category === activeCategory);
 
   const testimonials = [
     { name: "Kiran Rao", role: "Homeowner", review: "E-Construct translated our rough ideas into a stunning reality. Their interior planning and structural execution is just phenomenal." },
@@ -270,29 +363,103 @@ const ConstructionServices = () => {
       </section>
 
       {/* 3. Portfolio */}
-      <section className="py-20 md:py-32 bg-slate-900 text-white">
+      <section className="py-20 md:py-32 bg-slate-950 text-white">
         <div className="max-w-[1500px] mx-auto px-[5%] text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
-            <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Portfolio</span>
+            <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Delivered Projects</span>
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
           <SectionHeading title="Take a look at our portfolio" light />
+          <p className="text-gray-400 text-base sm:text-lg max-w-3xl mx-auto mt-4 mb-10 leading-relaxed font-light">
+            Discover our delivered residential, commercial, high-rise, and infrastructure construction projects built with uncompromised engineering precision.
+          </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[csPort1, csPort2, csPort3].map((img, i) => (
-              <motion.div 
-                key={i}
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative aspect-square md:aspect-[4/5] rounded-[2rem] overflow-hidden group"
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveCategory(cat)}
+                className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                  activeCategory === cat
+                    ? 'bg-[#fbc02d] text-slate-950 shadow-[0_0_20px_rgba(251,192,45,0.4)] scale-105'
+                    : 'bg-slate-900 text-gray-400 hover:text-white hover:bg-slate-800 border border-slate-800'
+                }`}
               >
-                <img src={img} alt={`Portfolio ${i + 1}`} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" />
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-500"></div>
-              </motion.div>
+                {cat}
+              </button>
             ))}
+          </div>
+
+          {/* Grid Cards */}
+          <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <AnimatePresence>
+              {filteredItems.map((item) => (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                  key={item.id}
+                  onClick={() => navigate('/projects')}
+                  className="bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-800 hover:border-[#fbc02d]/40 shadow-xl hover:shadow-[0_20px_40px_rgba(0,0,0,0.6)] group flex flex-col text-left cursor-pointer transition-all duration-500 hover:-translate-y-2"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" 
+                      loading="lazy" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80" />
+                    
+                    <div className="absolute top-4 left-4 bg-slate-950/90 text-[#fbc02d] font-black text-[10px] uppercase tracking-widest px-3 py-1 rounded-full border border-[#fbc02d]/30 backdrop-blur-md">
+                      {item.tag}
+                    </div>
+
+                    <div className="absolute bottom-3 right-3 bg-slate-900/80 text-gray-300 text-[10px] font-bold px-2.5 py-1 rounded-lg backdrop-blur-sm border border-slate-700/50">
+                      {item.area}
+                    </div>
+                  </div>
+
+                  <div className="p-6 flex flex-col flex-1">
+                    <div className="flex items-center gap-1.5 text-[#fbc02d] text-xs font-semibold mb-2">
+                      <MapPin size={12} />
+                      <span>{item.location}</span>
+                    </div>
+
+                    <h3 className="text-lg font-extrabold text-white mb-3 group-hover:text-[#fbc02d] transition-colors leading-snug">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-gray-400 text-xs leading-relaxed font-normal mb-6 flex-1 line-clamp-3">
+                      {item.desc}
+                    </p>
+
+                    <div className="pt-4 border-t border-slate-800/80 flex items-center justify-between text-xs font-bold text-[#fbc02d] group-hover:text-white transition-colors">
+                      <span className="uppercase tracking-wider text-[11px]">Explore Project Drawings</span>
+                      <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </AnimatePresence>
+          </motion.div>
+
+          <div className="mt-14 pt-8 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-6 bg-slate-900/50 p-8 rounded-3xl border border-slate-800">
+            <div className="text-left">
+              <h4 className="text-xl font-bold text-white mb-1">Have a project in mind for turnkey construction?</h4>
+              <p className="text-gray-400 text-sm">Explore our detailed architectural & structural drawings on the projects portal.</p>
+            </div>
+            <button 
+              onClick={() => navigate('/projects')}
+              className="bg-[#fbc02d] hover:bg-white text-slate-950 font-black uppercase tracking-wider text-xs px-7 py-4 rounded-xl transition-all shadow-lg active:scale-95 shrink-0 flex items-center gap-2"
+            >
+              <span>View All Portfolio Drawings</span>
+              <ExternalLink size={14} />
+            </button>
           </div>
         </div>
       </section>

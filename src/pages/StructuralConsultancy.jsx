@@ -14,7 +14,7 @@ import { useAdmin } from '../context/AdminContext';
 const SC_SERVICE_ICONS = [Home, Building, Factory, Map, ShieldCheck];
 const WHY_ICONS = [TrendingUp, Building, Layout, ShieldCheck, Award, CheckCircle2];
 
-const ProjectSliderCard = ({ images, type, title, challenges, status, location }) => {
+const ProjectSliderCard = ({ images, type, title, challenges, status, location, onClick }) => {
   const [currentIdx, setCurrentIdx] = useState(0);
 
   useEffect(() => {
@@ -25,7 +25,10 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location }
   }, [images.length]);
 
   return (
-    <div className="bg-white rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex flex-col group border border-gray-100 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 h-full">
+    <div 
+      onClick={onClick}
+      className="bg-white rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex flex-col group border border-gray-100 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 h-full cursor-pointer"
+    >
       <div className="relative aspect-[4/3] overflow-hidden rounded-t-[24px]">
         <img src={images[currentIdx]} alt={title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" loading="lazy" decoding="async" />
         <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md text-[#fbc02d] px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] z-10 border border-[#fbc02d]/20 shadow-md">
@@ -40,7 +43,7 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location }
         </div>
       </div>
       <div className="p-6 md:p-8 flex flex-col flex-1">
-        <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-6 leading-snug">{title}</h3>
+        <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-6 leading-snug group-hover:text-[#fbc02d] transition-colors">{title}</h3>
         <div className="space-y-4 mb-8 flex-1">
           <div>
             <h4 className="text-[0.65rem] font-black text-slate-800 uppercase tracking-[0.15em] mb-1.5 flex items-center gap-2"><AlertCircle size={14} className="text-red-500"/> Challenges</h4>
@@ -55,8 +58,8 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location }
             <p className="text-gray-600 text-sm leading-relaxed font-medium">{location}</p>
           </div>
         </div>
-        <button className="w-full bg-slate-50 text-blue-600 font-black px-6 py-4 rounded-xl hover:bg-blue-50 transition-all duration-300 flex items-center justify-center gap-2 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_10px_20px_rgba(37,99,235,0.2)] mt-auto active:scale-95 uppercase tracking-widest text-xs">
-          View Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        <button onClick={onClick} className="w-full bg-slate-50 text-blue-600 font-black px-6 py-4 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_10px_20px_rgba(37,99,235,0.2)] mt-auto active:scale-95 uppercase tracking-widest text-xs">
+          View Project Drawings <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
     </div>
@@ -252,7 +255,7 @@ const StructuralConsultancy = () => {
       <section className="py-24 px-4 md:px-8 bg-slate-900 border-t-[4px] border-[#fbc02d]">
         <div className="max-w-[1500px] mx-auto">
           <div className="text-center mb-16">
-            <SectionHeading title="Our Projects" light />
+            <SectionHeading title="Recent Designs" light />
             <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
           </div>
           
@@ -261,11 +264,8 @@ const StructuralConsultancy = () => {
               <div key={idx} className="relative rounded-2xl overflow-hidden shadow-xl group aspect-[4/5] sm:aspect-square xl:aspect-[3/4]">
                 <img 
                   src={src} 
-                  alt={`Project ${idx + 1}`}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                  <span className="text-white font-bold tracking-widest uppercase text-sm border-b-2 border-[#fbc02d] pb-1">View Project</span>
-                </div>
+                  alt={`Recent Design ${idx + 1}`}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
               </div>
             ))}
           </div>
@@ -472,44 +472,58 @@ const StructuralConsultancy = () => {
             <div className="text-center mb-16">
               <SectionHeading title="Latest Projects" />
               <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto leading-relaxed border-l-4 border-[#fbc02d] pl-4">
-                Explore our recent successful projects that showcase our expertise.
+                Explore our recent successful projects that showcase our engineering expertise.
               </p>
               <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
                <ProjectSliderCard 
-                 images={['/structural-consultancy/sp4.jpg', '/structural-consultancy/sp7.jpg']}
-                 type="Commercial"
-                 title="Vapi Industrial Building"
-                 challenges="Analysis and design of long columns and analysis and design of steel beams on mezzanine floors."
-                 status="GFC Released, Site is ongoing."
-                 location="Vapi, Gujarat"
-               />
-               <ProjectSliderCard 
-                 images={['/structural-consultancy/project2-1.png', '/structural-consultancy/sc6.webp']}
-                 type="Industrial"
-                 title="Automated Storage and Retrieval System Shed Foundation"
-                 challenges="Analysis for Moving Crane Load, Checking for Crackwidth, Value Engineering."
-                 status="GFC Released. Reinforcement lay is ongoing at site."
-                 location="Hyderabad"
-               />
-               <ProjectSliderCard 
-                 images={['/structural-consultancy/sc1.webp', '/structural-consultancy/sc2.webp']}
+                 images={['/projects/gh_1.png', '/projects/gh_2.png']}
                  type="Residential"
-                 title="9-Emperio"
-                 challenges="Control Dynamic Wind Deflection, Design Long-span Girder."
-                 status="Project is ongoing, with pile casting at the site."
-                 location="Bhubaneswar, Odisha."
+                 title="Group Housing Development (G+4)"
+                 challenges="Fast-track RCC framed structure (M20/M25) with AAC blockwork & integrated architectural, structural & MEP design."
+                 status="Executed under IS code compliance within ~6 months delivery timeline."
+                 location="Residential & Canteen Township"
+                 onClick={() => navigate('/projects')}
                />
                <ProjectSliderCard 
-                 images={['/structural-consultancy/sc3.webp', '/structural-consultancy/sc4.webp']}
-                 type="Residential"
-                 title="Paradise Pride (B+G+22)"
-                 challenges="Maintain uniform Column Sizes from typical floor and Wind Gust Calculation due to varying Width of building."
-                 status="Structure Design Completed, On site Typical Floor Construction is going on."
-                 location="Surat, Gujrat"
+                 images={['/projects/emp_1.png', '/projects/emp_2.png', '/projects/emp_5.png']}
+                 type="High-Rise Residential"
+                 title="9 Emperio (G+35)"
+                 challenges="Control dynamic wind deflection, high-rise ETABS FE modeling, and lateral drift calculations for G+35 tower."
+                 status="Structural design & GFC drawings released. Site construction ongoing."
+                 location="Patia, Bhubaneswar, Odisha"
+                 onClick={() => navigate('/projects')}
                />
+               <ProjectSliderCard 
+                 images={['/projects/blv_1.png', '/projects/blv_8.png', '/projects/blv_5.png']}
+                 type="Mixed-Use High-Rise"
+                 title="9 Boulevard (G+35)"
+                 challenges="Non-linear dynamic time-history simulation, multi-tower podium parking & green wall structural integration."
+                 status="Structural analysis & 3D BIM complete, tower execution underway."
+                 location="Patia, Bhubaneswar, Odisha"
+                 onClick={() => navigate('/projects')}
+               />
+               <ProjectSliderCard 
+                 images={['/projects/mall_1.png', '/projects/mall_2.png', '/projects/mall_4.png']}
+                 type="Commercial Retail"
+                 title="Ashoak Mall, Jalna (2B+G+8)"
+                 challenges="2 Basements + Ground + 8 Upper Floors structural design for high-footfall retail, food court & parking levels."
+                 status="GFC structural release completed."
+                 location="Jalna, Maharashtra"
+                 onClick={() => navigate('/projects')}
+               />
+            </div>
+
+            <div className="mt-12 text-center">
+              <button 
+                onClick={() => navigate('/projects')}
+                className="inline-flex items-center gap-3 bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-extrabold uppercase tracking-wider text-xs sm:text-sm px-8 py-4 rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer"
+              >
+                <span>View All Portfolio Projects on Projects Page</span>
+                <ArrowRight size={16} />
+              </button>
             </div>
          </div>
       </section>

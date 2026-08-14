@@ -29,13 +29,13 @@ const ServiceDetails = () => {
   return (
     <div className="w-full bg-white">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-black mt-20">
+      <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 pb-12">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={ConstructionServiceHero} 
             alt="Construction Service Hero" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay" loading="lazy" decoding="async" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+            className="w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000" loading="eager" decoding="async" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">

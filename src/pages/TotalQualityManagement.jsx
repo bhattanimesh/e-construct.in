@@ -48,10 +48,9 @@ import tqmPort5 from '../assets/tqm_port5.jpg';const TotalQualityManagement = ()
       {/* 1. Hero Section */}
       <section className="relative w-full h-[50vh] md:h-[60vh] flex items-center justify-center overflow-hidden bg-slate-900 border-b-8 border-[#fbc02d]">
         <div className="absolute inset-0 w-full h-full">
-          <img src={heroImg} className="w-full h-full object-cover opacity-30 mix-blend-overlay" alt="" />
-          <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply"></div>
+          <img src={heroImg} className="w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000" alt="Total Quality Management Hero" />
           <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/60 to-slate-900/20"></div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">

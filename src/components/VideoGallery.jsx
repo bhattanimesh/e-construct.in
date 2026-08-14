@@ -39,11 +39,11 @@ const VideoGallery = () => {
       isArticle: false
     },
     {
-      id: 'vUXR9-RgS08',
+      id: 'G2MgI1FkA3c',
       title: 'ECONSTRUCT Company Profile',
       category: '🏢 Corporate Overview',
       badge: 'Company Profile',
-      url: 'https://youtu.be/vUXR9-RgS08',
+      url: 'https://youtu.be/G2MgI1FkA3c',
       isArticle: false
     },
     {
@@ -55,11 +55,11 @@ const VideoGallery = () => {
       isArticle: false
     },
     {
-      id: 'Bbvi8Tq_FBM',
+      id: 't5CNsMfYO_s',
       title: 'Structural Project Profile',
       category: '🏗️ Structural Design',
       badge: 'Project Showcase',
-      url: 'https://youtu.be/Bbvi8Tq_FBM',
+      url: 'https://youtu.be/t5CNsMfYO_s?si=SzrgHr_ll6KnhJxC',
       isArticle: false
     },
     {
