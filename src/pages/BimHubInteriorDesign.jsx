@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import interiorImg from '../assets/cs_int_2.jpg';
+import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
 
 const BimHubInteriorDesign = () => {
   const sliderImages = [
@@ -123,19 +125,26 @@ const BimHubInteriorDesign = () => {
     <div className="bg-white min-h-screen flex flex-col justify-start">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/prj6.jpg')` }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url('/InteriorDesignConsultancy.webp')` }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+            <span className="text-[#fbc02d] font-extrabold tracking-[0.25em] uppercase text-xs md:text-sm">
+              Professional Interior & PM Program
+            </span>
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
             Master Study In Interior Designing
           </h1>
-          <p className="mt-4 text-white text-lg md:text-2xl font-medium tracking-wide drop-shadow-md max-w-3xl text-center leading-relaxed">
+          <p className="mt-6 text-[#fbc02d] text-2xl md:text-3xl font-extrabold tracking-wide drop-shadow-lg max-w-3xl text-center leading-relaxed italic accent-text">
             with Project Management
           </p>
         </div>
@@ -305,8 +314,8 @@ const BimHubInteriorDesign = () => {
             {/* Right Image */}
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative group border border-gray-100">
               <img
-                src="/prj6.jpg"
-                alt="Interior Designing"
+                src={interiorImg}
+                alt="Luxury Interior Design & Space Planning Project"
                 className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-700 ease-out"
               />
             </div>
@@ -622,8 +631,8 @@ const BimHubInteriorDesign = () => {
           <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-12 tracking-tight text-center">Your Path to Success</h2>
           <div className="w-full rounded-[30px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] bg-white p-4 md:p-10 transition-transform hover:-translate-y-2 duration-500">
             <img
-              src="/msb/flowchart.webp"
-              alt="E-Construct Career Growth Flowchart"
+              src="/Interior Design Poster 5.jpg"
+              alt="Master Study in Interior Designing Roadmap Poster"
               className="w-full h-auto object-contain"
             />
           </div>
@@ -713,67 +722,11 @@ const BimHubInteriorDesign = () => {
         </div>
       </section>
 
-      {/* Student Review Videos Slider */}
-      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1200px] mx-auto">
-          <div className="mb-14 text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Youtube Videos</h2>
-            <p className="text-gray-600 md:text-2xl font-bold text-lg max-w-2xl mx-auto mb-2 text-[#fbc02d]">Our Student Reviews</p>
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Hear from our interns and trainees about their experience</p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
-          </div>
-
-          <div className="relative group rounded-[16px] overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.2)] bg-black aspect-video md:aspect-[21/9]">
-            <div
-              className="flex w-full h-full transition-transform duration-700 ease-[cubic-bezier(0.25,0.1,0.25,1)]"
-              style={{ transform: `translateX(-${currentVidSlide * 100}%)` }}
-            >
-              {reviewVideos.map((videoSrc, idx) => (
-                <div key={idx} className="w-full h-full flex-shrink-0 relative">
-                  <iframe
-                    src={videoSrc}
-                    className="w-full h-full"
-                    title={`Student Video ${idx + 1}`}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                  ></iframe>
-                </div>
-              ))}
-            </div>
-
-            <button
-              onClick={prevVidSlide}
-              aria-label="Previous Video"
-              className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 shadow-xl flex items-center justify-center text-gray-800 hover:bg-[#fbc02d] hover:text-white hover:scale-110 transition-all opacity-0 group-hover:opacity-100 z-10 duration-300"
-            >
-              <ChevronLeft size={28} />
-            </button>
-            <button
-              onClick={nextVidSlide}
-              aria-label="Next Video"
-              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/90 shadow-xl flex items-center justify-center text-gray-800 hover:bg-[#fbc02d] hover:text-white hover:scale-110 transition-all opacity-0 group-hover:opacity-100 z-10 duration-300"
-            >
-              <ChevronRight size={28} />
-            </button>
-
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center justify-center gap-3 z-10 bg-black/60 backdrop-blur-md px-6 py-3 rounded-full">
-              {reviewVideos.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentVidSlide(idx)}
-                  aria-label={`Go to video ${idx + 1}`}
-                  className={`transition-all duration-500 rounded-full ${
-                    currentVidSlide === idx
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Student Video Reviews Showcase */}
+      <StudentVideoReviewsShowcase
+        title="Student Feedback & Experience Videos"
+        subtitle="Hear directly from our Master Study in Interior Designing alumni placed in top interior & architectural design firms."
+      />
 
       {/* Competition Playlist Section */}
       <section className="bg-slate-900 text-white py-24 px-4 md:px-8 border-t-[4px] border-[#fbc02d]">

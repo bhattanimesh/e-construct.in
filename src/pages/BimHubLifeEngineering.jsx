@@ -49,21 +49,21 @@ const BimHubLifeEngineering = () => {
     <div className="bg-white min-h-screen flex flex-col">
 
       {/* ── Hero ── */}
-      <section className="relative w-full h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/prj6.jpg')` }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url('/msb/career_discussion.png')` }}
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-black/70 via-black/50 to-blue-900/60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
         </div>
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-          <span className="inline-block bg-[#fbc02d] text-gray-900 text-xs font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+          <span className="inline-block bg-[#fbc02d] text-gray-900 text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full mb-6 shadow-md">
             Personal Development
           </span>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
             The Life Engineering Academy
           </h1>
-          <p className="mt-5 text-white text-lg md:text-xl font-medium tracking-wide drop-shadow-md max-w-2xl leading-relaxed">
+          <p className="mt-6 text-gray-200 text-lg md:text-2xl font-extrabold tracking-wide drop-shadow-lg max-w-2xl leading-relaxed">
             Personal &amp; Professional Development
           </p>
           <div className="mt-8 flex flex-wrap gap-4 justify-center">
@@ -71,13 +71,13 @@ const BimHubLifeEngineering = () => {
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MSG}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               <MessageCircle size={18} /> Join the Academy
             </a>
             <a
               href="tel:+919036744017"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-7 py-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+              className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-7 py-3.5 rounded-full transition-all duration-300 backdrop-blur-sm"
             >
               <Phone size={18} /> Call Us
             </a>
@@ -109,11 +109,11 @@ const BimHubLifeEngineering = () => {
                 Led by Mr. Sandeep Pingale — with 20+ years of industry experience and a track record of mentoring 1,000+ students — this is not a typical self-help course. It's a practical, no-nonsense system for engineering the life you want.
               </p>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100">
+            <div className="rounded-2xl overflow-hidden shadow-2xl border border-gray-100 bg-white p-2">
               <img
-                src="/prj6.jpg"
-                alt="Life Engineering Academy"
-                className="w-full h-full object-cover"
+                src="/msb/career_discussion.png"
+                alt="Life Engineering Academy Mentorship"
+                className="w-full h-full object-contain rounded-xl"
               />
             </div>
           </div>

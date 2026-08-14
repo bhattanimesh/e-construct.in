@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
 
 const BimHubDrawingDrafting = () => {
   const sliderImages = [
@@ -318,8 +319,8 @@ const BimHubDrawingDrafting = () => {
             {/* Right Image */}
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative group h-full flex items-center justify-center p-2 md:p-4 border border-gray-100">
               <img
-                src="/CorporateON-JOBTraining.webp"
-                alt="Engineering Drawing and Drafting ON-JOB Training"
+                src="/training/1.jpeg"
+                alt="Engineering Drawing and CAD Drafting Hands-on Training"
                 className="w-full h-auto object-cover rounded-[20px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
             </div>
@@ -718,26 +719,11 @@ const BimHubDrawingDrafting = () => {
         </div>
       </section>
 
-      {/* Flowchart Section */}
-      <section className="bg-slate-900/5 py-24 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1500px] mx-auto flex flex-col items-center">
-          <div className="mb-14 text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">Our Career Growth Blueprint</h2>
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto">Explore how we streamline the educational and placement process step-by-step.</p>
-          </div>
-
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.15)] bg-white p-4 md:p-10 transition-transform hover:-translate-y-2 duration-500">
-            <img
-              src="/msb/flowchart.webp"
-              alt="E-Construct Flowchart"
-              className="w-full h-auto object-contain"
-            />
-          </div>
-        </div>
-      </section>
-
-
-      {/* Modes of Learning Section */}
+      {/* Student Video Reviews Showcase */}
+      <StudentVideoReviewsShowcase
+        title="Student Feedback & Experience Videos"
+        subtitle="Hear directly from our Master Study in Engineering Drawing & Drafting alumni placed in top structural design firms."
+      />
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
           <div className="mb-14 text-center">

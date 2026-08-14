@@ -174,22 +174,22 @@ const BimHubBusinessManagement = () => (
   <div className="bg-white min-h-screen flex flex-col">
 
     {/* ── Hero ── */}
-    <section className="relative w-full h-[55vh] min-h-[420px] flex items-center justify-center overflow-hidden mt-20">
+    <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
       <div
-        className="absolute inset-0 z-0 bg-cover bg-center"
-        style={{ backgroundImage: `url('/prj6.jpg')` }}
+        className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+        style={{ backgroundImage: `url('/ProjectManagementConsultancy.jpg')` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-black/75 via-black/55 to-yellow-900/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
       </div>
-      <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-        <span className="inline-block bg-[#fbc02d] text-gray-900 text-xs font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full mb-6">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+        <span className="inline-block bg-[#fbc02d] text-gray-900 text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full mb-6 shadow-md">
           Econstruct — Business Program
         </span>
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
           Master Study In<br />
           <span className="text-[#fbc02d]">Business Management</span>
         </h1>
-        <p className="mt-5 text-white text-lg md:text-xl font-medium tracking-wide drop-shadow-md max-w-2xl leading-relaxed">
+        <p className="mt-6 text-gray-200 text-lg md:text-2xl font-extrabold tracking-wide drop-shadow-lg max-w-3xl leading-relaxed">
           12-Month ON-JOB Learning · 100% Job Guarantee · New Batch: 15th April 2026
         </p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
@@ -197,13 +197,13 @@ const BimHubBusinessManagement = () => (
             href="https://wa.me/919036744017"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             <MessageCircle size={18} /> Enrol Now
           </a>
           <a
             href="tel:+919036744017"
-            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-7 py-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+            className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-bold px-7 py-3.5 rounded-full transition-all duration-300 backdrop-blur-sm"
           >
             <Phone size={18} /> Call Us
           </a>
