@@ -127,19 +127,26 @@ const BimHubDrawingDrafting = () => {
     <div className="bg-white min-h-screen flex flex-col justify-start">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/prj6.jpg')` }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url('/drawing_drafting_hero_bg.jpg')` }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+            <span className="text-[#fbc02d] font-extrabold tracking-[0.25em] uppercase text-xs md:text-sm">
+              Professional Engineering Certification
+            </span>
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
             Master Study In Engineering
           </h1>
-          <p className="mt-4 text-white text-2xl md:text-3xl lg:text-4xl font-medium tracking-wide drop-shadow-md max-w-3xl text-center leading-relaxed italic accent-text">
+          <p className="mt-6 text-[#fbc02d] text-2xl md:text-4xl font-extrabold tracking-wide drop-shadow-lg max-w-3xl text-center leading-relaxed italic accent-text">
             Drawing &amp; Drafting
           </p>
         </div>
@@ -311,8 +318,8 @@ const BimHubDrawingDrafting = () => {
             {/* Right Image */}
             <div className="rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white relative group h-full flex items-center justify-center p-2 md:p-4 border border-gray-100">
               <img
-                src="/prj6.jpg"
-                alt="Drawing and Drafting Training"
+                src="/CorporateON-JOBTraining.webp"
+                alt="Engineering Drawing and Drafting ON-JOB Training"
                 className="w-full h-auto object-cover rounded-[20px] group-hover:scale-[1.02] transition-transform duration-700 ease-out"
               />
             </div>

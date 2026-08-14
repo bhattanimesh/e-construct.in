@@ -32,7 +32,7 @@ const searchIndex = [
 
   // Training
   { title: 'Training', description: 'Corporate on-job BIM and AEC software training', path: '/training', tags: ['training', 'corporate', 'bim', 'software', 'aec', 'course', 'learn'] },
-  { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/training/composite', tags: ['bim', 'certification', 'training', 'composite', 'courses'] },
+  { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/pages/msb', tags: ['bim', 'certification', 'training', 'msb', 'courses'] },
 
   // Company info
   { title: 'Our Team', description: 'Meet our architects, engineers, and BIM specialists', path: '/about', tags: ['team', 'architects', 'engineers', 'staff', 'people'] },

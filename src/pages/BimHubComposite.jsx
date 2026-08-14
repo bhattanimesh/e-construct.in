@@ -127,19 +127,26 @@ const BimHubComposite = () => {
     <div className="bg-white min-h-screen flex flex-col justify-start">
 
       {/* Hero Section */}
-      <section className="relative w-full h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden mt-20">
+      <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
         <div
-          className="absolute inset-0 z-0 bg-cover bg-center"
-          style={{ backgroundImage: `url('/prj6.jpg')` }}
+          className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-700"
+          style={{ backgroundImage: `url('/composite_hero_bg.jpg')` }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/40"></div>
         </div>
 
-        <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center mt-10">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)]">
+        <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+          <div className="flex items-center gap-3 mb-6">
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+            <span className="text-[#fbc02d] font-extrabold tracking-[0.25em] uppercase text-xs md:text-sm">
+              Premier Techno-Management Program
+            </span>
+            <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
             Techno-Management Entrepreneurship Training
           </h1>
-          <p className="mt-6 text-white text-lg md:text-xl font-medium tracking-wide drop-shadow-md max-w-3xl text-center leading-relaxed">
+          <p className="mt-6 text-gray-200 text-lg md:text-2xl font-bold tracking-wide drop-shadow-lg max-w-3xl text-center leading-relaxed">
             In Structures, BIM, and Project Management
           </p>
         </div>
