@@ -29,13 +29,13 @@ const LuxuryVilla = () => {
   return (
     <div className="w-full bg-white">
       {/* 1. Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center overflow-hidden bg-black mt-20">
+      <section className="relative w-full h-screen min-h-[650px] flex items-center justify-center overflow-hidden bg-slate-950 pt-20">
         <div className="absolute inset-0 w-full h-full">
           <img 
             src={VillaImage} 
             alt="Luxury Villa Design" 
-            className="w-full h-full object-cover opacity-40 mix-blend-overlay" loading="lazy" decoding="async" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
+            className="w-full h-full object-cover opacity-50 scale-105" loading="lazy" decoding="async" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/80"></div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
@@ -294,7 +294,7 @@ const LuxuryVilla = () => {
           </div>
           <SectionHeading title="What Our Clients Say" />
 
-          <div className="relative bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 mb-12">
+          <div className="relative bg-white rounded-[3rem] p-10 md:p-16 shadow-xl border border-gray-100 mb-12 mt-16">
             <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-[#fbc02d] rounded-full flex items-center justify-center shadow-lg border-4 border-white">
               <Star size={32} className="text-slate-900 fill-slate-900" />
             </div>

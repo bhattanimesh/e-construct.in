@@ -163,7 +163,7 @@ const BimHubInteriorDesign = () => {
           {/* YouTube Video Wrapper */}
           <div className="w-full max-w-5xl bg-white shadow-2xl rounded-2xl overflow-hidden border border-gray-200 aspect-video mb-16">
             <iframe
-              src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
+              src="https://www.youtube.com/embed/xnVMK7F-XRY"
               className="w-full h-full"
               title="Interior Design Overview Video"
               frameBorder="0"

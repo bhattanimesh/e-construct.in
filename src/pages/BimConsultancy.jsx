@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, CheckCircle2, Box, Calendar, DollarSign, Leaf, Settings, ShieldAlert, TrendingUp, Layers, PenTool, MonitorPlay, Users, Award, Clock, Quote, ChevronLeft, ChevronRight, Check, Mail, Phone, MapPin, Facebook, Youtube, MessageCircle, Linkedin } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -22,6 +22,14 @@ const BimConsultancy = () => {
   const bim = data.bimConsultancyContent || {};
   const [activeTestimonial, setActiveTestimonial] = useState(0);
   const navigate = useNavigate();
+  const sectorsScrollRef = useRef(null);
+
+  const scrollSectors = (direction) => {
+    if (sectorsScrollRef.current) {
+      const scrollAmount = direction === 'left' ? -360 : 360;
+      sectorsScrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   const testimonials = bim.testimonials || [];
   const whyChooseUs = bim.whyChooseUs || [];
@@ -383,47 +391,76 @@ const BimConsultancy = () => {
         </div>
       </section>
 
-      {/* 8. Sectors We Serve (Horizontal Scroll) */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100 overflow-hidden">
-        <div className="max-w-[1500px] mx-auto px-[5%] text-center mb-16">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-yellow-500"></div>
-            <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Sectors We Serve</span>
-            <div className="w-8 h-1 bg-yellow-500"></div>
-          </div>
-          <SectionHeading title="Specialized Solutions" />
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Our BIM methodologies adapt to the unique challenges and complex regulatory requirements across diverse industries.
-          </p>
-        </div>
+      {/* 8. Sectors We Serve (Interactive Slider) */}
+      <section className="py-24 bg-gray-50 border-t border-gray-100 overflow-hidden relative">
+        <div className="max-w-[1500px] mx-auto px-[5%]">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div className="text-left max-w-2xl">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-8 h-1 bg-yellow-500"></div>
+                <span className="text-yellow-500 font-bold uppercase tracking-widest text-xs">Sectors We Serve</span>
+              </div>
+              <SectionHeading title="Specialized Solutions" />
+              <p className="text-gray-600 text-base md:text-lg mt-3">
+                Our BIM methodologies adapt to the unique challenges and complex regulatory requirements across diverse industries.
+              </p>
+            </div>
 
-        {/* Horizontal Scrolling Container */}
-        <div className="flex overflow-x-auto gap-8 px-[5%] pb-12 snap-x snap-mandatory hide-scrollbar">
-          {bim.sectors.map((sector, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
-              className="min-w-[240px] md:min-w-[270px] bg-white rounded-[1.5rem] shadow-lg overflow-hidden border border-gray-100 snap-center group flex-shrink-0 flex flex-col"
-            >
-              <div className="h-[180px] overflow-hidden relative">
-                <img 
-                  src={SECTOR_IMAGES[index] || SECTOR_IMAGES[0]} 
-                  alt={sector.title} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-black text-slate-900 mb-3">{sector.title}</h3>
-                <p className="text-sm text-gray-600 font-medium mb-5 line-clamp-3">{sector.desc}</p>
-                <button onClick={() => navigate('/contact')} className="flex items-center gap-2 text-yellow-500 font-bold uppercase tracking-widest text-[10px] hover:text-slate-900 transition-colors">
-                  Learn More <ArrowRight size={14} />
-                </button>
-              </div>
-            </motion.div>
-          ))}
+            {/* Slider Navigation Buttons */}
+            <div className="flex items-center gap-3 shrink-0">
+              <button
+                onClick={() => scrollSectors('left')}
+                aria-label="Previous Sector"
+                className="w-12 h-12 rounded-full bg-white text-slate-800 shadow-md hover:bg-[#fbc02d] hover:text-slate-950 border border-gray-200 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+              >
+                <ChevronLeft size={22} />
+              </button>
+              <button
+                onClick={() => scrollSectors('right')}
+                aria-label="Next Sector"
+                className="w-12 h-12 rounded-full bg-slate-900 text-white shadow-md hover:bg-[#fbc02d] hover:text-slate-950 transition-all duration-300 flex items-center justify-center hover:scale-105 active:scale-95"
+              >
+                <ChevronRight size={22} />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal Scrolling Track */}
+          <div
+            ref={sectorsScrollRef}
+            className="flex overflow-x-auto gap-6 sm:gap-8 pb-8 snap-x snap-mandatory no-scrollbar scrollbar-hide hide-scrollbar scroll-smooth"
+          >
+            {bim.sectors.map((sector, index) => (
+              <motion.div 
+                key={index}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="min-w-[280px] sm:min-w-[340px] md:min-w-[380px] bg-white rounded-[1.8rem] shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 snap-start group flex-shrink-0 flex flex-col transition-all duration-300 hover:-translate-y-1.5"
+              >
+                <div className="h-[210px] overflow-hidden relative">
+                  <img 
+                    src={SECTOR_IMAGES[index] || SECTOR_IMAGES[0]} 
+                    alt={sector.title} 
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
+                  <span className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-[#fbc02d] text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full border border-yellow-500/30">
+                    Sector #{index + 1}
+                  </span>
+                </div>
+                <div className="p-7 flex flex-col flex-grow justify-between">
+                  <div>
+                    <h3 className="text-xl md:text-2xl font-black text-slate-900 mb-3">{sector.title}</h3>
+                    <p className="text-sm md:text-base text-gray-600 font-medium leading-relaxed mb-6">{sector.desc}</p>
+                  </div>
+                  <button onClick={() => navigate('/contact')} className="flex items-center gap-2 text-yellow-600 font-bold uppercase tracking-widest text-xs hover:text-slate-900 transition-colors mt-auto">
+                    Learn More <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

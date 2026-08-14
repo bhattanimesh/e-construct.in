@@ -69,7 +69,7 @@ const EPMC = () => {
             >
               <iframe 
                 className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/rm5sdAYCqqc?si=RbmeABefiwgpXj1h" 
+                src="https://www.youtube.com/embed/T9vqVGRwaJw" 
                 title="Join EPMC" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
