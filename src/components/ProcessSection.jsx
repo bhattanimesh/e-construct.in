@@ -39,7 +39,7 @@ const STEPS = [
 
 function MobileProcess() {
   return (
-    <section className="bg-white py-16 px-4">
+    <section className="bg-white pt-12 pb-6 px-4">
       <div className="max-w-xl mx-auto">
         <div className="mb-10">
           <div className="flex items-center gap-3 mb-4">
@@ -101,13 +101,13 @@ function DesktopProcess() {
 
   const { scrollYProgress } = useScroll({
     target: outerRef,
-    offset: ['start start', 'end end'],
+    offset: ['start 80px', 'end 100vh'],
   });
 
   const x = useTransform(scrollYProgress, [0, 1], [0, -scrollDist]);
 
-  // Height = scroll distance + 1 viewport (for the sticky panel itself)
-  const outerH = scrollDist > 0 ? scrollDist + window.innerHeight : window.innerHeight;
+  // Height = scroll distance + 1 viewport minus sticky offset
+  const outerH = scrollDist > 0 ? scrollDist + window.innerHeight - 80 : window.innerHeight;
 
   return (
     <div
@@ -122,8 +122,8 @@ function DesktopProcess() {
       <div
         style={{
           position: 'sticky',
-          top: 0,
-          height: '100vh',
+          top: '80px',
+          height: 'calc(100vh - 80px)',
           width: '100%',
           overflow: 'hidden', // only on the sticky panel itself, not the outer
           display: 'flex',
@@ -138,18 +138,18 @@ function DesktopProcess() {
         >
           {/* Intro */}
           <div style={{ width: '50vw', minWidth: 480, flexShrink: 0 }}
-            className="flex flex-col justify-center px-20 py-10">
-            <div className="flex items-center gap-4 text-yellow-500 mb-6">
+            className="flex flex-col justify-center px-16 py-4">
+            <div className="flex items-center gap-4 text-yellow-500 mb-4">
               <div className="w-12 h-[2px] bg-yellow-500" />
               <span className="font-bold tracking-[0.3em] uppercase text-sm">Our Workflow</span>
             </div>
-            <h2 className="text-8xl lg:text-9xl font-medium text-slate-900 leading-[0.85] mb-6 tracking-tight">
+            <h2 className="text-7xl lg:text-8xl font-medium text-slate-900 leading-[0.85] mb-5 tracking-tight">
               How We <br /><span className="accent-text italic">Work</span>
             </h2>
-            <p className="text-gray-500 text-lg max-w-sm border-l-2 border-yellow-500 pl-6 leading-relaxed">
+            <p className="text-gray-500 text-base lg:text-lg max-w-sm border-l-2 border-yellow-500 pl-6 leading-relaxed">
               Engineering excellence through a structured 3-step delivery process. Scroll down to explore.
             </p>
-            <div className="mt-8 flex items-center gap-2 text-gray-400 font-bold uppercase text-[10px] tracking-[0.2em] animate-pulse">
+            <div className="mt-6 flex items-center gap-2 text-gray-400 font-bold uppercase text-[10px] tracking-[0.2em] animate-pulse">
               Scroll Down <MoveRight className="rotate-90" size={14} />
             </div>
           </div>
@@ -157,25 +157,25 @@ function DesktopProcess() {
           {/* Steps */}
           {STEPS.map((step, i) => (
             <div key={i} style={{ width: '85vw', maxWidth: 1100, flexShrink: 0 }}
-              className="flex items-center px-16 py-10">
-              <div className={`relative w-full h-[80vh] overflow-hidden rounded-[4rem] p-16 ${step.bg} border border-gray-100 shadow-sm flex items-center`}>
-                <span className="absolute -top-10 -right-10 text-[22rem] font-black text-gray-200/40 select-none z-0 leading-none pointer-events-none">
+              className="flex items-center px-12 py-4">
+              <div className={`relative w-full h-[calc(100vh-140px)] max-h-[660px] overflow-hidden rounded-[3rem] p-10 lg:p-14 ${step.bg} border border-gray-100 shadow-sm flex items-center`}>
+                <span className="absolute -top-10 -right-10 text-[20rem] font-black text-gray-200/40 select-none z-0 leading-none pointer-events-none">
                   {step.id}
                 </span>
-                <div className="relative z-10 grid grid-cols-2 gap-16 items-center w-full">
-                  <div className="h-[400px] w-full rounded-3xl overflow-hidden shadow-2xl -rotate-2">
+                <div className="relative z-10 grid grid-cols-2 gap-12 items-center w-full">
+                  <div className="h-[340px] lg:h-[380px] w-full rounded-3xl overflow-hidden shadow-2xl -rotate-2">
                     <img src={step.img} alt={step.title}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       loading="lazy" />
                   </div>
                   <div>
-                    <div className={`inline-block px-4 py-1 rounded-full bg-white shadow-sm font-bold uppercase text-[10px] tracking-widest ${step.accent} mb-4`}>
+                    <div className={`inline-block px-4 py-1 rounded-full bg-white shadow-sm font-bold uppercase text-[10px] tracking-widest ${step.accent} mb-3`}>
                       Step {step.id} · {step.subtitle}
                     </div>
-                    <h3 className="text-6xl font-black text-slate-900 mt-2 mb-6">{step.title}</h3>
-                    <p className="text-gray-600 text-xl leading-relaxed mb-10 max-w-md">{step.desc}</p>
+                    <h3 className="text-5xl lg:text-6xl font-black text-slate-900 mt-1 mb-4">{step.title}</h3>
+                    <p className="text-gray-600 text-lg lg:text-xl leading-relaxed mb-8 max-w-md">{step.desc}</p>
                     <button className="flex items-center gap-4 group">
-                      <div className="w-16 h-16 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-yellow-500 transition-all duration-300">
+                      <div className="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-yellow-500 transition-all duration-300">
                         <ArrowRight className="group-hover:translate-x-1 transition-transform" />
                       </div>
                       <span className="font-bold uppercase text-xs tracking-[0.2em] text-slate-900 group-hover:text-yellow-600 transition-colors">
@@ -188,7 +188,7 @@ function DesktopProcess() {
             </div>
           ))}
 
-          <div style={{ width: '10vw', flexShrink: 0 }} />
+          <div style={{ width: '2vw', flexShrink: 0 }} />
         </motion.div>
       </div>
     </div>

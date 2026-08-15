@@ -1,4 +1,4 @@
-﻿import { useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ChevronDown } from "lucide-react";
 
@@ -285,7 +285,7 @@ const AllProcessSliders = () => {
   const curStep  = curPhase ? curPhase.steps[activeSteps[openPhase]] : null;
 
   return (
-    <section className="py-10 md:py-16 bg-white border-t border-slate-100">
+    <section className="pt-6 pb-12 md:pt-8 md:pb-16 bg-white border-t border-slate-100">
       <div className="max-w-[1280px] mx-auto px-4 sm:px-5 lg:px-8">
 
         {/* ── Header ── */}

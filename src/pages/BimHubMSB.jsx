@@ -94,8 +94,17 @@ const BimHubMSB = () => {
     setTimeout(() => setCopiedField(null), 2500);
   };
 
-  // Real Live Student Portfolio Documents
+  // Real Live Student Portfolio Documents & Videos
   const portfolioPdfs = [
+    {
+      id: 'video-1',
+      title: 'BIM Trainee Deliverable & Live Project Walkthrough',
+      desc: 'Watch the authentic video presentation of live BIM trainee architectural REVIT modeling, 3D coordination, and project execution standards.',
+      type: 'video',
+      videoUrl: 'https://youtu.be/uFkFN2dDfDk?si=YrbdPicoyy1QJO0I',
+      embedUrl: 'https://www.youtube.com/embed/uFkFN2dDfDk',
+      badge: 'BIM Trainee Video'
+    },
     {
       id: 'pdf-1',
       title: 'Luxury Villa Project Management & BIM Portfolio (Part 1)',
@@ -460,7 +469,7 @@ const BimHubMSB = () => {
             </p>
           </motion.div>
 
-          {/* Portfolio PDF Selector Tabs */}
+          {/* Portfolio PDF & Video Selector Tabs */}
           <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
             {portfolioPdfs.map((doc, idx) => (
               <button
@@ -471,13 +480,17 @@ const BimHubMSB = () => {
                     : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
                   }`}
               >
-                <FileText className="w-4 h-4 text-yellow-500" />
+                {doc.type === 'video' ? (
+                  <Video className="w-4 h-4 text-yellow-500" />
+                ) : (
+                  <FileText className="w-4 h-4 text-yellow-500" />
+                )}
                 <span>{doc.badge}</span>
               </button>
             ))}
           </div>
 
-          {/* Active PDF Viewer Container */}
+          {/* Active Portfolio Item Viewer Container */}
           <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
               <div>
@@ -493,24 +506,45 @@ const BimHubMSB = () => {
               </div>
 
               <div className="flex flex-wrap items-center gap-3 shrink-0">
-                <a
-                  href={portfolioPdfs[activePdf].pdfUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
-                >
-                  <ExternalLink className="w-4 h-4" /> Open Full PDF
-                </a>
+                {portfolioPdfs[activePdf].type === 'video' ? (
+                  <a
+                    href={portfolioPdfs[activePdf].videoUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Watch on YouTube
+                  </a>
+                ) : (
+                  <a
+                    href={portfolioPdfs[activePdf].pdfUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+                  >
+                    <ExternalLink className="w-4 h-4" /> Open Full PDF
+                  </a>
+                )}
               </div>
             </div>
 
-            {/* Embedded PDF iframe */}
+            {/* Embedded Viewer Container */}
             <div className="w-full h-[550px] sm:h-[650px] md:h-[750px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              <iframe
-                src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
-                title={portfolioPdfs[activePdf].title}
-                className="w-full h-full border-0"
-              />
+              {portfolioPdfs[activePdf].type === 'video' ? (
+                <iframe
+                  src={portfolioPdfs[activePdf].embedUrl}
+                  title={portfolioPdfs[activePdf].title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <iframe
+                  src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
+                  title={portfolioPdfs[activePdf].title}
+                  className="w-full h-full border-0"
+                />
+              )}
             </div>
           </div>
 
