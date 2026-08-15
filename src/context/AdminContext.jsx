@@ -14,9 +14,14 @@ const DEFAULT_DATA = {
     { id: 8, title: "Structural Design Consultancy", desc: "We specialize in RCC, Composite, Flat, and PT Slabs, delivering resilient structures for residential, commercial and industrial projects.", img: "/InteriorDesignConsultancy.webp" },
   ],
   projects: [
-    { id: 1, title: "KALPATARU Park Riviera", category: "Residential", location: "Panvel, Navi Mumbai", image: "/prj1.jpg" },
-    { id: 2, title: "Sonali Residential", category: "Residential", location: "Pune, Maharashtra", image: "/prj2.jpg" },
-    { id: 3, title: "Goregaon Mulund Link Road (GMLR)", category: "Commercial", location: "Mumbai, India", image: "/prj3.webp" },
+    { id: 1, title: "9 Emperio Skyscraper (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/emp_2.png" },
+    { id: 2, title: "Ashoak Commercial Mall (2B+G+8)", category: "Commercial", location: "Jalna, Maharashtra", image: "/projects/mall_1.png" },
+    { id: 3, title: "GRK Africa International Complex", category: "Industrial", location: "Africa", image: "/projects/grk_1.jpeg" },
+    { id: 4, title: "9 Boulevard Luxury Towers (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/blv_8.png" },
+    { id: 5, title: "Group Housing Development (G+4)", category: "Residential", location: "Integrated Arch, Structural & MEP", image: "/projects/gh_1.png" },
+    { id: 6, title: "Goregaon Mulund Link Road (GMLR)", category: "Industrial", location: "Mumbai, India", image: "/prj3.webp" },
+    { id: 7, title: "KALPATARU Park Riviera", category: "Residential", location: "Panvel, Navi Mumbai", image: "/prj1.jpg" },
+    { id: 8, title: "Sonali Residential", category: "Residential", location: "Pune, Maharashtra", image: "/prj2.jpg" },
   ],
   blogs: [
     { 
@@ -386,43 +391,18 @@ The company is led by experienced architects and BIM specialists with decades of
     ctaHeadline: 'Have a Project in Mind?',
     ctaSubtitle: 'Let\'s bring your vision to life. Our team of experts is ready to deliver exceptional results — on time and within budget.',
     projectsExtended: [
-      { id: 1, title: 'KALPATARU Park Riviera', category: 'Residential', location: 'Panvel, Navi Mumbai', year: '2023', description: 'A premium residential township featuring modern amenities, sustainable design, and world-class BIM coordination.', image: '/prj1.jpg', images: ['/prj1.jpg'] },
-      { id: 2, title: 'Sonali Residential', category: 'Residential', location: 'Pune, Maharashtra', year: '2022', description: 'Contemporary residential complex with integrated structural design and architectural consultancy services.', image: '/prj2.jpg', images: ['/prj2.jpg'] },
-      { id: 3, title: 'Goregaon Mulund Link Road (GMLR)', category: 'Infrastructure', location: 'Mumbai, India', year: '2024', description: 'Major urban infrastructure project connecting key corridors with advanced project management and BIM implementation.', image: '/prj3.webp', images: ['/prj3.webp'] },
-      { id: 4, title: 'Luxury Villa — Lonavala', category: 'Residential', location: 'Lonavala, Maharashtra', year: '2023', description: 'End-to-end design and build of a luxury hillside villa with bespoke interiors and structural engineering.', image: '/p2.jpg', images: ['/p2.jpg'] },
-      { id: 5, title: 'Commercial Complex — Pune', category: 'Commercial', location: 'Pune, Maharashtra', year: '2022', description: 'Multi-storey commercial development with full BIM coordination, clash detection, and construction management.', image: '/p1.jpg', images: ['/p1.jpg'] },
       {
-        id: 6,
-        title: 'Group Housing Development G+4',
-        category: 'Residential',
-        location: 'Integrated Arch, Structural & MEP',
-        year: '2026',
-        description: 'G+4 residential towers (Studio & 2BHK) and G+1 canteen–auditorium block with a total built-up area of ~1,14,700 SFT, designed as an RCC framed structure (M20/M25) with AAC blockwork and 10 ft floor-to-floor height. Scope includes end-to-end construction with integrated architectural, structural, and MEP services—featuring vitrified/granite flooring, UPVC windows, teak main doors, FRLS electrical systems, CPVC plumbing, and waterproofing. Executed under IS code compliance with full QA/QC, site supervision, and fast-track delivery within ~6 months.',
-        image: '/projects/gh_1.png',
-        images: ['/projects/gh_1.png', '/projects/gh_2.png', '/projects/gh_3.png']
-      },
-      {
-        id: 7,
+        id: 1,
         title: '9 Emperio (G+35)',
         category: 'Residential',
         location: 'Raghunathpur, Bhubaneswar, Odisha',
         year: '2026',
         description: 'A landmark G+35 residential skyscraper project located at Raghunathpur, Nandankanan Road, Patia, Bhubaneswar. Total area: 2290sq.m / 24649.331sq.ft.',
-        image: '/projects/emp_1.png',
-        images: ['/projects/emp_1.png', '/projects/emp_2.png', '/projects/emp_3.png', '/projects/emp_4.png', '/projects/emp_5.png', '/projects/emp_6.png']
+        image: '/projects/emp_2.png',
+        images: ['/projects/emp_2.png', '/projects/emp_1.png', '/projects/emp_3.png', '/projects/emp_4.png', '/projects/emp_5.png', '/projects/emp_6.png']
       },
       {
-        id: 8,
-        title: '9 Boulerverd (G+35)',
-        category: 'Residential',
-        location: 'Raghunathpur, Bhubaneswar, Odisha',
-        year: '2026',
-        description: 'Elite G+35 residential development at Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar. Total area: 6137sq.m / 66058.0543sq.ft.',
-        image: '/projects/blv_1.png',
-        images: ['/projects/blv_1.png', '/projects/blv_2.png', '/projects/blv_3.png', '/projects/blv_4.png', '/projects/blv_5.png', '/projects/blv_6.png', '/projects/blv_7.png']
-      },
-      {
-        id: 9,
+        id: 2,
         title: 'Ashoak Mall, Jalna (2B+G+8)',
         category: 'Commercial',
         location: 'Jalna, Maharashtra',
@@ -432,15 +412,40 @@ The company is led by experienced architects and BIM specialists with decades of
         images: ['/projects/mall_1.png', '/projects/mall_2.png', '/projects/mall_3.png', '/projects/mall_4.png']
       },
       {
-        id: 10,
+        id: 3,
         title: 'GRK Africa Project',
         category: 'Infrastructure',
         location: 'Africa',
         year: '2026',
         description: 'Significant infrastructure development project in Africa, showcasing E-Construct\'s international engineering and project management capabilities.',
-        image: '/projects/grk_1.png',
-        images: ['/projects/grk_1.png', '/projects/grk_2.png', '/projects/grk_3.png', '/projects/grk_4.png', '/projects/grk_5.png', '/projects/grk_6.png']
+        image: '/projects/grk_1.jpeg',
+        images: ['/projects/grk_1.jpeg', '/projects/grk_2.jpeg', '/projects/grk_3.jpeg']
       },
+      {
+        id: 4,
+        title: '9 Boulevard (G+35)',
+        category: 'Residential',
+        location: 'Raghunathpur, Bhubaneswar, Odisha',
+        year: '2026',
+        description: 'Elite G+35 residential development at Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar. Total area: 6137sq.m / 66058.0543sq.ft.',
+        image: '/projects/blv_8.png',
+        images: ['/projects/blv_8.png', '/projects/blv_1.png', '/projects/blv_2.png', '/projects/blv_3.png', '/projects/blv_4.png', '/projects/blv_5.png', '/projects/blv_6.png', '/projects/blv_7.png']
+      },
+      {
+        id: 5,
+        title: 'Group Housing Development G+4',
+        category: 'Residential',
+        location: 'Integrated Arch, Structural & MEP',
+        year: '2026',
+        description: 'G+4 residential towers (Studio & 2BHK) and G+1 canteen–auditorium block with a total built-up area of ~1,14,700 SFT, designed as an RCC framed structure (M20/M25) with AAC blockwork and 10 ft floor-to-floor height. Scope includes end-to-end construction with integrated architectural, structural, and MEP services—featuring vitrified/granite flooring, UPVC windows, teak main doors, FRLS electrical systems, CPVC plumbing, and waterproofing. Executed under IS code compliance with full QA/QC, site supervision, and fast-track delivery within ~6 months.',
+        image: '/projects/gh_1.png',
+        images: ['/projects/gh_1.png', '/projects/gh_2.png', '/projects/gh_3.png']
+      },
+      { id: 6, title: 'KALPATARU Park Riviera', category: 'Residential', location: 'Panvel, Navi Mumbai', year: '2023', description: 'A premium residential township featuring modern amenities, sustainable design, and world-class BIM coordination.', image: '/prj1.jpg', images: ['/prj1.jpg'] },
+      { id: 7, title: 'Sonali Residential', category: 'Residential', location: 'Pune, Maharashtra', year: '2022', description: 'Contemporary residential complex with integrated structural design and architectural consultancy services.', image: '/prj2.jpg', images: ['/prj2.jpg'] },
+      { id: 8, title: 'Goregaon Mulund Link Road (GMLR)', category: 'Infrastructure', location: 'Mumbai, India', year: '2024', description: 'Major urban infrastructure project connecting key corridors with advanced project management and BIM implementation.', image: '/prj3.webp', images: ['/prj3.webp'] },
+      { id: 9, title: 'Luxury Villa — Lonavala', category: 'Residential', location: 'Lonavala, Maharashtra', year: '2023', description: 'End-to-end design and build of a luxury hillside villa with bespoke interiors and structural engineering.', image: '/p2.jpg', images: ['/p2.jpg'] },
+      { id: 10, title: 'Commercial Complex — Pune', category: 'Commercial', location: 'Pune, Maharashtra', year: '2022', description: 'Multi-storey commercial development with full BIM coordination, clash detection, and construction management.', image: '/p1.jpg', images: ['/p1.jpg'] },
     ],
   },
   serviceDetailsContent: {
@@ -566,7 +571,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 19; // bump this when defaults change to force a migration
+const DATA_VERSION = 21; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -595,6 +600,7 @@ export const AdminProvider = ({ children }) => {
         const merged = {
           ...DEFAULT_DATA,
           ...parsed,
+          projects: parsed._version >= DATA_VERSION ? (parsed.projects || DEFAULT_DATA.projects) : DEFAULT_DATA.projects,
           services: parsed._version >= DATA_VERSION ? (parsed.services || DEFAULT_DATA.services) : DEFAULT_DATA.services,
           blogs: loadedBlogs,
           team: parsed._version >= DATA_VERSION ? (parsed.team || DEFAULT_DATA.team) : DEFAULT_DATA.team,
