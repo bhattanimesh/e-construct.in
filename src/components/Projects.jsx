@@ -1,4 +1,4 @@
-﻿import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useTransform, useSpring, useInView } from 'framer-motion';
 import { ExternalLink, MapPin, ArrowRight, ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
@@ -228,7 +228,7 @@ const Projects = () => {
             </div>
           </div>
 
-          {/* Right: description + filter + scroll controls */}
+          {/* Right: description + scroll controls */}
           <div className="flex flex-col items-start lg:items-end gap-4 lg:max-w-sm xl:max-w-md w-full lg:w-auto">
             {/* Description text */}
             <motion.p
@@ -240,26 +240,6 @@ const Projects = () => {
             >
               From concept to completion — every project reflects our commitment to structural excellence, innovative design, and on-time delivery across India.
             </motion.p>
-
-            {/* Filter bar */}
-            <div className="flex flex-wrap gap-1.5 bg-white/5 backdrop-blur-sm p-1.5 rounded-xl border border-white/10">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveFilter(cat)}
-                  className={`
-                    px-3.5 py-2 rounded-lg font-bold text-[10px] uppercase tracking-widest
-                    transition-all duration-300
-                    ${activeFilter === cat
-                      ? "bg-amber-500 text-white shadow-lg shadow-amber-500/30 scale-105"
-                      : "text-slate-400 hover:text-white hover:bg-white/10"
-                    }
-                  `}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
 
             {/* Scroll controls (only shown when strip is visible) */}
             {rest.length > 2 && (

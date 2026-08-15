@@ -16,12 +16,15 @@ const DEFAULT_DATA = {
   projects: [
     { id: 1, title: "9 Emperio Skyscraper (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/emp_2.png" },
     { id: 2, title: "Ashoak Commercial Mall (2B+G+8)", category: "Commercial", location: "Jalna, Maharashtra", image: "/projects/mall_1.png" },
-    { id: 3, title: "GRK Africa International Complex", category: "Industrial", location: "Africa", image: "/projects/grk_1.jpeg" },
-    { id: 4, title: "9 Boulevard Luxury Towers (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/blv_8.png" },
-    { id: 5, title: "Group Housing Development (G+4)", category: "Residential", location: "Integrated Arch, Structural & MEP", image: "/projects/gh_1.png" },
-    { id: 6, title: "Goregaon Mulund Link Road (GMLR)", category: "Industrial", location: "Mumbai, India", image: "/prj3.webp" },
-    { id: 7, title: "KALPATARU Park Riviera", category: "Residential", location: "Panvel, Navi Mumbai", image: "/prj1.jpg" },
-    { id: 8, title: "Sonali Residential", category: "Residential", location: "Pune, Maharashtra", image: "/prj2.jpg" },
+    { id: 3, title: "Ashoak Mall Project - 3D Evaluation Image", category: "Commercial", location: "Jalna, Maharashtra", image: "/projects/mall_4.png" },
+    { id: 4, title: "GRK Africa International Complex", category: "Industrial", location: "Africa", image: "/projects/grk_1.jpeg" },
+    { id: 5, title: "Africa Project - 3D Evaluation Image", category: "Industrial", location: "Africa", image: "/projects/grk_4.png" },
+    { id: 6, title: "9 Boulevard Luxury Towers (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/blv_8.png" },
+    { id: 7, title: "9 Boulevard - 3D Evaluation Image", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/blv_5.png" },
+    { id: 8, title: "Group Housing Development (G+4)", category: "Residential", location: "Integrated Arch, Structural & MEP", image: "/projects/gh_1.png" },
+    { id: 9, title: "Goregaon Mulund Link Road (GMLR)", category: "Industrial", location: "Mumbai, India", image: "/prj3.webp" },
+    { id: 10, title: "KALPATARU Park Riviera", category: "Residential", location: "Panvel, Navi Mumbai", image: "/prj1.jpg" },
+    { id: 11, title: "Sonali Residential", category: "Residential", location: "Pune, Maharashtra", image: "/prj2.jpg" },
   ],
   blogs: [
     { 
@@ -577,7 +580,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 21; // bump this when defaults change to force a migration
+const DATA_VERSION = 22; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
