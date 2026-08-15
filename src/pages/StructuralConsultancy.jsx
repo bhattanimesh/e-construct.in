@@ -506,7 +506,11 @@ const StructuralConsultancy = () => {
                  onClick={() => navigate('/projects')}
                />
                <ProjectSliderCard 
-                 images={['/projects/mall_1.png', '/projects/mall_2.png', '/projects/mall_4.png']}
+                 images={[
+                    '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg',
+                    '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM (1).jpeg',
+                    '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM.jpeg'
+                  ]}
                  type="Commercial Retail"
                  title="Ashoak Mall, Jalna (2B+G+8)"
                  challenges="2 Basements + Ground + 8 Upper Floors structural design for high-footfall retail, food court & parking levels."

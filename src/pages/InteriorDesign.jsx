@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import {
   ArrowRight, CheckCircle2, ChevronLeft, ChevronRight,
   Quote, Phone, Star, Sofa, Palette, Layers,
-  Ruler, Lightbulb, Home, PenTool,
+  Ruler, Lightbulb, Home, PenTool, Maximize2,
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
@@ -17,6 +17,53 @@ import int4       from '../assets/cs_int_4.jpg';
 import int5       from '../assets/cs_int_5.jpg';
 import int6       from '../assets/cs_int_6.jpg';
 
+const interiorTrack1 = [
+  '/uploads/interior/LIVING V1.png',
+  '/uploads/interior/KITCHEN V1.png',
+  '/uploads/interior/DINING V1.png',
+  '/uploads/interior/S B R V1.png',
+  '/uploads/interior/SF HT - V1.png',
+  '/uploads/interior/S Bath R V1.png',
+  '/uploads/interior/SWIMMING V3.png',
+  '/uploads/interior/PASSAGE V1.png',
+  '/uploads/interior/M O (1).jpeg',
+  '/uploads/interior/GARDEN V1.png',
+  '/uploads/interior/AA M I V1.png',
+  '/uploads/interior/LI (1).jpeg',
+  '/uploads/interior/Bird EYE View .png',
+  '/uploads/interior/HM V2.png',
+  '/uploads/interior/SF B 3 - V1.png',
+  '/uploads/interior/Scene 1.png',
+  '/uploads/interior/Scene 5.png',
+  '/uploads/interior/Shot 2 IMG.png',
+  '/uploads/interior/AS M V (1).png',
+  '/uploads/interior/Lift V1.png',
+];
+
+const interiorTrack2 = [
+  '/uploads/interior/LIVING V3.png',
+  '/uploads/interior/DINING V2.png',
+  '/uploads/interior/S B L V1.png',
+  '/uploads/interior/SF HT - V3.png',
+  '/uploads/interior/S Bath L V1.png',
+  '/uploads/interior/SWIMMING V4.png',
+  '/uploads/interior/PASSAGE V 3.png',
+  '/uploads/interior/M O (3).jpeg',
+  '/uploads/interior/GARDEN V2.png',
+  '/uploads/interior/AA M I V5.png',
+  '/uploads/interior/LI (3).jpeg',
+  '/uploads/interior/HM V4.png',
+  '/uploads/interior/SF B 3 -Bathroom V1.png',
+  '/uploads/interior/Scene 11.png',
+  '/uploads/interior/Scene 25.png',
+  '/uploads/interior/Scene 27.png',
+  '/uploads/interior/Shot 4 - IMG.png',
+  '/uploads/interior/AS M V (3).png',
+  '/uploads/interior/1.png',
+  '/uploads/interior/4.png',
+];
+
+const allInteriorGalleryImages = [...interiorTrack1, ...interiorTrack2];
 const portfolioImages = [int1, int2, int3, int4, int5, int6];
 
 const services = [
@@ -137,62 +184,187 @@ const InteriorDesign = () => {
         </div>
       </section>
 
-      {/* ── Portfolio bento grid ── */}
-      <section id="int-portfolio" className="py-16 md:py-24 bg-slate-950">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-[5%]">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 md:mb-12">
+      {/* ── Photo Gallery Section — Continuous Marquee Stream (2 Rows) ── */}
+      <section id="int-portfolio" className="py-16 bg-slate-950 text-white border-t border-b border-slate-900 overflow-hidden relative">
+        <style>{`
+          @keyframes marqueeLeft {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          @keyframes marqueeRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+          }
+          .animate-marquee-left {
+            animation: marqueeLeft 65s linear infinite;
+          }
+          .animate-marquee-right {
+            animation: marqueeRight 65s linear infinite;
+          }
+          .animate-marquee-left:hover,
+          .animate-marquee-right:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+
+        {/* Gradient edge fades */}
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-slate-950 to-transparent z-20 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-slate-950 to-transparent z-20 pointer-events-none" />
+
+        <div className="max-w-[1400px] mx-auto px-[5%] mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-4 border-b border-slate-900">
             <div>
-              <span className="text-yellow-500 text-xs font-bold tracking-[0.2em] uppercase">Our Work</span>
-              <SectionHeading title="Interior Portfolio" light center={false} />
+              <span className="text-yellow-500 text-[11px] font-bold tracking-[0.2em] uppercase block mb-1">
+                Explore Our Renders & Projects
+              </span>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white tracking-tight">
+                Interior Design <span className="accent-text italic text-yellow-500 font-serif">Showcase</span>
+              </h2>
             </div>
-            <p className="text-gray-400 max-w-xs text-sm">A selection of residential and commercial interior projects.</p>
+            <div className="flex items-center gap-2 text-slate-400 text-xs font-semibold">
+              <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+              <span>30+ Interior Designs · Hover to Pause · Click to Expand</span>
+            </div>
           </div>
+        </div>
 
-          {/* Bento: large left (2×2), 4 tiles right */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3 auto-rows-[180px] sm:auto-rows-[220px] md:auto-rows-[240px]">
-            <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
-              className="col-span-1 md:col-span-1 row-span-2 relative overflow-hidden rounded-2xl cursor-pointer group"
-              onClick={() => setLightbox(0)}>
-              <img src={portfolioImages[0]} alt="Interior project" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
-                <span className="text-white text-xs font-bold uppercase tracking-widest">View</span>
-              </div>
-            </motion.div>
+        {/* Marquee Row 1 (Right to Left) */}
+        <div className="mb-4 flex overflow-hidden select-none">
+          <div className="flex gap-3 animate-marquee-left shrink-0">
+            {[...interiorTrack1, ...interiorTrack1].map((imgUrl, idx) => {
+              const globalIndex = allInteriorGalleryImages.indexOf(imgUrl);
+              return (
+                <div
+                  key={`t1-${idx}`}
+                  onClick={() => setLightbox(globalIndex >= 0 ? globalIndex : idx % allInteriorGalleryImages.length)}
+                  className="group relative w-48 sm:w-64 h-32 sm:h-40 shrink-0 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 shadow-md hover:border-yellow-500/80 hover:scale-[1.03] transition-all duration-300"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`Interior design showcase ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
+                    <span className="bg-yellow-500 text-slate-950 p-2.5 rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                      <Maximize2 size={16} />
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
 
-            {[1, 2, 3, 4, 5].map((idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }}
-                className="relative overflow-hidden rounded-2xl cursor-pointer group"
-                onClick={() => setLightbox(idx)}>
-                <img src={portfolioImages[idx]} alt={`Interior ${idx + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" loading="lazy" />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-300" />
-              </motion.div>
-            ))}
+        {/* Marquee Row 2 (Left to Right) */}
+        <div className="flex overflow-hidden select-none">
+          <div className="flex gap-3 animate-marquee-right shrink-0">
+            {[...interiorTrack2, ...interiorTrack2].map((imgUrl, idx) => {
+              const globalIndex = allInteriorGalleryImages.indexOf(imgUrl);
+              return (
+                <div
+                  key={`t2-${idx}`}
+                  onClick={() => setLightbox(globalIndex >= 0 ? globalIndex : idx % allInteriorGalleryImages.length)}
+                  className="group relative w-48 sm:w-64 h-32 sm:h-40 shrink-0 rounded-2xl overflow-hidden cursor-pointer bg-slate-900 border border-slate-800 shadow-md hover:border-yellow-500/80 hover:scale-[1.03] transition-all duration-300"
+                >
+                  <img
+                    src={imgUrl}
+                    alt={`Interior design showcase ${idx + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-slate-950/60 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center backdrop-blur-[1px]">
+                    <span className="bg-yellow-500 text-slate-950 p-2.5 rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform">
+                      <Maximize2 size={16} />
+                    </span>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
-      {/* ── Lightbox ── */}
+      {/* ── Solid High-Contrast Lightbox Popup ── */}
       <AnimatePresence>
         {lightbox !== null && (
-          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 z-[9999] flex items-center justify-center p-4"
-            onClick={() => setLightbox(null)}>
-            <button className="absolute top-5 right-5 text-white/60 hover:text-white text-3xl" onClick={() => setLightbox(null)}>✕</button>
-            <button className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-[#fbc02d] text-white rounded-full flex items-center justify-center transition-colors z-10"
-              onClick={e => { e.stopPropagation(); setLightbox(p => (p - 1 + portfolioImages.length) % portfolioImages.length); }}>
-              <ChevronLeft size={22} />
-            </button>
-            <motion.img key={lightbox} initial={{ scale: 0.92, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} exit={{ scale: 0.92, opacity: 0 }}
-              src={portfolioImages[lightbox]} alt="" className="max-w-5xl max-h-[85vh] w-full object-contain rounded-xl shadow-2xl"
-              onClick={e => e.stopPropagation()} />
-            <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/10 hover:bg-[#fbc02d] text-white rounded-full flex items-center justify-center transition-colors z-10"
-              onClick={e => { e.stopPropagation(); setLightbox(p => (p + 1) % portfolioImages.length); }}>
-              <ChevronRight size={22} />
-            </button>
-            <div className="absolute bottom-5 left-1/2 -translate-x-1/2 flex gap-2">
-              {portfolioImages.map((_, i) => (
-                <button key={i} onClick={e => { e.stopPropagation(); setLightbox(i); }}
-                  className={`w-2 h-2 rounded-full transition-all ${i === lightbox ? 'bg-[#fbc02d] w-5' : 'bg-white/30'}`} />
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 h-screen w-screen bg-slate-950 z-[999999] flex flex-col justify-between p-4 md:p-6 overflow-hidden select-none"
+            onClick={() => setLightbox(null)}
+          >
+            {/* Top Bar */}
+            <div className="flex items-center justify-between w-full max-w-6xl mx-auto text-white z-30 shrink-0">
+              <div className="flex items-center gap-3">
+                <span className="bg-yellow-500 text-slate-950 text-xs font-black px-3.5 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                  INTERIOR DESIGN {lightbox + 1} OF {allInteriorGalleryImages.length}
+                </span>
+              </div>
+              <button
+                className="w-10 h-10 rounded-full bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 border border-slate-700 text-white flex items-center justify-center transition-all cursor-pointer shadow-lg font-bold"
+                onClick={() => setLightbox(null)}
+                title="Close (Esc)"
+              >
+                ✕
+              </button>
+            </div>
+
+            {/* Center Stage Image */}
+            <div className="relative flex items-center justify-center flex-1 my-2 overflow-hidden cursor-default">
+              <button
+                className="absolute left-2 sm:left-6 w-12 h-12 sm:w-14 sm:h-14 bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 text-white rounded-full flex items-center justify-center transition-all border border-slate-700 z-30 shadow-2xl cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox((p) => (p - 1 + allInteriorGalleryImages.length) % allInteriorGalleryImages.length);
+                }}
+                title="Previous"
+              >
+                <ChevronLeft size={26} />
+              </button>
+
+              <motion.img
+                key={lightbox}
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                transition={{ type: 'spring', damping: 28, stiffness: 350 }}
+                src={allInteriorGalleryImages[lightbox]}
+                alt={`Interior Design ${lightbox + 1}`}
+                className="max-w-[88vw] max-h-[68vh] md:max-h-[72vh] w-auto h-auto object-contain rounded-2xl shadow-2xl border border-slate-800"
+                onClick={(e) => e.stopPropagation()}
+              />
+
+              <button
+                className="absolute right-2 sm:right-6 w-12 h-12 sm:w-14 sm:h-14 bg-slate-900 hover:bg-yellow-400 hover:text-slate-950 text-white rounded-full flex items-center justify-center transition-all border border-slate-700 z-30 shadow-2xl cursor-pointer"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setLightbox((p) => (p + 1) % allInteriorGalleryImages.length);
+                }}
+                title="Next"
+              >
+                <ChevronRight size={26} />
+              </button>
+            </div>
+
+            {/* Bottom Thumbnail Strip */}
+            <div
+              className="w-full max-w-3xl mx-auto flex items-center gap-2 overflow-x-auto py-2.5 px-3.5 bg-slate-900 rounded-2xl border border-slate-800 shrink-0 cursor-default shadow-2xl z-30 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {allInteriorGalleryImages.map((img, i) => (
+                <button
+                  key={i}
+                  onClick={() => setLightbox(i)}
+                  className={`w-11 h-11 sm:w-13 sm:h-13 rounded-xl overflow-hidden shrink-0 border-2 transition-all cursor-pointer ${
+                    i === lightbox
+                      ? 'border-yellow-400 scale-105 shadow-lg ring-2 ring-yellow-500/50 opacity-100'
+                      : 'border-transparent opacity-40 hover:opacity-100'
+                  }`}
+                >
+                  <img src={img} alt="" className="w-full h-full object-cover" />
+                </button>
               ))}
             </div>
           </motion.div>

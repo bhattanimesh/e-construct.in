@@ -408,8 +408,14 @@ The company is led by experienced architects and BIM specialists with decades of
         location: 'Jalna, Maharashtra',
         year: '2026',
         description: 'Ashoak Mall is a modern, premium commercial development in Jalna, designed to redefine shopping and business experience in the city. Bringing together retail, food, entertainment, and lifestyle under one roof, this project is planned to create a high-footfall commercial hub with modern architecture and business-focused planning.',
-        image: '/projects/mall_1.png',
-        images: ['/projects/mall_1.png', '/projects/mall_2.png', '/projects/mall_3.png', '/projects/mall_4.png']
+        image: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg',
+        images: [
+          '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg',
+          '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM (1).jpeg',
+          '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM.jpeg',
+          '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM (1).jpeg',
+          '/ashok mall/WhatsApp Image 2026-08-14 at 3.46.02 PM.jpeg'
+        ]
       },
       {
         id: 3,

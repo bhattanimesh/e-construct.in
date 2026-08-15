@@ -45,8 +45,26 @@ const BimHubGallery = () => {
   ];
 
   const interiorDesignsPhotos = [
-    '/p1.jpg', '/p2.jpg', '/p4.jpg', '/p5.jpg', '/p6.jpg', 
-    '/p7.jpg', '/p8.jpg', '/p9.jpg', '/10.jpg', '/p11.jpg'
+    '/uploads/interior/LIVING V1.png',
+    '/uploads/interior/KITCHEN V1.png',
+    '/uploads/interior/DINING V1.png',
+    '/uploads/interior/S B R V1.png',
+    '/uploads/interior/SF HT - V1.png',
+    '/uploads/interior/S Bath R V1.png',
+    '/uploads/interior/SWIMMING V3.png',
+    '/uploads/interior/PASSAGE V1.png',
+    '/uploads/interior/M O (1).jpeg',
+    '/uploads/interior/GARDEN V1.png',
+    '/uploads/interior/AA M I V1.png',
+    '/uploads/interior/LI (1).jpeg',
+    '/uploads/interior/Bird EYE View .png',
+    '/uploads/interior/HM V2.png',
+    '/uploads/interior/SF B 3 - V1.png',
+    '/uploads/interior/LIVING V3.png',
+    '/uploads/interior/DINING V2.png',
+    '/uploads/interior/S B L V1.png',
+    '/uploads/interior/SF HT - V3.png',
+    '/uploads/interior/S Bath L V1.png',
   ];
 
   return (

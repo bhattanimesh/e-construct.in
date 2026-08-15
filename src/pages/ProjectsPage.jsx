@@ -110,13 +110,11 @@ const highlightedProjects = [
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv',
     pdfTitle: 'Download Econstruct Hospitality & Commercial Project PDF',
     images: [
-      { src: '/projects/mall_1.png', label: 'Exterior Commercial Glass Facade' },
-      { src: '/projects/mall_2.png', label: 'Retail Storefront & Street Entrance' },
-      { src: '/projects/mall_3.png', label: 'Luxury Brand Entrance & Steps' },
-      { src: '/projects/mall_4.png', label: 'Basement Parking & Retail Plan' },
-      { src: '/projects/mall_5.png', label: 'Ground Floor Commercial Mall Plan' },
-      { src: '/projects/mall_6.png', label: 'First Floor Store Layout Plan' },
-      { src: '/projects/mall_7.png', label: 'Food Court & Entertainment Level Plan' }
+      { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg', label: 'Ashok Mall Exterior 3D Perspective Render' },
+      { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM (1).jpeg', label: 'Ashok Mall Storefront & Entrance View' },
+      { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM.jpeg', label: 'Ashok Mall Commercial Retail & Facade' },
+      { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM (1).jpeg', label: 'Ashok Mall Floor Plan & Structural Drawing' },
+      { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.46.02 PM.jpeg', label: 'Ashok Mall Architectural Elevation Plan' }
     ]
   },
   {

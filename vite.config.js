@@ -44,6 +44,10 @@ export default defineConfig({
       '/uploads': {
         target: 'http://localhost:5000',
         changeOrigin: true,
+        bypass(req) {
+          // Serve static files from public/uploads directly without proxying
+          return req.url;
+        },
       },
     },
   },
