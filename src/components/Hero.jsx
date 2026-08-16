@@ -98,7 +98,7 @@ const Hero = () => {
           {/* Description */}
           <motion.p
             variants={fadeInUp}
-            className="mt-4 md:mt-6 max-w-lg text-sm md:text-lg lg:text-xl text-gray-300 font-normal leading-relaxed"
+            className="mt-4 md:mt-6 max-w-2xl text-sm md:text-lg lg:text-xl text-gray-300 font-normal leading-relaxed"
           >
             {h.description}
           </motion.p>

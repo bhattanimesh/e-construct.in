@@ -269,10 +269,10 @@ The company is led by experienced architects and BIM specialists with decades of
     { id: 3, name: 'Amit Patel', role: 'Construction Manager', rating: 5, text: 'The corporate training program transformed our team\'s BIM capabilities. Highly recommended.' },
   ],
   heroContent: {
-    tagline: 'Infrastructure & Engineering',
+    tagline: 'High-Rise & Structural Engineering Consultancy',
     headline: 'We Build Your Dreams',
-    description: 'Delivering reliable civil engineering solutions with precision, safety, and unmatched quality since 2010.',
-    primaryBtnText: 'Get Free Inquiry',
+    description: 'Pioneering structural consultancy for iconic high-rise developments up to G+62 in India and 81 stories globally — delivering world-class Structural Design, Advanced BIM, and Project Management (PMC).',
+    primaryBtnText: 'Get Free Consultation',
     secondaryBtnText: 'Explore Projects',
   },
   ctaSection: {
@@ -581,7 +581,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 23; // bump this when defaults change to force a migration
+const DATA_VERSION = 26; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -627,7 +627,7 @@ export const AdminProvider = ({ children }) => {
           aboutPageContent: { ...DEFAULT_DATA.aboutPageContent, ...(parsed.aboutPageContent || {}) },
           chatbotConfig: { ...DEFAULT_DATA.chatbotConfig, ...(parsed.chatbotConfig || {}) },
           contact: { ...DEFAULT_DATA.contact, ...(parsed._version >= DATA_VERSION ? (parsed.contact || {}) : {}) },
-          heroContent: { ...DEFAULT_DATA.heroContent, ...(parsed._version >= DATA_VERSION ? (parsed.heroContent || {}) : {}) },
+          heroContent: parsed._version >= DATA_VERSION ? { ...DEFAULT_DATA.heroContent, ...(parsed.heroContent || {}) } : DEFAULT_DATA.heroContent,
           _version: DATA_VERSION,
         };
         return merged;
