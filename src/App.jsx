@@ -40,6 +40,9 @@ const BimHubETABSWorkshop      = lazy(() => import('./pages/BimHubETABSWorkshop'
 const BimHubLifeEngineering    = lazy(() => import('./pages/BimHubLifeEngineering'))
 const BimHubOnlineCrashCourses = lazy(() => import('./pages/BimHubOnlineCrashCourses'))
 const BimHubBusinessManagement = lazy(() => import('./pages/BimHubBusinessManagement'))
+const PrivacyPolicy            = lazy(() => import('./pages/PrivacyPolicy'))
+const TermsConditions          = lazy(() => import('./pages/TermsConditions'))
+const RefundPolicy             = lazy(() => import('./pages/RefundPolicy'))
 
 // Minimal loading fallback — no layout shift, no spinner flash
 const PageLoader = () => (
@@ -102,6 +105,15 @@ function App() {
               <Route path="training/crash-courses" element={<BimHubOnlineCrashCourses />} />
               <Route path="training/business-management" element={<BimHubBusinessManagement />} />
               <Route path="projects" element={<ProjectsPage />} />
+              <Route path="privacy-policy" element={<PrivacyPolicy />} />
+              <Route path="privacy" element={<PrivacyPolicy />} />
+              <Route path="terms-and-conditions" element={<TermsConditions />} />
+              <Route path="terms-conditions" element={<TermsConditions />} />
+              <Route path="terms" element={<TermsConditions />} />
+              <Route path="return-refund-and-cancellation-policy" element={<RefundPolicy />} />
+              <Route path="refund-policy" element={<RefundPolicy />} />
+              <Route path="return-policy" element={<RefundPolicy />} />
+              <Route path="cancellation-policy" element={<RefundPolicy />} />
               <Route path="*" element={<NotFoundPage />} />
             </Route>
             <Route path="/home-1" element={<Home1 />} />

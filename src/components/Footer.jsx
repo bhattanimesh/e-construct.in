@@ -64,14 +64,25 @@ const Footer = () => {
           <div>
             <h4 className="text-slate-900 font-semibold mb-6 uppercase tracking-wider text-sm">Useful Links</h4>
             <ul className="space-y-3 text-sm">
-              {f.usefulLinks.map((link) => (
-                <li key={link.name}>
-                  <Link to={link.path} className="text-slate-600 hover:text-slate-900 transition-colors flex items-center group">
-                    <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
+              {(f.usefulLinks || []).map((link) => {
+                let targetPath = link.path;
+                const lowerName = (link.name || '').toLowerCase();
+                if (lowerName.includes('privacy') && (targetPath === '/contact' || !targetPath)) {
+                  targetPath = '/privacy-policy';
+                } else if (lowerName.includes('terms') && (targetPath === '/contact' || !targetPath)) {
+                  targetPath = '/terms-and-conditions';
+                } else if ((lowerName.includes('refund') || lowerName.includes('return')) && (targetPath === '/contact' || !targetPath)) {
+                  targetPath = '/return-refund-and-cancellation-policy';
+                }
+                return (
+                  <li key={link.name}>
+                    <Link to={targetPath} className="text-slate-600 hover:text-slate-900 transition-colors flex items-center group">
+                      <span className="w-1.5 h-1.5 bg-orange-500 rounded-full mr-3 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                      {link.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 
@@ -110,6 +121,13 @@ const Footer = () => {
       <div className="bg-slate-100 py-6">
         <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-slate-700 uppercase tracking-widest">
           <p>© {currentYear} {f.copyrightName}.</p>
+          <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-4 text-slate-600 normal-case tracking-normal">
+            <Link to="/privacy-policy" className="hover:text-orange-600 transition-colors">Privacy Policy</Link>
+            <span>•</span>
+            <Link to="/terms-and-conditions" className="hover:text-orange-600 transition-colors">Terms &amp; Conditions</Link>
+            <span>•</span>
+            <Link to="/return-refund-and-cancellation-policy" className="hover:text-orange-600 transition-colors">Refund Policy</Link>
+          </div>
           <p>Designed with excellence by <span className="text-orange-600">{f.designedBy}</span></p>
         </div>
       </div>

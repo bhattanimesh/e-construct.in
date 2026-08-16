@@ -301,8 +301,9 @@ The company is led by experienced architects and BIM specialists with decades of
       { name: 'Success Stories', path: '/projects' },
       { name: 'Ongoing Batches', path: '/services' },
       { name: 'Job Portal', path: '/careers' },
-      { name: 'Privacy Policy', path: '/contact' },
-      { name: 'Terms & Conditions', path: '/contact' },
+      { name: 'Privacy Policy', path: '/privacy-policy' },
+      { name: 'Terms & Conditions', path: '/terms-and-conditions' },
+      { name: 'Refunds & Return Policy', path: '/return-refund-and-cancellation-policy' },
     ],
   },
   aboutContent: {
@@ -581,7 +582,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 26; // bump this when defaults change to force a migration
+const DATA_VERSION = 27; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -606,6 +607,11 @@ export const AdminProvider = ({ children }) => {
           loadedFlipbooks = loadedFlipbooks.filter(f => !f.pdfUrl?.includes('ECONSTRUCT_Green_Infrastructure'));
         }
 
+        // Migrate footer usefulLinks if version is older
+        const loadedFooterContent = parsed._version >= DATA_VERSION
+          ? { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}) }
+          : { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}), usefulLinks: DEFAULT_DATA.footerContent.usefulLinks };
+
         // Always deep-merge nested content objects so new keys from defaults are never lost
         const merged = {
           ...DEFAULT_DATA,
@@ -618,7 +624,7 @@ export const AdminProvider = ({ children }) => {
           flipbooks: loadedFlipbooks,
           trustedPartners: parsed._version >= DATA_VERSION ? (parsed.trustedPartners || DEFAULT_DATA.trustedPartners) : DEFAULT_DATA.trustedPartners,
           // Deep-merge every nested object so new keys are always present
-          footerContent: { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}) },
+          footerContent: loadedFooterContent,
           bimConsultancyContent: { ...DEFAULT_DATA.bimConsultancyContent, ...(parsed.bimConsultancyContent || {}) },
           structuralConsultancyContent: { ...DEFAULT_DATA.structuralConsultancyContent, ...(parsed.structuralConsultancyContent || {}) },
           serviceDetailsContent: { ...DEFAULT_DATA.serviceDetailsContent, ...(parsed.serviceDetailsContent || {}) },
