@@ -480,6 +480,15 @@ const BimHubMSC = () => {
         subtitle="Hear directly from our Master Study in Construction Management (MSC) trainees and alumni working in top structural design & BIM firms."
       />
 
+      {/* ── POSTERS SHOWCASE ─────────────────────────────────────── */}
+      <section className="bg-slate-50 py-12 px-4 md:px-8 border-t border-gray-200">
+        <div className="max-w-[1400px] mx-auto space-y-8">
+          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+            <img src="/msc_training_poster_2.png" alt="MSC Training Poster" className="w-full h-auto object-contain" />
+          </div>
+        </div>
+      </section>
+
       {/* ── FOUNDER / LEADERSHIP SECTION ───────────────────────── */}
       <section className="py-16 md:py-24 bg-white border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
@@ -528,16 +537,47 @@ const BimHubMSC = () => {
         </div>
       </section>
 
-      {/* ── POSTERS SHOWCASE ─────────────────────────────────────── */}
-      <section className="bg-slate-50 py-12 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1400px] mx-auto space-y-8">
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
-            <img src="/msc_training_poster_2.png" alt="MSC Training Poster" className="w-full h-auto object-contain" />
-          </div>
+      {/* ── AWARDS, MAGAZINE & NEWSLETTER HIGHLIGHT ───────────────── */}
+      <AwardsMediaShowcase />
+
+      {/* ── COMPETITION PLAYLIST ─────────────────────────────────── */}
+      <section className="py-14 md:py-20 bg-slate-900 border-t border-white/10">
+        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+          <motion.div {...fin} className="mb-8">
+            <Label>Live Competition</Label>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
+              Live Project <span className="accent-text italic">Competition</span>
+            </h2>
+            <p className="text-white/40 text-sm mt-2">Between Master Study Trainees at Econstruct</p>
+          </motion.div>
+          <motion.div {...fin} className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
+            <div className="lg:col-span-2 bg-slate-900 overflow-hidden aspect-video relative">
+              <iframe src={playlist[activeVid].src} className="absolute inset-0 w-full h-full"
+                title={playlist[activeVid].title} frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
+            </div>
+            <div className="bg-slate-800 flex flex-col max-h-[300px] lg:max-h-none overflow-y-auto">
+              <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/10 sticky top-0 bg-slate-800 z-10">
+                <Video className="w-4 h-4 text-yellow-500" />
+                <span className="font-bold text-white text-sm">Playlist</span>
+                <span className="ml-auto text-white/30 text-xs">{activeVid + 1}/{playlist.length}</span>
+              </div>
+              {playlist.map((v, i) => (
+                <button key={i} onClick={() => setActiveVid(i)}
+                  className={`text-left px-5 py-4 flex items-start gap-3 border-b border-white/5 transition-colors duration-200 ${activeVid === i ? 'bg-yellow-500' : 'hover:bg-white/5'}`}>
+                  <span className={`font-bold font-mono text-xs mt-0.5 shrink-0 ${activeVid === i ? 'text-black' : 'text-white/30'}`}>0{i + 1}</span>
+                  <div>
+                    <p className={`font-semibold text-sm line-clamp-2 ${activeVid === i ? 'text-black' : 'text-white'}`}>{v.title}</p>
+                    <p className={`text-xs mt-0.5 ${activeVid === i ? 'text-black/60' : 'text-white/30'}`}>{v.dur}</p>
+                  </div>
+                </button>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* ── ENROLLMENT PROCESS & PAYMENT DETAILS ─────────────────── */}
+      {/* ── ENROLLMENT PROCESS & PAYMENT / FEE DETAILS ───────────── */}
       <section id="enrollment" className="bg-white py-16 md:py-24 px-4 md:px-8 border-t border-gray-200 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-16">
@@ -716,43 +756,6 @@ const BimHubMSC = () => {
         </div>
       </section>
 
-      {/* ── COMPETITION PLAYLIST ─────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-slate-900 border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-8">
-            <Label>Live Competition</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
-              Live Project <span className="accent-text italic">Competition</span>
-            </h2>
-            <p className="text-white/40 text-sm mt-2">Between Master Study Trainees at Econstruct</p>
-          </motion.div>
-          <motion.div {...fin} className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
-            <div className="lg:col-span-2 bg-slate-900 overflow-hidden aspect-video relative">
-              <iframe src={playlist[activeVid].src} className="absolute inset-0 w-full h-full"
-                title={playlist[activeVid].title} frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
-            </div>
-            <div className="bg-slate-800 flex flex-col max-h-[300px] lg:max-h-none overflow-y-auto">
-              <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/10 sticky top-0 bg-slate-800 z-10">
-                <Video className="w-4 h-4 text-yellow-500" />
-                <span className="font-bold text-white text-sm">Playlist</span>
-                <span className="ml-auto text-white/30 text-xs">{activeVid + 1}/{playlist.length}</span>
-              </div>
-              {playlist.map((v, i) => (
-                <button key={i} onClick={() => setActiveVid(i)}
-                  className={`text-left px-5 py-4 flex items-start gap-3 border-b border-white/5 transition-colors duration-200 ${activeVid === i ? 'bg-yellow-500' : 'hover:bg-white/5'}`}>
-                  <span className={`font-bold font-mono text-xs mt-0.5 shrink-0 ${activeVid === i ? 'text-black' : 'text-white/30'}`}>0{i + 1}</span>
-                  <div>
-                    <p className={`font-semibold text-sm line-clamp-2 ${activeVid === i ? 'text-black' : 'text-white'}`}>{v.title}</p>
-                    <p className={`text-xs mt-0.5 ${activeVid === i ? 'text-black/60' : 'text-white/30'}`}>{v.dur}</p>
-                  </div>
-                </button>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* ── FAQ ──────────────────────────────────────────────────── */}
       <section className="py-14 md:py-20 bg-stone-50 border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
@@ -787,9 +790,6 @@ const BimHubMSC = () => {
           </div>
         </div>
       </section>
-
-      {/* ── AWARDS, MAGAZINE & NEWSLETTER HIGHLIGHT ───────────────── */}
-      <AwardsMediaShowcase />
 
       {/* ── FINAL CTA ────────────────────────────────────────────── */}
       <section className="relative py-20 md:py-28 overflow-hidden">
