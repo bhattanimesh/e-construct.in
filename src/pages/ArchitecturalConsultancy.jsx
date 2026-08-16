@@ -9,7 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
 import SectionHeading from '../components/SectionHeading';
 
-import heroImg  from '../assets/ArchitecturalConsultancy.jpg';
+import heroImg  from '../assets/s1.jpg';
 import arch1    from '../assets/cs_arch1.jpg';
 import arch2    from '../assets/cs_arch2.jpg';
 import arch3    from '../assets/cs_arch3.jpg';

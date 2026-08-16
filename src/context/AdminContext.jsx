@@ -8,10 +8,7 @@ const DEFAULT_DATA = {
     { id: 2, title: "Structural Design Consultancy", desc: "Designing and evaluating structural performance of your designs. Our main area of focus includes RCC, Steel and PSC projects.", img: "/StructuralDesignConsultancy.jpeg" },
     { id: 3, title: "Building Information Modelling", desc: "We build BIM models for greater visibility, better decision-making, and cost-savings on your infrastructure projects.", img: "/BuildingInformationModelling.webp" },
     { id: 4, title: "Project Management Consultancy", desc: "Scheduling, cost budgeting, risk identifying, monitoring & controlling the construction process to increase ROI.", img: "/ProjectManagementConsultancy.jpg" },
-    { id: 5, title: "Luxury Villa Design", desc: "Ideal luxurious villa designs featuring rich amenities tailor made for peaceful and tranquil life in the lap of nature.", img: "/LuxuryVillaDesign.jpg" },
-    { id: 6, title: "Corporate ON-JOB Training", desc: "We provide world-class engineering training programs designed to produce certified engineers that can work across the globe.", img: "/CorporateON-JOBTraining.webp" },
-    { id: 7, title: "BIM Technology Consultancy", desc: "Advanced BIM Solutions from 1D to 10D - Transforming construction with Precision, Efficiency & Sustainability.", img: "/BIMTechnologyconsultancy.webp" },
-    { id: 8, title: "Structural Design Consultancy", desc: "We specialize in RCC, Composite, Flat, and PT Slabs, delivering resilient structures for residential, commercial and industrial projects.", img: "/InteriorDesignConsultancy.webp" },
+    { id: 5, title: "Corporate ON-JOB Training", desc: "We provide world-class engineering training programs designed to produce certified engineers that can work across the globe.", img: "/CorporateON-JOBTraining.webp" },
   ],
   projects: [
     { id: 1, title: "9 Emperio Skyscraper (G+35)", category: "Residential", location: "Patia, Bhubaneswar, Odisha", image: "/projects/emp_2.png" },
@@ -27,17 +24,17 @@ const DEFAULT_DATA = {
     { id: 11, title: "Sonali Residential", category: "Residential", location: "Pune, Maharashtra", image: "/prj2.jpg" },
   ],
   blogs: [
-    { 
-      id: 12, 
-      title: "Green Is Becoming the Baseline: Whole-Life Engineering & Hybrid Timber in Modern Infrastructure", 
-      slug: "green-is-becoming-the-baseline-green-infrastructure-timber-structures", 
-      desc: "India has won the argument on operational energy. The harder questions—embodied carbon, construction waste, and circular whole-life engineering—are answered through hybrid timber and sustainable infrastructure.", 
-      img: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1600&auto=format&fit=crop", 
-      pdfUrl: "/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf", 
-      author: "Mr. Sandeep Pingale", 
-      date: "2026-08-11", 
-      category: "Sustainability", 
-      tags: ["green infrastructure", "timber structures", "sustainability", "embodied carbon", "whole-life engineering", "thought leadership", "mass timber", "BIM", "circular economy"], 
+    {
+      id: 12,
+      title: "Green Is Becoming the Baseline: Whole-Life Engineering & Hybrid Timber in Modern Infrastructure",
+      slug: "green-is-becoming-the-baseline-green-infrastructure-timber-structures",
+      desc: "India has won the argument on operational energy. The harder questions—embodied carbon, construction waste, and circular whole-life engineering—are answered through hybrid timber and sustainable infrastructure.",
+      img: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?q=80&w=1600&auto=format&fit=crop",
+      pdfUrl: "/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf",
+      author: "Mr. Sandeep Pingale",
+      date: "2026-08-11",
+      category: "Sustainability",
+      tags: ["green infrastructure", "timber structures", "sustainability", "embodied carbon", "whole-life engineering", "thought leadership", "mass timber", "BIM", "circular economy"],
       content: `> "Green technology in India's mega projects is no longer a differentiator reserved for premium developments - it is fast becoming the baseline expectation." — **Mr. Sandeep Pingale**, Founder & Managing Director, ECONSTRUCT DESIGN AND BUILD PVT. LTD.
 
 Right Material. Right Structure. Right Location. Right Lifecycle.
@@ -162,8 +159,8 @@ Green technology is no longer a differentiator reserved for premium projects; it
 
 India should build more intelligently with hybrid systems that optimize concrete, steel, and timber for maximum safety, economy, durability, and lifecycle value.
 
-[📄 Download Full PDF (Green Infrastructure & Timber Structures Whitepaper)](/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf)`, 
-      published: true 
+[📄 Download Full PDF (Green Infrastructure & Timber Structures Whitepaper)](/pdfs/ECONSTRUCT_Green_Infrastructure_Timber_Redraft_260811_105649.pdf)`,
+      published: true
     },
     { id: 1, title: "Transforming a Barren Pond Area into a Construction Site", slug: "transforming-a-barren-pond-area-into-a-construction-site", desc: "Barren pond areas, often considered unproductive land, can be effectively repurposed for construction with the right engineering and planning.", img: "https://e-construct.in/wp-content/uploads/2025/03/WhatsApp-Image-2025-03-07-at-17.56.04_ad3cc304-1024x576.jpg", author: "E-Construct Team", date: "2025-03-11", category: "Civil Engineering", tags: ["construction", "land reclamation", "foundation", "sustainability"], content: "Barren pond areas, often considered unproductive land, can be effectively repurposed for construction with the right engineering and planning.\n\n## 1. Feasibility Study and Site Assessment\n\nBefore initiating construction, a comprehensive feasibility study must be conducted:\n\n- **Soil and Geotechnical Analysis:** Assessing soil strength, groundwater levels, and stability.\n- **Environmental Impact Assessment (EIA):** Ensuring the project adheres to ecological sustainability.\n- **Legal and Regulatory Compliance:** Acquiring permits and approvals from local authorities.\n\n## 2. Land Reclamation and Site Preparation\n\n- **Dewatering the Pond:** Using pumps and drainage solutions to remove excess water.\n- **Soil Stabilization:** Implementing methods like sand filling, compaction, or geotextiles to strengthen the ground.\n- **Grading and Leveling:** Ensuring a stable and uniform surface for future development.\n\n## 3. Infrastructure Development\n\n- **Road Access and Connectivity:** Developing access roads for smooth transportation.\n- **Utility Installation:** Setting up essential services such as water, electricity, and sewage.\n- **Stormwater Management:** Implementing drainage systems to prevent flooding and erosion.\n\n## 4. Structural Design and Foundation Planning\n\n- **Pile Foundations:** Using deep foundation methods like driven or bored piles.\n- **Raft or Mat Foundations:** Distributing the structure's weight evenly.\n- **Soil Reinforcement:** Enhancing soil strength using stone columns or chemical stabilization.\n\n## 5. Sustainable Construction Practices\n\n- **Rainwater Harvesting:** Collecting and reusing water for site needs.\n- **Green Landscaping:** Incorporating vegetation and green zones.\n- **Energy-Efficient Designs:** Utilizing passive ventilation and natural lighting solutions.\n\n## 6. Project Execution and Monitoring\n\n- **Phased Construction Approach:** Gradual development for better resource management.\n- **Regular Quality Checks:** Conducting structural and material inspections at each stage.\n- **Use of Advanced Technologies:** Implementing BIM for optimized planning and execution.\n\n## Conclusion\n\nConverting a barren pond area into a construction site is a complex but feasible process with strategic planning and modern engineering solutions.", published: true },
     { id: 2, title: "BIM - A New Career Option in the Civil Industry", slug: "bim-a-new-career-option-in-the-civil-industry", desc: "If you're planning to build a career as a BIM Modeler, this blog can help you understand the basics of Building Information Modeling.", img: "https://e-construct.in/wp-content/uploads/2022/07/BIM-1.png", author: "E-Construct Team", date: "2022-07-11", category: "Career", tags: ["BIM", "career", "civil engineering", "BIM modeler"], content: "If you're planning to build a career as a BIM Modeler, this blog can help you to understand the basics of the Building Information Model.\n\n## What is BIM?\n\nBuilding Information Modeling (BIM) is the holistic process of creating and managing information for a built asset. Based on an intelligent model enabled by a cloud platform, BIM integrates structured, multi-disciplinary data to produce a digital representation of an asset across its lifecycle, from planning and design to construction and operations.\n\nThe basis of BIM dates back to 1975, when Charles M. Eastman published his description of a working prototype. Later in 2002, Autodesk published its white paper on Building Information Model.\n\nSoftware that uses BIM modeling includes: Solibri, Tekla, Bentley, Revit, NavisWorks, AutoCAD, Rhino, Catia, Vectorworks, Google SketchUp.\n\n## Roles as BIM Practitioner\n\n- BIM Analyst\n- BIM Facilitator\n- BIM Modeler\n- BIM Application Developer\n- BIM Software Developer\n- Modeling Specialist\n- BIM Consultant\n- BIM Researcher\n- BIM Management\n- Chief BIM Officer\n\nTo become an efficient BIM practitioner you need: educational background in architecture, engineering, or construction; hands-on practical BIM experience; thorough knowledge of multiple tools; effective communication skills; and strong leadership qualities.\n\n## Salary offered to a BIM Practitioner\n\nAs a BIM practitioner you can get between 2.5 - 18 lakhs per annum depending on experience. As a fresher, 15-25 thousand rupees per month. With 2-3 years experience, 35-50 thousand per month. Leading professionals with 5-10+ years may land 10-18 lakhs per annum.", published: true },
@@ -582,7 +579,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 27; // bump this when defaults change to force a migration
+const DATA_VERSION = 32; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -670,8 +667,8 @@ export const AdminProvider = ({ children }) => {
 
 const defaultContextValue = {
   data: DEFAULT_DATA,
-  update: () => {},
-  resetToDefaults: () => {},
+  update: () => { },
+  resetToDefaults: () => { },
   DEFAULT_DATA,
 };
 

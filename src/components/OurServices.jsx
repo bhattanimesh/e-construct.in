@@ -1,11 +1,11 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'; // Added Framer Motion
 import { ChevronLeft, ChevronRight, PenTool, Ruler, Layers, Briefcase, Home, GraduationCap, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
 
 // Icon mapping by index
-const SERVICE_ICONS = [PenTool, Ruler, Layers, Briefcase, Home, GraduationCap, GraduationCap, GraduationCap];
+const SERVICE_ICONS = [PenTool, Briefcase, GraduationCap];
 
 const Services = () => {
   const { data } = useAdmin();
