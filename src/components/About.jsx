@@ -42,43 +42,43 @@ const About = () => {
     <section ref={targetRef} className="py-12 md:py-20 lg:py-24 overflow-hidden bg-white">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16">
-          
+
           {/* --- Left Side: Dynamic Image Collage --- */}
           <div className="w-full lg:w-1/2 relative h-[450px] sm:h-[550px] md:h-[600px]">
-            
+
             {/* 1. Main Background Image (Image 1) */}
-            <motion.div 
+            <motion.div
               style={{ y: yImage1 }}
               className="absolute top-0 left-0 w-[65%] h-[280px] sm:h-[350px] md:h-[400px] overflow-hidden rounded-2xl z-0"
             >
-              <img 
-                src={image1} 
-                alt="Construction Planning" 
+              <img
+                src={image1}
+                alt="Construction Planning"
                 className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* 2. Secondary Overlapping Image (Image 2) */}
-            <motion.div 
+            <motion.div
               style={{ y: yImage2 }}
               className="absolute bottom-4 right-0 w-[75%] h-[300px] sm:h-[380px] md:h-[420px] overflow-hidden rounded-2xl z-10 "
             >
-              <img 
-                src={image2} 
-                alt="Civil Engineering Site" 
+              <img
+                src={image2}
+                alt="Civil Engineering Site"
                 className="w-full h-full object-cover"
               />
             </motion.div>
 
             {/* 3. Floating Logo Badge (Top Right) */}
-            <motion.div 
+            <motion.div
               style={{ y: yBadge }}
               className="absolute top-10 right-4 md:right-10 bg-white p-3 md:p-5 rounded-2xl border border-gray-200 z-20 flex items-center justify-center"
             >
               <div className="w-16 h-10 md:w-24 md:h-16">
-                <img 
-                  src={Logo} 
-                  alt="Company Logo" 
+                <img
+                  src={Logo}
+                  alt="Company Logo"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -86,7 +86,7 @@ const About = () => {
 
             {/* 4. Years of Experience Badge (Bottom Left) */}
             <motion.div
-              style={{ 
+              style={{
                 y: yBadge,
                 backgroundImage: `url(${TextBG})`,
                 backgroundSize: 'cover',
@@ -103,7 +103,7 @@ const About = () => {
           </div>
 
           {/* --- Right Side: Company Content --- */}
-          <motion.div 
+          <motion.div
             style={{ y: yText }}
             className="w-full lg:w-1/2 flex flex-col items-start space-y-5 md:space-y-6"
           >
@@ -111,9 +111,9 @@ const About = () => {
               <span className="w-2 h-2 bg-yellow-500 rounded-full animate-pulse"></span>
               Welcome to
             </div>
-            
+
             <h2 className="text-3xl md:text-5xl font-medium text-slate-900 leading-tight tracking-tight">
-              {ac.headline.split(' ').slice(0, 3).join(' ')} <br className="hidden md:block"/> <span className="accent-text italic">{ac.headline.split(' ').slice(3).join(' ')}</span>
+              {ac.headline.split(' ').slice(0, 3).join(' ')} <br className="hidden md:block" /> <span className="accent-text italic">{ac.headline.split(' ').slice(3).join(' ')}</span>
             </h2>
 
             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
@@ -141,7 +141,7 @@ const About = () => {
 
         </div>
 
-        {/* --- Why Complete Construction Solutions --- */}
+        {/* --- Why Complete Engineering Solutions --- */}
         <div className="mt-24 md:mt-32 w-full border-t border-gray-100 pt-16 md:pt-24">
           <div className="text-center mb-16">
             <SectionHeading title="Why EConstruct" />

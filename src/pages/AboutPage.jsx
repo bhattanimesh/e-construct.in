@@ -202,28 +202,28 @@ const StatsSection = () => {
     { value: s.certification, label: 'Certification', icon: TrendingUp },
   ];
   return (
-  <section className="py-16 bg-slate-900">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-        {statsArr.map(({ value, label, icon: Icon }, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className="flex flex-col items-center text-center gap-3"
-          >
-            <div className="w-14 h-14 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
-              <Icon className="text-yellow-400 h-6 w-6" />
-            </div>
-            <span className="text-4xl md:text-5xl font-black text-white">{value}</span>
-            <span className="text-gray-400 text-sm font-semibold uppercase tracking-wider">{label}</span>
-          </motion.div>
-        ))}
+    <section className="py-16 bg-slate-900">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          {statsArr.map(({ value, label, icon: Icon }, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.1 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center text-center gap-3"
+            >
+              <div className="w-14 h-14 rounded-2xl bg-yellow-500/10 border border-yellow-500/20 flex items-center justify-center">
+                <Icon className="text-yellow-400 h-6 w-6" />
+              </div>
+              <span className="text-4xl md:text-5xl font-black text-white">{value}</span>
+              <span className="text-gray-400 text-sm font-semibold uppercase tracking-wider">{label}</span>
+            </motion.div>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -238,28 +238,28 @@ const ValuesSection = () => {
     { icon: VALUE_ICONS[2], title: 'Our Values', desc: ap.values },
   ];
   return (
-  <section className="py-20 md:py-28 bg-gray-50">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="text-center mb-16">
-        <SectionLabel text="What Drives Us" />
-        <SectionHeading title="Mission, Vision & Values" />
-        <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+    <section className="py-20 md:py-28 bg-gray-50">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="text-center mb-16">
+          <SectionLabel text="What Drives Us" />
+          <SectionHeading title="Mission, Vision & Values" />
+          <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {valuesArr.map(({ icon: Icon, title, desc }, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.15 }} viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
+              <div className="w-14 h-14 rounded-2xl bg-yellow-50 border border-yellow-100 flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
+                <Icon className="text-yellow-600 group-hover:text-white h-6 w-6 transition-colors duration-300" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
+              <p className="text-gray-500 leading-relaxed text-sm">{desc}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {valuesArr.map(({ icon: Icon, title, desc }, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.15 }} viewport={{ once: true }}
-            className="bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group">
-            <div className="w-14 h-14 rounded-2xl bg-yellow-50 border border-yellow-100 flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition-colors duration-300">
-              <Icon className="text-yellow-600 group-hover:text-white h-6 w-6 transition-colors duration-300" />
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 mb-3">{title}</h3>
-            <p className="text-gray-500 leading-relaxed text-sm">{desc}</p>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -271,32 +271,32 @@ const ProcessSection = () => {
   const { data } = useAdmin();
   const steps = data.aboutPageContent.processSteps;
   return (
-  <section className="py-20 md:py-28 bg-white">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="text-center mb-16">
-        <SectionLabel text="How We Work" />
-        <SectionHeading title="Our Process" />
-        <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+    <section className="py-20 md:py-28 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="text-center mb-16">
+          <SectionLabel text="How We Work" />
+          <SectionHeading title="Our Process" />
+          <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+        </div>
+        <div className="space-y-16 md:space-y-24">
+          {steps.map(({ step, title, desc }, i) => (
+            <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7 }} viewport={{ once: true }}
+              className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}>
+              <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-video">
+                <img src={PROCESS_IMAGES[i] || PROCESS_IMAGES[0]} alt={title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+              </div>
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="text-7xl md:text-8xl font-black text-gray-100 leading-none select-none">{step}</span>
+                <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 -mt-4">{title}</h3>
+                <div className="w-12 h-1 bg-yellow-500 rounded-full" />
+                <p className="text-gray-600 leading-relaxed text-base md:text-lg">{desc}</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="space-y-16 md:space-y-24">
-        {steps.map(({ step, title, desc }, i) => (
-          <motion.div key={i} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7 }} viewport={{ once: true }}
-            className={`flex flex-col ${i % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} items-center gap-10 md:gap-16`}>
-            <div className="w-full md:w-1/2 overflow-hidden rounded-2xl aspect-video">
-              <img src={PROCESS_IMAGES[i] || PROCESS_IMAGES[0]} alt={title} className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
-            </div>
-            <div className="w-full md:w-1/2 space-y-4">
-              <span className="text-7xl md:text-8xl font-black text-gray-100 leading-none select-none">{step}</span>
-              <h3 className="text-2xl md:text-3xl font-extrabold text-slate-900 -mt-4">{title}</h3>
-              <div className="w-12 h-1 bg-yellow-500 rounded-full" />
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg">{desc}</p>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -347,24 +347,24 @@ const TeamSection = () => {
   const { data } = useAdmin();
   const team = data.team;
   return (
-  <section className="py-20 md:py-28 bg-gray-50">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-        <div>
-          <SectionLabel text="Our Team" />
-          <SectionHeading title="Meet Our Founders" center={false} />
+    <section className="py-20 md:py-28 bg-gray-50">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+          <div>
+            <SectionLabel text="Our Team" />
+            <SectionHeading title="Meet Our Founders" center={false} />
+          </div>
+          <p className="text-gray-500 text-sm max-w-sm leading-relaxed md:text-right">
+            Leading the transformation of construction with over two decades of engineering expertise and strategic vision.
+          </p>
         </div>
-        <p className="text-gray-500 text-sm max-w-sm leading-relaxed md:text-right">
-          Leading the transformation of construction with over two decades of engineering expertise and strategic vision.
-        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {team.map((member, i) => (
+            <TeamCard key={member.id || i} member={{ ...member, role: member.position }} index={i} />
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {team.map((member, i) => (
-          <TeamCard key={member.id || i} member={{ ...member, role: member.position }} index={i} />
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -374,33 +374,33 @@ const WhyUsSection = () => {
   const { data } = useAdmin();
   const whyUs = data.aboutPageContent.whyUsItems;
   return (
-  <section className="py-20 md:py-28 bg-white">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="text-center mb-16">
-        <SectionLabel text="Why Choose Us" />
-        <SectionHeading title="Complete Construction Solutions Under One Roof" />
-        <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+    <section className="py-20 md:py-28 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="text-center mb-16">
+          <SectionLabel text="Why Choose Us" />
+          <SectionHeading title="Complete Engineering Solutions Under One Roof" />
+          <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {whyUs.map(({ title, desc }, i) => {
+            const Icon = WHY_ICONS[i % WHY_ICONS.length];
+            return (
+              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }} viewport={{ once: true }}
+                className="flex gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-300">
+                  <Icon className="text-yellow-600 group-hover:text-white h-5 w-5 transition-colors duration-300" />
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-base mb-1">{title}</h4>
+                  <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {whyUs.map(({ title, desc }, i) => {
-          const Icon = WHY_ICONS[i % WHY_ICONS.length];
-          return (
-          <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08 }} viewport={{ once: true }}
-            className="flex gap-5 p-6 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group">
-            <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-yellow-50 border border-yellow-100 flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-300">
-              <Icon className="text-yellow-600 group-hover:text-white h-5 w-5 transition-colors duration-300" />
-            </div>
-            <div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">{title}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">{desc}</p>
-            </div>
-          </motion.div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -534,27 +534,27 @@ const CertificationsSection = () => {
   const { data } = useAdmin();
   const certifications = data.aboutPageContent.certifications;
   return (
-  <section className="py-20 md:py-28 bg-gray-50">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="text-center mb-14">
-        <SectionLabel text="Accreditations" />
-        <SectionHeading title="Our Certifications" />
-        <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+    <section className="py-20 md:py-28 bg-gray-50">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="text-center mb-14">
+          <SectionLabel text="Accreditations" />
+          <SectionHeading title="Our Certifications" />
+          <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+          {certifications.map((cert, i) => (
+            <motion.div key={cert.id || i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+              className="bg-white border border-gray-100 p-8 text-center rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300 group flex flex-col items-center">
+              <div className="w-40 h-40 mb-6 bg-gray-50 rounded-xl shadow-inner p-4 flex items-center justify-center">
+                <img src={cert.img} alt={cert.label} className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300" loading="lazy" decoding="async" />
+              </div>
+              <h3 className="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors duration-300">{cert.label}</h3>
+            </motion.div>
+          ))}
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-        {certifications.map((cert, i) => (
-          <motion.div key={cert.id || i} initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-white border border-gray-100 p-8 text-center rounded-2xl shadow-sm hover:-translate-y-2 hover:shadow-xl hover:border-yellow-400/30 transition-all duration-300 group flex flex-col items-center">
-            <div className="w-40 h-40 mb-6 bg-gray-50 rounded-xl shadow-inner p-4 flex items-center justify-center">
-              <img src={cert.img} alt={cert.label} className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300" loading="lazy" decoding="async" />
-            </div>
-            <h3 className="text-lg font-bold text-slate-900 group-hover:text-yellow-600 transition-colors duration-300">{cert.label}</h3>
-          </motion.div>
-        ))}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -564,36 +564,36 @@ const VisionSection = () => {
   const { data } = useAdmin();
   const visionCards = data.aboutPageContent.visionCards;
   return (
-  <section className="py-20 md:py-28 bg-white">
-    <div className="max-w-[1400px] mx-auto px-6">
-      <div className="text-center mb-14">
-        <SectionLabel text="Where We're Headed" />
-        <SectionHeading title="Our Vision" />
-        <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
-        <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-base md:text-lg">
-          To be a world-class construction company committed to total customer satisfaction, by building on our strengths.
-        </p>
+    <section className="py-20 md:py-28 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6">
+        <div className="text-center mb-14">
+          <SectionLabel text="Where We're Headed" />
+          <SectionHeading title="Our Vision" />
+          <div className="w-20 h-1.5 bg-yellow-500 mx-auto rounded-full mt-6" />
+          <p className="text-gray-500 mt-5 max-w-xl mx-auto leading-relaxed text-base md:text-lg">
+            To be a world-class construction company committed to total customer satisfaction, by building on our strengths.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          {visionCards.map(({ title, desc }, i) => {
+            const Icon = VISION_ICONS[i % VISION_ICONS.length];
+            return (
+              <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-400 opacity-5 rounded-full blur-[40px] transform translate-x-10 -translate-y-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
+                <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 border border-slate-700/50 group-hover:scale-110 group-hover:border-yellow-400/50 transition-all duration-300 relative shadow-sm">
+                  <div className="absolute inset-0 bg-yellow-500 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
+                  <Icon className="w-8 h-8 text-white relative z-10" />
+                </div>
+                <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4">{title}</h3>
+                <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{desc}</p>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-        {visionCards.map(({ title, desc }, i) => {
-          const Icon = VISION_ICONS[i % VISION_ICONS.length];
-          return (
-          <motion.div key={i} initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}
-            className="bg-slate-900 rounded-3xl p-8 sm:p-10 shadow-xl hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-400 opacity-5 rounded-full blur-[40px] transform translate-x-10 -translate-y-10 group-hover:opacity-20 transition-opacity duration-300 pointer-events-none" />
-            <div className="w-16 h-16 bg-slate-800 rounded-2xl flex items-center justify-center mb-6 border border-slate-700/50 group-hover:scale-110 group-hover:border-yellow-400/50 transition-all duration-300 relative shadow-sm">
-              <div className="absolute inset-0 bg-yellow-500 opacity-0 group-hover:opacity-100 rounded-2xl transition-opacity duration-300" />
-              <Icon className="w-8 h-8 text-white relative z-10" />
-            </div>
-            <h3 className="text-xl sm:text-2xl font-bold text-yellow-400 mb-4">{title}</h3>
-            <p className="text-slate-300 leading-relaxed text-sm sm:text-base">{desc}</p>
-          </motion.div>
-          );
-        })}
-      </div>
-    </div>
-  </section>
+    </section>
   );
 };
 
@@ -689,7 +689,7 @@ const CeoIndiaFeatureSection = () => {
   return (
     <section className="py-20 md:py-28 bg-gray-50 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
           <SectionLabel text="Press & Media Recognition" />
@@ -703,7 +703,7 @@ const CeoIndiaFeatureSection = () => {
         {/* Main Interactive Viewer Showcase */}
         <div className="bg-white rounded-3xl p-6 sm:p-10 border border-gray-100 shadow-xl mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-            
+
             {/* Left Column: Image Viewer */}
             <div className="lg:col-span-7 relative group">
               <motion.div
@@ -719,7 +719,7 @@ const CeoIndiaFeatureSection = () => {
                   alt={currentSlide.title}
                   className="w-full h-full object-contain p-2 bg-gray-950 transition-transform duration-500 group-hover:scale-102"
                 />
-                
+
                 <div className="absolute top-4 left-4 bg-yellow-500 text-slate-900 font-extrabold text-xs uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-2">
                   <span>{currentSlide.badge}</span>
                   <span className="w-1.5 h-1.5 rounded-full bg-slate-900" />
@@ -812,11 +812,10 @@ const CeoIndiaFeatureSection = () => {
                     <button
                       key={slide.id}
                       onClick={() => setActiveIdx(idx)}
-                      className={`relative aspect-[3/4] rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                        activeIdx === idx
+                      className={`relative aspect-[3/4] rounded-xl overflow-hidden border-2 transition-all duration-300 ${activeIdx === idx
                           ? 'border-yellow-500 scale-105 shadow-md shadow-yellow-500/20 ring-2 ring-yellow-400/50'
                           : 'border-gray-200 opacity-70 hover:opacity-100 hover:border-gray-400'
-                      }`}
+                        }`}
                     >
                       <img
                         src={slide.image}
@@ -837,7 +836,7 @@ const CeoIndiaFeatureSection = () => {
 
         {/* Featured Media & National Awards Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
+
           {/* Card 1: CEO India Article */}
           <motion.a
             href="https://ceoindiamagazine.com/the-engineer-who-built-more-than-skylines-sandeep-pingles-inspiring-story/"
@@ -1029,11 +1028,10 @@ const CeoIndiaFeatureSection = () => {
                 <button
                   key={slide.id}
                   onClick={() => setActiveIdx(idx)}
-                  className={`w-9 h-12 rounded-lg overflow-hidden border-2 transition-all ${
-                    activeIdx === idx
+                  className={`w-9 h-12 rounded-lg overflow-hidden border-2 transition-all ${activeIdx === idx
                       ? 'border-yellow-400 scale-110 shadow-md shadow-yellow-500/30'
                       : 'border-slate-800 opacity-50 hover:opacity-100'
-                  }`}
+                    }`}
                   title={slide.title}
                 >
                   <img src={slide.image} alt={slide.title} className="w-full h-full object-cover" />

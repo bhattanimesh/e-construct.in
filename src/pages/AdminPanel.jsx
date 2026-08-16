@@ -121,11 +121,10 @@ const ToastContainer = () => {
   return (
     <div className="fixed bottom-6 right-6 z-[9999] flex flex-col gap-2 pointer-events-none">
       {toasts.map(({ id, msg, type }) => (
-        <div key={id} className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-xl text-sm font-semibold pointer-events-auto animate-in slide-in-from-right-4 duration-300 ${
-          type === 'success' ? 'bg-slate-900 text-white' :
-          type === 'error'   ? 'bg-red-600 text-white' :
-                               'bg-yellow-500 text-black'
-        }`}>
+        <div key={id} className={`flex items-center gap-3 px-5 py-3.5 rounded-2xl shadow-xl text-sm font-semibold pointer-events-auto animate-in slide-in-from-right-4 duration-300 ${type === 'success' ? 'bg-slate-900 text-white' :
+            type === 'error' ? 'bg-red-600 text-white' :
+              'bg-yellow-500 text-black'
+          }`}>
           {type === 'success' ? <CheckCircle size={16} /> : <AlertCircle size={16} />}
           {msg}
         </div>
@@ -151,9 +150,9 @@ const Btn = ({ onClick, children, variant = 'primary', size = 'md', className = 
   const sizes = { sm: 'px-3 py-1.5 text-[11px]', md: 'px-4 py-2 text-xs', lg: 'px-6 py-3 text-sm' };
   const variants = {
     primary: 'bg-yellow-500 hover:bg-slate-900 hover:text-white text-black',
-    danger:  'bg-red-50 hover:bg-red-500 hover:text-white text-red-600 border border-red-100',
-    ghost:   'bg-gray-100 hover:bg-gray-200 text-gray-700',
-    dark:    'bg-slate-900 hover:bg-slate-700 text-white',
+    danger: 'bg-red-50 hover:bg-red-500 hover:text-white text-red-600 border border-red-100',
+    ghost: 'bg-gray-100 hover:bg-gray-200 text-gray-700',
+    dark: 'bg-slate-900 hover:bg-slate-700 text-white',
     success: 'bg-green-500 hover:bg-green-600 text-white',
   };
   return (
@@ -268,11 +267,10 @@ const ImageInput = ({ label, value, onChange, placeholder = 'https://... or /ima
         onDragLeave={() => setDragOver(false)}
         onDrop={handleDrop}
         onClick={() => !uploading && fileRef.current?.click()}
-        className={`relative flex items-center gap-3 p-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${
-          dragOver   ? 'border-yellow-400 bg-yellow-50' :
-          uploading  ? 'border-blue-200 bg-blue-50 cursor-wait' :
-                       'border-gray-200 bg-gray-50 hover:border-yellow-300 hover:bg-yellow-50/50'
-        }`}
+        className={`relative flex items-center gap-3 p-3 rounded-xl border-2 border-dashed cursor-pointer transition-all select-none ${dragOver ? 'border-yellow-400 bg-yellow-50' :
+            uploading ? 'border-blue-200 bg-blue-50 cursor-wait' :
+              'border-gray-200 bg-gray-50 hover:border-yellow-300 hover:bg-yellow-50/50'
+          }`}
       >
         {/* Thumbnail */}
         <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0 bg-white border border-gray-100 flex items-center justify-center">
@@ -479,7 +477,7 @@ const Dashboard = ({ onNavigate }) => {
   useEffect(() => {
     apiFetch('/api/contact').then(r => r.json()).then(subs => {
       setUnreadCount(subs.filter(s => !s.read).length);
-    }).catch(() => {});
+    }).catch(() => { });
   }, []);
 
   const counts = [
@@ -619,7 +617,7 @@ const ServicesManager = () => {
         {filtered.map((s) => (
           <Card key={s.id} className="flex items-center gap-4 !py-4">
             <div className="w-12 h-12 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
-              {s.img ? <img src={s.img} alt={s.title} className="w-full h-full object-cover" onError={e => e.target.style.display='none'} /> : <Briefcase size={20} className="m-auto mt-3 text-gray-300" />}
+              {s.img ? <img src={s.img} alt={s.title} className="w-full h-full object-cover" onError={e => e.target.style.display = 'none'} /> : <Briefcase size={20} className="m-auto mt-3 text-gray-300" />}
             </div>
             <div className="flex-1 min-w-0">
               <h4 className="font-semibold text-slate-900 text-sm">{s.title}</h4>
@@ -716,7 +714,7 @@ const ProjectsManager = () => {
         {filtered.map((p) => (
           <Card key={p.id} className="overflow-hidden !p-0">
             <div className="h-40 bg-gray-100 overflow-hidden relative">
-              <img src={p.image} alt={p.title} className="w-full h-full object-cover" onError={e => { e.target.style.display='none'; }} />
+              <img src={p.image} alt={p.title} className="w-full h-full object-cover" onError={e => { e.target.style.display = 'none'; }} />
               <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest text-yellow-600 bg-white/90 px-2 py-0.5 rounded-full">{p.category}</span>
             </div>
             <div className="p-4">
@@ -1086,7 +1084,7 @@ const BlogsManager = () => {
         {filtered.map((b) => (
           <Card key={b.id} className="flex items-center gap-4 !py-3">
             <div className="w-14 h-14 rounded-xl overflow-hidden flex-shrink-0 bg-gray-100">
-              {b.img ? <img src={b.img} alt={b.title} className="w-full h-full object-cover" onError={e => e.target.style.display='none'} /> : <BookOpen size={18} className="m-auto mt-4 text-gray-300" />}
+              {b.img ? <img src={b.img} alt={b.title} className="w-full h-full object-cover" onError={e => e.target.style.display = 'none'} /> : <BookOpen size={18} className="m-auto mt-4 text-gray-300" />}
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 flex-wrap">
@@ -1690,7 +1688,7 @@ const InboxManager = () => {
         return;
       }
       if (res.ok) setSubmissions(await res.json());
-    } catch {}
+    } catch { }
     finally { setLoading(false); }
   }, []);
 
@@ -1733,7 +1731,7 @@ const InboxManager = () => {
       <div className="flex gap-3 mb-4 flex-wrap">
         <div className="flex-1 min-w-48"><SearchBar value={search} onChange={setSearch} placeholder="Search by name, email, message..." /></div>
         <div className="flex gap-1 bg-gray-100 p-1 rounded-xl">
-          {[['all','All'],['unread','Unread'],['read','Read']].map(([v,l]) => (
+          {[['all', 'All'], ['unread', 'Unread'], ['read', 'Read']].map(([v, l]) => (
             <button key={v} onClick={() => setFilter(v)}
               className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${filter === v ? 'bg-white shadow-sm text-slate-900' : 'text-gray-500 hover:text-slate-700'}`}>
               {l}{v === 'unread' && unread > 0 ? ` (${unread})` : ''}
@@ -1757,11 +1755,10 @@ const InboxManager = () => {
           <div className="space-y-2">
             {filtered.map(s => (
               <button key={s.id} onClick={() => open(s)}
-                className={`w-full text-left p-4 rounded-2xl border transition-all ${
-                  selected?.id === s.id ? 'border-yellow-400 bg-yellow-50' :
-                  !s.read ? 'border-blue-100 bg-blue-50/50 hover:border-blue-200' :
-                  'border-gray-100 bg-white hover:border-gray-200'
-                }`}>
+                className={`w-full text-left p-4 rounded-2xl border transition-all ${selected?.id === s.id ? 'border-yellow-400 bg-yellow-50' :
+                    !s.read ? 'border-blue-100 bg-blue-50/50 hover:border-blue-200' :
+                      'border-gray-100 bg-white hover:border-gray-200'
+                  }`}>
                 <div className="flex items-start justify-between gap-2">
                   <div className="flex items-center gap-2 min-w-0">
                     {!s.read && <span className="w-2 h-2 rounded-full bg-blue-500 flex-shrink-0 mt-1" />}
@@ -1827,7 +1824,7 @@ const BackupManager = () => {
     try {
       const res = await apiFetch('/api/backups');
       if (res.ok) setBackups(await res.json());
-    } catch {}
+    } catch { }
     finally { setLoading(false); }
   }, []);
 
@@ -1902,7 +1899,7 @@ const BackupManager = () => {
   };
 
   const fmt = (iso) => new Date(iso).toLocaleString('en-IN', { day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit' });
-  const fmtSize = (b) => b < 1024 ? `${b} B` : b < 1024*1024 ? `${(b/1024).toFixed(1)} KB` : `${(b/1024/1024).toFixed(2)} MB`;
+  const fmtSize = (b) => b < 1024 ? `${b} B` : b < 1024 * 1024 ? `${(b / 1024).toFixed(1)} KB` : `${(b / 1024 / 1024).toFixed(2)} MB`;
 
   return (
     <div>
@@ -2240,9 +2237,8 @@ const AdminPanel = () => {
                   <button
                     key={id}
                     onClick={() => setActiveTab(id)}
-                    className={`w-full flex items-center gap-3 px-6 py-2.5 text-sm font-semibold transition-colors ${
-                      activeTab === id ? 'bg-yellow-500 text-black' : 'text-white/70 hover:bg-slate-800 hover:text-white'
-                    }`}
+                    className={`w-full flex items-center gap-3 px-6 py-2.5 text-sm font-semibold transition-colors ${activeTab === id ? 'bg-yellow-500 text-black' : 'text-white/70 hover:bg-slate-800 hover:text-white'
+                      }`}
                   >
                     <Icon size={16} />
                     {sidebarOpen && <span>{label}</span>}
@@ -2867,7 +2863,7 @@ const AboutImagesManager = () => {
 
   return (
     <div>
-      <SectionHeader title="About Section Images" subtitle="The two collage images shown in the 'Complete Construction Solutions Under One Roof' section" />
+      <SectionHeader title="About Section Images" subtitle="The two collage images shown in the 'Complete Engineering Solutions Under One Roof' section" />
       <UnsavedBanner dirty={dirty} onSave={save} onDiscard={discard} />
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         <Card>
@@ -2916,7 +2912,7 @@ const PdfInput = ({ label, value, onChange }) => {
     try {
       const res = await apiFetch('/api/pdfs');
       if (res.ok) setServerPdfs(await res.json());
-    } catch {}
+    } catch { }
   }, []);
 
   useEffect(() => { if (showPicker) loadPdfs(); }, [showPicker, loadPdfs]);

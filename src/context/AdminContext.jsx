@@ -337,6 +337,7 @@ The company is led by experienced architects and BIM specialists with decades of
       { title: 'Professional Expertise', desc: 'Access to experienced designers and engineers.' },
       { title: 'On-Time Delivery', desc: 'Better planning ensures timely completion.' },
       { title: 'Value Engineering', desc: 'Smart design decisions to save cost without compromising quality.' },
+      { title: 'Sustainability & Compliance', desc: 'Eco-friendly engineering designed for resilience, safety, and global standards.' },
     ],
   },
   aboutPageContent: {
@@ -580,7 +581,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 22; // bump this when defaults change to force a migration
+const DATA_VERSION = 23; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -622,7 +623,7 @@ export const AdminProvider = ({ children }) => {
           structuralConsultancyContent: { ...DEFAULT_DATA.structuralConsultancyContent, ...(parsed.structuralConsultancyContent || {}) },
           serviceDetailsContent: { ...DEFAULT_DATA.serviceDetailsContent, ...(parsed.serviceDetailsContent || {}) },
           projectsPageContent: { ...DEFAULT_DATA.projectsPageContent, ...(parsed.projectsPageContent || {}) },
-          aboutContent: { ...DEFAULT_DATA.aboutContent, ...(parsed.aboutContent || {}) },
+          aboutContent: parsed._version >= DATA_VERSION ? { ...DEFAULT_DATA.aboutContent, ...(parsed.aboutContent || {}) } : DEFAULT_DATA.aboutContent,
           aboutPageContent: { ...DEFAULT_DATA.aboutPageContent, ...(parsed.aboutPageContent || {}) },
           chatbotConfig: { ...DEFAULT_DATA.chatbotConfig, ...(parsed.chatbotConfig || {}) },
           contact: { ...DEFAULT_DATA.contact, ...(parsed._version >= DATA_VERSION ? (parsed.contact || {}) : {}) },
