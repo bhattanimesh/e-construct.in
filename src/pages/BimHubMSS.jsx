@@ -152,7 +152,7 @@ const BimHubMSS = () => {
     { q: 'Who can join this course?', a: 'Polytechnic Diploma (Civil Engineering), B.Tech / B.E (Civil Engineering), M.Tech / M.E (Structural Engineering), CAD Structures.' },
     { q: 'What candidate qualities (3 P\'s) are required?', a: '1. Passion for Structural Engineering — Key to a successful structural design career.\n2. Patience to learn — Structural engineering requires patience to master codes & software.\n3. Practice — Constant practice is required to gain expertise on live projects.' },
     { q: 'What learning activities & exam pattern are included?', a: 'Activities: 48-hr Group Challenge, 24-hr Individual Challenge, MASS Mock Interviews, Tuesday Code Reading, Weekly Objective Tests, Monthly Project Reviews.\nExam Pattern (800 Marks Total):\n• Written Technical Test: 200 Marks\n• Practical Exam on Live Project: 200 Marks\n• Technical Interview: 200 Marks\n• Project Assignments, Attendance (80% min) & Professional Habits: 200 Marks' },
-    { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 7 months\n• Master Study Certification of 7 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
+    { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 7 months\n• PG Diploma Certification of 7 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
     { q: 'How does 100% placement guarantee & assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 7 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
     { q: 'What is the fee structure & payment policy?', a: 'Total Fee is ₹ 2,10,000 (AED 9,000 or US$ 2,510) inclusive of 18% GST (Base ₹1,77,967 + 18% GST). Fees need to be paid upfront; maximum 2 installments can be approved by the admission counselor. Fee is strictly non-refundable & non-transferable.' },
   ];
@@ -184,8 +184,8 @@ const BimHubMSS = () => {
 
   // Program Highlights Posters switcher
   const posterList = [
-    { id: 'poster-1', title: 'Program Overview Poster', src: '/mss1.webp', alt: 'MSS Master Study Overview Poster' },
-    { id: 'poster-2', title: 'Syllabus & Software Poster', src: '/mss2.webp', alt: 'MSS Structural Engineering Software & Syllabus Poster' }
+    { id: 'poster-1', title: 'Program Overview Poster', src: '/mss1.webp', alt: 'PG Diploma In Structural Engineering Overview Poster' },
+    { id: 'poster-2', title: 'Syllabus & Software Poster', src: '/mss2.webp', alt: 'PG Diploma In Structural Engineering Software & Syllabus Poster' }
   ];
   const [activePoster, setActivePoster] = useState(0);
 
@@ -197,14 +197,14 @@ const BimHubMSS = () => {
 
 
       {/* ── 01. HERO SECTION ────────────────────────────────────────── */}
-      <section id="hero" className="relative w-full min-h-[85vh] lg:min-h-[700px] overflow-hidden bg-slate-950 flex flex-col justify-between">
+      <section id="hero" className="relative w-full min-h-screen overflow-hidden bg-slate-950 flex flex-col justify-between">
         <div className="absolute inset-0">
-          <img src="/StructuralDesignConsultancy.jpeg" alt="Structural Engineering Background" className="w-full h-full object-cover brightness-[0.55] saturate-[1.1]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent hidden md:block" />
+          <img src="/StructuralDesignConsultancy.jpeg" alt="Structural Engineering Background" className="w-full h-full object-cover brightness-[0.82] saturate-[1.15]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent hidden md:block" />
         </div>
 
-        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-12 flex-1">
+        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-24 sm:pt-28 pb-8 flex-1">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
 
             {/* Accreditation Badges */}
@@ -220,9 +220,8 @@ const BimHubMSS = () => {
             </motion.div>
 
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
-              className="font-medium text-white tracking-tight leading-[1.05] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
-              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}>
-              Master Study In<br /><span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Structural Engineering</span>
+              className="font-medium text-white tracking-tight leading-[1.1] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.75rem]">
+              PG Diploma In<br /><span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Structural Engineering</span>
             </motion.h1>
 
             <motion.p variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
@@ -274,7 +273,7 @@ const BimHubMSS = () => {
             <div>
               <Label>02 · Program Detailed Video</Label>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-                See What <span className="text-yellow-600 italic font-serif">MSS</span> Is All About
+                See What <span className="text-yellow-600 italic font-serif">PG Diploma in Structural Engg</span> Is All About
               </h2>
             </div>
             <p className="text-gray-500 text-sm max-w-md md:text-right leading-relaxed">
@@ -285,7 +284,7 @@ const BimHubMSS = () => {
           <motion.div {...fin} className="relative w-full bg-slate-950 aspect-video rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-800">
             <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
             <iframe src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
-              className="absolute inset-0 w-full h-full" title="MSS Program Overview Video" frameBorder="0"
+              className="absolute inset-0 w-full h-full" title="PG Diploma In Structural Engineering Overview Video" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
           </motion.div>
@@ -369,7 +368,7 @@ const BimHubMSS = () => {
                 <ul className="space-y-3 mb-6">
                   {[
                     '7 Months Official Work Experience Letter',
-                    'Master Study Certification by Econstruct',
+                    'PG Diploma Certification by Econstruct',
                     'Professional Portfolio Assistance',
                     'LinkedIn Photoshoot & Video Resume',
                     '100% Core Technical Placement Support'
@@ -541,7 +540,7 @@ const BimHubMSS = () => {
               How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
             </h2>
             <p className="text-gray-600 text-base max-w-3xl mx-auto mt-3 leading-relaxed">
-              Explore authentic student portfolios to get a clear idea of what your structural engineering portfolio will look like after completing our Master Study program.
+              Explore authentic student portfolios to get a clear idea of what your structural engineering portfolio will look like after completing our PG Diploma In Structural Engineering program.
             </p>
           </motion.div>
 
@@ -933,7 +932,7 @@ const BimHubMSS = () => {
 
       {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
       <StudentVideoReviewsShowcase
-        subtitle="Hear directly from our Master Study in Structural Design (MSS) trainees and alumni placed across India, UAE, Muscat, and London."
+        subtitle="Hear directly from our PG Diploma In Structural Engineering (MSS) trainees and alumni placed across India, UAE, Muscat, and London."
       />
 
       {/* ── 12. LIVE PROJECTS & PRACTICAL EXPOSURE ─────────────────── */}
@@ -945,7 +944,7 @@ const BimHubMSS = () => {
               Live Projects & <span className="text-yellow-400 italic font-serif">Practical Exposure</span>
             </h2>
             <p className="text-gray-400 text-base max-w-xl mt-2">
-              Watch our Master Study trainees participate in live structural design competitions and defend their engineering models.
+              Watch our PG Diploma trainees participate in live structural design competitions and defend their engineering models.
             </p>
           </motion.div>
 
@@ -999,7 +998,7 @@ const BimHubMSS = () => {
               Frequently Asked <span className="text-yellow-600 italic font-serif">Questions</span>
             </h2>
             <p className="text-gray-600 text-base max-w-xl mx-auto mt-2">
-              Everything you need to know about the Master Study in Structural Engineering program.
+              Everything you need to know about the PG Diploma In Structural Engineering program.
             </p>
           </motion.div>
 
@@ -1271,7 +1270,7 @@ const BimHubMSS = () => {
             <div className="p-8 md:p-12 lg:w-2/3 flex flex-col justify-between">
               <div>
                 <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
-                  Complete 12-Month MSS Track
+                  Complete 12-Month PG Diploma In Structural Engineering Track
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 mb-6">Course Inclusions & Perks</h3>
 
@@ -1300,7 +1299,7 @@ const BimHubMSS = () => {
               <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl pointer-events-none" />
 
               <div>
-                <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">Master Study Program Fee</span>
+                <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">PG Diploma Program Fee</span>
                 <div className="flex items-baseline gap-1 mb-2">
                   <span className="text-3xl font-bold text-yellow-400">₹</span>
                   <span className="text-5xl font-black text-white tracking-tight">2,10,000</span>

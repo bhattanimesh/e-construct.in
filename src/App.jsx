@@ -68,9 +68,15 @@ function App() {
               <Route path="pages/blog" element={<BimHubBlog />} />
               <Route path="pages/blog/:slug" element={<BlogDetailPage />} />
               <Route path="pages/pbd" element={<BimHubPBD />} />
+              <Route path="pages/pg-diploma-in-project-management-with-bim-technology" element={<BimHubMSB />} />
+              <Route path="pg-diploma-in-project-management-with-bim-technology" element={<BimHubMSB />} />
               <Route path="pages/msb" element={<BimHubMSB />} />
               <Route path="on-job-master-study-in-project-management-with-bim-technology" element={<BimHubMSB />} />
+              <Route path="pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management" element={<BimHubMSC />} />
+              <Route path="pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management" element={<BimHubMSC />} />
               <Route path="pages/msc" element={<BimHubMSC />} />
+              <Route path="pages/pg-diploma-in-structural-engineering" element={<BimHubMSS />} />
+              <Route path="pg-diploma-in-structural-engineering" element={<BimHubMSS />} />
               <Route path="pages/mss" element={<BimHubMSS />} />
               <Route path="on-job-master-study-in-structural-engineering" element={<BimHubMSS />} />
               <Route path="services/bim-consultancy" element={<BimConsultancy />} />

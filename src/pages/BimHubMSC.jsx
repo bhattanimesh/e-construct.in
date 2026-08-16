@@ -7,7 +7,7 @@ import {
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
-  Star, Quote, CheckCircle2, X, Maximize2, QrCode
+  Star, Quote, CheckCircle2, X, Maximize2, QrCode, ShieldCheck
 } from 'lucide-react';
 
 function Counter({ to, suffix = '' }) {
@@ -90,7 +90,7 @@ const BimHubMSC = () => {
     { q: 'What learning activities are included?', a: '48 hrs Challenge (Group Activity), 24 hrs Challenge (Individual Activity), MASS Mock Interviews, Tuesday code reading sessions, weekly objective tests, and monthly project reviews.' },
     {
       q: 'What certification will I receive?',
-      a: 'Certification is offered upon successful completion of criteria:\n• Working experience letter of 24 months after successful completion of Exam criteria\n• Master Study Certification of 24 months issued by Econstruct Design & Build Pvt Ltd\n• Assistance to make a Portfolio for each candidate\n• Visual OR Video resume building assistance\n• Photoshoot in formals for LinkedIn profile and Resume Photo\n\nPLEASE NOTE: Certification is backed by 24 months of genuine live project execution and technical expertise.'
+      a: 'Certification is offered upon successful completion of criteria:\n• Working experience letter of 24 months after successful completion of Exam criteria\n• PG Diploma Certification of 24 months issued by Econstruct Design & Build Pvt Ltd\n• Assistance to make a Portfolio for each candidate\n• Visual OR Video resume building assistance\n• Photoshoot in formals for LinkedIn profile and Resume Photo\n\nPLEASE NOTE: Certification is backed by 24 months of genuine live project execution and technical expertise.'
     },
     { q: 'How does placement assistance work?', a: 'We offer dedicated career guidance, portfolio development, video resume creation, and 6–8 genuine job interview arrangements across India, UAE, and abroad.' },
     { q: 'Can payment be made in installments?', a: 'Contact administration for detailed installment schedules and fee structure details.' },
@@ -112,85 +112,99 @@ const BimHubMSC = () => {
   return (
     <div className="bg-white overflow-x-hidden">
 
-      {/* ── HERO ─────────────────────────────────────────────────── */}
-      <section className="relative w-full min-h-[100dvh] lg:h-[700px] overflow-hidden bg-black">
-        <div className="absolute inset-0 scale-105">
-          <img src="/msc_hero_bg.jpg" alt="Master in Smart Construction & BIM Hero Background" className="w-full h-full object-cover brightness-[0.65] saturate-[1.1]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent hidden md:block" />
+      {/* ── 01. HERO SECTION ────────────────────────────────────────── */}
+      <section id="hero" className="relative w-full min-h-screen overflow-hidden bg-slate-950 flex flex-col justify-between">
+        <div className="absolute inset-0">
+          <img src="/msc_hero_bg.jpg" alt="PG Diploma in Entrepreneurship in Structures, BIM and Project Management Background" className="w-full h-full object-cover brightness-[0.82] saturate-[1.15]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent hidden md:block" />
         </div>
-        <div className="relative z-10 h-[100dvh] lg:h-full w-full max-w-[1400px] px-5 sm:px-10 flex flex-col justify-end pb-16 lg:pb-20">
-          <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl">
+
+        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-24 sm:pt-28 pb-8 flex-1">
+          <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
+
+            {/* Accreditation Badges */}
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-              className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-0.5 bg-yellow-500" />
-              <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">On-Job Learning · 12 Months Training + 12 Months Internship = Total 24 Months</span>
+              className="flex flex-wrap items-center gap-3 mb-5">
+              <span className="bg-slate-900/80 backdrop-blur-md text-yellow-400 border border-yellow-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
+                <ShieldCheck className="w-3.5 h-3.5 text-yellow-500" /> ISO 9001:2015 Certified
+              </span>
+              <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
+                <Building2 className="w-3.5 h-3.5 text-blue-400" /> MSME Certified
+              </span>
+              <span className="bg-slate-900/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
+                <Zap className="w-3.5 h-3.5 text-emerald-400" /> 24 Months On-Job Program
+              </span>
             </motion.div>
+
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
-              className="font-medium text-white tracking-tight leading-[0.95] mb-5"
-              style={{ fontSize: 'clamp(2.8rem, 9vw, 8rem)' }}>
-              Master in<br /><span className="accent-text italic">Smart Construction</span>
+              className="font-medium text-white tracking-tight leading-[1.12] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+              PG Diploma In<br />
+              <span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+                Entrepreneurship in Structures, BIM & Project Management
+              </span>
             </motion.h1>
+
             <motion.p variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
               className="max-w-xl text-gray-300 text-base md:text-lg leading-relaxed mb-8">
               A comprehensive program structured as <strong className="text-yellow-400 font-bold">12 Months Training + 12 Months Internship = Total 24 Months</strong> on live high-rise projects.
             </motion.p>
+
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
-              className="flex flex-wrap gap-3">
-              <Btn href="#enrollment">Apply Now</Btn>
+              className="flex flex-wrap gap-4">
+              <Btn href="#enrollment">Apply Now — April 2026</Btn>
               <a href="#overview" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
-                <Play className="w-4 h-4" /> Watch Overview
+                <Play className="w-4 h-4 text-yellow-500" /> Watch Overview Video
               </a>
             </motion.div>
           </motion.div>
         </div>
-        <motion.div initial={{ width: 0 }} animate={{ width: '100%' }} transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute bottom-0 left-0 h-1 bg-yellow-500 z-20" />
-      </section>
 
-      {/* ── STATS ────────────────────────────────────────────────── */}
-      <section className="bg-slate-900">
-        <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="grid grid-cols-3 divide-x divide-white/10">
-            {[
-              { to: '1000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-              { to: '50',   s: '+', label: 'Hiring Partners',  icon: Building2 },
-              { to: '100',  s: '%', label: 'Placement Assistance', icon: TrendingUp },
-            ].map((s, i) => (
-              <div key={i} className="flex flex-col sm:flex-row items-center sm:items-start gap-3 py-8 px-4 sm:px-6">
-                <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0">
-                  <s.icon className="w-4 h-4 text-yellow-500" />
-                </div>
-                <div className="text-center sm:text-left">
-                  <div className="text-2xl md:text-4xl font-medium text-yellow-500 leading-none">
-                    <Counter to={s.to} suffix={s.s} />
+        {/* Stats Bar */}
+        <div className="relative z-20 bg-slate-900/90 backdrop-blur-md border-t border-white/10">
+          <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
+            <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+              {[
+                { to: '1000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
+                { to: '50', s: '+', label: 'Hiring Partners', icon: Building2 },
+                { to: '100', s: '%', label: 'Placement Assistance', icon: TrendingUp },
+                { to: '24', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
+              ].map((s, i) => (
+                <div key={i} className="flex items-center gap-3 py-4 px-4 sm:px-6">
+                  <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0 rounded-lg">
+                    <s.icon className="w-4 h-4 text-yellow-500" />
                   </div>
-                  <div className="text-white/40 text-[10px] uppercase tracking-widest mt-1 font-bold">{s.label}</div>
+                  <div>
+                    <div className="text-xl md:text-2xl font-bold text-yellow-500 leading-none">
+                      <Counter to={s.to} suffix={s.s} />
+                    </div>
+                    <div className="text-white/50 text-[10px] uppercase tracking-widest mt-1 font-bold">{s.label}</div>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── OVERVIEW VIDEO ───────────────────────────────────────── */}
+      {/* ── 02. OVERVIEW VIDEO ───────────────────────────────────────── */}
       <section id="overview" className="py-14 md:py-20 bg-white">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <motion.div {...fin} className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
             <div>
-              <Label>Program Overview</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
-                See What <span className="accent-text italic">MSC</span> Is About
+              <Label>02 · Program Detailed Video</Label>
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+                See What <span className="text-yellow-600 italic font-serif">PG Diploma in Entrepreneurship & BIM</span> Is All About
               </h2>
             </div>
             <p className="text-gray-400 text-sm max-w-xs sm:text-right leading-relaxed">
-              Master in Smart Construction — Structural Engineering with BIM (24 Months On-Job Program).
+              Entrepreneurship in Structures, BIM & Project Management (24 Months On-Job Program).
             </p>
           </motion.div>
-          <motion.div {...fin} className="relative w-full bg-black aspect-video overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)]">
-            <div className="absolute top-0 left-0 w-12 h-0.5 bg-yellow-500 z-10" />
+          <motion.div {...fin} className="relative w-full bg-black aspect-video overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] rounded-3xl border border-slate-800">
+            <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
             <iframe src="https://www.youtube.com/embed/I4QyIdbupvs?si=CwmIf_njoy5v3_zc"
-              className="absolute inset-0 w-full h-full" title="MSC Video" frameBorder="0"
+              className="absolute inset-0 w-full h-full" title="PG Diploma in Entrepreneurship in Structures, BIM and Project Management Video" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
           </motion.div>
@@ -276,11 +290,11 @@ const BimHubMSC = () => {
                   </div>
                   <span className="text-xs font-black uppercase tracking-widest text-black/60">Certification & Credentials</span>
                 </div>
-                <p className="text-black font-bold text-2xl tracking-tight mb-4">24-Month Master Certification</p>
+                <p className="text-black font-bold text-2xl tracking-tight mb-4">24-Month PG Diploma Certification</p>
                 <div className="space-y-2.5">
                   {[
                     '24 Months Working Experience Letter',
-                    '24 Months Master Study Certification',
+                    '24 Months PG Diploma Certification',
                     'Comprehensive Portfolio Building',
                     'LinkedIn Photoshoot & Video Resume',
                     '6–8 Job Interview Arrangements'
@@ -477,7 +491,7 @@ const BimHubMSC = () => {
 
       {/* ── REVAMPED STUDENT REVIEWS / TESTIMONIALS SECTION ─────── */}
       <StudentVideoReviewsShowcase 
-        subtitle="Hear directly from our Master Study in Construction Management (MSC) trainees and alumni working in top structural design & BIM firms."
+        subtitle="Hear directly from our PG Diploma in Entrepreneurship in Structures, BIM and Project Management (MSC) trainees and alumni working in top structural design & BIM firms."
       />
 
       {/* ── POSTERS SHOWCASE ─────────────────────────────────────── */}
@@ -548,7 +562,7 @@ const BimHubMSC = () => {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
               Live Project <span className="accent-text italic">Competition</span>
             </h2>
-            <p className="text-white/40 text-sm mt-2">Between Master Study Trainees at Econstruct</p>
+            <p className="text-white/40 text-sm mt-2">Between PG Diploma Trainees at Econstruct</p>
           </motion.div>
           <motion.div {...fin} className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
             <div className="lg:col-span-2 bg-slate-900 overflow-hidden aspect-video relative">
@@ -765,7 +779,7 @@ const BimHubMSC = () => {
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight mb-4">
                 Frequently<br />Asked <span className="accent-text italic">Questions</span>
               </h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">Common questions about the Master in Smart Construction program.</p>
+              <p className="text-gray-400 text-sm leading-relaxed mb-6">Common questions about the PG Diploma in Entrepreneurship in Structures, BIM and Project Management program.</p>
               <Btn href="#enrollment">Still Have Questions?</Btn>
             </motion.div>
             <div className="flex-1 border-t border-gray-200">

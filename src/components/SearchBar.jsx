@@ -25,14 +25,14 @@ const searchIndex = [
   // Pages
   { title: 'Gallery', description: 'Gallery of BIM models and project visuals', path: '/pages/gallery', tags: ['gallery', 'bim', 'images', 'models', 'visuals'] },
   { title: 'Blog', description: 'Articles and insights on BIM and AEC industry', path: '/pages/blog', tags: ['blog', 'articles', 'bim', 'aec', 'insights', 'news'] },
-  { title: 'MSB', description: 'Master in Smart Building resources and content', path: '/pages/msb', tags: ['msb', 'smart building', 'master', 'training'] },
-  { title: 'MSC', description: 'Master in Smart Construction content', path: '/pages/msc', tags: ['msc', 'smart construction', 'master'] },
-  { title: 'MSS', description: 'Master in Smart Structures content', path: '/pages/mss', tags: ['mss', 'smart structures', 'master'] },
+  { title: 'PG Diploma in Project Management with BIM Technology (MSB)', description: 'PG Diploma in Project Management with BIM Technology resources and on-job training', path: '/pages/pg-diploma-in-project-management-with-bim-technology', tags: ['msb', 'pg diploma in project management with bim technology', 'smart building', 'master', 'training', 'bim', 'project management', 'primavera'] },
+  { title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management (MSC)', description: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management on-job program', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management', tags: ['msc', 'pg diploma in entrepreneurship in structures bim and project management', 'smart construction', 'master', 'entrepreneurship', 'structures', 'bim', 'project management'] },
+  { title: 'PG Diploma In Structural Engineering (MSS)', description: 'PG Diploma In Structural Engineering comprehensive on-job training', path: '/pages/pg-diploma-in-structural-engineering', tags: ['mss', 'pg diploma in structural engineering', 'smart structures', 'master', 'structural engineering', 'etabs', 'staadpro', 'safe'] },
   { title: 'PBD', description: 'Performance Based Design resources', path: '/pages/pbd', tags: ['pbd', 'performance based design', 'structural'] },
 
   // Training
-  { title: 'Training', description: 'Corporate on-job BIM and AEC software training', path: '/training', tags: ['training', 'corporate', 'bim', 'software', 'aec', 'course', 'learn'] },
-  { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/pages/msb', tags: ['bim', 'certification', 'training', 'msb', 'courses'] },
+  { title: 'Training', description: 'Corporate on-job BIM and AEC software training', path: '/training/corporate', tags: ['training', 'corporate', 'bim', 'software', 'aec', 'course', 'learn'] },
+  { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/pages/pg-diploma-in-project-management-with-bim-technology', tags: ['bim', 'certification', 'training', 'msb', 'courses'] },
 
   // Company info
   { title: 'Our Team', description: 'Meet our architects, engineers, and BIM specialists', path: '/about', tags: ['team', 'architects', 'engineers', 'staff', 'people'] },

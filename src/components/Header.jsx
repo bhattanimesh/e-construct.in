@@ -69,15 +69,15 @@ const servicesMenu = {
 const pagesMenu = [
   { icon: Image,      title: 'Gallery',  desc: 'BIM models & project visuals', path: '/pages/gallery' },
   { icon: BookOpen,   title: 'Blog',     desc: 'Insights & industry articles',  path: '/pages/blog'    },
-  { icon: BookMarked, title: 'MSB',      desc: 'Master in Smart Building',      path: '/pages/msb'     },
-  { icon: FileText,   title: 'MSC',      desc: 'Master in Smart Construction',  path: '/pages/msc'     },
-  { icon: Layers,     title: 'MSS',      desc: 'Master in Smart Structures',    path: '/pages/mss'     },
+  { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
+  { icon: FileText,   title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
+  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
   { icon: BarChart2,  title: 'PBD',      desc: 'Performance Based Design',      path: '/pages/pbd'     },
 ];
 
 const trainingMenu = [
   { icon: GraduationCap,   title: 'Corporate On-Job Training',          desc: 'BIM & AEC software for teams',       path: '/training/corporate'       },
-  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/pages/msb'                },
+  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
   { icon: BookOpen,        title: 'Workshops & Seminars',               desc: 'Hands-on learning sessions',         path: '/training/workshops'       },
   { icon: Layers,          title: 'Composite Course (Structures+BIM+PM)', desc: 'Complete 24-month program',        path: '/training/composite'       },
   { icon: FileText,        title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
@@ -126,7 +126,7 @@ const ServicesDropdown = () => (
 // ─── PAGES DROPDOWN ───────────────────────────────────────────────────────────
 
 const PagesDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(288px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(420px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Pages</span>
       <Link to="/pages/gallery" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">

@@ -121,7 +121,7 @@ const BimHubMSB = () => {
     },
     {
       id: 'pdf-3',
-      title: 'Master Study BIM & Project Management Syllabus Specification',
+      title: 'PG Diploma in Project Management with BIM Technology Syllabus Specification',
       desc: 'Detailed course structure, practical project milestones, and software tool modules.',
       pdfUrl: '/pdfs/Details-of-BIM-Course.pdf',
       badge: 'Course Specification'
@@ -145,9 +145,9 @@ const BimHubMSB = () => {
   ];
   const [activePlaylistItem, setActivePlaylistItem] = useState(0);
 
-  // Official FAQs directly from live MSB website
+  // Official FAQs directly from live website
   const faqs = [
-    { q: 'What is the duration of the Master Study in Project Management with BIM Technology program?', a: 'The program lasts between 7 to 12 months (until you are placed), depending on the mode of learning and the pace at which you progress. Long holidays are not permitted as you work directly on live client projects.' },
+    { q: 'What is the duration of the PG Diploma in Project Management with BIM Technology program?', a: 'The program lasts between 7 to 12 months (until you are placed), depending on the mode of learning and the pace at which you progress. Long holidays are not permitted as you work directly on live client projects.' },
     { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
     { q: 'What is included in the "On-job Learning Program"?', a: 'The On-job Learning Program allows you to gain hands-on experience in real-world project execution. You will work alongside the Econstruct technical team from Center Line Plan (CLP) to Good for Construction (GFC) drawings, covering project coordination, scheduling with Primavera P6, 4D BIM with Synchro, and clash detection with Navisworks.' },
     { q: 'Will I receive a certification upon completing the program?', a: 'Yes, upon successful completion of the program, you will receive an industry-recognized certification provided by Econstruct Design & Build Pvt Ltd. Additionally, you will also be given an official experience letter and 100% placement assistance.' },
@@ -180,8 +180,8 @@ const BimHubMSB = () => {
 
   // Program Highlights Posters switcher
   const posterList = [
-    { id: 'poster-1', title: 'Program Overview Poster', src: '/msb/msb poster 2.png', alt: 'MSB Overview Matrix Table Poster' },
-    { id: 'poster-2', title: 'BIM Software Matrix Poster', src: '/assets/msb_poster_orange.jpeg', alt: 'MSB Software Tools & Program Overview Poster' }
+    { id: 'poster-1', title: 'Program Overview Poster', src: '/msb/msb poster 2.png', alt: 'PG Diploma in Project Management with BIM Technology Matrix Table Poster' },
+    { id: 'poster-2', title: 'BIM Software Matrix Poster', src: '/assets/msb_poster_orange.jpeg', alt: 'PG Diploma BIM Software Tools & Program Overview Poster' }
   ];
   const [activePoster, setActivePoster] = useState(0);
 
@@ -193,14 +193,14 @@ const BimHubMSB = () => {
 
 
       {/* ── 01. HERO SECTION ────────────────────────────────────────── */}
-      <section id="hero" className="relative w-full min-h-[85vh] lg:min-h-[700px] overflow-hidden bg-slate-950 flex flex-col justify-between">
+      <section id="hero" className="relative w-full min-h-screen overflow-hidden bg-slate-950 flex flex-col justify-between">
         <div className="absolute inset-0">
-          <img src="/ProjectManagementConsultancy.jpg" alt="BIM & Project Management Background" className="w-full h-full object-cover brightness-[0.55] saturate-[1.1]" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-slate-950/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/45 to-transparent hidden md:block" />
+          <img src="/ProjectManagementConsultancy.jpg" alt="BIM & Project Management Background" className="w-full h-full object-cover brightness-[0.82] saturate-[1.15]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent hidden md:block" />
         </div>
 
-        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-28 sm:pt-32 lg:pt-36 pb-12 flex-1">
+        <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-24 sm:pt-28 pb-8 flex-1">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
 
             {/* Accreditation Badges */}
@@ -216,9 +216,8 @@ const BimHubMSB = () => {
             </motion.div>
 
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
-              className="font-medium text-white tracking-tight leading-[1.05] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)]"
-              style={{ fontSize: 'clamp(2.5rem, 6.5vw, 5.5rem)' }}>
-              Master Study In<br /><span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Project Management with BIM</span>
+              className="font-medium text-white tracking-tight leading-[1.1] mb-5 drop-shadow-[0_4px_16px_rgba(0,0,0,0.9)] text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem]">
+              PG Diploma In<br /><span className="text-yellow-400 italic font-serif drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">Project Management with BIM Technology</span>
             </motion.h1>
 
             <motion.p variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
@@ -270,7 +269,7 @@ const BimHubMSB = () => {
             <div>
               <Label>02 · Program Detailed Video</Label>
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-                See What <span className="text-yellow-600 italic font-serif">MSB</span> Is All About
+                See What <span className="text-yellow-600 italic font-serif">PG Diploma in PM & BIM</span> Is All About
               </h2>
             </div>
             <p className="text-gray-500 text-sm max-w-md md:text-right leading-relaxed">
@@ -281,7 +280,7 @@ const BimHubMSB = () => {
           <motion.div {...fin} className="relative w-full bg-slate-950 aspect-video rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-800">
             <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
             <iframe src="https://www.youtube.com/embed/-__P90GFjBI?si=NsKBJTlJDBoXCtHU"
-              className="absolute inset-0 w-full h-full" title="MSB Program Overview Video" frameBorder="0"
+              className="absolute inset-0 w-full h-full" title="PG Diploma in Project Management with BIM Technology Overview Video" frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
           </motion.div>
@@ -365,7 +364,7 @@ const BimHubMSB = () => {
                 <ul className="space-y-3 mb-6">
                   {[
                     'Official Work Experience Letter',
-                    'Econstruct Master Study Certificate',
+                    'Econstruct PG Diploma Certificate',
                     'BIM & Project Portfolio Assistance',
                     'LinkedIn Photoshoot & Video Resume',
                     '100% Core Technical Placement Support'
@@ -465,7 +464,7 @@ const BimHubMSB = () => {
               How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
             </h2>
             <p className="text-gray-600 text-base max-w-3xl mx-auto mt-3 leading-relaxed">
-              Explore authentic student portfolios to get a clear idea of what your portfolio will look like after completing our Master Study in Project Management & BIM Technology program.
+              Explore authentic student portfolios to get a clear idea of what your portfolio will look like after completing our PG Diploma in Project Management with BIM Technology program.
             </p>
           </motion.div>
 
@@ -787,7 +786,7 @@ const BimHubMSB = () => {
 
       {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
       <StudentVideoReviewsShowcase
-        subtitle="Hear directly from our Master Study in BIM Building Design (MSB) trainees and alumni placed in top BIM & structural engineering firms across India, UAE, Muscat, and London."
+        subtitle="Hear directly from our PG Diploma in Project Management with BIM Technology (MSB) trainees and alumni placed in top BIM & structural engineering firms across India, UAE, Muscat, and London."
       />
 
       {/* ── 12. LIVE PROJECTS, IMPACT & PRACTICAL EXPOSURE ──────────── */}
@@ -884,7 +883,7 @@ const BimHubMSB = () => {
               Frequently Asked <span className="text-yellow-600 italic font-serif">Questions</span>
             </h2>
             <p className="text-gray-600 text-base max-w-xl mx-auto mt-2">
-              Everything you need to know about the Master Study in Project Management with BIM Technology.
+              Everything you need to know about the PG Diploma in Project Management with BIM Technology.
             </p>
           </motion.div>
 
@@ -1156,7 +1155,7 @@ const BimHubMSB = () => {
             <div className="p-8 md:p-12 lg:w-2/3 flex flex-col justify-between">
               <div>
                 <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
-                  Complete MSB Track
+                  Complete PG Diploma in Project Management with BIM Technology Track
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 mb-6">Course Inclusions & Perks</h3>
 
@@ -1184,7 +1183,7 @@ const BimHubMSB = () => {
               <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/20 rounded-full blur-3xl pointer-events-none" />
 
               <div>
-                <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">Master Study Program Fee</span>
+                <span className="text-gray-400 font-extrabold uppercase tracking-widest text-xs mb-4 block">PG Diploma Program Fee</span>
                 <div className="flex items-baseline gap-1 mb-2">
                   <span className="text-3xl font-bold text-yellow-400">₹</span>
                   <span className="text-5xl font-black text-white tracking-tight">2,10,000</span>

@@ -253,9 +253,9 @@ const Home1 = () => {
           </div>
           <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
-                  { title: 'Master Study In Structural Engineering', desc: 'RCC, Steel, and PSC project mastery with multi-sector application.' },
-                  { title: 'Master Study In Project Management With BIM Technology', desc: 'Virtual construction monitoring and cost-saving BIM decision making.' },
-                  { title: 'Structures + BIM + Project Management', desc: 'Composite training in Infrastructure Modeling + BIM + Management.' },
+                  { title: 'PG Diploma In Structural Engineering', desc: 'RCC, Steel, and PSC project mastery with multi-sector application.' },
+                  { title: 'PG Diploma in Project Management with BIM Technology', desc: 'Virtual construction monitoring and cost-saving BIM decision making.' },
+                  { title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Composite training in Infrastructure Modeling + BIM + Management & Entrepreneurship.' },
                   { title: 'Master Study In Engineering Drawing & Drafting', desc: 'Advanced architectural and structural drafting with precision.' },
                   { title: 'Master Study In Interior Designing', desc: 'Comprehensive interior design and spatial planning workflows.' },
                   { title: 'Master Study In Project & Contract Management', desc: 'Strategic management of engineering contracts and project lifecycles.' },

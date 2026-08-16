@@ -32,20 +32,20 @@ const galleryImages = [
 const programs = [
   {
     icon: Monitor,
-    title: 'Master Study in Structural Engineering',
+    title: 'PG Diploma In Structural Engineering',
     desc: 'Hands-on structural analysis and design using ETABS, SAFE and Revit Structure — from RC frames to PT slabs.',
     tag: 'Most Popular',
   },
   {
     icon: Globe,
-    title: 'Master Study in Project Management with BIM',
+    title: 'PG Diploma in Project Management with BIM Technology',
     desc: 'End-to-end BIM project management — BEP, CDE, ISO 19650, 4D/5D simulation and Primavera P6.',
     tag: 'In Demand',
   },
   {
     icon: Briefcase,
-    title: 'Composite: Structure + BIM + PM',
-    desc: 'A combined program covering structural engineering, BIM technology and project management in one curriculum.',
+    title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management',
+    desc: 'A comprehensive 24-month program covering structural engineering, BIM technology, PM & AEC entrepreneurship.',
     tag: 'Comprehensive',
   },
   {
