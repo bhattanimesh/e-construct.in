@@ -215,9 +215,9 @@ const Projects = () => {
               transition={{ duration: 0.55 }}
               className="text-3xl md:text-4xl xl:text-5xl font-medium text-white leading-[1.1] tracking-tight mb-6"
             >
-              Latest Infrastructure &{" "}
+              Latest Engineering &{" "}
               <br className="hidden sm:block" />
-              <span className="accent-text italic">Construction Projects</span>
+              <span className="accent-text italic">Consultancy Projects</span>
             </motion.h2>
 
             {/* Stat pills */}

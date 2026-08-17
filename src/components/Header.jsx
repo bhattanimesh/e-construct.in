@@ -75,10 +75,10 @@ const pagesMenu = [
 ];
 
 const trainingMenu = [
-  { icon: FileText,   title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
+  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
   { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
   { icon: GraduationCap, title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
-  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
+  { icon: FileText,   title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
