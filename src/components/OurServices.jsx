@@ -51,7 +51,9 @@ const Services = () => {
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight">
               Complete Engineering <br />
-              <span className="accent-text italic">Solutions Under One Roof</span>
+              <span className="accent-text italic !text-[#d4af37]" style={{ color: '#d4af37' }}>
+                Solutions Under One Roof
+              </span>
             </h2>
           </div>
 

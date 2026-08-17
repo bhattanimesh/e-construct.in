@@ -1,4 +1,4 @@
-﻿import React, { useRef } from 'react';
+import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useAdmin } from '../context/AdminContext';
 
@@ -61,18 +61,18 @@ const TrustedPartners = () => {
                 style={{ x: xMove }}
                 className="flex items-center"
               >
-                <div className="flex animate-marquee py-6 md:py-10">
+                <div className="flex animate-marquee py-8 md:py-12 items-center">
                   {duplicatedPartners.map((partner, index) => (
                     <div 
                       key={index} 
-                      className="mx-6 md:mx-10 flex-shrink-0 flex items-center justify-center w-28 md:w-36"
+                      className="mx-8 md:mx-12 flex-shrink-0 flex items-center justify-center w-40 md:w-48 relative"
                     >
                       <img
                         src={partner.url}
                         alt={partner.name}
                         loading="lazy"
                         decoding="async"
-                        className="h-10 md:h-14 w-auto object-contain grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
+                        className="h-14 md:h-20 lg:h-[78px] w-auto max-w-full object-contain mix-blend-multiply opacity-85 hover:opacity-100 hover:scale-[1.40] transition-all duration-300 ease-out cursor-pointer relative z-10 hover:z-30"
                       />
                     </div>
                   ))}
