@@ -4,7 +4,7 @@ import {
   Building, Factory, Home, Droplet, Map, PenTool, CheckCircle2,
   ChevronLeft, ChevronRight, ArrowRight, ShieldCheck, TrendingUp,
   Award, Users, Layout, AlertCircle, Activity, MapPin, Quote,
-  ChevronDown, Mail, Phone, Facebook, Youtube, MessageCircle, Linkedin
+  ChevronDown, Mail, Phone, Facebook, Youtube, MessageCircle, Linkedin, Star
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
@@ -27,39 +27,39 @@ const ProjectSliderCard = ({ images, type, title, challenges, status, location, 
   return (
     <div
       onClick={onClick}
-      className="bg-white rounded-[24px] shadow-[0_10px_30px_rgba(0,0,0,0.08)] flex flex-col group border border-gray-100 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.12)] transition-all duration-500 h-full cursor-pointer"
+      className="bg-white rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.06)] flex flex-col group border border-gray-100 hover:-translate-y-1.5 hover:shadow-[0_15px_30px_rgba(0,0,0,0.1)] transition-all duration-300 h-full cursor-pointer overflow-hidden"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-[24px]">
-        <img src={images[currentIdx]} alt={title} className="w-full h-full object-cover transition-all duration-1000 group-hover:scale-105" loading="lazy" decoding="async" />
-        <div className="absolute top-4 left-4 bg-slate-900/90 backdrop-blur-md text-[#fbc02d] px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-[0.2em] z-10 border border-[#fbc02d]/20 shadow-md">
+      <div className="relative aspect-[16/11] overflow-hidden">
+        <img src={images[currentIdx]} alt={title} className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" loading="lazy" decoding="async" />
+        <div className="absolute top-2.5 left-2.5 bg-slate-900/90 backdrop-blur-md text-[#fbc02d] px-2.5 py-1 rounded-md text-[0.65rem] font-bold uppercase tracking-wider z-10 border border-[#fbc02d]/20 shadow-sm">
           {type}
         </div>
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-4 z-10 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
-          <div className="flex gap-2">
+        <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black/80 to-transparent flex items-end justify-center pb-2.5 z-10 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <div className="flex gap-1.5">
             {images.map((_, idx) => (
-              <div key={idx} className={`h-2 rounded-full transition-all duration-500 ${currentIdx === idx ? 'w-6 bg-[#fbc02d]' : 'w-2 bg-white/60'}`} />
+              <div key={idx} className={`h-1.5 rounded-full transition-all duration-500 ${currentIdx === idx ? 'w-4 bg-[#fbc02d]' : 'w-1.5 bg-white/60'}`} />
             ))}
           </div>
         </div>
       </div>
-      <div className="p-6 md:p-8 flex flex-col flex-1">
-        <h3 className="text-xl md:text-2xl font-black text-gray-900 mb-6 leading-snug group-hover:text-[#fbc02d] transition-colors">{title}</h3>
-        <div className="space-y-4 mb-8 flex-1">
+      <div className="p-4 flex flex-col flex-1">
+        <h3 className="text-sm sm:text-base font-bold text-gray-900 mb-3 leading-snug group-hover:text-[#fbc02d] transition-colors">{title}</h3>
+        <div className="space-y-2.5 mb-4 flex-1">
           <div>
-            <h4 className="text-[0.65rem] font-black text-slate-800 uppercase tracking-[0.15em] mb-1.5 flex items-center gap-2"><AlertCircle size={14} className="text-red-500" /> Challenges</h4>
-            <p className="text-gray-600 text-sm leading-relaxed font-medium">{challenges}</p>
+            <h4 className="text-[0.6rem] font-bold text-slate-700 uppercase tracking-wider mb-0.5 flex items-center gap-1.5"><AlertCircle size={12} className="text-red-500" /> Challenges</h4>
+            <p className="text-gray-500 text-xs leading-relaxed">{challenges}</p>
           </div>
           <div>
-            <h4 className="text-[0.65rem] font-black text-slate-800 uppercase tracking-[0.15em] mb-1.5 flex items-center gap-2"><Activity size={14} className="text-blue-500" /> Current Status</h4>
-            <p className="text-gray-600 text-sm leading-relaxed font-medium">{status}</p>
+            <h4 className="text-[0.6rem] font-bold text-slate-700 uppercase tracking-wider mb-0.5 flex items-center gap-1.5"><Activity size={12} className="text-blue-500" /> Current Status</h4>
+            <p className="text-gray-500 text-xs leading-relaxed">{status}</p>
           </div>
           <div>
-            <h4 className="text-[0.65rem] font-black text-slate-800 uppercase tracking-[0.15em] mb-1.5 flex items-center gap-2"><MapPin size={14} className="text-green-500" /> Location</h4>
-            <p className="text-gray-600 text-sm leading-relaxed font-medium">{location}</p>
+            <h4 className="text-[0.6rem] font-bold text-slate-700 uppercase tracking-wider mb-0.5 flex items-center gap-1.5"><MapPin size={12} className="text-green-500" /> Location</h4>
+            <p className="text-gray-500 text-xs leading-relaxed">{location}</p>
           </div>
         </div>
-        <button onClick={onClick} className="w-full bg-slate-50 text-blue-600 font-black px-6 py-4 rounded-xl hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-2 group-hover:bg-blue-600 group-hover:text-white group-hover:shadow-[0_10px_20px_rgba(37,99,235,0.2)] mt-auto active:scale-95 uppercase tracking-widest text-xs">
-          View Project Drawings <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+        <button onClick={onClick} className="w-full bg-slate-50 text-blue-600 font-bold px-3.5 py-2.5 rounded-lg hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center gap-1.5 group-hover:bg-blue-600 group-hover:text-white mt-auto active:scale-95 uppercase tracking-wider text-[0.65rem] sm:text-xs">
+          View Project Drawings <ArrowRight size={13} className="group-hover:translate-x-1 transition-transform" />
         </button>
       </div>
     </div>
@@ -144,38 +144,38 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Our Comprehensive Structural Services */}
-      <section className="py-24 px-4 md:px-8 bg-slate-50 relative overflow-hidden text-left">
+      <section className="py-16 px-4 md:px-8 bg-slate-50 relative overflow-hidden text-left">
         <div className="max-w-[1500px] mx-auto relative z-10">
-          <div className="text-center mb-16 max-w-3xl mx-auto">
+          <div className="text-center mb-10 max-w-3xl mx-auto">
             <SectionHeading title="Our Comprehensive Structural Services" />
-            <p className="text-gray-600 text-lg font-medium leading-relaxed">
+            <p className="text-gray-600 text-sm md:text-base font-medium leading-relaxed">
               We provide end-to-end structural engineering solutions—from concept to construction. Our expertise ensures safety, compliance, and performance across all types of structures.
             </p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mb-8">
             {sc.services.map((service, idx) => {
               const SvcIcon = SC_SERVICE_ICONS[idx] || Home;
               return (
-                <div key={service.id || idx} className="bg-white p-8 rounded-3xl shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
+                <div key={service.id || idx} className="bg-white p-5 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.04)] hover:-translate-y-1.5 transition-all duration-300 border border-gray-100 group flex flex-col justify-between">
                   <div>
-                    <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#fbc02d] group-hover:text-slate-900 transition-colors duration-300 shadow-sm">
-                      <SvcIcon size={32} />
+                    <div className="w-10 h-10 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#fbc02d] group-hover:text-slate-900 transition-colors duration-300 shadow-sm">
+                      <SvcIcon size={20} />
                     </div>
-                    <h3 className="text-2xl font-black text-gray-900 mb-4">{service.title}</h3>
-                    <p className="text-gray-600 font-medium leading-relaxed mb-6">{service.desc}</p>
+                    <h3 className="text-lg font-bold text-gray-900 mb-2">{service.title}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm font-normal leading-relaxed">{service.desc}</p>
                   </div>
                 </div>
               );
             })}
 
             {/* CTA Card */}
-            <div className="bg-slate-900 p-8 rounded-3xl shadow-2xl flex flex-col justify-center items-center text-center relative overflow-hidden group">
+            <div className="bg-slate-900 p-5 rounded-2xl shadow-xl flex flex-col justify-center items-center text-center relative overflow-hidden group">
               <div className="absolute inset-0 bg-[#fbc02d]/10 group-hover:bg-[#fbc02d]/20 transition-colors duration-500"></div>
-              <h3 className="text-3xl font-black text-white mb-6 relative z-10 leading-snug">Discuss Your <br />Structural Project</h3>
-              <button onClick={() => navigate('/contact')} className="relative z-10 bg-[#fbc02d] text-slate-900 font-black px-8 py-4 rounded-xl shadow-lg hover:scale-105 transition-all duration-300 uppercase tracking-widest text-sm flex items-center gap-2">
-                Contact Us <ArrowRight size={18} />
+              <h3 className="text-lg sm:text-xl font-bold text-white mb-4 relative z-10 leading-snug">Discuss Your <br />Structural Project</h3>
+              <button onClick={() => navigate('/contact')} className="relative z-10 bg-[#fbc02d] text-slate-900 font-bold px-5 py-2.5 rounded-lg shadow-md hover:scale-105 transition-all duration-300 uppercase tracking-wider text-xs flex items-center gap-1.5">
+                Contact Us <ArrowRight size={14} />
               </button>
             </div>
           </div>
@@ -183,64 +183,72 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* From Homes to Highways (Slider Section) */}
-      <section className="py-24 px-4 md:px-8 bg-white border-t border-gray-100 text-left">
+      <section className="py-10 md:py-12 px-4 md:px-8 bg-white border-t border-gray-100 text-left">
         <div className="max-w-[1500px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Left Content */}
             <div>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm md:text-base">Technology</span>
+              <div className="flex items-center gap-2 mb-3">
+                <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-xs">Technology</span>
               </div>
               <SectionHeading title="From Homes to Highways" center={false} />
-              <p className="text-gray-600 text-xl font-medium leading-relaxed mb-10 border-l-4 border-[#fbc02d] pl-4">
+              <p className="text-gray-600 text-xs md:text-sm font-medium leading-relaxed mb-4 border-l-4 border-[#fbc02d] pl-3 mt-2">
                 Experience the power of Autodesk BIM technology. Visualize, analyze, and optimize your construction projects with precision and accuracy.
               </p>
 
-              <div className="space-y-6 mb-12">
+              <div className="space-y-3 mb-6">
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg mb-2 flex items-center gap-2"><CheckCircle2 className="text-[#fbc02d] w-5 h-5" /> Residential Structures</h4>
-                  <p className="text-gray-600 pl-7">Bungalows, Row Houses, High-Rise Apartments, Gated Communities, Villas, MIG Housing etc.</p>
+                  <h4 className="font-bold text-gray-900 text-sm mb-0.5 flex items-center gap-2">
+                    <CheckCircle2 className="text-[#fbc02d] w-3.5 h-3.5 shrink-0" /> Residential Structures
+                  </h4>
+                  <p className="text-gray-500 text-xs pl-5.5 leading-relaxed">Bungalows, Row Houses, High-Rise Apartments, Gated Communities, Villas, MIG Housing etc.</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg mb-2 flex items-center gap-2"><CheckCircle2 className="text-[#fbc02d] w-5 h-5" /> Commercial Buildings</h4>
-                  <p className="text-gray-600 pl-7">Office Buildings, Schools, Colleges, Hospitals, Shopping Malls, Hotels, IT Parks etc.</p>
+                  <h4 className="font-bold text-gray-900 text-sm mb-0.5 flex items-center gap-2">
+                    <CheckCircle2 className="text-[#fbc02d] w-3.5 h-3.5 shrink-0" /> Commercial Buildings
+                  </h4>
+                  <p className="text-gray-500 text-xs pl-5.5 leading-relaxed">Office Buildings, Schools, Colleges, Hospitals, Shopping Malls, Hotels, IT Parks etc.</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg mb-2 flex items-center gap-2"><CheckCircle2 className="text-[#fbc02d] w-5 h-5" /> Industrial Facilities</h4>
-                  <p className="text-gray-600 pl-7">PEB Sheds, Steel Factory Sheds, Warehouses, Processing Units, Industrial Plants etc.</p>
+                  <h4 className="font-bold text-gray-900 text-sm mb-0.5 flex items-center gap-2">
+                    <CheckCircle2 className="text-[#fbc02d] w-3.5 h-3.5 shrink-0" /> Industrial Facilities
+                  </h4>
+                  <p className="text-gray-500 text-xs pl-5.5 leading-relaxed">PEB Sheds, Steel Factory Sheds, Warehouses, Processing Units, Industrial Plants etc.</p>
                 </div>
                 <div>
-                  <h4 className="font-bold text-gray-900 text-lg mb-2 flex items-center gap-2"><CheckCircle2 className="text-[#fbc02d] w-5 h-5" /> Infrastructure Projects</h4>
-                  <p className="text-gray-600 pl-7">Bridges, Metro Stations, Culverts, Chimneys, Airport Hangars, Water Tanks, Transmission Towers, etc.</p>
+                  <h4 className="font-bold text-gray-900 text-sm mb-0.5 flex items-center gap-2">
+                    <CheckCircle2 className="text-[#fbc02d] w-3.5 h-3.5 shrink-0" /> Infrastructure Projects
+                  </h4>
+                  <p className="text-gray-500 text-xs pl-5.5 leading-relaxed">Bridges, Metro Stations, Culverts, Chimneys, Airport Hangars, Water Tanks, Transmission Towers, etc.</p>
                 </div>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-black px-8 py-4 rounded-xl hover:bg-gray-800 transition-all duration-300 uppercase tracking-widest text-sm text-center">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-bold px-5 py-2.5 rounded-lg hover:bg-gray-800 transition-all duration-300 uppercase tracking-wider text-xs text-center">
                   Schedule a Consultation
                 </button>
-                <button onClick={() => navigate('/services')} className="bg-[#fbc02d]/10 text-[#bc8f15] font-black px-8 py-4 rounded-xl hover:bg-[#fbc02d]/20 transition-all duration-300 uppercase tracking-widest text-sm text-center border outline-none outline-transparent border-[#fbc02d]">
+                <button onClick={() => navigate('/services')} className="bg-[#fbc02d]/10 text-[#bc8f15] font-bold px-5 py-2.5 rounded-lg hover:bg-[#fbc02d]/20 transition-all duration-300 uppercase tracking-wider text-xs text-center border border-[#fbc02d]">
                   Explore Our Services
                 </button>
               </div>
             </div>
 
             {/* Right Slider */}
-            <div className="relative group rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-slate-100 aspect-[4/3] md:aspect-square lg:aspect-[4/5]">
+            <div className="relative group rounded-xl overflow-hidden shadow-[0_12px_30px_rgba(0,0,0,0.1)] bg-slate-100 aspect-[4/3] md:aspect-square lg:aspect-[4/5] w-full">
               <img
                 src={scImages[currentScSlide]}
                 alt={`Structural Engineering ${currentScSlide + 1}`}
                 className="w-full h-full object-cover transition-all duration-700 hover:scale-105" loading="lazy" decoding="async" />
               {/* Navigation Dots */}
-              <div className="absolute bottom-6 left-0 w-full flex justify-center gap-3 z-10 bg-gradient-to-t from-black/50 to-transparent py-4">
+              <div className="absolute bottom-3 left-0 w-full flex justify-center gap-2 z-10 bg-gradient-to-t from-black/50 to-transparent py-2.5">
                 {scImages.map((_, idx) => (
                   <button
                     key={idx}
                     onClick={() => setCurrentScSlide(idx)}
                     className={`transition-all duration-500 rounded-full ${currentScSlide === idx
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
+                      ? 'w-7 h-2 bg-[#fbc02d] shadow-[0_0_6px_#fbc02d]'
+                      : 'w-2 h-2 bg-white/60 hover:bg-white hover:scale-125'
                       }`}
                   />
                 ))}
@@ -272,76 +280,76 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Seismic Analysis & Technical Data Section */}
-      <section className="py-24 px-4 md:px-8 bg-slate-50 border-t border-gray-200">
+      <section className="py-10 md:py-12 px-4 md:px-8 bg-slate-50 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
-          <div className="text-center mb-16 max-w-4xl mx-auto">
+          <div className="text-center mb-8 max-w-3xl mx-auto">
             <SectionHeading title="Seismic Analysis & Technical Data" />
-            <p className="text-gray-600 text-xl font-medium leading-relaxed">
+            <p className="text-gray-600 text-xs md:text-sm font-medium leading-relaxed mt-2">
               Advanced seismic analysis and structural response data showcasing our engineering expertise.
             </p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
-            <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
-              <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Seismic Impact Analysis</h3>
-              <img src="/structural-consultancy/g1.png" alt="Seismic Impact Analysis" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
+            <div className="bg-white rounded-xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
+              <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2 text-center uppercase tracking-wide">Seismic Impact Analysis</h3>
+              <img src="/structural-consultancy/g1.png" alt="Seismic Impact Analysis" className="w-full max-h-[150px] object-contain rounded-lg saturate-150" loading="lazy" decoding="async" />
             </div>
-            <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
-              <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Seismic Zone Distribution</h3>
-              <img src="/structural-consultancy/g2.png" alt="Seismic Zone Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
+            <div className="bg-white rounded-xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
+              <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2 text-center uppercase tracking-wide">Seismic Zone Distribution</h3>
+              <img src="/structural-consultancy/g2.png" alt="Seismic Zone Distribution" className="w-full max-h-[150px] object-contain rounded-lg saturate-150" loading="lazy" decoding="async" />
             </div>
-            <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
-              <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Project Type Distribution</h3>
-              <img src="/structural-consultancy/g3.png" alt="Project Type Distribution" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
+            <div className="bg-white rounded-xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between">
+              <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2 text-center uppercase tracking-wide">Project Type Distribution</h3>
+              <img src="/structural-consultancy/g3.png" alt="Project Type Distribution" className="w-full max-h-[150px] object-contain rounded-lg saturate-150" loading="lazy" decoding="async" />
             </div>
-            <div className="bg-white rounded-[24px] p-8 shadow-sm hover:shadow-xl transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between lg:col-start-1 lg:col-span-1">
-              <h3 className="text-xl font-black text-slate-800 mb-6 text-center uppercase tracking-wider">Monthly Project Completion Trend</h3>
-              <img src="/structural-consultancy/g4.png" alt="Monthly Trend" className="w-full h-auto object-contain rounded-xl saturate-150" loading="lazy" decoding="async" />
+            <div className="bg-white rounded-xl p-3.5 sm:p-4 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 flex flex-col items-center justify-between lg:col-start-1 lg:col-span-1">
+              <h3 className="text-xs sm:text-sm font-bold text-slate-800 mb-2 text-center uppercase tracking-wide">Monthly Project Completion Trend</h3>
+              <img src="/structural-consultancy/g4.png" alt="Monthly Trend" className="w-full max-h-[150px] object-contain rounded-lg saturate-150" loading="lazy" decoding="async" />
             </div>
-            <div className="bg-slate-900 rounded-[24px] p-8 shadow-xl transition-shadow duration-300 border border-slate-800 flex flex-col items-center justify-center lg:col-span-2 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
-              <h3 className="text-xl font-black text-white mb-8 text-center uppercase tracking-widest relative z-10 border-b border-white/20 pb-4 inline-block">Advanced Engineering Profile</h3>
-              <img src="/structural-consultancy/g5.png" alt="Advanced Profile" className="relative z-10 w-full max-w-[800px] h-auto object-contain rounded-xl" loading="lazy" decoding="async" />
+            <div className="bg-slate-900 rounded-xl p-4 sm:p-5 shadow-lg transition-shadow duration-300 border border-slate-800 flex flex-col items-center justify-center lg:col-span-2 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-blue-500/10 rounded-full blur-[40px] pointer-events-none"></div>
+              <h3 className="text-xs sm:text-sm font-bold text-white mb-3 text-center uppercase tracking-wider relative z-10 border-b border-white/20 pb-2 inline-block">Advanced Engineering Profile</h3>
+              <img src="/structural-consultancy/g5.png" alt="Advanced Profile" className="relative z-10 w-full max-w-[520px] max-h-[180px] object-contain rounded-lg" loading="lazy" decoding="async" />
             </div>
           </div>
         </div>
       </section>
 
       {/* Stats Counter Section */}
-      <section className="bg-indigo-950 py-24 px-4 md:px-8 border-t-[8px] border-[#fbc02d] relative overflow-hidden">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div className="max-w-[1500px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center divide-y sm:divide-y-0 sm:divide-x divide-indigo-800/50 relative z-10">
+      <section className="bg-indigo-950 py-6 md:py-8 px-4 md:px-8 border-t-[3px] border-[#fbc02d] relative overflow-hidden">
+        <div className="absolute top-0 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-[60px] pointer-events-none"></div>
+        <div className="max-w-[1500px] mx-auto grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center sm:divide-x divide-indigo-800/50 relative z-10">
           {sc.stats.map((stat, i) => (
-            <div key={stat.id || i} className="pt-8 sm:pt-0 hover:scale-110 transition-transform duration-300">
-              <div className="text-5xl md:text-6xl font-black text-white mb-3 tracking-tighter">{stat.value}</div>
-              <div className="text-[#fbc02d] font-bold tracking-widest uppercase text-sm">{stat.label}</div>
+            <div key={stat.id || i} className="py-1.5 sm:py-0 hover:scale-105 transition-transform duration-300">
+              <div className="text-2xl md:text-3xl font-black text-white mb-0.5 tracking-tight">{stat.value}</div>
+              <div className="text-[#fbc02d] font-bold tracking-wider uppercase text-[0.65rem] sm:text-xs">{stat.label}</div>
             </div>
           ))}
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 px-4 md:px-8 bg-white border-t border-gray-100 text-left">
+      <section className="py-10 md:py-12 px-4 md:px-8 bg-white border-t border-gray-100 text-left">
         <div className="max-w-[1500px] mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 max-w-2xl mx-auto">
             <SectionHeading title="Why Choose Us" />
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto leading-relaxed">
+            <p className="text-gray-600 font-medium text-xs md:text-sm mx-auto leading-relaxed mt-2">
               Our unique strengths that set us apart in the structural engineering industry.
             </p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
             {sc.whyChooseUs.map((feature, idx) => {
               const WIcon = WHY_ICONS[idx % WHY_ICONS.length];
               return (
-                <div key={feature.id || idx} className="bg-slate-50 p-8 md:p-10 rounded-[32px] border border-gray-100 hover:shadow-[0_20px_50px_rgba(0,0,0,0.08)] hover:bg-white transition-all duration-300 hover:-translate-y-2 group flex flex-col items-start w-full">
-                  <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-slate-800 shadow-sm mb-8 group-hover:bg-[#fbc02d] group-hover:text-slate-900 group-hover:scale-110 transition-all duration-500 group-hover:shadow-lg">
-                    <WIcon size={28} />
+                <div key={feature.id || idx} className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-gray-100 hover:shadow-[0_15px_35px_rgba(0,0,0,0.06)] hover:bg-white transition-all duration-300 hover:-translate-y-1 group flex flex-col items-start w-full">
+                  <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center text-slate-800 shadow-sm mb-3 group-hover:bg-[#fbc02d] group-hover:text-slate-900 group-hover:scale-105 transition-all duration-300">
+                    <WIcon size={18} />
                   </div>
-                  <h4 className="text-2xl font-black text-gray-900 mb-4 leading-snug">{feature.title}</h4>
-                  <p className="text-gray-600 font-medium text-lg leading-relaxed">{feature.desc}</p>
+                  <h4 className="text-base font-bold text-gray-900 mb-1.5 leading-snug">{feature.title}</h4>
+                  <p className="text-gray-500 font-normal text-xs sm:text-sm leading-relaxed">{feature.desc}</p>
                 </div>
               );
             })}
@@ -350,76 +358,76 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Our Leadership */}
-      <section className="bg-slate-50 py-32 px-4 md:px-8 border-t border-gray-200 text-left">
+      <section className="bg-slate-50 py-12 md:py-14 px-4 md:px-8 border-t border-gray-200 text-left">
         <div className="max-w-[1500px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
             {/* Left Image */}
-            <div className="relative rounded-[40px] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.2)] aspect-[4/5] lg:aspect-[3/4]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.12)] w-full h-[360px] lg:h-full min-h-[320px] max-h-[460px]">
               <img
                 src="https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg"
                 alt="Mr. Sandeep Pingale"
                 className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/20 to-transparent pointer-events-none"></div>
-              <div className="absolute bottom-12 left-12 text-white pointer-events-none">
-                <p className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-sm mb-3">Our Key Person</p>
-                <h2 className="text-4xl md:text-5xl font-black drop-shadow-lg leading-tight">Mr. Sandeep <br />Pingale</h2>
+              <div className="absolute bottom-5 left-5 text-white pointer-events-none">
+                <p className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-xs mb-1">Our Key Person</p>
+                <h2 className="text-xl md:text-2xl font-black drop-shadow-lg leading-tight">Mr. Sandeep <br />Pingale</h2>
               </div>
             </div>
 
             {/* Right Content */}
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-12 h-[2px] bg-[#fbc02d]"></span>
-                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Our Leadership</span>
+            <div className="flex flex-col justify-between">
+              <div className="flex items-center gap-2.5 mb-3">
+                <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-xs">Our Leadership</span>
               </div>
               <SectionHeading title="Meet Our Founder" center={false} />
 
-              <p className="text-gray-600 text-xl md:text-2xl font-medium leading-relaxed mb-12 border-l-4 border-gray-300 pl-6">
+              <p className="text-gray-600 text-xs md:text-sm font-medium leading-relaxed mb-6 border-l-4 border-gray-300 pl-3.5 mt-2">
                 With over two decades of experience in structural engineering, Mr. Pingale has been instrumental in shaping the future of structural engineering education. His vision of practical, hands-on learning has helped countless students transition into successful professionals.
               </p>
 
-              <div className="space-y-8 mb-16">
-                <div className="flex gap-6 items-start group">
-                  <div className="shrink-0 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
-                    <Award className="w-8 h-8 text-slate-800" />
+              <div className="space-y-3.5 mb-6">
+                <div className="flex gap-3.5 items-start group">
+                  <div className="shrink-0 bg-white p-2.5 rounded-xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
+                    <Award className="w-4 h-4 text-slate-800" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black text-gray-900 mb-2">Industry Expert</h4>
-                    <p className="text-gray-600 font-medium text-lg leading-relaxed">Leading innovation in structural engineering with cutting-edge methodologies.</p>
+                    <h4 className="text-sm font-bold text-gray-900 mb-0.5">Industry Expert</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Leading innovation in structural engineering with cutting-edge methodologies.</p>
                   </div>
                 </div>
-                <div className="flex gap-6 items-start group">
-                  <div className="shrink-0 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
-                    <Building className="w-8 h-8 text-slate-800" />
+                <div className="flex gap-3.5 items-start group">
+                  <div className="shrink-0 bg-white p-2.5 rounded-xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
+                    <Building className="w-4 h-4 text-slate-800" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black text-gray-900 mb-2">Visionary Leader</h4>
-                    <p className="text-gray-600 font-medium text-lg leading-relaxed">Pioneering practical education approaches in structural engineering.</p>
+                    <h4 className="text-sm font-bold text-gray-900 mb-0.5">Visionary Leader</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Pioneering practical education approaches in structural engineering.</p>
                   </div>
                 </div>
-                <div className="flex gap-6 items-start group">
-                  <div className="shrink-0 bg-white p-4 rounded-2xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
-                    <Users className="w-8 h-8 text-slate-800" />
+                <div className="flex gap-3.5 items-start group">
+                  <div className="shrink-0 bg-white p-2.5 rounded-xl shadow-sm border border-gray-100 group-hover:bg-[#fbc02d] transition-colors duration-300">
+                    <Users className="w-4 h-4 text-slate-800" />
                   </div>
                   <div>
-                    <h4 className="text-2xl font-black text-gray-900 mb-2">Mentor & Guide</h4>
-                    <p className="text-gray-600 font-medium text-lg leading-relaxed">Dedicated to nurturing the next generation of structural engineers.</p>
+                    <h4 className="text-sm font-bold text-gray-900 mb-0.5">Mentor & Guide</h4>
+                    <p className="text-gray-500 text-xs leading-relaxed">Dedicated to nurturing the next generation of structural engineers.</p>
                   </div>
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 bg-white p-8 rounded-[32px] shadow-[0_15px_40px_rgba(0,0,0,0.06)] border border-gray-100">
-                <div className="text-center sm:text-left flex flex-col justify-center border-r border-gray-100 pr-4">
-                  <div className="text-4xl lg:text-5xl font-black text-[#fbc02d] mb-3 tracking-tighter">20+</div>
-                  <div className="text-gray-800 font-black text-xs uppercase tracking-[0.2em] leading-relaxed">Years Industry<br /> Experience</div>
+              <div className="grid grid-cols-3 gap-3 bg-white p-4 sm:p-5 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.04)] border border-gray-100">
+                <div className="text-center sm:text-left flex flex-col justify-center border-r border-gray-100 pr-2">
+                  <div className="text-2xl lg:text-3xl font-black text-[#fbc02d] mb-1 tracking-tight">20+</div>
+                  <div className="text-gray-700 font-bold text-[0.65rem] sm:text-xs uppercase tracking-wider leading-tight">Years Industry<br /> Experience</div>
                 </div>
-                <div className="text-center sm:text-left flex flex-col justify-center border-r border-gray-100 px-4">
-                  <div className="text-4xl lg:text-5xl font-black text-[#fbc02d] mb-3 tracking-tighter">1,000+</div>
-                  <div className="text-gray-800 font-black text-xs uppercase tracking-[0.2em] leading-relaxed">Projects<br /> Completed</div>
+                <div className="text-center sm:text-left flex flex-col justify-center border-r border-gray-100 px-2">
+                  <div className="text-2xl lg:text-3xl font-black text-[#fbc02d] mb-1 tracking-tight">1,000+</div>
+                  <div className="text-gray-700 font-bold text-[0.65rem] sm:text-xs uppercase tracking-wider leading-tight">Projects<br /> Completed</div>
                 </div>
-                <div className="text-center sm:text-left flex flex-col justify-center pl-4">
-                  <div className="text-4xl lg:text-5xl font-black text-[#fbc02d] mb-3 tracking-tighter">100%</div>
-                  <div className="text-gray-800 font-black text-xs uppercase tracking-[0.2em] leading-relaxed">Success<br /> Rate</div>
+                <div className="text-center sm:text-left flex flex-col justify-center pl-2">
+                  <div className="text-2xl lg:text-3xl font-black text-[#fbc02d] mb-1 tracking-tight">100%</div>
+                  <div className="text-gray-700 font-bold text-[0.65rem] sm:text-xs uppercase tracking-wider leading-tight">Success<br /> Rate</div>
                 </div>
               </div>
             </div>
@@ -428,11 +436,11 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Expert Project Consultation */}
-      <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-100">
+      <section className="bg-white py-12 md:py-14 px-4 md:px-8 border-t border-gray-100">
         <div className="max-w-[1500px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Left Image */}
-            <div className="relative rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-slate-100 aspect-[4/3] lg:aspect-[4/3]">
+            <div className="relative rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.1)] bg-slate-100 aspect-[4/3] w-full max-h-[380px]">
               <img
                 src="/structural-consultancy/consultation.png"
                 alt="Expert Consultation"
@@ -442,22 +450,22 @@ const StructuralConsultancy = () => {
 
             {/* Right Content */}
             <div className="flex flex-col justify-center">
-              <span className="inline-block bg-blue-50 text-blue-600 text-xs md:text-sm font-black uppercase tracking-[0.2em] px-5 py-2.5 rounded-full mb-8 max-w-max border border-blue-100">
+              <span className="inline-block bg-blue-50 text-blue-600 text-[0.65rem] sm:text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full mb-3 max-w-max border border-blue-100">
                 End-to-End Guidance
               </span>
               <SectionHeading title="Expert Project Consultation" center={false} />
 
-              <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-6">
+              <p className="text-gray-600 text-xs sm:text-sm font-medium leading-relaxed mb-3.5 mt-2">
                 Offering end-to-end structural consultation means guiding clients through the entire development process—from initial design to final inspection. Our extensive knowledge helps identify potential challenges early on, ensuring that projects stay on track and within budget.
               </p>
 
-              <div className="border-l-4 border-blue-600 pl-6 py-2 mb-12">
-                <p className="text-gray-900 text-lg md:text-xl font-bold leading-relaxed italic">
+              <div className="border-l-2 sm:border-l-4 border-blue-600 pl-3.5 py-1 mb-6">
+                <p className="text-gray-900 text-xs sm:text-sm font-bold leading-relaxed italic">
                   "This proactive approach simplifies complex projects, providing clients with peace of mind and clarity every step of the way."
                 </p>
               </div>
 
-              <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-black px-8 py-5 rounded-xl hover:bg-blue-600 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(37,99,235,0.2)] max-w-max active:scale-95">
+              <button onClick={() => navigate('/contact')} className="bg-slate-900 text-white font-bold px-5 py-2.5 rounded-lg hover:bg-blue-600 hover:-translate-y-0.5 transition-all duration-300 uppercase tracking-wider text-xs shadow-md max-w-max active:scale-95">
                 Schedule Your First Call Now!
               </button>
             </div>
@@ -466,17 +474,17 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Latest Projects Horizontal Cards */}
-      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1600px] mx-auto overflow-hidden">
-          <div className="text-center mb-16">
+      <section className="bg-slate-50 py-10 md:py-12 px-4 md:px-8 border-t border-gray-200">
+        <div className="max-w-[1500px] mx-auto overflow-hidden">
+          <div className="text-center mb-8">
             <SectionHeading title="Latest Projects" />
-            <p className="text-gray-600 font-medium text-lg max-w-2xl mx-auto leading-relaxed border-l-4 border-[#fbc02d] pl-4">
+            <p className="text-gray-600 font-medium text-xs md:text-sm max-w-xl mx-auto leading-relaxed border-l-2 sm:border-l-4 border-[#fbc02d] pl-3 mt-2">
               Explore our recent successful projects that showcase our engineering expertise.
             </p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-stretch">
             <ProjectSliderCard
               images={['/projects/gh_1.png', '/projects/gh_2.png']}
               type="Residential"
@@ -519,94 +527,144 @@ const StructuralConsultancy = () => {
             />
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center">
             <button
               onClick={() => navigate('/projects')}
-              className="inline-flex items-center gap-3 bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-extrabold uppercase tracking-wider text-xs sm:text-sm px-8 py-4 rounded-xl transition-all shadow-lg active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-bold uppercase tracking-wider text-xs px-6 py-3 rounded-lg transition-all shadow-md active:scale-95 cursor-pointer"
             >
               <span>View All Portfolio Projects on Projects Page</span>
-              <ArrowRight size={16} />
+              <ArrowRight size={14} />
             </button>
           </div>
         </div>
       </section>
 
       {/* Client Testimonials */}
-      <section className="py-24 bg-gray-50 border-t border-gray-100">
-        <div className="max-w-[1500px] mx-auto px-[5%] flex flex-col items-center">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-8 h-1 bg-[#fbc02d]"></div>
-            <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs">Testimonials</span>
-            <div className="w-8 h-1 bg-[#fbc02d]"></div>
-          </div>
-          <SectionHeading title="What Our Clients Say" />
-
-          <div className="w-full max-w-4xl bg-white p-10 md:p-16 rounded-[3rem] shadow-2xl relative">
-            <div className="absolute top-10 right-10 text-gray-100 opacity-50">
-              <Quote size={80} />
+      <section className="py-10 md:py-12 bg-gray-50 border-t border-gray-100 text-left">
+        <div className="max-w-[1500px] mx-auto px-4 md:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-[0.65rem] sm:text-xs">Testimonials</span>
+              </div>
+              <SectionHeading title="What Our Clients Say" center={false} />
             </div>
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeTestimonial}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.95 }}
-                transition={{ duration: 0.3 }}
-                className="relative z-10 text-center"
-              >
-                <div className="flex justify-center text-[#fbc02d] mb-8 max-w-max mx-auto gap-1">
-                  {"★★★★★".split('').map((s, i) => <span key={i} className="text-2xl">{s}</span>)}
+            <div className="flex items-center gap-4">
+              <div className="flex items-center gap-2 bg-white px-3.5 py-1.5 rounded-full border border-gray-200 shadow-sm text-xs">
+                <div className="flex text-[#fbc02d]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={12} className="fill-[#fbc02d]" />
+                  ))}
                 </div>
-                <p className="text-xl md:text-2xl font-serif italic text-gray-700 leading-relaxed mb-10">
-                  "{testimonials[activeTestimonial].review}"
-                </p>
-                <div className="w-16 h-1 bg-[#fbc02d] mx-auto rounded-full mb-6"></div>
-                <p className="font-bold text-slate-900 uppercase tracking-widest">{testimonials[activeTestimonial].name}</p>
-              </motion.div>
-            </AnimatePresence>
+                <span className="font-bold text-slate-900 text-[0.7rem]">4.9/5</span>
+                <span className="text-gray-400 text-[0.65rem]">(49+ Reviews)</span>
+              </div>
 
-            {/* Nav */}
-            <div className="absolute top-1/2 -translate-y-1/2 left-0 right-0 flex justify-between px-4 md:-mx-8">
-              <button onClick={prevTestimonial} className="w-14 h-14 bg-white text-slate-900 shadow-xl rounded-full flex items-center justify-center hover:bg-[#fbc02d] transition-colors border border-gray-100">
-                <ChevronLeft size={24} />
-              </button>
-              <button onClick={nextTestimonial} className="w-14 h-14 bg-slate-900 text-white shadow-xl rounded-full flex items-center justify-center hover:bg-[#fbc02d] hover:text-slate-900 transition-colors border border-slate-900">
-                <ChevronRight size={24} />
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={prevTestimonial}
+                  aria-label="Previous testimonial"
+                  className="w-8 h-8 rounded-full bg-white hover:bg-[#fbc02d] text-slate-800 hover:text-slate-900 transition-colors border border-gray-200 shadow-sm flex items-center justify-center cursor-pointer"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  onClick={nextTestimonial}
+                  aria-label="Next testimonial"
+                  className="w-8 h-8 rounded-full bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 transition-colors shadow-sm flex items-center justify-center cursor-pointer"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
             </div>
           </div>
 
-          <div className="mt-12 flex flex-col items-center justify-center">
-            <span className="font-black text-xl tracking-widest uppercase">Excellent</span>
-            <span className="text-gray-500 font-medium text-sm mt-1">Based on 49 reviews</span>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+            {[0, 1, 2].map((offset) => {
+              const item = testimonials[(activeTestimonial + offset) % testimonials.length];
+              const initials = item.name
+                .split(' ')
+                .map((n) => n[0])
+                .join('')
+                .slice(0, 2)
+                .toUpperCase();
+
+              return (
+                <div
+                  key={`${item.id || offset}-${activeTestimonial}`}
+                  className="bg-white p-5 rounded-2xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div>
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex text-[#fbc02d] gap-0.5">
+                        {[...Array(5)].map((_, i) => (
+                          <Star key={i} size={13} className="fill-[#fbc02d]" />
+                        ))}
+                      </div>
+                      <span className="inline-flex items-center gap-1 text-[0.65rem] font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-100">
+                        <CheckCircle2 size={10} /> Verified Client
+                      </span>
+                    </div>
+
+                    <p className="text-gray-700 text-xs sm:text-sm leading-relaxed italic mb-4">
+                      "{item.review}"
+                    </p>
+                  </div>
+
+                  <div className="flex items-center gap-3 pt-3 border-t border-gray-100 mt-auto">
+                    <div className="w-8 h-8 rounded-full bg-slate-900 text-[#fbc02d] font-bold text-[0.7rem] flex items-center justify-center shrink-0 shadow-sm">
+                      {initials}
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm text-slate-900">{item.name}</h4>
+                      <p className="text-[0.65rem] text-gray-400">Structural Project Client</p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <div className="flex justify-center gap-1.5 mt-6">
+            {testimonials.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveTestimonial(idx)}
+                aria-label={`Go to testimonial ${idx + 1}`}
+                className={`h-1.5 rounded-full transition-all duration-300 ${
+                  activeTestimonial === idx ? 'w-6 bg-[#fbc02d]' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">
+      <section className="bg-slate-50 py-10 md:py-12 px-4 md:px-8 border-t border-gray-200">
         <div className="max-w-[1500px] mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8">
             <SectionHeading title="Frequently Asked Questions" />
-            <p className="text-gray-600 font-medium text-lg leading-relaxed max-w-2xl mx-auto">
+            <p className="text-gray-600 font-medium text-xs md:text-sm leading-relaxed max-w-xl mx-auto mt-2">
               Find answers to common questions about our structural engineering and design services.
             </p>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-6"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
           </div>
 
-          <div className="flex flex-col gap-6 max-w-5xl mx-auto">
+          <div className="flex flex-col gap-3.5 w-full">
             {faqs.map((faq, index) => (
               <div
                 key={index}
-                className="bg-white border border-gray-100 p-8 md:p-10 rounded-[32px] hover:shadow-[0_15px_40px_rgba(0,0,0,0.06)] hover:-translate-y-1 transition-all duration-300 flex flex-col md:flex-row md:items-start gap-8 group"
+                className="bg-white border border-gray-100 p-4 sm:p-5 rounded-xl hover:shadow-[0_8px_25px_rgba(0,0,0,0.05)] hover:-translate-y-0.5 transition-all duration-300 flex flex-col md:flex-row md:items-start gap-4 sm:gap-6 group"
               >
-                <div className="md:w-5/12 border-b md:border-b-0 md:border-r border-gray-100 pb-6 md:pb-0 md:pr-8 shrink-0 flex flex-col">
-                  <h3 className="font-black text-2xl text-gray-900 group-hover:text-[#fbc02d] transition-colors duration-300 leading-snug mb-6 cursor-default">{faq.question}</h3>
-                  <div className="w-16 h-1 bg-gray-100 rounded-full group-hover:bg-[#fbc02d] transition-colors duration-300 mt-auto"></div>
+                <div className="md:w-5/12 border-b md:border-b-0 md:border-r border-gray-100 pb-3 md:pb-0 md:pr-5 shrink-0 flex flex-col">
+                  <h3 className="font-bold text-sm sm:text-base text-gray-900 group-hover:text-[#fbc02d] transition-colors duration-300 leading-snug mb-2 cursor-default">{faq.question}</h3>
+                  <div className="w-10 h-0.5 bg-gray-100 rounded-full group-hover:bg-[#fbc02d] transition-colors duration-300 mt-auto"></div>
                 </div>
                 <div className="md:w-7/12 flex items-center">
-                  <p className="text-gray-600 font-medium text-lg leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">{faq.answer}</p>
                 </div>
               </div>
             ))}
@@ -615,55 +673,55 @@ const StructuralConsultancy = () => {
       </section>
 
       {/* Contact Section */}
-      <section className="py-24 bg-slate-900 relative z-10">
-        <div className="max-w-[1400px] mx-auto px-[5%]">
+      <section className="py-12 md:py-14 px-4 md:px-8 bg-slate-900 relative z-10">
+        <div className="max-w-[1500px] mx-auto">
 
-          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
+          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8 items-stretch">
 
             {/* Left Side: Contact Info */}
-            <div className="w-full lg:w-5/12 bg-slate-900 rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden shadow-2xl border border-slate-800">
-              <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbc02d] opacity-5 rounded-bl-full"></div>
+            <div className="w-full lg:w-5/12 bg-slate-900 rounded-2xl p-5 sm:p-6 md:p-8 text-white relative overflow-hidden shadow-xl border border-slate-800 flex flex-col justify-between">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-[#fbc02d] opacity-5 rounded-bl-full pointer-events-none"></div>
 
               <div className="relative z-10">
-                <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs mb-4 block">Contact Us Today</span>
-                <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight tracking-tight">
+                <span className="text-[#fbc02d] font-bold uppercase tracking-wider text-[0.65rem] mb-2 block">Contact Us Today</span>
+                <h2 className="text-xl md:text-2xl font-bold mb-4 leading-tight tracking-tight">
                   Schedule a consultation with our <span className="text-[#fbc02d] italic">Structural experts</span> to explore how we can help transform your construction projects.
                 </h2>
 
-                <div className="space-y-6 mt-8">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
-                      <Mail size={20} />
+                <div className="space-y-3.5 mt-5">
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
+                      <Mail size={16} />
                     </div>
                     <div>
-                      <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-1">Email Us</h4>
-                      <div className="flex flex-col">
-                        <a href="mailto:info@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">info@e-construct.org</a>
-                        <a href="mailto:business@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">business@e-construct.org</a>
+                      <h4 className="text-gray-400 text-[0.65rem] font-bold uppercase tracking-wider mb-0.5">Email Us</h4>
+                      <div className="flex flex-col text-xs sm:text-sm font-medium">
+                        <a href="mailto:info@e-construct.org" className="hover:text-[#fbc02d] transition-colors">info@e-construct.org</a>
+                        <a href="mailto:business@e-construct.org" className="hover:text-[#fbc02d] transition-colors">business@e-construct.org</a>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
-                      <Phone size={20} />
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
+                      <Phone size={16} />
                     </div>
                     <div>
-                      <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-1">Call Us</h4>
-                      <div className="flex flex-col">
-                        <a href="tel:+919036744017" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">+91 9036744017</a>
-                        <a href="tel:+917259921111" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">+91 7259921111</a>
+                      <h4 className="text-gray-400 text-[0.65rem] font-bold uppercase tracking-wider mb-0.5">Call Us</h4>
+                      <div className="flex flex-col text-xs sm:text-sm font-medium">
+                        <a href="tel:+919036744017" className="hover:text-[#fbc02d] transition-colors">+91 9036744017</a>
+                        <a href="tel:+917259921111" className="hover:text-[#fbc02d] transition-colors">+91 7259921111</a>
                       </div>
                     </div>
                   </div>
 
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
-                      <MapPin size={20} />
+                  <div className="flex items-start gap-3">
+                    <div className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
+                      <MapPin size={16} />
                     </div>
                     <div>
-                      <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-1">Visit Us</h4>
-                      <p className="text-lg font-medium text-gray-200 leading-relaxed">
+                      <h4 className="text-gray-400 text-[0.65rem] font-bold uppercase tracking-wider mb-0.5">Visit Us</h4>
+                      <p className="text-xs sm:text-sm font-normal text-gray-300 leading-relaxed">
                         Venkatdhari Heights, 1st & 2nd Floor, Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Bangalore - 560068.
                       </p>
                     </div>
@@ -671,23 +729,23 @@ const StructuralConsultancy = () => {
                 </div>
 
                 {/* Socials */}
-                <div className="mt-10">
-                  <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-4">Follow Us</h4>
-                  <div className="flex gap-4">
-                    <a href="https://www.facebook.com/econstruct.in" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
-                      <Facebook size={20} />
+                <div className="mt-6">
+                  <h4 className="text-gray-400 text-[0.65rem] font-bold uppercase tracking-wider mb-2.5">Follow Us</h4>
+                  <div className="flex gap-2.5">
+                    <a href="https://www.facebook.com/econstruct.in" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                      <Facebook size={15} />
                     </a>
-                    <a href="https://www.youtube.com/@Econstructofficial" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
-                      <Youtube size={20} />
+                    <a href="https://www.youtube.com/@Econstructofficial" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                      <Youtube size={15} />
                     </a>
-                    <a href="https://wa.me/919036744017" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
-                      <MessageCircle size={20} />
+                    <a href="https://wa.me/919036744017" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                      <MessageCircle size={15} />
                     </a>
-                    <a href="https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
-                      <Linkedin size={20} />
+                    <a href="https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                      <Linkedin size={15} />
                     </a>
-                    <a href="mailto:info@e-construct.org" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
-                      <Mail size={20} />
+                    <a href="mailto:info@e-construct.org" className="w-8 h-8 rounded-full bg-white/10 hover:bg-[#fbc02d] hover:text-slate-900 transition-all duration-300 flex items-center justify-center text-white">
+                      <Mail size={15} />
                     </a>
                   </div>
                 </div>
@@ -696,48 +754,48 @@ const StructuralConsultancy = () => {
             </div>
 
             {/* Right Side: Contact Form */}
-            <div className="w-full lg:w-7/12 bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.25)] p-8 md:p-10 flex flex-col justify-center relative z-20">
-              <h3 className="text-3xl font-black text-slate-900 mb-6">Send Us A Message</h3>
+            <div className="w-full lg:w-7/12 bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 flex flex-col justify-center relative z-20">
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4">Send Us A Message</h3>
 
-              <form className="space-y-5">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <form className="space-y-3.5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-sm font-bold text-gray-700 mb-2 block">Name *</label>
+                    <label className="text-xs font-bold text-gray-700 mb-1 block">Name *</label>
                     <input
                       type="text"
                       placeholder="Your full name"
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
-                    <label className="text-sm font-bold text-gray-700 mb-2 block">Email *</label>
+                    <label className="text-xs font-bold text-gray-700 mb-1 block">Email *</label>
                     <input
                       type="email"
                       placeholder="Your email address"
-                      className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
+                      className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-sm font-bold text-gray-700 mb-2 block">Phone No. *</label>
+                  <label className="text-xs font-bold text-gray-700 mb-1 block">Phone No. *</label>
                   <input
                     type="tel"
                     placeholder="Your phone number"
-                    className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
+                    className="w-full bg-gray-50 border border-gray-200 rounded-lg px-3.5 py-2 text-xs focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                   />
                 </div>
 
-                <div className="pt-4">
-                  <label className="text-sm font-bold text-gray-700 mb-4 block">What Are You Looking For?</label>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="pt-2">
+                  <label className="text-xs font-bold text-gray-700 mb-2 block">What Are You Looking For?</label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                     {["Structural Design", "Proof Checking", "Consultancy Services", "Turnkey Solutions"].map((service, i) => (
-                      <label key={i} className="flex items-center gap-3 p-3 border border-gray-200 rounded-xl cursor-pointer hover:bg-gray-50 transition-colors group">
+                      <label key={i} className="flex items-center gap-2 p-2 border border-gray-200 rounded-lg cursor-pointer hover:bg-gray-50 transition-colors group">
                         <div className="relative flex items-center justify-center">
-                          <input type="radio" name="service" className="peer appearance-none w-5 h-5 border-2 border-gray-300 rounded-full checked:border-[#fbc02d] transition-colors" />
-                          <div className="absolute w-2.5 h-2.5 bg-[#fbc02d] rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
+                          <input type="radio" name="service" className="peer appearance-none w-4 h-4 border-2 border-gray-300 rounded-full checked:border-[#fbc02d] transition-colors" />
+                          <div className="absolute w-2 h-2 bg-[#fbc02d] rounded-full scale-0 peer-checked:scale-100 transition-transform"></div>
                         </div>
-                        <span className="font-medium text-gray-700 group-hover:text-slate-900">{service}</span>
+                        <span className="text-xs font-medium text-gray-700 group-hover:text-slate-900">{service}</span>
                       </label>
                     ))}
                   </div>
@@ -745,7 +803,7 @@ const StructuralConsultancy = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-bold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide shadow-lg mt-6"
+                  className="w-full bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-bold py-2.5 rounded-lg transition-all duration-300 text-xs uppercase tracking-wider shadow-md mt-4"
                 >
                   Submit Inquiry
                 </button>
