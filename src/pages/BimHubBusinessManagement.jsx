@@ -9,7 +9,7 @@ import {
 
 const whyJoin = [
   { icon: Briefcase, title: 'On Job Learning', desc: 'Real-world, hands-on experience embedded into your daily work — learn while you earn.', color: 'bg-yellow-50', iconColor: 'text-yellow-500' },
-  { icon: Award, title: '100% Job Guarantee', desc: 'We stand behind our program with a full placement guarantee for every enrolled student.', color: 'bg-green-50', iconColor: 'text-green-600' },
+  { icon: Award, title: '100% Placement Assistance', desc: 'We stand behind our program with dedicated placement assistance for every enrolled student.', color: 'bg-green-50', iconColor: 'text-green-600' },
   { icon: Rocket, title: 'Start Your Business', desc: 'Gain the marketing and management knowledge to launch and grow your own venture confidently.', color: 'bg-blue-50', iconColor: 'text-blue-600' },
   { icon: Heart, title: 'Unleash Your Passion', desc: 'Align your career with what drives you — build a brand around your strengths and interests.', color: 'bg-purple-50', iconColor: 'text-purple-600' },
 ];
@@ -190,7 +190,7 @@ const BimHubBusinessManagement = () => (
           <span className="text-[#fbc02d]">Business Management</span>
         </h1>
         <p className="mt-6 text-gray-200 text-lg md:text-2xl font-extrabold tracking-wide drop-shadow-lg max-w-3xl leading-relaxed">
-          12-Month ON-JOB Learning · 100% Job Guarantee · New Batch: 15th April 2026
+          12-Month ON-JOB Learning · 100% Placement Assistance · New Batch: 15th April 2026
         </p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <a

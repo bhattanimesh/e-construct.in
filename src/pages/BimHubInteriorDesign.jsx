@@ -437,7 +437,7 @@ const BimHubInteriorDesign = () => {
             </h3>
             <div className="text-center mb-8">
               <span className="inline-block bg-yellow-500 text-gray-900 font-black px-6 py-2 rounded-full uppercase tracking-widest text-sm shadow-md">
-                100% Job Guarantee!
+                100% Placement Assistance!
               </span>
             </div>
 

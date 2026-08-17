@@ -146,7 +146,7 @@ const BimHubMSS = () => {
 
   // Official FAQs directly from live website
   const faqs = [
-    { q: 'What is the duration of the course?', a: 'The duration is roughly 12 months (7 to 12 months until placed) for both Online & Offline courses. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and overall performance. Note: Long holidays are not permitted during the course as you are involved in real client projects.' },
+    { q: 'What is the duration of the course?', a: 'The duration is 12 months for both Online & Offline courses. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and overall performance. Note: Long holidays are not permitted during the course as you are involved in real client projects.' },
     { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
     { q: 'What are the session timings?', a: 'For Online Students: You learn through pre-recorded videos with access to live session recordings. You are welcome to join live sessions.\nFor Offline Students: You report to the office premises from 8:55 am to 7:00 pm (minimum 7 to 8 hours daily, Monday to Friday) for on-job practice. Biometric attendance is enforced.' },
     { q: 'Who can join this course?', a: 'Polytechnic Diploma (Civil Engineering), B.Tech / B.E (Civil Engineering), M.Tech / M.E (Structural Engineering), CAD Structures.' },
@@ -155,10 +155,10 @@ const BimHubMSS = () => {
     {
       q: 'What is the Evaluation & Exam Pattern (800 Marks Total)?',
       type: 'examPattern',
-      a: 'Certification and 7-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:\n\n• Written Technical Test (200 Marks): Structural theory, IS codes & mechanics concepts\n• Practical Exam on Live Project (200 Marks): ETABS modeling, loading & rebar detailing\n• Technical Interview (200 Marks): Panel interview with principal structural engineer\n• Assignments & Attendance (200 Marks): 80% min attendance, habits & project annexures\n\n* Note: Econstruct will prepare you for the final examination right from Day 1, so do not worry! We conduct multiple technical mock interviews and regular reviews throughout the course for a superior student experience.'
+      a: 'Certification and 12-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:\n\n• Written Technical Test (200 Marks): Structural theory, IS codes & mechanics concepts\n• Practical Exam on Live Project (200 Marks): ETABS modeling, loading & rebar detailing\n• Technical Interview (200 Marks): Panel interview with principal structural engineer\n• Assignments & Attendance (200 Marks): 80% min attendance, habits & project annexures\n\n* Note: Econstruct will prepare you for the final examination right from Day 1, so do not worry! We conduct multiple technical mock interviews and regular reviews throughout the course for a superior student experience.'
     },
-    { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 7 months\n• PG Diploma Certification of 7 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
-    { q: 'How does 100% Placement Assistance & assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 7 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
+    { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 12 months\n• PG Diploma Certification of 12 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
+    { q: 'How does 100% Placement Assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 12 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
     { q: 'What is the fee structure & payment policy?', a: 'Total Fee is ₹ 2,10,000 (AED 9,000 or US$ 2,510) inclusive of 18% GST (Base ₹1,77,967 + 18% GST). Fees need to be paid upfront; maximum 2 installments can be approved by the admission counselor. Fee is strictly non-refundable & non-transferable.' },
   ];
   const [openFaq, setOpenFaq] = useState(null);
@@ -251,8 +251,8 @@ const BimHubMSS = () => {
               {[
                 { to: '2000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
                 { to: '100', s: '+', label: 'Hiring Partners', icon: Building2 },
-                { to: '100', s: '%', label: 'Placement Guarantee', icon: TrendingUp },
-                { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
+                { to: '100', s: '%', label: 'Placement Assistance', icon: TrendingUp },
+                { to: '12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-3 py-4 px-4 sm:px-6">
                   <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0 rounded-lg">
@@ -321,7 +321,7 @@ const BimHubMSS = () => {
                   </div>
                   <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Duration & Batch</span>
                 </div>
-                <h3 className="text-3xl md:text-4xl font-black text-white mb-1">7 to 12 Months</h3>
+                <h3 className="text-3xl md:text-4xl font-black text-white mb-1">12 Months</h3>
                 <p className="text-yellow-500 font-semibold text-sm mb-6">ON-JOB Learning Program (Until Placed)</p>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Hands-on training working on real RCC, Steel, and Composite structure projects up to G+62 stories.
@@ -372,7 +372,7 @@ const BimHubMSS = () => {
                 <h3 className="text-2xl font-black mb-4">Industry Credentials</h3>
                 <ul className="space-y-3 mb-6">
                   {[
-                    '7 Months Official Work Experience Letter',
+                    '12 Months Official Work Experience Letter',
                     'PG Diploma Certification by Econstruct',
                     'Professional Portfolio Assistance',
                     'LinkedIn Photoshoot & Video Resume',
@@ -484,7 +484,7 @@ const BimHubMSS = () => {
               <div className="bg-slate-800/90 border border-yellow-500/40 p-6 rounded-2xl mb-8 backdrop-blur-md">
                 <div className="text-yellow-400 font-extrabold text-xl mb-1">6–8 Genuine Job Interviews</div>
                 <div className="text-gray-300 text-sm mb-4 font-medium">100% Placement Support in Structural Consultancies</div>
-                <Btn href="#apply-now">Enroll for Guaranteed Placement</Btn>
+                <Btn href="#apply-now">Enroll for Placement Assistance</Btn>
               </div>
             </motion.div>
 
@@ -992,7 +992,7 @@ const BimHubMSS = () => {
                     {faq.type === 'examPattern' ? (
                       <div>
                         <p className="text-gray-600 text-xs sm:text-sm mb-4">
-                          Certification and 7-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:
+                          Certification and 12-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:
                         </p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-2">
                           <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200">
@@ -1297,7 +1297,7 @@ const BimHubMSS = () => {
                 <ul className="space-y-3.5 mb-8">
                   {[
                     "Live project exposure on RCC, Steel & Composite structures up to G+62 stories",
-                    "7 Months Official Work Experience Letter",
+                    "12 Months Official Work Experience Letter",
                     "ETABS Basic + Advanced, STAADPro, SAFE, SAP2000, CSI Bridge/Detailer, RCDC, Prokon & AutoCAD",
                     "IS-456, IS-800, IS-1893, IS-13920 & IS-16700 Code compliance training",
                     "International codes: BS 8110, ACI 318, CEB FIP 90, UBC 97",

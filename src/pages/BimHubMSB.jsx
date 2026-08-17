@@ -147,7 +147,7 @@ const BimHubMSB = () => {
 
   // Official FAQs directly from live website
   const faqs = [
-    { q: 'What is the duration of the PG Diploma in Project Management with BIM Technology program?', a: 'The program lasts between 7 to 12 months (until you are placed), depending on the mode of learning and the pace at which you progress. Long holidays are not permitted as you work directly on live client projects.' },
+    { q: 'What is the duration of the PG Diploma in Project Management with BIM Technology program?', a: 'The program duration is 12 months for both Online & Offline courses. This is an ON-JOB learning program where you work directly on live client projects. Long holidays are not permitted as you work directly on live client projects.' },
     { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
     { q: 'What is included in the "On-job Learning Program"?', a: 'The On-job Learning Program allows you to gain hands-on experience in real-world project execution. You will work alongside the Econstruct technical team from Center Line Plan (CLP) to Good for Construction (GFC) drawings, covering project coordination, scheduling with Primavera P6, 4D BIM with Synchro, and clash detection with Navisworks.' },
     { q: 'Will I receive a certification upon completing the program?', a: 'Yes, upon successful completion of the program, you will receive an industry-recognized certification provided by Econstruct Design & Build Pvt Ltd. Additionally, you will also be given an official experience letter and 100% placement assistance.' },
@@ -243,7 +243,7 @@ const BimHubMSB = () => {
                 { to: '2000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
                 { to: '100', s: '+', label: 'Hiring Partners', icon: Building2 },
                 { to: '100', s: '%', label: 'Placement Rate', icon: TrendingUp },
-                { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
+                { to: '12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-3 py-4 px-4 sm:px-6">
                   <div className="w-9 h-9 bg-yellow-500/10 flex items-center justify-center shrink-0 rounded-lg">
@@ -312,7 +312,7 @@ const BimHubMSB = () => {
                   </div>
                   <span className="text-xs font-bold uppercase tracking-widest text-yellow-400">Duration & Batch</span>
                 </div>
-                <h3 className="text-4xl font-black text-white mb-1">7–12 Months</h3>
+                <h3 className="text-4xl font-black text-white mb-1">12 Months</h3>
                 <p className="text-yellow-500 font-semibold text-sm mb-6">Until You Are Placed</p>
                 <p className="text-gray-400 text-sm leading-relaxed mb-6">
                   Hands-on corporate ON-JOB learning on real commercial, residential, and infrastructure BIM projects.
@@ -363,11 +363,11 @@ const BimHubMSB = () => {
                 <h3 className="text-2xl font-black mb-4">Industry Credentials</h3>
                 <ul className="space-y-3 mb-6">
                   {[
-                    'Official Work Experience Letter',
-                    'Econstruct PG Diploma Certificate',
-                    'BIM & Project Portfolio Assistance',
+                    '12 Months Official Work Experience Letter from Econstruct Design and Build Pvt. LTD, Bangalore Office',
+                    'PG Diploma Certificate by IIT Bhubaneswar',
+                    'BIM & Project Portfolio Building',
                     'LinkedIn Photoshoot & Video Resume',
-                    '100% Core Technical Placement Support'
+                    '100% Core Technical Placement Assistance'
                   ].map((item, idx) => (
                     <li key={idx} className="flex items-center gap-2 text-sm font-bold">
                       <CheckCircle2 className="w-4 h-4 text-slate-900 shrink-0" />
@@ -430,7 +430,7 @@ const BimHubMSB = () => {
               <div className="bg-slate-800/90 border border-yellow-500/40 p-6 rounded-2xl mb-8 backdrop-blur-md">
                 <div className="text-yellow-400 font-extrabold text-xl mb-1">6–8 Genuine Job Interviews</div>
                 <div className="text-gray-300 text-sm mb-4 font-medium">100% Placement Support in BIM Consultancies & Contracting Firms</div>
-                <Btn href="#apply-now">Enroll for Guaranteed Placement</Btn>
+                <Btn href="#apply-now">Enroll for Placement Assistance</Btn>
               </div>
             </motion.div>
 
@@ -848,7 +848,7 @@ const BimHubMSB = () => {
 
                 <div className="space-y-2.5 border-t border-slate-700 pt-4 text-xs">
                   {[
-                    ['Program Duration', '7–12 Months'],
+                    ['Program Duration', '12 Months'],
                     ['Next Batch', '15th April 2026'],
                     ['Learning Mode', 'Online / Offline / Hybrid'],
                     ['Job Placement', '100% Placement Assistance'],
@@ -1152,14 +1152,14 @@ const BimHubMSB = () => {
             <div className="p-8 md:p-12 lg:w-2/3 flex flex-col justify-between">
               <div>
                 <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-widest px-3.5 py-1.5 rounded-full mb-4">
-                  Complete PG Diploma in Project Management with BIM Technology Track
+                  Complete 12-Month PG Diploma in Project Management with BIM Technology Track
                 </span>
                 <h3 className="text-2xl font-black text-slate-900 mb-6">Course Inclusions & Perks</h3>
 
                 <ul className="space-y-3.5 mb-8">
                   {[
                     "Live project experience on REVIT 3D BIM, Synchro 4D time simulation & Navisworks clash detection",
-                    "Official Work Experience Letter",
+                    "12 Months Official Work Experience Letter",
                     "AutoCAD · REVIT Architecture · REVIT Structures · REVIT MEP · Synchro · Navisworks · Infraworks · Primavera P6",
                     "40+ Customized Design Spreadsheets for estimation, BOQ & project control",
                     "Full Digital Library — 1000+ Technical Books Access",

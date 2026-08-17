@@ -118,8 +118,8 @@ const BimHubDrawingDrafting = () => {
         answer: "We provide 100% placement assistance including:\n• Experience Letter\n• Certification\n• Portfolio building\n• Video resume\n• Photoshoot for professional profiles\n• Interview preparation and mock interviews"
       },
       {
-        question: "What is the 100% Job Guarantee?",
-        answer: "We guarantee 6-8 genuine job interview opportunities in India, UAE, and abroad, provided you:\n• Maintain minimum 80% attendance\n• Complete all Projects & Annexures\n• Successfully complete the Final Exam\n• Create a Video resume\n• Set up your LinkedIn Profile"
+        question: "What is the 100% Placement Assistance?",
+        answer: "We provide 6-8 genuine job interview opportunities in India, UAE, and abroad, provided you:\n• Maintain minimum 80% attendance\n• Complete all Projects & Annexures\n• Successfully complete the Final Exam\n• Create a Video resume\n• Set up your LinkedIn Profile"
       }
     ]
   };
@@ -543,14 +543,14 @@ const BimHubDrawingDrafting = () => {
             </div>
           </div>
 
-          {/* Yellow Guarantee Box */}
+          {/* Yellow Placement Box */}
           <div className="bg-yellow-50 rounded-[20px] p-8 md:p-12 border border-yellow-200">
             <h3 className="text-2xl md:text-3xl font-black text-gray-900 mb-6 text-center">
               Unlock 6-8 Genuine Job Interview opportunities in India, UAE, &amp; Abroad with our comprehensive placement preparation series.
             </h3>
             <div className="text-center mb-8">
               <span className="inline-block bg-yellow-500 text-gray-900 font-black px-6 py-2 rounded-full uppercase tracking-widest text-sm shadow-md">
-                100% Job Guarantee!
+                100% Placement Assistance!
               </span>
             </div>
 
