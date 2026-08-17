@@ -312,32 +312,49 @@ const TeamCard = ({ member, index }) => {
       viewport={{ once: true }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="group relative bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500"
+      className="group relative bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300"
     >
-      <div className="aspect-[4/5] overflow-hidden">
+      {/* Image Container with Inward Hover Drawer */}
+      <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
         <img
           src={member.image}
           alt={member.name}
-          className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" loading="lazy" decoding="async" />
-      </div>
-      <div className="absolute inset-0 flex flex-col justify-end">
-        <div className="p-6 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
-          <h3 className="text-lg font-bold text-white">{member.name}</h3>
-          <p className="text-yellow-400 text-xs font-bold uppercase tracking-widest mt-1">{member.role}</p>
-          <motion.div
-            animate={{ opacity: hovered ? 1 : 0, height: hovered ? 'auto' : 0 }}
-            transition={{ duration: 0.35 }}
-            className="overflow-hidden"
-          >
-            <p className="text-white/70 text-sm mt-3 leading-relaxed">{member.bio}</p>
-            <div className="mt-4 flex items-center gap-3">
-              <a href={member.linkedin || 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/'} target="_blank" rel="noopener noreferrer" className="p-2 bg-white/10 hover:bg-yellow-500 rounded-full transition-colors duration-300">
-                <Linkedin size={14} className="text-white" />
-              </a>
-              <span className="text-white/40 text-[10px] font-bold uppercase tracking-widest">E-Construct</span>
-            </div>
-          </motion.div>
+          className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" loading="lazy" decoding="async" />
+
+        {/* Inward Expanding Drawer on Hover */}
+        <div
+          className={`absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent p-3 pt-6 text-white transform transition-all duration-300 ease-out z-10 ${
+            hovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0 pointer-events-none'
+          }`}
+        >
+          <p className="text-[10px] sm:text-[10.5px] text-gray-200 leading-relaxed line-clamp-3 mb-2">
+            {member.bio}
+          </p>
+          <div className="flex justify-between items-center pt-1.5 border-t border-white/15">
+            <a
+              href={member.linkedin || 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-1 bg-white/20 rounded-full hover:bg-yellow-500 hover:text-black transition-colors"
+              aria-label="LinkedIn Profile"
+            >
+              <Linkedin size={11} className="text-white hover:text-black" />
+            </a>
+            <span className="text-[8px] font-bold text-gray-300 uppercase tracking-wider">
+              E-Construct
+            </span>
+          </div>
         </div>
+      </div>
+
+      {/* Static Info Area (Card outer height remains fixed) */}
+      <div className="p-2.5 sm:p-3 bg-white">
+        <h3 className="text-[13px] sm:text-[14px] font-bold text-gray-900 tracking-tight leading-snug">
+          {member.name}
+        </h3>
+        <p className="text-yellow-600 text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider mt-0.5">
+          {member.role}
+        </p>
       </div>
     </motion.div>
   );
@@ -347,18 +364,18 @@ const TeamSection = () => {
   const { data } = useAdmin();
   const team = data.team;
   return (
-    <section className="py-20 md:py-28 bg-gray-50">
+    <section className="py-14 md:py-20 bg-gray-50">
       <div className="max-w-[1400px] mx-auto px-6">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-6">
           <div>
             <SectionLabel text="Our Team" />
             <SectionHeading title="Meet Our Founders" center={false} />
           </div>
-          <p className="text-gray-500 text-sm max-w-sm leading-relaxed md:text-right">
+          <p className="text-gray-500 text-xs sm:text-sm max-w-sm leading-relaxed md:text-right">
             Leading the transformation of construction with over two decades of engineering expertise and strategic vision.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
           {team.map((member, i) => (
             <TeamCard key={member.id || i} member={{ ...member, role: member.position }} index={i} />
           ))}

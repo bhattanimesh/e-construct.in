@@ -75,45 +75,44 @@ const ConstructionBlog = () => {
   </div>
 </div>
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {posts.map((post) => (
-            <div key={post.id} className="group relative bg-white border border-gray-300 rounded-2xl overflow-hidden">
+            <div key={post.id} className="group relative bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               
               {/* Image Box */}
-              <div className="relative h-64 overflow-hidden">
+              <div className="relative h-40 sm:h-44 overflow-hidden">
                 <img 
                   src={post.img} 
                   alt={post.title} 
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[50%] group-hover:grayscale-0"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 grayscale-[40%] group-hover:grayscale-0"
                 />
                 {/* Construction Date Badge */}
-                <div className="absolute top-0 left-0 bg-orange-600 text-white p-3 text-center min-w-[70px]">
-                  <span className="block text-2xl font-black leading-none">{post.date}</span>
-                  <span className="block text-xs font-bold uppercase">{post.month}</span>
+                <div className="absolute top-0 left-0 bg-orange-600 text-white px-2.5 py-1.5 text-center min-w-[48px]">
+                  <span className="block text-base sm:text-lg font-black leading-none">{post.date}</span>
+                  <span className="block text-[9px] font-bold uppercase">{post.month}</span>
                 </div>
               </div>
 
               {/* Content Box */}
-              <div className="p-8">
-                <div className="flex items-center gap-2 mb-4">
-                    <div className="w-10 h-[2px] bg-orange-600"></div>
-                    <span className="text-orange-600 text-xs font-bold uppercase tracking-wider">{post.category}</span>
+              <div className="p-4 sm:p-5">
+                <div className="flex items-center gap-2 mb-2">
+                    <div className="w-6 h-[2px] bg-orange-600"></div>
+                    <span className="text-orange-600 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider">{post.category}</span>
                 </div>
                 
-                <h3 className="text-xl font-extrabold text-slate-900 mb-4 leading-tight group-hover:text-orange-600 transition-colors">
+                <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-2 leading-snug group-hover:text-orange-600 transition-colors line-clamp-2">
                   {post.title}
                 </h3>
                 
-                <p className="text-gray-600 text-sm leading-relaxed mb-6 line-clamp-3">
+                <p className="text-gray-500 text-xs leading-relaxed mb-3.5 line-clamp-2">
                   {post.desc}
                 </p>
 
-                <Link to="/pages/blog" className="inline-flex items-center gap-2 font-black text-xs uppercase tracking-tighter border-b-2 border-slate-900 pb-1 hover:text-orange-600 hover:border-orange-600 transition-all">
+                <Link to="/pages/blog" className="inline-flex items-center gap-1.5 font-bold text-[11px] uppercase tracking-wider border-b border-slate-900 pb-0.5 hover:text-orange-600 hover:border-orange-600 transition-all">
                   Read Full Article
                 </Link>
               </div>
 
-              {/* Decorative Industrial Line (Hover) */}
             </div>
           ))}
         </div>

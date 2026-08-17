@@ -29,9 +29,9 @@ const Services = () => {
   const scroll = (direction) => {
     const { current } = scrollRef;
     if (direction === 'left') {
-      current.scrollBy({ left: -400, behavior: 'smooth' });
+      current.scrollBy({ left: -300, behavior: 'smooth' });
     } else {
-      current.scrollBy({ left: 400, behavior: 'smooth' });
+      current.scrollBy({ left: 300, behavior: 'smooth' });
     }
   };
 
@@ -42,11 +42,11 @@ const Services = () => {
         {/* Header Area with Parallax */}
         <motion.div
           style={{ y: yHeader }}
-          className="flex flex-col sm:flex-row sm:items-end justify-between mb-10 md:mb-16 gap-6"
+          className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 md:mb-12 gap-6"
         >
           <div className="max-w-3xl">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-12 h-1 bg-yellow-500"></div>
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-10 h-1 bg-yellow-500"></div>
               <span className="text-yellow-600 font-bold uppercase tracking-widest text-xs sm:text-sm">Our Expertise</span>
             </div>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-black leading-tight tracking-tight">
@@ -60,17 +60,17 @@ const Services = () => {
           <div className="flex gap-3 shrink-0">
             <button
               onClick={() => scroll('left')}
-              className="group p-3 md:p-4 border-2 border-black hover:bg-black transition-all duration-300"
+              className="group p-2.5 md:p-3 border-2 border-black hover:bg-black transition-all duration-300"
               aria-label="Previous"
             >
-              <ChevronLeft size={20} className="text-black group-hover:text-white" />
+              <ChevronLeft size={18} className="text-black group-hover:text-white" />
             </button>
             <button
               onClick={() => scroll('right')}
-              className="group p-3 md:p-4 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 transition-all duration-300"
+              className="group p-2.5 md:p-3 bg-black border-2 border-black hover:bg-yellow-500 hover:border-yellow-500 transition-all duration-300"
               aria-label="Next"
             >
-              <ChevronRight size={20} className="text-white group-hover:text-black" />
+              <ChevronRight size={18} className="text-white group-hover:text-black" />
             </button>
           </div>
         </motion.div>
@@ -79,14 +79,14 @@ const Services = () => {
         <motion.div
           style={{ y: yCarousel, scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           ref={scrollRef}
-          className="flex gap-8 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-10"
+          className="flex gap-5 md:gap-6 overflow-x-auto no-scrollbar snap-x snap-mandatory pb-8"
         >
           {services.map((service, idx) => {
             const IconComp = SERVICE_ICONS[idx] || GraduationCap;
             return (
               <div
                 key={service.id}
-                className="min-w-[280px] sm:min-w-[340px] md:min-w-[400px] h-[460px] md:h-[520px] relative group overflow-hidden rounded-2xl bg-gray-100 snap-start shadow-sm"
+                className="min-w-[210px] sm:min-w-[245px] md:min-w-[280px] h-[330px] md:h-[370px] relative group overflow-hidden rounded-2xl bg-gray-100 snap-start shadow-sm"
               >
                 {/* Service Image (Internal Parallax Scale) */}
                 <div className="absolute inset-0 w-full h-full overflow-hidden">
@@ -100,26 +100,26 @@ const Services = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
 
                 {/* Title & Icon */}
-                <div className="absolute bottom-0 left-0 w-full p-8 z-20 transition-transform duration-500 group-hover:-translate-y-48">
-                  <div className="flex items-center gap-4 mb-2">
-                    <div className="p-2 bg-yellow-500 text-black">
-                      <IconComp size={28} />
+                <div className="absolute bottom-0 left-0 w-full p-5 md:p-6 z-20 transition-transform duration-500 group-hover:-translate-y-36">
+                  <div className="flex items-center gap-3 mb-1">
+                    <div className="p-2 bg-yellow-500 text-black rounded-lg shrink-0">
+                      <IconComp size={20} />
                     </div>
-                    <h4 className="text-2xl font-bold text-white leading-tight">
+                    <h4 className="text-lg md:text-xl font-bold text-white leading-tight">
                       {service.title}
                     </h4>
                   </div>
                 </div>
 
                 {/* Hover Details */}
-                <div className="absolute bottom-0 left-0 rounded-t-3xl w-full p-8 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
-                  <h4 className="text-xl font-extrabold text-black mb-4 uppercase">{service.title}</h4>
-                  <p className="text-gray-700 text-sm leading-relaxed mb-6">
+                <div className="absolute bottom-0 left-0 rounded-t-2xl w-full p-5 md:p-6 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-30">
+                  <h4 className="text-base md:text-lg font-extrabold text-black mb-2 uppercase">{service.title}</h4>
+                  <p className="text-gray-700 text-xs md:text-sm leading-relaxed mb-4 line-clamp-3">
                     {service.desc}
                   </p>
-                  <Link to="/services" className="flex items-center gap-2 text-black font-bold uppercase text-xs tracking-[0.2em] group/btn">
+                  <Link to="/services" className="flex items-center gap-2 text-black font-bold uppercase text-[11px] tracking-[0.15em] group/btn">
                     Learn More
-                    <ArrowRight size={18} className="text-yellow-600 group-hover/btn:translate-x-2 transition-transform" />
+                    <ArrowRight size={15} className="text-yellow-600 group-hover/btn:translate-x-2 transition-transform" />
                   </Link>
                 </div>
 

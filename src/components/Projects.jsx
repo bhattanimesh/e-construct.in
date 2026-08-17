@@ -16,10 +16,10 @@ const StatPill = ({ value, label, delay }) => {
       initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.45, delay }}
-      className="flex flex-col items-center justify-center bg-white/5 border border-white/10 backdrop-blur-sm rounded-xl px-4 py-3 min-w-[90px]"
+      className="flex flex-col items-center justify-center bg-white/5 border border-white/10 backdrop-blur-sm rounded-lg px-3 py-2 min-w-[75px]"
     >
-      <span className="text-xl font-black text-amber-400 leading-none">{value}</span>
-      <span className="text-[9px] uppercase tracking-widest text-slate-400 mt-1 text-center">{label}</span>
+      <span className="text-base sm:text-lg font-black text-amber-400 leading-none">{value}</span>
+      <span className="text-[8px] uppercase tracking-widest text-slate-400 mt-1 text-center">{label}</span>
     </motion.div>
   );
 };
@@ -33,12 +33,12 @@ const FeaturedCard = ({ project }) => (
     exit={{ opacity: 0, scale: 0.95 }}
     transition={{ duration: 0.45 }}
     className="col-span-1 md:col-span-2 row-span-2"
-    style={{ minHeight: 340 }}
+    style={{ minHeight: 260 }}
   >
     <Link
       to="/projects"
-      className="group relative flex rounded-[2rem] overflow-hidden cursor-pointer w-full h-full"
-      style={{ minHeight: 340 }}
+      className="group relative flex rounded-2xl overflow-hidden cursor-pointer w-full h-full"
+      style={{ minHeight: 260 }}
     >
       <img
         src={project.image}
@@ -52,33 +52,33 @@ const FeaturedCard = ({ project }) => (
       <div className="absolute inset-0 bg-gradient-to-r from-slate-950/60 to-transparent" />
 
       {/* Top badges */}
-      <div className="absolute top-5 left-5 flex items-center gap-2">
-        <span className="bg-amber-500 text-white text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
+      <div className="absolute top-3.5 left-3.5 flex items-center gap-1.5">
+        <span className="bg-amber-500 text-white text-[8px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-widest shadow-lg">
           {project.category}
         </span>
-        <span className="bg-white/10 backdrop-blur-md text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-widest border border-white/20">
+        <span className="bg-white/10 backdrop-blur-md text-white text-[8px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-widest border border-white/20">
           Featured
         </span>
       </div>
 
       {/* Top-right icon */}
-      <div className="absolute top-5 right-5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-        <div className="bg-white/10 backdrop-blur-xl p-2.5 rounded-xl border border-white/20 text-white">
-          <ExternalLink size={16} />
+      <div className="absolute top-3.5 right-3.5 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+        <div className="bg-white/10 backdrop-blur-xl p-2 rounded-lg border border-white/20 text-white">
+          <ExternalLink size={14} />
         </div>
       </div>
 
       {/* Bottom content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
-        <div className="flex items-center gap-2 text-slate-300 text-xs mb-2">
-          <MapPin size={12} className="text-amber-400" />
+      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 md:p-6">
+        <div className="flex items-center gap-1.5 text-slate-300 text-[11px] mb-1.5">
+          <MapPin size={11} className="text-amber-400" />
           <span>{project.location}</span>
         </div>
-        <h3 className="text-2xl md:text-3xl font-bold text-white leading-tight tracking-tight mb-4 max-w-sm">
+        <h3 className="text-lg md:text-xl font-bold text-white leading-tight tracking-tight mb-3 max-w-sm">
           {project.title}
         </h3>
-        <span className="inline-flex items-center gap-2 bg-amber-500 group-hover:bg-amber-400 text-white font-bold text-[10px] uppercase tracking-widest px-5 py-2.5 rounded-full transition-all duration-300 shadow-xl group-hover:shadow-amber-500/30 group-hover:scale-105">
-          View Project <ArrowUpRight size={14} />
+        <span className="inline-flex items-center gap-1.5 bg-amber-500 group-hover:bg-amber-400 text-white font-bold text-[9px] uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 shadow-xl group-hover:shadow-amber-500/30 group-hover:scale-105">
+          View Project <ArrowUpRight size={12} />
         </span>
       </div>
     </Link>
@@ -95,12 +95,12 @@ const ProjectCard = ({ project, index }) => (
     exit={{ opacity: 0, scale: 0.92 }}
     transition={{ duration: 0.35, delay: index * 0.06 }}
     className="h-full"
-    style={{ minHeight: 200 }}
+    style={{ minHeight: 160 }}
   >
     <Link
       to="/projects"
-      className="group relative flex rounded-[1.5rem] overflow-hidden cursor-pointer w-full h-full"
-      style={{ minHeight: 200 }}
+      className="group relative flex rounded-xl overflow-hidden cursor-pointer w-full h-full"
+      style={{ minHeight: 160 }}
     >
       <img
         src={project.image}
@@ -112,34 +112,34 @@ const ProjectCard = ({ project, index }) => (
       <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500" />
 
       {/* Badge */}
-      <div className="absolute top-4 left-4">
-        <span className="bg-amber-500 text-white text-[9px] font-black px-2.5 py-1 rounded-full uppercase tracking-widest shadow-lg">
+      <div className="absolute top-3 left-3">
+        <span className="bg-amber-500 text-white text-[8px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest shadow-lg">
           {project.category}
         </span>
       </div>
 
       {/* Hover icon */}
-      <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
-        <div className="bg-white/10 backdrop-blur-xl p-2 rounded-xl border border-white/20 text-white">
-          <ExternalLink size={14} />
+      <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-x-2 group-hover:translate-x-0">
+        <div className="bg-white/10 backdrop-blur-xl p-1.5 rounded-lg border border-white/20 text-white">
+          <ExternalLink size={12} />
         </div>
       </div>
 
       {/* Info */}
-      <div className="absolute inset-0 p-5 flex flex-col justify-end">
-        <div className="transform translate-y-5 group-hover:translate-y-0 transition-transform duration-500 ease-out">
-          <div className="flex items-center gap-1.5 text-slate-300 text-[11px] mb-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
-            <MapPin size={11} className="text-amber-400" />
+      <div className="absolute inset-0 p-3.5 sm:p-4 flex flex-col justify-end">
+        <div className="transform translate-y-3 group-hover:translate-y-0 transition-transform duration-500 ease-out">
+          <div className="flex items-center gap-1 text-slate-300 text-[10px] mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75">
+            <MapPin size={10} className="text-amber-400" />
             {project.location}
           </div>
-          <h4 className="text-base font-bold text-white leading-tight tracking-tight mb-3">
+          <h4 className="text-sm font-bold text-white leading-tight tracking-tight mb-2">
             {project.title}
           </h4>
-          <div className="flex items-center gap-2">
-            <span className="h-8 w-8 rounded-full bg-white text-slate-900 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-xl flex-shrink-0">
-              <ArrowRight size={15} />
+          <div className="flex items-center gap-1.5">
+            <span className="h-6 w-6 rounded-full bg-white text-slate-900 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-white transition-all duration-300 shadow-xl flex-shrink-0">
+              <ArrowRight size={12} />
             </span>
-            <span className="text-white font-black text-[9px] uppercase tracking-[0.3em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+            <span className="text-white font-black text-[8px] uppercase tracking-[0.25em] opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
               Explore
             </span>
           </div>
@@ -174,14 +174,14 @@ const Projects = () => {
 
   const scrollStrip = (dir) => {
     if (scrollRef.current) {
-      scrollRef.current.scrollBy({ left: dir * 300, behavior: "smooth" });
+      scrollRef.current.scrollBy({ left: dir * 240, behavior: "smooth" });
     }
   };
 
   return (
     <section
       ref={sectionRef}
-      className="relative px-4 sm:px-6 py-12 md:py-20 lg:px-8 overflow-hidden"
+      className="relative px-4 sm:px-6 py-8 md:py-14 lg:px-8 overflow-hidden"
     >
       {/* Background glows */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -192,7 +192,7 @@ const Projects = () => {
       <div className="relative max-w-[1400px] mx-auto">
 
         {/* ── Header Row ── */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-10 md:mb-14">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8 md:mb-10">
 
           {/* Left: label + heading + stats */}
           <div className="flex-1 min-w-0">
@@ -200,7 +200,7 @@ const Projects = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="flex items-center gap-3 mb-4"
+              className="flex items-center gap-2.5 mb-3"
             >
               <span className="w-8 h-[2px] bg-amber-500" />
               <span className="text-amber-500 font-black uppercase tracking-[0.25em] text-[10px]">
@@ -213,7 +213,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.55 }}
-              className="text-3xl md:text-4xl xl:text-5xl font-medium text-white leading-[1.1] tracking-tight mb-6"
+              className="text-2xl sm:text-3xl md:text-4xl xl:text-5xl font-medium text-white leading-[1.1] tracking-tight mb-4"
             >
               Latest Engineering &{" "}
               <br className="hidden sm:block" />
@@ -229,14 +229,14 @@ const Projects = () => {
           </div>
 
           {/* Right: description + scroll controls */}
-          <div className="flex flex-col items-start lg:items-end gap-4 lg:max-w-sm xl:max-w-md w-full lg:w-auto">
+          <div className="flex flex-col items-start lg:items-end gap-3 lg:max-w-sm xl:max-w-md w-full lg:w-auto">
             {/* Description text */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-slate-400 text-sm leading-relaxed text-left lg:text-right"
+              className="text-slate-400 text-xs sm:text-sm leading-relaxed text-left lg:text-right"
             >
               From concept to completion — every project reflects our commitment to structural excellence, innovative design, and on-time delivery across India.
             </motion.p>
@@ -246,15 +246,15 @@ const Projects = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => scrollStrip(-1)}
-                  className="h-8 w-8 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-200"
+                  className="h-7 w-7 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-200"
                 >
-                  <ChevronLeft size={15} />
+                  <ChevronLeft size={13} />
                 </button>
                 <button
                   onClick={() => scrollStrip(1)}
-                  className="h-8 w-8 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-200"
+                  className="h-7 w-7 rounded-full border border-white/20 text-white flex items-center justify-center hover:bg-white/10 transition-all duration-200"
                 >
-                  <ChevronRight size={15} />
+                  <ChevronRight size={13} />
                 </button>
               </div>
             )}
@@ -267,13 +267,13 @@ const Projects = () => {
             <motion.div key={activeFilter} style={{ y: yParallax }}>
 
               {/* Featured + side stack */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 mb-3 sm:mb-4">
                 {featured && <FeaturedCard project={featured} />}
 
                 {/* Side stack */}
-                <div className="flex flex-col gap-4">
+                <div className="flex flex-col gap-3 sm:gap-4">
                   {rest.slice(0, 2).map((project, i) => (
-                    <div key={project.id} className="flex-1" style={{ minHeight: 200 }}>
+                    <div key={project.id} className="flex-1" style={{ minHeight: 160 }}>
                       <ProjectCard project={project} index={i} />
                     </div>
                   ))}
@@ -283,15 +283,15 @@ const Projects = () => {
               {/* Horizontal scroll strip for extra projects */}
               {rest.length > 2 && (
                 <div className="relative">
-                  <div className="absolute left-0 top-0 bottom-0 w-12 bg-gradient-to-r from-[#0f172a] to-transparent z-10 pointer-events-none" />
-                  <div className="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none" />
+                  <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0f172a] to-transparent z-10 pointer-events-none" />
+                  <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0f172a] to-transparent z-10 pointer-events-none" />
                   <div
                     ref={scrollRef}
-                    className="flex gap-4 overflow-x-auto pb-1"
+                    className="flex gap-3 sm:gap-3.5 overflow-x-auto pb-1"
                     style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
                   >
                     {rest.slice(2).map((project, i) => (
-                      <div key={project.id} className="flex-shrink-0 w-[260px] sm:w-[300px] h-[200px]">
+                      <div key={project.id} className="flex-shrink-0 w-[200px] sm:w-[230px] h-[155px]">
                         <ProjectCard project={project} index={i} />
                       </div>
                     ))}
@@ -305,20 +305,20 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: 0.15 }}
-                className="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-7"
+                className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10 pt-5"
               >
-                <p className="text-slate-400 text-sm max-w-sm text-center sm:text-left">
+                <p className="text-slate-400 text-xs sm:text-sm max-w-sm text-center sm:text-left">
                   Explore our full portfolio of{" "}
                   <span className="text-white font-semibold">650+ delivered projects</span>{" "}
                   across residential, commercial, and infrastructure sectors.
                 </p>
                 <Link
                   to="/projects"
-                  className="group flex items-center gap-2.5 bg-white text-slate-900 font-bold text-[10px] uppercase tracking-widest px-6 py-3 rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-xl hover:shadow-amber-500/30 flex-shrink-0"
+                  className="group flex items-center gap-2 bg-white text-slate-900 font-bold text-[9px] uppercase tracking-widest px-5 py-2.5 rounded-full hover:bg-amber-500 hover:text-white transition-all duration-300 shadow-xl hover:shadow-amber-500/30 flex-shrink-0"
                 >
                   View All Projects
-                  <span className="h-6 w-6 rounded-full bg-slate-900 group-hover:bg-white text-white group-hover:text-amber-500 flex items-center justify-center transition-all duration-300">
-                    <ArrowUpRight size={12} />
+                  <span className="h-5 w-5 rounded-full bg-slate-900 group-hover:bg-white text-white group-hover:text-amber-500 flex items-center justify-center transition-all duration-300">
+                    <ArrowUpRight size={10} />
                   </span>
                 </Link>
               </motion.div>

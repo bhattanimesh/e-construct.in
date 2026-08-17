@@ -39,35 +39,35 @@ const STEPS = [
 
 function MobileProcess() {
   return (
-    <section className="bg-white pt-12 pb-6 px-4">
-      <div className="max-w-xl mx-auto">
-        <div className="mb-10">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-10 h-[2px] bg-yellow-500" />
-            <span className="text-yellow-600 font-bold tracking-[0.3em] uppercase text-xs">Our Workflow</span>
+    <section className="bg-white pt-10 pb-6 px-4">
+      <div className="max-w-md mx-auto">
+        <div className="mb-8">
+          <div className="flex items-center gap-2.5 mb-3">
+            <div className="w-8 h-[2px] bg-yellow-500" />
+            <span className="text-yellow-600 font-bold tracking-[0.25em] uppercase text-[11px]">Our Workflow</span>
           </div>
-          <h2 className="text-4xl font-medium text-slate-900 leading-tight mb-4 tracking-tight">
+          <h2 className="text-3xl font-medium text-slate-900 leading-tight mb-3 tracking-tight">
             How We <br /><span className="accent-text italic">Work</span>
           </h2>
-          <p className="text-gray-500 text-sm border-l-2 border-yellow-500 pl-4 leading-relaxed">
+          <p className="text-gray-500 text-xs border-l-2 border-yellow-500 pl-3 leading-relaxed">
             Engineering excellence through a structured 3-step delivery process.
           </p>
         </div>
-        <div className="space-y-6">
+        <div className="space-y-5">
           {STEPS.map((step, i) => (
-            <div key={i} className={`relative overflow-hidden rounded-3xl p-6 ${step.bg} border border-gray-100 shadow-sm`}>
-              <span className="absolute -top-4 -right-3 text-[7rem] font-black text-gray-200/50 select-none z-0 leading-none">
+            <div key={i} className={`relative overflow-hidden rounded-2xl p-5 ${step.bg} border border-gray-100 shadow-sm`}>
+              <span className="absolute -top-3 -right-2 text-[5rem] font-black text-gray-200/50 select-none z-0 leading-none">
                 {step.id}
               </span>
               <div className="relative z-10">
-                <span className={`inline-block px-3 py-1 rounded-full bg-white shadow-sm font-bold uppercase text-[10px] tracking-widest ${step.accent} mb-4`}>
+                <span className={`inline-block px-2.5 py-0.5 rounded-full bg-white shadow-sm font-bold uppercase text-[9px] tracking-widest ${step.accent} mb-3`}>
                   Step {step.id} · {step.subtitle}
                 </span>
-                <div className="h-44 w-full rounded-2xl overflow-hidden shadow-md mb-4">
+                <div className="h-36 w-full rounded-xl overflow-hidden shadow-md mb-3">
                   <img src={step.img} alt={step.title} className="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 mb-2">{step.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{step.desc}</p>
+                <h3 className="text-xl font-black text-slate-900 mb-1.5">{step.title}</h3>
+                <p className="text-gray-600 text-xs leading-relaxed">{step.desc}</p>
               </div>
             </div>
           ))}
@@ -137,48 +137,48 @@ function DesktopProcess() {
           className="flex items-stretch gap-0 w-max h-full will-change-transform"
         >
           {/* Intro */}
-          <div style={{ width: '50vw', minWidth: 480, flexShrink: 0 }}
-            className="flex flex-col justify-center px-16 py-4">
-            <div className="flex items-center gap-4 text-yellow-500 mb-4">
-              <div className="w-12 h-[2px] bg-yellow-500" />
-              <span className="font-bold tracking-[0.3em] uppercase text-sm">Our Workflow</span>
+          <div style={{ width: '40vw', minWidth: 380, flexShrink: 0 }}
+            className="flex flex-col justify-center px-10 lg:px-14 py-4">
+            <div className="flex items-center gap-3 text-yellow-500 mb-3">
+              <div className="w-10 h-[2px] bg-yellow-500" />
+              <span className="font-bold tracking-[0.25em] uppercase text-xs">Our Workflow</span>
             </div>
-            <h2 className="text-7xl lg:text-8xl font-medium text-slate-900 leading-[0.85] mb-5 tracking-tight">
+            <h2 className="text-5xl lg:text-6xl font-medium text-slate-900 leading-[0.9] mb-4 tracking-tight">
               How We <br /><span className="accent-text italic">Work</span>
             </h2>
-            <p className="text-gray-500 text-base lg:text-lg max-w-sm border-l-2 border-yellow-500 pl-6 leading-relaxed">
+            <p className="text-gray-500 text-sm lg:text-base max-w-xs border-l-2 border-yellow-500 pl-4 leading-relaxed">
               Engineering excellence through a structured 3-step delivery process. Scroll down to explore.
             </p>
-            <div className="mt-6 flex items-center gap-2 text-gray-400 font-bold uppercase text-[10px] tracking-[0.2em] animate-pulse">
-              Scroll Down <MoveRight className="rotate-90" size={14} />
+            <div className="mt-5 flex items-center gap-2 text-gray-400 font-bold uppercase text-[9px] tracking-[0.2em] animate-pulse">
+              Scroll Down <MoveRight className="rotate-90" size={12} />
             </div>
           </div>
 
           {/* Steps */}
           {STEPS.map((step, i) => (
-            <div key={i} style={{ width: '85vw', maxWidth: 1100, flexShrink: 0 }}
-              className="flex items-center px-12 py-4">
-              <div className={`relative w-full h-[calc(100vh-140px)] max-h-[660px] overflow-hidden rounded-[3rem] p-10 lg:p-14 ${step.bg} border border-gray-100 shadow-sm flex items-center`}>
-                <span className="absolute -top-10 -right-10 text-[20rem] font-black text-gray-200/40 select-none z-0 leading-none pointer-events-none">
+            <div key={i} style={{ width: '70vw', maxWidth: 820, flexShrink: 0 }}
+              className="flex items-center px-6 lg:px-8 py-4">
+              <div className={`relative w-full h-[calc(100vh-200px)] max-h-[470px] overflow-hidden rounded-3xl p-6 lg:p-8 ${step.bg} border border-gray-100 shadow-sm flex items-center`}>
+                <span className="absolute -top-6 -right-6 text-[13rem] font-black text-gray-200/40 select-none z-0 leading-none pointer-events-none">
                   {step.id}
                 </span>
-                <div className="relative z-10 grid grid-cols-2 gap-12 items-center w-full">
-                  <div className="h-[340px] lg:h-[380px] w-full rounded-3xl overflow-hidden shadow-2xl -rotate-2">
+                <div className="relative z-10 grid grid-cols-2 gap-6 lg:gap-8 items-center w-full">
+                  <div className="h-[230px] lg:h-[260px] w-full rounded-2xl overflow-hidden shadow-xl -rotate-2">
                     <img src={step.img} alt={step.title}
                       className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
                       loading="lazy" />
                   </div>
                   <div>
-                    <div className={`inline-block px-4 py-1 rounded-full bg-white shadow-sm font-bold uppercase text-[10px] tracking-widest ${step.accent} mb-3`}>
+                    <div className={`inline-block px-3 py-0.5 rounded-full bg-white shadow-sm font-bold uppercase text-[9px] tracking-widest ${step.accent} mb-2`}>
                       Step {step.id} · {step.subtitle}
                     </div>
-                    <h3 className="text-5xl lg:text-6xl font-black text-slate-900 mt-1 mb-4">{step.title}</h3>
-                    <p className="text-gray-600 text-lg lg:text-xl leading-relaxed mb-8 max-w-md">{step.desc}</p>
-                    <button className="flex items-center gap-4 group">
-                      <div className="w-14 h-14 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-yellow-500 transition-all duration-300">
-                        <ArrowRight className="group-hover:translate-x-1 transition-transform" />
+                    <h3 className="text-3xl lg:text-4xl font-black text-slate-900 mt-1 mb-2.5">{step.title}</h3>
+                    <p className="text-gray-600 text-sm lg:text-[15px] leading-relaxed mb-5 max-w-sm">{step.desc}</p>
+                    <button className="flex items-center gap-3 group">
+                      <div className="w-10 h-10 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover:bg-yellow-500 transition-all duration-300">
+                        <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                       </div>
-                      <span className="font-bold uppercase text-xs tracking-[0.2em] text-slate-900 group-hover:text-yellow-600 transition-colors">
+                      <span className="font-bold uppercase text-[11px] tracking-[0.2em] text-slate-900 group-hover:text-yellow-600 transition-colors">
                         Discover More
                       </span>
                     </button>

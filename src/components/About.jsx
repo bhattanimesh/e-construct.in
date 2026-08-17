@@ -142,21 +142,21 @@ const About = () => {
         </div>
 
         {/* --- Why Complete Engineering Solutions --- */}
-        <div className="mt-24 md:mt-32 w-full border-t border-gray-100 pt-16 md:pt-24">
-          <div className="text-center mb-16">
+        <div className="mt-16 md:mt-24 w-full border-t border-gray-100 pt-12 md:pt-16">
+          <div className="text-center mb-10 md:mb-12">
             <SectionHeading title="Why EConstruct" />
-            <div className="w-24 h-1.5 bg-yellow-500 mx-auto rounded-full"></div>
+            <div className="w-20 h-1 bg-yellow-500 mx-auto rounded-full mt-2"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 lg:gap-6">
             {ac.whyUsItems.map((item, index) => (
-              <div key={index} className="flex gap-4 p-6 rounded-2xl bg-white border border-gray-100 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_-4px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300">
-                <div className="flex-shrink-0 bg-yellow-50 rounded-xl h-12 w-12 flex items-center justify-center">
-                  <CheckCircle className="text-yellow-600 h-6 w-6" />
+              <div key={index} className="flex items-start gap-3 p-4 sm:p-4.5 lg:p-[18px] rounded-xl bg-white border border-gray-100 shadow-[0_3px_16px_-3px_rgba(0,0,0,0.05)] hover:shadow-[0_6px_24px_-4px_rgba(0,0,0,0.08)] hover:-translate-y-0.5 transition-all duration-300">
+                <div className="flex-shrink-0 bg-yellow-50 rounded-lg w-[38px] h-[38px] flex items-center justify-center">
+                  <CheckCircle className="text-yellow-600 h-[19px] w-[19px]" />
                 </div>
                 <div>
-                  <h4 className="font-bold text-slate-900 text-base mb-1">{item.title}</h4>
-                  <p className="text-sm text-gray-500 leading-relaxed font-medium">{item.desc}</p>
+                  <h4 className="font-bold text-slate-900 text-sm md:text-[14.5px] mb-0.5 leading-snug">{item.title}</h4>
+                  <p className="text-xs md:text-[12.5px] text-gray-500 leading-relaxed font-medium">{item.desc}</p>
                 </div>
               </div>
             ))}

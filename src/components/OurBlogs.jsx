@@ -1,4 +1,4 @@
-﻿import React from 'react';
+import React from 'react';
 import { motion } from "framer-motion";
 import { Link } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
@@ -37,28 +37,28 @@ const OurBlogs = () => {
         </div>
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {blogs.map((blog) => {
             const linkTo = blog.slug ? `/pages/blog/${blog.slug}` : null;
             const inner = (
               <>
-                <div className="relative h-60 overflow-hidden shrink-0">
+                <div className="relative h-36 sm:h-40 overflow-hidden shrink-0 bg-gray-100">
                   <img
                     src={blog.img}
                     alt={blog.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                     decoding="async"
                   />
                   {blog.category && (
-                    <span className="absolute top-3 left-3 bg-yellow-500 text-black text-[10px] font-bold px-2.5 py-1 rounded-full">
+                    <span className="absolute top-2 left-2 bg-yellow-500 text-black text-[9px] font-bold px-2 py-0.5 rounded-full shadow-sm">
                       {blog.category}
                     </span>
                   )}
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
+                <div className="p-3.5 sm:p-4 flex flex-col flex-grow">
                   {(blog.author || blog.date) && (
-                    <div className="flex items-center gap-2 text-xs text-gray-400 mb-2 flex-wrap">
+                    <div className="flex items-center gap-1.5 text-[10px] sm:text-[11px] text-gray-400 mb-1.5 flex-wrap">
                       {blog.author && <span>{blog.author}</span>}
                       {blog.author && blog.date && <span>·</span>}
                       {blog.date && (
@@ -71,14 +71,14 @@ const OurBlogs = () => {
                       )}
                     </div>
                   )}
-                  <h3 className="text-xl font-extrabold text-slate-900 mb-3 leading-tight group-hover:text-amber-600 transition-colors">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 mb-1.5 leading-snug group-hover:text-amber-600 transition-colors line-clamp-2">
                     {blog.title}
                   </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow line-clamp-3">
+                  <p className="text-gray-500 text-xs leading-relaxed mb-3 flex-grow line-clamp-2">
                     {blog.desc}
                   </p>
-                  <div className="mt-auto pt-4 border-t border-gray-100">
-                    <span className="inline-flex items-center gap-1 font-black text-xs uppercase tracking-tighter text-slate-900 border-b-2 border-transparent group-hover:text-amber-600 group-hover:border-amber-600 transition-all">
+                  <div className="mt-auto pt-2.5 border-t border-gray-100">
+                    <span className="inline-flex items-center gap-1 font-bold text-[11px] uppercase tracking-wider text-slate-900 border-b border-transparent group-hover:text-amber-600 group-hover:border-amber-600 transition-all">
                       {linkTo ? 'Read Article ↗' : 'Learn More ↗'}
                     </span>
                   </div>
@@ -90,14 +90,14 @@ const OurBlogs = () => {
               <Link
                 key={blog.id}
                 to={linkTo}
-                className="group relative bg-white border border-gray-300 rounded-2xl overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300"
+                className="group relative bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow duration-300"
               >
                 {inner}
               </Link>
             ) : (
               <div
                 key={blog.id}
-                className="group relative bg-white border border-gray-300 rounded-2xl overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300"
+                className="group relative bg-white border border-gray-200 rounded-xl overflow-hidden flex flex-col h-full hover:shadow-md transition-shadow duration-300"
               >
                 {inner}
               </div>
