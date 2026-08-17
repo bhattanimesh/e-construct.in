@@ -26,8 +26,8 @@ const Hero = () => {
 
   const isMobileHero = typeof window !== 'undefined' && window.innerWidth < 768;
 
-  // Parallax Values — reduced on mobile
-  const backgroundY = useTransform(smoothScrollY, [0, 1000], isMobileHero ? [0, 0] : [0, 150]);
+  // Parallax Values — calibrated to background bleed margin
+  const backgroundY = useTransform(smoothScrollY, [0, 1000], isMobileHero ? [0, 0] : [0, 40]);
   const textY = useTransform(smoothScrollY, [0, 1000], isMobileHero ? [0, 0] : [0, -100]);
   const opacity = useTransform(smoothScrollY, [0, 500], [1, 0]);
 
@@ -48,7 +48,7 @@ const Hero = () => {
       {/* --- BACKGROUND LAYER --- */}
       <motion.div
         style={{ y: backgroundY }}
-        className="absolute inset-0 w-full h-full scale-125"
+        className="absolute -top-10 -bottom-10 inset-x-0 h-[calc(100%+80px)] w-full will-change-transform transform-gpu overflow-hidden"
       >
         <video
           ref={videoRef}
@@ -56,15 +56,16 @@ const Hero = () => {
           muted
           loop
           playsInline
-          className="w-full h-full object-cover brightness-[0.8] contrast-[1.1]"
+          preload="auto"
+          className="w-full h-full object-cover object-center brightness-90 contrast-[1.02]"
         >
           <source src={HERO_VIDEO} type="video/mp4" />
         </video>
 
-        {/* Overlays - Reduced intensity to make video pop */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-transparent hidden md:block"></div>
-        <div className="absolute inset-0 bg-black/10 md:hidden"></div>
+        {/* Overlays - Clean subtle gradients without muddying video */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0a] via-black/30 to-black/30 pointer-events-none"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0a0a0a]/70 via-transparent to-transparent hidden md:block pointer-events-none"></div>
+        <div className="absolute inset-0 bg-black/20 md:hidden pointer-events-none"></div>
       </motion.div>
 
       {/* --- CONTENT LAYER --- */}
