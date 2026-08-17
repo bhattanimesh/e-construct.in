@@ -4,7 +4,7 @@ import {
   Menu, X, ChevronDown, Facebook, Linkedin, Youtube,
   Building2, Layers, HardHat, Home, Wrench, ShieldCheck,
   LayoutDashboard, Image, BookOpen, GraduationCap, FileText,
-  BarChart2, BookMarked, ArrowRight,
+  BarChart2, BookMarked, ArrowRight, RotateCcw,
 } from 'lucide-react';
 import Logo from '../assets/logo.webp';
 import SearchBar, { MobileSearch } from './SearchBar';
@@ -67,25 +67,18 @@ const servicesMenu = {
 };
 
 const pagesMenu = [
-  { icon: Image,      title: 'Gallery',  desc: 'BIM models & project visuals', path: '/pages/gallery' },
-  { icon: BookOpen,   title: 'Blog',     desc: 'Insights & industry articles',  path: '/pages/blog'    },
-  { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
-  { icon: FileText,   title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
-  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
-  { icon: BarChart2,  title: 'PBD',      desc: 'Performance Based Design',      path: '/pages/pbd'     },
+  { icon: Image,       title: 'Gallery',                      desc: 'BIM models & project visuals',         path: '/pages/gallery' },
+  { icon: BookOpen,    title: 'Blog',                         desc: 'Insights & industry articles',          path: '/pages/blog'    },
+  { icon: ShieldCheck, title: 'Privacy Policy',               desc: 'Data privacy & cookies information',    path: '/privacy-policy' },
+  { icon: FileText,    title: 'Terms & Conditions',           desc: 'Terms of service & agreements',         path: '/terms-and-conditions' },
+  { icon: RotateCcw,   title: 'Refund & Cancellation Policy', desc: 'Returns, cancellations & refunds',      path: '/return-refund-and-cancellation-policy' },
 ];
 
 const trainingMenu = [
-  { icon: GraduationCap,   title: 'Corporate On-Job Training',          desc: 'BIM & AEC software for teams',       path: '/training/corporate'       },
-  { icon: Layers,          title: 'BIM Certification',                  desc: 'Industry-recognised BIM courses',    path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
-  { icon: BookOpen,        title: 'Workshops & Seminars',               desc: 'Hands-on learning sessions',         path: '/training/workshops'       },
-  { icon: Layers,          title: 'Composite Course (Structures+BIM+PM)', desc: 'Complete 24-month program',        path: '/training/composite'       },
-  { icon: FileText,        title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
-  { icon: LayoutDashboard, title: 'Interior Design with PM',            desc: 'Space planning & design',            path: '/training/interior-design' },
-  { icon: Wrench,          title: '3-Day ETABS Workshop',               desc: 'Intensive hands-on training',        path: '/training/etabs-workshop'  },
-  { icon: GraduationCap,   title: 'Life Engineering Academy',           desc: 'Personal development program',       path: '/training/life-engineering' },
-  { icon: BookOpen,        title: 'Online Crash Courses',               desc: 'Quick skill upgrades',               path: '/training/crash-courses'   },
-  { icon: BarChart2,       title: 'Business Management',                desc: 'Marketing, branding & management',   path: '/training/business-management' },
+  { icon: FileText,   title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
+  { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
+  { icon: GraduationCap, title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
+  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
@@ -159,10 +152,10 @@ const PagesDropdown = () => (
 // ─── TRAINING DROPDOWN ────────────────────────────────────────────────────────
 
 const TrainingDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(580px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
-    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(620px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+    <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-6 py-3 border-b border-gray-100 flex items-center justify-between">
       <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Training Programs</span>
-      <Link to="/training/corporate" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
+      <Link to="/training/drawing-drafting" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
         View all <ArrowRight size={10} />
       </Link>
     </div>
