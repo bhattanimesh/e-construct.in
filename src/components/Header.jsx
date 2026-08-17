@@ -67,18 +67,18 @@ const servicesMenu = {
 };
 
 const pagesMenu = [
-  { icon: Image,       title: 'Gallery',                      desc: 'BIM models & project visuals',         path: '/pages/gallery' },
-  { icon: BookOpen,    title: 'Blog',                         desc: 'Insights & industry articles',          path: '/pages/blog'    },
-  { icon: ShieldCheck, title: 'Privacy Policy',               desc: 'Data privacy & cookies information',    path: '/privacy-policy' },
-  { icon: FileText,    title: 'Terms & Conditions',           desc: 'Terms of service & agreements',         path: '/terms-and-conditions' },
-  { icon: RotateCcw,   title: 'Refund & Cancellation Policy', desc: 'Returns, cancellations & refunds',      path: '/return-refund-and-cancellation-policy' },
+  { icon: Image, title: 'Gallery', desc: 'BIM models & project visuals', path: '/pages/gallery' },
+  { icon: BookOpen, title: 'Blog', desc: 'Insights & industry articles', path: '/pages/blog' },
+  { icon: ShieldCheck, title: 'Privacy Policy', desc: 'Data privacy & cookies information', path: '/privacy-policy' },
+  { icon: FileText, title: 'Terms & Conditions', desc: 'Terms of service & agreements', path: '/terms-and-conditions' },
+  { icon: RotateCcw, title: 'Refund & Cancellation Policy', desc: 'Returns, cancellations & refunds', path: '/return-refund-and-cancellation-policy' },
 ];
 
 const trainingMenu = [
-  { icon: Layers,     title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
+  { icon: Layers, title: 'PG Diploma In Structural Engineering', desc: 'Comprehensive Structural Design', path: '/pages/pg-diploma-in-structural-engineering' },
   { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
   { icon: GraduationCap, title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
-  { icon: FileText,   title: 'Engineering Drawing & Drafting',     desc: 'Master technical drawing',           path: '/training/drawing-drafting' },
+  { icon: FileText, title: 'Masters Study In Engineering Drawing & Drafting', desc: 'Master technical drawing', path: '/training/drawing-drafting' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
@@ -254,16 +254,15 @@ const Header = () => {
     : 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/';
 
   const socialLinks = [
-    { icon: <Facebook size={16} />, label: 'Facebook',  href: c.facebook && c.facebook !== '#' ? c.facebook : 'https://www.facebook.com/econstruct.in' },
-    { icon: <Linkedin size={16} />, label: 'LinkedIn',  href: linkedinUrl },
+    { icon: <Facebook size={16} />, label: 'Facebook', href: c.facebook && c.facebook !== '#' ? c.facebook : 'https://www.facebook.com/econstruct.in' },
+    { icon: <Linkedin size={16} />, label: 'LinkedIn', href: linkedinUrl },
     { icon: <Youtube size={16} />, label: 'YouTube', href: (c.youtube && c.youtube !== '#' && c.youtube !== 'https://www.youtube.com/@econstruct') ? c.youtube : 'https://www.youtube.com/@Econstructofficial' },
   ];
 
   const navTextClass = (isActive) =>
-    `text-[0.7rem] font-extrabold uppercase tracking-[0.2em] transition-all duration-300 ${
-      isActive
-        ? 'text-yellow-500'
-        : isScrolled
+    `text-[0.7rem] font-extrabold uppercase tracking-[0.2em] transition-all duration-300 ${isActive
+      ? 'text-yellow-500'
+      : isScrolled
         ? 'text-gray-900 hover:text-yellow-500'
         : 'text-white hover:text-yellow-500'
     }`;
@@ -272,11 +271,10 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${
-        isScrolled
+      className={`fixed top-0 left-0 w-full z-[1000] transition-all duration-500 ${isScrolled
           ? 'bg-white shadow-[0_10px_30px_rgba(0,0,0,0.07)] h-20'
           : 'bg-black/40 backdrop-blur-sm h-[100px]'
-      }`}
+        }`}
     >
       <div className="max-w-[1500px] mx-auto px-[5%] h-full flex items-center justify-between">
 
@@ -331,9 +329,8 @@ const Header = () => {
               key={s.label}
               href={s.href}
               aria-label={s.label}
-              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:border-yellow-500 hover:text-yellow-500 hover:bg-black/5 ${
-                isScrolled ? 'border-gray-200 text-gray-900' : 'border-white/20 text-white'
-              }`}
+              className={`w-9 h-9 rounded-full border flex items-center justify-center transition-all duration-300 hover:border-yellow-500 hover:text-yellow-500 hover:bg-black/5 ${isScrolled ? 'border-gray-200 text-gray-900' : 'border-white/20 text-white'
+                }`}
             >
               {s.icon}
             </a>
@@ -353,9 +350,8 @@ const Header = () => {
 
       {/* ── Mobile Menu ── */}
       <div
-        className={`fixed inset-0 bg-white z-[2000] lg:hidden flex flex-col transition-all duration-500 ${
-          isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
-        }`}
+        className={`fixed inset-0 bg-white z-[2000] lg:hidden flex flex-col transition-all duration-500 ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
+          }`}
       >
         {/* Top bar */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100 safe-top" style={{ paddingTop: 'max(1rem, env(safe-area-inset-top))' }}>
@@ -371,18 +367,17 @@ const Header = () => {
         {/* Nav items */}
         <div className="flex-1 overflow-y-auto px-5 py-6 space-y-6">
           {[
-            { label: 'ABOUT US',  path: '/about'    },
-            { label: 'PROJECTS',  path: '/projects' },
-            { label: 'CAREERS',   path: '/careers'  },
-            { label: 'CONTACT',   path: '/contact'  },
+            { label: 'ABOUT US', path: '/about' },
+            { label: 'PROJECTS', path: '/projects' },
+            { label: 'CAREERS', path: '/careers' },
+            { label: 'CONTACT', path: '/contact' },
           ].map((link) => (
             <NavLink
               key={link.path}
               to={link.path}
               onClick={closeMenu}
               className={({ isActive }) =>
-                `block text-xl font-black uppercase tracking-tighter transition-colors ${
-                  isActive ? 'text-yellow-500' : 'text-gray-900 hover:text-yellow-500'
+                `block text-xl font-black uppercase tracking-tighter transition-colors ${isActive ? 'text-yellow-500' : 'text-gray-900 hover:text-yellow-500'
                 }`
               }
             >
@@ -390,9 +385,9 @@ const Header = () => {
             </NavLink>
           ))}
 
-          <MobileAccordion label="SERVICES"  items={servicesMenu.items} onNavigate={closeMenu} />
-          <MobileAccordion label="TRAINING"  items={trainingMenu}       onNavigate={closeMenu} />
-          <MobileAccordion label="PAGES"     items={pagesMenu}          onNavigate={closeMenu} />
+          <MobileAccordion label="SERVICES" items={servicesMenu.items} onNavigate={closeMenu} />
+          <MobileAccordion label="TRAINING" items={trainingMenu} onNavigate={closeMenu} />
+          <MobileAccordion label="PAGES" items={pagesMenu} onNavigate={closeMenu} />
         </div>
 
         {/* Social footer */}

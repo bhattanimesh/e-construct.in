@@ -168,7 +168,7 @@ const BimHubDrawingDrafting = () => {
             <iframe
               src="https://www.youtube.com/embed/Ae5gufR9LxE"
               className="w-full h-full"
-              title="Engineering Drawing & Drafting Program"
+              title="Masters Study In Engineering Drawing & Drafting Program"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               referrerPolicy="strict-origin-when-cross-origin"

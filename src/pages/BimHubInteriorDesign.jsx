@@ -98,7 +98,7 @@ const BimHubInteriorDesign = () => {
       },
       {
         question: "What is the exam pattern?",
-        answer: "The final exam is divided into four components:\n\n• Written Exam: 200 Marks\n• Practical Exam: 200 Marks\n• Technical Interview: 200 Marks\n• Assignments & Attendance: 200 Marks\n\nTotal: 800 Marks"
+        answer: "The final exam is divided into four components:\n\n• Written Exam: 200 Marks\n• Practical Exam: 200 Marks\n• Technical Interview: 200 Marks\n• Assignments & Attendance: 200 Marks\n\nTotal: 800 Marks\n\n* Note: Econstruct will prepare you for the final examination right from Day 1, so do not worry! We conduct multiple mock interviews and regular assessments throughout the course for a superior student experience."
       },
       {
         question: "What software is included in the training?",

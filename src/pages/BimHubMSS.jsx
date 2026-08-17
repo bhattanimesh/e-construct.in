@@ -151,7 +151,12 @@ const BimHubMSS = () => {
     { q: 'What are the session timings?', a: 'For Online Students: You learn through pre-recorded videos with access to live session recordings. You are welcome to join live sessions.\nFor Offline Students: You report to the office premises from 8:55 am to 7:00 pm (minimum 7 to 8 hours daily, Monday to Friday) for on-job practice. Biometric attendance is enforced.' },
     { q: 'Who can join this course?', a: 'Polytechnic Diploma (Civil Engineering), B.Tech / B.E (Civil Engineering), M.Tech / M.E (Structural Engineering), CAD Structures.' },
     { q: 'What candidate qualities (3 P\'s) are required?', a: '1. Passion for Structural Engineering — Key to a successful structural design career.\n2. Patience to learn — Structural engineering requires patience to master codes & software.\n3. Practice — Constant practice is required to gain expertise on live projects.' },
-    { q: 'What learning activities & exam pattern are included?', a: 'Activities: 48-hr Group Challenge, 24-hr Individual Challenge, MASS Mock Interviews, Tuesday Code Reading, Weekly Objective Tests, Monthly Project Reviews.\nExam Pattern (800 Marks Total):\n• Written Technical Test: 200 Marks\n• Practical Exam on Live Project: 200 Marks\n• Technical Interview: 200 Marks\n• Project Assignments, Attendance (80% min) & Professional Habits: 200 Marks' },
+    { q: 'What learning activities are included in the program?', a: 'Activities include:\n• 48-hr Group Structural Challenge\n• 24-hr Individual Live Project Challenge\n• MASS Mock Technical Interviews\n• Tuesday Code Reading & Analysis\n• Weekly Objective & Concept Tests\n• Monthly Comprehensive Project Reviews' },
+    {
+      q: 'What is the Evaluation & Exam Pattern (800 Marks Total)?',
+      type: 'examPattern',
+      a: 'Certification and 7-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:\n\n• Written Technical Test (200 Marks): Structural theory, IS codes & mechanics concepts\n• Practical Exam on Live Project (200 Marks): ETABS modeling, loading & rebar detailing\n• Technical Interview (200 Marks): Panel interview with principal structural engineer\n• Assignments & Attendance (200 Marks): 80% min attendance, habits & project annexures\n\n* Note: Econstruct will prepare you for the final examination right from Day 1, so do not worry! We conduct multiple technical mock interviews and regular reviews throughout the course for a superior student experience.'
+    },
     { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 7 months\n• PG Diploma Certification of 7 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
     { q: 'How does 100% Placement Assistance & assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 7 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
     { q: 'What is the fee structure & payment policy?', a: 'Total Fee is ₹ 2,10,000 (AED 9,000 or US$ 2,510) inclusive of 18% GST (Base ₹1,77,967 + 18% GST). Fees need to be paid upfront; maximum 2 installments can be approved by the admission counselor. Fee is strictly non-refundable & non-transferable.' },
@@ -409,33 +414,6 @@ const BimHubMSS = () => {
             </div>
           </div>
 
-          {/* Exam Pattern & Evaluation Breakdown (800 Marks Total) */}
-          <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm mb-12">
-            <h4 className="text-2xl font-black text-slate-900 mb-2">Evaluation & Exam Pattern (800 Marks Total)</h4>
-            <p className="text-gray-500 text-xs mb-6">Certification and 7-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:</p>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              <div className="p-5 rounded-2xl bg-slate-50 border border-gray-200">
-                <div className="text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
-                <div className="font-bold text-slate-900 text-sm mb-1">Written Technical Test</div>
-                <div className="text-gray-500 text-xs">Structural theory, IS codes & mechanics concepts</div>
-              </div>
-              <div className="p-5 rounded-2xl bg-slate-50 border border-gray-200">
-                <div className="text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
-                <div className="font-bold text-slate-900 text-sm mb-1">Practical Exam on Live Project</div>
-                <div className="text-gray-500 text-xs">ETABS modeling, loading & rebar detailing</div>
-              </div>
-              <div className="p-5 rounded-2xl bg-slate-50 border border-gray-200">
-                <div className="text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
-                <div className="font-bold text-slate-900 text-sm mb-1">Technical Interview</div>
-                <div className="text-gray-500 text-xs">Panel interview with principal structural engineer</div>
-              </div>
-              <div className="p-5 rounded-2xl bg-slate-50 border border-gray-200">
-                <div className="text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
-                <div className="font-bold text-slate-900 text-sm mb-1">Assignments & Attendance</div>
-                <div className="text-gray-500 text-xs">80% min attendance, habits & project annexures</div>
-              </div>
-            </div>
-          </div>
 
           {/* Design Codes Standards */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -715,13 +693,13 @@ const BimHubMSS = () => {
         </div>
       </section>
 
-      {/* ── 07. PROGRAM HIGHLIGHTS / DETAILED POSTER ───────────────── */}
+      {/* ── 07. PROGRAM HIGHLIGHTS / Core Modules ───────────────── */}
       <section id="program-highlights" className="py-16 md:py-24 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <motion.div {...fin} className="text-center mb-10">
             <Label>07 · Program Posters & Details</Label>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Program Highlights & <span className="text-yellow-600 italic font-serif">Detailed Poster</span>
+              Program Highlights & <span className="text-yellow-600 italic font-serif">Core Modules</span>
             </h2>
             <p className="text-gray-500 text-base max-w-xl mx-auto mt-2">
               Select and view complete high-resolution program posters highlighting syllabus, project scale, and structure.
@@ -1010,8 +988,53 @@ const BimHubMSS = () => {
                   <ChevronDown className={`w-5 h-5 text-gray-400 shrink-0 transition-transform ${openFaq === idx ? 'rotate-180 text-yellow-600' : ''}`} />
                 </button>
                 {openFaq === idx && (
-                  <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4 whitespace-pre-line">
-                    {faq.a}
+                  <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-100 pt-4">
+                    {faq.type === 'examPattern' ? (
+                      <div>
+                        <p className="text-gray-600 text-xs sm:text-sm mb-4">
+                          Certification and 7-month work experience letter are awarded upon clearing the 800-mark evaluation criteria:
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-2">
+                          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200">
+                            <div className="text-xl sm:text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
+                            <div className="font-bold text-slate-900 text-sm mb-1">Written Technical Test</div>
+                            <div className="text-gray-500 text-xs">Structural theory, IS codes & mechanics concepts</div>
+                          </div>
+                          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200">
+                            <div className="text-xl sm:text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
+                            <div className="font-bold text-slate-900 text-sm mb-1">Practical Exam on Live Project</div>
+                            <div className="text-gray-500 text-xs">ETABS modeling, loading & rebar detailing</div>
+                          </div>
+                          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200">
+                            <div className="text-xl sm:text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
+                            <div className="font-bold text-slate-900 text-sm mb-1">Technical Interview</div>
+                            <div className="text-gray-500 text-xs">Panel interview with principal structural engineer</div>
+                          </div>
+                          <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 border border-gray-200">
+                            <div className="text-xl sm:text-2xl font-black text-yellow-600 mb-1">200 Marks</div>
+                            <div className="font-bold text-slate-900 text-sm mb-1">Assignments & Attendance</div>
+                            <div className="text-gray-500 text-xs">80% min attendance, habits & project annexures</div>
+                          </div>
+                        </div>
+
+                        {/* Exam Prep & Mock Interview Reassurance Disclaimer */}
+                        <div className="mt-4 p-4 rounded-2xl bg-amber-50/90 border border-amber-200/90 flex items-start gap-3.5 shadow-sm">
+                          <div className="w-8 h-8 rounded-xl bg-amber-500/15 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+                            <CheckCircle2 className="w-4 h-4 text-amber-600" />
+                          </div>
+                          <div>
+                            <div className="text-xs font-black uppercase tracking-wider text-amber-900 mb-0.5">
+                              Exam Preparation &amp; Mentorship Support
+                            </div>
+                            <p className="text-xs text-amber-950/85 leading-relaxed font-medium">
+                              <strong>Econstruct will prepare you for the final examination right from Day 1</strong> — so you do not need to worry at all! We conduct multiple technical mock interviews, regular practice tests, and guided project reviews throughout the course to ensure maximum student confidence and a superior learning experience.
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="whitespace-pre-line">{faq.a}</div>
+                    )}
                   </div>
                 )}
               </div>

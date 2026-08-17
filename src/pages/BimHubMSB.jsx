@@ -575,7 +575,7 @@ const BimHubMSB = () => {
           <motion.div {...fin} className="text-center mb-10">
             <Label>07 · Program Posters & Details</Label>
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Program Highlights & <span className="text-yellow-600 italic font-serif">Detailed Poster</span>
+              Program Highlights & <span className="text-yellow-600 italic font-serif">Core Modules</span>
             </h2>
             <p className="text-gray-500 text-base max-w-xl mx-auto mt-2">
               Select and view complete high-resolution program posters highlighting syllabus, project scale, and structure.
