@@ -16,6 +16,7 @@ const RefundPolicy = () => {
     phone1: '+91 90367 44017',
     phone2: '+91 7259921111',
     email1: 'info@e-construct.org',
+    email2: 'business@e-construct.org',
   };
 
   const [copied, setCopied] = useState(false);
@@ -293,13 +294,18 @@ const RefundPolicy = () => {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-3">
-                        <Mail size={16} className="text-orange-400 shrink-0" />
+                      <div className="flex items-start gap-3">
+                        <Mail size={16} className="text-orange-400 shrink-0 mt-0.5" />
                         <div>
                           <strong className="text-slate-200 block">General Support:</strong>
-                          <a href="mailto:info@e-construct.org" className="text-slate-300 hover:underline">
-                            info@e-construct.org
-                          </a>
+                          <div className="flex flex-col gap-0.5">
+                            <a href="mailto:info@e-construct.org" className="text-slate-300 hover:underline">
+                              info@e-construct.org
+                            </a>
+                            <a href="mailto:business@e-construct.org" className="text-slate-300 hover:underline">
+                              business@e-construct.org
+                            </a>
+                          </div>
                         </div>
                       </div>
 

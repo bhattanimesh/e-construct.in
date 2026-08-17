@@ -27,7 +27,7 @@ Notable project types include high-rise buildings, villas, hospitals, and indust
 
 --- CONTACT ---
 Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.
-Email: info@e-construct.org
+Email: info@e-construct.org | business@e-construct.org
 Phone: +91 90367 44017 | +91 7259921111 
 Office Hours: Mon – Fri, 9:00 AM – 7:00 PM
 

@@ -102,9 +102,14 @@ const Footer = () => {
                   {c.phone3 && <a href={`tel:${c.phone3?.replace(/\s/g,'')}`} className="hover:text-orange-500 transition-colors">{c.phone3}</a>}
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Mail size={18} className="text-orange-500 shrink-0" />
-                <a href={`mailto:${c.email1}`} className="hover:text-orange-500 transition-colors">{c.email1}</a>
+              <div className="flex items-start gap-3">
+                <Mail size={18} className="text-orange-500 shrink-0 mt-0.5" />
+                <div className="flex flex-col gap-0.5">
+                  <a href={`mailto:${c.email1}`} className="hover:text-orange-500 transition-colors">{c.email1}</a>
+                  {c.email2 && c.email2 !== c.email1 && (
+                    <a href={`mailto:${c.email2}`} className="hover:text-orange-500 transition-colors">{c.email2}</a>
+                  )}
+                </div>
               </div>
             </div>
             <div className="pt-4 border-t border-slate-200">

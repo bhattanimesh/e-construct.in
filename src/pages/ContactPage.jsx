@@ -89,9 +89,25 @@ const InfoCards = () => {
               <Icon className="text-white h-5 w-5" />
             </div>
             <h3 className="font-bold text-slate-900 text-base mb-3">{title}</h3>
-            {lines.map((line, j) => (
-              <p key={j} className="text-gray-500 text-sm leading-relaxed">{line}</p>
-            ))}
+            {lines.map((line, j) => {
+              if (title === 'Email Us') {
+                return (
+                  <a key={j} href={`mailto:${line}`} className="text-gray-500 hover:text-yellow-600 transition-colors text-sm leading-relaxed block">
+                    {line}
+                  </a>
+                );
+              }
+              if (title === 'Call Us') {
+                return (
+                  <a key={j} href={`tel:${line.replace(/\s/g, '')}`} className="text-gray-500 hover:text-yellow-600 transition-colors text-sm leading-relaxed block">
+                    {line}
+                  </a>
+                );
+              }
+              return (
+                <p key={j} className="text-gray-500 text-sm leading-relaxed">{line}</p>
+              );
+            })}
           </motion.div>
         ))}
       </div>

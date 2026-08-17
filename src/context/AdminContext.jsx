@@ -194,7 +194,7 @@ India should build more intelligently with hybrid systems that optimize concrete
     phone1: '+91 90367 44017',
     phone2: '+91 7259921111',
     email1: 'info@e-construct.org',
-    email2: 'info@e-construct.org',
+    email2: 'business@e-construct.org',
     hours: 'Mon – Fri: 9:00 AM – 7:00 PM',
     facebook: 'https://www.facebook.com/econstruct.in',
     linkedin: 'https://www.linkedin.com/company/econstruct-design-and-build-pvt-ltd/',
@@ -243,7 +243,7 @@ Notable project types include high-rise buildings, villas, hospitals, and indust
 
 --- CONTACT ---
 Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.
-Email: info@e-construct.org
+Email: info@e-construct.org | business@e-construct.org
 Phone: +91 90367 44017 | +91 7259921111 
 Office Hours: Mon – Fri, 9:00 AM – 7:00 PM
 
@@ -279,7 +279,7 @@ The company is led by experienced architects and BIM specialists with decades of
   },
   footerContent: {
     logoUrl: '/logo.webp',
-    companyDesc: 'India\'s leading Corporate Training & Consultancy firm. We help engineering students and professionals become industry-ready and provide world-class structural design services.',
+    companyDesc: 'Engineering consultancy, civil contracting, and corporate training. Delivering world-class structural design, advanced BIM solutions, and comprehensive project management.',
     newsletterTitle: 'Subscribe to our Newsletter',
     newsletterSubtitle: 'Join for Engineering updates and industry insights.',
     copyrightName: 'E-CONSTRUCT Design & Build Pvt Ltd',
@@ -288,7 +288,7 @@ The company is led by experienced architects and BIM specialists with decades of
       { name: 'Civil Engineering & Structural Consultancy', path: '/services/structural-consultancy' },
       { name: 'Project Management (PMC)', path: '/services' },
       { name: 'Pre-Engineered Buildings (PEB)', path: '/services' },
-      { name: 'Corporate Training', path: '/careers' },
+      { name: 'Corporate Training with IIT Bhubaneswar', path: '/careers' },
       { name: 'Software Mastery (STAAD.Pro, ETABS)', path: '/services' },
       { name: 'BIM Implementation', path: '/services/bim-consultancy' },
     ],
@@ -578,7 +578,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 32; // bump this when defaults change to force a migration
+const DATA_VERSION = 35; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -603,10 +603,16 @@ export const AdminProvider = ({ children }) => {
           loadedFlipbooks = loadedFlipbooks.filter(f => !f.pdfUrl?.includes('ECONSTRUCT_Green_Infrastructure'));
         }
 
-        // Migrate footer usefulLinks if version is older
+        // Migrate footer usefulLinks & companyDesc if version is older
+        const isOldDesc = parsed.footerContent?.companyDesc?.includes('India\'s leading Corporate Training') || parsed.footerContent?.companyDesc?.includes('industry-ready');
         const loadedFooterContent = parsed._version >= DATA_VERSION
-          ? { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}) }
-          : { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}), usefulLinks: DEFAULT_DATA.footerContent.usefulLinks };
+          ? { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}), ...(isOldDesc ? { companyDesc: DEFAULT_DATA.footerContent.companyDesc } : {}) }
+          : {
+              ...DEFAULT_DATA.footerContent,
+              ...(parsed.footerContent || {}),
+              usefulLinks: DEFAULT_DATA.footerContent.usefulLinks,
+              companyDesc: isOldDesc || !parsed.footerContent?.companyDesc ? DEFAULT_DATA.footerContent.companyDesc : parsed.footerContent.companyDesc
+            };
 
         // Always deep-merge nested content objects so new keys from defaults are never lost
         const merged = {
@@ -628,7 +634,19 @@ export const AdminProvider = ({ children }) => {
           aboutContent: parsed._version >= DATA_VERSION ? { ...DEFAULT_DATA.aboutContent, ...(parsed.aboutContent || {}) } : DEFAULT_DATA.aboutContent,
           aboutPageContent: { ...DEFAULT_DATA.aboutPageContent, ...(parsed.aboutPageContent || {}) },
           chatbotConfig: { ...DEFAULT_DATA.chatbotConfig, ...(parsed.chatbotConfig || {}) },
-          contact: { ...DEFAULT_DATA.contact, ...(parsed._version >= DATA_VERSION ? (parsed.contact || {}) : {}) },
+          contact: {
+            ...DEFAULT_DATA.contact,
+            ...(parsed._version >= DATA_VERSION
+              ? (parsed.contact || {})
+              : (parsed.contact
+                ? {
+                  ...parsed.contact,
+                  email2: (parsed.contact.email2 && parsed.contact.email2 !== 'info@e-construct.org' && parsed.contact.email2 !== 'info@e-construct.in')
+                    ? parsed.contact.email2
+                    : 'business@e-construct.org'
+                }
+                : {}))
+          },
           heroContent: parsed._version >= DATA_VERSION ? { ...DEFAULT_DATA.heroContent, ...(parsed.heroContent || {}) } : DEFAULT_DATA.heroContent,
           _version: DATA_VERSION,
         };

@@ -637,7 +637,10 @@ const StructuralConsultancy = () => {
                     </div>
                     <div>
                       <h4 className="text-gray-400 text-sm font-bold uppercase tracking-wide mb-1">Email Us</h4>
-                      <a href="mailto:info@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">info@e-construct.org</a>
+                      <div className="flex flex-col">
+                        <a href="mailto:info@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">info@e-construct.org</a>
+                        <a href="mailto:business@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">business@e-construct.org</a>
+                      </div>
                     </div>
                   </div>
 

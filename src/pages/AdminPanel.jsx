@@ -1344,8 +1344,8 @@ const ContactManager = () => {
           <div className="space-y-4">
             <Input label="Phone 1" value={form.phone1 || ''} onChange={v => setForm(p => ({ ...p, phone1: v }))} placeholder="+91 91122 34455" />
             <Input label="Phone 2" value={form.phone2 || ''} onChange={v => setForm(p => ({ ...p, phone2: v }))} placeholder="+91 91122 34488" />
-            <Input label="Email 1" value={form.email1 || ''} onChange={v => setForm(p => ({ ...p, email1: v }))} placeholder="support@e-construct.in" />
-            <Input label="Email 2" value={form.email2 || ''} onChange={v => setForm(p => ({ ...p, email2: v }))} placeholder="info@e-construct.in" />
+            <Input label="Email 1" value={form.email1 || ''} onChange={v => setForm(p => ({ ...p, email1: v }))} placeholder="info@e-construct.org" />
+            <Input label="Email 2" value={form.email2 || ''} onChange={v => setForm(p => ({ ...p, email2: v }))} placeholder="business@e-construct.org" />
           </div>
         </Card>
         <Card>
