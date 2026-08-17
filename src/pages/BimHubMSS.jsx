@@ -153,7 +153,7 @@ const BimHubMSS = () => {
     { q: 'What candidate qualities (3 P\'s) are required?', a: '1. Passion for Structural Engineering — Key to a successful structural design career.\n2. Patience to learn — Structural engineering requires patience to master codes & software.\n3. Practice — Constant practice is required to gain expertise on live projects.' },
     { q: 'What learning activities & exam pattern are included?', a: 'Activities: 48-hr Group Challenge, 24-hr Individual Challenge, MASS Mock Interviews, Tuesday Code Reading, Weekly Objective Tests, Monthly Project Reviews.\nExam Pattern (800 Marks Total):\n• Written Technical Test: 200 Marks\n• Practical Exam on Live Project: 200 Marks\n• Technical Interview: 200 Marks\n• Project Assignments, Attendance (80% min) & Professional Habits: 200 Marks' },
     { q: 'What certification & experience letter will I receive?', a: 'Upon successful exam completion, you receive:\n• Working experience letter of 7 months\n• PG Diploma Certification of 7 months issued by Econstruct Design & Build Pvt Ltd\n• Professional Portfolio creation assistance\n• Visual / Video resume building guidance\n• Formals photoshoot for LinkedIn profile & resume' },
-    { q: 'How does 100% placement guarantee & assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 7 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
+    { q: 'How does 100% Placement Assistance & assistance work?', a: 'Our placement Strategy includes imparting technical skills + real project experience + portfolio creation + 7 months experience letter to remove freshers tag. Upon exam completion, candidates get minimum 6–8 genuine interview opportunities in India, UAE, and Oman.' },
     { q: 'What is the fee structure & payment policy?', a: 'Total Fee is ₹ 2,10,000 (AED 9,000 or US$ 2,510) inclusive of 18% GST (Base ₹1,77,967 + 18% GST). Fees need to be paid upfront; maximum 2 installments can be approved by the admission counselor. Fee is strictly non-refundable & non-transferable.' },
   ];
   const [openFaq, setOpenFaq] = useState(null);
@@ -244,8 +244,8 @@ const BimHubMSS = () => {
           <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
               {[
-                { to: '900', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-                { to: '50', s: '+', label: 'Hiring Partners', icon: Building2 },
+                { to: '2000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
+                { to: '100', s: '+', label: 'Hiring Partners', icon: Building2 },
                 { to: '100', s: '%', label: 'Placement Guarantee', icon: TrendingUp },
                 { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
@@ -1279,7 +1279,7 @@ const BimHubMSS = () => {
                     "IS-456, IS-800, IS-1893, IS-13920 & IS-16700 Code compliance training",
                     "International codes: BS 8110, ACI 318, CEB FIP 90, UBC 97",
                     "Full Digital Library — 1000+ Technical Books Access",
-                    "100% Placement Guarantee Support & CRM Access"
+                    "100% Placement Assistance Support & CRM Access"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
@@ -1340,7 +1340,7 @@ const BimHubMSS = () => {
                 Ready to Transform<br /><span className="text-yellow-500 italic font-serif">Your Career?</span>
               </h2>
               <p className="text-gray-300 text-base leading-relaxed">
-                Join 900+ structural engineers who have successfully launched high-growth careers in top engineering consultancies.
+                Join 2,000+ structural engineers who have successfully launched high-growth careers in top engineering consultancies.
               </p>
             </motion.div>
 

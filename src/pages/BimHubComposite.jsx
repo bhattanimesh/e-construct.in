@@ -180,14 +180,14 @@ const BimHubComposite = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-                1,000<span className="text-3xl md:text-4xl ml-1">+</span>
+                2,000<span className="text-3xl md:text-4xl ml-1">+</span>
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Graduates</div>
             </div>
 
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-                50<span className="text-3xl md:text-4xl ml-1">+</span>
+                100<span className="text-3xl md:text-4xl ml-1">+</span>
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Partners</div>
             </div>
@@ -422,7 +422,7 @@ const BimHubComposite = () => {
                   "24 Month Experience Letter",
                   "Indian Codes: IS-456 2000 | IS-800 | IS-1893 2016 | IS-13920 | IS-16700",
                   "Digital Library",
-                  "100% Placement Guarantee",
+                  "100% Placement Assistance",
                   "Project Management Tool",
                   "World class CRM system"
                 ].map((item, i) => (
@@ -474,8 +474,8 @@ const BimHubComposite = () => {
                 key={category}
                 onClick={() => { setActiveFaqCategory(category); setActiveFaqIndex(null); }}
                 className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeFaqCategory === category
-                    ? 'bg-[#fbc02d] text-gray-900 shadow-[0_5px_15px_rgba(251,192,45,0.4)]'
-                    : 'bg-slate-100 text-gray-600 hover:bg-slate-200'
+                  ? 'bg-[#fbc02d] text-gray-900 shadow-[0_5px_15px_rgba(251,192,45,0.4)]'
+                  : 'bg-slate-100 text-gray-600 hover:bg-slate-200'
                   }`}
               >
                 {category}

@@ -152,7 +152,7 @@ const BimHubMSB = () => {
     { q: 'What is included in the "On-job Learning Program"?', a: 'The On-job Learning Program allows you to gain hands-on experience in real-world project execution. You will work alongside the Econstruct technical team from Center Line Plan (CLP) to Good for Construction (GFC) drawings, covering project coordination, scheduling with Primavera P6, 4D BIM with Synchro, and clash detection with Navisworks.' },
     { q: 'Will I receive a certification upon completing the program?', a: 'Yes, upon successful completion of the program, you will receive an industry-recognized certification provided by Econstruct Design & Build Pvt Ltd. Additionally, you will also be given an official experience letter and 100% placement assistance.' },
     { q: 'What software tools will I learn during the program?', a: 'The program covers 8+ BIM and project management tools plus custom spreadsheets: AutoCAD, REVIT Architecture, REVIT Structures, REVIT MEP, Synchro 4D BIM, Navisworks Manage, Infraworks, Primavera P6, and 40+ Design Spreadsheets.' },
-    { q: 'Is there any placement assistance after completing the program?', a: 'Yes, the program offers a 100% placement guarantee. You will receive 6–8 genuine interview opportunities in India, UAE, and internationally, supported by video resumes, mock interviews, and portfolio building.' },
+    { q: 'Is there any placement assistance after completing the program?', a: 'Yes, the program offers a 100% Placement Assistance. You will receive 6–8 genuine interview opportunities in India, UAE, and internationally, supported by video resumes, mock interviews, and portfolio building.' },
     { q: 'Can I choose the mode of learning for this program?', a: 'Yes, the program offers flexible learning modes: Offline (Bangalore HQ), Online Working Professionals, Online Non-Working (WFH environment), and Hybrid mode.' },
   ];
   const [openFaq, setOpenFaq] = useState(null);
@@ -240,8 +240,8 @@ const BimHubMSB = () => {
           <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
               {[
-                { to: '900', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-                { to: '50', s: '+', label: 'Hiring Partners', icon: Building2 },
+                { to: '2000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
+                { to: '100', s: '+', label: 'Hiring Partners', icon: Building2 },
                 { to: '100', s: '%', label: 'Placement Rate', icon: TrendingUp },
                 { to: '7–12', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
@@ -851,7 +851,7 @@ const BimHubMSB = () => {
                     ['Program Duration', '7–12 Months'],
                     ['Next Batch', '15th April 2026'],
                     ['Learning Mode', 'Online / Offline / Hybrid'],
-                    ['Job Placement', '100% Placement Guarantee'],
+                    ['Job Placement', '100% Placement Assistance'],
                     ['Software Stack', 'AutoCAD, REVIT, Synchro, Navisworks, Primavera P6'],
                     ['Certification', 'Industry Certificate + Experience Letter'],
                   ].map(([l, v]) => (
@@ -1163,7 +1163,7 @@ const BimHubMSB = () => {
                     "AutoCAD · REVIT Architecture · REVIT Structures · REVIT MEP · Synchro · Navisworks · Infraworks · Primavera P6",
                     "40+ Customized Design Spreadsheets for estimation, BOQ & project control",
                     "Full Digital Library — 1000+ Technical Books Access",
-                    "100% Placement Guarantee Support & CRM Access"
+                    "100% Placement Assistance Support & CRM Access"
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-3">
                       <CheckCircle2 className="w-5 h-5 text-green-600 mt-0.5 shrink-0" />
@@ -1224,7 +1224,7 @@ const BimHubMSB = () => {
                 Ready to Transform<br /><span className="text-yellow-500 italic font-serif">Your Career?</span>
               </h2>
               <p className="text-gray-300 text-base leading-relaxed">
-                Join 900+ BIM and project management engineers who have successfully launched high-growth careers in top consultancies.
+                Join 2,000+ BIM and project management engineers who have successfully launched high-growth careers in top consultancies.
               </p>
             </motion.div>
 

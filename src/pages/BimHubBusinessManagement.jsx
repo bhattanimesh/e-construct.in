@@ -115,7 +115,7 @@ const pricingIncludes = [
   '100% Business Assistance',
   'Digital Library',
   'Project Management Tool',
-  '100% Placement Guarantee',
+  '100% Placement Assistance',
 ];
 
 const faqs = [

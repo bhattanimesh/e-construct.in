@@ -181,14 +181,14 @@ const BimHubDrawingDrafting = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-5xl mx-auto">
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-                1,000<span className="text-3xl md:text-4xl ml-1">+</span>
+                2,000<span className="text-3xl md:text-4xl ml-1">+</span>
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Graduates</div>
             </div>
 
             <div className="bg-white p-10 rounded-2xl shadow-[0_10px_40px_-10px_rgba(0,0,0,0.1)] border border-gray-100 flex flex-col items-center justify-center transition-transform duration-300 hover:-translate-y-2 group">
               <div className="text-5xl md:text-6xl font-black text-[#fbc02d] mb-4 flex items-baseline drop-shadow-sm group-hover:scale-110 transition-transform duration-300">
-                50<span className="text-3xl md:text-4xl ml-1">+</span>
+                100<span className="text-3xl md:text-4xl ml-1">+</span>
               </div>
               <div className="text-gray-800 font-extrabold uppercase tracking-[0.15em] text-sm md:text-base">Partners</div>
             </div>
@@ -623,8 +623,8 @@ const BimHubDrawingDrafting = () => {
                   onClick={() => setCurrentSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
                   className={`transition-all duration-500 rounded-full ${currentSlide === idx
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
+                    ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
+                    : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
                     }`}
                 />
               ))}
@@ -852,8 +852,8 @@ const BimHubDrawingDrafting = () => {
                   onClick={() => setCurrentVidSlide(idx)}
                   aria-label={`Go to video ${idx + 1}`}
                   className={`transition-all duration-500 rounded-full ${currentVidSlide === idx
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
+                    ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
+                    : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
                     }`}
                 />
               ))}
@@ -899,8 +899,8 @@ const BimHubDrawingDrafting = () => {
                       key={idx}
                       onClick={() => setActivePlaylistItem(idx)}
                       className={`text-left p-4 rounded-xl transition-all duration-300 flex items-start gap-4 ${isActive
-                          ? 'bg-[#fbc02d] text-slate-900 shadow-md transform scale-[1.02]'
-                          : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
+                        ? 'bg-[#fbc02d] text-slate-900 shadow-md transform scale-[1.02]'
+                        : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
                         }`}
                     >
                       <div className={`mt-1 flex-shrink-0 ${isActive ? 'text-slate-900' : 'text-gray-500'}`}>
@@ -941,8 +941,8 @@ const BimHubDrawingDrafting = () => {
                   setActiveFaqIndex(null);
                 }}
                 className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${activeFaqCategory === category
-                    ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1'
-                    : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
+                  ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1'
+                  : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
                   }`}
               >
                 {category}
@@ -1005,7 +1005,7 @@ const BimHubDrawingDrafting = () => {
                   "BIM Collaborate Pro (Autodesk Construction Cloud)",
                   "Indian Codes: SP 34:1987 | IS 5525:1969 | IS 13920:2016 | SP 46:2003 | IS 10711:2001",
                   "Digital Library — 1000+ Technical Books",
-                  "100% Placement Guarantee"
+                  "100% Placement Assistance"
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-4">
                     <div className="bg-green-100 p-1 rounded-full shrink-0">

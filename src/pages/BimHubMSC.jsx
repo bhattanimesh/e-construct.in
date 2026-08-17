@@ -165,8 +165,8 @@ const BimHubMSC = () => {
           <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
             <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
               {[
-                { to: '1000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
-                { to: '50', s: '+', label: 'Hiring Partners', icon: Building2 },
+                { to: '2000', s: '+', label: 'Graduates Placed', icon: GraduationCap },
+                { to: '100', s: '+', label: 'Hiring Partners', icon: Building2 },
                 { to: '100', s: '%', label: 'Placement Assistance', icon: TrendingUp },
                 { to: '24', s: ' Months', label: 'Duration (ON-JOB)', icon: Clock },
               ].map((s, i) => (
@@ -823,8 +823,8 @@ const BimHubMSC = () => {
                 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
                 Ready to Transform<br /><span className="accent-text italic">Your Career?</span>
               </h2>
-              <p className="text-gray-400 text-base leading-relaxed">
-                Join 1,000+ graduates who have already built successful careers through our 24-month on-job learning program.
+              <p className="text-gray-300 text-base leading-relaxed">
+                Join 2,000+ graduates who have already built successful careers through our 24-month on-job learning program.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
