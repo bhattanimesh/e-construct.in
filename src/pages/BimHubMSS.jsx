@@ -484,7 +484,7 @@ const BimHubMSS = () => {
               <div className="bg-slate-800/90 border border-yellow-500/40 p-6 rounded-2xl mb-8 backdrop-blur-md">
                 <div className="text-yellow-400 font-extrabold text-xl mb-1">6–8 Genuine Job Interviews</div>
                 <div className="text-gray-300 text-sm mb-4 font-medium">100% Placement Support in Structural Consultancies</div>
-                <Btn href="#apply-now">Enroll for Placement Assistance</Btn>
+                <Btn href="#apply-now">Enroll now and get Placed!</Btn>
               </div>
             </motion.div>
 
