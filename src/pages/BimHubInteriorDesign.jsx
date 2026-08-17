@@ -509,11 +509,10 @@ const BimHubInteriorDesign = () => {
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`transition-all duration-500 rounded-full ${
-                    currentSlide === idx
-                      ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
-                      : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
-                  }`}
+                  className={`transition-all duration-500 rounded-full ${currentSlide === idx
+                    ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
+                    : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
+                    }`}
                 />
               ))}
             </div>
@@ -531,7 +530,7 @@ const BimHubInteriorDesign = () => {
               <div className="absolute top-0 left-0 w-2 h-full bg-[#fbc02d]"></div>
 
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-6 leading-tight tracking-tight">
-                One-on-One <br className="hidden md:block"/>
+                One-on-One <br className="hidden md:block" />
                 <span className="text-[#fbc02d] drop-shadow-sm">Career Discussion</span>
               </h2>
 
@@ -582,10 +581,6 @@ const BimHubInteriorDesign = () => {
                       <a href="https://wa.me/919036744017" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-gray-800 font-bold hover:text-[#25D366] transition group">
                         <span className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">&#10003;</span>
                         +91 90367 44017 <span className="text-xs font-normal text-gray-400 border border-gray-200 px-2 py-1 rounded-md ml-auto">Click to Chat</span>
-                      </a>
-                      <a href="https://wa.me/917259222888" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-gray-800 font-bold hover:text-[#25D366] transition group">
-                        <span className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">&#10003;</span>
-                        +91 72592 22888 <span className="text-xs font-normal text-gray-400 border border-gray-200 px-2 py-1 rounded-md ml-auto">Click to Chat</span>
                       </a>
                     </div>
                   </div>
@@ -670,7 +665,7 @@ const BimHubInteriorDesign = () => {
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">2</span>
-                Online <br className="hidden md:block xl:hidden"/><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Working Professionals)</span>
+                Online <br className="hidden md:block xl:hidden" /><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Working Professionals)</span>
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
                 <li className="flex items-start gap-2"><span className="text-[#fbc02d] mt-1">•</span>Designed for working professionals who cannot invest 8-9 hours daily.</li>
@@ -690,7 +685,7 @@ const BimHubInteriorDesign = () => {
             <div className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-8 hover:-translate-y-2 transition-transform duration-300 flex flex-col h-full flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-3">
                 <span className="w-8 h-8 rounded-full bg-[#fbc02d]/20 text-[#fbc02d] flex items-center justify-center text-sm">3</span>
-                Online <br className="hidden md:block xl:hidden"/><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Non-Working)</span>
+                Online <br className="hidden md:block xl:hidden" /><span className="text-sm font-semibold text-gray-500 xl:ml-2">(Non-Working)</span>
               </h3>
               <ul className="space-y-3 text-gray-600 text-sm font-medium leading-relaxed flex-1">
                 <li className="flex items-start gap-2"><span className="text-[#fbc02d] mt-1">•</span>Ideal for those who can invest the whole day in training but prefer not to relocate to Bangalore.</li>
@@ -764,11 +759,10 @@ const BimHubInteriorDesign = () => {
                     <button
                       key={idx}
                       onClick={() => setActivePlaylistItem(idx)}
-                      className={`text-left p-4 rounded-xl transition-all duration-300 flex items-start gap-4 ${
-                        isActive
-                          ? 'bg-[#fbc02d] text-slate-900 shadow-md transform scale-[1.02]'
-                          : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
-                      }`}
+                      className={`text-left p-4 rounded-xl transition-all duration-300 flex items-start gap-4 ${isActive
+                        ? 'bg-[#fbc02d] text-slate-900 shadow-md transform scale-[1.02]'
+                        : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
+                        }`}
                     >
                       <div className={`mt-1 flex-shrink-0 ${isActive ? 'text-slate-900' : 'text-gray-500'}`}>
                         {isActive ? <div className="w-4 h-4 bg-slate-900 rounded-sm animate-pulse"></div> : <span className="font-bold font-mono">{idx + 1}</span>}
@@ -806,11 +800,10 @@ const BimHubInteriorDesign = () => {
                   setActiveFaqCategory(category);
                   setActiveFaqIndex(null);
                 }}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${
-                  activeFaqCategory === category
-                    ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1'
-                    : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
-                }`}
+                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${activeFaqCategory === category
+                  ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1'
+                  : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
+                  }`}
               >
                 {category}
               </button>
@@ -860,7 +853,7 @@ const BimHubInteriorDesign = () => {
             <div className="p-8 md:p-14 lg:w-2/3 flex flex-col justify-center">
               <span className="inline-block bg-blue-100 text-blue-800 text-xs font-black uppercase tracking-[0.2em] px-4 py-2 rounded-full mb-6 max-w-max">100% Placement Program</span>
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight">
-                Interior Designing Redefined: <br className="hidden md:block"/> <span className="text-[#fbc02d]">100% Placement Program</span>
+                Interior Designing Redefined: <br className="hidden md:block" /> <span className="text-[#fbc02d]">100% Placement Program</span>
               </h2>
               <h3 className="text-xl md:text-2xl font-bold text-gray-600 mb-8 border-l-4 border-[#fbc02d] pl-4">Master Study In Interior Designing with Project Management</h3>
 
@@ -922,14 +915,6 @@ const BimHubInteriorDesign = () => {
               className="inline-flex items-center justify-center gap-3 bg-gray-900 text-white font-black px-10 py-5 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm"
             >
               <span>&#128172;</span> WhatsApp +91 90367 44017
-            </a>
-            <a
-              href="https://wa.me/917259222888"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white text-gray-900 font-black px-10 py-5 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm"
-            >
-              <span>&#128172;</span> WhatsApp +91 72592 22888
             </a>
           </div>
         </div>

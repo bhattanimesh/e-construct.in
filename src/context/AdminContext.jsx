@@ -193,7 +193,6 @@ India should build more intelligently with hybrid systems that optimize concrete
     office: 'Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.',
     phone1: '+91 90367 44017',
     phone2: '+91 7259921111',
-    phone3: '+91 7259222888',
     email1: 'info@e-construct.org',
     email2: 'info@e-construct.org',
     hours: 'Mon – Fri: 9:00 AM – 7:00 PM',
@@ -245,7 +244,7 @@ Notable project types include high-rise buildings, villas, hospitals, and indust
 --- CONTACT ---
 Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.
 Email: info@e-construct.org
-Phone: +91 90367 44017 | +91 7259921111 | +91 7259222888
+Phone: +91 90367 44017 | +91 7259921111 
 Office Hours: Mon – Fri, 9:00 AM – 7:00 PM
 
 --- TEAM ---

@@ -475,8 +475,8 @@ const BimHubMSB = () => {
                 key={doc.id}
                 onClick={() => setActivePdf(idx)}
                 className={`px-5 py-3 rounded-2xl text-xs font-extrabold transition-all duration-300 border flex items-center gap-2 ${activePdf === idx
-                    ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-lg scale-105'
-                    : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
+                  ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-lg scale-105'
+                  : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
                   }`}
               >
                 {doc.type === 'video' ? (
@@ -589,8 +589,8 @@ const BimHubMSB = () => {
                 key={poster.id}
                 onClick={() => setActivePoster(idx)}
                 className={`px-5 py-2.5 rounded-full text-xs font-extrabold transition-all duration-300 border ${activePoster === idx
-                    ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-md scale-105'
-                    : 'bg-slate-100 text-slate-700 border-gray-200 hover:bg-slate-200'
+                  ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-md scale-105'
+                  : 'bg-slate-100 text-slate-700 border-gray-200 hover:bg-slate-200'
                   }`}
               >
                 {poster.title}
@@ -767,9 +767,6 @@ const BimHubMSB = () => {
                     <a href="https://wa.me/919036744017" target="_blank" rel="noreferrer" className="text-slate-900 font-bold hover:text-yellow-600 transition flex items-center gap-1.5">
                       💬 +91 90367 44017
                     </a>
-                    <a href="https://wa.me/917259222888" target="_blank" rel="noreferrer" className="text-slate-900 font-bold hover:text-yellow-600 transition flex items-center gap-1.5">
-                      💬 +91 72592 22888
-                    </a>
                   </div>
                 </div>
               </div>
@@ -828,8 +825,8 @@ const BimHubMSB = () => {
                       key={idx}
                       onClick={() => setActivePlaylistItem(idx)}
                       className={`text-left p-3 rounded-xl transition-all flex items-start gap-2 ${activePlaylistItem === idx
-                          ? 'bg-yellow-500 text-slate-950 font-bold shadow-md'
-                          : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
+                        ? 'bg-yellow-500 text-slate-950 font-bold shadow-md'
+                        : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
                         }`}
                     >
                       <span className="text-xs font-mono font-bold mt-0.5">{idx + 1}</span>

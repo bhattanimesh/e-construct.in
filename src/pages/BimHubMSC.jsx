@@ -490,7 +490,7 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── REVAMPED STUDENT REVIEWS / TESTIMONIALS SECTION ─────── */}
-      <StudentVideoReviewsShowcase 
+      <StudentVideoReviewsShowcase
         subtitle="Hear directly from our PG Diploma in Entrepreneurship in Structures, BIM and Project Management (MSC) trainees and alumni working in top structural design & BIM firms."
       />
 
@@ -520,10 +520,10 @@ const BimHubMSC = () => {
                 <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Our Leadership</span>
               </div>
               <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight tracking-tight">
-                Meet Our Founder & <br className="hidden xl:block"/> Managing Director
+                Meet Our Founder & <br className="hidden xl:block" /> Managing Director
               </h2>
               <h3 className="text-2xl font-bold text-gray-600 mb-6 border-l-4 border-[#fbc02d] pl-4">Mr. Sandeep Pingale</h3>
-              
+
               <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-8">
                 With over two decades of experience in structural engineering, Mr. Pingale has been instrumental in shaping the future of structural engineering education. His vision of practical, hands-on learning has helped thousands of students transition into successful professionals.
               </p>
@@ -531,15 +531,15 @@ const BimHubMSC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
                 <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
                   <div className="text-3xl font-black text-[#fbc02d] mb-2">20+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Years Industry <br/> Experience</div>
+                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Years Industry <br /> Experience</div>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
                   <div className="text-3xl font-black text-[#fbc02d] mb-2">1000+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Projects <br/> Completed</div>
+                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Projects <br /> Completed</div>
                 </div>
                 <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
                   <div className="text-3xl font-black text-[#fbc02d] mb-2">500+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Students <br/> Mentored</div>
+                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Students <br /> Mentored</div>
                 </div>
               </div>
 
@@ -622,7 +622,7 @@ const BimHubMSC = () => {
             {/* Payment Account Details */}
             <div className="bg-slate-900 rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] p-8 md:p-12 text-white relative overflow-hidden">
               <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#fbc02d]/10 rounded-full blur-[50px] pointer-events-none" />
-              
+
               <h3 className="text-3xl font-black mb-8 flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-[#fbc02d] flex items-center justify-center text-slate-900 text-xl font-bold">₹</div>
                 Make Payment
@@ -653,11 +653,11 @@ const BimHubMSC = () => {
                   </div>
                 </div>
               </div>
-              
+
               <div>
                 <p className="text-gray-400 text-sm mb-4">Please share the payment screenshot to the following contact numbers:</p>
                 <div className="flex flex-wrap gap-4">
-                  {["+91 9036744017", "+91 7259222888", "+91 7259921111"].map(num => (
+                  {["+91 9036744017", "+91 7259921111"].map(num => (
                     <span key={num} className="bg-white/10 text-white font-bold py-2 px-4 rounded-lg border border-white/10 text-sm flex items-center gap-2">
                       <Phone size={14} /> {num}
                     </span>
@@ -754,7 +754,7 @@ const BimHubMSC = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                
+
                 <div className="text-center sm:text-left z-10">
                   <h3 className="text-xl md:text-2xl font-black mb-3 leading-snug">
                     This is ON-THE-JOB Learning <br />
@@ -832,7 +832,7 @@ const BimHubMSC = () => {
               <Btn href="#enrollment">Apply Now — April 2026</Btn>
               <div className="flex gap-6">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
-                  <a key={n} href={`https://wa.me/${n.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
+                  <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"
                     className="flex items-center gap-1.5 text-white/40 text-xs font-semibold hover:text-white transition-colors">
                     <Phone className="w-3.5 h-3.5" />{n}
                   </a>

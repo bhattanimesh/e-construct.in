@@ -424,9 +424,9 @@ const BimHubDrawingDrafting = () => {
       <section className="py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <div className="rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 p-2 sm:p-4 transition-all duration-300 hover:shadow-orange-500/20">
-            <img 
-              src="/assets/dnd_poster_orange.jpeg" 
-              alt="Master Study In Engineering Drawing & Drafting Training Poster" 
+            <img
+              src="/assets/dnd_poster_orange.jpeg"
+              alt="Master Study In Engineering Drawing & Drafting Training Poster"
               className="w-full h-auto object-cover rounded-[2rem] shadow-md"
               loading="lazy"
             />
@@ -622,11 +622,10 @@ const BimHubDrawingDrafting = () => {
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
                   aria-label={`Go to slide ${idx + 1}`}
-                  className={`transition-all duration-500 rounded-full ${
-                    currentSlide === idx
+                  className={`transition-all duration-500 rounded-full ${currentSlide === idx
                       ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
                       : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -695,10 +694,6 @@ const BimHubDrawingDrafting = () => {
                       <a href="https://wa.me/919036744017" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-gray-800 font-bold hover:text-[#25D366] transition group">
                         <span className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">✅</span>
                         +91 90367 44017 <span className="text-xs font-normal text-gray-400 border border-gray-200 px-2 py-1 rounded-md ml-auto">Click to Chat</span>
-                      </a>
-                      <a href="https://wa.me/917259222888" target="_blank" rel="noreferrer" className="flex items-center gap-3 text-gray-800 font-bold hover:text-[#25D366] transition group">
-                        <span className="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center text-[#25D366] group-hover:scale-110 transition-transform">✅</span>
-                        +91 72592 22888 <span className="text-xs font-normal text-gray-400 border border-gray-200 px-2 py-1 rounded-md ml-auto">Click to Chat</span>
                       </a>
                     </div>
                   </div>
@@ -856,11 +851,10 @@ const BimHubDrawingDrafting = () => {
                   key={idx}
                   onClick={() => setCurrentVidSlide(idx)}
                   aria-label={`Go to video ${idx + 1}`}
-                  className={`transition-all duration-500 rounded-full ${
-                    currentVidSlide === idx
+                  className={`transition-all duration-500 rounded-full ${currentVidSlide === idx
                       ? 'w-10 h-3 bg-[#fbc02d] shadow-[0_0_10px_#fbc02d]'
                       : 'w-3 h-3 bg-white/60 hover:bg-white hover:scale-125'
-                  }`}
+                    }`}
                 />
               ))}
             </div>
@@ -904,11 +898,10 @@ const BimHubDrawingDrafting = () => {
                     <button
                       key={idx}
                       onClick={() => setActivePlaylistItem(idx)}
-                      className={`text-left p-4 rounded-xl transition-all duration-300 flex items-start gap-4 ${
-                        isActive
+                      className={`text-left p-4 rounded-xl transition-all duration-300 flex items-start gap-4 ${isActive
                           ? 'bg-[#fbc02d] text-slate-900 shadow-md transform scale-[1.02]'
                           : 'bg-slate-700/50 hover:bg-slate-700 text-gray-300'
-                      }`}
+                        }`}
                     >
                       <div className={`mt-1 flex-shrink-0 ${isActive ? 'text-slate-900' : 'text-gray-500'}`}>
                         {isActive ? <div className="w-4 h-4 bg-slate-900 rounded-sm animate-pulse"></div> : <span className="font-bold font-mono">{idx + 1}</span>}
@@ -947,11 +940,10 @@ const BimHubDrawingDrafting = () => {
                   setActiveFaqCategory(category);
                   setActiveFaqIndex(null);
                 }}
-                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${
-                  activeFaqCategory === category
+                className={`px-6 py-3 rounded-full font-bold transition-all duration-300 text-sm md:text-base ${activeFaqCategory === category
                     ? 'bg-[#fbc02d] text-slate-900 shadow-md transform -translate-y-1'
                     : 'bg-white border border-gray-200 text-gray-600 hover:bg-gray-100 hover:border-gray-300'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -1044,7 +1036,7 @@ const BimHubDrawingDrafting = () => {
                 className="w-full bg-[#25D366] text-white font-black px-8 py-5 rounded-xl hover:bg-[#1ebe5d] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm lg:text-base shadow-[0_15px_30px_rgba(37,211,102,0.3)] flex items-center justify-center gap-3 mb-4"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
                 </svg>
                 Chat on WhatsApp
               </a>
@@ -1082,7 +1074,7 @@ const BimHubDrawingDrafting = () => {
               className="inline-flex items-center justify-center gap-3 bg-[#25D366] text-white font-black px-10 py-5 rounded-xl hover:bg-[#1ebe5d] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm shadow-[0_15px_30px_rgba(37,211,102,0.3)]"
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
-                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
               </svg>
               Chat on WhatsApp
             </a>

@@ -473,11 +473,10 @@ const BimHubComposite = () => {
               <button
                 key={category}
                 onClick={() => { setActiveFaqCategory(category); setActiveFaqIndex(null); }}
-                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${
-                  activeFaqCategory === category
+                className={`px-6 py-2.5 rounded-full font-bold text-sm transition-all duration-300 ${activeFaqCategory === category
                     ? 'bg-[#fbc02d] text-gray-900 shadow-[0_5px_15px_rgba(251,192,45,0.4)]'
                     : 'bg-slate-100 text-gray-600 hover:bg-slate-200'
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -542,14 +541,6 @@ const BimHubComposite = () => {
               className="inline-flex items-center justify-center gap-3 bg-gray-900 text-white font-black px-10 py-5 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:bg-gray-800 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm"
             >
               WhatsApp +91 90367 44017
-            </a>
-            <a
-              href="https://wa.me/917259222888"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center justify-center gap-3 bg-white text-gray-900 font-black px-10 py-5 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] hover:bg-gray-50 hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm"
-            >
-              WhatsApp +91 72592 22888
             </a>
           </div>
         </div>

@@ -48,15 +48,15 @@ const BimConsultancy = () => {
       {/* 1. Hero Section */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-black pt-20 pb-12">
         <div className="absolute inset-0 w-full h-full">
-          <img 
-            src={BimHeroImage} 
-            alt="BIM Consultancy Hero" 
+          <img
+            src={BimHeroImage}
+            alt="BIM Consultancy Hero"
             className="w-full h-full object-cover opacity-50 scale-105 transition-transform duration-1000" loading="eager" decoding="async" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/20"></div>
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-4xl mx-auto flex flex-col items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="flex items-center gap-3 mb-6"
@@ -65,8 +65,8 @@ const BimConsultancy = () => {
             <span className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-sm">Our Expertise</span>
             <div className="w-12 h-[2px] bg-[#fbc02d]"></div>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
@@ -74,8 +74,8 @@ const BimConsultancy = () => {
           >
             BIM <span className="accent-text italic">Consultancy</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
@@ -84,7 +84,7 @@ const BimConsultancy = () => {
             Discover our comprehensive BIM solutions covering the entire project lifecycle—from basic planning to advanced 10D industrialization.
           </motion.p>
 
-          <motion.a 
+          <motion.a
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
@@ -106,12 +106,12 @@ const BimConsultancy = () => {
       {/* 1.5 Video Showcase */}
       <section className="relative z-10 w-full bg-black">
         <div className="w-full relative aspect-video">
-          <iframe 
+          <iframe
             className="absolute inset-0 w-full h-full"
-            src="https://www.youtube.com/embed/IVthBj46moo?autoplay=0&rel=0&showinfo=0" 
-            title="BIM Consultancy Overview" 
-            frameBorder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            src="https://www.youtube.com/embed/IVthBj46moo?autoplay=0&rel=0&showinfo=0"
+            title="BIM Consultancy Overview"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
         </div>
@@ -126,9 +126,9 @@ const BimConsultancy = () => {
             <div className="w-8 h-1 bg-[#fbc02d]"></div>
           </div>
           <SectionHeading title="Autodesk Ecosystem" />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -138,7 +138,7 @@ const BimConsultancy = () => {
               <p className="text-gray-600 font-medium leading-relaxed">Cloud-based platform for project delivery and construction management that connects your project teams and data in real-time.</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -149,7 +149,7 @@ const BimConsultancy = () => {
               <p className="text-gray-600 font-medium leading-relaxed">Identify and resolve coordination issues before construction begins, saving time and reducing costly rework.</p>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -160,8 +160,8 @@ const BimConsultancy = () => {
               <p className="text-gray-600 font-medium leading-relaxed">Experience your project in immersive virtual reality before breaking ground, enabling better decision-making.</p>
             </motion.div>
           </div>
-          
-          <motion.button 
+
+          <motion.button
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -187,24 +187,24 @@ const BimConsultancy = () => {
             {bim.dimensions.map((item, index) => {
               const DimIcon = DIM_ICONS[index % DIM_ICONS.length];
               return (
-              <motion.div 
-                key={item.id || index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="bg-white p-10 rounded-[2rem] shadow-md hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(251,192,45,0.25)] transition-all duration-300 border border-gray-100 hover:border-yellow-200 relative overflow-hidden group"
-              >
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#fbc02d]/10 rounded-bl-full group-hover:bg-[#fbc02d]/20 transition-colors"></div>
-                <div className="w-16 h-16 bg-[#fbc02d]/10 rounded-2xl flex items-center justify-center text-[#fbc02d] mb-8 border border-[#fbc02d]/20 group-hover:scale-110 transition-transform">
-                  <DimIcon size={32} />
-                </div>
-                <h3 className="text-2xl font-black text-slate-900 mb-4">{item.title}</h3>
-                <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
-                <div className="mt-8 text-yellow-500 font-bold uppercase tracking-widest text-xs flex items-center gap-2">
-                  <span className="text-5xl font-black text-gray-100 absolute bottom-4 right-6 group-hover:text-[#fbc02d]/20 transition-colors">{(item.dimId || item.id || '').replace('D', '')}</span>
-                </div>
-              </motion.div>
+                <motion.div
+                  key={item.id || index}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="bg-white p-10 rounded-[2rem] shadow-md hover:-translate-y-2 hover:shadow-[0_20px_40px_-5px_rgba(251,192,45,0.25)] transition-all duration-300 border border-gray-100 hover:border-yellow-200 relative overflow-hidden group"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#fbc02d]/10 rounded-bl-full group-hover:bg-[#fbc02d]/20 transition-colors"></div>
+                  <div className="w-16 h-16 bg-[#fbc02d]/10 rounded-2xl flex items-center justify-center text-[#fbc02d] mb-8 border border-[#fbc02d]/20 group-hover:scale-110 transition-transform">
+                    <DimIcon size={32} />
+                  </div>
+                  <h3 className="text-2xl font-black text-slate-900 mb-4">{item.title}</h3>
+                  <p className="text-gray-600 leading-relaxed font-medium">{item.desc}</p>
+                  <div className="mt-8 text-yellow-500 font-bold uppercase tracking-widest text-xs flex items-center gap-2">
+                    <span className="text-5xl font-black text-gray-100 absolute bottom-4 right-6 group-hover:text-[#fbc02d]/20 transition-colors">{(item.dimId || item.id || '').replace('D', '')}</span>
+                  </div>
+                </motion.div>
               );
             })}
           </div>
@@ -224,8 +224,8 @@ const BimConsultancy = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {bim.implementationSteps.map((step, idx) => (
-              <motion.div 
-                key={idx} 
+              <motion.div
+                key={idx}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -245,7 +245,7 @@ const BimConsultancy = () => {
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="max-w-[1500px] mx-auto px-[5%] relative z-10">
-          
+
           <div className="grid lg:grid-cols-2 gap-20">
             {/* Why Choose Us */}
             <div>
@@ -289,7 +289,7 @@ const BimConsultancy = () => {
           <p className="text-gray-600 text-lg mb-16 max-w-2xl mx-auto">
             Begin your BIM journey with our simple four-step process, mapped out for your convenience.
           </p>
-          
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-12 relative z-10">
             {howToGetStarted.map((step, idx) => (
               <div key={idx} className="relative flex flex-col items-center group h-full">
@@ -329,7 +329,7 @@ const BimConsultancy = () => {
             <div className="absolute top-10 right-10 text-gray-100 opacity-50">
               <Quote size={80} />
             </div>
-            
+
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeTestimonial}
@@ -376,16 +376,16 @@ const BimConsultancy = () => {
             A quick glance at how our BIM solutions created measurable improvements.
           </p>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="w-full max-w-5xl mx-auto rounded-[2.5rem] overflow-hidden shadow-2xl border border-gray-100 bg-slate-50"
           >
-            <img 
-              src={GpMetricsImage} 
-              alt="BIM Impact Metrics from Clients" 
+            <img
+              src={GpMetricsImage}
+              alt="BIM Impact Metrics from Clients"
               className="w-full h-auto object-contain hover:scale-[1.02] transition-transform duration-700" loading="lazy" decoding="async" />
           </motion.div>
         </div>
@@ -431,7 +431,7 @@ const BimConsultancy = () => {
             className="flex overflow-x-auto gap-6 sm:gap-8 pb-8 snap-x snap-mandatory no-scrollbar scrollbar-hide hide-scrollbar scroll-smooth"
           >
             {bim.sectors.map((sector, index) => (
-              <motion.div 
+              <motion.div
                 key={index}
                 initial={{ opacity: 0, x: 50 }}
                 whileInView={{ opacity: 1, x: 0 }}
@@ -440,9 +440,9 @@ const BimConsultancy = () => {
                 className="min-w-[280px] sm:min-w-[340px] md:min-w-[380px] bg-white rounded-[1.8rem] shadow-lg hover:shadow-2xl overflow-hidden border border-gray-100 snap-start group flex-shrink-0 flex flex-col transition-all duration-300 hover:-translate-y-1.5"
               >
                 <div className="h-[210px] overflow-hidden relative">
-                  <img 
-                    src={SECTOR_IMAGES[index] || SECTOR_IMAGES[0]} 
-                    alt={sector.title} 
+                  <img
+                    src={SECTOR_IMAGES[index] || SECTOR_IMAGES[0]}
+                    alt={sector.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" loading="lazy" decoding="async" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-300"></div>
                   <span className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md text-[#fbc02d] text-xs font-black uppercase tracking-wider px-3 py-1 rounded-full border border-yellow-500/30">
@@ -467,19 +467,19 @@ const BimConsultancy = () => {
       {/* 9. Contact Section */}
       <section className="py-24 bg-slate-900 relative z-10">
         <div className="max-w-[1400px] mx-auto px-[5%]">
-          
+
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch">
-            
+
             {/* Left Side: Contact Info */}
             <div className="w-full lg:w-5/12 bg-slate-900 rounded-[2.5rem] p-8 md:p-10 text-white relative overflow-hidden shadow-2xl">
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#fbc02d] opacity-5 rounded-bl-full"></div>
-              
+
               <div className="relative z-10">
                 <span className="text-[#fbc02d] font-bold uppercase tracking-widest text-xs mb-4 block">Contact Us Today</span>
                 <h2 className="text-3xl md:text-4xl font-medium mb-6 leading-tight tracking-tight">
                   Schedule a consultation with our <span className="accent-text italic">BIM experts</span> to explore how we can help transform your construction projects.
                 </h2>
-                
+
                 <div className="space-y-6 mt-8">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
@@ -490,7 +490,7 @@ const BimConsultancy = () => {
                       <a href="mailto:info@e-construct.org" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">info@e-construct.org</a>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center text-[#fbc02d] flex-shrink-0">
                       <Phone size={20} />
@@ -500,7 +500,6 @@ const BimConsultancy = () => {
                       <div className="flex flex-col">
                         <a href="tel:+919036744017" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">+91 9036744017</a>
                         <a href="tel:+917259921111" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">+91 7259921111</a>
-                        <a href="tel:+917259222888" className="text-lg font-medium hover:text-[#fbc02d] transition-colors">+91 7259222888</a>
                       </div>
                     </div>
                   </div>
@@ -546,21 +545,21 @@ const BimConsultancy = () => {
             {/* Right Side: Contact Form */}
             <div className="w-full lg:w-7/12 bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.25)] p-8 md:p-10 flex flex-col justify-center relative z-20">
               <h3 className="text-3xl font-black text-slate-900 mb-6">Send Us A Message</h3>
-              
+
               <form className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-bold text-gray-700 mb-2 block">Name *</label>
-                    <input 
-                      type="text" 
+                    <input
+                      type="text"
                       placeholder="Your full name"
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                     />
                   </div>
                   <div>
                     <label className="text-sm font-bold text-gray-700 mb-2 block">Email *</label>
-                    <input 
-                      type="email" 
+                    <input
+                      type="email"
                       placeholder="Your email address"
                       className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                     />
@@ -569,8 +568,8 @@ const BimConsultancy = () => {
 
                 <div>
                   <label className="text-sm font-bold text-gray-700 mb-2 block">Phone No. *</label>
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     placeholder="Your phone number"
                     className="w-full bg-gray-50 border border-gray-200 rounded-xl px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#fbc02d] focus:border-transparent transition-all"
                   />
@@ -591,7 +590,7 @@ const BimConsultancy = () => {
                   </div>
                 </div>
 
-                <button 
+                <button
                   type="submit"
                   className="w-full bg-slate-900 hover:bg-[#fbc02d] text-white hover:text-slate-900 font-bold py-4 rounded-xl transition-all duration-300 text-lg tracking-wide shadow-lg mt-6"
                 >

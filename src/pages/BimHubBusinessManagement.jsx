@@ -8,16 +8,16 @@ import {
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
 const whyJoin = [
-  { icon: Briefcase,     title: 'On Job Learning',       desc: 'Real-world, hands-on experience embedded into your daily work — learn while you earn.',         color: 'bg-yellow-50',  iconColor: 'text-yellow-500' },
-  { icon: Award,         title: '100% Job Guarantee',    desc: 'We stand behind our program with a full placement guarantee for every enrolled student.',        color: 'bg-green-50',   iconColor: 'text-green-600'  },
-  { icon: Rocket,        title: 'Start Your Business',   desc: 'Gain the marketing and management knowledge to launch and grow your own venture confidently.',    color: 'bg-blue-50',    iconColor: 'text-blue-600'   },
-  { icon: Heart,         title: 'Unleash Your Passion',  desc: 'Align your career with what drives you — build a brand around your strengths and interests.',    color: 'bg-purple-50',  iconColor: 'text-purple-600' },
+  { icon: Briefcase, title: 'On Job Learning', desc: 'Real-world, hands-on experience embedded into your daily work — learn while you earn.', color: 'bg-yellow-50', iconColor: 'text-yellow-500' },
+  { icon: Award, title: '100% Job Guarantee', desc: 'We stand behind our program with a full placement guarantee for every enrolled student.', color: 'bg-green-50', iconColor: 'text-green-600' },
+  { icon: Rocket, title: 'Start Your Business', desc: 'Gain the marketing and management knowledge to launch and grow your own venture confidently.', color: 'bg-blue-50', iconColor: 'text-blue-600' },
+  { icon: Heart, title: 'Unleash Your Passion', desc: 'Align your career with what drives you — build a brand around your strengths and interests.', color: 'bg-purple-50', iconColor: 'text-purple-600' },
 ];
 
 const workingOn = [
-  { icon: User,    title: 'Personal Branding', desc: 'Craft a compelling personal identity — your story, your presence, your digital footprint.' },
-  { icon: Users,   title: 'Team Branding',     desc: 'Build cohesive team identities that attract talent, inspire loyalty, and project authority.' },
-  { icon: Package, title: 'Product Branding',  desc: 'Position products and services to win in competitive markets through strategic brand design.' },
+  { icon: User, title: 'Personal Branding', desc: 'Craft a compelling personal identity — your story, your presence, your digital footprint.' },
+  { icon: Users, title: 'Team Branding', desc: 'Build cohesive team identities that attract talent, inspire loyalty, and project authority.' },
+  { icon: Package, title: 'Product Branding', desc: 'Position products and services to win in competitive markets through strategic brand design.' },
 ];
 
 const jobCategories = [
@@ -215,10 +215,10 @@ const BimHubBusinessManagement = () => (
     <section className="bg-[#fbc02d] py-6 px-4">
       <div className="max-w-[1500px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
         {[
-          { label: 'Duration',   value: '12 Months' },
-          { label: 'Mode',       value: 'Online & Offline' },
-          { label: 'New Batch',  value: '15th April 2026' },
-          { label: 'Seats',      value: '10–15 Per Batch' },
+          { label: 'Duration', value: '12 Months' },
+          { label: 'Mode', value: 'Online & Offline' },
+          { label: 'New Batch', value: '15th April 2026' },
+          { label: 'Seats', value: '10–15 Per Batch' },
         ].map((f) => (
           <div key={f.label}>
             <p className="text-gray-900 font-black text-xl md:text-2xl leading-tight">{f.value}</p>
@@ -506,14 +506,6 @@ const BimHubBusinessManagement = () => (
             className="inline-flex items-center gap-2 bg-gray-900 hover:bg-gray-800 text-white font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             <MessageCircle size={18} /> +91 90367 44017
-          </a>
-          <a
-            href="https://wa.me/917259222888"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-white hover:bg-gray-50 text-gray-900 font-bold px-8 py-3.5 rounded-full transition-all duration-300 shadow-lg"
-          >
-            <MessageCircle size={18} /> +91 72592 22888
           </a>
         </div>
       </div>
