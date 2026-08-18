@@ -45,34 +45,39 @@ const SectionLabel = ({ text }) => (
 
 // ─── HERO SECTION ─────────────────────────────────────────────────────────────
 
-const HeroSection = () => (
-  <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
-    <img
-      src={img1}
-      alt="E-Construct About"
-      className="absolute inset-0 w-full h-full object-cover scale-105" loading="lazy" decoding="async" />
-    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/10" />
-    <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-16 w-full">
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-      >
-        <div className="flex items-center gap-3 mb-4">
-          <span className="w-10 h-[2px] bg-yellow-500" />
-          <span className="text-yellow-400 font-bold uppercase tracking-[0.2em] text-xs">Who We Are</span>
-        </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-tight tracking-tight">
-          About <br />
-          <span className="accent-text italic">E-Construct</span>
-        </h1>
-        <p className="mt-4 text-white/70 text-base md:text-lg max-w-xl leading-relaxed">
-          India's premier civil engineering consultancy — building trust, one project at a time.
-        </p>
-      </motion.div>
-    </div>
-  </section>
-);
+const HeroSection = () => {
+  const { data } = useAdmin();
+  const heroImage = data?.aboutContent?.heroImage || '/training/32.jpeg';
+
+  return (
+    <section className="relative h-[60vh] min-h-[420px] flex items-end overflow-hidden">
+      <img
+        src={heroImage}
+        alt="E-Construct About"
+        className="absolute inset-0 w-full h-full object-cover scale-105" loading="lazy" decoding="async" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/50 to-black/20" />
+      <div className="relative z-10 max-w-[1400px] mx-auto px-6 pb-16 w-full">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <span className="w-10 h-[2px] bg-yellow-500" />
+            <span className="text-yellow-400 font-bold uppercase tracking-[0.2em] text-xs">Who We Are</span>
+          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium text-white leading-tight tracking-tight">
+            About <br />
+            <span className="accent-text italic">E-Construct</span>
+          </h1>
+          <p className="mt-4 text-white/70 text-base md:text-lg max-w-xl leading-relaxed">
+            India's premier civil engineering consultancy — building trust, one project at a time.
+          </p>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 // ─── INTRO SECTION ────────────────────────────────────────────────────────────
 
