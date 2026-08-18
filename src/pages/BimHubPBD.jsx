@@ -80,7 +80,7 @@ const BimHubPBD = () => {
     { q: 'What topics are covered in the PBD Technical Webinar?', a: 'Key topics include Non-Linear Dynamic Analysis, Pushover Analysis, Target Displacement, Performance Levels (IO, LS, CP), ETABS & PERFORM-3D modeling, and ASCE 41 / LATBSDC code provisions.' },
     { q: 'Will participants receive a Certificate of Participation?', a: 'Yes! All registered participants will receive an official Econstruct Certificate of Participation.' },
     { q: 'Will webinar presentation slides and PDF resources be provided?', a: 'Yes, attendees receive digital access to the PBD reference presentation, spreadsheets, and webinar session resources.' },
-    { q: 'How can I register for the upcoming PBD Live Masterclass?', a: 'You can register online by clicking the "Register Now" button or contacting our team via WhatsApp at +91 90367 44017 / +91 72592 22888.' },
+    { q: 'How can I register for the upcoming PBD Live Masterclass?', a: 'You can register online by clicking the "Register Now" button or contacting our team via WhatsApp at +91 90367 44017 / +91 72599 21111.' },
   ];
   const [openFaq, setOpenFaq] = useState(null);
 
@@ -348,7 +348,7 @@ const BimHubPBD = () => {
                   <span className="text-gray-400 text-xs font-semibold block">Need Assistance? Contact Us:</span>
                   <div className="flex flex-wrap gap-3 mt-1">
                     <span className="text-yellow-400 font-mono text-sm font-bold">📞 +91 90367 44017</span>
-                    <span className="text-yellow-400 font-mono text-sm font-bold">📞 +91 72592 22888</span>
+                    <span className="text-yellow-400 font-mono text-sm font-bold">📞 +91 72599 21111</span>
                   </div>
                 </div>
                 <Btn href="https://wa.me/919036744017?text=Hi%20Econstruct,%20I%20want%20to%20register%20for%20the%20PBD%20Webinar">
@@ -493,7 +493,7 @@ const BimHubPBD = () => {
               className="flex flex-col items-center lg:items-end gap-5 shrink-0">
               <Btn href="#register">Register For Webinar</Btn>
               <div className="flex gap-6">
-                {['+91 90367 44017', '+91 72592 22888'].map(n => (
+                {['+91 90367 44017', '+91 72599 21111'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g,'')}`} target="_blank" rel="noreferrer"
                     className="flex items-center gap-1.5 text-white/40 text-xs font-semibold hover:text-white transition-colors">
                     <Phone className="w-3.5 h-3.5" />{n}

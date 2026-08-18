@@ -443,11 +443,11 @@ const BimHubComposite = () => {
               <p className="text-gray-400 font-bold uppercase tracking-widest text-xs lg:text-sm mb-4">Composite Program</p>
               <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-3xl font-bold text-[#fbc02d]">₹</span>
-                <span className="text-5xl lg:text-5xl xl:text-6xl font-black text-white tracking-tighter">3,50,000</span>
+                <span className="text-5xl lg:text-5xl xl:text-6xl font-black text-white tracking-tighter">7,08,000</span>
               </div>
-              <p className="text-gray-300 font-medium mb-6">AED 16,225 or US$ 4,280</p>
+              <p className="text-[#fbc02d] font-semibold text-xs mb-6">(Inclusive of 18% GST)</p>
               <div className="bg-white/10 border border-white/20 p-4 rounded-xl mb-10">
-                <p className="text-sm font-bold text-white text-center">(₹ 2,96,610 + 18% GST)</p>
+                <p className="text-sm font-bold text-white text-center">(Base Fee: ₹ 6,00,000 + 18% GST: ₹ 1,08,000)</p>
               </div>
 
               <button className="w-full bg-[#fbc02d] text-slate-900 font-black px-8 py-5 rounded-xl hover:bg-[#ffe066] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm lg:text-base shadow-[0_15px_30px_rgba(251,192,45,0.3)]">

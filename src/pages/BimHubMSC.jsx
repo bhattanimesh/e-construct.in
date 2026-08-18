@@ -7,7 +7,8 @@ import {
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
-  Star, Quote, CheckCircle2, X, Maximize2, QrCode, ShieldCheck
+  Star, Quote, CheckCircle2, X, Maximize2, QrCode, ShieldCheck, Sparkles,
+  Copy, ExternalLink
 } from 'lucide-react';
 
 function Counter({ to, suffix = '' }) {
@@ -93,10 +94,15 @@ const BimHubMSC = () => {
       a: 'Certification is offered upon successful completion of criteria:\n• Working experience letter of 24 months after successful completion of Exam criteria\n• PG Diploma Certification of 24 months issued by Econstruct Design & Build Pvt Ltd\n• Assistance to make a Portfolio for each candidate\n• Visual OR Video resume building assistance\n• Photoshoot in formals for LinkedIn profile and Resume Photo\n\nPLEASE NOTE: Certification is backed by 24 months of genuine live project execution and technical expertise.'
     },
     { q: 'How does placement assistance work?', a: 'We offer dedicated career guidance, portfolio development, video resume creation, and 6–8 genuine job interview arrangements across India, UAE, and abroad.' },
-    { q: 'Can payment be made in installments?', a: 'Contact administration for detailed installment schedules and fee structure details.' },
+    {
+      q: 'What is the fee structure & payment policy?',
+      type: 'feeStructure',
+      a: 'Total Programme Fee: ₹7,08,000/- (Inclusive of 18% GST)\n\n• Base Programme Fee: ₹6,00,000/-\n• GST @ 18%: ₹1,08,000/-\n• Total Fee (Inclusive of GST): ₹7,08,000/-\n\nInvestment in Your Professional Growth:\nThis comprehensive programme is designed for professionals and aspiring entrepreneurs who want to build expertise across Structural Engineering, BIM Technology, and Project Management, while developing the skills required to establish and successfully manage an engineering and construction-focused business.\n\nThe programme combines technical expertise, BIM workflows, project management, business development, entrepreneurship, leadership, and real-world project exposure to help participants progress from technical professionals to entrepreneurial leaders in the AEC industry.\n\nThe above fee is exclusive of any additional charges not specifically mentioned and is subject to applicable statutory requirements.'
+    },
   ];
 
   const [openFaq, setOpenFaq] = useState(null);
+  const [copiedField, setCopiedField] = useState(null);
 
   const softwares = ['ETABS', 'ETABS Advanced', 'STAADPro', 'SAFE', 'SAP2000', 'CSI Bridge', 'CSI Detailer', 'RCDC/Prokon', 'AutoCAD', 'REVIT Architecture', 'REVIT Structures', 'REVIT MEP', 'Synchro', 'Navisworks', 'Infraworks', 'Primavera', '40+ Design Spreadsheets'];
 
@@ -617,118 +623,273 @@ const BimHubMSC = () => {
         </div>
       </section>
 
-      {/* ── ENROLLMENT PROCESS & PAYMENT / FEE DETAILS ───────────── */}
-      <section id="enrollment" className="bg-white py-8 md:py-14 px-4 md:px-6 border-t border-gray-200 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-8">
-            <h2 className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-[0.2em] mb-1.5">Get Started</h2>
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Enrollment Process</h3>
-            <div className="w-16 h-[3px] mx-auto bg-[#fbc02d] rounded-full mt-3"></div>
+      {/* ── PROGRAM ADMISSION & FEE (COMPACT) ────────────────────── */}
+      <section id="apply-now" className="py-10 md:py-14 bg-slate-50 border-t border-gray-200">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-6 sm:mb-8 pb-4 border-b border-gray-200">
+            <div>
+              <Label>Program Investment</Label>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                Fee Structure & <span className="text-yellow-600 italic font-serif">Inclusions</span>
+              </h2>
+            </div>
+            <p className="text-gray-500 text-xs sm:text-sm font-medium max-w-md">
+              Complete 24-Month PG Diploma (12M Training + 12M Internship) with full Structures, BIM, Project Management & Business Setup.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 text-center">
-            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">1</div>
-              <h4 className="text-base font-bold text-gray-900">Step 1</h4>
-              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Initial Registration & Profile Submission</p>
+          <div className="bg-white rounded-2xl overflow-hidden shadow-md border border-gray-200 grid grid-cols-1 lg:grid-cols-12 items-stretch">
+            {/* Left: Course Inclusions & Professional Growth */}
+            <div className="lg:col-span-7 p-5 sm:p-7 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-gray-100">
+              <div>
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <span className="bg-blue-50 text-blue-800 text-[10px] font-black uppercase tracking-wider px-2.5 py-1 rounded-md border border-blue-200/60">
+                    Complete 24-Month Track (12M Training + 12M Internship)
+                  </span>
+                  <span className="text-[11px] text-gray-400 font-medium">Batch Seats: Limited</span>
+                </div>
+
+                <h3 className="text-base sm:text-lg font-black text-slate-900 mb-3">Course Inclusions & Perks:</h3>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-4">
+                  {[
+                    "Live project exposure on high-rise structures up to G+62 stories",
+                    "Complete 5D BIM Mastery (REVIT Arch/Struct/MEP, Synchro, Navisworks)",
+                    "Project Management & Scheduling (Primavera P6, BOQ, Billing)",
+                    "24 Months Official Work Experience Letter & PG Diploma Certification",
+                    "Techno-Entrepreneurship & Engineering Firm Business Setup Blueprint",
+                    "IS & International Codes (ACI 318, BS 8110, UBC 97)",
+                    "Digital Library — 1000+ Technical Books & 40+ Spreadsheets Access",
+                    "100% Placement Assistance Support, Portfolio Building & CRM Access"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-2 bg-slate-50 border border-slate-200/60 rounded-lg p-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 mt-0.5 shrink-0" />
+                      <span className="text-slate-800 font-bold text-xs leading-snug">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Growth Callout */}
+                <div className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200/80 text-xs space-y-2">
+                  <div className="flex items-center gap-1.5 text-amber-900 font-black uppercase tracking-wider text-[11px]">
+                    <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+                    Investment in Your Professional Growth
+                  </div>
+                  <p className="text-amber-950/90 text-xs leading-relaxed font-medium">
+                    This comprehensive programme is designed for professionals and aspiring entrepreneurs who want to build expertise across Structural Engineering, BIM Technology, and Project Management, while developing the skills required to establish and successfully manage an engineering and construction-focused business.
+                  </p>
+                  <p className="text-amber-950/80 text-xs leading-relaxed font-medium">
+                    The programme combines technical expertise, BIM workflows, project management, business development, entrepreneurship, leadership, and real-world project exposure to help participants progress from technical professionals to entrepreneurial leaders in the AEC industry.
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-red-500 text-[11px] font-semibold italic mt-3">* Fee is non-refundable & non-transferable under any circumstances.</p>
             </div>
-            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">2</div>
-              <h4 className="text-base font-bold text-gray-900">Step 2</h4>
-              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Document Submission & Evaluation</p>
-            </div>
-            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
-              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">3</div>
-              <h4 className="text-base font-bold text-gray-900">Step 3</h4>
-              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Payment & 24-Month Onboarding</p>
+
+            {/* Right: Pricing Table Card */}
+            <div className="lg:col-span-5 bg-slate-950 text-white p-5 sm:p-7 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-500/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div>
+                <div className="flex items-baseline justify-between gap-2 mb-3">
+                  <div>
+                    <span className="text-gray-400 font-bold uppercase tracking-wider text-[10px] block">Total Programme Fee</span>
+                    <div className="flex items-baseline gap-1">
+                      <span className="text-2xl font-bold text-yellow-400">₹</span>
+                      <span className="text-3xl sm:text-4xl font-black text-white tracking-tight">7,08,000</span>
+                      <span className="text-gray-400 text-xs font-bold">/-</span>
+                    </div>
+                  </div>
+                  <span className="bg-yellow-500/15 text-yellow-400 border border-yellow-500/30 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Incl. 18% GST
+                  </span>
+                </div>
+
+                {/* Structured Fee Table */}
+                <div className="bg-white/5 border border-white/10 rounded-xl p-3.5 mb-3.5 backdrop-blur-sm text-xs">
+                  <div className="text-[10px] font-black text-gray-400 uppercase tracking-wider mb-2 pb-1.5 border-b border-white/10 flex justify-between">
+                    <span>Fee Component</span>
+                    <span>Amount</span>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between items-center text-gray-300">
+                      <span>Base Programme Fee</span>
+                      <span className="font-mono font-bold text-white">₹6,00,000/-</span>
+                    </div>
+                    <div className="flex justify-between items-center text-gray-300">
+                      <span>GST @ 18%</span>
+                      <span className="font-mono font-bold text-white">₹1,08,000/-</span>
+                    </div>
+                    <div className="flex justify-between items-center text-yellow-400 font-bold border-t border-white/10 pt-2 text-xs sm:text-sm">
+                      <span>Total Fee (Inclusive of GST)</span>
+                      <span className="font-mono font-black">₹7,08,000/-</span>
+                    </div>
+                  </div>
+                </div>
+
+                <p className="text-gray-400 text-[11px] leading-relaxed mb-4">
+                  The above fee is exclusive of any additional charges not specifically mentioned and is subject to applicable statutory requirements.
+                </p>
+              </div>
+
+              <a
+                href="#enrollment"
+                className="w-full bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-black py-3 rounded-xl transition text-center uppercase tracking-widest text-xs shadow-lg block"
+              >
+                Proceed to Enrollment Steps ↓
+              </a>
             </div>
           </div>
+        </div>
+      </section>
 
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 items-start">
-            {/* Payment Account Details */}
-            <div className="bg-slate-900 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.15)] p-5 sm:p-7 text-white relative overflow-hidden">
-              <div className="absolute -right-20 -top-20 w-48 h-48 bg-[#fbc02d]/10 rounded-full blur-[40px] pointer-events-none" />
+      {/* ── ENROLLMENT PROCESS & PAYMENT DETAILS (COMPACT) ─────────── */}
+      <section id="enrollment" className="py-10 md:py-14 bg-white border-t border-gray-200">
+        <div className="max-w-[1280px] mx-auto px-4 sm:px-8">
+          {/* Header */}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-3 mb-6 sm:mb-8 pb-4 border-b border-gray-100">
+            <div>
+              <Label>Admission</Label>
+              <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+                Enrollment <span className="text-yellow-600 italic font-serif">Process</span>
+              </h2>
+            </div>
+            <p className="text-gray-500 text-xs sm:text-sm font-medium max-w-md">
+              Complete your registration, academic evaluation, and direct payment in 3 simple steps.
+            </p>
+          </div>
 
-              <h3 className="text-xl sm:text-2xl font-black mb-5 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-full bg-[#fbc02d] flex items-center justify-center text-slate-900 text-base font-bold">₹</div>
-                Make Payment
-              </h3>
+          {/* 3 Step Stepper Banner */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-6">
+            {[
+              { step: '01', title: 'Initial Registration', desc: 'Online application & profile submission' },
+              { step: '02', title: 'Document Evaluation', desc: 'Certificates & academic background review' },
+              { step: '03', title: 'Payment & Onboarding', desc: 'Fee confirmation & 24-Month LMS onboarding' },
+            ].map((s, i) => (
+              <div key={i} className="bg-slate-50 border border-slate-200/80 rounded-2xl p-3.5 sm:p-4 flex items-center gap-3.5 hover:border-yellow-400/70 transition-all">
+                <span className="w-9 h-9 rounded-xl bg-yellow-500 text-slate-950 font-black text-xs flex items-center justify-center shrink-0 shadow-sm">
+                  {s.step}
+                </span>
+                <div className="min-w-0">
+                  <h4 className="text-xs sm:text-sm font-black text-slate-900 truncate">{s.title}</h4>
+                  <p className="text-[11px] text-gray-500 truncate">{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
 
-              <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 mb-5 backdrop-blur-sm">
-                <h4 className="text-[#fbc02d] font-bold text-sm mb-3.5 uppercase tracking-wider border-b border-white/10 pb-2.5">Primary Account — HDFC Bank</h4>
-                <div className="space-y-2.5 text-xs sm:text-sm">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
-                    <span className="text-gray-400 font-medium whitespace-nowrap">Account Number:</span>
-                    <span className="font-bold text-base text-yellow-400">50200000209630</span>
+          {/* Compact Payment Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+            {/* Left: Bank Account Details */}
+            <div className="lg:col-span-7 bg-slate-900 text-white rounded-2xl p-5 sm:p-6 flex flex-col justify-between shadow-lg relative overflow-hidden border border-slate-800">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/10 rounded-full blur-2xl pointer-events-none" />
+
+              <div>
+                <div className="flex items-center justify-between gap-3 mb-4 pb-3 border-b border-slate-800">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-lg bg-yellow-500 text-slate-950 flex items-center justify-center font-black text-sm">₹</div>
+                    <div>
+                      <h3 className="text-sm sm:text-base font-black text-white leading-tight">Direct Bank Transfer</h3>
+                      <p className="text-[11px] text-yellow-400 font-medium">HDFC Corporate Account · Harlur Rd, Bangalore</p>
+                    </div>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
-                    <span className="text-gray-400 font-medium whitespace-nowrap">Account Name:</span>
-                    <span className="font-bold text-right leading-tight">ECONSTRUCT DESIGN & BUILD PVT LTD.</span>
+                  <span className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-[10px] font-bold px-2.5 py-1 rounded-full uppercase tracking-wider">
+                    Primary Account
+                  </span>
+                </div>
+
+                <div className="bg-slate-800/90 border border-slate-700/80 rounded-xl p-3.5 mb-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs">
+                    {[
+                      { label: 'Account Number', value: '50200000209630', key: 'account' },
+                      { label: 'Account Name', value: 'ECONSTRUCT DESIGN & BUILD PVT LTD.', key: 'name' },
+                      { label: 'IFSC Code', value: 'HDFC0009196', key: 'ifsc' },
+                      { label: 'SWIFT Code', value: 'HDFCINBBNG', key: 'swift' },
+                    ].map((item) => (
+                      <div key={item.key} className="bg-slate-900/60 border border-slate-700/50 p-2.5 rounded-lg flex items-center justify-between gap-2">
+                        <div className="min-w-0 flex-1">
+                          <span className="text-[10px] text-gray-400 block font-medium uppercase tracking-wider">{item.label}</span>
+                          <span className="font-bold text-white font-mono text-xs truncate block">{item.value}</span>
+                        </div>
+                        <button
+                          onClick={() => {
+                            navigator.clipboard.writeText(item.value);
+                            setCopiedField(item.key);
+                            setTimeout(() => setCopiedField(null), 2500);
+                          }}
+                          className="p-1.5 rounded bg-yellow-500/10 hover:bg-yellow-500 hover:text-slate-950 text-yellow-400 text-[10px] font-bold transition-all border border-yellow-500/20 shrink-0"
+                          title="Copy to clipboard"
+                        >
+                          {copiedField === item.key ? <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                        </button>
+                      </div>
+                    ))}
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
-                    <span className="text-gray-400 font-medium whitespace-nowrap">IFSC Code:</span>
-                    <span className="font-bold">HDFC0009196</span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
-                    <span className="text-gray-400 font-medium whitespace-nowrap">SWIFT Code:</span>
-                    <span className="font-bold">HDFCINBBNG</span>
-                  </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 pt-0.5">
-                    <span className="text-gray-400 font-medium whitespace-nowrap">Branch:</span>
-                    <span className="font-bold">Harlur Road, Bangalore</span>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-2 text-xs mb-1">
+                  <span className="text-[11px] text-gray-400 font-medium">Send payment screenshot to WhatsApp:</span>
+                  <div className="flex flex-wrap gap-2">
+                    {['+91 90367 44017', '+91 72599 21111'].map((num) => (
+                      <a
+                        key={num}
+                        href={`https://wa.me/${num.replace(/\D/g, '')}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-white/10 hover:bg-yellow-500 hover:text-slate-950 text-white font-bold text-[11px] py-1 px-2.5 rounded-lg border border-white/10 transition-all flex items-center gap-1.5"
+                      >
+                        <Phone className="w-3 h-3 text-emerald-400" />
+                        <span>{num}</span>
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
 
-              <div>
-                <p className="text-gray-400 text-xs mb-2.5">Please share the payment screenshot to the following contact numbers:</p>
-                <div className="flex flex-wrap gap-2.5">
-                  {["+91 9036744017", "+91 7259921111"].map(num => (
-                    <span key={num} className="bg-white/10 text-white font-bold py-1.5 px-3 rounded-lg border border-white/10 text-xs flex items-center gap-1.5">
-                      <Phone size={12} /> {num}
+              <div className="pt-3 mt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px]">
+                <span className="text-gray-400 font-medium">Supported Modes:</span>
+                <div className="flex gap-1.5">
+                  {['NEFT', 'IMPS', 'RTGS', 'UPI'].map((m) => (
+                    <span key={m} className="bg-white/5 border border-white/10 text-yellow-400 font-bold px-2 py-0.5 rounded text-[10px]">
+                      {m}
                     </span>
                   ))}
                 </div>
               </div>
-
-              <div className="mt-5 pt-5 border-t border-white/10 text-center">
-                <p className="text-gray-400 text-xs mb-2.5 font-medium uppercase tracking-wider">Payment Methods Supported</p>
-                <div className="flex flex-wrap justify-center gap-2 text-white font-bold text-xs">
-                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">NEFT</span>
-                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">IMPS</span>
-                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">RTGS</span>
-                  <span className="bg-[#fbc02d] text-slate-900 px-2.5 py-1 rounded">UPI / GPay</span>
-                </div>
-              </div>
             </div>
 
-            {/* Information & QR Notice */}
-            <div className="flex flex-col justify-between h-full space-y-4">
-              <div className="bg-amber-50 rounded-xl p-4 border-l-4 border-[#fbc02d]">
-                <h4 className="text-amber-900 font-black text-sm mb-1 flex items-center gap-1.5"><span className="text-lg">⚠️</span> Important Notice</h4>
-                <p className="text-amber-800 text-xs sm:text-sm font-medium leading-relaxed">Please take admission <strong className="font-black underline decoration-[#fbc02d] decoration-2">at least 2 months before</strong> the batch starting date to confirm seat allotment.</p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                {['Priority Seat Access', 'Pre-Batch Preparation', 'Limited Batch Size', 'Smooth Onboarding'].map(item => (
-                  <div key={item} className="bg-white p-3 rounded-lg border border-gray-100 flex items-center gap-2 shadow-sm">
-                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
-                    <span className="font-bold text-gray-800 text-xs">{item}</span>
+            {/* Right: Compact UPI QR Card */}
+            <div className="lg:col-span-5 bg-slate-50 border border-slate-200/90 rounded-2xl p-4 sm:p-5 flex flex-col justify-between shadow-sm">
+              <div>
+                <div className="bg-white border border-slate-200 rounded-xl p-3 flex items-center gap-4 shadow-sm mb-3">
+                  <div
+                    onClick={() => setIsQrExpanded(true)}
+                    className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-white p-1 rounded-lg border border-slate-200 shadow-sm flex items-center justify-center hover:scale-[1.03] transition-all cursor-pointer group relative overflow-hidden"
+                    title="Click to expand QR"
+                  >
+                    <img src="/qr.webp" alt="Payment QR Code" className="w-full h-full object-contain" />
+                    <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity rounded-lg flex items-center justify-center backdrop-blur-[1px]">
+                      <span className="bg-yellow-400 text-slate-950 font-black text-[9px] px-2 py-0.5 rounded-full flex items-center gap-1">
+                        <Maximize2 className="w-2.5 h-2.5" /> Zoom
+                      </span>
+                    </div>
                   </div>
-                ))}
-              </div>
 
-              <div className="bg-slate-900 text-white p-5 sm:p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.15)] relative overflow-hidden group flex flex-col sm:flex-row items-center gap-5">
-                <div
-                  onClick={() => setIsQrExpanded(true)}
-                  className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-white p-1.5 rounded-lg shadow-md ring-2 ring-white/10 z-10 hover:scale-[1.04] transition-all cursor-pointer relative group/qr overflow-hidden"
-                  title="Click to expand QR Code"
-                >
-                  <img src="/qr.webp" alt="Econstruct QR Code" className="w-full h-full object-contain" />
-                  <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover/qr:opacity-100 transition-opacity rounded-lg flex items-center justify-center backdrop-blur-[2px]">
-                    <span className="bg-yellow-400 text-slate-950 font-black text-[9px] px-2 py-0.5 rounded-full shadow flex items-center gap-1">
-                      <Maximize2 className="w-2.5 h-2.5" /> Expand
+                  <div className="min-w-0 flex-1">
+                    <span className="bg-yellow-500/10 text-yellow-800 text-[10px] font-black px-2 py-0.5 rounded-md uppercase tracking-wider inline-block mb-1">
+                      UPI Merchant QR
                     </span>
+                    <h4 className="text-xs sm:text-sm font-black text-slate-900 leading-tight mb-1">
+                      ECONSTRUCT DESIGN & BUILD
+                    </h4>
+                    <p className="text-[11px] text-gray-500 leading-tight mb-2">Scan with GPay, PhonePe, Paytm, BHIM</p>
+                    <button
+                      onClick={() => setIsQrExpanded(true)}
+                      className="inline-flex items-center gap-1.5 bg-slate-100 hover:bg-yellow-50 hover:border-yellow-300 transition-colors px-2.5 py-1 rounded-md border border-slate-200 text-[11px] font-bold text-slate-800"
+                    >
+                      <QrCode className="w-3 h-3 text-yellow-600" /> Click to Zoom
+                    </button>
                   </div>
                 </div>
 
@@ -780,16 +941,21 @@ const BimHubMSC = () => {
                     </motion.div>
                   )}
                 </AnimatePresence>
+              </div>
 
-                <div className="text-center sm:text-left z-10">
-                  <h3 className="text-base sm:text-lg font-black mb-1.5 leading-snug">
-                    This is ON-THE-JOB Learning <br />
-                    <span className="text-[#fbc02d]">12 Months Training + 12 Months Internship</span>
-                  </h3>
-                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
-                    Step out of traditional classrooms and gain 24 months of genuine engineering experience.
-                  </p>
+              <div className="flex items-center justify-between gap-2 pt-2.5 border-t border-slate-200/80 text-[11px]">
+                <div className="flex items-center gap-1.5 text-gray-600">
+                  <MapPin className="w-3.5 h-3.5 text-slate-900 shrink-0" />
+                  <span className="truncate">Bangalore HQ · </span>
                 </div>
+                <a
+                  href="https://maps.google.com/?q=Econstruct+Bangalore"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-yellow-600 hover:underline font-bold shrink-0 flex items-center gap-0.5 text-[11px]"
+                >
+                  Maps <ExternalLink className="w-2.5 h-2.5" />
+                </a>
               </div>
             </div>
           </div>
@@ -806,7 +972,7 @@ const BimHubMSC = () => {
                 Frequently<br />Asked <span className="accent-text italic">Questions</span>
               </h2>
               <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">Common questions about the PG Diploma in Entrepreneurship in Structures, BIM and Project Management program.</p>
-              <Btn href="#enrollment">Still Have Questions?</Btn>
+              <Btn href="#apply-now">Still Have Questions?</Btn>
             </motion.div>
             <div className="flex-1 border-t border-gray-200">
               {faqs.map((faq, i) => {
@@ -820,9 +986,67 @@ const BimHubMSC = () => {
                         <ChevronDown size={14} />
                       </div>
                     </button>
-                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-64 pb-3.5 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed whitespace-pre-line">{faq.a}</p>
-                    </div>
+                    {open && (
+                      <div className="pb-4 pt-1 text-gray-600 text-xs sm:text-sm leading-relaxed">
+                        {faq.type === 'feeStructure' ? (
+                          <div className="space-y-3.5 mt-2">
+                            <div className="p-4 rounded-2xl bg-slate-900 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                              <div>
+                                <span className="text-gray-400 font-bold uppercase tracking-wider text-xs block">Total Programme Fee</span>
+                                <span className="text-2xl sm:text-3xl font-black text-yellow-400">₹7,08,000/-</span>
+                                <span className="text-xs text-gray-300 ml-2">(Inclusive of 18% GST)</span>
+                              </div>
+                              <span className="bg-yellow-500/20 text-yellow-400 text-xs font-bold px-3 py-1.5 rounded-full border border-yellow-500/30 self-start sm:self-auto">
+                                24-Month Track
+                              </span>
+                            </div>
+
+                            <div className="overflow-x-auto">
+                              <table className="w-full text-left text-xs sm:text-sm border-collapse rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+                                <thead>
+                                  <tr className="bg-slate-100 text-slate-800 border-b border-gray-200">
+                                    <th className="p-3.5 font-bold">Fee Component</th>
+                                    <th className="p-3.5 font-bold text-right">Amount</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="divide-y divide-gray-200 bg-white">
+                                  <tr>
+                                    <td className="p-3.5 text-slate-700 font-medium">Base Programme Fee</td>
+                                    <td className="p-3.5 text-slate-900 font-bold text-right font-mono">₹6,00,000/-</td>
+                                  </tr>
+                                  <tr>
+                                    <td className="p-3.5 text-slate-700 font-medium">GST @ 18%</td>
+                                    <td className="p-3.5 text-slate-900 font-bold text-right font-mono">₹1,08,000/-</td>
+                                  </tr>
+                                  <tr className="bg-yellow-50 font-bold text-slate-900">
+                                    <td className="p-3.5 text-yellow-900 font-bold">Total Fee (Inclusive of GST)</td>
+                                    <td className="p-3.5 text-yellow-900 text-right font-mono text-base font-black">₹7,08,000/-</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+
+                            <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200/80 space-y-2">
+                              <div className="text-xs font-black uppercase tracking-wider text-amber-900 flex items-center gap-1.5">
+                                <Sparkles className="w-3.5 h-3.5 text-amber-600" /> Investment in Your Professional Growth
+                              </div>
+                              <p className="text-xs text-amber-950 leading-relaxed font-medium">
+                                This comprehensive programme is designed for professionals and aspiring entrepreneurs who want to build expertise across Structural Engineering, BIM Technology, and Project Management, while developing the skills required to establish and successfully manage an engineering and construction-focused business.
+                              </p>
+                              <p className="text-xs text-amber-950/80 leading-relaxed font-medium">
+                                The programme combines technical expertise, BIM workflows, project management, business development, entrepreneurship, leadership, and real-world project exposure to help participants progress from technical professionals to entrepreneurial leaders in the AEC industry.
+                              </p>
+                            </div>
+
+                            <p className="text-gray-500 text-xs italic">
+                              * The above fee is exclusive of any additional charges not specifically mentioned and is subject to applicable statutory requirements. Fee is strictly non-refundable &amp; non-transferable under any circumstances.
+                            </p>
+                          </div>
+                        ) : (
+                          <p className="whitespace-pre-line">{faq.a}</p>
+                        )}
+                      </div>
+                    )}
                   </motion.div>
                 );
               })}
@@ -857,7 +1081,7 @@ const BimHubMSC = () => {
               className="flex flex-col items-center lg:items-end gap-3.5 shrink-0">
               <Btn href="#enrollment">Apply Now — 21st Sept 2026</Btn>
               <div className="flex gap-4">
-                {['+91 90367 44017', '+91 72592 22888'].map(n => (
+                {['+91 90367 44017', '+91 72599 21111'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"
                     className="flex items-center gap-1 text-white/40 text-[11px] font-semibold hover:text-white transition-colors">
                     <Phone className="w-3 h-3" />{n}
