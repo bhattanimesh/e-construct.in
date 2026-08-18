@@ -138,7 +138,7 @@ const StructuralConsultancy = () => {
             }}
             className="inline-flex items-center gap-2 bg-[#fbc02d] text-slate-900 font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95 cursor-pointer relative z-10"
           >
-            <span>Download Econstruct Structure Project Portfolio PDF</span>
+            <span>View Econstruct Structure Project Portfolio PDF</span>
           </a>
         </div>
       </section>

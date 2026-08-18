@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useAdmin } from '../context/AdminContext';
-import { ArrowLeft, Calendar, User, Tag, Clock, Share2, ChevronRight, Download, FileText } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Tag, Clock, Share2, ChevronRight, FileText, ExternalLink } from 'lucide-react';
 
 // ─── SIMPLE MARKDOWN RENDERER ─────────────────────────────────────────────────
 
@@ -32,11 +32,10 @@ const inlineFormat = (text) => {
               href={linkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              download
               className="inline-flex items-center gap-3 bg-gradient-to-r from-amber-500 to-amber-400 hover:from-amber-400 hover:to-amber-300 text-slate-950 font-bold px-6 py-3.5 rounded-xl shadow-lg hover:shadow-amber-500/25 transition-all text-sm no-underline transform hover:-translate-y-0.5"
             >
-              <Download size={18} />
-              {linkText.replace(/^[📄\s]*/, '')}
+              <FileText size={18} />
+              {linkText.replace(/^[📄\s]*/, '').replace(/download/i, 'View')}
             </a>
           </span>
         );
@@ -322,22 +321,21 @@ const BlogDetailPage = () => {
                 </div>
               )}
 
-              {/* Publication PDF Download Widget */}
+              {/* Publication PDF Document Widget */}
               {blog.pdfUrl && (
                 <div className="bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl p-5 text-slate-950 shadow-md">
                   <div className="flex items-center gap-2 text-slate-950 font-extrabold text-xs uppercase tracking-wider mb-2">
                     <FileText size={16} /> Official Publication
                   </div>
                   <h4 className="font-extrabold text-base leading-snug mb-2">Full Document PDF</h4>
-                  <p className="text-slate-900 text-xs mb-4 leading-relaxed font-medium">Download the full 8-page whitepaper document for offline reading.</p>
+                  <p className="text-slate-900 text-xs mb-4 leading-relaxed font-medium">Read the comprehensive whitepaper publication document online.</p>
                   <a
                     href={blog.pdfUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    download
                     className="flex items-center justify-center gap-2 w-full bg-slate-950 hover:bg-slate-900 text-amber-400 font-bold text-sm px-4 py-2.5 rounded-xl transition-all shadow-md"
                   >
-                    <Download size={16} /> Download PDF
+                    <FileText size={16} /> View PDF Document
                   </a>
                 </div>
               )}

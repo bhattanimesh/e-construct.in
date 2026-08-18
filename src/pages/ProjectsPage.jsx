@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MapPin, ExternalLink, Download, X, Maximize2, Layers, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
+import { MapPin, ExternalLink, FileText, X, Maximize2, Layers, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import GoregaonMulundLinkRoad from '../assets/GoregaonMulundLinkRoad.webp';
 import { useAdmin } from '../context/AdminContext';
 
@@ -41,7 +41,7 @@ const highlightedProjects = [
     ],
     description: 'G+4 residential towers (Studio & 2BHK) and G+1 canteen–auditorium block with a total built-up area of ~1,14,700 SFT, designed as an RCC framed structure (M20/M25) with AAC blockwork and 10 ft floor-to-floor height.\n\nScope includes end-to-end construction with integrated architectural, structural, and MEP services—featuring vitrified/granite flooring, UPVC windows, teak main doors, FRLS electrical systems, CPVC plumbing, and waterproofing. Executed under IS code compliance with full QA/QC, site supervision, and fast-track delivery within ~6 months.',
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQCqQApTsC9xSrApec3t2wffAbDZdSxTNrDWUbYp23Oz82M?e=Ac46PJ',
-    pdfTitle: 'Download Econstruct Residential Project Portfolio PDF',
+    pdfTitle: 'View Econstruct Residential Project Portfolio PDF',
     images: [
       { src: '/projects/gh_1.png', label: 'Exterior Render View & Landscaping' },
       { src: '/projects/gh_2.png', label: 'Night Lighting & Building Elevation' }
@@ -59,7 +59,7 @@ const highlightedProjects = [
     ],
     description: 'Project Name: 9 Emperio (G+35)\nLocation: Raghunathpur, Nandankanan Road, Patia, Bhubaneswar, Odisha\nTotal area: 2,290 sq.m / 24,649.331 sq.ft\n\nHigh-rise structural design and FE modeling project featuring full ETABS dynamic analysis, wind loading simulations, lateral drift calculations, and detailed rebar execution drawings.',
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQDD1iJ5QnLrR7WNyLMscPTWAVN-o2PxImS4BlMeFb47rW4?e=iQx2ci',
-    pdfTitle: 'Download Econstruct Structure Project Portfolio PDF',
+    pdfTitle: 'View Econstruct Structure Project Portfolio PDF',
     images: [
       { src: '/projects/emp_1.png', label: 'ETABS 3D Structural Mesh Model' },
       { src: '/projects/emp_2.png', label: 'Photorealistic Architectural Render' },
@@ -81,7 +81,7 @@ const highlightedProjects = [
     ],
     description: 'Project Name: 9 Boulerverd (G+35)\nLocation: Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar\nTotal area: 6,137 sq.m / 66,058.0543 sq.ft\n\nMassive landmark high-rise development consisting of multiple G+35 towers with podium parking, retail integration, and extensive green spaces. E-Construct handled complete 3D structural analysis, non-linear dynamic time-history simulation, and GFC drawing production.',
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQDD1iJ5QnLrR7WNyLMscPTWAVN-o2PxImS4BlMeFb47rW4?e=iQx2ci',
-    pdfTitle: 'Download Econstruct Structure Project Portfolio PDF',
+    pdfTitle: 'View Econstruct Structure Project Portfolio PDF',
     images: [
       { src: '/projects/blv_1.png', label: 'Structural Slab Strain Diagram 1' },
       { src: '/projects/blv_2.png', label: 'Structural Slab Strain Diagram 2' },
@@ -108,7 +108,7 @@ const highlightedProjects = [
     ],
     description: 'Ashoak Mall is a modern, premium commercial development in Jalna, designed to redefine shopping and business experience in the city. Bringing together retail, food, entertainment, and lifestyle under one roof, this project is planned to create a high-footfall commercial hub with modern architecture, attractive design, and business-focused planning. Ashok Mall is not just a shopping complex — it is a growth opportunity for investors and business owners.',
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQAmFV9pR-ZR65T0tBJkYn9AaYbYw0QdCxSkxwRTll14o4?e=oFL4Qv',
-    pdfTitle: 'Download Econstruct Hospitality & Commercial Project PDF',
+    pdfTitle: 'View Econstruct Hospitality & Commercial Project PDF',
     images: [
       { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg', label: 'Ashok Mall Exterior 3D Perspective Render' },
       { src: '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM (1).jpeg', label: 'Ashok Mall Storefront & Entrance View' },
@@ -128,7 +128,7 @@ const highlightedProjects = [
     ],
     description: 'Significant international infrastructure development project in Africa, showcasing E-Construct\'s international engineering, BIM modeling, and project management capabilities. Features multi-tower residential blocks, expansive terrace amenities, podium levels, and complex structural coordination.',
     pdfLink: 'https://econstructinternational-my.sharepoint.com/:b:/g/personal/pranjal_wawdhane_e-construct_org/IQBRnE9Asb0aS7qq8yX50plvASFisAvU7rUlsNgwOST0VmE?e=gZnr5t',
-    pdfTitle: 'Download Econstruct BIM Project Portfolio PDF',
+    pdfTitle: 'View Econstruct BIM Project Portfolio PDF',
     images: [
       { src: '/projects/grk_1.jpeg', label: 'Complex Exterior Perspective Render' },
       { src: '/projects/grk_2.jpeg', label: 'Upward Angle Perspective & Palm Landscaping' },
@@ -244,7 +244,7 @@ const ProjectHighlights = () => {
                 </div>
               )}
 
-              {/* PDF Download Button */}
+              {/* PDF View Portfolio Button */}
               {project.pdfLink && (
                 <a 
                   href={project.pdfLink} 
@@ -256,7 +256,7 @@ const ProjectHighlights = () => {
                   }}
                   className="inline-flex items-center gap-3 bg-amber-500 hover:bg-amber-600 text-slate-900 font-bold text-xs sm:text-sm uppercase tracking-wider px-6 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer relative z-10"
                 >
-                  <Download size={18} />
+                  <FileText size={18} />
                   <span>{project.pdfTitle}</span>
                   <ExternalLink size={14} className="opacity-70" />
                 </a>

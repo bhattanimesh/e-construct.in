@@ -192,7 +192,7 @@ const CorporateTraining = () => {
               }}
               className="px-8 py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center gap-2 cursor-pointer relative z-10"
             >
-              Download Corporate Training Portfolio PDF <ArrowRight size={16} />
+              View Corporate Training Portfolio PDF <ArrowRight size={16} />
             </a>
           </motion.div>
         </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import HTMLFlipBook from 'react-pageflip';
 import { Document, Page, pdfjs } from 'react-pdf';
-import { ChevronLeft, ChevronRight, Maximize2, X, Download } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize2, X } from 'lucide-react';
 import 'react-pdf/dist/Page/AnnotationLayer.css';
 import 'react-pdf/dist/Page/TextLayer.css';
 import './Flipbook.css';
@@ -169,11 +169,6 @@ const ModalViewer = ({ pdfUrl, onClose }) => {
     return () => window.removeEventListener('keydown', handle);
   }, [onClose]);
 
-  const handleDownload = () => {
-    const a = document.createElement('a');
-    a.href = pdfUrl; a.download = pdfUrl.split('/').pop() || 'portfolio.pdf'; a.target = '_blank'; a.click();
-  };
-
   const bookW = pageW; // single page mode — book width = one page width
 
   return (
@@ -186,10 +181,6 @@ const ModalViewer = ({ pdfUrl, onClose }) => {
         <div className="flex-shrink-0 flex items-center justify-between px-5 py-3 border-b border-slate-100">
           <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Portfolio Viewer</span>
           <div className="flex items-center gap-2">
-            <button onClick={handleDownload}
-              className="flex items-center gap-2 px-4 py-2 rounded-full bg-yellow-400 text-slate-900 text-xs font-bold uppercase tracking-wider hover:bg-yellow-500 transition-colors">
-              <Download size={13} /> Download
-            </button>
             <button onClick={onClose}
               className="w-8 h-8 rounded-full bg-slate-100 text-slate-500 hover:bg-red-500 hover:text-white transition-colors flex items-center justify-center">
               <X size={15} />

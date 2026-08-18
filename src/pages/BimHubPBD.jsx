@@ -5,7 +5,7 @@ import {
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
   CheckCircle, ChevronDown, ArrowRight, Phone, MapPin,
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
-  Star, Quote, CheckCircle2, FileText, Download
+  Star, Quote, CheckCircle2, FileText
 } from 'lucide-react';
 
 function Counter({ to, suffix = '' }) {
@@ -252,9 +252,9 @@ const BimHubPBD = () => {
                 Browse through the comprehensive technical presentation slides for Performance Based Design.
               </p>
             </div>
-            <a href="/pdfs/PBD_compressed.pdf" download target="_blank" rel="noreferrer"
+            <a href="/pdfs/PBD_compressed.pdf" target="_blank" rel="noreferrer"
               className="inline-flex items-center gap-2 bg-yellow-500 text-slate-900 font-black px-6 py-3.5 rounded-xl hover:bg-yellow-400 transition-all uppercase tracking-wider text-xs shadow-lg shrink-0">
-              <Download size={16} /> Download Full PDF
+              <FileText size={16} /> View Presentation PDF
             </a>
           </motion.div>
 

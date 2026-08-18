@@ -52,10 +52,12 @@ const PageLoader = () => (
 )
 
 import { AdminProvider } from './context/AdminContext'
+import ContentProtection from './components/ContentProtection'
 
 function App() {
   return (
     <AdminProvider>
+      <ContentProtection />
       <BrowserRouter>
         <ErrorBoundary>
           <Suspense fallback={<PageLoader />}>

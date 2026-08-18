@@ -97,7 +97,7 @@ const BimConsultancy = () => {
             }}
             className="inline-flex items-center gap-2 bg-[#fbc02d] text-black font-bold uppercase tracking-wider text-xs sm:text-sm px-6 py-3.5 rounded-xl hover:bg-white transition-all shadow-lg active:scale-95 cursor-pointer relative z-10"
           >
-            <span>Download Econstruct BIM Project Portfolio PDF</span>
+            <span>View Econstruct BIM Project Portfolio PDF</span>
             <ArrowRight size={16} />
           </motion.a>
         </div>

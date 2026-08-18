@@ -108,7 +108,7 @@ const ArchitecturalConsultancy = () => {
               }}
               className="px-6 py-3 md:px-8 md:py-4 bg-white/10 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black hover:border-yellow-500 transition-all flex items-center justify-center gap-2 cursor-pointer relative z-10"
             >
-              Download Hospitality Project PDF <ArrowRight size={16} />
+              View Hospitality Project PDF <ArrowRight size={16} />
             </a>
           </motion.div>
         </div>
