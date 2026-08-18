@@ -152,7 +152,7 @@ const BimHubMSC = () => {
 
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
               className="flex flex-wrap gap-4">
-              <Btn href="#enrollment">Apply Now — April 2026</Btn>
+              <Btn href="#enrollment">Apply Now — 21st Sept 2026</Btn>
               <a href="#overview" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
                 <Play className="w-4 h-4 text-yellow-500" /> Watch Overview Video
               </a>
@@ -188,78 +188,104 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── 02. OVERVIEW VIDEO ───────────────────────────────────────── */}
-      <section id="overview" className="py-14 md:py-20 bg-white">
+      <section id="overview" className="py-8 md:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 gap-4">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
+            {/* Left Column: Heading & Program Highlights */}
+            <motion.div {...fin}>
               <Label>02 · Program Detailed Video</Label>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
                 See What <span className="text-yellow-600 italic font-serif">PG Diploma in Entrepreneurship & BIM</span> Is All About
               </h2>
-            </div>
-            <p className="text-gray-400 text-sm max-w-xs sm:text-right leading-relaxed">
-              Entrepreneurship in Structures, BIM & Project Management (24 Months On-Job Program).
-            </p>
-          </motion.div>
-          <motion.div {...fin} className="relative w-full bg-black aspect-video overflow-hidden shadow-[0_20px_60px_-10px_rgba(0,0,0,0.3)] rounded-3xl border border-slate-800">
-            <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
-            <iframe src="https://www.youtube.com/embed/I4QyIdbupvs?si=CwmIf_njoy5v3_zc"
-              className="absolute inset-0 w-full h-full" title="PG Diploma in Entrepreneurship in Structures, BIM and Project Management Video" frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-          </motion.div>
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">
+                Entrepreneurship in Structures, BIM & Project Management (24 Months On-Job Program). Discover how our on-job training prepares you to deliver real-world projects or launch your own firm.
+              </p>
+
+              <div className="space-y-2 mb-6">
+                {[
+                  'Real On-Job Training on Live High-Rise & Commercial Projects',
+                  'Mastery in Structural Design, BIM Technology & Primavera PM',
+                  'Practical Guidance on Client Acquisition, Billing & Firm Setup',
+                  '100% Placement Assistance & Lifelong Mentorship Support'
+                ].map((point, idx) => (
+                  <div key={idx} className="flex items-start gap-2.5">
+                    <div className="w-4 h-4 rounded-full bg-yellow-500/10 flex items-center justify-center shrink-0 mt-0.5">
+                      <CheckCircle2 className="w-3 h-3 text-yellow-600" />
+                    </div>
+                    <span className="text-slate-700 text-xs sm:text-sm font-medium">{point}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-wrap items-center gap-3">
+                <Btn href="#curriculum">Explore Curriculum</Btn>
+                <a href="#contact" className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-slate-900 hover:text-yellow-600 transition-colors py-2.5 px-2">
+                  Talk to Course Advisor <ArrowRight className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Column: 50% Video Player */}
+            <motion.div {...fin} className="relative w-full bg-black aspect-video overflow-hidden shadow-[0_15px_45px_-10px_rgba(0,0,0,0.2)] rounded-2xl border border-slate-800">
+              <div className="absolute top-0 left-0 w-20 h-1 bg-yellow-500 z-10" />
+              <iframe src="https://www.youtube.com/embed/I4QyIdbupvs?si=CwmIf_njoy5v3_zc"
+                className="absolute inset-0 w-full h-full" title="PG Diploma in Entrepreneurship in Structures, BIM and Project Management Video" frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* ── PROGRAM AT A GLANCE (UPDATED DURATION) ───────────────── */}
-      <section className="py-14 md:py-20 bg-gray-50">
+      <section className="py-8 md:py-12 bg-gray-50">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10">
+          <motion.div {...fin} className="mb-6">
             <Label>Program Details</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-black tracking-tight">
               Everything You Need <span className="accent-text italic">to Know</span>
             </h2>
           </motion.div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-gray-200">
             <div className="flex flex-col gap-px bg-gray-200">
-              <motion.div {...fin} className="bg-slate-800 p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <Clock className="w-4 h-4 text-black" />
+              <motion.div {...fin} className="bg-slate-800 p-6 md:p-7">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="w-7 h-7 bg-yellow-500 flex items-center justify-center shrink-0">
+                    <Clock className="w-3.5 h-3.5 text-black" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-yellow-500">Course Duration</span>
+                  <span className="text-[11px] font-black uppercase tracking-widest text-yellow-500">Course Duration</span>
                 </div>
                 {/* Standardized Course Duration */}
-                <div className="mb-4">
-                  <p className="text-yellow-400 font-bold text-xl md:text-2xl tracking-tight leading-snug">
+                <div className="mb-3">
+                  <p className="text-yellow-400 font-bold text-lg md:text-xl tracking-tight leading-snug">
                     12 Months Training + 12 Months Internship
                   </p>
-                  <p className="text-white font-black text-2xl md:text-3xl tracking-tight mt-1">
+                  <p className="text-white font-black text-xl md:text-2xl tracking-tight mt-0.5">
                     = Total 24 Months
                   </p>
                 </div>
-                <p className="text-white/60 text-sm mb-6 font-medium border-l-2 border-yellow-500 pl-3">
+                <p className="text-white/60 text-xs sm:text-sm mb-4 font-medium border-l-2 border-yellow-500 pl-3">
                   ON-JOB Learning Program working directly on real live projects alongside senior structural engineers.
                 </p>
-                <div className="flex items-center gap-3 pt-5 border-t border-white/10">
-                  <Calendar className="w-4 h-4 text-yellow-500 shrink-0" />
-                  <span className="text-white/70 text-sm">Next Batch: <span className="text-yellow-500 font-bold">15th April 2026</span></span>
+                <div className="flex items-center gap-2.5 pt-3.5 border-t border-white/10">
+                  <Calendar className="w-3.5 h-3.5 text-yellow-500 shrink-0" />
+                  <span className="text-white/70 text-xs sm:text-sm">Next Batch: <span className="text-yellow-500 font-bold">21st Sept 2026</span></span>
                 </div>
               </motion.div>
-              <motion.div {...fin} className="bg-white p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-black flex items-center justify-center shrink-0">
-                    <Monitor className="w-4 h-4 text-yellow-500" />
+              <motion.div {...fin} className="bg-white p-6 md:p-7">
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <div className="w-7 h-7 bg-black flex items-center justify-center shrink-0">
+                    <Monitor className="w-3.5 h-3.5 text-yellow-500" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-gray-400">Mode of Learning</span>
+                  <span className="text-[11px] font-black uppercase tracking-widest text-gray-400">Mode of Learning</span>
                 </div>
-                <p className="text-black font-medium text-2xl tracking-tight mb-5">Online / Offline / Hybrid</p>
-                <div className="grid grid-cols-2 gap-3">
+                <p className="text-black font-medium text-lg sm:text-xl tracking-tight mb-4">Online / Offline / Hybrid</p>
+                <div className="grid grid-cols-2 gap-2.5">
                   {[['750+', 'Hours of Video'], ['1000+', 'Technical Books'], ['24/7', 'Library Access'], ['3', 'Learning Modes']].map(([v, l]) => (
-                    <div key={l} className="border border-gray-100 p-3">
-                      <div className="text-lg font-bold text-black">{v}</div>
-                      <div className="text-xs text-gray-400 uppercase tracking-widest mt-0.5">{l}</div>
+                    <div key={l} className="border border-gray-100 p-2.5">
+                      <div className="text-base font-bold text-black">{v}</div>
+                      <div className="text-[10px] text-gray-400 uppercase tracking-widest mt-0.5">{l}</div>
                     </div>
                   ))}
                 </div>
@@ -267,31 +293,31 @@ const BimHubMSC = () => {
             </div>
 
             <div className="flex flex-col gap-px bg-gray-200">
-              <motion.div {...fin} className="bg-white p-8 md:p-10 flex-1">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <BookOpen className="w-4 h-4 text-black" />
+              <motion.div {...fin} className="bg-white p-6 md:p-7 flex-1">
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <div className="w-7 h-7 bg-yellow-500 flex items-center justify-center shrink-0">
+                    <BookOpen className="w-3.5 h-3.5 text-black" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-yellow-600">Software Stack</span>
+                  <span className="text-[11px] font-black uppercase tracking-widest text-yellow-600">Software Stack</span>
                 </div>
-                <p className="text-black font-medium text-xl tracking-tight mb-5">
+                <p className="text-black font-medium text-base sm:text-lg tracking-tight mb-3.5">
                   Master <span className="accent-text italic">17 industry tools</span> on real projects
                 </p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {softwares.map((s, i) => (
-                    <span key={i} className={`px-3 py-1.5 text-xs font-semibold border ${i < 8 ? 'bg-yellow-500 border-yellow-500 text-black' : 'border-gray-200 text-gray-600'}`}>{s}</span>
+                    <span key={i} className={`px-2.5 py-1 text-[11px] font-semibold border ${i < 8 ? 'bg-yellow-500 border-yellow-500 text-black' : 'border-gray-200 text-gray-600'}`}>{s}</span>
                   ))}
                 </div>
               </motion.div>
-              <motion.div {...fin} className="bg-yellow-500 p-8 md:p-10">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-8 h-8 bg-black flex items-center justify-center shrink-0">
-                    <Award className="w-4 h-4 text-yellow-500" />
+              <motion.div {...fin} className="bg-yellow-500 p-6 md:p-7">
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <div className="w-7 h-7 bg-black flex items-center justify-center shrink-0">
+                    <Award className="w-3.5 h-3.5 text-yellow-500" />
                   </div>
-                  <span className="text-xs font-black uppercase tracking-widest text-black/60">Certification & Credentials</span>
+                  <span className="text-[11px] font-black uppercase tracking-widest text-black/60">Certification & Credentials</span>
                 </div>
-                <p className="text-black font-bold text-2xl tracking-tight mb-4">24-Month PG Diploma Certification</p>
-                <div className="space-y-2.5">
+                <p className="text-black font-bold text-lg sm:text-xl tracking-tight mb-3">24-Month PG Diploma Certification</p>
+                <div className="space-y-1.5">
                   {[
                     '24 Months Working Experience Letter',
                     '24 Months PG Diploma Certification',
@@ -300,10 +326,10 @@ const BimHubMSC = () => {
                     '6–8 Job Interview Arrangements'
                   ].map(item => (
                     <div key={item} className="flex items-center gap-2">
-                      <div className="w-4 h-4 bg-black flex items-center justify-center shrink-0">
-                        <CheckCircle className="w-2.5 h-2.5 text-yellow-500" />
+                      <div className="w-3.5 h-3.5 bg-black flex items-center justify-center shrink-0">
+                        <CheckCircle className="w-2 h-2 text-yellow-500" />
                       </div>
-                      <span className="text-black font-bold text-sm">{item}</span>
+                      <span className="text-black font-bold text-xs sm:text-sm">{item}</span>
                     </div>
                   ))}
                 </div>
@@ -314,43 +340,43 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── CLP & GFC CARDS ──────────────────────────────────────── */}
-      <section className="bg-white py-16 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1400px] mx-auto text-center mb-12">
+      <section className="bg-white py-8 md:py-12 px-4 md:px-6 border-t border-gray-200">
+        <div className="max-w-[1400px] mx-auto text-center mb-8">
           <Label>Real Project Exposure</Label>
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-2 tracking-tight">
             Center Line Plan to <span className="accent-text italic">GFC Drawings</span>
           </h2>
-          <p className="text-gray-600 text-lg md:text-xl font-medium max-w-3xl mx-auto">
+          <p className="text-gray-600 text-xs sm:text-sm font-medium max-w-2xl mx-auto">
             Work alongside the Econstruct technical team from 9:55 am to 7:00 pm, Monday to Friday, producing actual client-deliverable structural drawings.
           </p>
         </div>
 
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {/* CLP Card */}
-          <div className="bg-white rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden group">
-            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-              <img src="/msc2.webp" alt="Center Line Plan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 right-4 bg-[#fbc02d] text-gray-900 font-bold px-4 py-1.5 rounded-full text-sm shadow-md">
+          <div className="bg-white rounded-2xl shadow-[0_8px_25px_rgba(0,0,0,0.06)] border border-gray-100 overflow-hidden group">
+            <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+              <img src="/msc2.webp" alt="Center Line Plan" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute top-3 right-3 bg-[#fbc02d] text-gray-900 font-bold px-3 py-1 rounded-full text-xs shadow-sm">
                 CLP
               </div>
             </div>
-            <div className="p-8 md:p-10">
-              <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
-                  <CheckCircle2 size={18} />
+            <div className="p-5 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3 flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                  <CheckCircle2 size={16} />
                 </span>
                 Center Line Plan (CLP)
               </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Initial structural layout planning & column grid setup
                 </li>
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Foundation positioning, shear wall locations & alignments
                 </li>
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Preliminary structural dimensioning according to IS codes
                 </li>
@@ -359,30 +385,30 @@ const BimHubMSC = () => {
           </div>
 
           {/* GFC Card */}
-          <div className="bg-white rounded-[24px] shadow-[0_15px_40px_rgba(0,0,0,0.08)] border border-gray-100 overflow-hidden group">
-            <div className="relative aspect-[4/3] overflow-hidden bg-gray-100">
-              <img src="/msc3.webp" alt="Good for Construction Drawings" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-              <div className="absolute top-4 right-4 bg-[#fbc02d] text-gray-900 font-bold px-4 py-1.5 rounded-full text-sm shadow-md">
+          <div className="bg-white rounded-2xl shadow-[0_8px_25px_rgba(0,0,0,0.06)] border border-gray-100 overflow-hidden group">
+            <div className="relative aspect-[16/10] overflow-hidden bg-gray-100">
+              <img src="/msc3.webp" alt="Good for Construction Drawings" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              <div className="absolute top-3 right-3 bg-[#fbc02d] text-gray-900 font-bold px-3 py-1 rounded-full text-xs shadow-sm">
                 GFC
               </div>
             </div>
-            <div className="p-8 md:p-10">
-              <h3 className="text-2xl font-black text-gray-900 mb-6 flex items-center gap-3">
-                <span className="w-8 h-8 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0">
-                  <CheckCircle2 size={18} />
+            <div className="p-5 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-black text-gray-900 mb-3 flex items-center gap-2.5">
+                <span className="w-7 h-7 rounded-lg bg-green-50 text-green-600 flex items-center justify-center shrink-0">
+                  <CheckCircle2 size={16} />
                 </span>
                 Good for Construction (GFC)
               </h3>
-              <ul className="space-y-4">
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+              <ul className="space-y-2 text-xs sm:text-sm">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Detailed structural execution specifications & beam schedules
                 </li>
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Rebar layout detailing, BBS generation & ductile detailing
                 </li>
-                <li className="flex items-start gap-3 text-gray-600 font-medium">
+                <li className="flex items-start gap-2.5 text-gray-600 font-medium">
                   <span className="text-[#fbc02d] font-bold mt-0.5">•</span>
                   Final site-ready GFC drawings approved by chief structural consultants
                 </li>
@@ -393,57 +419,57 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── DIMENSIONS IN BIM DEPARTMENT ───────────────────────── */}
-      <section className="bg-slate-50 py-16 px-4 md:px-8 border-t border-gray-200">
+      <section className="bg-slate-50 py-8 md:py-12 px-4 md:px-6 border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto flex flex-col items-center">
-          <div className="mb-10 text-center">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 tracking-tight leading-tight">
+          <div className="mb-6 text-center">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-2 tracking-tight leading-tight">
               Experience All the Dimensions in the <span className="text-[#fbc02d]">BIM Department</span>
             </h2>
-            <div className="w-24 h-[4px] bg-[#fbc02d] mx-auto rounded-full mt-4"></div>
+            <div className="w-16 h-[3px] bg-[#fbc02d] mx-auto rounded-full mt-3"></div>
           </div>
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+          <div className="w-full max-w-5xl rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] bg-white p-2.5 sm:p-3">
             <img src="/msc_dimensions.png" alt="Dimensions in BIM Department" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>
 
       {/* ── PLACEMENT PREP SERIES ────────────────────────────────── */}
-      <section className="relative py-14 md:py-20 overflow-hidden">
+      <section className="relative py-8 md:py-12 overflow-hidden">
         <div className="absolute inset-0">
           <img src="/prj4.webp" alt="" className="w-full h-full object-cover brightness-[0.3] saturate-[0.5]" />
           <div className="absolute inset-0 bg-slate-900/65" />
         </div>
         <div className="absolute left-0 top-0 w-0.5 h-full bg-yellow-500" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
             <motion.div {...fin} className="lg:w-2/5 shrink-0">
               <Label>Career Readiness</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white tracking-tight leading-tight mb-4">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight leading-tight mb-3">
                 Placement Preparation <span className="accent-text italic">Series</span>
               </h2>
-              <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-8">
+              <p className="text-gray-400 text-xs sm:text-sm leading-relaxed mb-5">
                 Designed to ensure you excel in interviews and secure top positions across India, UAE, and international firms.
               </p>
-              <div className="border border-yellow-500/30 p-5">
-                <p className="text-yellow-500 font-bold text-lg mb-1">6–8 Genuine Job Interviews</p>
-                <p className="text-white/40 text-sm mb-5">India, UAE & Abroad — Placement Support</p>
+              <div className="border border-yellow-500/30 p-4 rounded-xl bg-slate-900/40 backdrop-blur-sm">
+                <p className="text-yellow-500 font-bold text-base mb-0.5">6–8 Genuine Job Interviews</p>
+                <p className="text-white/40 text-xs mb-3.5">India, UAE & Abroad — Placement Support</p>
                 <Btn href="#enrollment">Apply Now</Btn>
               </div>
             </motion.div>
-            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10">
+            <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-px bg-white/10 rounded-xl overflow-hidden">
               {[
                 { icon: Mic, label: 'Interview Preparation', desc: 'Technical & HR interview coaching for roles across India, UAE, and abroad.' },
                 { icon: MessageSquare, label: 'Communication Skills', desc: 'Verbal and non-verbal communication training for professional engineering setups.' },
                 { icon: Users, label: 'Group Discussion', desc: 'Techniques to excel in group discussions with confidence and authority.' },
                 { icon: Video, label: 'Video Resume', desc: 'Build compelling video resumes showcasing your live project models and drawings.' },
               ].map((card, i) => (
-                <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                  className="border border-white/10 p-6 flex flex-col hover:bg-white/5 transition-colors duration-200">
-                  <div className="w-9 h-9 bg-yellow-500 flex items-center justify-center mb-4 shrink-0">
-                    <card.icon className="w-4 h-4 text-black" />
+                <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.06}s` }}
+                  className="border border-white/10 p-4 sm:p-5 flex flex-col hover:bg-white/5 transition-colors duration-200">
+                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center mb-3 shrink-0 rounded">
+                    <card.icon className="w-3.5 h-3.5 text-black" />
                   </div>
-                  <h3 className="text-white font-semibold text-base mb-2">{card.label}</h3>
-                  <p className="text-gray-500 text-sm leading-relaxed">{card.desc}</p>
+                  <h3 className="text-white font-semibold text-sm mb-1.5">{card.label}</h3>
+                  <p className="text-gray-400 text-xs leading-relaxed">{card.desc}</p>
                 </motion.div>
               ))}
             </div>
@@ -452,33 +478,33 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── MODES OF LEARNING (WITH DURATION HIGHLIGHTS) ─────────── */}
-      <section className="py-14 md:py-20 bg-white border-t border-gray-200">
+      <section className="py-8 md:py-12 bg-white border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10 text-center">
+          <motion.div {...fin} className="mb-6 text-center">
             <Label>Flexibility</Label>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight">
               Modes of <span className="accent-text italic">Learning</span>
             </h2>
-            <p className="text-gray-500 text-sm mt-2 font-medium">
+            <p className="text-gray-500 text-xs sm:text-sm mt-1.5 font-medium">
               All modes follow the standardized duration: <strong className="text-black font-bold">12 Months Training + 12 Months Internship = Total 24 Months</strong>
             </p>
           </motion.div>
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
             {modes.map((m, i) => (
-              <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.08}s` }}
-                className="bg-white rounded-[20px] shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 p-7 flex flex-col hover:-translate-y-1.5 transition-transform duration-300 group">
-                <div className="flex items-center gap-3 mb-5">
-                  <span className="text-3xl font-medium text-yellow-500/40 leading-none group-hover:text-yellow-500 transition-colors duration-200">{m.n}</span>
-                  <div className="w-px h-8 bg-gray-200" />
-                  <div className="w-8 h-8 bg-yellow-500 flex items-center justify-center shrink-0">
-                    <m.icon className="w-4 h-4 text-black" />
+              <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.06}s` }}
+                className="bg-white rounded-2xl shadow-[0_8px_25px_rgba(0,0,0,0.05)] border border-gray-100 p-5 flex flex-col hover:-translate-y-1 transition-transform duration-300 group">
+                <div className="flex items-center gap-2.5 mb-3.5">
+                  <span className="text-2xl font-medium text-yellow-500/40 leading-none group-hover:text-yellow-500 transition-colors duration-200">{m.n}</span>
+                  <div className="w-px h-6 bg-gray-200" />
+                  <div className="w-7 h-7 bg-yellow-500 flex items-center justify-center shrink-0">
+                    <m.icon className="w-3.5 h-3.5 text-black" />
                   </div>
                 </div>
-                <h3 className="font-bold text-black text-base mb-4 leading-snug">{m.title}</h3>
-                <ul className="space-y-2.5 flex-1">
+                <h3 className="font-bold text-black text-sm mb-3 leading-snug">{m.title}</h3>
+                <ul className="space-y-2 flex-1">
                   {m.pts.map((pt, j) => (
                     <li key={j} className="flex items-start gap-2 text-xs text-gray-600 leading-relaxed">
-                      <div className="w-1.5 h-1.5 bg-yellow-500 rounded-full mt-1 shrink-0" />
+                      <div className="w-1 h-1 bg-yellow-500 rounded-full mt-1.5 shrink-0" />
                       <span>{pt}</span>
                     </li>
                   ))}
@@ -495,55 +521,55 @@ const BimHubMSC = () => {
       />
 
       {/* ── POSTERS SHOWCASE ─────────────────────────────────────── */}
-      <section className="bg-slate-50 py-12 px-4 md:px-8 border-t border-gray-200">
-        <div className="max-w-[1400px] mx-auto space-y-8">
-          <div className="w-full rounded-[30px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.1)] bg-white p-4">
+      <section className="bg-slate-50 py-6 md:py-8 px-4 md:px-6 border-t border-gray-200">
+        <div className="max-w-[1400px] mx-auto space-y-6">
+          <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] bg-white p-2.5 sm:p-3">
             <img src="/msc_training_poster_2.png" alt="MSC Training Poster" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>
 
       {/* ── FOUNDER / LEADERSHIP SECTION ───────────────────────── */}
-      <section className="py-16 md:py-24 bg-white border-t border-gray-200">
+      <section className="py-8 md:py-12 bg-white border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-center">
             {/* Left Image */}
-            <div className="relative rounded-[24px] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.15)] aspect-[4/5] md:aspect-square lg:aspect-[4/5]">
-              <img src="https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg" alt="Mr. Sandeep Pingale" className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700" />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent hidden md:block pointer-events-none" />
+            <div className="relative max-w-sm mx-auto w-full rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.12)] aspect-[4/5]">
+              <img src="https://e-construct.in/wp-content/uploads/2024/08/Media-e1768631671611.jpeg" alt="Mr. Sandeep Pingale" className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-transparent to-transparent pointer-events-none" />
             </div>
 
             {/* Right Content */}
             <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-3 mb-4">
-                <span className="w-12 h-[2px] bg-[#fbc02d]" />
-                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-sm">Our Leadership</span>
+              <div className="flex items-center gap-2.5 mb-2.5">
+                <span className="w-8 h-[2px] bg-[#fbc02d]" />
+                <span className="text-[#fbc02d] font-bold uppercase tracking-[0.2em] text-xs">Our Leadership</span>
               </div>
-              <h2 className="text-3xl md:text-5xl font-black text-gray-900 mb-4 leading-tight tracking-tight">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 mb-2 leading-tight tracking-tight">
                 Meet Our Founder & <br className="hidden xl:block" /> Managing Director
               </h2>
-              <h3 className="text-2xl font-bold text-gray-600 mb-6 border-l-4 border-[#fbc02d] pl-4">Mr. Sandeep Pingale</h3>
+              <h3 className="text-lg sm:text-xl font-bold text-gray-600 mb-4 border-l-4 border-[#fbc02d] pl-3">Mr. Sandeep Pingale</h3>
 
-              <p className="text-gray-600 text-lg md:text-xl font-medium leading-relaxed mb-8">
+              <p className="text-gray-600 text-xs sm:text-sm font-medium leading-relaxed mb-5">
                 With over two decades of experience in structural engineering, Mr. Pingale has been instrumental in shaping the future of structural engineering education. His vision of practical, hands-on learning has helped thousands of students transition into successful professionals.
               </p>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-10">
-                <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
-                  <div className="text-3xl font-black text-[#fbc02d] mb-2">20+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Years Industry <br /> Experience</div>
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-gray-100 flex flex-col items-center sm:items-start">
+                  <div className="text-xl sm:text-2xl font-black text-[#fbc02d] mb-1">20+</div>
+                  <div className="text-gray-800 font-bold text-[11px] uppercase tracking-wide text-center sm:text-left">Years Exp.</div>
                 </div>
-                <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
-                  <div className="text-3xl font-black text-[#fbc02d] mb-2">1000+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Projects <br /> Completed</div>
+                <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-gray-100 flex flex-col items-center sm:items-start">
+                  <div className="text-xl sm:text-2xl font-black text-[#fbc02d] mb-1">1000+</div>
+                  <div className="text-gray-800 font-bold text-[11px] uppercase tracking-wide text-center sm:text-left">Projects</div>
                 </div>
-                <div className="bg-slate-50 p-6 rounded-2xl border border-gray-100 flex flex-col items-center sm:items-start transition hover:-translate-y-1 hover:shadow-lg">
-                  <div className="text-3xl font-black text-[#fbc02d] mb-2">500+</div>
-                  <div className="text-gray-800 font-bold text-sm uppercase tracking-wide text-center sm:text-left">Students <br /> Mentored</div>
+                <div className="bg-slate-50 p-3 sm:p-4 rounded-xl border border-gray-100 flex flex-col items-center sm:items-start">
+                  <div className="text-xl sm:text-2xl font-black text-[#fbc02d] mb-1">500+</div>
+                  <div className="text-gray-800 font-bold text-[11px] uppercase tracking-wide text-center sm:text-left">Mentored</div>
                 </div>
               </div>
 
-              <a href="/about" className="self-start bg-[#fbc02d] text-gray-900 font-black px-10 py-4 rounded-xl shadow-[0_10px_25px_rgba(251,192,45,0.4)] hover:bg-[#ffe066] hover:-translate-y-1 transition-all duration-300 uppercase tracking-widest text-sm inline-block">
+              <a href="/about" className="self-start bg-[#fbc02d] text-gray-900 font-black px-7 py-3 rounded-lg shadow-sm hover:bg-[#ffe066] hover:-translate-y-0.5 transition-all duration-300 uppercase tracking-wider text-xs inline-block">
                 Read More
               </a>
             </div>
@@ -555,14 +581,14 @@ const BimHubMSC = () => {
       <AwardsMediaShowcase />
 
       {/* ── COMPETITION PLAYLIST ─────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-slate-900 border-t border-white/10">
+      <section className="py-8 md:py-12 bg-slate-900 border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-8">
+          <motion.div {...fin} className="mb-5">
             <Label>Live Competition</Label>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-white tracking-tight">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-white tracking-tight">
               Live Project <span className="accent-text italic">Competition</span>
             </h2>
-            <p className="text-white/40 text-sm mt-2">Between PG Diploma Trainees at Econstruct</p>
+            <p className="text-white/40 text-xs sm:text-sm mt-1">Between PG Diploma Trainees at Econstruct</p>
           </motion.div>
           <motion.div {...fin} className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
             <div className="lg:col-span-2 bg-slate-900 overflow-hidden aspect-video relative">
@@ -570,19 +596,19 @@ const BimHubMSC = () => {
                 title={playlist[activeVid].title} frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen />
             </div>
-            <div className="bg-slate-800 flex flex-col max-h-[300px] lg:max-h-none overflow-y-auto">
-              <div className="flex items-center gap-2 px-5 py-3.5 border-b border-white/10 sticky top-0 bg-slate-800 z-10">
-                <Video className="w-4 h-4 text-yellow-500" />
-                <span className="font-bold text-white text-sm">Playlist</span>
+            <div className="bg-slate-800 flex flex-col max-h-[250px] lg:max-h-none overflow-y-auto">
+              <div className="flex items-center gap-2 px-4 py-3 border-b border-white/10 sticky top-0 bg-slate-800 z-10">
+                <Video className="w-3.5 h-3.5 text-yellow-500" />
+                <span className="font-bold text-white text-xs sm:text-sm">Playlist</span>
                 <span className="ml-auto text-white/30 text-xs">{activeVid + 1}/{playlist.length}</span>
               </div>
               {playlist.map((v, i) => (
                 <button key={i} onClick={() => setActiveVid(i)}
-                  className={`text-left px-5 py-4 flex items-start gap-3 border-b border-white/5 transition-colors duration-200 ${activeVid === i ? 'bg-yellow-500' : 'hover:bg-white/5'}`}>
+                  className={`text-left px-4 py-3 flex items-start gap-2.5 border-b border-white/5 transition-colors duration-200 ${activeVid === i ? 'bg-yellow-500' : 'hover:bg-white/5'}`}>
                   <span className={`font-bold font-mono text-xs mt-0.5 shrink-0 ${activeVid === i ? 'text-black' : 'text-white/30'}`}>0{i + 1}</span>
                   <div>
-                    <p className={`font-semibold text-sm line-clamp-2 ${activeVid === i ? 'text-black' : 'text-white'}`}>{v.title}</p>
-                    <p className={`text-xs mt-0.5 ${activeVid === i ? 'text-black/60' : 'text-white/30'}`}>{v.dur}</p>
+                    <p className={`font-semibold text-xs sm:text-sm line-clamp-2 ${activeVid === i ? 'text-black' : 'text-white'}`}>{v.title}</p>
+                    <p className={`text-[10px] mt-0.5 ${activeVid === i ? 'text-black/60' : 'text-white/30'}`}>{v.dur}</p>
                   </div>
                 </button>
               ))}
@@ -592,62 +618,62 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── ENROLLMENT PROCESS & PAYMENT / FEE DETAILS ───────────── */}
-      <section id="enrollment" className="bg-white py-16 md:py-24 px-4 md:px-8 border-t border-gray-200 relative overflow-hidden">
+      <section id="enrollment" className="bg-white py-8 md:py-14 px-4 md:px-6 border-t border-gray-200 relative overflow-hidden">
         <div className="max-w-[1400px] mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-500 uppercase tracking-[0.2em] mb-4">Get Started</h2>
-            <h3 className="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">Enrollment Process</h3>
-            <div className="w-24 h-[4px] mx-auto bg-[#fbc02d] rounded-full mt-6"></div>
+          <div className="text-center mb-8">
+            <h2 className="text-xs sm:text-sm font-bold text-gray-500 uppercase tracking-[0.2em] mb-1.5">Get Started</h2>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight">Enrollment Process</h3>
+            <div className="w-16 h-[3px] mx-auto bg-[#fbc02d] rounded-full mt-3"></div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-center">
-            <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">1</div>
-              <h4 className="text-xl font-bold text-gray-900">Step 1</h4>
-              <p className="text-gray-500 mt-2 font-medium">Initial Registration & Profile Submission</p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8 text-center">
+            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">1</div>
+              <h4 className="text-base font-bold text-gray-900">Step 1</h4>
+              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Initial Registration & Profile Submission</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">2</div>
-              <h4 className="text-xl font-bold text-gray-900">Step 2</h4>
-              <p className="text-gray-500 mt-2 font-medium">Document Submission & Evaluation</p>
+            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">2</div>
+              <h4 className="text-base font-bold text-gray-900">Step 2</h4>
+              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Document Submission & Evaluation</p>
             </div>
-            <div className="bg-white p-8 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.06)] border border-gray-100 hover:-translate-y-2 transition-transform duration-300">
-              <div className="w-16 h-16 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-2xl font-black mx-auto mb-6">3</div>
-              <h4 className="text-xl font-bold text-gray-900">Step 3</h4>
-              <p className="text-gray-500 mt-2 font-medium">Payment & 24-Month Onboarding</p>
+            <div className="bg-white p-5 rounded-xl shadow-[0_6px_20px_rgba(0,0,0,0.04)] border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+              <div className="w-11 h-11 bg-[#fbc02d]/20 text-[#fbc02d] rounded-full flex items-center justify-center text-lg font-black mx-auto mb-3">3</div>
+              <h4 className="text-base font-bold text-gray-900">Step 3</h4>
+              <p className="text-gray-500 mt-1 text-xs sm:text-sm font-medium">Payment & 24-Month Onboarding</p>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 lg:gap-8 items-start">
             {/* Payment Account Details */}
-            <div className="bg-slate-900 rounded-[30px] shadow-[0_20px_50px_rgba(0,0,0,0.2)] p-8 md:p-12 text-white relative overflow-hidden">
-              <div className="absolute -right-20 -top-20 w-64 h-64 bg-[#fbc02d]/10 rounded-full blur-[50px] pointer-events-none" />
+            <div className="bg-slate-900 rounded-2xl shadow-[0_15px_35px_rgba(0,0,0,0.15)] p-5 sm:p-7 text-white relative overflow-hidden">
+              <div className="absolute -right-20 -top-20 w-48 h-48 bg-[#fbc02d]/10 rounded-full blur-[40px] pointer-events-none" />
 
-              <h3 className="text-3xl font-black mb-8 flex items-center gap-4">
-                <div className="w-12 h-12 rounded-full bg-[#fbc02d] flex items-center justify-center text-slate-900 text-xl font-bold">₹</div>
+              <h3 className="text-xl sm:text-2xl font-black mb-5 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-full bg-[#fbc02d] flex items-center justify-center text-slate-900 text-base font-bold">₹</div>
                 Make Payment
               </h3>
 
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-6 md:p-8 mb-8 backdrop-blur-sm">
-                <h4 className="text-[#fbc02d] font-bold text-lg mb-6 uppercase tracking-widest border-b border-white/10 pb-4">Primary Account — HDFC Bank</h4>
-                <div className="space-y-4 text-sm md:text-base">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-white/5 pb-3">
+              <div className="bg-white/5 border border-white/10 rounded-xl p-4 sm:p-5 mb-5 backdrop-blur-sm">
+                <h4 className="text-[#fbc02d] font-bold text-sm mb-3.5 uppercase tracking-wider border-b border-white/10 pb-2.5">Primary Account — HDFC Bank</h4>
+                <div className="space-y-2.5 text-xs sm:text-sm">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
                     <span className="text-gray-400 font-medium whitespace-nowrap">Account Number:</span>
-                    <span className="font-bold text-lg">50200000209630</span>
+                    <span className="font-bold text-base text-yellow-400">50200000209630</span>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-white/5 pb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
                     <span className="text-gray-400 font-medium whitespace-nowrap">Account Name:</span>
                     <span className="font-bold text-right leading-tight">ECONSTRUCT DESIGN & BUILD PVT LTD.</span>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-white/5 pb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
                     <span className="text-gray-400 font-medium whitespace-nowrap">IFSC Code:</span>
                     <span className="font-bold">HDFC0009196</span>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 border-b border-white/5 pb-3">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 border-b border-white/5 pb-2">
                     <span className="text-gray-400 font-medium whitespace-nowrap">SWIFT Code:</span>
                     <span className="font-bold">HDFCINBBNG</span>
                   </div>
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-1 pt-1">
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-0.5 pt-0.5">
                     <span className="text-gray-400 font-medium whitespace-nowrap">Branch:</span>
                     <span className="font-bold">Harlur Road, Bangalore</span>
                   </div>
@@ -655,53 +681,53 @@ const BimHubMSC = () => {
               </div>
 
               <div>
-                <p className="text-gray-400 text-sm mb-4">Please share the payment screenshot to the following contact numbers:</p>
-                <div className="flex flex-wrap gap-4">
+                <p className="text-gray-400 text-xs mb-2.5">Please share the payment screenshot to the following contact numbers:</p>
+                <div className="flex flex-wrap gap-2.5">
                   {["+91 9036744017", "+91 7259921111"].map(num => (
-                    <span key={num} className="bg-white/10 text-white font-bold py-2 px-4 rounded-lg border border-white/10 text-sm flex items-center gap-2">
-                      <Phone size={14} /> {num}
+                    <span key={num} className="bg-white/10 text-white font-bold py-1.5 px-3 rounded-lg border border-white/10 text-xs flex items-center gap-1.5">
+                      <Phone size={12} /> {num}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="mt-8 pt-8 border-t border-white/10 text-center">
-                <p className="text-gray-400 text-sm mb-4 font-medium uppercase tracking-widest">Payment Methods Supported</p>
-                <div className="flex flex-wrap justify-center gap-4 text-white font-bold text-sm md:text-base">
-                  <span className="bg-white/5 px-3 py-1 rounded border border-white/10">NEFT</span>
-                  <span className="bg-white/5 px-3 py-1 rounded border border-white/10">IMPS</span>
-                  <span className="bg-white/5 px-3 py-1 rounded border border-white/10">RTGS</span>
-                  <span className="bg-[#fbc02d] text-slate-900 px-3 py-1 rounded">UPI / GPay</span>
+              <div className="mt-5 pt-5 border-t border-white/10 text-center">
+                <p className="text-gray-400 text-xs mb-2.5 font-medium uppercase tracking-wider">Payment Methods Supported</p>
+                <div className="flex flex-wrap justify-center gap-2 text-white font-bold text-xs">
+                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">NEFT</span>
+                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">IMPS</span>
+                  <span className="bg-white/5 px-2.5 py-1 rounded border border-white/10">RTGS</span>
+                  <span className="bg-[#fbc02d] text-slate-900 px-2.5 py-1 rounded">UPI / GPay</span>
                 </div>
               </div>
             </div>
 
             {/* Information & QR Notice */}
-            <div className="flex flex-col justify-between h-full space-y-6">
-              <div className="bg-amber-50 rounded-2xl p-6 border-l-4 border-[#fbc02d]">
-                <h4 className="text-amber-900 font-black text-lg mb-2 flex items-center gap-2"><span className="text-2xl">⚠️</span> Important Notice</h4>
-                <p className="text-amber-800 font-medium leading-relaxed">Please take admission <strong className="font-black underline decoration-[#fbc02d] decoration-2">at least 2 months before</strong> the batch starting date to confirm seat allotment.</p>
+            <div className="flex flex-col justify-between h-full space-y-4">
+              <div className="bg-amber-50 rounded-xl p-4 border-l-4 border-[#fbc02d]">
+                <h4 className="text-amber-900 font-black text-sm mb-1 flex items-center gap-1.5"><span className="text-lg">⚠️</span> Important Notice</h4>
+                <p className="text-amber-800 text-xs sm:text-sm font-medium leading-relaxed">Please take admission <strong className="font-black underline decoration-[#fbc02d] decoration-2">at least 2 months before</strong> the batch starting date to confirm seat allotment.</p>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-2 gap-3">
                 {['Priority Seat Access', 'Pre-Batch Preparation', 'Limited Batch Size', 'Smooth Onboarding'].map(item => (
-                  <div key={item} className="bg-white p-4 rounded-xl border border-gray-100 flex items-center gap-3 shadow-sm">
-                    <CheckCircle2 className="w-5 h-5 text-green-500 shrink-0" />
-                    <span className="font-bold text-gray-800 text-sm">{item}</span>
+                  <div key={item} className="bg-white p-3 rounded-lg border border-gray-100 flex items-center gap-2 shadow-sm">
+                    <CheckCircle2 className="w-4 h-4 text-green-500 shrink-0" />
+                    <span className="font-bold text-gray-800 text-xs">{item}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="bg-slate-900 text-white p-8 rounded-[30px] shadow-[0_15px_40px_rgba(0,0,0,0.2)] relative overflow-hidden group flex flex-col sm:flex-row items-center gap-8">
+              <div className="bg-slate-900 text-white p-5 sm:p-6 rounded-2xl shadow-[0_10px_25px_rgba(0,0,0,0.15)] relative overflow-hidden group flex flex-col sm:flex-row items-center gap-5">
                 <div
                   onClick={() => setIsQrExpanded(true)}
-                  className="w-32 h-32 md:w-40 md:h-40 shrink-0 bg-white p-2 rounded-xl shadow-lg ring-4 ring-white/10 z-10 hover:scale-[1.05] transition-all cursor-pointer relative group/qr overflow-hidden"
+                  className="w-24 h-24 sm:w-28 sm:h-28 shrink-0 bg-white p-1.5 rounded-lg shadow-md ring-2 ring-white/10 z-10 hover:scale-[1.04] transition-all cursor-pointer relative group/qr overflow-hidden"
                   title="Click to expand QR Code"
                 >
                   <img src="/qr.webp" alt="Econstruct QR Code" className="w-full h-full object-contain" />
-                  <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover/qr:opacity-100 transition-opacity rounded-xl flex items-center justify-center backdrop-blur-[2px]">
-                    <span className="bg-yellow-400 text-slate-950 font-black text-[10px] px-2.5 py-1 rounded-full shadow-lg flex items-center gap-1">
-                      <Maximize2 className="w-3 h-3" /> Expand
+                  <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover/qr:opacity-100 transition-opacity rounded-lg flex items-center justify-center backdrop-blur-[2px]">
+                    <span className="bg-yellow-400 text-slate-950 font-black text-[9px] px-2 py-0.5 rounded-full shadow flex items-center gap-1">
+                      <Maximize2 className="w-2.5 h-2.5" /> Expand
                     </span>
                   </div>
                 </div>
@@ -756,11 +782,11 @@ const BimHubMSC = () => {
                 </AnimatePresence>
 
                 <div className="text-center sm:text-left z-10">
-                  <h3 className="text-xl md:text-2xl font-black mb-3 leading-snug">
+                  <h3 className="text-base sm:text-lg font-black mb-1.5 leading-snug">
                     This is ON-THE-JOB Learning <br />
                     <span className="text-[#fbc02d]">12 Months Training + 12 Months Internship</span>
                   </h3>
-                  <p className="text-gray-300 text-base leading-relaxed font-medium">
+                  <p className="text-gray-300 text-xs sm:text-sm leading-relaxed font-medium">
                     Step out of traditional classrooms and gain 24 months of genuine engineering experience.
                   </p>
                 </div>
@@ -771,31 +797,31 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── FAQ ──────────────────────────────────────────────────── */}
-      <section className="py-14 md:py-20 bg-stone-50 border-t border-gray-200">
+      <section className="py-8 md:py-12 bg-stone-50 border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row gap-12 lg:gap-20">
-            <motion.div {...fin} className="lg:w-2/5 shrink-0 lg:sticky lg:top-28 self-start">
+          <div className="flex flex-col lg:flex-row gap-8 lg:gap-12">
+            <motion.div {...fin} className="lg:w-2/5 shrink-0 lg:sticky lg:top-24 self-start">
               <Label>FAQ</Label>
-              <h2 className="text-2xl sm:text-3xl md:text-4xl font-medium text-black tracking-tight mb-4">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-medium text-black tracking-tight mb-2.5">
                 Frequently<br />Asked <span className="accent-text italic">Questions</span>
               </h2>
-              <p className="text-gray-400 text-sm leading-relaxed mb-6">Common questions about the PG Diploma in Entrepreneurship in Structures, BIM and Project Management program.</p>
+              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4">Common questions about the PG Diploma in Entrepreneurship in Structures, BIM and Project Management program.</p>
               <Btn href="#enrollment">Still Have Questions?</Btn>
             </motion.div>
             <div className="flex-1 border-t border-gray-200">
               {faqs.map((faq, i) => {
                 const open = openFaq === i;
                 return (
-                  <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.04}s` }} className="border-b border-gray-200">
+                  <motion.div key={i} {...fin} style={{ transitionDelay: `${i * 0.03}s` }} className="border-b border-gray-200">
                     <button onClick={() => setOpenFaq(open ? null : i)}
-                      className="w-full py-5 text-left flex items-center justify-between gap-4 focus:outline-none group">
-                      <span className={`font-semibold text-sm md:text-base transition-colors duration-200 ${open ? 'text-yellow-600' : 'text-black group-hover:text-yellow-600'}`}>{faq.q}</span>
-                      <div className={`shrink-0 w-7 h-7 flex items-center justify-center transition-all duration-300 ${open ? 'bg-yellow-500 text-black rotate-180' : 'bg-gray-100 text-gray-400 group-hover:bg-yellow-500 group-hover:text-black'}`}>
-                        <ChevronDown size={16} />
+                      className="w-full py-3.5 text-left flex items-center justify-between gap-3 focus:outline-none group">
+                      <span className={`font-semibold text-xs sm:text-sm md:text-base transition-colors duration-200 ${open ? 'text-yellow-600' : 'text-black group-hover:text-yellow-600'}`}>{faq.q}</span>
+                      <div className={`shrink-0 w-6 h-6 flex items-center justify-center transition-all duration-300 ${open ? 'bg-yellow-500 text-black rotate-180' : 'bg-gray-100 text-gray-400 group-hover:bg-yellow-500 group-hover:text-black'}`}>
+                        <ChevronDown size={14} />
                       </div>
                     </button>
-                    <div className={`overflow-hidden transition-all duration-400 ease-in-out ${open ? 'max-h-64 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}>
-                      <p className="text-gray-500 text-sm leading-relaxed whitespace-pre-line">{faq.a}</p>
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-64 pb-3.5 opacity-100' : 'max-h-0 opacity-0'}`}>
+                      <p className="text-gray-500 text-xs sm:text-sm leading-relaxed whitespace-pre-line">{faq.a}</p>
                     </div>
                   </motion.div>
                 );
@@ -806,35 +832,35 @@ const BimHubMSC = () => {
       </section>
 
       {/* ── FINAL CTA ────────────────────────────────────────────── */}
-      <section className="relative py-20 md:py-28 overflow-hidden">
+      <section className="relative py-10 md:py-14 overflow-hidden">
         <div className="absolute inset-0">
           <img src="/prj6.jpg" alt="" className="w-full h-full object-cover brightness-[0.35] saturate-[0.6]" />
           <div className="absolute inset-0 bg-slate-900/70" />
         </div>
         <div className="absolute top-0 left-0 w-full h-0.5 bg-yellow-500" />
         <div className="relative z-10 max-w-[1400px] mx-auto px-5 sm:px-10">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-10">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className="lg:max-w-xl">
-              <div className="flex items-center gap-2 mb-4">
+              <div className="flex items-center gap-2 mb-2.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-                <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">12 Months Training + 12 Months Internship</span>
+                <span className="text-yellow-500 uppercase tracking-[0.25em] text-[11px] font-bold">12 Months Training + 12 Months Internship</span>
               </div>
-              <h2 className="font-medium text-white tracking-tight leading-tight mb-4"
-                style={{ fontSize: 'clamp(2rem, 5vw, 4rem)' }}>
+              <h2 className="font-medium text-white tracking-tight leading-tight mb-2.5"
+                style={{ fontSize: 'clamp(1.75rem, 3.5vw, 2.75rem)' }}>
                 Ready to Transform<br /><span className="accent-text italic">Your Career?</span>
               </h2>
-              <p className="text-gray-300 text-base leading-relaxed">
+              <p className="text-gray-300 text-xs sm:text-sm leading-relaxed">
                 Join 2,000+ graduates who have already built successful careers through our 24-month on-job learning program.
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
-              className="flex flex-col items-center lg:items-end gap-5 shrink-0">
-              <Btn href="#enrollment">Apply Now — April 2026</Btn>
-              <div className="flex gap-6">
+              className="flex flex-col items-center lg:items-end gap-3.5 shrink-0">
+              <Btn href="#enrollment">Apply Now — 21st Sept 2026</Btn>
+              <div className="flex gap-4">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"
-                    className="flex items-center gap-1.5 text-white/40 text-xs font-semibold hover:text-white transition-colors">
-                    <Phone className="w-3.5 h-3.5" />{n}
+                    className="flex items-center gap-1 text-white/40 text-[11px] font-semibold hover:text-white transition-colors">
+                    <Phone className="w-3 h-3" />{n}
                   </a>
                 ))}
               </div>

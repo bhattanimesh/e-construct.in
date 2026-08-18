@@ -190,7 +190,7 @@ const BimHubBusinessManagement = () => (
           <span className="text-[#fbc02d]">Business Management</span>
         </h1>
         <p className="mt-6 text-gray-200 text-lg md:text-2xl font-extrabold tracking-wide drop-shadow-lg max-w-3xl leading-relaxed">
-          12-Month ON-JOB Learning · 100% Placement Assistance · New Batch: 15th April 2026
+          12-Month ON-JOB Learning · 100% Placement Assistance · New Batch: 21st Sept 2026
         </p>
         <div className="mt-8 flex flex-wrap gap-4 justify-center">
           <a
@@ -217,7 +217,7 @@ const BimHubBusinessManagement = () => (
         {[
           { label: 'Duration', value: '12 Months' },
           { label: 'Mode', value: 'Online & Offline' },
-          { label: 'New Batch', value: '15th April 2026' },
+          { label: 'New Batch', value: '21st Sept 2026' },
           { label: 'Seats', value: '10–15 Per Batch' },
         ].map((f) => (
           <div key={f.label}>

@@ -148,7 +148,7 @@ const BimHubMSB = () => {
   // Official FAQs directly from live website
   const faqs = [
     { q: 'What is the duration of the PG Diploma in Project Management with BIM Technology program?', a: 'The program duration is 12 months for both Online & Offline courses. This is an ON-JOB learning program where you work directly on live client projects. Long holidays are not permitted as you work directly on live client projects.' },
-    { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
+    { q: 'When does the next batch start?', a: 'The next batch starts on 21st Sept 2026. Both Online and Offline batches start on the same day.' },
     { q: 'What is included in the "On-job Learning Program"?', a: 'The On-job Learning Program allows you to gain hands-on experience in real-world project execution. You will work alongside the Econstruct technical team from Center Line Plan (CLP) to Good for Construction (GFC) drawings, covering project coordination, scheduling with Primavera P6, 4D BIM with Synchro, and clash detection with Navisworks.' },
     { q: 'Will I receive a certification upon completing the program?', a: 'Yes, upon successful completion of the program, you will receive an industry-recognized certification provided by Econstruct Design & Build Pvt Ltd. Additionally, you will also be given an official experience letter and 100% placement assistance.' },
     { q: 'What software tools will I learn during the program?', a: 'The program covers 8+ BIM and project management tools plus custom spreadsheets: AutoCAD, REVIT Architecture, REVIT Structures, REVIT MEP, Synchro 4D BIM, Navisworks Manage, Infraworks, Primavera P6, and 40+ Design Spreadsheets.' },
@@ -227,7 +227,7 @@ const BimHubMSB = () => {
 
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
               className="flex flex-wrap gap-4">
-              <Btn href="#apply-now">Apply Now — April 2026</Btn>
+              <Btn href="#apply-now">Apply Now — 21st Sept 2026</Btn>
               <a href="#program-video" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
                 <Play className="w-4 h-4 text-yellow-500" /> Watch Overview Video
               </a>
@@ -320,7 +320,7 @@ const BimHubMSB = () => {
               </div>
               <div className="pt-4 border-t border-white/10 flex items-center justify-between text-sm">
                 <span className="text-gray-400">Next Batch Starts:</span>
-                <span className="text-yellow-400 font-bold">15th April 2026</span>
+                <span className="text-yellow-400 font-bold">21st Sept 2026</span>
               </div>
             </div>
 
@@ -849,7 +849,7 @@ const BimHubMSB = () => {
                 <div className="space-y-2.5 border-t border-slate-700 pt-4 text-xs">
                   {[
                     ['Program Duration', '12 Months'],
-                    ['Next Batch', '15th April 2026'],
+                    ['Next Batch', '21st Sept 2026'],
                     ['Learning Mode', 'Online / Offline / Hybrid'],
                     ['Job Placement', '100% Placement Assistance'],
                     ['Software Stack', 'AutoCAD, REVIT, Synchro, Navisworks, Primavera P6'],
@@ -864,7 +864,7 @@ const BimHubMSB = () => {
               </div>
 
               <div className="mt-6 pt-4 border-t border-slate-700">
-                <Btn href="#apply-now" className="w-full">Apply Now — April 2026</Btn>
+                <Btn href="#apply-now" className="w-full">Apply Now — 21st Sept 2026</Btn>
               </div>
             </div>
           </div>
@@ -1230,7 +1230,7 @@ const BimHubMSB = () => {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="flex flex-col items-center lg:items-end gap-5 shrink-0">
-              <Btn href="https://wa.me/919036744017">Apply Now — April 2026 Batch</Btn>
+              <Btn href="https://wa.me/919036744017">Apply Now — 21st Sept 2026 Batch</Btn>
               <div className="flex gap-6">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"

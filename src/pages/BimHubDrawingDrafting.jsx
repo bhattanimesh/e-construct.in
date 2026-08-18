@@ -57,7 +57,7 @@ const BimHubDrawingDrafting = () => {
       },
       {
         question: "When does the next batch start?",
-        answer: "The next batch starts on 15th April 2026. Contact administration for more details."
+        answer: "The next batch starts on 21st Sept 2026. Contact administration for more details."
       },
       {
         question: "Where are the classes held?",
@@ -224,7 +224,7 @@ const BimHubDrawingDrafting = () => {
                   <Calendar className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">New Batch Starting Date</h3>
                 </div>
-                <p className="text-[#fbc02d] font-bold text-lg">15th April 2026</p>
+                <p className="text-[#fbc02d] font-bold text-lg">21st Sept 2026</p>
               </div>
             </div>
 

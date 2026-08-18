@@ -58,7 +58,7 @@ const BimHubInteriorDesign = () => {
       },
       {
         question: "When does the next batch start?",
-        answer: "The next batch starts on 15th April 2026. Admissions close 45-60 days before the batch start date, so early registration is strongly recommended."
+        answer: "The next batch starts on 21st Sept 2026. Admissions close 45-60 days before the batch start date, so early registration is strongly recommended."
       },
       {
         question: "What are the session timings?",
@@ -219,7 +219,7 @@ const BimHubInteriorDesign = () => {
                   <Calendar className="w-6 h-6 text-[#fbc02d]" />
                   <h3 className="text-xl font-bold text-gray-900">New Batch Starting Date</h3>
                 </div>
-                <p className="text-[#fbc02d] font-bold text-lg">15th April 2026</p>
+                <p className="text-[#fbc02d] font-bold text-lg">21st Sept 2026</p>
               </div>
             </div>
 

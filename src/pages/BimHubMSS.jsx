@@ -147,7 +147,7 @@ const BimHubMSS = () => {
   // Official FAQs directly from live website
   const faqs = [
     { q: 'What is the duration of the course?', a: 'The duration is 12 months for both Online & Offline courses. This is an ON-JOB learning program where you get the opportunity to work on real Live Projects with our technical team. Duration may vary slightly depending on your allotted project and overall performance. Note: Long holidays are not permitted during the course as you are involved in real client projects.' },
-    { q: 'When does the next batch start?', a: 'The next batch starts on 15th April 2026. Both Online and Offline batches start on the same day.' },
+    { q: 'When does the next batch start?', a: 'The next batch starts on 21st Sept 2026. Both Online and Offline batches start on the same day.' },
     { q: 'What are the session timings?', a: 'For Online Students: You learn through pre-recorded videos with access to live session recordings. You are welcome to join live sessions.\nFor Offline Students: You report to the office premises from 8:55 am to 7:00 pm (minimum 7 to 8 hours daily, Monday to Friday) for on-job practice. Biometric attendance is enforced.' },
     { q: 'Who can join this course?', a: 'Polytechnic Diploma (Civil Engineering), B.Tech / B.E (Civil Engineering), M.Tech / M.E (Structural Engineering), CAD Structures.' },
     { q: 'What candidate qualities (3 P\'s) are required?', a: '1. Passion for Structural Engineering — Key to a successful structural design career.\n2. Patience to learn — Structural engineering requires patience to master codes & software.\n3. Practice — Constant practice is required to gain expertise on live projects.' },
@@ -236,7 +236,7 @@ const BimHubMSS = () => {
 
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.6 } } }}
               className="flex flex-wrap gap-4">
-              <Btn href="#apply-now">Apply Now — April 2026</Btn>
+              <Btn href="#apply-now">Apply Now — 21st Sept 2026</Btn>
               <a href="#program-video" className="px-7 py-3.5 border border-white/30 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all inline-flex items-center gap-2">
                 <Play className="w-4 h-4 text-yellow-500" /> Watch Overview Video
               </a>
@@ -329,7 +329,7 @@ const BimHubMSS = () => {
               </div>
               <div className="pt-4 border-t border-white/10 flex items-center justify-between text-sm">
                 <span className="text-gray-400">Next Batch Starts:</span>
-                <span className="text-yellow-400 font-bold">15th April 2026</span>
+                <span className="text-yellow-400 font-bold">21st Sept 2026</span>
               </div>
             </div>
 
@@ -1369,7 +1369,7 @@ const BimHubMSS = () => {
 
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
               className="flex flex-col items-center lg:items-end gap-5 shrink-0">
-              <Btn href="https://wa.me/919036744017">Apply Now — April 2026 Batch</Btn>
+              <Btn href="https://wa.me/919036744017">Apply Now — 21st Sept 2026 Batch</Btn>
               <div className="flex gap-6">
                 {['+91 90367 44017', '+91 72592 22888'].map(n => (
                   <a key={n} href={`https://wa.me/${n.replace(/\D/g, '')}`} target="_blank" rel="noreferrer"
