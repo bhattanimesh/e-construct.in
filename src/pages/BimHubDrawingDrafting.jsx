@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const BimHubDrawingDrafting = () => {
   const sliderImages = [
@@ -664,6 +665,14 @@ const BimHubDrawingDrafting = () => {
           </div>
         </div>
       </section>
+
+      {/* Real Site Visits Scroller */}
+      <SiteVisitsScroller
+        badge="DRAWING-TO-SITE CORRELATION"
+        title="Site Visits & Drawing"
+        highlight="in Action"
+        subtitle="Bridging structural drafting, reinforcement detailing & real on-site construction execution"
+      />
 
       {/* 1-on-1 Career Discussion Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">

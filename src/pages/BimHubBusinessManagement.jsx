@@ -4,6 +4,7 @@ import {
   User, Users, Package, ChevronDown, CheckCircle, GraduationCap,
   Video, BarChart2,
 } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 // ─── DATA ─────────────────────────────────────────────────────────────────────
 
@@ -395,6 +396,14 @@ const BimHubBusinessManagement = () => (
         </div>
       </div>
     </section>
+
+    {/* ── Real Site Visits Scroller ── */}
+    <SiteVisitsScroller
+      badge="ENTREPRENEURSHIP IN ACTION"
+      title="Live Site Visits"
+      highlight="& Construction"
+      subtitle="Connecting AEC business models with on-ground execution, client delivery & project operations"
+    />
 
     {/* ── Pricing ── */}
     <section className="bg-white py-20 px-4 md:px-8 border-t border-gray-200">

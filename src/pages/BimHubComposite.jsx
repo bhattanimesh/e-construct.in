@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const BimHubComposite = () => {
   const sliderImages = [
@@ -434,6 +435,14 @@ const BimHubComposite = () => {
           </div>
         </div>
       </section>
+
+      {/* Real Site Visits Scroller */}
+      <SiteVisitsScroller
+        badge="HANDS-ON SITE EXPERIENCE"
+        title="Composite Site Visits"
+        highlight="in Action"
+        subtitle="Bridging structural designs, BIM site management & on-ground civil execution"
+      />
 
       {/* Pricing Section */}
       <section className="bg-slate-50 py-24 px-4 md:px-8 border-t border-gray-200">

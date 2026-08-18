@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Phone, Clock, Zap, BookOpen } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const WHATSAPP_NUMBER = '919036744017';
 const WHATSAPP_MSG = encodeURIComponent('Hi, I am interested in the Online Crash Courses. Please share more details.');
@@ -204,6 +205,14 @@ const BimHubOnlineCrashCourses = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Real Site Visits Scroller ── */}
+      <SiteVisitsScroller
+        badge="REAL-WORLD APPLICATION"
+        title="Live Site Visits"
+        highlight="in Action"
+        subtitle="Apply crash course software theory directly to live construction & structural site inspections"
+      />
 
       {/* ── Bundle Banner ── */}
       <section className="bg-slate-50 py-14 px-4 md:px-8 border-t border-gray-200">

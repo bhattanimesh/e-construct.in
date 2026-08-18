@@ -7,6 +7,7 @@ import {
   Play, TrendingUp, Building2, Zap, GraduationCap, Globe,
   Star, Quote, CheckCircle2, FileText
 } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 function Counter({ to, suffix = '' }) {
   const [n, setN] = useState(0);
@@ -455,6 +456,14 @@ const BimHubPBD = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* ── Real Site Visits Scroller ── */}
+      <SiteVisitsScroller
+        badge="PERFORMANCE-BASED STRUCTURAL SITES"
+        title="High-Rise Site Visits"
+        highlight="in Action"
+        subtitle="Exploring seismic detailing, shear wall systems & high-rise structural execution in the field"
+      />
 
       {/* ── FAQ SECTION ─────────────────────────────────────────── */}
       <section className="py-14 md:py-20 bg-stone-50">

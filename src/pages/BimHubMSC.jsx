@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
-import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
-import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
@@ -557,6 +556,14 @@ const BimHubMSC = () => {
           </div>
         </div>
       </section>
+
+      {/* ── REAL SITE VISITS SCROLLER ────────────────────────────── */}
+      <SiteVisitsScroller
+        badge="REAL-WORLD CONSTRUCTION EXPOSURE"
+        title="Live Project & Site Visits"
+        highlight="in Action"
+        subtitle="On-site techno-management, site execution, quality inspection & live engineering coordination"
+      />
 
       {/* ── REVAMPED STUDENT REVIEWS / TESTIMONIALS SECTION ─────── */}
       <StudentVideoReviewsShowcase

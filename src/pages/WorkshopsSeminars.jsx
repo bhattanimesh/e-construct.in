@@ -8,6 +8,7 @@ import {
 import { useNavigate } from 'react-router-dom';
 import CTASection from '../components/CTASection';
 import SectionHeading from '../components/SectionHeading';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import heroSession from '../assets/CorporateON-JOBTraining.webp';
 
 // All real session photos (from /training/ folder + MSB photos)
@@ -459,6 +460,14 @@ const WorkshopsSeminars = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Real Site Visits Scroller ── */}
+      <SiteVisitsScroller
+        badge="FIELD WORKSHOPS & SITE EXPOSURE"
+        title="Workshop Site Visits"
+        highlight="in Action"
+        subtitle="Hands-on engineering workshops, structural defect forensics & on-site technical demonstrations"
+      />
 
       {/* ── Benefits + Private Event ── */}
       <section className="py-16 md:py-24 bg-slate-900 text-white">

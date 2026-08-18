@@ -486,17 +486,62 @@ const StructuralConsultancy = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5 items-stretch">
             <ProjectSliderCard
-              images={['/projects/gh_1.png', '/projects/gh_2.png']}
-              type="Residential"
-              title="Group Housing Development (G+4)"
-              challenges="Fast-track RCC framed structure (M20/M25) with AAC blockwork & integrated architectural, structural & MEP design."
-              status="Executed under IS code compliance within ~6 months delivery timeline."
-              location="Residential & Canteen Township"
+              images={['/projects/vapi_bridge_1.jpg', '/projects/vapi_bridge_2.jpg', '/projects/vapi_bridge_3.jpg', '/projects/vapi_bridge_5.png']}
+              type="Special Structure / Sky Bridge"
+              title="Sky Bridge & Inter-Building Connection"
+              challenges="16.5m unsupported span suspended 34.5m above ground, 18.5m built-up steel sections & column retrofitting."
+              status="Successful high-altitude dual crane erection and zero-vibration serviceability achieved."
+              location="Vapi, Gujarat"
               onClick={() => navigate('/projects')}
             />
             <ProjectSliderCard
-              images={['/projects/emp_1.png', '/projects/emp_2.png', '/projects/emp_5.png']}
+              images={['/projects/new/61.jpg']}
               type="High-Rise Residential"
+              title="Raunak Residency (G+28)"
+              challenges="ETABS lateral drift optimization, high-rise shear wall core detailing & dynamic wind load simulation."
+              status="Structural engineering and GFC rebar drawings released."
+              location="Maharashtra, India"
+              onClick={() => navigate('/projects')}
+            />
+            <ProjectSliderCard
+              images={['/projects/new/57.png', '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg', '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM.jpeg']}
+              type="Commercial Mall"
+              title="Ashoak Mall (2B+G+8)"
+              challenges="Curvilinear structural glazing, double-basement automated parking & 5 lakh sq.ft retail transfer grid."
+              status="Structural engineering & BIM coordination complete."
+              location="Jalna, Maharashtra"
+              onClick={() => navigate('/projects')}
+            />
+            <ProjectSliderCard
+              images={['/projects/new/1.jpeg', '/projects/new/58.png', '/projects/marathahalli_1.jpg']}
+              type="Healthcare & Commercial"
+              title="Chris International Hospital & Mall"
+              challenges="Column-free retail transfer slabs, medical floor vibration isolation & rooftop helipad structural integration."
+              status="Comprehensive structural & MEP design delivered."
+              location="Bangalore, Karnataka"
+              onClick={() => navigate('/projects')}
+            />
+            <ProjectSliderCard
+              images={['/projects/new/54.jpg', '/projects/stadium_1.png', '/projects/stadium_2.png']}
+              type="Sports Arena & Infrastructure"
+              title="Balapur International Cricket Stadium"
+              challenges="Long-span cantilever steel roof canopies, multi-tier grandstands & crowd dynamic harmonic analysis."
+              status="Structural master engineering and pavilion design completed."
+              location="Balapur, Maharashtra"
+              onClick={() => navigate('/projects')}
+            />
+            <ProjectSliderCard
+              images={['/projects/new/63.png', '/projects/new/64.png', '/projects/new/60.jpg']}
+              type="5-Star Hospitality"
+              title="Hotel Pahala & Luxury Sky Resort"
+              challenges="Grand fountain portico, column-free banquet halls & multi-tier cantilevered rooftop infinity pools."
+              status="Architectural BIM & structural engineering released."
+              location="Pahala, Odisha"
+              onClick={() => navigate('/projects')}
+            />
+            <ProjectSliderCard
+              images={['/projects/emp_2.png', '/projects/new/2.jpeg', '/projects/new/4.jpeg', '/projects/emp_1.png']}
+              type="High-Rise Skyscraper"
               title="9 Emperio (G+35)"
               challenges="Control dynamic wind deflection, high-rise ETABS FE modeling, and lateral drift calculations for G+35 tower."
               status="Structural design & GFC drawings released. Site construction ongoing."
@@ -504,25 +549,12 @@ const StructuralConsultancy = () => {
               onClick={() => navigate('/projects')}
             />
             <ProjectSliderCard
-              images={['/projects/blv_1.png', '/projects/blv_8.png', '/projects/blv_5.png']}
+              images={['/projects/blv_8.png', '/projects/new/8.jpeg', '/projects/new/14.jpeg', '/projects/blv_5.png']}
               type="Mixed-Use High-Rise"
               title="9 Boulevard (G+35)"
               challenges="Non-linear dynamic time-history simulation, multi-tower podium parking & green wall structural integration."
               status="Structural analysis & 3D BIM complete, tower execution underway."
               location="Patia, Bhubaneswar, Odisha"
-              onClick={() => navigate('/projects')}
-            />
-            <ProjectSliderCard
-              images={[
-                '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM.jpeg',
-                '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.41 PM (1).jpeg',
-                '/ashok mall/WhatsApp Image 2026-08-14 at 3.44.42 PM.jpeg'
-              ]}
-              type="Commercial Retail"
-              title="Ashoak Mall, Jalna (2B+G+8)"
-              challenges="2 Basements + Ground + 8 Upper Floors structural design for high-footfall retail, food court & parking levels."
-              status="GFC structural release completed."
-              location="Jalna, Maharashtra"
               onClick={() => navigate('/projects')}
             />
           </div>

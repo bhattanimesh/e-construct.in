@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import interiorImg from '../assets/cs_int_2.jpg';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const BimHubInteriorDesign = () => {
   const sliderImages = [
@@ -551,6 +552,14 @@ const BimHubInteriorDesign = () => {
           </div>
         </div>
       </section>
+
+      {/* Real Site Visits Scroller */}
+      <SiteVisitsScroller
+        badge="ON-SITE FIT-OUT & CIVIL EXPOSURE"
+        title="Interior & Site Visits"
+        highlight="in Action"
+        subtitle="On-site material inspection, turnkey fit-out execution, site measurements & MEP coordination"
+      />
 
       {/* 1-on-1 Career Discussion Section */}
       <section className="bg-white py-24 px-4 md:px-8 border-t border-gray-200">

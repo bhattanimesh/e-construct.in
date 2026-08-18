@@ -21,9 +21,28 @@ specializing in Building Information Modelling (BIM), architectural consultancy,
 3. Corporate On-Job Training – BIM and AEC software training for corporate teams.
 4. Building Information Modelling – End-to-end BIM services for residential, commercial, and infrastructure projects.
 
---- PROJECTS ---
-Econstruct has delivered projects across residential, commercial, hospitality, and infrastructure sectors.
-Notable project types include high-rise buildings, villas, hospitals, and industrial facilities.
+--- PROJECTS & PORTFOLIO ---
+Econstruct has delivered 650+ iconic engineering, architectural, and BIM consultancy projects across India and internationally.
+Notable flagship projects include:
+1. 9 Emperio & 9 Boulevard (G+35 Skyscraper Township, Bhubaneswar): High-rise structural design and FE modeling using ETABS, SAFE, STAAD.Pro, and non-linear dynamic time-history simulation with podium amenities.
+2. Raunak Residency (G+28 High-Rise Tower, Maharashtra): Iconic G+28 residential tower with grand entrance gateway, multi-tier podium parking, and shear-wall seismic core.
+3. Ashoak Mall (2B+G+8, Jalna, Maharashtra): 5 lakh sq.ft luxury commercial retail mall, food court, and multiplex with curved glass curtain-wall facade.
+4. CK Mall & Commercial Center: Fluid dynamic parametric glass ribbon facade retail and entertainment hub.
+5. Chris International Hospital & Commercial Center (Marathahalli, Bangalore): Integrated multi-speciality hospital, 5-star hotel, and shopping mall with rooftop helipad.
+6. Hotel Pahala & Luxury Sky Resort (Odisha): 5-star hotel with grand fountain arrival court and multi-tiered rooftop sky infinity pools.
+7. Chris Icon Commercial Landmark Tower (Bangalore): Corporate headquarters with gold facade panels and external capsule glass elevator.
+8. HSR Commercial Center (Bangalore): Iconic biomimetic illuminated parametric facade retail showroom hub.
+9. Balapur International Cricket Stadium & Sports Complex: ICC-grade stadium, cantilever steel roof canopies, and tennis/nets training complex.
+10. Super Strikers Football Stadium & Sports Academy: Regulation football arena, Olympic aquatic center, and athlete hostel blocks.
+11. Sky Bridge & Inter-Building Connection (Vapi, Gujarat): A 16.5 m unsupported high-altitude sky bridge at 34.5 m height connecting commercial towers.
+12. Bungee Jumping Tower Project (Mayem Lake, North Goa): High-altitude cantilever steel tower adventure tourism project with dynamic impact load engineering.
+13. ISKCON Centre of Culture and Education (Pandharpur): Traditional Vedic architecture combined with modern 3D BIM and temple domes.
+14. Mountain View Luxury A-Frame Villa: Biophilic hill villa with double-height timber great room and sunset infinity pool.
+15. Tropical Modern Luxury Villa & Villa 18: Designer duplex villas with illuminated backlit CNC jaali screens and double-height glass foyers.
+16. Boutique Luxury Apartments: Completed on-site residential buildings (G+5/G+6) in Bangalore and Pune with modern elevation louvers and stilt parking.
+17. Canada International Project: Cold-climate structural engineering, snow-load design, and LOD 400 BIM modeling (NBC/CSA).
+18. Group Housing Development (G+4): Fast-track RCC framed residential township delivered in ~6 months.
+
 
 --- CONTACT ---
 Address: Venkatdhari Heights, 2nd floor Parapanna Agrahara Main Road, Opposite Sai Poorna Premier Apartment, Kudlu, Bangalore - 560068.

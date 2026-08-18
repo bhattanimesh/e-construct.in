@@ -1,5 +1,6 @@
 import React from 'react';
 import { MessageCircle, Phone, Star, Target, TrendingUp, Users, Lightbulb, GraduationCap } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const WHATSAPP_NUMBER = '919036744017';
 const WHATSAPP_MSG = encodeURIComponent('Hi, I am interested in the Life Engineering Academy. Please share more details.');
@@ -200,6 +201,14 @@ const BimHubLifeEngineering = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Real Site Visits Scroller ── */}
+      <SiteVisitsScroller
+        badge="EXPERIENTIAL INDUSTRY IMMERSION"
+        title="Site Mentorship Visits"
+        highlight="in Action"
+        subtitle="On-ground leadership, construction team dynamics & engineering career development"
+      />
 
       {/* ── Who Is This For ── */}
       <section className="bg-white py-16 px-4 md:px-8 border-t border-gray-200">

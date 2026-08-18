@@ -1,5 +1,6 @@
 import React from 'react';
 import { CheckCircle2, MessageCircle, Phone, Clock, Calendar, Monitor, Award, Wrench } from 'lucide-react';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 
 const WHATSAPP_NUMBER = '919036744017';
 const WHATSAPP_MSG = encodeURIComponent('Hi, I am interested in the 3-Day ETABS Workshop. Please share more details.');
@@ -184,6 +185,14 @@ const BimHubETABSWorkshop = () => {
           </div>
         </div>
       </section>
+
+      {/* ── Real Site Visits Scroller ── */}
+      <SiteVisitsScroller
+        badge="REAL-WORLD STRUCTURAL PROJECTS"
+        title="Structural Site Visits"
+        highlight="in Action"
+        subtitle="Comparing ETABS numerical simulations & stress diagrams with real-world structural framing"
+      />
 
       {/* ── Pricing Cards ── */}
       <section className="bg-white py-20 px-4 md:px-8 border-t border-gray-200">

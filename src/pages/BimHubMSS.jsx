@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
@@ -829,7 +830,15 @@ const BimHubMSS = () => {
         </div>
       </section>
 
-      {/* ── 08. MODE OF TRAINING ────────────────────────────────────── */}
+      {/* ── 08. REAL SITE VISITS SCROLLER ─────────────────────────── */}
+      <SiteVisitsScroller
+        badge="PRACTICAL SITE EXPOSURE"
+        title="Structural Site Visits"
+        highlight="in Action"
+        subtitle="Real-world site inspections, RCC casting, steel fabrication & structural auditing visits"
+      />
+
+      {/* ── 09. MODE OF TRAINING ────────────────────────────────────── */}
       <section id="mode-of-training" className="py-16 md:py-24 bg-slate-50 border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
           <motion.div {...fin} className="mb-12 text-center">
