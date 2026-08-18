@@ -186,7 +186,7 @@ const BimHubMSB = () => {
 
   // Program Highlights Posters switcher
   const posterList = [
-    { id: 'poster-1', title: 'Program Overview Poster', src: '/msb/msb poster 2.png', alt: 'PG Diploma in Project Management with BIM Technology Matrix Table Poster' },
+    { id: 'poster-1', title: 'Program Overview Poster', src: '/MSB New.jpg.jpeg', alt: 'PG Diploma in Project Management with BIM Technology Matrix Table Poster' },
     { id: 'poster-2', title: 'BIM Software Matrix Poster', src: '/assets/msb_poster_orange.jpeg', alt: 'PG Diploma BIM Software Tools & Program Overview Poster' }
   ];
   const [activePoster, setActivePoster] = useState(0);

@@ -194,7 +194,7 @@ const BimHubMSS = () => {
 
   // Program Highlights Posters switcher
   const posterList = [
-    { id: 'poster-1', title: 'Program Overview Poster', src: '/mss1.webp', alt: 'PG Diploma In Structural Engineering Overview Poster' },
+    { id: 'poster-1', title: 'Program Overview Poster', src: '/MSS new.jpg.jpeg', alt: 'PG Diploma In Structural Engineering Overview Poster' },
     { id: 'poster-2', title: 'Syllabus & Software Poster', src: '/mss2.webp', alt: 'PG Diploma In Structural Engineering Software & Syllabus Poster' }
   ];
   const [activePoster, setActivePoster] = useState(0);

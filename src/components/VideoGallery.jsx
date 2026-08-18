@@ -87,6 +87,22 @@ const VideoGallery = () => {
       badge: 'BIM Engineering',
       url: 'https://youtu.be/tMXEJFxronI',
       isArticle: false
+    },
+    {
+      id: '-kDEZQXDX1M',
+      title: 'Project: Development Zones Site Layout – Residential, Commercial & 4-Star Hotel',
+      category: '🏢 Mixed-Use & Hospitality',
+      badge: 'Project Showcase',
+      url: 'https://youtu.be/-kDEZQXDX1M',
+      isArticle: false
+    },
+    {
+      id: 'QDdfnyNlEDE',
+      title: 'Vadrahalli Project – Residential & Site Development',
+      category: '🏡 Residential & Site Planning',
+      badge: 'Project Showcase',
+      url: 'https://youtu.be/QDdfnyNlEDE?si=HRGxykMsbJotSN_O',
+      isArticle: false
     }
   ];
 

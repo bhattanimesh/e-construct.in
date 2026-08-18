@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
+import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
   Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight,
@@ -574,7 +576,7 @@ const BimHubMSC = () => {
       <section className="bg-slate-50 py-6 md:py-8 px-4 md:px-6 border-t border-gray-200">
         <div className="max-w-[1400px] mx-auto space-y-6">
           <div className="w-full max-w-5xl mx-auto rounded-2xl overflow-hidden shadow-[0_15px_35px_rgba(0,0,0,0.08)] bg-white p-2.5 sm:p-3">
-            <img src="/msc_training_poster_2.png" alt="MSC Training Poster" className="w-full h-auto object-contain" />
+            <img src="/MSC New.jpg.jpeg" alt="MSC Training Poster" className="w-full h-auto object-contain" />
           </div>
         </div>
       </section>
