@@ -84,7 +84,7 @@ const topics = [
 const benefits = [
   'Learn from practitioners with 25+ years of industry experience',
   'Network with engineers, architects and construction professionals',
-  'Receive certificates of participation recognised by the industry',
+  'Receive certificates of participation in collaboration with IIT Bhubaneswar & Econstruct',
   'Access to recorded sessions and resource materials post-event',
   'Practical exercises and real project case studies',
   'Live Q&A sessions with expert speakers',
@@ -140,9 +140,33 @@ const WorkshopsSeminars = () => {
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/10" />
         </div>
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-[5%] pb-16 md:pb-24">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex items-center gap-3 mb-5">
-            <div className="w-10 h-[2px] bg-[#fbc02d]" />
-            <span className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-xs">Knowledge Events</span>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+            <div className="inline-flex items-center gap-3.5 bg-slate-900/95 backdrop-blur-md border border-yellow-500/50 p-2 sm:p-2.5 pr-4 sm:pr-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+              <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
+                <img 
+                  src="/iit-bhubaneswar-crest.png" 
+                  alt="IIT Bhubaneswar Official Logo" 
+                  className="w-full h-full object-contain" 
+                />
+              </div>
+              <div className="text-left">
+                <div className="flex items-center gap-1.5">
+                  <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border border-yellow-500/30">
+                    In Collaboration With
+                  </span>
+                </div>
+                <div className="text-white font-black text-sm sm:text-base tracking-tight leading-tight mt-0.5">
+                  IIT Bhubaneswar
+                </div>
+                <div className="text-gray-300 text-[11px] font-medium hidden sm:block">
+                  Indian Institute of Technology Bhubaneswar
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-[2px] bg-[#fbc02d] hidden sm:block" />
+              <span className="text-[#fbc02d] font-bold tracking-[0.2em] uppercase text-xs">Knowledge Events</span>
+            </div>
           </motion.div>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="text-5xl md:text-7xl lg:text-8xl font-medium text-white tracking-tight mb-5 leading-[1.05]">

@@ -136,6 +136,29 @@ const BimHubComposite = () => {
         </div>
 
         <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
+          {/* IIT Bhubaneswar High-Visibility Partnership Card */}
+          <div className="inline-flex items-center gap-3.5 bg-slate-900/95 backdrop-blur-md border border-yellow-500/50 p-2 sm:p-2.5 pr-4 sm:pr-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)] mb-6">
+            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
+              <img 
+                src="/iit-bhubaneswar-crest.png" 
+                alt="IIT Bhubaneswar Official Logo" 
+                className="w-full h-full object-contain" 
+              />
+            </div>
+            <div className="text-left">
+              <div className="flex items-center gap-1.5">
+                <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border border-yellow-500/30">
+                  In Collaboration With
+                </span>
+              </div>
+              <div className="text-white font-black text-sm sm:text-base tracking-tight leading-tight mt-0.5">
+                IIT Bhubaneswar
+              </div>
+              <div className="text-gray-300 text-[11px] font-medium hidden sm:block">
+                Indian Institute of Technology Bhubaneswar
+              </div>
+            </div>
+          </div>
           <div className="flex items-center gap-3 mb-6">
             <span className="w-10 h-[2px] bg-[#fbc02d]"></span>
             <span className="text-[#fbc02d] font-extrabold tracking-[0.25em] uppercase text-xs md:text-sm">
@@ -384,13 +407,22 @@ const BimHubComposite = () => {
             </div>
 
             {/* Card 4: Certification */}
-            <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <Award className="w-6 h-6 text-[#fbc02d]" />
-                <h3 className="text-xl font-bold text-gray-900">Certification</h3>
+            <div className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.08)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full relative overflow-hidden">
+              <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
+                <div className="flex items-center gap-3">
+                  <Award className="w-6 h-6 text-[#fbc02d]" />
+                  <h3 className="text-xl font-bold text-gray-900">Certification</h3>
+                </div>
+                <div className="flex items-center gap-2.5 bg-slate-900 text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-md border border-slate-800">
+                  <img src="/iit-bhubaneswar-crest.png" alt="IIT Bhubaneswar" className="w-8 h-8 object-contain bg-white rounded-lg p-0.5 shrink-0" />
+                  <div>
+                    <div className="text-[10px] text-yellow-400 font-extrabold uppercase leading-none">In Association With</div>
+                    <div className="text-xs font-black text-white leading-tight mt-0.5">IIT Bhubaneswar</div>
+                  </div>
+                </div>
               </div>
               <p className="text-gray-600 font-medium leading-relaxed mb-6">
-                Receive industry-recognized certification upon completion, provided by Econstruct.
+                Receive industry-recognized Master Study certification in association with IIT Bhubaneswar &amp; Econstruct.
               </p>
               <div className="mt-auto bg-slate-50 p-4 rounded-xl border border-gray-100">
                 <p className="text-gray-800 font-bold text-sm">

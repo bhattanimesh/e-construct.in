@@ -182,9 +182,29 @@ const BimHubBusinessManagement = () => (
         <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/60 to-slate-950/30" />
       </div>
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto flex flex-col items-center">
-        <span className="inline-block bg-[#fbc02d] text-gray-900 text-xs font-black uppercase tracking-[0.25em] px-4 py-1.5 rounded-full mb-6 shadow-md">
-          Econstruct — Business Program
-        </span>
+        {/* IIT Bhubaneswar High-Visibility Partnership Card */}
+        <div className="inline-flex items-center gap-3.5 bg-slate-900/95 backdrop-blur-md border border-yellow-500/50 p-2 sm:p-2.5 pr-4 sm:pr-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)] mb-6">
+          <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
+            <img 
+              src="/iit-bhubaneswar-crest.png" 
+              alt="IIT Bhubaneswar Official Logo" 
+              className="w-full h-full object-contain" 
+            />
+          </div>
+          <div className="text-left">
+            <div className="flex items-center gap-1.5">
+              <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border border-yellow-500/30">
+                In Collaboration With
+              </span>
+            </div>
+            <div className="text-white font-black text-sm sm:text-base tracking-tight leading-tight mt-0.5">
+              IIT Bhubaneswar
+            </div>
+            <div className="text-gray-300 text-[11px] font-medium hidden sm:block">
+              Indian Institute of Technology Bhubaneswar
+            </div>
+          </div>
+        </div>
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white leading-[1.1] tracking-tight drop-shadow-[0_6px_20px_rgba(0,0,0,0.9)] max-w-4xl">
           Master Study In<br />
           <span className="text-[#fbc02d]">Business Management</span>

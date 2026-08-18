@@ -108,9 +108,33 @@ const BimHubPBD = () => {
         <div className="relative z-10 h-[100dvh] lg:h-full w-full max-w-[1400px] px-5 sm:px-10 flex flex-col justify-end pb-16 lg:pb-20">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl">
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-              className="flex items-center gap-3 mb-4">
-              <span className="w-8 h-0.5 bg-yellow-500" />
-              <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">Technical Webinar & Masterclass Series</span>
+              className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+              <div className="inline-flex items-center gap-3.5 bg-slate-900/95 backdrop-blur-md border border-yellow-500/50 p-2 sm:p-2.5 pr-4 sm:pr-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
+                  <img 
+                    src="/iit-bhubaneswar-crest.png" 
+                    alt="IIT Bhubaneswar Official Logo" 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border border-yellow-500/30">
+                      In Collaboration With
+                    </span>
+                  </div>
+                  <div className="text-white font-black text-sm sm:text-base tracking-tight leading-tight mt-0.5">
+                    IIT Bhubaneswar
+                  </div>
+                  <div className="text-gray-300 text-[11px] font-medium hidden sm:block">
+                    Indian Institute of Technology Bhubaneswar
+                  </div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className="w-8 h-0.5 bg-yellow-500 hidden sm:block" />
+                <span className="text-yellow-500 uppercase tracking-[0.3em] text-xs font-bold">Technical Masterclass Series</span>
+              </div>
             </motion.div>
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
               className="font-medium text-white tracking-tight leading-[0.95] mb-5"

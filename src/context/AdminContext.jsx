@@ -429,6 +429,7 @@ The company is led by experienced architects and BIM specialists with decades of
     { id: 5, name: 'Ambuja', url: '/part5.jpg' },
     { id: 6, name: 'Shapoorji', url: '/part6.png' },
     { id: 7, name: 'Partner 7', url: '/part7.avif' },
+    { id: 8, name: 'IIT Bhubaneswar', url: '/iit-bhubaneswar-logo.png' },
   ],
   projectsPageContent: {
     heroTitle: 'Our Projects',

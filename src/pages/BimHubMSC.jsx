@@ -129,18 +129,46 @@ const BimHubMSC = () => {
         <div className="relative z-10 h-full w-full max-w-[1400px] mx-auto px-5 sm:px-10 flex flex-col justify-center pt-24 sm:pt-28 pb-8 flex-1">
           <motion.div initial="i" animate="a" variants={{ a: { transition: { staggerChildren: 0.1 } } }} className="lg:max-w-4xl pt-4">
 
-            {/* Accreditation Badges */}
+            {/* Collaboration & Accreditation Showcase */}
             <motion.div variants={{ i: { opacity: 0, y: 20 }, a: { opacity: 1, y: 0, transition: { duration: 0.7 } } }}
-              className="flex flex-wrap items-center gap-3 mb-5">
-              <span className="bg-slate-900/80 backdrop-blur-md text-yellow-400 border border-yellow-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
-                <ShieldCheck className="w-3.5 h-3.5 text-yellow-500" /> ISO 9001:2015 Certified
-              </span>
-              <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
-                <Building2 className="w-3.5 h-3.5 text-blue-400" /> MSME Certified
-              </span>
-              <span className="bg-slate-900/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40 text-[11px] font-extrabold uppercase px-3 py-1.5 rounded-md tracking-wider flex items-center gap-1.5 shadow-lg">
-                <Zap className="w-3.5 h-3.5 text-emerald-400" /> 24 Months On-Job Program
-              </span>
+              className="flex flex-col sm:flex-row sm:items-center gap-3 mb-6">
+              
+              {/* IIT Bhubaneswar High-Visibility Partnership Card */}
+              <div className="inline-flex items-center gap-3.5 bg-slate-900/95 backdrop-blur-md border border-yellow-500/50 p-2 sm:p-2.5 pr-4 sm:pr-6 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-white rounded-xl p-1 flex items-center justify-center shrink-0 shadow-sm border border-gray-100">
+                  <img 
+                    src="/iit-bhubaneswar-crest.png" 
+                    alt="IIT Bhubaneswar Official Logo" 
+                    className="w-full h-full object-contain" 
+                  />
+                </div>
+                <div className="text-left">
+                  <div className="flex items-center gap-1.5">
+                    <span className="bg-yellow-500/20 text-yellow-400 text-[10px] font-black uppercase tracking-wider px-1.5 py-0.5 rounded border border-yellow-500/30">
+                      In Collaboration With
+                    </span>
+                  </div>
+                  <div className="text-white font-black text-sm sm:text-base tracking-tight leading-tight mt-0.5">
+                    IIT Bhubaneswar
+                  </div>
+                  <div className="text-gray-300 text-[11px] font-medium hidden sm:block">
+                    Indian Institute of Technology Bhubaneswar
+                  </div>
+                </div>
+              </div>
+
+              {/* Secondary Trust Badges */}
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="bg-slate-900/80 backdrop-blur-md text-yellow-400 border border-yellow-500/40 text-[11px] font-extrabold uppercase px-3 py-2 rounded-xl tracking-wider flex items-center gap-1.5 shadow-md">
+                  <ShieldCheck className="w-4 h-4 text-yellow-500" /> ISO 9001:2015
+                </span>
+                <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-2 rounded-xl tracking-wider flex items-center gap-1.5 shadow-md">
+                  <Building2 className="w-4 h-4 text-blue-400" /> MSME Certified
+                </span>
+                <span className="bg-slate-900/80 backdrop-blur-md text-emerald-300 border border-emerald-500/40 text-[11px] font-extrabold uppercase px-3 py-2 rounded-xl tracking-wider flex items-center gap-1.5 shadow-md">
+                  <Zap className="w-4 h-4 text-emerald-400" /> 24 Months
+                </span>
+              </div>
             </motion.div>
 
             <motion.h1 variants={{ i: { opacity: 0, y: 40 }, a: { opacity: 1, y: 0, transition: { duration: 0.85, ease: [0.6, 0.05, 0.01, 0.9] } } }}
@@ -315,18 +343,27 @@ const BimHubMSC = () => {
                   ))}
                 </div>
               </motion.div>
-              <motion.div {...fin} className="bg-yellow-500 p-6 md:p-7">
-                <div className="flex items-center gap-2.5 mb-3.5">
-                  <div className="w-7 h-7 bg-black flex items-center justify-center shrink-0">
-                    <Award className="w-3.5 h-3.5 text-yellow-500" />
+              <motion.div {...fin} className="bg-yellow-500 p-6 md:p-7 relative overflow-hidden">
+                <div className="flex items-center justify-between mb-3.5 flex-wrap gap-2">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-7 h-7 bg-black flex items-center justify-center shrink-0">
+                      <Award className="w-3.5 h-3.5 text-yellow-500" />
+                    </div>
+                    <span className="text-[11px] font-black uppercase tracking-widest text-black/60">Certification & Credentials</span>
                   </div>
-                  <span className="text-[11px] font-black uppercase tracking-widest text-black/60">Certification & Credentials</span>
+                  <div className="flex items-center gap-2.5 bg-black text-white px-3.5 py-2 rounded-xl text-xs font-bold shadow-sm border border-black/40">
+                    <img src="/iit-bhubaneswar-crest.png" alt="IIT Bhubaneswar" className="w-8 h-8 object-contain bg-white rounded-lg p-0.5 shrink-0" />
+                    <div>
+                      <div className="text-[10px] text-yellow-400 font-extrabold uppercase leading-none">In Association With</div>
+                      <div className="text-xs font-black text-white leading-tight mt-0.5">IIT Bhubaneswar</div>
+                    </div>
+                  </div>
                 </div>
                 <p className="text-black font-bold text-lg sm:text-xl tracking-tight mb-3">24-Month PG Diploma Certification</p>
                 <div className="space-y-1.5">
                   {[
                     '24 Months Working Experience Letter',
-                    '24 Months PG Diploma Certification',
+                    '24 Months PG Diploma Certification by IIT Bhubaneswar & Econstruct',
                     'Comprehensive Portfolio Building',
                     'LinkedIn Photoshoot & Video Resume',
                     '6–8 Job Interview Arrangements'
