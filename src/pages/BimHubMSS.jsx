@@ -276,27 +276,60 @@ const BimHubMSS = () => {
       </section>
 
       {/* ── 02. DETAILED PROGRAM VIDEO ─────────────────────────────── */}
-      <section id="program-video" className="py-16 md:py-24 bg-white border-b border-gray-100">
+      <section id="program-video" className="py-12 md:py-16 bg-white border-b border-gray-100">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
-            <div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Left Content Column */}
+            <motion.div {...fin} className="lg:col-span-5 flex flex-col justify-center">
               <Label>02 · Program Detailed Video</Label>
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
+              <h2 className="text-3xl sm:text-4xl xl:text-[44px] font-black text-slate-900 tracking-tight leading-[1.15] mb-4">
                 See What <span className="text-yellow-600 italic font-serif">PG Diploma in Structural Engg</span> Is All About
               </h2>
-            </div>
-            <p className="text-gray-500 text-sm max-w-md md:text-right leading-relaxed">
-              Watch how our hands-on structural engineering curriculum bridges the gap between college theory and real consultancy work.
-            </p>
-          </motion.div>
+              <p className="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                Watch how our hands-on structural engineering curriculum bridges the gap between college theory and real consultancy work.
+              </p>
 
-          <motion.div {...fin} className="relative w-full bg-slate-950 aspect-video rounded-3xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border border-slate-800">
-            <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
-            <iframe src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
-              className="absolute inset-0 w-full h-full" title="PG Diploma In Structural Engineering Overview Video" frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              referrerPolicy="strict-origin-when-cross-origin" allowFullScreen />
-          </motion.div>
+              <div className="space-y-3 mb-6">
+                {[
+                  'Live Project Execution (CLP to GFC)',
+                  'Industry-Grade ETABS, SAFE & REVIT Workflow',
+                  '100% Placement & Technical Interview Prep'
+                ].map((highlight, idx) => (
+                  <div key={idx} className="flex items-center gap-3 text-slate-800 text-xs sm:text-sm font-semibold">
+                    <div className="w-5 h-5 rounded-full bg-yellow-500/20 text-yellow-600 flex items-center justify-center shrink-0">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                    </div>
+                    <span>{highlight}</span>
+                  </div>
+                ))}
+              </div>
+
+              <div>
+                <a
+                  href="#training-details"
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-extrabold text-slate-950 bg-yellow-500 hover:bg-yellow-400 px-6 py-3 rounded-xl transition-all shadow-md"
+                >
+                  <span>Explore Curriculum Specifications</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              </div>
+            </motion.div>
+
+            {/* Right Video Player Column */}
+            <motion.div {...fin} className="lg:col-span-7">
+              <div className="relative w-full aspect-video rounded-3xl overflow-hidden shadow-[0_20px_50px_-15px_rgba(0,0,0,0.25)] border border-slate-800 bg-slate-950">
+                <div className="absolute top-0 left-0 w-24 h-1 bg-yellow-500 z-10" />
+                <iframe
+                  src="https://www.youtube.com/embed/YkimCw_Nu1M?si=TMB-qf3YXr24j9-r"
+                  className="w-full h-full border-0"
+                  title="PG Diploma In Structural Engineering Overview Video"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -514,97 +547,113 @@ const BimHubMSS = () => {
       </section>
 
       {/* ── 05. HOW YOUR PORTFOLIO WILL LOOK ───────────────────────── */}
-      <section id="portfolio-showcase" className="py-16 md:py-24 bg-white border-b border-gray-200">
+      <section id="portfolio-showcase" className="py-12 md:py-16 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-5 sm:px-10">
-          <motion.div {...fin} className="mb-10 text-center">
-            <Label>05 · Portfolio Showcase</Label>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
-            </h2>
-            <p className="text-gray-600 text-base max-w-3xl mx-auto mt-3 leading-relaxed">
-              Explore authentic student portfolios to get a clear idea of what your structural engineering portfolio will look like after completing our PG Diploma In Structural Engineering program.
-            </p>
-          </motion.div>
-
-          {/* Portfolio Selector Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
-            {portfolioPdfs.map((doc, idx) => (
-              <button
-                key={doc.id}
-                onClick={() => setActivePdf(idx)}
-                className={`px-5 py-3 rounded-2xl text-xs font-extrabold transition-all duration-300 border flex items-center gap-2 ${activePdf === idx
-                  ? 'bg-slate-900 text-yellow-400 border-slate-900 shadow-lg scale-105'
-                  : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
-                  }`}
-              >
-                {doc.type === 'video' ? (
-                  <Video className="w-4 h-4 text-yellow-500" />
-                ) : (
-                  <FileText className="w-4 h-4 text-yellow-500" />
-                )}
-                <span>{doc.badge}</span>
-              </button>
-            ))}
-          </div>
-
-          {/* Active Portfolio Item Viewer Container */}
-          <div className="bg-slate-900 text-white rounded-3xl p-6 sm:p-8 border border-slate-800 shadow-2xl">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-6 border-b border-slate-800">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            {/* Left Selector Column */}
+            <motion.div {...fin} className="lg:col-span-4 flex flex-col justify-between">
               <div>
-                <span className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-[11px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider mb-2 inline-block">
-                  {portfolioPdfs[activePdf].badge}
-                </span>
-                <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                  {portfolioPdfs[activePdf].title}
-                </h3>
-                <p className="text-gray-400 text-xs sm:text-sm mt-1 max-w-2xl">
-                  {portfolioPdfs[activePdf].desc}
+                <Label>05 · Portfolio Showcase</Label>
+                <h2 className="text-2xl sm:text-3xl lg:text-[34px] font-black text-slate-900 tracking-tight leading-tight mb-3">
+                  How Your Portfolio Will Look <span className="text-yellow-600 italic font-serif">After Training</span>
+                </h2>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-6">
+                  Explore authentic student portfolios to get a clear idea of what your structural engineering deliverables will look like after completing the program.
                 </p>
               </div>
 
-              <div className="flex flex-wrap items-center gap-3 shrink-0">
-                {portfolioPdfs[activePdf].type === 'video' ? (
-                  <a
-                    href={portfolioPdfs[activePdf].videoUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
+              {/* Vertical Card Selectors */}
+              <div className="space-y-2.5">
+                {portfolioPdfs.map((doc, idx) => (
+                  <button
+                    key={doc.id}
+                    onClick={() => setActivePdf(idx)}
+                    className={`w-full text-left p-3.5 rounded-2xl transition-all duration-300 border flex items-center gap-3.5 ${
+                      activePdf === idx
+                        ? 'bg-slate-900 text-white border-slate-800 shadow-xl ring-2 ring-yellow-500/50 scale-[1.01]'
+                        : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100 hover:border-gray-300'
+                    }`}
                   >
-                    <ExternalLink className="w-4 h-4" /> Watch on YouTube
-                  </a>
-                ) : (
-                  <a
-                    href={portfolioPdfs[activePdf].pdfUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-5 py-2.5 rounded-xl transition-all shadow-md flex items-center gap-2"
-                  >
-                    <ExternalLink className="w-4 h-4" /> Open Full PDF
-                  </a>
-                )}
+                    <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                      activePdf === idx ? 'bg-yellow-500 text-slate-950 font-bold shadow-sm' : 'bg-white border border-gray-200 text-slate-600'
+                    }`}>
+                      {doc.type === 'video' ? <Video className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <div className={`text-xs font-extrabold truncate ${activePdf === idx ? 'text-yellow-400' : 'text-slate-900'}`}>
+                        {doc.badge}
+                      </div>
+                      <div className={`text-[11px] truncate mt-0.5 ${activePdf === idx ? 'text-gray-300' : 'text-gray-500'}`}>
+                        {doc.title}
+                      </div>
+                    </div>
+                    {activePdf === idx && <ChevronRight className="w-4 h-4 text-yellow-400 shrink-0" />}
+                  </button>
+                ))}
               </div>
-            </div>
+            </motion.div>
 
-            {/* Embedded Viewer Container */}
-            <div className="w-full h-[550px] sm:h-[650px] md:h-[750px] rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 relative">
-              {portfolioPdfs[activePdf].type === 'video' ? (
-                <iframe
-                  src={portfolioPdfs[activePdf].embedUrl}
-                  title={portfolioPdfs[activePdf].title}
-                  className="w-full h-full border-0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowFullScreen
-                />
-              ) : (
-                <iframe
-                  src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
-                  title={portfolioPdfs[activePdf].title}
-                  className="w-full h-full border-0"
-                />
-              )}
-            </div>
+            {/* Right Active Viewer Column */}
+            <motion.div {...fin} className="lg:col-span-8">
+              <div className="bg-slate-900 text-white rounded-3xl p-5 sm:p-6 border border-slate-800 shadow-2xl">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 mb-4 border-b border-slate-800">
+                  <div className="min-w-0">
+                    <span className="bg-yellow-500/10 text-yellow-400 border border-yellow-500/30 text-[10px] font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider mb-1.5 inline-block">
+                      {portfolioPdfs[activePdf].badge}
+                    </span>
+                    <h3 className="text-base sm:text-xl font-bold text-white tracking-tight truncate">
+                      {portfolioPdfs[activePdf].title}
+                    </h3>
+                  </div>
+
+                  <div className="shrink-0">
+                    {portfolioPdfs[activePdf].type === 'video' ? (
+                      <a
+                        href={portfolioPdfs[activePdf].videoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-4 py-2 rounded-xl transition-all shadow-md inline-flex items-center gap-1.5"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" /> Watch on YouTube
+                      </a>
+                    ) : (
+                      <a
+                        href={portfolioPdfs[activePdf].pdfUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-extrabold text-xs px-4 py-2 rounded-xl transition-all shadow-md inline-flex items-center gap-1.5"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5" /> Open Full PDF
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                {/* Embedded Viewer Container */}
+                <div className={`w-full rounded-2xl overflow-hidden bg-slate-950 border border-slate-800 relative ${
+                  portfolioPdfs[activePdf].type === 'video'
+                    ? 'aspect-video'
+                    : 'h-[440px] sm:h-[480px] lg:h-[500px]'
+                }`}>
+                  {portfolioPdfs[activePdf].type === 'video' ? (
+                    <iframe
+                      src={portfolioPdfs[activePdf].embedUrl}
+                      title={portfolioPdfs[activePdf].title}
+                      className="w-full h-full border-0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <iframe
+                      src={`${portfolioPdfs[activePdf].pdfUrl}#toolbar=1`}
+                      title={portfolioPdfs[activePdf].title}
+                      className="w-full h-full border-0"
+                    />
+                  )}
+                </div>
+              </div>
+            </motion.div>
           </div>
-
         </div>
       </section>
 
