@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import InterviewPrepSeriesShowcase from '../components/InterviewPrepSeriesShowcase';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
@@ -1006,6 +1007,11 @@ const BimHubMSS = () => {
       {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
       <StudentVideoReviewsShowcase
         subtitle="Hear directly from our PG Diploma In Structural Engineering (MSS) trainees and alumni placed across India, UAE, Muscat, and London."
+      />
+
+      {/* ── 11B. INTERVIEW PREPARATION SERIES & REELS ────────────────── */}
+      <InterviewPrepSeriesShowcase
+        subtitle="Master high-frequency structural engineering interview questions, design concepts, and IS code criteria with our bite-sized reels & full video lectures."
       />
 
       {/* ── 12. LIVE PROJECTS & PRACTICAL EXPOSURE ─────────────────── */}

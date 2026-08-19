@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Clock, Calendar, Monitor, BookOpen, Award, Briefcase, Mic, MessageSquare, Users, Video, ChevronLeft, ChevronRight, CheckCircle2, ChevronDown } from 'lucide-react';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
+import InterviewPrepSeriesShowcase from '../components/InterviewPrepSeriesShowcase';
 
 const BimHubComposite = () => {
   const sliderImages = [
@@ -442,6 +443,11 @@ const BimHubComposite = () => {
         title="Composite Site Visits"
         highlight="in Action"
         subtitle="Bridging structural designs, BIM site management & on-ground civil execution"
+      />
+
+      {/* Interview Preparation Series & Reels */}
+      <InterviewPrepSeriesShowcase
+        subtitle="Master high-frequency structural engineering, BIM, and techno-management interview questions with our bite-sized reels & full video lectures."
       />
 
       {/* Pricing Section */}

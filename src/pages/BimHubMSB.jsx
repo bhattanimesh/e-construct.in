@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import InterviewPrepSeriesShowcase from '../components/InterviewPrepSeriesShowcase';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
@@ -923,6 +924,11 @@ const BimHubMSB = () => {
       {/* ── 11. STUDENT FEEDBACK & EXPERIENCE VIDEOS ────────────────── */}
       <StudentVideoReviewsShowcase
         subtitle="Hear directly from our PG Diploma in Project Management with BIM Technology (MSB) trainees and alumni placed in top BIM & structural engineering firms across India, UAE, Muscat, and London."
+      />
+
+      {/* ── 11B. INTERVIEW PREPARATION SERIES & REELS ────────────────── */}
+      <InterviewPrepSeriesShowcase
+        subtitle="Master high-frequency structural engineering, BIM, and project management interview questions with our bite-sized reels & full video lectures."
       />
 
       {/* ── 12. LIVE PROJECTS, IMPACT & PRACTICAL EXPOSURE ──────────── */}

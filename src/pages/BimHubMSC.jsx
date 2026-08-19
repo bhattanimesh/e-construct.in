@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, AnimatePresence } from 'framer-motion';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import InterviewPrepSeriesShowcase from '../components/InterviewPrepSeriesShowcase';
 import AwardsMediaShowcase from '../components/AwardsMediaShowcase';
 import {
   Clock, Calendar, Monitor, BookOpen, Award, Briefcase,
@@ -570,6 +571,11 @@ const BimHubMSC = () => {
       {/* ── REVAMPED STUDENT REVIEWS / TESTIMONIALS SECTION ─────── */}
       <StudentVideoReviewsShowcase
         subtitle="Hear directly from our PG Diploma in Entrepreneurship in Structures, BIM and Project Management (MSC) trainees and alumni working in top structural design & BIM firms."
+      />
+
+      {/* ── INTERVIEW PREPARATION SERIES & REELS ─────────────────── */}
+      <InterviewPrepSeriesShowcase
+        subtitle="Master high-frequency structural engineering, BIM, and techno-management interview questions with our bite-sized reels & full video lectures."
       />
 
       {/* ── POSTERS SHOWCASE ─────────────────────────────────────── */}
