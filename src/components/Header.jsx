@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import {
-  Menu, X, ChevronDown, Facebook, Linkedin, Youtube,
+  Menu, X, ChevronDown, ChevronRight, Facebook, Linkedin, Youtube,
   Building2, Layers, HardHat, Home, Wrench, ShieldCheck,
   LayoutDashboard, Image, BookOpen, GraduationCap, FileText,
   BarChart2, BookMarked, ArrowRight, RotateCcw,
@@ -93,121 +93,90 @@ const trainingMenu = [
   { icon: FileText, title: 'Masters Study In Engineering Drawing & Drafting', desc: 'Master technical drawing', path: '/training/drawing-drafting' },
 ];
 
-// ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
-
-// ─── SERVICES MEGA DROPDOWN ───────────────────────────────────────────────────
+// ─── SERVICES MEGA DROPDOWN (NATURAL CASCADING MENU) ─────────────────────────
 
 const ServicesDropdown = () => {
-  const [engOpen, setEngOpen] = useState(true);
-
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(430px,92vw)] bg-white border-t-4 border-[#fbc02d] shadow-[0_25px_70px_-15px_rgba(0,0,0,0.2)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[340px] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_50px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl translate-y-3 group-hover:translate-y-0 z-50">
       
-      {/* Header strip */}
-      <div className="bg-gradient-to-r from-amber-500/15 via-amber-500/5 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-amber-600">
-            {servicesMenu.label}
-          </span>
-          <span className="text-[9px] font-extrabold uppercase tracking-wider bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">
-            8 Disciplines
-          </span>
-        </div>
-        <Link to="/services" className="text-[0.68rem] font-bold text-gray-500 hover:text-[#fbc02d] flex items-center gap-1 transition-colors group/all">
-          View all <ArrowRight size={11} className="transition-transform group-hover/all:translate-x-0.5" />
+      {/* Top Header */}
+      <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-5 py-3 border-b border-gray-100 flex items-center justify-between rounded-t-none">
+        <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">{servicesMenu.label}</span>
+        <Link to="/services" className="text-[0.65rem] font-bold text-gray-400 hover:text-[#fbc02d] flex items-center gap-1 transition-colors">
+          View all <ArrowRight size={10} />
         </Link>
       </div>
 
-      {/* Main List Container */}
-      <div className="p-2.5 max-h-[min(78vh,640px)] overflow-y-auto space-y-1.5 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:bg-amber-300/60 hover:[&::-webkit-scrollbar-thumb]:bg-amber-400 [&::-webkit-scrollbar-thumb]:rounded-full [scrollbar-width:thin] [scrollbar-color:#fbc02d40_transparent]">
+      {/* Vertical List */}
+      <div className="p-2 space-y-0.5">
         
-        {/* Engineering Design Consultancy Card Group */}
-        <div className="rounded-xl border border-amber-200/80 bg-gradient-to-b from-amber-50/70 via-amber-50/30 to-white overflow-hidden shadow-sm transition-all duration-200">
-          <button
-            type="button"
-            onClick={(e) => { e.preventDefault(); setEngOpen(!engOpen); }}
-            className="w-full flex items-center justify-between gap-3 p-3 text-left hover:bg-amber-100/40 transition-colors duration-150 group/eng cursor-pointer"
-          >
+        {/* ── Engineering Design Consultancy (Side Flyout Trigger) ── */}
+        <div className="relative group/side">
+          <div className="flex items-center justify-between gap-3 px-3.5 py-2.5 rounded-xl hover:bg-[#fbc02d]/10 group-hover/side:bg-[#fbc02d]/10 transition-colors duration-150 cursor-pointer">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-8 h-8 rounded-lg bg-[#fbc02d] text-slate-900 flex items-center justify-center shrink-0 shadow-sm font-bold">
-                <Building2 size={16} />
+              <div className="w-8 h-8 rounded-lg bg-[#fbc02d]/15 text-slate-900 flex items-center justify-center shrink-0 group-hover/side:bg-[#fbc02d] transition-colors">
+                <Building2 size={16} className="text-[#fbc02d] group-hover/side:text-slate-900 transition-colors" />
               </div>
               <div className="min-w-0">
-                <div className="flex items-center gap-1.5">
-                  <p className="text-[0.82rem] font-extrabold text-gray-900 leading-tight group-hover/eng:text-amber-600 transition-colors">
-                    {engineeringSubmenu.title}
-                  </p>
-                </div>
-                <p className="text-[0.66rem] text-gray-500 mt-0.5 leading-snug truncate">{engineeringSubmenu.desc}</p>
+                <p className="text-[0.78rem] font-bold text-gray-900 leading-tight group-hover/side:text-yellow-600 transition-colors truncate">
+                  {engineeringSubmenu.title}
+                </p>
+                <p className="text-[0.66rem] text-gray-400 mt-0.5 leading-snug truncate">BIM, Structural, PMC & Quality</p>
               </div>
             </div>
-            <div className={`w-6 h-6 rounded-full bg-white/80 border border-amber-200 flex items-center justify-center text-gray-400 group-hover/eng:text-amber-600 transition-all duration-200 shrink-0 ${engOpen ? 'rotate-180 bg-amber-100 text-amber-700' : ''}`}>
-              <ChevronDown size={13} />
-            </div>
-          </button>
+            <ChevronRight size={14} className="text-gray-400 group-hover/side:text-yellow-600 group-hover/side:translate-x-0.5 transition-all shrink-0" />
+          </div>
 
-          {/* Sublinks Container */}
-          <div className={`overflow-hidden transition-all duration-300 ${engOpen ? 'max-h-[400px] opacity-100 pb-2 px-2.5' : 'max-h-0 opacity-0 px-2.5'}`}>
-            <div className="space-y-1 pt-1 border-t border-amber-200/60">
-              {engineeringSubmenu.items.map((sub) => {
-                const Icon = sub.icon;
-                return (
-                  <Link
-                    key={sub.title}
-                    to={sub.path}
-                    className="flex items-center gap-2.5 px-2.5 py-2 rounded-lg bg-white/60 hover:bg-white hover:shadow-sm border border-amber-100/60 hover:border-amber-300/80 transition-all duration-150 group/sub"
-                  >
-                    <div className="w-6 h-6 rounded-md bg-amber-100 text-amber-800 flex items-center justify-center shrink-0 group-hover/sub:bg-[#fbc02d] group-hover/sub:text-slate-900 transition-colors">
-                      <Icon size={13} />
-                    </div>
-                    <div className="min-w-0 flex-1">
-                      <p className="text-[0.76rem] font-bold text-gray-800 leading-tight group-hover/sub:text-amber-600 transition-colors truncate">
-                        {sub.title}
-                      </p>
-                      <p className="text-[0.63rem] text-gray-400 leading-tight truncate">
-                        {sub.desc}
-                      </p>
-                    </div>
-                    <ArrowRight size={11} className="text-gray-300 opacity-0 -translate-x-1 group-hover/sub:opacity-100 group-hover/sub:translate-x-0 group-hover/sub:text-amber-500 transition-all shrink-0" />
-                  </Link>
-                );
-              })}
-            </div>
+          {/* ── Side Submenu (Opens seamlessly attached to the right) ── */}
+          <div className="absolute left-[calc(100%+4px)] top-0 w-[310px] bg-white border border-gray-100 shadow-[0_15px_40px_-5px_rgba(0,0,0,0.18)] rounded-xl p-1.5 space-y-0.5 opacity-0 invisible group-hover/side:opacity-100 group-hover/side:visible -translate-x-1 group-hover/side:translate-x-0 transition-all duration-200 pointer-events-none group-hover/side:pointer-events-auto z-[60]">
+            {/* Invisible hover bridge */}
+            <div className="absolute -left-2 top-0 w-2 h-full" />
+
+            {engineeringSubmenu.items.map((sub) => {
+              const Icon = sub.icon;
+              return (
+                <Link
+                  key={sub.title}
+                  to={sub.path}
+                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-[#fbc02d]/10 transition-colors duration-150 group/sub"
+                >
+                  <div className="w-7 h-7 rounded-lg bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/sub:bg-[#fbc02d]/25 transition-colors">
+                    <Icon size={14} className="text-[#fbc02d]" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-[0.77rem] font-bold text-gray-900 leading-tight group-hover/sub:text-yellow-600 transition-colors truncate">
+                      {sub.title}
+                    </p>
+                    <p className="text-[0.65rem] text-gray-400 mt-0.5 leading-snug truncate">
+                      {sub.desc}
+                    </p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
 
-        {/* Standalone Top-Level Services */}
-        <div className="space-y-1 pt-1">
-          {standaloneServices.map((item) => {
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.title}
-                to={item.path}
-                className="flex items-center gap-3 px-3 py-2 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200/60 transition-all duration-150 group/item"
-              >
-                <div className="w-8 h-8 rounded-lg bg-gray-100 text-gray-700 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d]/20 group-hover/item:text-amber-600 transition-colors">
-                  <Icon size={15} />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <p className="text-[0.79rem] font-bold text-gray-900 leading-tight group-hover/item:text-amber-600 transition-colors truncate">{item.title}</p>
-                  <p className="text-[0.66rem] text-gray-400 mt-0.5 leading-snug truncate">{item.desc}</p>
-                </div>
-                <ArrowRight size={12} className="text-gray-300 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:translate-x-0 group-hover/item:text-amber-500 transition-all shrink-0" />
-              </Link>
-            );
-          })}
-        </div>
-      </div>
+        {/* ── Other Standalone Services ── */}
+        {standaloneServices.map((item) => {
+          const Icon = item.icon;
+          return (
+            <Link
+              key={item.title}
+              to={item.path}
+              className="flex items-center gap-3 px-3.5 py-2.5 rounded-xl hover:bg-[#fbc02d]/10 transition-colors duration-150 group/item"
+            >
+              <div className="w-8 h-8 rounded-lg bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d]/20 transition-colors">
+                <Icon size={15} className="text-[#fbc02d]" />
+              </div>
+              <div className="min-w-0 flex-1">
+                <p className="text-[0.78rem] font-bold text-gray-900 leading-tight group-hover/item:text-yellow-600 transition-colors truncate">{item.title}</p>
+                <p className="text-[0.66rem] text-gray-400 mt-0.5 leading-snug truncate">{item.desc}</p>
+              </div>
+            </Link>
+          );
+        })}
 
-      {/* Footer Strip */}
-      <div className="bg-gray-50/90 px-5 py-2.5 border-t border-gray-100 flex items-center justify-between text-[0.67rem] text-gray-500">
-        <span className="flex items-center gap-1.5 font-medium">
-          <ShieldCheck size={12} className="text-[#fbc02d]" /> ISO 9001:2015 & BIM Certified
-        </span>
-        <Link to="/contact" className="font-bold text-amber-600 hover:text-amber-700 hover:underline flex items-center gap-1">
-          Get Quote <ArrowRight size={10} />
-        </Link>
       </div>
     </div>
   );
