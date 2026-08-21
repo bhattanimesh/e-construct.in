@@ -25,9 +25,10 @@ import ExecAImg from "../assets/exec_a.png";
 import ExecBImg from "../assets/exec_b.png";
 import ExecCImg from "../assets/exec_c.png";
 import ExecDImg from "../assets/exec_d.png";
-import PlanningImg from "../assets/planning.jpg";
-import DesignImg from "../assets/design.webp";
-import DevImg from "../assets/development.jpg";
+import ArchImg from "../assets/ArchitecturalConsultancy.jpg";
+import StructImg from "../assets/StructuralDesignConsultancy.jpeg";
+import VillaImg from "../assets/LuxuryVillaDesign.jpg";
+import KalpataruImg from "../assets/KALPATARUParkRiviera.webp";
 import B1Img from "../assets/b1.webp";
 import B4Img from "../assets/b4.webp";
 import C1Img from "../assets/c1.jpg";
@@ -40,13 +41,13 @@ import Img1 from "../assets/img1.jpg";
 const phases = [
   {
     num: "01", title: "Concept Design", tagline: "Where every great project begins.",
-    cover: PlanningImg,
+    cover: ArchImg,
     steps: [
       { letter: "A", title: "Client Briefing",              desc: "Understanding project vision, functional requirements, and budget constraints.",    img: ConceptAImg  },
       { letter: "B", title: "Reconnaissance & Feasibility", desc: "Assessment of site conditions, soil characteristics, and infrastructure.",          img: ConceptBImg  },
       { letter: "C", title: "Climatic & Orientation",       desc: "Evaluation of sun path and wind patterns to optimise placement.",                   img: ConceptCImg  },
       { letter: "D", title: "Conceptual Massing",           desc: "Development of preliminary 3D massing models to explore form.",                    img: ConceptDImg  },
-      { letter: "E", title: "Theme Finalization",           desc: "Establishing architectural language and design narrative.",                         img: DevImg       },
+      { letter: "E", title: "Theme Finalization",           desc: "Establishing architectural language and design narrative.",                         img: VillaImg     },
     ],
   },
   {
@@ -98,8 +99,8 @@ const phases = [
     steps: [
       { letter: "A", title: "Snagging & Rectification", desc: "Identification and closure of pending works (punch list).",                            img: Part6Img    },
       { letter: "B", title: "Final Quality Audit",      desc: "Ensuring readiness for occupancy and compliance.",                                     img: Part7Img    },
-      { letter: "C", title: "As-Built Drawings",        desc: "Documentation of final executed conditions.",                                          img: DesignImg   },
-      { letter: "D", title: "Close-Out Documents",      desc: "Submission of manuals, warranties, and technical documents.",                          img: PlanningImg },
+      { letter: "C", title: "As-Built Drawings",        desc: "Documentation of final executed conditions.",                                          img: StructImg   },
+      { letter: "D", title: "Close-Out Documents",      desc: "Submission of manuals, warranties, and technical documents.",                          img: KalpataruImg },
       { letter: "E", title: "Client Sign-Off",          desc: "Formal project completion and transfer.",                                              img: Img1        },
     ],
   },

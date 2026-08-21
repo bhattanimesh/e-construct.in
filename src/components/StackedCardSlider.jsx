@@ -3,11 +3,11 @@ import { motion } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 // Use available images from assets
-import PlanningImg from '../assets/planning.jpg';
-import DesignImg from '../assets/design.webp';
 import ArchImg from '../assets/ArchitecturalConsultancy.jpg';
+import BimImg from '../assets/BuildingInformationModelling.webp';
+import StructImg from '../assets/StructuralDesignConsultancy.jpeg';
 import InteriorImg from '../assets/InteriorDesignConsultancy.webp';
-import DevImg from '../assets/development.jpg';
+import PmcImg from '../assets/ProjectManagementConsultancy.jpg';
 
 const sliderData = [
   {
@@ -15,14 +15,14 @@ const sliderData = [
     title: "Client Briefing & Requirement Analysis",
     subtitle: "a.",
     desc: "Understanding project vision, functional requirements, budget constraints, and aesthetic preferences.",
-    image: PlanningImg
+    image: ArchImg
   },
   {
     id: 2,
     title: "Site Reconnaissance & Feasibility Study",
     subtitle: "b.",
     desc: "Assessment of site conditions including topography, soil characteristics, zoning regulations, and infrastructure availability.",
-    image: ArchImg
+    image: StructImg
   },
   {
     id: 3,
@@ -36,14 +36,14 @@ const sliderData = [
     title: "Conceptual Massing & Volumetric Studies",
     subtitle: "d.",
     desc: "Development of preliminary 3D massing models to explore form, scale, and spatial relationships.",
-    image: DesignImg
+    image: BimImg
   },
   {
     id: 5,
     title: "Design Intent Development & Theme Finalization",
     subtitle: "e.",
     desc: "Establishing architectural language, design narrative, and overall project direction.",
-    image: DevImg
+    image: PmcImg
   }
 ];
 

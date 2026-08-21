@@ -13,25 +13,25 @@
 import { useRef, useState, useEffect, useCallback } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { ArrowRight, MoveRight } from 'lucide-react';
-import Planning    from '../assets/planning.jpg';
-import Design      from '../assets/design.webp';
-import Development from '../assets/development.jpg';
+import StructuralDesignConsultancy from '../assets/StructuralDesignConsultancy.jpeg';
+import BuildingInformationModelling from '../assets/BuildingInformationModelling.webp';
+import ProjectManagementConsultancy from '../assets/ProjectManagementConsultancy.jpg';
 
 const STEPS = [
   {
     id: '01', title: 'Concept',     subtitle: 'Visualizing the Vision',
     desc: "Understanding your project requirements and expectations — the most critical first step in planning.",
-    img: Planning,    accent: 'text-blue-600',  bg: 'bg-blue-50/60',
+    img: StructuralDesignConsultancy, accent: 'text-blue-600',  bg: 'bg-blue-50/60',
   },
   {
     id: '02', title: 'Design',      subtitle: 'Precision & Aesthetics',
     desc: 'We create sketches and ensure compliance with regulations while shaping your vision into structured plans.',
-    img: Design,      accent: 'text-pink-600',  bg: 'bg-pink-50/60',
+    img: BuildingInformationModelling, accent: 'text-pink-600',  bg: 'bg-pink-50/60',
   },
   {
     id: '03', title: 'Development', subtitle: 'Building Excellence',
     desc: 'We finalize materials, refine structure, and transform concepts into a complete, build-ready solution.',
-    img: Development, accent: 'text-green-600', bg: 'bg-green-50/60',
+    img: ProjectManagementConsultancy, accent: 'text-green-600', bg: 'bg-green-50/60',
   },
 ];
 

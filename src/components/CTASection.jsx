@@ -2,7 +2,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import CtaBG from '../assets/ctaBG.avif';
 import { useAdmin } from '../context/AdminContext';
 
 const CTASection = () => {
@@ -15,13 +14,13 @@ const CTASection = () => {
       <div
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: `url(${CtaBG})`,
+          backgroundImage: 'url(/projects/blv_10.png)',
           backgroundPosition: 'center',
           backgroundSize: 'cover',
           backgroundAttachment: 'scroll', // 'fixed' breaks on iOS Safari
         }}
       >
-        <div className="absolute inset-0 bg-slate-950/70 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-slate-950/75 backdrop-blur-[1px]"></div>
       </div>
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 text-center flex flex-col items-center">

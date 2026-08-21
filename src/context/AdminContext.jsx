@@ -11,231 +11,231 @@ const DEFAULT_DATA = {
     { id: 5, title: "Corporate ON-JOB Training", desc: "We provide world-class engineering training programs designed to produce certified engineers that can work across the globe.", img: "/CorporateON-JOBTraining.webp" },
   ],
   projects: [
-        {
-            "id": 1,
-            "title": "Group Housing Development",
-            "category": "Residential",
-            "location": "India",
-            "image": "/projects/gh_1.png"
-        },
-        {
-            "id": 2,
-            "title": "9 Emperio (G+35 High-Rise Skyscraper)",
-            "category": "Residential",
-            "location": "Raghunathpur, Nandankanan Road, Patia, Bhubaneswar, Odisha",
-            "image": "/projects/emp_2.png"
-        },
-        {
-            "id": 3,
-            "title": "9 Boulevard (G+35 Multi-Tower Development)",
-            "category": "Residential",
-            "location": "Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar",
-            "image": "/projects/blv_8.png"
-        },
-        {
-            "id": 4,
-            "title": "Raunak Residency (G+28)",
-            "category": "Residential",
-            "location": "Maharashtra, India",
-            "image": "/projects/new/61.jpg"
-        },
-        {
-            "id": 5,
-            "title": "Ashoak Mall, Jalna (2B+G+8)",
-            "category": "Commercial",
-            "location": "Jalna, Maharashtra",
-            "image": "/projects/new/57.png"
-        },
-        {
-            "id": 6,
-            "title": "CK Mall & Commercial Center",
-            "category": "Commercial",
-            "location": "India",
-            "image": "/projects/new/23.jpeg"
-        },
-        {
-            "id": 7,
-            "title": "Chris International Hospital & Commercial Center",
-            "category": "Commercial",
-            "location": "Marathahalli, Bangalore, Karnataka",
-            "image": "/projects/new/1.jpeg"
-        },
-        {
-            "id": 8,
-            "title": "Hotel Pahala & Luxury Hospitality Complex",
-            "category": "Commercial",
-            "location": "Pahala, Bhubaneswar, Odisha",
-            "image": "/projects/new/63.png"
-        },
-        {
-            "id": 9,
-            "title": "Grand Heritage Palace Resort & S Hotel",
-            "category": "Commercial",
-            "location": "India",
-            "image": "/projects/new/60.jpg"
-        },
-        {
-            "id": 10,
-            "title": "Chris Icon Commercial Landmark Tower",
-            "category": "Commercial",
-            "location": "Bangalore, Karnataka",
-            "image": "/projects/new/45.jpg"
-        },
-        {
-            "id": 11,
-            "title": "HSR Commercial Center & Retail Hub",
-            "category": "Commercial",
-            "location": "HSR Layout, Bangalore, Karnataka",
-            "image": "/projects/new/49.jpg"
-        },
-        {
-            "id": 12,
-            "title": "Helipad Corporate Tech Headquarters",
-            "category": "Commercial",
-            "location": "India",
-            "image": "/projects/new/46.jpg"
-        },
-        {
-            "id": 13,
-            "title": "Reliance Mall & STAR / Zudio Commercial Centers",
-            "category": "Commercial",
-            "location": "Multiple Locations, India",
-            "image": "/projects/new/52.jpg"
-        },
-        {
-            "id": 14,
-            "title": "Sky Lounge Rooftop Hospitality",
-            "category": "Commercial",
-            "location": "Mumbai, Maharashtra",
-            "image": "/projects/sky_lounge_1.jpg"
-        },
-        {
-            "id": 15,
-            "title": "Penthouse & Cantilevered Sky-Pool Tower",
-            "category": "Residential",
-            "location": "India",
-            "image": "/projects/new/50.jpg"
-        },
-        {
-            "id": 16,
-            "title": "Skyline Luxury Residential Towers (G+40)",
-            "category": "Residential",
-            "location": "Metro City, India",
-            "image": "/projects/new/6.jpeg"
-        },
-        {
-            "id": 17,
-            "title": "Greenfield Enclave High-Rise Township",
-            "category": "Residential",
-            "location": "India",
-            "image": "/projects/new/28.jpeg"
-        },
-        {
-            "id": 18,
-            "title": "Mountain View Luxury A-Frame Villa & Resort",
-            "category": "Residential",
-            "location": "Western Ghats / Hill Station, India",
-            "image": "/projects/new/21.jpeg"
-        },
-        {
-            "id": 19,
-            "title": "Tropical Modern Luxury Duplex Villa",
-            "category": "Residential",
-            "location": "South India",
-            "image": "/projects/new/24.jpeg"
-        },
-        {
-            "id": 20,
-            "title": "Villa 18 & Contemporary Designer Residences",
-            "category": "Residential",
-            "location": "Urban Centers, India",
-            "image": "/projects/new/35.jpeg"
-        },
-        {
-            "id": 21,
-            "title": "Boutique Luxury Apartments (Completed Sites)",
-            "category": "Residential",
-            "location": "Bangalore & Pune, India",
-            "image": "/projects/new/31.jpeg"
-        },
-        {
-            "id": 22,
-            "title": "Nishiland Residential Luxury Villas",
-            "category": "Residential",
-            "location": "Maharashtra, India",
-            "image": "/projects/nishiland_1.jpg"
-        },
-        {
-            "id": 23,
-            "title": "Canada International Engineering & BIM Project",
-            "category": "Residential",
-            "location": "Canada (International)",
-            "image": "/projects/canada_1.png"
-        },
-        {
-            "id": 24,
-            "title": "GRK Africa Project",
-            "category": "Infrastructure",
-            "location": "Africa",
-            "image": "/projects/grk_1.jpeg"
-        },
-        {
-            "id": 25,
-            "title": "Balapur International Cricket Stadium & Sports Complex",
-            "category": "Infrastructure",
-            "location": "Balapur, Maharashtra",
-            "image": "/projects/new/54.jpg"
-        },
-        {
-            "id": 26,
-            "title": "Super Strikers Football Stadium & Sports Academy",
-            "category": "Infrastructure",
-            "location": "India",
-            "image": "/projects/new/56.jpg"
-        },
-        {
-            "id": 27,
-            "title": "Sky Bridge & Inter-Building Connection",
-            "category": "Infrastructure",
-            "location": "Vapi, Gujarat",
-            "image": "/projects/vapi_bridge_1.jpg"
-        },
-        {
-            "id": 28,
-            "title": "Bungee Jumping Tower Project",
-            "category": "Infrastructure",
-            "location": "Mayem Lake, North Goa",
-            "image": "/projects/bungee_goa_1.jpg"
-        },
-        {
-            "id": 29,
-            "title": "Traditional Heritage Temple & Mandapa",
-            "category": "Infrastructure",
-            "location": "South India",
-            "image": "/projects/new/47.jpg"
-        },
-        {
-            "id": 30,
-            "title": "ISKCON - Centre of Culture & Education",
-            "category": "Infrastructure",
-            "location": "Pandharpur, Maharashtra",
-            "image": "/projects/iskcon_1.png"
-        },
-        {
-            "id": 31,
-            "title": "International Educational Campus & School",
-            "category": "Infrastructure",
-            "location": "India",
-            "image": "/projects/new/53.jpg"
-        },
-        {
-            "id": 32,
-            "title": "Science Park Development (1-Acre Land)",
-            "category": "Infrastructure",
-            "location": "Maharashtra, India",
-            "image": "/projects/science_park_1.png"
-        }
-    ],
+    {
+      "id": 1,
+      "title": "Group Housing Development",
+      "category": "Residential",
+      "location": "India",
+      "image": "/projects/gh_1.png"
+    },
+    {
+      "id": 2,
+      "title": "9 Emperio (G+35 High-Rise Skyscraper)",
+      "category": "Residential",
+      "location": "Raghunathpur, Nandankanan Road, Patia, Bhubaneswar, Odisha",
+      "image": "/projects/emp_2.png"
+    },
+    {
+      "id": 3,
+      "title": "9 Boulevard (G+35 Multi-Tower Development)",
+      "category": "Residential",
+      "location": "Raghunathpur, near HP Petrol Pump, Nandankanan Road, Patia, Bhubaneswar",
+      "image": "/projects/blv_8.png"
+    },
+    {
+      "id": 4,
+      "title": "Raunak Residency (G+28)",
+      "category": "Residential",
+      "location": "Maharashtra, India",
+      "image": "/projects/new/61.jpg"
+    },
+    {
+      "id": 5,
+      "title": "Ashoak Mall, Jalna (2B+G+8)",
+      "category": "Commercial",
+      "location": "Jalna, Maharashtra",
+      "image": "/projects/new/57.png"
+    },
+    {
+      "id": 6,
+      "title": "CK Mall & Commercial Center",
+      "category": "Commercial",
+      "location": "India",
+      "image": "/projects/new/23.jpeg"
+    },
+    {
+      "id": 7,
+      "title": "Chris International Hospital & Commercial Center",
+      "category": "Commercial",
+      "location": "Marathahalli, Bangalore, Karnataka",
+      "image": "/projects/new/1.jpeg"
+    },
+    {
+      "id": 8,
+      "title": "Hotel Pahala & Luxury Hospitality Complex",
+      "category": "Commercial",
+      "location": "Pahala, Bhubaneswar, Odisha",
+      "image": "/projects/new/63.png"
+    },
+    {
+      "id": 9,
+      "title": "Grand Heritage Palace Resort & S Hotel",
+      "category": "Commercial",
+      "location": "India",
+      "image": "/projects/new/60.jpg"
+    },
+    {
+      "id": 10,
+      "title": "Chris Icon Commercial Landmark Tower",
+      "category": "Commercial",
+      "location": "Bangalore, Karnataka",
+      "image": "/projects/new/45.jpg"
+    },
+    {
+      "id": 11,
+      "title": "HSR Commercial Center & Retail Hub",
+      "category": "Commercial",
+      "location": "HSR Layout, Bangalore, Karnataka",
+      "image": "/projects/new/49.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Helipad Corporate Tech Headquarters",
+      "category": "Commercial",
+      "location": "India",
+      "image": "/projects/new/46.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Reliance Mall & STAR / Zudio Commercial Centers",
+      "category": "Commercial",
+      "location": "Multiple Locations, India",
+      "image": "/projects/new/52.jpg"
+    },
+    {
+      "id": 14,
+      "title": "Sky Lounge Rooftop Hospitality",
+      "category": "Commercial",
+      "location": "Mumbai, Maharashtra",
+      "image": "/projects/sky_lounge_1.jpg"
+    },
+    {
+      "id": 15,
+      "title": "Penthouse & Cantilevered Sky-Pool Tower",
+      "category": "Residential",
+      "location": "India",
+      "image": "/projects/new/50.jpg"
+    },
+    {
+      "id": 16,
+      "title": "Skyline Luxury Residential Towers (G+40)",
+      "category": "Residential",
+      "location": "Metro City, India",
+      "image": "/projects/new/6.jpeg"
+    },
+    {
+      "id": 17,
+      "title": "Greenfield Enclave High-Rise Township",
+      "category": "Residential",
+      "location": "India",
+      "image": "/projects/new/28.jpeg"
+    },
+    {
+      "id": 18,
+      "title": "Mountain View Luxury A-Frame Villa & Resort",
+      "category": "Residential",
+      "location": "Western Ghats / Hill Station, India",
+      "image": "/projects/new/21.jpeg"
+    },
+    {
+      "id": 19,
+      "title": "Tropical Modern Luxury Duplex Villa",
+      "category": "Residential",
+      "location": "South India",
+      "image": "/projects/new/24.jpeg"
+    },
+    {
+      "id": 20,
+      "title": "Villa 18 & Contemporary Designer Residences",
+      "category": "Residential",
+      "location": "Urban Centers, India",
+      "image": "/projects/new/35.jpeg"
+    },
+    {
+      "id": 21,
+      "title": "Boutique Luxury Apartments (Completed Sites)",
+      "category": "Residential",
+      "location": "Bangalore & Pune, India",
+      "image": "/projects/new/31.jpeg"
+    },
+    {
+      "id": 22,
+      "title": "Nishiland Residential Luxury Villas",
+      "category": "Residential",
+      "location": "Maharashtra, India",
+      "image": "/projects/nishiland_1.jpg"
+    },
+    {
+      "id": 23,
+      "title": "Canada International Engineering & BIM Project",
+      "category": "Residential",
+      "location": "Canada (International)",
+      "image": "/projects/canada_1.png"
+    },
+    {
+      "id": 24,
+      "title": "GRK Africa Project",
+      "category": "Infrastructure",
+      "location": "Africa",
+      "image": "/projects/grk_1.jpeg"
+    },
+    {
+      "id": 25,
+      "title": "Balapur International Cricket Stadium & Sports Complex",
+      "category": "Infrastructure",
+      "location": "Balapur, Maharashtra",
+      "image": "/projects/new/54.jpg"
+    },
+    {
+      "id": 26,
+      "title": "Super Strikers Football Stadium & Sports Academy",
+      "category": "Infrastructure",
+      "location": "India",
+      "image": "/projects/new/56.jpg"
+    },
+    {
+      "id": 27,
+      "title": "Sky Bridge & Inter-Building Connection",
+      "category": "Infrastructure",
+      "location": "Vapi, Gujarat",
+      "image": "/projects/vapi_bridge_1.jpg"
+    },
+    {
+      "id": 28,
+      "title": "Bungee Jumping Tower Project",
+      "category": "Infrastructure",
+      "location": "Mayem Lake, North Goa",
+      "image": "/projects/bungee_goa_1.jpg"
+    },
+    {
+      "id": 29,
+      "title": "Traditional Heritage Temple & Mandapa",
+      "category": "Infrastructure",
+      "location": "South India",
+      "image": "/projects/new/47.jpg"
+    },
+    {
+      "id": 30,
+      "title": "ISKCON - Centre of Culture & Education",
+      "category": "Infrastructure",
+      "location": "Pandharpur, Maharashtra",
+      "image": "/projects/iskcon_1.png"
+    },
+    {
+      "id": 31,
+      "title": "International Educational Campus & School",
+      "category": "Infrastructure",
+      "location": "India",
+      "image": "/projects/new/53.jpg"
+    },
+    {
+      "id": 32,
+      "title": "Science Park Development (1-Acre Land)",
+      "category": "Infrastructure",
+      "location": "Maharashtra, India",
+      "image": "/projects/science_park_1.png"
+    }
+  ],
   blogs: [
     {
       id: 12,
@@ -836,7 +836,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 37; // bump this when defaults change to force a migration
+const DATA_VERSION = 38; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -866,11 +866,11 @@ export const AdminProvider = ({ children }) => {
         const loadedFooterContent = parsed._version >= DATA_VERSION
           ? { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}), ...(isOldDesc ? { companyDesc: DEFAULT_DATA.footerContent.companyDesc } : {}) }
           : {
-              ...DEFAULT_DATA.footerContent,
-              ...(parsed.footerContent || {}),
-              usefulLinks: DEFAULT_DATA.footerContent.usefulLinks,
-              companyDesc: isOldDesc || !parsed.footerContent?.companyDesc ? DEFAULT_DATA.footerContent.companyDesc : parsed.footerContent.companyDesc
-            };
+            ...DEFAULT_DATA.footerContent,
+            ...(parsed.footerContent || {}),
+            usefulLinks: DEFAULT_DATA.footerContent.usefulLinks,
+            companyDesc: isOldDesc || !parsed.footerContent?.companyDesc ? DEFAULT_DATA.footerContent.companyDesc : parsed.footerContent.companyDesc
+          };
 
         // Always deep-merge nested content objects so new keys from defaults are never lost
         const merged = {

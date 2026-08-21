@@ -10,9 +10,9 @@ import Logo from '../assets/logo.webp';
 import TextBG from '../assets/textbg.png';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
-import planning from '../assets/planning.jpg';
-import design from '../assets/design.webp';
-import development from '../assets/development.jpg';
+import ArchConsultancy from '../assets/ArchitecturalConsultancy.jpg';
+import BimConsultancy from '../assets/BuildingInformationModelling.webp';
+import PmcConsultancy from '../assets/ProjectManagementConsultancy.jpg';
 import ctaBG from '../assets/ctaBG.avif';
 import founderAbout from '../assets/founder_about.webp';
 import ceoCover from '../assets/uploads/ceo-india-magazine-cover.jpeg';
@@ -27,7 +27,7 @@ import { useAdmin } from '../context/AdminContext';
 const VALUE_ICONS = [Target, Eye, Heart];
 const WHY_ICONS = [Shield, Zap, CheckCircle, Target, TrendingUp, Star];
 const VISION_ICONS = [PenTool, Rocket, GraduationCap, BookOpen];
-const PROCESS_IMAGES = [planning, design, development];
+const PROCESS_IMAGES = [ArchConsultancy, BimConsultancy, PmcConsultancy];
 
 // ─── SECTION LABEL ────────────────────────────────────────────────────────────
 
