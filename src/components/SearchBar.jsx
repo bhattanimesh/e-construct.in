@@ -11,16 +11,17 @@ const searchIndex = [
   { title: 'Careers', description: 'Join our team — open positions and opportunities', path: '/careers', tags: ['careers', 'jobs', 'hiring', 'opportunities', 'work'] },
   { title: 'Contact', description: 'Get in touch with our team', path: '/contact', tags: ['contact', 'email', 'phone', 'reach', 'inquiry'] },
 
-  // Services
+  // Services & Engineering Design Consultancy
   { title: 'Services', description: 'All civil engineering and consultancy services', path: '/services', tags: ['services', 'civil', 'engineering', 'consultancy'] },
-  { title: 'BIM Consultancy', description: 'Building Information Modelling consultancy and implementation', path: '/services/bim-consultancy', tags: ['bim', 'building information modelling', 'clash detection', 'coordination', 'consultancy'] },
-  { title: 'Structural Consultancy', description: 'Structural design, audit, and engineering services', path: '/services/structural-consultancy', tags: ['structural', 'design', 'audit', 'engineering', 'consultancy'] },
-  { title: 'Project Management (ePMC)', description: 'End-to-end project management consultancy', path: '/services', tags: ['project management', 'epmc', 'construction management'] },
-  { title: 'Architectural Consultancy', description: 'Concept, schematic, detailed design and execution drawings', path: '/services', tags: ['architecture', 'architectural', 'design', 'concept', 'schematic', 'drawings'] },
-  { title: 'Luxury Villa Design & Build', description: 'Design and build services for luxury villas', path: '/services', tags: ['villa', 'luxury', 'residential', 'design build'] },
-  { title: 'Construction Services', description: 'Full construction and build services', path: '/services', tags: ['construction', 'build', 'contractor'] },
-  { title: 'Total Quality Management', description: 'Quality assurance and management services', path: '/services', tags: ['quality', 'tqm', 'management', 'assurance'] },
-  { title: 'Interior Design Consultancy', description: 'Interior design and space planning services', path: '/services', tags: ['interior', 'design', 'space', 'decor'] },
+  { title: 'Engineering Design Consultancy', description: 'Structural, BIM, PMC, Luxury Villas & Interior Design', path: '/services/structural-consultancy', tags: ['engineering design consultancy', 'structural', 'bim', 'pmc', 'villas', 'interiors'] },
+  { title: 'Structural Engineering', description: 'Structural design, audit, and engineering services', path: '/services/structural-consultancy', tags: ['structural engineering', 'structural consultancy', 'design', 'audit', 'rcc', 'steel', 'high-rise'] },
+  { title: 'BIM services', description: 'Building Information Modelling consultancy and implementation', path: '/services/bim-consultancy', tags: ['bim services', 'bim consultancy', 'building information modelling', 'clash detection', 'coordination', 'revit'] },
+  { title: 'Project Management services', description: 'End-to-end project management consultancy & ePMC', path: '/services/epmc', tags: ['project management services', 'epmc', 'pmc', 'construction management', 'scheduling'] },
+  { title: 'Luxury Villa design services', description: 'Design and build services for luxury villas', path: '/services/luxury-villa', tags: ['luxury villa design services', 'villa', 'luxury', 'residential', 'design build'] },
+  { title: 'Interior Design Consultancy', description: 'Interior design and space planning services', path: '/services/interior-design', tags: ['interior design consultancy', 'interior', 'space planning', 'decor', 'architecture'] },
+  { title: 'Architectural Consultancy', description: 'Concept, schematic, detailed design and execution drawings', path: '/services/architectural-consultancy', tags: ['architecture', 'architectural', 'design', 'concept', 'schematic', 'drawings'] },
+  { title: 'Construction Services', description: 'Full construction and build services', path: '/services/construction', tags: ['construction', 'build', 'contractor'] },
+  { title: 'Total Quality Management', description: 'Quality assurance and management services', path: '/services/tqm', tags: ['quality', 'tqm', 'management', 'assurance'] },
 
   // Pages
   { title: 'Gallery', description: 'Gallery of BIM models and project visuals', path: '/pages/gallery', tags: ['gallery', 'bim', 'images', 'models', 'visuals'] },
@@ -30,8 +31,8 @@ const searchIndex = [
   { title: 'PG Diploma In Structural Engineering (MSS)', description: 'PG Diploma In Structural Engineering comprehensive on-job training', path: '/pages/pg-diploma-in-structural-engineering', tags: ['mss', 'pg diploma in structural engineering', 'smart structures', 'master', 'structural engineering', 'etabs', 'staadpro', 'safe'] },
   { title: 'PBD', description: 'Performance Based Design resources', path: '/pages/pbd', tags: ['pbd', 'performance based design', 'structural'] },
 
-  // Training
-  { title: 'Training', description: 'Corporate on-job BIM and AEC software training', path: '/training/corporate', tags: ['training', 'corporate', 'bim', 'software', 'aec', 'course', 'learn'] },
+  // Corporate Training
+  { title: 'Corporate Training', description: 'Corporate on-job BIM and AEC software training with IIT Bhubaneswar', path: '/training/corporate', tags: ['training', 'corporate training', 'bim', 'software', 'aec', 'course', 'learn', 'iit bhubaneswar'] },
   { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/pages/pg-diploma-in-project-management-with-bim-technology', tags: ['bim', 'certification', 'training', 'msb', 'courses'] },
 
   // Company info

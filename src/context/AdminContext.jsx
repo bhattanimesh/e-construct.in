@@ -542,12 +542,12 @@ The company is led by experienced architects and BIM specialists with decades of
     copyrightName: 'E-CONSTRUCT Design & Build Pvt Ltd',
     designedBy: 'Nexty.tech',
     serviceLinks: [
-      { name: 'Civil Engineering & Structural Consultancy', path: '/services/structural-consultancy' },
-      { name: 'Project Management (PMC)', path: '/services' },
-      { name: 'Pre-Engineered Buildings (PEB)', path: '/services' },
-      { name: 'Corporate Training with IIT Bhubaneswar', path: '/careers' },
-      { name: 'Software Mastery (STAAD.Pro, ETABS)', path: '/services' },
-      { name: 'BIM Implementation', path: '/services/bim-consultancy' },
+      { name: 'Structural Engineering', path: '/services/structural-consultancy' },
+      { name: 'BIM services', path: '/services/bim-consultancy' },
+      { name: 'Project Management services', path: '/services/epmc' },
+      { name: 'Luxury Villa design services', path: '/services/luxury-villa' },
+      { name: 'Interior Design Consultancy', path: '/services/interior-design' },
+      { name: 'Architectural Consultancy', path: '/services/architectural-consultancy' },
     ],
     usefulLinks: [
       { name: 'About Company', path: '/about' },
@@ -836,7 +836,7 @@ The company is led by experienced architects and BIM specialists with decades of
 const AdminContext = createContext(null);
 
 const STORAGE_KEY = 'econstruct_admin_data';
-const DATA_VERSION = 38; // bump this when defaults change to force a migration
+const DATA_VERSION = 39; // bump this when defaults change to force a migration
 
 export const AdminProvider = ({ children }) => {
   const [data, setData] = useState(() => {
@@ -861,13 +861,14 @@ export const AdminProvider = ({ children }) => {
           loadedFlipbooks = loadedFlipbooks.filter(f => !f.pdfUrl?.includes('ECONSTRUCT_Green_Infrastructure'));
         }
 
-        // Migrate footer usefulLinks & companyDesc if version is older
+        // Migrate footer serviceLinks, usefulLinks & companyDesc if version is older
         const isOldDesc = parsed.footerContent?.companyDesc?.includes('India\'s leading Corporate Training') || parsed.footerContent?.companyDesc?.includes('industry-ready');
         const loadedFooterContent = parsed._version >= DATA_VERSION
           ? { ...DEFAULT_DATA.footerContent, ...(parsed.footerContent || {}), ...(isOldDesc ? { companyDesc: DEFAULT_DATA.footerContent.companyDesc } : {}) }
           : {
             ...DEFAULT_DATA.footerContent,
             ...(parsed.footerContent || {}),
+            serviceLinks: DEFAULT_DATA.footerContent.serviceLinks,
             usefulLinks: DEFAULT_DATA.footerContent.usefulLinks,
             companyDesc: isOldDesc || !parsed.footerContent?.companyDesc ? DEFAULT_DATA.footerContent.companyDesc : parsed.footerContent.companyDesc
           };

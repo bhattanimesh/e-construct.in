@@ -4,7 +4,7 @@ import {
   Menu, X, ChevronDown, ChevronRight, Facebook, Linkedin, Youtube,
   Building2, Layers, HardHat, Home, Wrench, ShieldCheck,
   LayoutDashboard, Image, BookOpen, GraduationCap, FileText,
-  BarChart2, BookMarked, ArrowRight, RotateCcw,
+  BarChart2, BookMarked, ArrowRight, RotateCcw, Palette,
 } from 'lucide-react';
 import Logo from '../assets/logo.webp';
 import SearchBar, { MobileSearch } from './SearchBar';
@@ -14,41 +14,47 @@ import { useAdmin } from '../context/AdminContext';
 
 const engineeringSubmenu = {
   title: 'Engineering Design Consultancy',
-  desc: 'BIM, Structural, PMC & Quality Assurance',
+  desc: 'Structural, BIM, PMC, Villas & Interiors',
   items: [
     {
-      icon: Layers,
-      title: 'BIM Consultancy',
-      desc: 'Full BIM implementation & clash detection',
-      path: '/services/bim-consultancy',
-    },
-    {
       icon: Building2,
-      title: 'Structural Consultancy',
+      title: 'Structural Engineering',
       desc: 'Structural design, audit & engineering',
       path: '/services/structural-consultancy',
     },
     {
+      icon: Layers,
+      title: 'BIM services',
+      desc: 'Full BIM implementation & clash detection',
+      path: '/services/bim-consultancy',
+    },
+    {
       icon: BarChart2,
-      title: 'Project Management (ePMC)',
+      title: 'Project Management services',
       desc: 'End-to-end construction management',
       path: '/services/epmc',
     },
     {
-      icon: ShieldCheck,
-      title: 'Total Quality Management',
-      desc: 'Quality assurance across all stages',
-      path: '/services/tqm',
+      icon: Home,
+      title: 'Luxury Villa design services',
+      desc: 'Premium residential design & execution',
+      path: '/services/luxury-villa',
+    },
+    {
+      icon: Palette,
+      title: 'Interior Design Consultancy',
+      desc: 'Space planning & interior solutions',
+      path: '/services/interior-design',
     },
   ],
 };
 
 const standaloneServices = [
   {
-    icon: Home,
-    title: 'Luxury Villa Design & Build',
-    desc: 'Premium residential design & execution',
-    path: '/services/luxury-villa',
+    icon: LayoutDashboard,
+    title: 'Architectural Consultancy',
+    desc: 'Concept to execution drawings',
+    path: '/services/architectural-consultancy',
   },
   {
     icon: HardHat,
@@ -57,16 +63,10 @@ const standaloneServices = [
     path: '/services/construction',
   },
   {
-    icon: Wrench,
-    title: 'Interior Design Consultancy',
-    desc: 'Space planning & interior solutions',
-    path: '/services/interior-design',
-  },
-  {
-    icon: LayoutDashboard,
-    title: 'Architectural Consultancy',
-    desc: 'Concept to execution drawings',
-    path: '/services/architectural-consultancy',
+    icon: ShieldCheck,
+    title: 'Total Quality Management',
+    desc: 'Quality assurance across all stages',
+    path: '/services/tqm',
   },
 ];
 
@@ -121,7 +121,7 @@ const ServicesDropdown = () => {
                 <p className="text-[0.78rem] font-bold text-gray-900 leading-tight group-hover/side:text-yellow-600 transition-colors truncate">
                   {engineeringSubmenu.title}
                 </p>
-                <p className="text-[0.66rem] text-gray-400 mt-0.5 leading-snug truncate">BIM, Structural, PMC & Quality</p>
+                <p className="text-[0.66rem] text-gray-400 mt-0.5 leading-snug truncate">Structural, BIM, PMC, Villas & Interiors</p>
               </div>
             </div>
             <ChevronRight size={14} className="text-gray-400 group-hover/side:text-yellow-600 group-hover/side:translate-x-0.5 transition-all shrink-0" />
@@ -221,7 +221,7 @@ const TrainingDropdown = () => (
   <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(620px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-6 py-3 border-b border-gray-100 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Training Programs</span>
+        <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Corporate Training</span>
         <span className="hidden sm:inline-flex items-center gap-1.5 bg-slate-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full shadow-sm">
           <img src="/iit-bhubaneswar-crest.png" alt="IIT Bhubaneswar" className="w-4 h-4 object-contain bg-white rounded-full p-0.5" />
           IIT Bhubaneswar Partnered
@@ -460,10 +460,10 @@ const Header = () => {
 
             <NavLink to="/projects" className={({ isActive }) => navTextClass(isActive)}>PROJECTS</NavLink>
 
-            {/* Training */}
+            {/* Corporate Training */}
             <div className="group relative h-full flex items-center">
               <button className={`flex items-center gap-1 ${navTextClass(false)}`}>
-                TRAINING <ChevronDown size={10} className={chevronClass} />
+                CORPORATE TRAINING <ChevronDown size={10} className={chevronClass} />
               </button>
               <TrainingDropdown />
             </div>
@@ -556,7 +556,7 @@ const Header = () => {
             PROJECTS
           </NavLink>
 
-          <MobileAccordion label="TRAINING" items={trainingMenu} onNavigate={closeMenu} />
+          <MobileAccordion label="CORPORATE TRAINING" items={trainingMenu} onNavigate={closeMenu} />
 
           <MobileAccordion label="PAGES" items={pagesMenu} onNavigate={closeMenu} />
 

@@ -16,10 +16,16 @@ Econstruct Design and Build Pvt. Ltd. is a leading architecture, engineering, an
 specializing in Building Information Modelling (BIM), architectural consultancy, and construction management.
 
 --- SERVICES ---
-1. BIM Technology Consultancy – Full BIM implementation, coordination, and clash detection services.
-2. Architectural Consultancy – Concept design, schematic design, detailed design, and execution drawings.
-3. Corporate On-Job Training – BIM and AEC software training for corporate teams.
-4. Building Information Modelling – End-to-end BIM services for residential, commercial, and infrastructure projects.
+1. Engineering Design Consultancy:
+   a) Structural Engineering – Structural design, high-rise engineering, analysis & peer review.
+   b) BIM services – 3D to 10D BIM modeling, clash detection, MEP coordination & lifecycle management.
+   c) Project Management services (ePMC) – End-to-end project management, scheduling, cost estimation & site execution.
+   d) Luxury Villa design services – Premium bespoke luxury residential villa architecture and turnkey build.
+   e) Interior Design Consultancy – Turnkey interior design, space planning, lighting and 3D architectural visualization.
+2. Architectural Consultancy – Concept design, schematic planning, detailed working drawings.
+3. Construction Services & Contracting – Turnkey civil construction and contracting.
+4. Total Quality Management (TQM) – Quality audits and QA/QC certification.
+5. Corporate Training – World-class on-job engineering and BIM training in partnership with IIT Bhubaneswar.
 
 --- PROJECTS & PORTFOLIO ---
 Econstruct has delivered 650+ iconic engineering, architectural, and BIM consultancy projects across India and internationally.

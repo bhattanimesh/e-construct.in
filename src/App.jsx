@@ -85,12 +85,19 @@ function App() {
               <Route path="pages/mss" element={<BimHubMSS />} />
               <Route path="on-job-master-study-in-structural-engineering" element={<BimHubMSS />} />
               <Route path="services/bim-consultancy" element={<BimConsultancy />} />
+              <Route path="services/bim-services" element={<BimConsultancy />} />
               <Route path="services/structural-consultancy" element={<StructuralConsultancy />} />
+              <Route path="services/structural-engineering" element={<StructuralConsultancy />} />
               <Route path="services/epmc" element={<EPMC />} />
+              <Route path="services/project-management-services" element={<EPMC />} />
+              <Route path="services/project-management" element={<EPMC />} />
               <Route path="services/luxury-villa" element={<LuxuryVilla />} />
+              <Route path="services/luxury-villa-design-services" element={<LuxuryVilla />} />
+              <Route path="services/luxury-villa-design" element={<LuxuryVilla />} />
               <Route path="services/construction" element={<ConstructionServices />} />
               <Route path="services/tqm" element={<TotalQualityManagement />} />
               <Route path="services/interior-design" element={<InteriorDesign />} />
+              <Route path="services/interior-design-consultancy" element={<InteriorDesign />} />
               <Route path="services/architectural-consultancy" element={<ArchitecturalConsultancy />} />
               <Route path="training/corporate" element={<CorporateTraining />} />
               <Route path="training/workshops" element={<WorkshopsSeminars />} />
