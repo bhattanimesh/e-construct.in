@@ -6,7 +6,7 @@ import {
   Edit3, Save, X, ChevronDown, BarChart3, Eye, RefreshCw, Menu,
   CheckCircle, AlertCircle, Search, Image, Globe, FileText, Layers,
   ChevronRight, Home, Zap, Download, Upload, Clock, Mail, Lock,
-  Inbox, Activity, Shield
+  Inbox, Activity, Shield, Calendar as CalendarIcon
 } from 'lucide-react';
 
 // ─── AUTH ─────────────────────────────────────────────────────────────────────
@@ -1668,6 +1668,105 @@ const TestimonialsManager = () => {
   );
 };
 
+// ─── BOOKINGS MANAGER (WORKSHOP) ─────────────────────────────────────────────
+const BookingsManager = () => {
+  const [bookings, setBookings] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const load = async () => {
+    setLoading(true);
+    try {
+      const res = await apiFetch('/api/bookings');
+      if (res.ok) setBookings(await res.json());
+    } catch {} finally { setLoading(false); }
+  };
+
+  useEffect(() => { load(); }, []);
+
+  return (
+    <div>
+      <SectionHeader title="Workshop Bookings" subtitle="Manage ETABS Workshop Registrations" />
+      {loading ? (
+        <div className="flex justify-center py-10"><div className="w-5 h-5 border-2 border-t-yellow-500 rounded-full animate-spin" /></div>
+      ) : bookings.length === 0 ? (
+        <Card className="text-center py-10 text-gray-500">No bookings found.</Card>
+      ) : (
+        <div className="space-y-4">
+          {bookings.map(b => (
+            <Card key={b.id}>
+              <div className="flex justify-between items-start">
+                <div>
+                  <h4 className="font-bold text-slate-900 text-lg">{b.collegeName}</h4>
+                  <p className="text-sm text-gray-500">{b.contactPerson} ({b.designation}) • {b.email} • {b.mobile}</p>
+                  <p className="text-sm text-gray-500 mt-2"><strong>Date:</strong> {b.preferredDate} | <strong>Students:</strong> {b.studentCount}</p>
+                </div>
+                <div className="text-right">
+                  <span className={`px-2 py-1 text-xs font-bold rounded uppercase ${b.status === 'CONFIRMED' ? 'bg-green-100 text-green-700' : 'bg-yellow-100 text-yellow-700'}`}>
+                    {b.status}
+                  </span>
+                  <p className="text-xs text-gray-400 mt-2">Placed: {new Date(b.createdAt).toLocaleDateString()}</p>
+                </div>
+              </div>
+            </Card>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+// ─── CALENDAR MANAGER ────────────────────────────────────────────────────────
+const CalendarManager = () => {
+  const [blocks, setBlocks] = useState([]);
+  const [date, setDate] = useState('');
+  const [reason, setReason] = useState('');
+  
+  const load = async () => {
+    try {
+      const res = await apiFetch('/api/calendar');
+      if (res.ok) setBlocks(await res.json());
+    } catch {}
+  };
+
+  useEffect(() => { load(); }, []);
+
+  const addBlock = async () => {
+    if (!date) return;
+    await apiFetch('/api/calendar/block', { method: 'POST', body: JSON.stringify({ date, reason }) });
+    setDate(''); setReason('');
+    toast('Date blocked successfully');
+    load();
+  };
+
+  const removeBlock = async (id) => {
+    await apiFetch(`/api/calendar/block/${id}`, { method: 'DELETE' });
+    toast('Block removed');
+    load();
+  };
+
+  return (
+    <div>
+      <SectionHeader title="Calendar Manager" subtitle="Block specific dates for the ETABS Workshop" />
+      <Card className="mb-6">
+        <div className="grid sm:grid-cols-3 gap-4 items-end">
+          <Input label="Date" type="date" value={date} onChange={setDate} />
+          <Input label="Reason (Optional)" value={reason} onChange={setReason} placeholder="e.g. Staff unavailable" />
+          <Btn onClick={addBlock} variant="primary"><Plus size={14}/> Block Date</Btn>
+        </div>
+      </Card>
+      
+      <div className="space-y-2">
+        {blocks.filter(b => b.type === 'admin_block').map(b => (
+          <Card key={b.id} className="flex justify-between items-center">
+            <div><span className="font-bold text-slate-800">{b.date}</span> <span className="text-sm text-gray-500">- {b.reason || 'No reason'}</span></div>
+            <Btn onClick={() => removeBlock(b.id)} variant="danger" size="sm"><Trash2 size={12}/></Btn>
+          </Card>
+        ))}
+      </div>
+    </div>
+  );
+};
+
 // ─── INBOX MANAGER ────────────────────────────────────────────────────────────
 
 const InboxManager = () => {
@@ -2157,6 +2256,15 @@ const AdminPanel = () => {
       ],
     },
     {
+      id: 'workshop',
+      label: 'Workshop Booking',
+      icon: CalendarIcon,
+      tabs: [
+        { id: 'bookings', label: 'All Bookings', icon: FolderOpen },
+        { id: 'calendar', label: 'Calendar Manager', icon: CalendarIcon },
+      ],
+    },
+    {
       id: 'settings',
       label: 'Configuration',
       icon: Settings,
@@ -2197,6 +2305,8 @@ const AdminPanel = () => {
       case 'structural': return <StructuralPageManager />;
       case 'bim': return <BimPageManager />;
       case 'construction': return <ConstructionPageManager />;
+      case 'bookings': return <BookingsManager />;
+      case 'calendar': return <CalendarManager />;
       case 'inbox': return <InboxManager />;
       case 'backup': return <BackupManager />;
       case 'activity': return <ActivityLog />;

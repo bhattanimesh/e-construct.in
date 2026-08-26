@@ -313,6 +313,100 @@ app.delete('/api/pdfs/:filename', requireAuth, (req, res) => {
   res.json({ ok: true });
 });
 
+// ─── BOOKINGS & CALENDAR (ETABS WORKSHOP) ────────────────────────────────────
+const BOOKINGS_FILE = dataFile('bookings');
+const CALENDAR_FILE = dataFile('calendar');
+
+// POST /api/bookings - create a new booking
+app.post('/api/bookings', (req, res) => {
+  const { 
+    collegeName, contactPerson, designation, email, mobile, 
+    collegeAddress, studentCount, preferredDate, department, additionalReq 
+  } = req.body || {};
+  
+  if (!collegeName || !email || !preferredDate) {
+    return res.status(400).json({ error: 'Missing required booking fields' });
+  }
+
+  const bookings = readJSON(BOOKINGS_FILE, []);
+  
+  // Basic validation to prevent double booking on the same exact date
+  const isBooked = bookings.some(b => b.preferredDate === preferredDate && b.status === 'CONFIRMED');
+  if (isBooked) {
+    return res.status(400).json({ error: 'This date has already been booked.' });
+  }
+
+  const newBooking = {
+    id: Date.now(),
+    collegeName, contactPerson, designation, email, mobile,
+    collegeAddress, studentCount, preferredDate, department, additionalReq,
+    status: 'PENDING_PAYMENT',
+    advancePaid: false,
+    balancePaid: false,
+    totalFeePerStudent: 12000,
+    createdAt: new Date().toISOString()
+  };
+  
+  bookings.unshift(newBooking);
+  writeJSON(BOOKINGS_FILE, bookings);
+  
+  res.json({ ok: true, bookingId: newBooking.id });
+});
+
+// POST /api/bookings/:id/mock-pay - simulate successful payment
+app.post('/api/bookings/:id/mock-pay', (req, res) => {
+  const id = Number(req.params.id);
+  const bookings = readJSON(BOOKINGS_FILE, []);
+  const bookingIndex = bookings.findIndex(b => b.id === id);
+  
+  if (bookingIndex === -1) return res.status(404).json({ error: 'Booking not found' });
+  
+  bookings[bookingIndex].status = 'CONFIRMED';
+  bookings[bookingIndex].advancePaid = true;
+  
+  writeJSON(BOOKINGS_FILE, bookings);
+  logActivity('Workshop Booking Confirmed', bookings[bookingIndex].collegeName);
+  
+  res.json({ ok: true, booking: bookings[bookingIndex] });
+});
+
+// GET /api/bookings - admin list
+app.get('/api/bookings', requireAuth, (_req, res) => {
+  res.json(readJSON(BOOKINGS_FILE, []));
+});
+
+// GET /api/calendar - list blocked dates
+app.get('/api/calendar', (_req, res) => {
+  const blocks = readJSON(CALENDAR_FILE, []);
+  const bookings = readJSON(BOOKINGS_FILE, []);
+  
+  const bookedDates = bookings
+    .filter(b => b.status === 'CONFIRMED')
+    .map(b => ({ date: b.preferredDate, type: 'booking', college: b.collegeName }));
+    
+  res.json([...blocks, ...bookedDates]);
+});
+
+// POST /api/calendar/block - admin block date
+app.post('/api/calendar/block', requireAuth, (req, res) => {
+  const { date, reason } = req.body || {};
+  if (!date) return res.status(400).json({ error: 'Date is required' });
+  
+  const blocks = readJSON(CALENDAR_FILE, []);
+  blocks.push({ id: Date.now(), date, reason, type: 'admin_block' });
+  writeJSON(CALENDAR_FILE, blocks);
+  
+  res.json({ ok: true });
+});
+
+// DELETE /api/calendar/block/:id - admin remove block
+app.delete('/api/calendar/block/:id', requireAuth, (req, res) => {
+  const id = Number(req.params.id);
+  const blocks = readJSON(CALENDAR_FILE, []);
+  writeJSON(CALENDAR_FILE, blocks.filter(b => b.id !== id));
+  res.json({ ok: true });
+});
+
 // ─── SERVE FRONTEND IN PRODUCTION ─────────────────────────────────────────────
 const DIST_DIR = path.join(__dirname, '..', 'dist');
 if (fs.existsSync(DIST_DIR)) {

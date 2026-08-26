@@ -4,7 +4,7 @@ import {
   Menu, X, ChevronDown, ChevronRight, Facebook, Linkedin, Youtube,
   Building2, Layers, HardHat, Home, Wrench, ShieldCheck,
   LayoutDashboard, Image, BookOpen, GraduationCap, FileText,
-  BarChart2, BookMarked, ArrowRight, RotateCcw, Palette,
+  BarChart2, BookMarked, ArrowRight, RotateCcw, Palette, Calendar
 } from 'lucide-react';
 import Logo from '../assets/logo.webp';
 import SearchBar, { MobileSearch } from './SearchBar';
@@ -91,6 +91,7 @@ const trainingMenu = [
   { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
   { icon: GraduationCap, title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
   { icon: FileText, title: 'Masters Study In Engineering Drawing & Drafting', desc: 'Master technical drawing', path: '/training/drawing-drafting' },
+  { icon: Calendar, title: 'ETABS Level 1 Workshop', desc: 'Academic-Industry Collaboration', path: '/training/corporate' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN (NATURAL CASCADING MENU) ─────────────────────────
@@ -218,7 +219,7 @@ const PagesDropdown = () => (
 // ─── TRAINING DROPDOWN ────────────────────────────────────────────────────────
 
 const TrainingDropdown = () => (
-  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(620px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
+  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-0 w-[min(500px,90vw)] bg-white border-t-[3px] border-[#fbc02d] shadow-[0_20px_60px_-10px_rgba(0,0,0,0.18)] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 rounded-b-2xl overflow-hidden translate-y-3 group-hover:translate-y-0 z-50">
     <div className="bg-gradient-to-r from-[#fbc02d]/10 to-transparent px-6 py-3 border-b border-gray-100 flex items-center justify-between">
       <div className="flex items-center gap-2">
         <span className="text-[0.65rem] font-black uppercase tracking-[0.2em] text-[#fbc02d]">Corporate Training</span>
@@ -231,21 +232,21 @@ const TrainingDropdown = () => (
         View all <ArrowRight size={10} />
       </Link>
     </div>
-    <div className="grid grid-cols-2 gap-px bg-gray-100 p-px">
+    <div className="py-2 flex flex-col">
       {trainingMenu.map((item) => {
         const Icon = item.icon;
         return (
           <Link
             key={item.title}
             to={item.path}
-            className="bg-white px-5 py-4 flex items-start gap-3 hover:bg-[#fbc02d]/5 transition-colors duration-150 group/item"
+            className="flex items-start gap-4 px-6 py-3.5 hover:bg-[#fbc02d]/5 transition-colors duration-150 group/item"
           >
-            <div className="mt-0.5 w-8 h-8 rounded-lg bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d]/20 transition-colors">
-              <Icon size={15} className="text-[#fbc02d]" />
+            <div className="mt-0.5 w-9 h-9 rounded-xl bg-[#fbc02d]/10 flex items-center justify-center shrink-0 group-hover/item:bg-[#fbc02d] transition-colors">
+              <Icon size={16} className="text-[#fbc02d] group-hover/item:text-slate-900 transition-colors" />
             </div>
             <div>
-              <p className="text-[0.78rem] font-bold text-gray-900 leading-tight group-hover/item:text-[#fbc02d] transition-colors">{item.title}</p>
-              <p className="text-[0.68rem] text-gray-400 mt-0.5 leading-snug">{item.desc}</p>
+              <p className="text-[0.8rem] font-bold text-gray-900 leading-tight group-hover/item:text-yellow-600 transition-colors">{item.title}</p>
+              <p className="text-[0.7rem] text-gray-500 mt-1 leading-snug">{item.desc}</p>
             </div>
           </Link>
         );
