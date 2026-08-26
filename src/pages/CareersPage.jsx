@@ -8,6 +8,7 @@ import {
 import ctaBG from '../assets/ctaBG.avif';
 import img1 from '../assets/img1.jpg';
 import img2 from '../assets/img2.jpg';
+import planning from '../assets/planning.jpg';
 import { useAdmin } from '../context/AdminContext';
 import SectionHeading from '../components/SectionHeading';
 
