@@ -99,6 +99,7 @@ function App() {
               <Route path="services/interior-design" element={<InteriorDesign />} />
               <Route path="services/interior-design-consultancy" element={<InteriorDesign />} />
               <Route path="services/architectural-consultancy" element={<ArchitecturalConsultancy />} />
+              <Route path="training/etabs" element={<CorporateTraining />} />
               <Route path="training/corporate" element={<CorporateTraining />} />
               <Route path="training/workshops" element={<WorkshopsSeminars />} />
               <Route path="training/composite" element={<BimHubComposite />} />

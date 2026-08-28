@@ -31,8 +31,8 @@ const searchIndex = [
   { title: 'PG Diploma In Structural Engineering (MSS)', description: 'PG Diploma In Structural Engineering comprehensive on-job training', path: '/pages/pg-diploma-in-structural-engineering', tags: ['mss', 'pg diploma in structural engineering', 'smart structures', 'master', 'structural engineering', 'etabs', 'staadpro', 'safe'] },
   { title: 'PBD', description: 'Performance Based Design resources', path: '/pages/pbd', tags: ['pbd', 'performance based design', 'structural'] },
 
-  // Corporate Training
-  { title: 'Corporate Training', description: 'Corporate on-job BIM and AEC software training with IIT Bhubaneswar', path: '/training/corporate', tags: ['training', 'corporate training', 'bim', 'software', 'aec', 'course', 'learn', 'iit bhubaneswar'] },
+  // ETABS Workshop / Training
+  { title: 'ETABS Level 1 Workshop', description: 'Academic-Industry Collaboration 3-day campus workshop & ETABS training with IIT Bhubaneswar', path: '/training/etabs', tags: ['etabs', 'etabs workshop', 'training', 'corporate training', 'bim', 'software', 'aec', 'course', 'learn', 'iit bhubaneswar'] },
   { title: 'BIM Certification', description: 'Industry-recognized BIM certification training courses', path: '/pages/pg-diploma-in-project-management-with-bim-technology', tags: ['bim', 'certification', 'training', 'msb', 'courses'] },
 
   // Company info

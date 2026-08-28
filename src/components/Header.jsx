@@ -91,7 +91,7 @@ const trainingMenu = [
   { icon: BookMarked, title: 'PG Diploma in Project Management with BIM Technology', desc: 'Project Management & BIM Tech', path: '/pages/pg-diploma-in-project-management-with-bim-technology' },
   { icon: GraduationCap, title: 'PG Diploma in Entrepreneurship in Structures, BIM and Project Management', desc: 'Structures, BIM & PM Entrepreneurship', path: '/pages/pg-diploma-in-entrepreneurship-in-structures-bim-and-project-management' },
   { icon: FileText, title: 'Masters Study In Engineering Drawing & Drafting', desc: 'Master technical drawing', path: '/training/drawing-drafting' },
-  { icon: Calendar, title: 'ETABS Level 1 Workshop', desc: 'Academic-Industry Collaboration', path: '/training/corporate' },
+  { icon: Calendar, title: 'ETABS Level 1 Workshop', desc: 'Academic-Industry Collaboration', path: '/training/etabs' },
 ];
 
 // ─── SERVICES MEGA DROPDOWN (NATURAL CASCADING MENU) ─────────────────────────
