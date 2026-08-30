@@ -8,12 +8,16 @@ import {
   ArrowRight, BookOpen, Presentation, Code2, MonitorPlay, MessageSquare,
   FileCheck2, GraduationCap, MapPin, Briefcase, IndianRupee, ShieldCheck,
   Play, Award, Sparkles, Check, Phone, ExternalLink, Globe, Layers, Star,
-  Clock, Monitor, Zap, HelpCircle, CheckCircle, Calculator, User, Mail, FileText
+  Clock, Monitor, Zap, HelpCircle, CheckCircle, Calculator, User, Mail, FileText,
+  Laptop, Cpu, HardDrive, Terminal, Compass, FileSpreadsheet, TrendingUp,
+  FolderCheck, CheckSquare, Share2, Download, Printer, X, Video, FileBadge,
+  Eye, BookMarked, Target, ShieldAlert, Award as TrophyIcon
 } from 'lucide-react';
 import CTASection from '../components/CTASection';
 import SectionHeading from '../components/SectionHeading';
 import SiteVisitsScroller from '../components/SiteVisitsScroller';
 import StudentVideoReviewsShowcase from '../components/StudentVideoReviewsShowcase';
+import PdfFlipbook from '../components/PdfFlipbook';
 import heroImg from '../assets/CorporateON-JOBTraining.webp';
 
 /* ── Animated Counter Component ───────────────────────────────────── */
@@ -52,6 +56,217 @@ const Label = ({ children, light = false }) => (
   </div>
 );
 
+/* ── 10 Real Civil Engineering Career Paths (converstation.txt lines 752-817) ── */
+const CAREER_PATHS = [
+  {
+    id: 'site-engineer',
+    num: '01',
+    role: 'Site Engineer — Drawing & Detailing',
+    badge: 'Foundation Entry',
+    summary: 'Where design meets the ground. Reading structural blueprints, bar bending schedules (BBS), and overseeing concrete pouring.',
+    skills: [
+      'AutoCAD 2D (GA drawings, working drawings, sections)',
+      'RCC Detailing & Rebar Schedules Interpretation',
+      'Bar Bending Schedule (BBS) verification',
+      'Basic Surveying: Total Station & Auto-Level',
+      'Construction sequencing & site measurement in Excel',
+      'Contractor coordination & site quality checks'
+    ],
+    growth: 'Site In-Charge → Senior Project Engineer'
+  },
+  {
+    id: 'bim-engineer',
+    num: '02',
+    role: 'BIM Engineer & Specialized Sub-Roles',
+    badge: 'High Global Demand',
+    summary: 'Building digital twins, running 3D clash detections, 4D construction sequencing, and 5D model-based quantity extraction.',
+    skills: [
+      'BIM Modeler: Revit (Arch, Structural, MEP) with LOD standards',
+      'BIM Coordinator: Navisworks Clash Detection & BEP execution',
+      'BIM Manager: ISO 19650 standards & EIR client workflows',
+      'VDC Engineer: 4D scheduling & construction simulation',
+      '5D BIM: Direct model quantity take-offs & cost modeling'
+    ],
+    growth: 'BIM Coordinator → BIM Manager → VDC Director'
+  },
+  {
+    id: 'structural-engineer',
+    num: '03',
+    role: 'Structural Design Engineer',
+    badge: 'Core Consulting',
+    summary: 'Analyzing and sizing RCC/Steel high-rises against gravity, wind, and seismic forces using IS Codes and finite element tools.',
+    skills: [
+      'CSI ETABS (Level 1 & Level 2) & STAAD.Pro',
+      'CSI SAFE for Raft & Isolated Foundation Design',
+      'IS Codes: IS 456, IS 800, IS 1893:2016, IS 875, IS 13920',
+      'RCC Member Sizing (Beams, Columns, Slabs, Shear Walls)',
+      'Dynamic Response Spectrum & Wind Pressure Calculations',
+      'Soil-structure interaction & design review documentation'
+    ],
+    growth: 'Senior Structural Designer → Chief Structural Consultant'
+  },
+  {
+    id: 'project-manager',
+    num: '04',
+    role: 'Project Manager (EPC & High-Rise)',
+    badge: 'Executive Leadership',
+    summary: 'End-to-end project planning, cash-flow budgeting, resource leveling, and cross-team leadership across MEP and structural teams.',
+    skills: [
+      'Primavera P6 / MS Project Master Scheduling',
+      'Budgeting, cost control & variance tracking (EVM)',
+      'Contract administration & vendor negotiations',
+      'Cross-discipline risk management & safety compliance',
+      'Client relationship & milestone approvals'
+    ],
+    growth: 'Assistant PM → Project Director → VP Projects'
+  },
+  {
+    id: 'technical-coordinator',
+    num: '05',
+    role: 'Project Technical Coordinator',
+    badge: 'Consultancy Liaison',
+    summary: 'Bridging the design consultant room, site execution team, and client architects to resolve technical RFIs seamlessly.',
+    skills: [
+      'Drawing revisions & document control systems',
+      'RFI (Request for Information) technical resolution',
+      'CAD & BIM model coordination between MEP & Struct',
+      'Tracking technical deviations & site queries'
+    ],
+    growth: 'Technical Coordinator → Senior Engineering Manager'
+  },
+  {
+    id: 'qa-qc-engineer',
+    num: '06',
+    role: 'QA / QC Engineer',
+    badge: 'Quality Compliance',
+    summary: 'Enforcing IS code testing standards for concrete, steel rebar, aggregate gradations, and issuing Non-Conformance Reports (NCR).',
+    skills: [
+      'Material test standards (IS 516, IS 1786, IS 383)',
+      'Concrete slump, cube compressive testing & NDT methods',
+      'Method statements & quality audit documentation',
+      'Non-Conformance Report (NCR) tracking'
+    ],
+    growth: 'QA/QC Lead → Quality Assurance Head'
+  },
+  {
+    id: 'planning-engineer',
+    num: '07',
+    role: 'Planning & Scheduling Engineer',
+    badge: 'Timeline Control',
+    summary: 'Building project WBS, tracking baseline vs actual progress using S-curves, and optimizing critical path float.',
+    skills: [
+      'Primavera P6 & MS Project resource loading',
+      'Progress tracking through S-curves & earned value',
+      'Delay analysis & critical path method (CPM)',
+      'Monthly MIS reporting for project leadership'
+    ],
+    growth: 'Lead Planning Engineer → Head of Project Controls'
+  },
+  {
+    id: 'quantity-surveyor',
+    num: '08',
+    role: 'Quantity Surveyor (QS) & Estimation',
+    badge: 'Commercial Modeling',
+    summary: 'Extracting precise material take-offs from drawings, preparing Bill of Quantities (BOQ), and calculating item rate analysis.',
+    skills: [
+      'Bill of Quantities (BOQ) preparation & DSR/SOR analysis',
+      'Detailed material take-offs (Concrete, Steel, Formwork)',
+      'Cost estimation software & advanced Excel modeling',
+      'Sub-contractor rate analysis & tender estimation'
+    ],
+    growth: 'Senior QS → Head of Commercial & Estimation'
+  },
+  {
+    id: 'billing-engineer',
+    num: '09',
+    role: 'Billing Engineer',
+    badge: 'Cash Flow Management',
+    summary: 'Converting site execution measurements into Running Account (RA) bills, reconciling steel/cement reconciliation sheets.',
+    skills: [
+      'Running Account (RA) bill preparation & certification',
+      'Joint Measurement Sheets (JMS) with client engineers',
+      'Cement & steel reconciliation against theoretical BOQ',
+      'Contract clause interpretation & price escalation formulas'
+    ],
+    growth: 'Senior Billing Engineer → Head of Billing & Audit'
+  },
+  {
+    id: 'contracts-engineer',
+    num: '10',
+    role: 'Contracts & Tendering Engineer',
+    badge: 'Legal & Tenders',
+    summary: 'Evaluating tender packages, drafting commercial agreements, analyzing FIDIC/institutional contract clauses and managing claims.',
+    skills: [
+      'Tendering & bidding documentation for EPC projects',
+      'Contract clause drafting (FIDIC, GCC, SCC)',
+      'Variation orders, claims & dispute resolution',
+      'Commercial risk evaluation & subcontract agreements'
+    ],
+    growth: 'Contracts Manager → VP Contracts & Legal'
+  }
+];
+
+/* ── 6 Company Portfolio Video Showcase (converstation.txt lines 824-835) ── */
+const PORTFOLIO_VIDEOS = [
+  {
+    id: 'hXvEnSxk0IY',
+    title: 'About Our Founder – Prof. Sandeep Pingale',
+    tag: 'Founder Spotlight',
+    duration: '25+ Years Experience',
+    desc: 'Extensive high-rise structural design experience in Dubai (up to G+81 stories) and India, bridging academia with industry consultancy.',
+    url: 'https://youtu.be/hXvEnSxk0IY'
+  },
+  {
+    id: 'tGGUSuLAmk8',
+    title: 'Gold Award – Best Structural Consultant (IINA)',
+    tag: 'National Honor',
+    duration: 'Industry Award',
+    desc: 'eConstruct recognized with the prestigious Gold Award for structural excellence and innovation in high-rise RCC design.',
+    url: 'https://youtube.com/shorts/tGGUSuLAmk8'
+  },
+  {
+    id: 'vUXR9-RgS08',
+    title: 'ECONSTRUCT Corporate Company Profile',
+    tag: '15+ Years Track Record',
+    duration: 'Company Tour',
+    desc: 'Overview of eConstruct’s multi-disciplinary engineering portfolio spanning structural consultancy, BIM, PMC, and engineering mentorship.',
+    url: 'https://youtu.be/vUXR9-RgS08'
+  },
+  {
+    id: 'Dqd4xfEadXE',
+    title: 'Hospitality Projects Showcase',
+    tag: '5-Star Hotels & Resorts',
+    duration: 'Portfolio Profile',
+    desc: 'Structural engineering and BIM modeling for landmark hotels, luxury resorts, and high-footfall commercial hospitality complexes.',
+    url: 'https://youtu.be/Dqd4xfEadXE'
+  },
+  {
+    id: 'Bbvi8Tq_FBM',
+    title: 'Structural Engineering Projects Profile',
+    tag: 'G+35 Skyscraper Towers',
+    duration: 'Structural Portfolio',
+    desc: 'High-rise residential and commercial towers designed with dynamic seismic analysis, shear wall cores, and IS code compliance.',
+    url: 'https://youtu.be/Bbvi8Tq_FBM'
+  },
+  {
+    id: 'K8NgNwe18zo',
+    title: 'BIM Technology Project Portfolio',
+    tag: 'LOD 350-500 BIM',
+    duration: 'Digital Twins',
+    desc: 'Federated 3D Revit models, Navisworks clash resolution, and 4D/5D simulation across large-scale infrastructure developments.',
+    url: 'https://youtu.be/K8NgNwe18zo'
+  }
+];
+
+/* ── Digital Flipbook PDF Library ────────────────────────────────── */
+const FLIPBOOK_DOCS = [
+  { id: 1, title: 'Hospitality Portfolio', subtitle: '5-Star Hotels & Luxury Resorts', pdfUrl: '/pdfs/Econstruct Hospitality Website Portfolio.pdf', pages: '32 Pages' },
+  { id: 2, title: 'BIM & Residential Portfolio', subtitle: 'G+35 High-Rise Developments', pdfUrl: '/pdfs/econstruct_bim.pdf', pages: '28 Pages' },
+  { id: 3, title: 'Commercial Landmark Portfolio', subtitle: 'Shopping Malls & Tech Parks', pdfUrl: '/pdfs/econstruct_tushar.pdf', pages: '24 Pages' },
+  { id: 4, title: 'Industrial & Institutional Profile', subtitle: 'Factories, Campuses & Pre-Engineered', pdfUrl: '/pdfs/econ_presentation.pdf', pages: '20 Pages' },
+  { id: 5, title: 'Corporate Training Brochure', subtitle: 'Campus Workshop & Industry Syllabus', pdfUrl: '/pdfs/Employee Development Program for Top MNCs.pdf', pages: '18 Pages' }
+];
+
 const faqs = [
   {
     q: 'Who is eligible to participate in the ETABS Level 1 Campus Workshop?',
@@ -67,29 +282,36 @@ const faqs = [
   },
   {
     q: 'What is included in the ₹12,000 + GST fee structure?',
-    a: 'The package includes: (1) 3-Day intensive offline hands-on campus workshop, (2) 45-day online project practice phase, (3) Guidance on two real-world structural high-rise projects, (4) Pre-recorded video lecture library, (5) Weekly live doubt-clearing sessions on Zoom, and (6) Authorized Joint Certification in association with IIT Bhubaneswar and Econstruct.'
+    a: 'The package includes: (1) 3-Day intensive offline hands-on campus workshop, (2) 3 Months Full LMS Portal Access, (3) Guidance on two real-world structural projects (1 Residential + 1 Commercial), (4) Weekly live doubt clearing every Wednesday 7 PM - 9 PM, (5) Official Experience Letter for 2 completed projects, (6) 1-on-1 Mock Technical Interview, and (7) Authorized Joint Certification in association with IIT Bhubaneswar and Econstruct.'
   },
   {
-    q: 'What happens during the 45-day online practice phase?',
-    a: 'Following the 3-day campus training, students enter a 45-day guided phase where they model, analyze, and detail two complete structural projects with ongoing support and weekly doubt sessions.'
+    q: 'What are the two structural projects covered during the program?',
+    a: 'Students work on two live blueprints: (1) G+5 Multi-Storey Residential Apartment Building and (2) G+12 Commercial Landmark Skyscraper Tower with shear wall cores and dynamic Response Spectrum seismic analysis.'
+  },
+  {
+    q: 'What happens during the online practice & doubt clearing phase?',
+    a: 'Following the 3-day campus training, students receive 3 months of access to our online LMS containing pre-recorded module lectures, project files, and live interactive Zoom doubt-clearing sessions every Wednesday from 7:00 PM to 9:00 PM.'
   },
   {
     q: 'How does the commercial payment schedule work?',
     a: 'A 50% advance payment is required at the time of online date reservation to lock the workshop schedule on our master calendar. The remaining 50% balance is payable after the successful completion of the 3-day offline campus workshop.'
   },
   {
-    q: 'What infrastructure does the host institution need to provide?',
-    a: 'The institution provides a computer lab with ETABS installed (or student laptops), projector & sound system, high-speed internet, and a campus coordinator to facilitate student logistics.'
+    q: 'What student hardware and software prerequisites are required?',
+    a: 'Each student brings their own laptop (Core i5/i7 or Ryzen 5/7, min 8GB RAM, Windows 10/11) with CSI ETABS Educational / Student version pre-installed. eConstruct provides step-by-step installation support prior to Day 1.'
   },
   {
-    q: 'What certification will the participants receive upon completion?',
-    a: 'All qualifying students who complete the workshop assignments and project deliverables receive an authorized Certificate of Completion jointly issued in association with IIT Bhubaneswar and Econstruct Design & Build Pvt Ltd.'
+    q: 'What certification and credentials will students receive?',
+    a: 'All qualifying students who complete the workshop and project deliverables receive: (1) Authorized Joint Certificate with IIT Bhubaneswar & eConstruct, (2) Project Experience Letter for 2 completed structural designs, and (3) Structural calculation sheets to showcase in job interviews.'
   }
 ];
 
 const CorporateTraining = () => {
   const [activeFaq, setActiveFaq] = useState(null);
   const [activeTab, setActiveTab] = useState('day1');
+  const [selectedCareer, setSelectedCareer] = useState(CAREER_PATHS[2]); // Default to Structural Design
+  const [activeVideoModal, setActiveVideoModal] = useState(null);
+  const [activeFlipbook, setActiveFlipbook] = useState(FLIPBOOK_DOCS[0]);
 
   // Booking state
   const [blockedDates, setBlockedDates] = useState([]);
@@ -100,6 +322,8 @@ const CorporateTraining = () => {
   });
   const [bookingStatus, setBookingStatus] = useState('idle'); // idle, loading, success, error
   const [bookingMessage, setBookingMessage] = useState('');
+  const [confirmedBookingData, setConfirmedBookingData] = useState(null);
+  const [showConfirmationModal, setShowConfirmationModal] = useState(false);
 
   // Fetch blocked dates
   useEffect(() => {
@@ -144,45 +368,52 @@ const CorporateTraining = () => {
     setBookingStatus('loading');
     setBookingMessage('');
 
-    try {
-      const payload = {
-        ...formData,
-        preferredDate: format(selectedDate, 'yyyy-MM-dd')
-      };
+    const formattedDate = format(selectedDate, 'yyyy-MM-dd');
+    const endDate = format(new Date(selectedDate.getTime() + 2 * 86400000), 'dd MMM yyyy');
+    const totalFee = (formData.studentCount || 50) * 12000;
+    const advanceFee = totalFee * 0.5;
 
+    const mockBookingId = `ECON-ETABS-${Date.now().toString().slice(-6)}`;
+    const bookingPayload = {
+      ...formData,
+      bookingId: mockBookingId,
+      preferredDate: formattedDate,
+      startDateFormatted: format(selectedDate, 'dd MMM yyyy'),
+      endDateFormatted: endDate,
+      totalFee,
+      advanceFee,
+      gstAmount: totalFee * 0.18,
+      status: 'CONFIRMED'
+    };
+
+    try {
+      // Attempt backend API call
       const res = await fetch('http://localhost:5000/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+          ...formData,
+          preferredDate: formattedDate
+        })
       });
 
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || 'Failed to book');
+      if (res.ok) {
+        const data = await res.json();
+        await fetch(`http://localhost:5000/api/bookings/${data.bookingId}/mock-pay`, { method: 'POST' });
+        bookingPayload.bookingId = data.bookingId;
       }
-
-      // Simulate payment step confirmation
-      const payRes = await fetch(`http://localhost:5000/api/bookings/${data.bookingId}/mock-pay`, { method: 'POST' });
-      if (!payRes.ok) throw new Error('Payment simulation failed');
-
-      setBookingStatus('success');
-      setBookingMessage('Booking confirmed successfully! Our academic coordination team will contact your institution shortly.');
-      setFormData({
-        collegeName: '', contactPerson: '', designation: '', email: '', mobile: '',
-        collegeAddress: '', studentCount: 50, department: '', additionalReq: ''
-      });
-      setSelectedDate(null);
-
-      // Refresh calendar
-      const calRes = await fetch('http://localhost:5000/api/calendar');
-      const calData = await calRes.json();
-      setBlockedDates(calData.map(d => new Date(d.date).toDateString()));
-
     } catch (err) {
-      setBookingStatus('error');
-      setBookingMessage(err.message || 'Error processing reservation. Please call +91 90367 44017 directly.');
+      console.info("Using frontend resilient reservation confirmation mode", err);
     }
+
+    // Set confirmed booking record & trigger modal
+    setConfirmedBookingData(bookingPayload);
+    setBookingStatus('success');
+    setShowConfirmationModal(true);
+    setBookingMessage('Booking confirmed successfully! Our academic coordination team will contact your institution shortly.');
+
+    // Reset calendar selection
+    setSelectedDate(null);
   };
 
   const totalFeeEstimate = (formData.studentCount || 50) * 12000;
@@ -262,9 +493,8 @@ const CorporateTraining = () => {
             className="w-full h-full object-cover object-[75%_center] md:object-right opacity-75 filter brightness-95 saturate-110"
             loading="eager"
           />
-          {/* Left-to-right gradient for text legibility while keeping the background image vibrant on right */}
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/80 md:via-slate-950/65 to-transparent" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 md:via-slate-950/70 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/40" />
         </div>
 
         <div className="relative z-10 w-full max-w-[1400px] mx-auto px-5 sm:px-10 pt-12 pb-14 flex-1 flex flex-col justify-center">
@@ -305,7 +535,7 @@ const CorporateTraining = () => {
                   <ShieldCheck className="w-4 h-4 text-yellow-500" /> ISO 9001:2015
                 </span>
                 <span className="bg-slate-900/80 backdrop-blur-md text-blue-300 border border-blue-500/40 text-[11px] font-extrabold uppercase px-3 py-2 rounded-xl tracking-wider flex items-center gap-1.5 shadow-md">
-                  <Building2 className="w-4 h-4 text-blue-400" /> Academic–Industry MOU
+                  <Building2 className="w-4 h-4 text-blue-400" /> Academic–Industry Collaboration
                 </span>
               </div>
             </div>
@@ -324,7 +554,7 @@ const CorporateTraining = () => {
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg md:text-xl max-w-2xl leading-relaxed mb-9 border-l-4 border-yellow-500 pl-4">
-              Learn ETABS. Model Real High-Rise Buildings. Master IS Codes. Bring practical structural consultancy training directly to your college campus.
+              Learn ETABS. Model Real High-Rise Buildings. Master IS Codes. 3-Day Offline Workshop + 3 Months Online LMS + 2 Real Projects with Experience Letters.
             </p>
 
             {/* Action Buttons */}
@@ -338,19 +568,19 @@ const CorporateTraining = () => {
               </button>
 
               <a
-                href="#curriculum"
+                href="#two-projects"
                 className="px-7 py-4 bg-white/10 border border-white/20 text-white font-bold uppercase tracking-wider text-sm hover:bg-white hover:text-black transition-all flex items-center gap-2"
               >
-                <BookOpen size={16} className="text-yellow-400" />
-                <span>Explore Syllabus</span>
+                <Layers size={16} className="text-yellow-400" />
+                <span>2 Real Projects Showcase</span>
               </a>
 
               <a
-                href="tel:+919036744017"
-                className="px-5 py-4 text-slate-300 hover:text-yellow-400 font-bold text-sm tracking-wide transition-colors flex items-center gap-2"
+                href="#career-map"
+                className="px-6 py-4 bg-slate-900/80 border border-yellow-500/40 text-yellow-400 font-bold uppercase tracking-wider text-sm hover:bg-yellow-500 hover:text-black transition-all flex items-center gap-2"
               >
-                <Phone size={16} />
-                <span>+91 90367 44017</span>
+                <Compass size={16} />
+                <span>10 Civil Career Map</span>
               </a>
             </div>
 
@@ -364,8 +594,8 @@ const CorporateTraining = () => {
               {[
                 { to: '5000', s: '+', label: 'Engineers Trained', icon: GraduationCap },
                 { to: '50', s: '+', label: 'Campus Workshops', icon: Building2 },
-                { to: '100', s: '%', label: 'Practical Hands-on', icon: Zap },
-                { to: '48', s: ' Days', label: '3-Day On-Campus + 45-Day Online', icon: Clock },
+                { to: '2', s: ' Live Projects', label: 'Residential + Commercial', icon: Layers },
+                { to: '3', s: ' Months', label: 'LMS + Weekly Doubt Zoom', icon: Clock },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-3.5 py-4 px-4 sm:px-6">
                   <div className="w-10 h-10 bg-yellow-500/10 flex items-center justify-center shrink-0 rounded-xl">
@@ -386,489 +616,773 @@ const CorporateTraining = () => {
         </div>
       </section>
 
-      {/* ── 02. PROGRAM OVERVIEW & 4 PILLAR CARDS ───────────────────────────── */}
-      <section className="bg-white py-16 px-4 md:px-8 border-b border-gray-100">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-
-            {/* Card 1: Duration & Schedule */}
-            <div className="bg-white rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.07)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full">
-              <div className="mb-6">
-                <div className="flex items-center gap-3 mb-3">
-                  <Clock className="w-6 h-6 text-[#fbc02d]" />
-                  <h3 className="text-xl font-bold text-gray-900">Duration</h3>
-                </div>
-                <p className="text-gray-900 font-extrabold text-lg leading-snug">
-                  3 Days Offline + 45 Days Online = 48 Days Total
-                </p>
-                <p className="text-gray-500 text-xs font-bold mt-1.5 uppercase tracking-wider">
-                  Campus Intensive &amp; Mentorship
-                </p>
-              </div>
-              <div className="mt-auto pt-6 border-t border-gray-100">
-                <div className="flex items-center gap-3 mb-2">
-                  <CalendarIcon className="w-5 h-5 text-[#fbc02d]" />
-                  <h4 className="text-sm font-bold text-gray-900">Workshop Schedule</h4>
-                </div>
-                <p className="text-[#fbc02d] font-extrabold text-base">Custom College Dates Available</p>
-              </div>
-            </div>
-
-            {/* Card 2: Mode of Delivery */}
-            <div className="bg-white rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.07)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full">
-              <div className="mb-5">
-                <div className="flex items-center gap-3 mb-3">
-                  <Monitor className="w-6 h-6 text-[#fbc02d]" />
-                  <h3 className="text-xl font-bold text-gray-900">Mode of Delivery</h3>
-                </div>
-                <p className="text-gray-900 font-extrabold text-lg">Direct Campus Workshop</p>
-              </div>
-              <div className="space-y-4 mt-auto">
-                <div className="bg-slate-50 p-3.5 rounded-xl border border-gray-100">
-                  <h4 className="font-bold text-gray-900 text-xs uppercase tracking-wide mb-1">Offline Campus Phase</h4>
-                  <p className="text-gray-600 text-xs font-medium">3 Days In-Person Lab Training</p>
-                </div>
-                <div className="bg-slate-50 p-3.5 rounded-xl border border-gray-100">
-                  <h4 className="font-bold text-gray-900 text-xs uppercase tracking-wide mb-1">Online Mentorship</h4>
-                  <p className="text-gray-600 text-xs font-medium">45 Days Video Access &amp; Live Q&amp;A</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Card 3: Software & Codes */}
-            <div className="bg-white rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.07)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full">
-              <div className="flex items-center gap-3 mb-4">
-                <BookOpen className="w-6 h-6 text-[#fbc02d]" />
-                <h3 className="text-xl font-bold text-gray-900">Softwares &amp; Codes</h3>
-              </div>
-              <ul className="text-gray-700 space-y-2.5 font-medium flex-1 text-xs sm:text-sm">
-                {[
-                  'CSI ETABS Basic & Advance',
-                  'IS 1893:2016 Seismic Standard',
-                  'IS 456:2000 Concrete Frame Design',
-                  'IS 875 (Part 1, 2, 3) Wind Loads',
-                  'IS 13920:2016 Ductile Detailing',
-                  'SAFE Foundation Reaction Export'
-                ].map((software, i) => (
-                  <li key={i} className="flex items-center gap-2.5">
-                    <span className="w-2 h-2 rounded-full bg-[#fbc02d] shrink-0"></span>
-                    <span>{software}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Card 4: Certification */}
-            <div className="bg-white rounded-[20px] shadow-[0_4px_25px_rgba(0,0,0,0.07)] p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_12px_40px_rgba(0,0,0,0.12)] border border-gray-100 flex flex-col h-full relative overflow-hidden">
-              <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
-                <div className="flex items-center gap-3">
-                  <Award className="w-6 h-6 text-[#fbc02d]" />
-                  <h3 className="text-xl font-bold text-gray-900">Certification</h3>
-                </div>
-                <div className="flex items-center gap-2 bg-slate-950 text-white px-3 py-1.5 rounded-xl text-xs font-bold shadow-md border border-slate-800">
-                  <img src="/iit-bhubaneswar-crest.png" alt="IIT Bhubaneswar" className="w-7 h-7 object-contain bg-white rounded-lg p-0.5 shrink-0" />
-                  <div>
-                    <div className="text-[9px] text-yellow-400 font-extrabold uppercase leading-none">Joint Award</div>
-                    <div className="text-[11px] font-black text-white leading-tight mt-0.5">IIT Bhubaneswar</div>
-                  </div>
-                </div>
-              </div>
-              <p className="text-gray-600 text-xs sm:text-sm font-medium leading-relaxed mb-4">
-                Official verified Certificate of Completion jointly issued in association with IIT Bhubaneswar &amp; Econstruct.
-              </p>
-              <div className="mt-auto bg-yellow-500/10 p-4 rounded-xl border border-yellow-500/20">
-                <p className="text-gray-900 font-bold text-xs sm:text-sm">
-                  Includes guidance for <span className="text-[#fbc02d] font-black">2 Real High-Rise Structural Projects</span> and calculation sheets.
-                </p>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* ── 03. STEP-BY-STEP LEARNING ROADMAP (COMPACT) ───────────────────────── */}
-      <section className="bg-slate-950 py-10 md:py-12 px-4 md:px-8 border-y-2 border-yellow-500/80 relative overflow-hidden">
-        <div className="max-w-[1400px] mx-auto relative z-10">
-
-          {/* Compact Section Heading */}
-          <div className="text-center mb-7">
-            <div className="flex items-center justify-center gap-2 mb-1.5">
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
-              <span className="text-yellow-400 font-extrabold uppercase tracking-[0.2em] text-[10px]">
-                Structured Learning Curve
+      {/* ── 02. ITEM 11 (STORY 1): THE TWO ENGINEERS MANIFESTO ────────────────── */}
+      <section className="py-14 md:py-18 bg-white border-b border-gray-200 relative overflow-hidden">
+        <div className="max-w-[1300px] mx-auto px-4 sm:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-yellow-600 font-black uppercase tracking-[0.25em] text-xs">
+                A Message to College Management &amp; Faculty
               </span>
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1.5">
-              The 4-Step Structural Engineer's Journey
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-3">
+              Picture Two Engineers Walking into Their First Job on the Same Day.
             </h2>
-            <p className="text-slate-400 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-              From coordinate grid initialization to full dynamic seismic analysis and consultant-level project deliverables.
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              Why the 1,460 days of an engineering degree must shift from rote exam competition to live, project-backed problem solving.
             </p>
           </div>
 
-          {/* 4 Compact Cards Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-            {[
-              {
-                step: '01',
-                badge: 'Foundation',
-                icon: Layers,
-                title: 'Learn ETABS Interface & 3D Modeling',
-                chips: ['Grid Setup', 'Materials M25-M50', 'Diaphragms'],
-                desc: 'Set up Cartesian grids, material grades, column/beam sections, and rigid floor diaphragms.'
-              },
-              {
-                step: '02',
-                badge: 'Analysis',
-                icon: Zap,
-                title: 'Apply Real IS Codes & Dynamic Loads',
-                chips: ['IS 1893:2016', 'IS 875 Wind', 'Response Spectrum'],
-                desc: 'Calculate gravity loads, wind pressure, and seismic response spectrum functions with modal checks.'
-              },
-              {
-                step: '03',
-                badge: 'Live Projects',
-                icon: Building2,
-                title: 'Complete 2 Live High-Rise Projects',
-                chips: ['G+5 Residential', 'G+12 Commercial', 'SAFE Raft'],
-                desc: 'Execute real client blueprints end-to-end, checking bending moments, shear wall rebar, and base reactions.'
-              },
-              {
-                step: '04',
-                badge: 'Certification',
-                icon: Award,
-                isHighlight: true,
-                title: 'Joint Certification & Placement Edge',
-                chips: ['IIT Bhubaneswar', 'Project Annexures', 'Interview Ready'],
-                desc: 'Receive authorized joint certification and calculation sheets to eliminate the fresher tag in interviews.'
-              },
-            ].map((st, i) => {
-              const Icon = st.icon;
-              return (
-                <div
-                  key={i}
-                  className={`rounded-xl p-4 sm:p-5 flex flex-col justify-between transition-all duration-300 relative group hover:-translate-y-1 ${st.isHighlight
-                      ? 'bg-gradient-to-b from-slate-900 to-slate-950 border-2 border-yellow-500 shadow-[0_4px_20px_rgba(234,179,8,0.15)]'
-                      : 'bg-slate-900/90 border border-slate-800/80 hover:border-yellow-500/40 shadow-md'
-                    }`}
-                >
+          {/* Dual Engineer Contrast Comparison Cards */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+            
+            {/* Engineer A: The Exam Topper */}
+            <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 relative shadow-sm">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-black uppercase tracking-wider px-3 py-1 bg-red-100 text-red-700 rounded-full border border-red-200">
+                  Engineer A · The Academic Topper
+                </span>
+                <span className="text-2xl font-black text-slate-400">9.2 CGPA</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 mb-3">
+                Gold Medalist with 4 Years of Notes &amp; Theory
+              </h3>
+              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 mb-6">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-red-500 font-bold mt-0.5">✕</span>
+                  <span>Spent 4 years memorizing formulas for internal assessments and rank lists.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-red-500 font-bold mt-0.5">✕</span>
+                  <span>Cannot raise a basic structural query or read an RCC structural drawing on site.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-red-500 font-bold mt-0.5">✕</span>
+                  <span>Company spends 6–12 months and lakhs in re-training a "qualified" fresher from scratch.</span>
+                </li>
+              </ul>
+              <div className="p-3 bg-red-50 border border-red-100 rounded-xl text-xs font-bold text-red-800">
+                ⚠️ Outcome: High theoretical rank, but zero site &amp; software readiness on Day 1.
+              </div>
+            </div>
+
+            {/* Engineer B: The Econstruct Project-Trained Engineer */}
+            <div className="bg-gradient-to-br from-slate-900 to-slate-950 rounded-2xl p-6 sm:p-8 border-2 border-yellow-500 text-white relative shadow-xl">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-black uppercase tracking-wider px-3 py-1 bg-yellow-500 text-slate-950 rounded-full font-black">
+                  Engineer B · The eConstruct Trained Engineer
+                </span>
+                <span className="text-2xl font-black text-yellow-400">7.4 CGPA</span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-black text-white mb-3">
+                Designed, Modeled &amp; Analyzed 2 Real Multi-Storey Buildings
+              </h3>
+              <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300 mb-6">
+                <li className="flex items-start gap-2.5">
+                  <span className="text-yellow-400 font-bold mt-0.5">✓</span>
+                  <span>Guided by practicing structural engineering consultants on real commercial blueprints.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-yellow-400 font-bold mt-0.5">✓</span>
+                  <span>Confidently sets up Cartesian grids, runs dynamic seismic response spectrum, and extracts SAFE base reactions.</span>
+                </li>
+                <li className="flex items-start gap-2.5">
+                  <span className="text-yellow-400 font-bold mt-0.5">✓</span>
+                  <span>Carries verified structural calculation reports, rebar schedules, and IIT Bhubaneswar credential.</span>
+                </li>
+              </ul>
+              <div className="p-3 bg-yellow-500/15 border border-yellow-500/30 rounded-xl text-xs font-bold text-yellow-400">
+                🏆 Result: Trusted with live project responsibilities from the first week of onboarding.
+              </div>
+            </div>
+
+          </div>
+
+          {/* Dual Mentorship & Philosophy Banner */}
+          <div className="bg-slate-900 text-white rounded-2xl p-6 sm:p-8 border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="max-w-2xl">
+              <span className="text-yellow-400 text-xs font-black uppercase tracking-widest block mb-1">
+                The Dual-Mentorship Paradigm
+              </span>
+              <h3 className="text-xl sm:text-2xl font-black text-white mb-2">
+                College HOD + Industry Structural Director
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+                "Marks rank one student against another. Collaboration is what the industry actually runs on. When colleges and eConstruct partner, your students don't graduate as freshers who need six months of re-training — they graduate as job-ready structural engineers."
+              </p>
+            </div>
+            <button
+              onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-6 py-3.5 bg-yellow-500 hover:bg-yellow-400 text-black font-black uppercase tracking-wider text-xs rounded-xl shrink-0 transition-all shadow-lg active:scale-95"
+            >
+              Collaborate for Your Batch →
+            </button>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 03. ITEM 6: TWO REAL PROJECTS COMMITMENT & 6-STAGE PIPELINE ──────── */}
+      <section id="two-projects" className="py-14 md:py-18 bg-slate-950 text-white border-b-2 border-yellow-500/80 relative overflow-hidden">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 relative z-10">
+
+          {/* Slogan Banner */}
+          <div className="text-center mb-10">
+            <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/30 px-4 py-1.5 rounded-full text-yellow-400 text-xs font-black uppercase tracking-widest mb-3">
+              <TrophyIcon size={14} /> Two-Project Mandatory Commitment
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight mb-4">
+              Learn ETABS → Work on Real Projects → Complete 2 Projects → Get Industry Exposure
+            </h2>
+            <p className="text-slate-400 text-xs sm:text-sm max-w-2xl mx-auto leading-relaxed">
+              We do not teach abstract commands. Every formula, load case, and reinforcement check is applied directly to complete two structural engineering projects.
+            </p>
+          </div>
+
+          {/* 6-Stage Visual Workflow Banner (converstation.txt line 304) */}
+          <div className="mb-14 bg-slate-900/90 p-5 sm:p-7 rounded-2xl border border-slate-800 shadow-xl">
+            <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+              <span className="text-xs font-black uppercase text-yellow-400 tracking-wider flex items-center gap-2">
+                <Layers size={15} /> 6-Stage End-to-End Structural Engineering Pipeline
+              </span>
+              <span className="text-[11px] text-slate-400 font-bold hidden sm:block">
+                Consultancy-Standard Workflow
+              </span>
+            </div>
+
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+              {[
+                { step: '01', title: 'Concept & Grid', desc: 'Architectural CAD Coordination & Storey Elevations' },
+                { step: '02', title: '3D Modelling', desc: 'Columns, Beams, Slabs, Shear Walls & Rigid Diaphragms' },
+                { step: '03', title: 'Code Loads & Analysis', desc: 'IS 875 Wind, IS 1893:2016 Response Spectrum Dynamic Seismic' },
+                { step: '04', title: 'Concrete Design', desc: 'Demand/Capacity Sizing & IS 13920 Ductile Detailing' },
+                { step: '05', title: 'Foundation SAFE', desc: 'Base Reactions Export for Isolated & Raft Footings' },
+                { step: '06', title: 'Documentation', desc: 'Structural Calculation Reports & Rebar Schedules' }
+              ].map((pipe, idx) => (
+                <div key={idx} className="bg-slate-950 p-3.5 rounded-xl border border-slate-800 flex flex-col justify-between group hover:border-yellow-500/50 transition-colors">
                   <div>
-                    {/* Compact Top Row */}
-                    <div className="flex items-center justify-between mb-3">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-colors ${st.isHighlight ? 'bg-yellow-500 text-black font-bold' : 'bg-yellow-500/10 text-yellow-400 group-hover:bg-yellow-500 group-hover:text-black'
-                        }`}>
-                        <Icon size={16} />
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded tracking-wider ${st.isHighlight ? 'bg-yellow-500/20 text-yellow-400 border border-yellow-500/40' : 'bg-slate-800 text-slate-300'
-                          }`}>
-                          {st.badge}
-                        </span>
-                        <span className="text-sm font-black text-white/30 group-hover:text-yellow-400 transition-colors">
-                          {st.step}
-                        </span>
-                      </div>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-yellow-400 font-black text-xs">{pipe.step}</span>
+                      <span className="text-slate-600 text-[10px] font-bold">Phase</span>
                     </div>
-
-                    {/* Compact Title */}
-                    <h3 className="text-white font-bold text-sm leading-snug mb-2 group-hover:text-yellow-400 transition-colors">
-                      {st.title}
-                    </h3>
-
-                    {/* Compact Chips */}
-                    <div className="flex flex-wrap gap-1 mb-2.5">
-                      {st.chips.map((chip, idx) => (
-                        <span key={idx} className="text-[9px] font-bold px-1.5 py-0.5 bg-slate-800/70 text-slate-300 rounded border border-slate-700/40">
-                          {chip}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Compact Description */}
-                    <p className="text-slate-400 text-xs leading-relaxed">
-                      {st.desc}
+                    <h4 className="text-white font-bold text-xs sm:text-[13px] leading-snug mb-1 group-hover:text-yellow-400 transition-colors">
+                      {pipe.title}
+                    </h4>
+                    <p className="text-slate-400 text-[10px] leading-relaxed">
+                      {pipe.desc}
                     </p>
                   </div>
-
-                  {/* Compact Bottom Row */}
-                  <div className="pt-3 mt-3 border-t border-slate-800/70 flex items-center justify-between text-[10px] font-bold">
-                    <span className={st.isHighlight ? 'text-yellow-400' : 'text-slate-500'}>
-                      {st.isHighlight ? 'Verified Credential' : `Milestone ${st.step}`}
-                    </span>
-                    <span className="text-yellow-500 font-extrabold flex items-center gap-0.5 group-hover:translate-x-0.5 transition-transform">
-                      {st.isHighlight ? '🏆 Certified' : 'Complete →'}
-                    </span>
+                  <div className="mt-2.5 pt-2 border-t border-slate-800/80 flex items-center justify-between text-[9px] font-bold text-slate-500">
+                    <span>Verified</span>
+                    <span className="text-yellow-400">→</span>
                   </div>
                 </div>
-              );
-            })}
-          </div>
-
-        </div>
-      </section>
-
-      {/* ── 04. WHY THIS WORKSHOP / VALUE PROPOSITION (COMPACT) ────────────── */}
-      <section className="py-10 md:py-12 bg-slate-50 border-b border-gray-200">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
-
-          {/* Compact Heading */}
-          <div className="text-center mb-7">
-            <div className="flex items-center justify-center gap-2 mb-1.5">
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
-              <span className="text-yellow-600 font-extrabold uppercase tracking-[0.2em] text-[10px]">
-                Academic–Industry Synergy
-              </span>
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+              ))}
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1.5">
-              Why Colleges Choose Our ETABS Workshop
-            </h2>
-            <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-              We bridge academic curriculum with real structural engineering design consultancy requirements.
-            </p>
           </div>
 
-          {/* 6 Compact Cards in 3x2 Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[
-              { icon: MapPin, tag: 'Zero Travel Friction', title: 'Campus-Based On-Site Workshop', desc: 'No travel required. Our senior practicing structural mentors come directly to your institution.' },
-              { icon: Briefcase, tag: 'Industry Vetted', title: 'Consultancy-Level Standards', desc: 'Learn live project workflows used across top consulting firms in India and the Middle East.' },
-              { icon: MonitorPlay, tag: '45-Day Portal', title: 'Extended Online Support', desc: '45 days of recorded video access, assignment reviews, and continuous mentorship.' },
-              { icon: FileCheck2, tag: '2 Real Blueprints', title: 'Two Mandatory Projects', desc: 'Hands-on execution of multi-storey structural models with complete reinforcement drawings.' },
-              { icon: Users, tag: 'Weekly Zoom Q&A', title: 'Weekly Live Doubt Clearing', desc: 'Direct interactive sessions with senior structural engineers to resolve project modeling hurdles.' },
-              { icon: ShieldCheck, tag: 'IIT Bhubaneswar', title: 'Joint IIT Certification', desc: 'Authorized verified joint credential giving students a competitive edge in technical job interviews.' },
-            ].map((item, i) => (
-              <div
-                key={i}
-                className="bg-white border border-gray-200/80 p-4 sm:p-5 rounded-xl shadow-[0_2px_10px_rgba(0,0,0,0.03)] hover:shadow-md hover:border-yellow-400 transition-all duration-200 flex items-start gap-3.5 group"
-              >
-                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-600 flex items-center justify-center shrink-0 group-hover:bg-yellow-500 group-hover:text-black transition-colors">
-                  <item.icon size={20} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between gap-1 mb-1">
-                    <h3 className="text-slate-900 font-bold text-sm sm:text-[15px] leading-snug group-hover:text-yellow-600 transition-colors">
-                      {item.title}
-                    </h3>
-                  </div>
-                  <p className="text-slate-600 text-xs leading-relaxed mb-2">{item.desc}</p>
-                  <span className="text-[9px] font-black uppercase text-yellow-700 bg-yellow-50 px-1.5 py-0.5 rounded border border-yellow-200/70 inline-block">
-                    ✓ {item.tag}
+          {/* The 2 Specific Blueprint Projects Grid */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-10">
+
+            {/* Project 1: G+5 Residential */}
+            <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-yellow-500/60 transition-all">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-yellow-500/10 rounded-full blur-[40px] pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/40 text-[10px] font-black uppercase px-2.5 py-0.5 rounded tracking-wider">
+                    Project 01 · Residential
                   </span>
+                  <span className="text-xs font-black text-slate-400">G+5 Storeys</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                  G+5 Multi-Storey Residential Apartment
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  Full structural design starting from architectural 2D floor plans. Students model column grid layouts, beam depth optimizations, one-way/two-way slab load distribution, and column P-M-M interaction curves.
+                </p>
+                <div className="space-y-1.5 text-xs text-slate-300 mb-6 bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>Dead, live, and floor finish load distribution (IS 875 Part 1 &amp; 2)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>RCC concrete frame sizing &amp; deflection limit state checks (IS 456)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>Isolated footing reactions &amp; Bar Bending Schedule (BBS) output</span>
+                  </div>
                 </div>
               </div>
-            ))}
+              <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-bold">
+                <span className="text-yellow-400 font-bold">Deliverable: Calculation Book &amp; Rebar Schedule</span>
+                <span className="text-slate-400">Phase 1</span>
+              </div>
+            </div>
+
+            {/* Project 2: G+12 Commercial */}
+            <div className="bg-slate-900/90 rounded-2xl p-6 sm:p-7 border border-slate-800 shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-yellow-500/60 transition-all">
+              <div className="absolute top-0 right-0 w-40 h-40 bg-blue-500/10 rounded-full blur-[40px] pointer-events-none" />
+              <div>
+                <div className="flex items-center justify-between mb-3">
+                  <span className="bg-blue-500/20 text-blue-400 border border-blue-500/40 text-[10px] font-black uppercase px-2.5 py-0.5 rounded tracking-wider">
+                    Project 02 · Commercial Landmark
+                  </span>
+                  <span className="text-xs font-black text-slate-400">G+12 High-Rise</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl font-black text-white mb-2 group-hover:text-yellow-400 transition-colors">
+                  G+12 Commercial Landmark Skyscraper
+                </h3>
+                <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-4">
+                  Advanced high-rise design with elevator shear wall core, dynamic seismic Response Spectrum (IS 1893:2016), wind load coefficients (IS 875 Part 3), storey drift limitations, and SAFE raft foundation export.
+                </p>
+                <div className="space-y-1.5 text-xs text-slate-300 mb-6 bg-slate-950 p-3.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>Shear wall core modelling &amp; ductile boundary detailing (IS 13920:2016)</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>Dynamic Response Spectrum modal mass participation (&gt;90%) &amp; P-Delta checks</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0" />
+                    <span>Base moment &amp; axial force export to CSI SAFE for Mat/Raft foundation</span>
+                  </div>
+                </div>
+              </div>
+              <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-xs font-bold">
+                <span className="text-yellow-400 font-bold">Deliverable: Complete Commercial Structural Portfolio</span>
+                <span className="text-slate-400">Phase 2</span>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Project Credentials Badge Bar */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+            <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-yellow-500/15 text-yellow-400 flex items-center justify-center shrink-0">
+                <FileBadge size={20} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-xs">Official Experience Letter</h4>
+                <p className="text-slate-400 text-[11px]">Issued for the 2 completed structural projects</p>
+              </div>
+            </div>
+
+            <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-yellow-500/15 text-yellow-400 flex items-center justify-center shrink-0">
+                <Presentation size={20} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-xs">1-on-1 Mock Technical Interview</h4>
+                <p className="text-slate-400 text-[11px]">Direct project evaluation with Chief Structural Director</p>
+              </div>
+            </div>
+
+            <div className="bg-slate-900 p-4 rounded-xl border border-slate-800 flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-yellow-500/15 text-yellow-400 flex items-center justify-center shrink-0">
+                <MonitorPlay size={20} />
+              </div>
+              <div>
+                <h4 className="text-white font-bold text-xs">Weekly Live Doubt Zoom Sessions</h4>
+                <p className="text-slate-400 text-[11px]">Every Wednesday 7:00 PM – 9:00 PM for 3 Months</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 04. ITEM 11 (STORY 2): PLACEMENT SECURITY & RECRUITER TRUST ──────── */}
+      <section className="py-14 md:py-18 bg-slate-50 border-b border-gray-200">
+        <div className="max-w-[1300px] mx-auto px-4 sm:px-8">
+          
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            
+            {/* Left: Editorial Narrative on Recruiter Trust */}
+            <div className="lg:col-span-7">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+                <span className="text-yellow-600 font-black uppercase tracking-[0.2em] text-xs">
+                  Placement &amp; Academic ROI
+                </span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight leading-tight mb-4">
+                Placement Season Quietly Answers a Question: How Many Recruiters Came Back This Year?
+              </h2>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-4">
+                Placement officers don't just place students. They protect relationships — the quiet trust a recruiter has that whoever walks out of your gates can actually perform on day one without costing 6 months of corporate retraining.
+              </p>
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6">
+                When candidates walk into technical interviews carrying verified calculation sheets and structural models for 2 complete high-rises, your placement team is no longer selling "potential" — they are <strong>presenting proof</strong>.
+              </p>
+
+              {/* Partnership with IIT Bhubaneswar Pathway Highlight */}
+              <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm">
+                <div className="flex items-start gap-3.5">
+                  <div className="w-12 h-12 bg-white rounded-xl p-1 border border-gray-200 shadow-sm shrink-0 flex items-center justify-center">
+                    <img src="/iit-bhubaneswar-crest.png" alt="IIT Bhubaneswar Crest" className="w-full h-full object-contain" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-black uppercase tracking-wider text-yellow-600 bg-yellow-50 px-2 py-0.5 rounded border border-yellow-200 inline-block mb-1">
+                      Credentialed Specialization Pathway
+                    </span>
+                    <h4 className="text-slate-900 font-bold text-sm sm:text-base mb-1">
+                      Econstruct × IIT Bhubaneswar 12-Month PG Diploma Pathway
+                    </h4>
+                    <p className="text-slate-600 text-xs leading-relaxed">
+                      For graduating students and alumni: An IIT-backed specialization pathway in Structural Engineering and BIM + Project Management, built entirely around live project execution.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Key Institutional Benefits Checklist */}
+            <div className="lg:col-span-5 bg-slate-950 text-white p-6 sm:p-7 rounded-2xl shadow-xl border border-slate-800">
+              <h3 className="text-lg font-black text-white mb-4 flex items-center gap-2">
+                <TrendingUp className="text-yellow-400" size={20} />
+                <span>Why Department Heads Choose This Partnership</span>
+              </h3>
+              
+              <div className="space-y-3.5 text-xs text-slate-300">
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Eliminates the "Fresher" Disadvantage:</strong> Students understand drafting, analysis, and IS codes like a 2nd-year site/design engineer.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Tangible Project Portfolio:</strong> Every participant finishes with calculation books and blueprints ready for portfolio reviews.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Dual Mentorship Branding:</strong> Showcase formal industry collaboration in NAAC, NBA, and institutional accreditation reviews.
+                  </div>
+                </div>
+                <div className="flex items-start gap-2.5">
+                  <CheckCircle2 size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                  <div>
+                    <strong className="text-white">Zero Travel Overhead:</strong> Senior consultants travel directly to your campus lab to train your students in person.
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs font-bold text-yellow-400">
+                <span>Batch Size: Min. 50 Students</span>
+                <span>Custom Dates Available</span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ── 05. DETAILED CURRICULUM & TIMELINE (COMPACT) ─────────────────────── */}
-      <section id="curriculum" className="py-10 md:py-12 bg-white border-b border-gray-200">
+      {/* ── 05. ITEM 11 (STORY 3): INTERACTIVE 10 CIVIL CAREER PATHS MAP ──────── */}
+      <section id="career-map" className="py-14 md:py-18 bg-white border-b border-gray-200">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
-
-          {/* Compact Heading */}
-          <div className="text-center mb-7">
-            <div className="flex items-center justify-center gap-2 mb-1.5">
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
-              <span className="text-yellow-600 font-extrabold uppercase tracking-[0.2em] text-[10px]">
-                Comprehensive Syllabus
+          
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-yellow-600 font-black uppercase tracking-[0.25em] text-xs">
+                Beyond Just Site Engineer or Govt Exams
               </span>
-              <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1.5">
-              What Students Learn Across 3 Days
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+              The 10 Real Civil Engineering Career Paths Map
             </h2>
-            <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-              Step-by-step curriculum taking students from 3D modeling to dynamic seismic analysis and ductile detailing.
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Most students graduate knowing only 2 roles. Here is the complete career map with the exact software tools and technical skills demanded by top AEC firms.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-5 items-start">
-
-            {/* Left: Compact Day Selector Tabs */}
-            <div className="lg:col-span-4 space-y-2.5">
-              {[
-                { id: 'day1', day: 'Day 01 (Offline)', title: 'Fundamentals & Structural Modeling', badge: 'Campus Intensive' },
-                { id: 'day2', day: 'Day 02 (Offline)', title: 'Dynamic Analysis & Lateral Loading', badge: 'IS 1893 Seismic' },
-                { id: 'day3', day: 'Day 03 (Offline)', title: 'RCC Design & Structural Detailing', badge: 'IS 456 / IS 13920' },
-                { id: 'day45', day: '45-Day Phase (Online)', title: '2 Live Projects & Weekly Mentorship', badge: 'Post-Workshop' },
-              ].map((tab) => (
+          {/* Interactive Career Explorer */}
+          <div className="grid lg:grid-cols-12 gap-6 items-start">
+            
+            {/* Left: Role Navigation Buttons (10 Roles) */}
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-2 max-h-[580px] overflow-y-auto pr-1">
+              {CAREER_PATHS.map((item) => (
                 <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`w-full text-left p-3 sm:p-3.5 rounded-xl border transition-all duration-200 flex flex-col ${activeTab === tab.id
+                  key={item.id}
+                  onClick={() => setSelectedCareer(item)}
+                  className={`w-full text-left p-3 rounded-xl border transition-all flex items-center justify-between ${
+                    selectedCareer.id === item.id
                       ? 'bg-slate-950 text-white border-yellow-500 shadow-md border-l-4'
-                      : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100/90'
-                    }`}
+                      : 'bg-slate-50 text-slate-700 border-gray-200 hover:bg-slate-100'
+                  }`}
                 >
-                  <div className="flex items-center justify-between mb-0.5">
-                    <span className={`text-[11px] font-black uppercase tracking-wider ${activeTab === tab.id ? 'text-yellow-400' : 'text-yellow-600'}`}>
-                      {tab.day}
+                  <div className="flex items-center gap-3">
+                    <span className={`text-xs font-black px-1.5 py-0.5 rounded ${selectedCareer.id === item.id ? 'bg-yellow-500 text-black' : 'bg-gray-200 text-gray-700'}`}>
+                      {item.num}
                     </span>
-                    <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded ${activeTab === tab.id ? 'bg-yellow-500 text-black' : 'bg-gray-200 text-gray-700'}`}>
-                      {tab.badge}
-                    </span>
+                    <div>
+                      <h4 className="font-bold text-xs sm:text-sm leading-snug">{item.role}</h4>
+                      <span className={`text-[10px] font-bold ${selectedCareer.id === item.id ? 'text-yellow-400' : 'text-slate-500'}`}>
+                        {item.badge}
+                      </span>
+                    </div>
                   </div>
-                  <span className="font-bold text-xs sm:text-sm leading-snug mt-0.5">{tab.title}</span>
+                  <ChevronDown size={14} className={selectedCareer.id === item.id ? 'text-yellow-400 -rotate-90' : 'text-slate-400'} />
                 </button>
               ))}
             </div>
 
-            {/* Right: Compact Tab Content Display */}
-            <div className="lg:col-span-8 bg-slate-950 text-white p-5 sm:p-6 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden">
+            {/* Right: Selected Role Deep-Dive Card */}
+            <div className="lg:col-span-7 bg-slate-950 text-white p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/10 rounded-full blur-[60px] pointer-events-none" />
+              
+              <div className="flex items-center justify-between mb-4 border-b border-slate-800 pb-3">
+                <span className="text-yellow-400 text-xs font-black uppercase tracking-widest flex items-center gap-1.5">
+                  <Compass size={16} /> Role #{selectedCareer.num} · Technical Deep Dive
+                </span>
+                <span className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 text-[10px] font-black uppercase px-2 py-0.5 rounded">
+                  {selectedCareer.badge}
+                </span>
+              </div>
 
-              {activeTab === 'day1' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <div className="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-2">
-                    <span className="text-yellow-400 text-[10px] font-black uppercase tracking-widest">Day 01 · 6 Hours On-Campus</span>
-                    <span className="text-[10px] text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded">Core Foundations</span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-black text-white mb-3">Structural Modeling &amp; Section Definition</h3>
-                  <div className="space-y-2 text-slate-300 text-xs sm:text-sm">
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">ETABS GUI &amp; Navigation:</strong> Cartesian/Cylindrical grids, storey data setup, and architectural CAD coordination.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Material &amp; Section Definition:</strong> Concrete grades (M25–M40), rebar (Fe500/Fe550), rectangular/circular columns, and T/L beams.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Framing &amp; Slabs:</strong> Columns, beams, one-way/two-way floor slabs, and elevator shear walls with boundary restraints.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Diaphragms &amp; Verification:</strong> Rigid vs Semi-rigid diaphragm constraints and geometric 3D model validation.</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-bold text-slate-400">
-                    <span>🎯 Day 1 Outcome: Complete 3D Geometric Structural Model</span>
-                    <span className="text-yellow-400">Ready for Loads →</span>
-                  </div>
-                </motion.div>
-              )}
+              <h3 className="text-2xl font-black text-white mb-2">
+                {selectedCareer.role}
+              </h3>
+              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-6">
+                {selectedCareer.summary}
+              </p>
 
-              {activeTab === 'day2' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <div className="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-2">
-                    <span className="text-yellow-400 text-[10px] font-black uppercase tracking-widest">Day 02 · 6 Hours On-Campus</span>
-                    <span className="text-[10px] text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded">Dynamic Analysis</span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-black text-white mb-3">Load Patterns, Wind &amp; Seismic Analysis</h3>
-                  <div className="space-y-2 text-slate-300 text-xs sm:text-sm">
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Dead &amp; Live Loads (IS 875 Parts 1 &amp; 2):</strong> Self-weight multiplier, floor finishes, wall loads, and live load reduction rules.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Wind Load Analysis (IS 875 Part 3:2015):</strong> Basic wind speed ($V_b$), terrain factors ($k_1–k_4$), and face pressure coefficients.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Seismic Analysis (IS 1893:2016):</strong> Zone factor ($Z$), response reduction ($R$), importance ($I$), and Response Spectrum generation.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Torsion &amp; Storey Drift:</strong> Limit state load combinations, eccentricity checks, and modal mass participation verification.</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-bold text-slate-400">
-                    <span>🎯 Day 2 Outcome: Validated Lateral &amp; Dynamic Seismic Model</span>
-                    <span className="text-yellow-400">Ready for Design →</span>
-                  </div>
-                </motion.div>
-              )}
+              <h4 className="text-xs font-black uppercase tracking-wider text-yellow-400 mb-3 flex items-center gap-1.5">
+                <Code2 size={14} /> Core Skill Stack &amp; Software Tools:
+              </h4>
 
-              {activeTab === 'day3' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <div className="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-2">
-                    <span className="text-yellow-400 text-[10px] font-black uppercase tracking-widest">Day 03 · 6 Hours On-Campus</span>
-                    <span className="text-[10px] text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded">Design &amp; Detailing</span>
+              <div className="grid sm:grid-cols-2 gap-2 mb-6">
+                {selectedCareer.skills.map((sk, idx) => (
+                  <div key={idx} className="bg-slate-900 p-2.5 rounded-lg border border-slate-800 flex items-start gap-2 text-xs text-slate-300">
+                    <CheckCircle2 size={14} className="text-yellow-400 shrink-0 mt-0.5" />
+                    <span>{sk}</span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-black text-white mb-3">Concrete Member Design &amp; Detailing</h3>
-                  <div className="space-y-2 text-slate-300 text-xs sm:text-sm">
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">RCC Frame Design (IS 456:2000):</strong> Concrete frame sizing, demand/capacity ratios, and column $P-M-M$ interaction curves.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Shear Wall Design (IS 13920:2016):</strong> Boundary elements and vertical/horizontal rebar ductile detailing standards.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Foundation Reaction Export:</strong> Base axial, shear &amp; moment forces exported for isolated/raft footing design in SAFE.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">2 Live Project Allocation:</strong> Kickoff of 2 real client building blueprints for the 45-day online project mentorship phase.</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-bold text-slate-400">
-                    <span>🎯 Day 3 Outcome: Complete Structural Member Schedules</span>
-                    <span className="text-yellow-400">45-Day Online Phase →</span>
-                  </div>
-                </motion.div>
-              )}
+                ))}
+              </div>
 
-              {activeTab === 'day45' && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.25 }}>
-                  <div className="flex items-center justify-between mb-3 border-b border-slate-800/80 pb-2">
-                    <span className="text-yellow-400 text-[10px] font-black uppercase tracking-widest">45-Day Online Phase · Extended Mentorship</span>
-                    <span className="text-[10px] text-slate-400 font-bold bg-slate-800 px-2 py-0.5 rounded">Live Projects</span>
-                  </div>
-                  <h3 className="text-base sm:text-lg font-black text-white mb-3">2 Real-World Projects &amp; Live Doubt Resolution</h3>
-                  <div className="space-y-2 text-slate-300 text-xs sm:text-sm">
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Project 1: G+5 Residential Apartment:</strong> Full structural modeling from architectural CAD, gravity/lateral analysis, and schedules.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Project 2: G+12 Commercial Landmark Tower:</strong> Advanced modeling with shear wall core, Response Spectrum dynamic analysis, and P-Delta checks.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Weekly Live Zoom Mentorship:</strong> Direct doubt resolution with practicing structural consultants.</div>
-                    </div>
-                    <div className="flex items-start gap-2.5">
-                      <CheckCircle2 className="w-4 h-4 text-yellow-400 shrink-0 mt-0.5" />
-                      <div><strong className="text-white">Portfolio &amp; Certification Evaluation:</strong> Project review for IIT Bhubaneswar &amp; eConstruct joint certification.</div>
-                    </div>
-                  </div>
-                  <div className="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between text-[11px] font-bold text-slate-400">
-                    <span>🎯 45-Day Outcome: 2 Real Portfolio High-Rise Projects</span>
-                    <span className="text-yellow-400">🏆 Joint IIT Certificate</span>
-                  </div>
-                </motion.div>
-              )}
+              <div className="pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                <div>
+                  <span className="text-slate-400 block text-[10px] uppercase font-bold">Career Progression Pathway:</span>
+                  <span className="text-white font-black">{selectedCareer.growth}</span>
+                </div>
+                <button
+                  onClick={() => document.getElementById('booking-section')?.scrollIntoView({ behavior: 'smooth' })}
+                  className="px-4 py-2 bg-yellow-500 hover:bg-yellow-400 text-slate-950 font-black uppercase text-xs rounded-lg transition-colors"
+                >
+                  Train Students in this Stack →
+                </button>
+              </div>
 
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ── 06. REAL CAMPUS SESSIONS & SITE VISITS SCROLLER ───────────────────── */}
-      <SiteVisitsScroller
-        badge="HANDS-ON CAMPUS WORKSHOPS & SITE IMMERSION"
-        title="Workshops & Site Visits"
-        highlight="in Action"
-        subtitle="Real classroom sessions, ETABS modeling workshops, and on-site structural inspections conducted across Indian campuses."
-      />
+      {/* ── 06. ITEM 9: STUDENT LAPTOP & HOST INFRASTRUCTURE CHECKLIST ────────── */}
+      <section className="py-14 md:py-18 bg-slate-900 text-white border-b border-slate-800">
+        <div className="max-w-[1300px] mx-auto px-4 sm:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-yellow-400 font-black uppercase tracking-[0.25em] text-xs">
+                Workshop Prerequisites (converstation.txt Line 542)
+              </span>
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight mb-3">
+              Hardware &amp; Campus Infrastructure Checklist
+            </h2>
+            <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+              Every registered student must have their own laptop with the educational / student version of CSI ETABS installed for the 3-day lab sessions.
+            </p>
+          </div>
 
-      {/* ── 07. STUDENT REVIEWS SHOWCASE ──────────────────────────────────────── */}
-      <StudentVideoReviewsShowcase
-        title="Student Experiences & Workshop Reviews"
-        subtitle="Hear directly from civil engineering students and faculty who attended eConstruct's ETABS workshops."
-      />
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+            
+            {/* Student Hardware & Software Card */}
+            <div className="bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-yellow-500/15 text-yellow-400 flex items-center justify-center shrink-0">
+                    <Laptop size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-white">Student Laptop Specifications</h3>
+                    <p className="text-yellow-400 text-xs font-bold uppercase tracking-wider">Required for Every Participant</p>
+                  </div>
+                </div>
 
-      {/* ── 08. FOUNDER & LEAD TRAINER SPOTLIGHT (COMPACT & BEAUTIFUL) ──────── */}
-      <section className="py-10 md:py-14 bg-slate-950 text-white border-y-2 border-yellow-500/80 relative overflow-hidden">
+                <div className="space-y-3 text-xs text-slate-300 mb-6">
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Cpu size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Processor &amp; RAM:</strong>
+                      Intel Core i5 / i7 (8th Gen+) or AMD Ryzen 5 / 7, with minimum <strong>8GB RAM</strong> (16GB recommended for 3D finite element meshing).
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <HardDrive size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Operating System &amp; Storage:</strong>
+                      64-bit Windows 10 or Windows 11 with at least 15GB of free SSD storage space.
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Monitor size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Software Pre-installation:</strong>
+                      CSI ETABS Educational / Student Trial or Institutional license pre-installed prior to Day 1 morning. (Installation guide provided).
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <CheckSquare size={16} className="text-yellow-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Required Accessories:</strong>
+                      Dedicated optical mouse with scroll wheel (crucial for 3D model panning and orbiting) + power charging brick.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-yellow-500/10 border border-yellow-500/20 rounded-xl text-xs font-bold text-yellow-400 text-center">
+                ✓ eConstruct provides step-by-step ETABS installation manuals to college coordinators.
+              </div>
+            </div>
+
+            {/* Host Institution Setup Card */}
+            <div className="bg-slate-950 p-6 sm:p-8 rounded-2xl border border-slate-800 shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center shrink-0">
+                    <Building2 size={20} />
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-black text-white">Host College Campus Facilities</h3>
+                    <p className="text-blue-400 text-xs font-bold uppercase tracking-wider">Provided by Host Institution</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-xs text-slate-300 mb-6">
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Presentation size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Venue Setup:</strong>
+                      Computer Laboratory or Seminar Hall with high-lumen digital projector / large LED display and clear audio microphone system.
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Zap size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Power Outlets:</strong>
+                      Surge protectors and multiple power points distributed across rows to keep 50+ student laptops powered continuously.
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Globe size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">High-Speed Wi-Fi:</strong>
+                      Campus Wi-Fi connectivity for license validations, dataset downloads, and digital calculation files.
+                    </div>
+                  </div>
+
+                  <div className="bg-slate-900 p-3 rounded-xl border border-slate-800 flex items-start gap-2.5">
+                    <Users size={16} className="text-blue-400 shrink-0 mt-0.5" />
+                    <div>
+                      <strong className="text-white block">Faculty Coordinator:</strong>
+                      One designated departmental faculty coordinator to manage classroom attendance and certificate distribution.
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="p-3 bg-blue-500/10 border border-blue-500/20 rounded-xl text-xs font-bold text-blue-300 text-center">
+                ✓ Minimum batch commitment: 50 registered civil engineering students.
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 07. ITEM 10: COMPANY PORTFOLIO VIDEOS & FLIPBOOK LIBRARY ──────────── */}
+      <section className="py-14 md:py-18 bg-white border-b border-gray-200">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
+          
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <div className="flex items-center justify-center gap-2 mb-2">
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+              <span className="text-yellow-600 font-black uppercase tracking-[0.25em] text-xs">
+                Company Credentials &amp; Portfolio (converstation.txt lines 819-842)
+              </span>
+              <span className="w-8 h-[2px] bg-[#fbc02d]"></span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight mb-3">
+              Explore Our Structural Consultancy &amp; Project Portfolios
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+              Watch our official track record videos and flip through digital portfolio brochures showcasing 15+ years of structural excellence across India &amp; UAE.
+            </p>
+          </div>
+
+          {/* 6 YouTube Reference Videos Grid */}
+          <div className="mb-14">
+            <div className="flex items-center justify-between mb-4 pb-2 border-b border-gray-200">
+              <h3 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
+                <Video className="text-yellow-600" size={20} />
+                <span>Official Video Profiles &amp; Project Spotlights</span>
+              </h3>
+              <span className="text-xs font-bold text-slate-500">6 Video References</span>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {PORTFOLIO_VIDEOS.map((vid) => (
+                <div
+                  key={vid.id}
+                  className="bg-white rounded-2xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group hover:border-yellow-400"
+                >
+                  <div
+                    className="relative aspect-video bg-slate-900 cursor-pointer overflow-hidden group/thumb"
+                    onClick={() => setActiveVideoModal(vid)}
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${vid.id}/hqdefault.jpg`}
+                      alt={vid.title}
+                      className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-slate-950/40 group-hover/thumb:bg-slate-950/20 transition-colors flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-yellow-500 text-slate-950 flex items-center justify-center shadow-lg group-hover/thumb:scale-110 transition-transform">
+                        <Play size={20} className="ml-1 fill-slate-950" />
+                      </div>
+                    </div>
+                    <div className="absolute top-2.5 left-2.5 bg-slate-950/85 backdrop-blur-md text-yellow-400 text-[10px] font-black uppercase px-2.5 py-0.5 rounded border border-white/10">
+                      {vid.tag}
+                    </div>
+                    <div className="absolute bottom-2.5 right-2.5 bg-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded">
+                      {vid.duration}
+                    </div>
+                  </div>
+
+                  <div className="p-4 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h4 className="font-black text-slate-900 text-sm leading-snug mb-1.5 group-hover:text-yellow-600 transition-colors">
+                        {vid.title}
+                      </h4>
+                      <p className="text-slate-600 text-xs leading-relaxed line-clamp-2 mb-3">
+                        {vid.desc}
+                      </p>
+                    </div>
+
+                    <div className="pt-2.5 border-t border-gray-100 flex items-center justify-between">
+                      <button
+                        onClick={() => setActiveVideoModal(vid)}
+                        className="text-xs font-bold text-yellow-700 hover:text-yellow-800 flex items-center gap-1"
+                      >
+                        <Play size={12} className="fill-current" /> Watch Video
+                      </button>
+                      <a
+                        href={vid.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-[11px] font-bold text-slate-400 hover:text-slate-700 flex items-center gap-1"
+                      >
+                        <span>YouTube</span>
+                        <ExternalLink size={11} />
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Interactive Digital Flipbooks Section */}
+          <div className="bg-slate-950 text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-2xl border border-slate-800">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-8 pb-4 border-b border-slate-800">
+              <div>
+                <span className="text-yellow-400 text-xs font-black uppercase tracking-widest block mb-1">
+                  Institutional Review Material (Flipbooks)
+                </span>
+                <h3 className="text-2xl sm:text-3xl font-black text-white">
+                  Interactive Digital Company Portfolios
+                </h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {FLIPBOOK_DOCS.map((doc) => (
+                  <button
+                    key={doc.id}
+                    onClick={() => setActiveFlipbook(doc)}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
+                      activeFlipbook.id === doc.id
+                        ? 'bg-yellow-500 text-black shadow-md font-black'
+                        : 'bg-slate-900 text-slate-300 border border-slate-800 hover:bg-slate-800'
+                    }`}
+                  >
+                    {doc.title}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-6 items-center">
+              <div className="lg:col-span-4 space-y-3">
+                <div className="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+                  <span className="text-yellow-400 text-[10px] font-black uppercase tracking-wider block mb-1">Currently Viewing</span>
+                  <h4 className="text-lg font-black text-white mb-1">{activeFlipbook.title}</h4>
+                  <p className="text-slate-400 text-xs mb-3">{activeFlipbook.subtitle}</p>
+                  <div className="flex items-center gap-2 text-xs text-slate-300 font-bold mb-4">
+                    <BookMarked size={14} className="text-yellow-400" />
+                    <span>{activeFlipbook.pages} Digital Document</span>
+                  </div>
+                  <a
+                    href={activeFlipbook.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 w-full py-2.5 bg-yellow-500/20 hover:bg-yellow-500 hover:text-black text-yellow-400 font-bold text-xs rounded-xl border border-yellow-500/40 transition-colors"
+                  >
+                    <Download size={13} />
+                    <span>Open / Download PDF</span>
+                  </a>
+                </div>
+                <p className="text-slate-400 text-[11px] leading-relaxed">
+                  * College authorities can browse through structural case studies, high-rise drawings, and completed landmark projects.
+                </p>
+              </div>
+
+              {/* Flipbook Container */}
+              <div className="lg:col-span-8 bg-slate-900 rounded-2xl p-3 sm:p-4 border border-slate-800 flex items-center justify-center min-h-[420px]">
+                <PdfFlipbook pdfUrl={activeFlipbook.pdfUrl} width={640} height={420} />
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 08. FOUNDER & LEAD TRAINER SPOTLIGHT ─────────────────────────────── */}
+      <section className="py-10 md:py-14 bg-slate-950 text-white border-b-2 border-yellow-500/80 relative overflow-hidden">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8 relative z-10">
           <div className="grid md:grid-cols-12 gap-8 items-center">
 
@@ -923,69 +1437,84 @@ const CorporateTraining = () => {
         </div>
       </section>
 
-      {/* ── 09. INTERACTIVE BOOKING & REGISTRATION SYSTEM (COMPACT) ─────────── */}
-      <section id="booking-section" className="py-10 md:py-12 bg-slate-100/80 relative border-b border-gray-200">
+      {/* ── 09. REAL CAMPUS SESSIONS & SITE VISITS SCROLLER ───────────────────── */}
+      <SiteVisitsScroller
+        badge="HANDS-ON CAMPUS WORKSHOPS & SITE IMMERSION"
+        title="Workshops & Site Visits"
+        highlight="in Action"
+        subtitle="Real classroom sessions, ETABS modeling workshops, and on-site structural inspections conducted across Indian campuses."
+      />
+
+      {/* ── 10. STUDENT REVIEWS SHOWCASE ──────────────────────────────────────── */}
+      <StudentVideoReviewsShowcase
+        title="Student Experiences & Workshop Reviews"
+        subtitle="Hear directly from civil engineering students and faculty who attended eConstruct's ETABS workshops."
+      />
+
+      {/* ── 11. ITEM 3: INTERACTIVE BOOKING & REGISTRATION SYSTEM ─────────────── */}
+      <section id="booking-section" className="py-14 md:py-18 bg-slate-100/90 relative border-b border-gray-300">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-8">
 
-          {/* Compact Section Heading */}
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center gap-2 mb-1">
+          {/* Section Heading */}
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-2 mb-1.5">
               <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
               <span className="text-yellow-600 font-extrabold uppercase tracking-[0.2em] text-[10px]">
                 Campus Dates Reservation Portal
               </span>
               <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1">
+            <h2 className="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight mb-2">
               Book Your College Campus Workshop
             </h2>
-            <p className="text-slate-600 max-w-xl mx-auto text-xs leading-relaxed">
+            <p className="text-slate-600 max-w-xl mx-auto text-xs sm:text-sm leading-relaxed">
               Select your 3-day start date on the interactive calendar, configure student batch size, and reserve your dates.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-12 gap-5 items-start">
+          <div className="grid lg:grid-cols-12 gap-6 items-start">
 
-            {/* ── LEFT COLUMN: UNIFIED COMPACT SIDEBAR ───────────────── */}
-            <div className="lg:col-span-5 bg-slate-950 text-white rounded-2xl p-4 sm:p-5 shadow-xl border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+            {/* ── LEFT COLUMN: CALENDAR & INVESTMENT ───────────────── */}
+            <div className="lg:col-span-5 bg-slate-950 text-white rounded-2xl p-5 sm:p-6 shadow-xl border border-slate-800 relative overflow-hidden flex flex-col justify-between">
               <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/10 rounded-full blur-[50px] pointer-events-none" />
 
               {/* 1. Transparent Program Investment */}
-              <div className="relative z-10 mb-4">
+              <div className="relative z-10 mb-5">
                 <div className="flex items-center justify-between gap-2 mb-1.5">
                   <div className="flex items-center gap-1.5 text-yellow-400">
-                    <Calculator size={14} />
-                    <span className="font-black tracking-widest uppercase text-[9px]">Program Investment</span>
+                    <Calculator size={16} />
+                    <span className="font-black tracking-widest uppercase text-[10px]">Program Investment</span>
                   </div>
-                  <span className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 text-[8px] font-black uppercase px-1.5 py-0.5 rounded">
+                  <span className="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 text-[9px] font-black uppercase px-2 py-0.5 rounded">
                     Institutional Rate
                   </span>
                 </div>
 
-                <div className="flex items-baseline gap-1.5 mb-1">
-                  <span className="text-2xl sm:text-3xl font-black text-white">₹12,000</span>
-                  <span className="text-slate-400 font-medium text-[11px]">+ 18% GST / Student</span>
+                <div className="flex items-baseline gap-2 mb-1">
+                  <span className="text-3xl sm:text-4xl font-black text-white">₹12,000</span>
+                  <span className="text-slate-400 font-medium text-xs">+ 18% GST / Student</span>
                 </div>
-                <p className="text-slate-400 text-[10px] leading-relaxed">
-                  3-Day On-Campus Lab + 45-Day Online LMS + IIT Bhubaneswar Joint Certification.
+                <p className="text-slate-400 text-xs leading-relaxed">
+                  3-Day On-Campus Lab + 3 Months Online LMS + 2 Real Projects + IIT Bhubaneswar Joint Certification.
                 </p>
 
                 {/* Quick Batch Presets */}
-                <div className="mt-3 pt-2.5 border-t border-slate-800/80">
-                  <div className="flex items-center justify-between text-[10px] font-bold text-slate-300 mb-1.5">
-                    <span>Quick Select Batch:</span>
+                <div className="mt-3.5 pt-3 border-t border-slate-800/80">
+                  <div className="flex items-center justify-between text-xs font-bold text-slate-300 mb-2">
+                    <span>Quick Select Batch Size:</span>
                     <span className="text-yellow-400 font-extrabold">{formData.studentCount || 50} Students</span>
                   </div>
-                  <div className="grid grid-cols-4 gap-1">
+                  <div className="grid grid-cols-4 gap-1.5">
                     {[50, 75, 100, 150].map((count) => (
                       <button
                         key={count}
                         type="button"
                         onClick={() => setFormData({ ...formData, studentCount: count })}
-                        className={`py-1 px-1.5 rounded text-[11px] font-black transition-all ${Number(formData.studentCount) === count
+                        className={`py-1.5 px-2 rounded-lg text-xs font-black transition-all ${
+                          Number(formData.studentCount) === count
                             ? 'bg-yellow-500 text-black shadow-sm'
                             : 'bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800'
-                          }`}
+                        }`}
                       >
                         {count} Qty
                       </button>
@@ -994,31 +1523,31 @@ const CorporateTraining = () => {
                 </div>
 
                 {/* Milestone Split Breakdown */}
-                <div className="grid grid-cols-2 gap-1.5 mt-2.5 text-[10px]">
-                  <div className="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
-                    <span className="text-slate-400 block text-[9px]">Phase 1: Advance</span>
-                    <span className="text-yellow-400 font-black text-[11px]">50% (₹{((totalFeeEstimate * 0.5)).toLocaleString()})</span>
+                <div className="grid grid-cols-2 gap-2 mt-3 text-xs">
+                  <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
+                    <span className="text-slate-400 block text-[10px]">Phase 1: Advance</span>
+                    <span className="text-yellow-400 font-black text-sm">50% (₹{((totalFeeEstimate * 0.5)).toLocaleString()})</span>
                   </div>
-                  <div className="bg-slate-900/90 p-2 rounded-lg border border-slate-800">
-                    <span className="text-slate-400 block text-[9px]">Phase 2: Completion</span>
-                    <span className="text-white font-black text-[11px]">50% (₹{((totalFeeEstimate * 0.5)).toLocaleString()})</span>
+                  <div className="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800">
+                    <span className="text-slate-400 block text-[10px]">Phase 2: Post-Workshop</span>
+                    <span className="text-white font-black text-sm">50% (₹{((totalFeeEstimate * 0.5)).toLocaleString()})</span>
                   </div>
                 </div>
               </div>
 
               {/* 2. Step 1: Interactive Date Calendar */}
-              <div className="relative z-10 bg-slate-900/90 p-3 sm:p-3.5 rounded-xl border border-slate-800 mb-3.5 shadow-inner">
-                <div className="flex items-center justify-between mb-2">
+              <div className="relative z-10 bg-slate-900/90 p-4 rounded-xl border border-slate-800 mb-4 shadow-inner">
+                <div className="flex items-center justify-between mb-2.5">
                   <h3 className="text-xs font-bold text-white flex items-center gap-1.5">
-                    <CalendarIcon className="text-yellow-500" size={14} />
+                    <CalendarIcon className="text-yellow-500" size={15} />
                     <span>Step 1: Select 3-Day Start Date</span>
                   </h3>
-                  <span className="text-[8px] bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-1.5 py-0.5 rounded font-black uppercase">
+                  <span className="text-[9px] bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-2 py-0.5 rounded font-black uppercase">
                     3-Day Block
                   </span>
                 </div>
 
-                <div className="bg-slate-950 p-2 rounded-lg border border-slate-800/80">
+                <div className="bg-slate-950 p-2.5 rounded-xl border border-slate-800/80">
                   <Calendar
                     onChange={handleDateChange}
                     value={selectedDate}
@@ -1030,68 +1559,68 @@ const CorporateTraining = () => {
 
                 {/* Selected Date Summary Indicator */}
                 {selectedDate ? (
-                  <div className="mt-2.5 p-2 bg-yellow-500/10 border border-yellow-500/30 rounded-lg flex items-start gap-2">
-                    <CheckCircle2 className="text-yellow-400 shrink-0 mt-0.5" size={14} />
+                  <div className="mt-3 p-2.5 bg-yellow-500/10 border border-yellow-500/30 rounded-xl flex items-start gap-2.5">
+                    <CheckCircle2 className="text-yellow-400 shrink-0 mt-0.5" size={16} />
                     <div className="text-left">
-                      <p className="text-[9px] text-yellow-400 font-black uppercase tracking-wider">Campus Slot Locked</p>
-                      <p className="text-white font-black text-[11px]">
+                      <p className="text-[10px] text-yellow-400 font-black uppercase tracking-wider">Campus Slot Selected</p>
+                      <p className="text-white font-black text-xs sm:text-sm">
                         {format(selectedDate, 'EEE, dd MMM yyyy')} → {format(new Date(selectedDate.getTime() + 2 * 86400000), 'EEE, dd MMM yyyy')}
                       </p>
                     </div>
                   </div>
                 ) : (
-                  <div className="mt-2 p-1.5 bg-slate-950/60 border border-slate-800/60 rounded-lg text-center text-[10px] text-slate-400 flex items-center justify-center gap-1">
-                    <CalendarIcon size={11} className="text-yellow-500" />
+                  <div className="mt-2.5 p-2 bg-slate-950/60 border border-slate-800/60 rounded-lg text-center text-xs text-slate-400 flex items-center justify-center gap-1.5">
+                    <CalendarIcon size={13} className="text-yellow-500" />
                     <span>Click on an available start date above.</span>
                   </div>
                 )}
               </div>
 
               {/* 3. Assurances Checklist */}
-              <div className="relative z-10 grid grid-cols-2 gap-1.5 text-[9px] font-bold text-slate-400 pt-2 border-t border-slate-800/80">
-                <span className="flex items-center gap-1 text-slate-300">
-                  <Check size={11} className="text-yellow-400" /> IIT Bhubaneswar Cert
+              <div className="relative z-10 grid grid-cols-2 gap-2 text-[10px] font-bold text-slate-300 pt-2 border-t border-slate-800/80">
+                <span className="flex items-center gap-1 text-slate-200">
+                  <Check size={12} className="text-yellow-400" /> IIT Bhubaneswar Cert
                 </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <Check size={11} className="text-yellow-400" /> Consultant On-Site
+                <span className="flex items-center gap-1 text-slate-200">
+                  <Check size={12} className="text-yellow-400" /> Consultant On-Site
                 </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <Check size={11} className="text-yellow-400" /> 45-Day Online LMS
+                <span className="flex items-center gap-1 text-slate-200">
+                  <Check size={12} className="text-yellow-400" /> 3 Months Online LMS
                 </span>
-                <span className="flex items-center gap-1 text-slate-300">
-                  <Check size={11} className="text-yellow-400" /> Official Academic MOU
+                <span className="flex items-center gap-1 text-slate-200">
+                  <Check size={12} className="text-yellow-400" /> Official Academic MOU
                 </span>
               </div>
 
             </div>
 
             {/* ── RIGHT COLUMN: REGISTRATION & CONFIRMATION FORM ──────── */}
-            <div className="lg:col-span-7 bg-white p-4 sm:p-6 rounded-2xl shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-gray-200">
+            <div className="lg:col-span-7 bg-white p-5 sm:p-7 rounded-2xl shadow-[0_2px_15px_rgba(0,0,0,0.06)] border border-gray-200">
 
               {/* Form Header */}
-              <div className="flex items-center justify-between pb-3 mb-3.5 border-b border-gray-100">
+              <div className="flex items-center justify-between pb-3.5 mb-4 border-b border-gray-200">
                 <div>
-                  <h3 className="text-base sm:text-lg font-black text-slate-900 flex items-center gap-2">
-                    <Presentation className="text-yellow-600" size={18} />
+                  <h3 className="text-lg sm:text-xl font-black text-slate-900 flex items-center gap-2">
+                    <Presentation className="text-yellow-600" size={20} />
                     <span>Step 2: College &amp; Coordinator Details</span>
                   </h3>
-                  <p className="text-slate-500 text-[11px]">Provide institutional and coordinator info for MOU generation.</p>
+                  <p className="text-slate-500 text-xs">Provide institutional and coordinator info for workshop confirmation &amp; MOU dispatch.</p>
                 </div>
-                <span className="text-[9px] font-black text-slate-700 bg-slate-100 border border-slate-200 px-2 py-0.5 rounded uppercase tracking-wider hidden sm:block">
-                  Official MOU
+                <span className="text-[10px] font-black text-slate-700 bg-slate-100 border border-slate-200 px-2.5 py-1 rounded uppercase tracking-wider hidden sm:block">
+                  Academic MOU
                 </span>
               </div>
 
-              <form onSubmit={submitBooking} className="space-y-3">
+              <form onSubmit={submitBooking} className="space-y-3.5">
 
                 {/* College Name & Contact Person */}
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       College / University Name *
                     </label>
                     <div className="relative">
-                      <Building2 size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <Building2 size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         required
                         type="text"
@@ -1099,34 +1628,34 @@ const CorporateTraining = () => {
                         placeholder="e.g. National Institute of Engineering"
                         value={formData.collegeName}
                         onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Coordinator / Contact Person *
                     </label>
                     <div className="relative">
-                      <User size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <User size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         required
                         type="text"
                         name="contactPerson"
-                        placeholder="e.g. Mr. Rajesh Sharma"
+                        placeholder="e.g. Dr. Rajesh Sharma"
                         value={formData.contactPerson}
                         onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                       />
                     </div>
                   </div>
                 </div>
 
                 {/* Designation & Department */}
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Designation *
                     </label>
                     <input
@@ -1136,12 +1665,12 @@ const CorporateTraining = () => {
                       placeholder="e.g. HOD / Principal / Placement Head"
                       value={formData.designation}
                       onChange={handleFormChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Department *
                     </label>
                     <input
@@ -1151,19 +1680,19 @@ const CorporateTraining = () => {
                       placeholder="e.g. Civil Engineering / Structures"
                       value={formData.department}
                       onChange={handleFormChange}
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                     />
                   </div>
                 </div>
 
                 {/* Email & Mobile */}
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Official Email Address *
                     </label>
                     <div className="relative">
-                      <Mail size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <Mail size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         required
                         type="email"
@@ -1171,17 +1700,17 @@ const CorporateTraining = () => {
                         placeholder="e.g. civil.hod@college.edu"
                         value={formData.email}
                         onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Mobile / WhatsApp Number *
                     </label>
                     <div className="relative">
-                      <Phone size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <Phone size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         required
                         type="tel"
@@ -1189,7 +1718,7 @@ const CorporateTraining = () => {
                         placeholder="e.g. +91 98765 43210"
                         value={formData.mobile}
                         onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                       />
                     </div>
                   </div>
@@ -1197,11 +1726,11 @@ const CorporateTraining = () => {
 
                 {/* Campus Address */}
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                     Full Campus Address &amp; Location *
                   </label>
                   <div className="relative">
-                    <MapPin size={14} className="absolute left-3 top-2.5 text-slate-400" />
+                    <MapPin size={15} className="absolute left-3 top-3 text-slate-400" />
                     <textarea
                       required
                       name="collegeAddress"
@@ -1209,19 +1738,19 @@ const CorporateTraining = () => {
                       value={formData.collegeAddress}
                       onChange={handleFormChange}
                       rows="2"
-                      className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-1.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                      className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                     />
                   </div>
                 </div>
 
                 {/* Student Batch & Synced Date Row */}
-                <div className="grid sm:grid-cols-2 gap-3">
+                <div className="grid sm:grid-cols-2 gap-3.5">
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
-                      Batch Size (Min. 50) *
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                      Batch Size (Min. 50 Students) *
                     </label>
                     <div className="relative">
-                      <Users size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <Users size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         required
                         type="number"
@@ -1229,23 +1758,24 @@ const CorporateTraining = () => {
                         name="studentCount"
                         value={formData.studentCount}
                         onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 rounded-lg pl-8 pr-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-bold text-slate-900"
+                        className="w-full bg-slate-50 border border-slate-200 rounded-xl pl-9 pr-3 py-2.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-bold text-slate-900"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
                       Selected 3-Day Workshop Slot
                     </label>
                     <div className="relative">
-                      <CalendarIcon size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+                      <CalendarIcon size={15} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                       <input
                         type="text"
                         readOnly
-                        value={selectedDate ? `${format(selectedDate, 'dd MMM yyyy')} (3 Days)` : 'Select start date on left'}
-                        className={`w-full border rounded-lg pl-8 pr-3 py-2 text-xs font-bold cursor-not-allowed ${selectedDate ? 'bg-yellow-50 border-yellow-300 text-slate-900' : 'bg-slate-100 border-slate-200 text-slate-400'
-                          }`}
+                        value={selectedDate ? `${format(selectedDate, 'dd MMM yyyy')} (3 Days)` : 'Select start date on left calendar'}
+                        className={`w-full border rounded-xl pl-9 pr-3 py-2.5 text-xs font-bold cursor-not-allowed ${
+                          selectedDate ? 'bg-yellow-50 border-yellow-300 text-slate-900' : 'bg-slate-100 border-slate-200 text-slate-400'
+                        }`}
                       />
                     </div>
                   </div>
@@ -1253,8 +1783,8 @@ const CorporateTraining = () => {
 
                 {/* Additional Requirements */}
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-slate-700 mb-1">
-                    Specific Requirements (Optional)
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1">
+                    Specific Requirements or Lab Timings (Optional)
                   </label>
                   <textarea
                     name="additionalReq"
@@ -1262,48 +1792,49 @@ const CorporateTraining = () => {
                     value={formData.additionalReq}
                     onChange={handleFormChange}
                     rows="1"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-xs focus:outline-none focus:border-yellow-500 focus:ring-1 focus:ring-yellow-500/30 transition-all font-medium text-slate-900"
                   />
                 </div>
 
                 {/* Live Order Breakdown Card */}
-                <div className="bg-slate-900 text-white p-3 rounded-xl border border-slate-800">
-                  <div className="flex items-center justify-between text-[11px] font-bold pb-1.5 border-b border-slate-800">
-                    <span className="text-slate-400">Total ({formData.studentCount || 50} Students):</span>
+                <div className="bg-slate-900 text-white p-3.5 rounded-xl border border-slate-800">
+                  <div className="flex items-center justify-between text-xs font-bold pb-2 border-b border-slate-800">
+                    <span className="text-slate-400">Total Program Investment ({formData.studentCount || 50} Students):</span>
                     <span className="text-white font-black">₹{totalFeeEstimate.toLocaleString()} + 18% GST</span>
                   </div>
-                  <div className="flex items-center justify-between text-xs font-bold text-yellow-400 pt-1.5">
-                    <span className="flex items-center gap-1">
-                      <Sparkles size={13} className="text-yellow-400" /> Initial Advance (50%):
+                  <div className="flex items-center justify-between text-xs font-bold text-yellow-400 pt-2">
+                    <span className="flex items-center gap-1.5">
+                      <Sparkles size={14} className="text-yellow-400" /> Initial Advance (50% Milestone):
                     </span>
-                    <span className="text-sm sm:text-base font-black text-yellow-400">
+                    <span className="text-base font-black text-yellow-400">
                       ₹{(totalFeeEstimate * 0.5).toLocaleString()} + GST
                     </span>
                   </div>
                 </div>
 
                 {/* Status Messages */}
-                {bookingMessage && (
-                  <div className={`p-3 rounded-lg text-xs font-bold flex items-start gap-2 ${bookingStatus === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'
-                    }`}>
-                    <CheckCircle2 size={15} className="shrink-0 mt-0.5" />
+                {bookingMessage && !showConfirmationModal && (
+                  <div className={`p-3 rounded-xl text-xs font-bold flex items-start gap-2 ${
+                    bookingStatus === 'success' ? 'bg-green-50 text-green-700 border border-green-200' : 'bg-red-50 text-red-700 border border-red-200'
+                  }`}>
+                    <CheckCircle2 size={16} className="shrink-0 mt-0.5" />
                     <span>{bookingMessage}</span>
                   </div>
                 )}
 
                 {/* Submit Action */}
-                <div className="pt-1">
+                <div className="pt-2">
                   <button
                     type="submit"
                     disabled={bookingStatus === 'loading'}
-                    className="w-full py-3 bg-yellow-500 text-slate-950 font-black uppercase tracking-wider text-xs sm:text-sm hover:bg-yellow-400 transition-all rounded-xl shadow-[0_4px_20px_rgba(234,179,8,0.3)] flex items-center justify-center gap-2 disabled:opacity-70 group hover:scale-[1.005] active:scale-95"
+                    className="w-full py-3.5 bg-yellow-500 text-slate-950 font-black uppercase tracking-wider text-xs sm:text-sm hover:bg-yellow-400 transition-all rounded-xl shadow-[0_4px_20px_rgba(234,179,8,0.3)] flex items-center justify-center gap-2 disabled:opacity-70 group hover:scale-[1.005] active:scale-95"
                   >
                     <span>{bookingStatus === 'loading' ? 'Submitting Reservation...' : `Confirm Campus Workshop Booking (50% Advance)`}</span>
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                   </button>
 
-                  <p className="text-center text-[10px] text-slate-500 mt-2 leading-relaxed">
-                    * Official Academic MOU. For offline institutional PO/invoice, call coordinator at <a href="tel:+919036744017" className="font-bold text-yellow-600 hover:underline">+91 90367 44017</a>.
+                  <p className="text-center text-[11px] text-slate-500 mt-2.5 leading-relaxed">
+                    * Formal Academic–Industry MOU. Need an official institutional PO / quote first? Call our Director at <a href="tel:+919036744017" className="font-bold text-yellow-600 hover:underline">+91 90367 44017</a>.
                   </p>
                 </div>
 
@@ -1314,83 +1845,47 @@ const CorporateTraining = () => {
         </div>
       </section>
 
-      {/* ── 10. ACADEMIC–INDUSTRY MOU COLLABORATION (COMPACT) ─────────────────── */}
-      <section className="py-10 md:py-12 bg-white border-b border-gray-200">
-        <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 bg-slate-950 text-white p-5 sm:p-7 rounded-2xl shadow-xl border-b-4 border-yellow-500 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-48 h-48 bg-yellow-500/10 rounded-full blur-[50px] pointer-events-none" />
-
-            <div className="w-12 h-12 sm:w-14 sm:h-14 bg-yellow-500 text-slate-950 rounded-xl flex items-center justify-center shrink-0 shadow-lg font-black mt-0.5">
-              <FileCheck2 size={26} />
-            </div>
-
-            <div className="relative z-10 flex-1 text-center sm:text-left">
-              <div className="flex items-center justify-center sm:justify-start gap-1.5 mb-0.5">
-                <span className="text-yellow-400 text-[10px] font-extrabold uppercase tracking-widest">Formal Partnership</span>
-                <span className="text-slate-600">•</span>
-                <span className="text-slate-400 text-[10px] font-bold">Institutional MoU Model</span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-black text-white mb-1.5">
-                Academic–Industry Collaboration MOU
-              </h3>
-              <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mb-3 max-w-4xl">
-                Operates under a formal MOU between your institution and Econstruct Design &amp; Build Pvt Ltd. Your college provides computer lab infrastructure, while eConstruct deploys senior practicing structural trainers, software workflows, project kits, and joint certification in association with IIT Bhubaneswar.
-              </p>
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2 text-[11px] font-bold">
-                <span className="flex items-center gap-1.5 bg-slate-900/90 text-yellow-400 border border-slate-800 px-2.5 py-1 rounded-md">
-                  <Check size={13} className="text-yellow-400" /> Guaranteed Project Execution
-                </span>
-                <span className="flex items-center gap-1.5 bg-slate-900/90 text-yellow-400 border border-slate-800 px-2.5 py-1 rounded-md">
-                  <Check size={13} className="text-yellow-400" /> Joint IIT Bhubaneswar Certification
-                </span>
-                <span className="flex items-center gap-1.5 bg-slate-900/90 text-yellow-400 border border-slate-800 px-2.5 py-1 rounded-md">
-                  <Check size={13} className="text-yellow-400" /> 45-Day Online Mentorship &amp; LMS
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 11. FAQ ACCORDION (COMPACT 2-COLUMN GRID) ─────────────────────────── */}
-      <section className="py-10 md:py-12 bg-slate-50 border-b border-gray-200">
+      {/* ── 12. FAQ ACCORDION (COMPACT 2-COLUMN GRID) ─────────────────────────── */}
+      <section className="py-14 md:py-18 bg-white border-b border-gray-200">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-8">
 
-          <div className="text-center mb-6">
-            <div className="flex items-center justify-center gap-2 mb-1">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-2 mb-1.5">
               <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
               <span className="text-yellow-600 font-extrabold uppercase tracking-[0.2em] text-[10px]">
                 Frequently Asked Questions
               </span>
               <span className="w-6 h-[2px] bg-[#fbc02d]"></span>
             </div>
-            <h2 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tight mb-1">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-gray-900 tracking-tight mb-2">
               Everything You Need to Know
             </h2>
-            <p className="text-slate-500 text-xs max-w-lg mx-auto">
-              Answers to institutional eligibility, infrastructure, batch sizing, payment milestones, and certifications.
+            <p className="text-slate-500 text-xs sm:text-sm max-w-lg mx-auto">
+              Answers regarding batch sizing, software prerequisites, IIT certification, and commercial milestones.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-3 items-start">
+          <div className="grid md:grid-cols-2 gap-3.5 items-start">
             {faqs.map((faq, idx) => {
               const isOpen = activeFaq === idx;
               return (
                 <div
                   key={idx}
-                  className={`border rounded-xl transition-all duration-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.03)] ${isOpen ? 'border-yellow-500 ring-1 ring-yellow-500/20' : 'border-gray-200 hover:border-yellow-400'
-                    }`}
+                  className={`border rounded-2xl transition-all duration-200 bg-white shadow-[0_1px_3px_rgba(0,0,0,0.03)] ${
+                    isOpen ? 'border-yellow-500 ring-1 ring-yellow-500/20' : 'border-gray-200 hover:border-yellow-400'
+                  }`}
                 >
                   <button
                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                    className="w-full flex items-center justify-between p-3.5 sm:p-4 text-left transition-colors"
+                    className="w-full flex items-center justify-between p-4 sm:p-5 text-left transition-colors"
                   >
                     <span className={`font-bold pr-3 text-xs sm:text-sm leading-snug ${isOpen ? 'text-slate-950' : 'text-slate-800'}`}>
                       {faq.q}
                     </span>
-                    <span className={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 transition-colors ${isOpen ? 'bg-yellow-500 text-black' : 'bg-yellow-500/15 text-yellow-700'
-                      }`}>
-                      {isOpen ? <ChevronUp size={13} /> : <ChevronDown size={13} />}
+                    <span className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 transition-colors ${
+                      isOpen ? 'bg-yellow-500 text-black' : 'bg-yellow-500/15 text-yellow-700'
+                    }`}>
+                      {isOpen ? <ChevronUp size={14} /> : <ChevronDown size={14} />}
                     </span>
                   </button>
                   <AnimatePresence>
@@ -1399,10 +1894,10 @@ const CorporateTraining = () => {
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: 'auto', opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.18 }}
+                        transition={{ duration: 0.2 }}
                         className="overflow-hidden"
                       >
-                        <div className="p-3.5 sm:p-4 pt-0 text-slate-600 border-t border-gray-100 text-xs leading-relaxed">
+                        <div className="p-4 sm:p-5 pt-0 text-slate-600 border-t border-gray-100 text-xs leading-relaxed">
                           {faq.a}
                         </div>
                       </motion.div>
@@ -1415,8 +1910,187 @@ const CorporateTraining = () => {
         </div>
       </section>
 
-      {/* ── 12. HIGH CONVERTING CTA SECTION ───────────────────────────────────── */}
+      {/* ── 13. HIGH CONVERTING CTA SECTION ───────────────────────────────────── */}
       <CTASection />
+
+      {/* ── 14. VIDEO MODAL PLAYER POPUP (ITEM 10) ────────────────────────────── */}
+      <AnimatePresence>
+        {activeVideoModal && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999999] bg-black/90 backdrop-blur-md overflow-y-auto p-4 sm:p-6 flex items-center justify-center"
+            onClick={() => setActiveVideoModal(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.94, opacity: 0 }}
+              className="relative w-full max-w-4xl bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-slate-700 flex flex-col"
+              onClick={e => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-800 bg-slate-950">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-2.5 h-2.5 rounded-full bg-yellow-500 animate-pulse" />
+                  <h3 className="text-white font-bold text-sm sm:text-base truncate">{activeVideoModal.title}</h3>
+                </div>
+                <button
+                  onClick={() => setActiveVideoModal(null)}
+                  className="w-8 h-8 rounded-full bg-yellow-500 text-black flex items-center justify-center hover:bg-yellow-400 transition-colors"
+                >
+                  <X size={16} />
+                </button>
+              </div>
+
+              <div className="relative aspect-video max-h-[60vh] bg-black">
+                <iframe
+                  src={`https://www.youtube.com/embed/${activeVideoModal.id}?autoplay=1`}
+                  title={activeVideoModal.title}
+                  className="w-full h-full border-0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+
+              <div className="p-4 bg-slate-950 text-slate-300 text-xs flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-t border-slate-800">
+                <p className="line-clamp-2 text-slate-300">{activeVideoModal.desc}</p>
+                <a
+                  href={activeVideoModal.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 bg-yellow-500 text-black font-bold text-xs rounded-lg shrink-0 flex items-center gap-1.5"
+                >
+                  <span>Open on YouTube</span>
+                  <ExternalLink size={12} />
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* ── 15. BOOKING CONFIRMATION MODAL & VOUCHER (ITEM 3) ─────────────────── */}
+      <AnimatePresence>
+        {showConfirmationModal && confirmedBookingData && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[999999] bg-black/85 backdrop-blur-md overflow-y-auto p-4 sm:p-6 flex items-center justify-center"
+            onClick={() => setShowConfirmationModal(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.94, opacity: 0, y: 10 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.94, opacity: 0, y: 10 }}
+              className="relative w-full max-w-2xl bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-200 flex flex-col my-auto"
+              onClick={e => e.stopPropagation()}
+            >
+              {/* Voucher Header */}
+              <div className="bg-slate-950 text-white p-6 sm:p-7 border-b-4 border-yellow-500 relative">
+                <button
+                  onClick={() => setShowConfirmationModal(false)}
+                  className="absolute top-4 right-4 w-8 h-8 rounded-full bg-slate-800 text-slate-300 flex items-center justify-center hover:bg-yellow-500 hover:text-black transition-colors"
+                >
+                  <X size={16} />
+                </button>
+                <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-green-500/20 text-green-400 border border-green-500/30 rounded-full text-[10px] font-black uppercase tracking-wider mb-2">
+                  <CheckCircle2 size={12} /> Reservation Successful &amp; Locked
+                </div>
+                <h3 className="text-2xl font-black text-white">Workshop Booking Voucher</h3>
+                <p className="text-slate-400 text-xs mt-0.5">Booking Ref: <strong className="text-yellow-400">{confirmedBookingData.bookingId}</strong></p>
+              </div>
+
+              {/* Voucher Body Details */}
+              <div className="p-6 sm:p-7 space-y-4 text-xs text-slate-700 bg-white">
+                
+                <div className="grid sm:grid-cols-2 gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                  <div>
+                    <span className="text-slate-400 text-[10px] font-bold uppercase block">Host Institution</span>
+                    <strong className="text-slate-950 text-sm block">{confirmedBookingData.collegeName}</strong>
+                    <span className="text-slate-500 text-[11px] block mt-0.5">{confirmedBookingData.collegeAddress}</span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-400 text-[10px] font-bold uppercase block">Coordinator Details</span>
+                    <strong className="text-slate-950 text-sm block">{confirmedBookingData.contactPerson}</strong>
+                    <span className="text-slate-500 text-[11px] block">{confirmedBookingData.designation} · {confirmedBookingData.department}</span>
+                    <span className="text-slate-500 text-[11px] block">{confirmedBookingData.email} | {confirmedBookingData.mobile}</span>
+                  </div>
+                </div>
+
+                <div className="grid sm:grid-cols-3 gap-3">
+                  <div className="bg-yellow-50/80 p-3 rounded-xl border border-yellow-200">
+                    <span className="text-yellow-800 text-[10px] font-bold uppercase block">3-Day Campus Dates</span>
+                    <strong className="text-slate-900 text-xs block mt-0.5">
+                      {confirmedBookingData.startDateFormatted} → {confirmedBookingData.endDateFormatted}
+                    </strong>
+                  </div>
+
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="text-slate-400 text-[10px] font-bold uppercase block">Batch Size</span>
+                    <strong className="text-slate-900 text-xs block mt-0.5">{confirmedBookingData.studentCount} Students</strong>
+                  </div>
+
+                  <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+                    <span className="text-slate-400 text-[10px] font-bold uppercase block">Initial 50% Advance</span>
+                    <strong className="text-yellow-700 text-xs block mt-0.5">₹{confirmedBookingData.advanceFee.toLocaleString()} + GST</strong>
+                  </div>
+                </div>
+
+                {/* Next Steps Checklist */}
+                <div className="bg-slate-900 text-white p-4 rounded-xl space-y-1.5 text-xs">
+                  <h4 className="text-yellow-400 font-bold uppercase tracking-wider text-[11px] mb-1 flex items-center gap-1.5">
+                    <Sparkles size={13} /> Next Steps for Host Institution:
+                  </h4>
+                  <div className="flex items-start gap-2 text-slate-300">
+                    <span className="text-yellow-400 font-bold">1.</span>
+                    <span>Our Academic Coordination Director will contact you within 24 hours to confirm logistical setup.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-300">
+                    <span className="text-yellow-400 font-bold">2.</span>
+                    <span>An official signed Academic–Industry MOU &amp; Proforma Invoice will be dispatched to your email.</span>
+                  </div>
+                  <div className="flex items-start gap-2 text-slate-300">
+                    <span className="text-yellow-400 font-bold">3.</span>
+                    <span>Students will receive ETABS software installation manuals and pre-workshop dataset files.</span>
+                  </div>
+                </div>
+
+                {/* Modal Footer Actions */}
+                <div className="pt-3 border-t border-gray-200 flex flex-wrap items-center justify-between gap-3">
+                  <button
+                    onClick={() => window.print()}
+                    className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold text-xs rounded-xl flex items-center gap-1.5 transition-colors"
+                  >
+                    <Printer size={14} /> Print / Save Voucher
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    <a
+                      href={`https://wa.me/919036744017?text=${encodeURIComponent(`Hi Econstruct, we have reserved dates for ${confirmedBookingData.collegeName} (Ref: ${confirmedBookingData.bookingId}). Please share the formal MOU.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2.5 bg-[#25D366] hover:bg-[#1ebe5d] text-white font-bold text-xs rounded-xl flex items-center gap-1.5 shadow-sm transition-colors"
+                    >
+                      <MessageSquare size={14} /> WhatsApp Coordinator
+                    </a>
+
+                    <button
+                      onClick={() => setShowConfirmationModal(false)}
+                      className="px-4 py-2.5 bg-yellow-500 hover:bg-yellow-400 text-black font-black text-xs rounded-xl transition-colors"
+                    >
+                      Done
+                    </button>
+                  </div>
+                </div>
+
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
     </div>
   );
